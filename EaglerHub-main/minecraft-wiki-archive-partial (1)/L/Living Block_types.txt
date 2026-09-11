@@ -1,0 +1,1054 @@
+This article is a work in progress. 
+Please help expand and improve it. The talk page may contain suggestions.
+
+
+
+
+
+This article documents an April Fools' Day joke. 
+This feature was exclusively part of a joke version and is not currently planned for addition to regular Minecraft.
+
+Living block types are an internal classification that controls the § Behavior, § Collision, § Interactions (response to interact and hurt), § Movement, and § Fire immunety of the living block.
+Almost all of these properties are uniquely defined (each block has only one of each) with the exception of behavior, where the same type can have more than one behavior or none.
+Each living block has only one type, and this type is uniquely defined by the ID of the item associated with the living block. Each item in the game can correspond to a maximum of one type. Some types are shared by more than one item.
+Blocks whose item does not correspond to a type, receives the type default block or default item.
+
+Contents
+
+1 Types
+
+1.1 Presets
+1.2 Register
+
+2 Behavior
+
+2.1 Absorb snow
+2.2 Act on desire
+2.3 Annoying click clack
+2.4 Attack entity
+2.5 Avoid being in the way of crafting
+2.6 Back away from attack
+2.7 Barrel roll
+2.8 Be crafting ingredient
+2.9 Build
+2.10 Combine into 9x9
+2.11 Combine into buildable entity
+2.12 Combine into copper golem
+2.13 Combine into end portal
+2.14 Combine into house
+2.15 Combine into portal
+2.16 Combine with
+2.17 Consume nearby living block
+2.18 Damage entities on touch
+2.19 Enchantment table
+2.20 Equip on entity
+2.21 Falling attack
+2.22 Fire at entity
+2.23 Grow tree
+2.24 Launch colliding block
+2.25 Living block container
+2.26 Living block mob container
+2.27 Mine specific block
+2.28 Primes TNT
+2.29 Protect position
+2.30 Random ignition
+2.31 Randomly use item
+2.32 Show crafting grid
+2.33 Smelt
+2.34 Smelt nearby living block
+2.35 Target nearest living block
+2.36 Target nearest player
+2.37 Teleport randomly when attacked
+2.38 Transform when intersecting
+2.39 Trap player
+2.40 Use item on condition
+
+3 Interactions
+
+3.1 On interact
+3.2 On hurt
+
+4 Other properties
+
+4.1 Movement
+4.2 Collision
+4.3 Fire immunety
+
+5 Notes
+
+Types
+Presets
+Some types of living blocks share properties that are predefined. Below is a list of presets and the property of each.
+
+Preset
+
+Behaviors
+
+Sub-presets
+
+Default
+
+Act on desire
+
+Desire: Appoach
+Response: Move towards
+Act on desire
+
+Desire: Attack
+Response: Be mad at
+Be crafting ingredient
+Avoid being in the way of crafting
+
+None
+
+Defend
+
+Protect position: Be mad at intruders
+Protect position: Return home when able
+
+None
+
+Smelting
+
+Smelt: Lava
+Smelt: Fire
+
+None
+
+Melee
+Attack entity
+None
+
+Default Melee
+
+-
+
+Default
+Melee
+Deffend
+
+Ranged
+Back away from attack
+None
+
+Default Ranged
+
+-
+
+Default
+Ranged
+Defend
+
+Mining
+
+Mine specific block: Mine the block
+Mine specific block: Move to block to mine
+
+None
+
+Passive
+
+Act on desire
+
+Desire: Appoach
+Response: Move towards
+
+None
+
+More complete presets
+
+Preset
+
+Sub-presets
+
+Behavior
+
+Move
+
+Collision
+
+Block
+
+Default melee
+Smelting
+
+Build
+Equip on entity
+
+Rolling
+
+Block
+
+Item
+
+Default melee
+Smelting
+
+Equip on entity
+
+Floating
+
+Entity
+
+Tool
+
+Default
+Melee
+Mining
+Smelting
+
+-
+
+Bouncing
+
+Entity
+
+Container
+
+Default melee
+Smelting
+
+Equip on entity
+
+Rolling
+
+Block
+
+Some presets are also types in themselves, which can be used as a living block type or presets in a registry.
+
+Preset/Type
+
+Sub-Presets
+
+Other
+
+Default block
+
+Default melee
+Block
+
+Default non-collidable block
+Block
+Collision: Entity
+
+Default item
+
+Default melee
+Item
+
+Bucket type
+
+Default item
+
+On Interact: Empty bucket interaction
+On hurt: Empty content on upon death
+
+If a property is not defined for a block type, it uses its default value, that is:
+
+Behavior: Empty list
+Collision: Block
+On interact: Consume item
+On hurt: Do nothing
+Movement: Rolling
+Fire immune: False
+Register
+The living blocks of an item in the list below always receive the type associated with the item. For other living blocks, it depends. If the item is associated with a block (i.e., it is an instance of BlockItem) and is not in the #block_placers tag, it receives the type default block; otherwise, it receives the type default item.
+
+Items (#)
+
+Preset
+
+Behavior
+
+Interactions
+
+Other
+
+TNT
+Default block
+
+On hurt: Primint TNT
+
+Ender Pearl
+Default item
+
+Teleport player randomly
+
+Wooden Pickaxe
+Golden Pickaxe
+Stone Pickaxe
+Copper Pickaxe
+Iron Pickaxe
+Diamond Pickaxe
+Netherite Pickaxe (7)
+
+Tool
+
+Wooden Shovel
+Golden Shovel
+Stone Shovel
+Copper Shovel
+Iron Shovel
+Diamond Shovel
+Netherite Shovel (7)
+
+Tool
+
+Randomly use item
+Chance: 1%
+Reach: 0.5
+Predicate: Block is flattenable
+
+Wooden Axe
+Golden Axe
+Stone Axe
+Copper Axe
+Iron Axe
+Diamond Axe
+Netherite Axe (7)
+
+Toll
+
+Randomly use item
+Chance: 1%
+Reach: 0.5
+Predicate: Block is strippble
+
+Wooden Hoe
+Golden Hoe
+Stone Hoe
+Copper Hoe
+Iron Hoe
+Diamond Hoe
+Netherite Hoe (7)
+
+Toll
+
+Randomly use item
+Chance: 1%
+Reach: 0.5
+Predicate: Block is tillable
+
+Arrow
+
+Passive
+
+Target nearest living block
+Predicate: The living block is one of
+Living bow
+Living crossbow
+
+Movement: Floating
+Collision: Entity
+
+Bow
+Crossbow (2)
+
+Default ranged
+
+Consume nearby living block
+
+Distance: 3.0
+Comsume all: False
+Predicate: Has not charged_projectiles
+Selector: Living arrow
+Output: Add an arrow in charged_projectiles
+Fire at entity
+
+Movement: Floating
+Collision: Entity
+
+Carved Pumpkin
+Default block
+
+Combine into copper golem
+
+Distance: 4.0
+Combine into buildable entity: Iron golem
+
+Distance: 4.0
+Combine into buildable entity: Snow golem
+
+Distance: 4.0
+
+Flint and Steel
+
+Default item
+
+Combine into portal
+
+Distance: 4.0
+Primes TNT
+
+Distance: 4.0
+Random ignition
+
+Fire immune
+Movement: Bouncing
+
+Jump height: 1.0
+Ticks between jumps: 1
+Horizontal movement speed: 0.15
+
+Obsidian
+Crying Obsidian (2)
+
+Default block
+
+Fire immune
+
+Fire Charge
+
+Default item
+
+Combine into portal
+
+Distance: 4.0
+Primes TNT
+
+Distance: 4.0
+Random ignition
+
+Wither Skeleton Skull
+
+Default block
+
+Combine into buildable entity: Wither
+Distance: 4.0
+
+Eye of Ender
+
+Default item
+
+Combine with: End portal frame
+Distance: 3.0
+
+Throw eye of ender
+
+Elytra
+
+Default item
+
+Launch colliding block
+Launch velocity: 2.0
+Min distance: 0.1
+
+End Portal Frame
+
+Default block
+
+Combine into end portal
+Min distance: 4.0
+
+ Concrete Powder (1×16)
+
+Default block
+
+Transform when intersecting
+Intersect with: Water
+Transform into:  Concrete (same collor)
+
+Sponge
+
+Default block
+
+Transform when intersecting
+Intersect with: Water
+Transform into: Wet sponge
+
+Wet sponge
+
+Default block
+
+On hurt:
+Place block on death
+
+Water
+
+All Boats
+All Boats with Chest
+Bamboo Raft
+Bamboo Raft with Chest
+Minecart
+Minecart with Chest
+Minecart with Hopper
+Minecart with TNT
+Minecart with Command Block (25)
+
+Default item
+
+Summon vehicle
+
+Logs
+Stripped Logs
+Wood
+Stripped Wood
+Planks
+Wooden Slabs
+Wooden Stairs
+Wooden Fences
+Fence Gates
+Shelves
+Wooden Buttons
+Wooden Trapdoors
+Creaking Heart (109)
+(except Bamboo, Crimson, and Warped variants)
+
+Block
+
+Movement: Water floating
+
+Bucket
+
+Default item
+
+Transform when intersecting
+
+Intersect with: Water
+Transform into: Water Bucket
+Transform when intersecting
+
+Intersect with: Lava
+Transform into: Lava Bucket
+Transform when intersecting:
+
+Transform bucket into powder snow bucket
+
+Water Bucket
+Lava Bucket
+Powder Snow Bucket
+Bucket of aquatic mob (9)
+
+Bucket type
+
+Pointed Dripstone
+Default item
+
+Falling attack
+Fall height: 2.0
+
+Anvil
+Default item
+
+Falling attack
+Fall height: 20.0
+
+Bone Meal
+
+Default item
+
+Grow tree
+Block:
+Oak Sapling
+Spruce Sapling
+Birch Sapling
+Jungle Sapling
+Acacia Sapling
+Cherry Sapling
+Dark Oak Sapling
+Pale Oak Sapling
+Mangrove Propagule
+Azalea
+Flowering azalea
+
+Beds (16)
+
+Block
+
+Sleep on bed
+
+Snow
+
+Default block
+
+Absorb snow
+
+Cactus
+
+Default block
+
+Damage entities on touch
+Damage type: cactus
+Damage amount: 1.0
+Ignore living blocks: true
+
+Crafting Table
+Crafter (2)
+
+Default block
+
+Show crafting grid
+
+Crafting menu
+
+Movement: Water floating
+
+Enchanting table
+
+Default block
+
+Enchantment table
+
+Enchant random item
+
+Furnace
+
+Default
+
+Smelt nearby living block
+Recipe type: smelting
+
+Blast Furnace
+
+Default
+
+Smelt nearby living block
+Recipe type: blasting
+
+Smoker
+
+Default
+
+Smelt nearby living block
+Recipe type: smoking
+
+Campfire
+Soul campfire (2)
+
+Default
+
+Smelt nearby living block
+Recipe type: campifre_cooking
+
+ Wooden Door (10)
+
+Block
+
+Combine into house
+Distance: 15.0
+
+Movement: Water floating
+
+Iron Door
+Crimson door
+Warped door
+Copper doors (11)
+
+Block
+
+Combine into house
+Distance: 15.0
+
+Chorus Fruit
+
+Default item
+
+Use item on condition
+Distance: 2.0
+Predicate: The player has hunger lees then 10 ()
+
+Chest
+
+Container
+
+Living block container
+Container size: 27
+Eat sound: Llama eats
+Burp sound: Llama spits
+
+Open container
+
+Movement: Water floating
+
+Copper Chests (8)
+
+Container
+
+Living block container
+Container size: 27
+Eat sound: Copper Golem appears
+Burp sound: Copper Golem hurts
+
+Open container
+
+Movement: Water floating
+
+Barrel
+
+Container
+
+Living block container
+
+Container size: 27
+Eat sound: Llama eats
+Burp sound: Llama spits
+Barrel roll
+
+Open container
+
+Movement: Water floating
+
+Ender Chest
+
+Container
+
+Living block container
+Container size: 27
+Eat sound: Enderman vwoops
+Burp sound: Enderman teleports
+
+Open container
+
+Movement: Water floating
+
+Shulker Boxes (17)
+
+Container
+
+Living block mob container
+
+Container size: 27
+Eat sound: Shulker opens
+Burp sound: Shulker shoots
+Teleport randomly when attacked
+
+Open container
+
+Movement: Water floating
+
+Totem of Undying
+
+Default item
+
+Use item on condition
+Distance: 10.0
+Predicate: The living entity is dead or dying
+
+Dispenser
+
+Default block
+
+Dispense living block
+
+Dropper
+
+Default block
+
+Drop living block
+
+Lever
+
+Default block
+
+Annoying click clack
+
+Flip lever interaction
+
+Bundles (17)
+
+Container
+
+Living block container
+Container size: 27
+Eat sound: Fox eats
+Burp sound: Fox spits
+Only same: True
+
+Movement: Floating
+Collision: Entity
+
+Wool (16)
+
+Block
+
+Leash to player
+
+Movement: Floating
+
+Saplings
+Mangrove Propagule
+Short Grass
+Fern
+Bush
+Dead Bush
+Firefly Bush
+Short Dry Grass
+Tall Dry Grass
+Seagrass
+Dandelion
+Golden Dandelion
+Closed Eyeblossom
+Poppy
+Blue Orchid
+Allium
+Azure Bluet
+Tulips
+Oxeye Daisy
+Cornflower
+Lily of the Valley
+Wither Rose
+Torchflower
+Pitcher Plant
+Spore Blossom
+Mushrooms
+Nether Fungi
+Nether Roots
+Nether Sprouts
+Weeping Vines
+Twisting Vines
+Sugar Cane
+Kelp
+Pink Petals
+Wildflowers
+Leaf Litter
+Pale Hanging Moss
+Hanging Roots
+Big Dripleaf
+Small Dripleaf
+Cactus Flower
+Vines
+Glow Lichen
+Sculk Vein
+Sunflower
+Lilac
+Rose Bush
+Peony
+Tall Grass
+Large Fern
+Coral
+Dead Coral
+Coral Fans
+Dead Coral Fans (114)
+
+Default non-collidable block
+
+Iron Bars
+
+Default Block
+
+Combine with
+Distance: 5.0
+Selector: Iron Bars
+Output: Iron Trap
+Amount: 8
+Chance: 0.01%
+Advancement trigger: built_trap
+
+Iron Trap
+
+Default Block
+
+Target nearest player
+
+Distance: 20.0
+Target entity: False
+Trap player
+
+Distance: 2.0
+Bars: Iron Bars
+
+ Copper Bars (1×8)
+
+Default Block
+
+Combine with
+Distance: 5.0
+Selector:  Copper Bars (same)
+Output:  Copper Trap (same variant)
+Amount: 8
+Chance: 0.01%
+Advancement trigger: built_trap
+
+ Copper Trap (1×8)
+
+Default Block
+
+Target nearest player
+
+Distance: 20.0
+Target entity: False
+Trap player
+
+Distance: 2.0
+Bars:  Copper Bars (same variant)
+
+Torch
+
+Item
+
+Combine Into 9×9
+
+Torch: Torch
+Structure: minecraft:herding/nine_by_nine
+
+Soul Torch
+
+Item
+
+Combine Into 9×9
+
+Torch: Soul Torch
+Structure: minecraft:herding/nine_by_nine_soul_torch
+
+Copper Torch
+
+Item
+
+Combine Into 9×9
+
+Torch: Copper Torch
+Structure: minecraft:herding/nine_by_nine_copper_torch
+
+Behavior
+Behavior controls certain actions of living blocks, such as when they will perform and stop performing the action, what happens when they die, and other things.
+Below is a summary of the living block behaviors, using the class name in the code:
+
+AbsorbSnowBehavior
+ActOnDesireBehavior
+AnnoyingClickClackBehavior
+AttackEntityBehavior
+AvoidBeingInTheWayOfCrafting
+BackAwayFromAttackBehavior
+BarrelRollBehavior
+BeCraftingIngredient
+BuildBehavior
+CombineInto9x9Behavior
+CombineIntoBuildableEntityBehavior
+CombineIntoEndPortalBehavior
+CombineIntoHouseBehavior
+CombineIntoPortalBehavior
+CombineWithBehavior
+ConsumeNearbyLivingBlockBehavior
+DamageEntitiesOnTouchBehavior
+EnchantmentTableBehavior
+EquipOnEntityBehavior
+FallingAttackBehavior
+FireAtEntityBehavior
+GrowTreeBehavior
+LaunchCollidingBlockBehavior
+LivingBlockContainerehavior
+LivingBlockMobContainerBehavior
+MineSpecificBlockBhavior
+PrimesTntBhavior
+ProtectPositionBhavior
+RandomIgnitionBhavior
+RandomUseItemBhavior
+ShowCraftingGridBhavior
+SmeltBhavior
+SmeltNearbyLivingBlockBhavior
+TargetNearestLivingBlockBhavior
+TargetNearestPlayerBhavior
+TeleportRandomlyWhenAttackedBhavior
+TransformWhenIntersectingBhavior
+TrapPlayerBhavior
+UseItemOnConditionBhavior
+
+Absorb snow
+If the living block don't have 8 layers of snow, passing over a snow increases its layer by one and decreases the block's layer by one (transforming the block into air if it only has one layer). Passing over a snow block transforms it into snow with seven layers. With some additional conditions:
+
+The distance from the last absorbed block must be greater than one in some horizontal axis.
+When the internal data from the living block is loaded, for example when it is summoned or loaded into the world, consider that the last block absorbed was at position 0, 0, 0.
+The last absorbed block must have been more than 20 ticks away.
+Act on desire
+
+
+
+This section of the article is empty. 
+You can help by expanding it.
+
+Annoying click clack
+Within a 10-tick interval, A random number between 0 and 1 is generated:
+
+If the number is lass to 0.25 (25%) and the living block is powered, it producing a particle dust{color:16711680,scale:0.5}
+The particle's position is the same as a lever block in that block and has the same facing and face. Since the living block rarely goes to this same position as the block, the particle ends up appearing in a random place. However, unmoved living floor levers regularly produce particles.
+If the number is lass to 0.10 (10%) living block changing its powered state.
+Note that whenever a powered living block changing, it will emit a particle first, and whenever a living block  producing a particle, it has a 40% chance of changing its powered status.
+Attack entity
+
+
+
+This section of the article is empty. 
+You can help by expanding it.
+
+Avoid being in the way of crafting
+
+
+
+This section of the article is empty. 
+You can help by expanding it.All other subsequent subsections as well.
+
+Back away from attack
+Barrel roll
+Be crafting ingredient
+Build
+Combine into 9x9
+Combine into buildable entity
+Combine into copper golem
+Combine into end portal
+Combine into house
+Combine into portal
+Combine with
+Consume nearby living block
+Damage entities on touch
+Enchantment table
+Equip on entity
+Falling attack
+Fire at entity
+Grow tree
+Launch colliding block
+Living block container
+Living block mob container
+Mine specific block
+Primes TNT
+Protect position
+Random ignition
+Randomly use item
+Show crafting grid
+Smelt
+Smelt nearby living block
+Target nearest living block
+Target nearest player
+Teleport randomly when attacked
+Transform when intersecting
+Trap player
+Use item on condition
+Interactions
+On interact
+
+
+
+This section of the article is empty. 
+You can help by expanding it.
+
+On hurt
+
+
+
+This section of the article is empty. 
+You can help by expanding it.
+
+Other properties
+Movement
+
+
+
+This section of the article is empty. 
+You can help by expanding it.
+
+Collision
+
+
+
+This section of the article is empty. 
+You can help by expanding it.
+
+Fire immunety
+
+
+
+This section of the article is empty. 
+You can help by expanding it.
+
+Notes
+
+ All is subclasses of LivingBlockBehavior. Note that the subsection names and the names used in the table are not the class names, the class name is the subsection name in UpperCamelCase with Behavior at the end, exect AvoidBeingInTheWayOfCrafting and BeCraftingIngredient.

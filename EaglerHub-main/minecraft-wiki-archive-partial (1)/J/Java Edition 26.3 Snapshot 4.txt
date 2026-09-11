@@ -1,0 +1,1048 @@
+Minecraft 26.3 Snapshot 4
+
+Edition
+
+Java Edition
+
+Release date
+
+July 16, 2026
+
+Type
+
+Snapshot
+
+Snapshot for
+
+26.3
+
+Downloads
+
+Client (.json)Server
+
+Protocol version
+
+ dec: 1073742150 hex: 40000146
+
+Data version
+
+5003
+
+Resource pack format
+
+92.0
+
+Data pack format
+
+111.0
+
+Minimum Java version
+
+Java SE 25
+
+◄◄   26.2
+26.3
+
+◄   26.3 Snapshot 3
+
+ 26.3 Snapshot 4
+
+  26.3 Snapshot 5 ►
+
+{
+    "title": "Minecraft 26.3 Snapshot 4",
+    "images": [
+        "26.3-snapshot-4.jpg",
+        "Java Edition 26.3 Snapshot 4.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "July 16, 2026",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Snapshot article, displayed as Snapshot)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition 26.3 article, displayed as 26.3)",
+            "label": "Snapshot for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/0302cf8dc4ef09afd7d30ece7f64aa799efd5de4/client.jar Client] ([https://piston-meta.mojang.com/v1/packages/9991b3a6d70456bdda7f8a390028537c17c573af/26.3-snapshot-4.json .json])<br />[https://piston-data.mojang.com/v1/objects/12ce9ccac727a0ff37ba4aea9d11a73c493d70ca/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": " <span style=\"font-size:smaller\"><abbr title=\"decimal\">dec</abbr>: </span>1073742150<br /> <span style=\"font-size:smaller\"><abbr title=\"hexadecimal\">hex</abbr>: </span>40000146",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "5003",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "92.0",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "111.0",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Data pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_25_.28LTS.29 Java SE 25]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Java Edition  26.2|<span style=\"margin-right:-0.35em\">◄</span>◄   26.2]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition 26.3|26.3]]'''</td>\n<td style=\"padding: 0.4em\" ></td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  26.3 Snapshot 3|◄   26.3 Snapshot 3]]\n</td>\n<td style=\"padding: 0.4em\">''' 26.3 Snapshot 4'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  26.3 Snapshot 5|  26.3 Snapshot 5 ►]]\n</td>\n</tr>\n</table>"
+}
+
+
+26.3 Snapshot 4 (known as 26.3-snapshot-4 in the launcher) is the fourth snapshot for Java Edition 26.3, released on July 16, 2026, which makes various technical changes and gameplay tweaks.
+
+Contents
+
+1 Additions
+
+1.1 General
+
+2 Changes
+
+2.1 Blocks
+2.2 Mobs
+2.3 Command format
+2.4 Gameplay
+2.5 General
+
+3 Fixes
+4 Videos
+5 References
+6 Navigation
+
+Additions
+General
+Data component format
+
+minecraft:cooking_fuel
+Describes an item that can be used as fuel for a furnace, smoker or blast furnace.
+Format: object with fields
+burn_time – namespaced ID pointing to an element of minecraft:number_provider registry representing the time, in ticks, for which this fuel will burn.
+speed_multiplier – namespaced ID pointing to an element of minecraft:number_provider registry representing the speed of the cooking/smelting.
+minecraft:brewing_fuel
+Describes an item that can be used as fuel for a brewing stand.
+Format: object with fields
+uses – namespaced ID pointing to an element of minecraft:number_provider registry representing the number of times this fuel will brew before being consumed.
+speed_multiplier – namespaced ID pointing to an element of minecraft:number_provider registry representing the speed of the brewing.
+Note: the #brewing_fuel item tag has been removed and will no longer function to register new brewing fuels.
+minecraft:sign_text_front and minecraft:sign_text_back
+Two identical components that represent text in front and back of a sign.
+Contents will be displayed in item tooltip.
+The format is the same as front_text and back_text fields on minecraft:sign and minecraft:hanging_sign block entities, i.e.
+messages – a list of text components
+filtered_messages – an optional list of text components, if omitted, it will be set to the same value as messages.
+messages and filtered_messages must have same entry count.
+color – optional dye color, default: black
+has_glowing_text – optional boolean, default: false
+minecraft:waxed
+A marker for blocks with contents that are waxed.
+No fields
+minecraft:cushion/color
+Applied to cushion entities when they get placed using an item.
+Format: one of 16 dye colors
+minecraft:villager_food
+Represents items that villagers can eat. Villagers will pick up items with this component in addition to items in the #villager_picks_up tag.
+Format: object with fields
+nutrition – positive integer, how much hunger the item satiates in the villager once eaten.
+minecraft:mob_visibility
+Represents the visibility percentage provided by an item with the appropriate minecraft:equippable component, modifying the range at which mobs are able to detect an entity.
+Format: object with fields
+targeting_entity – an entity ID, a list of namespaced entity IDs, or a hash-prefixed entity tag to match.
+visibility – float (between 0.0 and 10.0), with 0.0 reducing the range at which mobs detects the entity to 2 blocks while 10.0 increases the detection range tenfold.
+While multiple items with this component stack, the maximum vision will still never exceed 10.0.
+Environment attribute
+
+minecraft:gameplay/natural_mob_spawns
+Defines mob spawns in an environment attribute source.
+During worldgen placement, only dimensions and biomes will apply this environment attribute.
+Format: object with fields:
+spawns_by_category – map of spawn category to weighted list of spawn data
+Spawn data format: object with fields:
+type – entity type, the entity to spawn.
+count – int provider, amount to spawn.
+spawn_costs – map of entity type to object with fields:
+energy_budget – float, energy change allowed per spawn.
+charge – float, how much existing mobs will attract or repulse other charged mobs.
+Available attribute modifiers:
+overlay
+For each mob category, overrides the lower layer's spawn settings with the higher layer's, unless the category is not included.
+Merges each layer's spawn costs together, overriding the lower layer's spawn costs with the higher layer's if both define the same entity type.
+Default: empty
+minecraft:gameplay/creature_world_gen_spawn_probability
+Sets the probability to run an iteration in which mobs defined to spawn in the creature mob category will spawn during world generation.
+Only dimensions and biomes will apply this environment attribute.
+Format: float with range [0,1]
+Default: 0.1
+Tags
+
+Added the #cushion_uses_collision_shape block tag.
+Contains blocks where cushion placement raycasts against collision shape instead of interaction shape.
+Default entries: all blocks in #cauldrons, plus hopper and composter.
+Changes
+Blocks
+ Hay bale
+
+Updated sides texture from  so that the two red twines appear symmetrically distant from the top/bottom edges; the twines now line up with the straw bed texture too.
+Poplar doors
+
+The placed block texture has been updated, tweaking the hinges again for the third time.
+Signs
+
+Signs no longer automatically execute click events in custom text.
+Mobs
+Armadillos
+
+No longer try to roll up when submerged in liquids.
+Command format
+/spreadplayers
+
+Whether a block is safe to spread a player to is now controlled by the #entities_can_teleport_to block tag.
+Gameplay
+Creative inventory
+
+Rearranged mineral items and blocks in the inventory.
+They are now sorted to have non-tiered ingredients first, followed by tiered ingredients that craft into equipment last.
+Affects the ingredients and building blocks tabs.
+Ingredients
+Non-tiered minerals
+Unrefined tiered minerals
+Refined tiered minerals
+Nuggets
+Ingots
+Building Blocks
+Non-tiered mineral blocks and variants
+Refined tiered mineral blocks and variants
+Copper block family
+Copper Blocks continue to be pushed to the end of the order in Building Blocks since they have a large list of content.
+Improved ordering of Natural Blocks tab so that all inner ordering of group content sequentially progresses from Overworld -> Nether -> End to stay consistent with other tabs.
+Spectator
+
+Players in Spectator mode can now interact with portals to teleport.
+General
+Advancement definition
+
+Rewards
+The loot sub-field in the rewards field now accepts an inline value, a single namespaced ID, a list of namespaced IDs, a list of inline values, or a hash-prefixed tag ID of a minecraft:loot_table type.
+Triggers
+Multiple fields that accepted a list of loot conditions (AKA predicates) are now stricter:
+A list of predicates is no longer accepted as a shorthand for a minecraft:all_of condition containing that list.
+Additionally, the condition field of predicates has been renamed to type and is now mandatory (previously it defaulted to minecraft:entity_properties).
+Some fields that previously accepted only inline loot conditions now also accept a namespaced ID of a minecraft:predicate
+The player field, available on all triggers except minecraft:impossible, now accepts an inline value or a namespaced ID of a minecraft:predicate type.
+To avoid duplication, this field is not mentioned in entries below.
+Changed minecraft:any_block_use trigger
+The location field now accepts an inline value or a namespaced ID of a minecraft:predicate type.
+Changed minecraft:bee_nest_destroyed
+The block field has been renamed to blocks and now accepts a single namespaced ID, a list of namespaced IDs, or a hash-prefixed tag ID of a minecraft:block type. However, it still only actually triggers for block types using the BeehiveBlock class (i.e. a bee nest or beehive).
+Added field state that matches block state properties (same format as minecraft:enter_block).
+Changed minecraft:bred_animals trigger
+child, parent, and partner fields now accept an inline value or a namespaced ID of a minecraft:predicate type.
+Changed minecraft:brewed_potion trigger
+The potion field now accepts minecraft:potion_contents data component predicate.
+Changed minecraft:channeled_lightning trigger
+Entries in the victims field can no longer be an entity predicate nor a list of predicates; the entries can now be either inline values or namespaced IDs of a minecraft:predicate type.
+Changed minecraft:cured_zombie_villager trigger
+villager and zombie fields now accept an inline value or a namespaced ID of a minecraft:predicate type.
+Changed minecraft:default_block_use trigger
+The location field now accepts an inline value or a namespaced ID of a minecraft:predicate type.
+Changed minecraft:effects_changed trigger
+The source field now accepts an inline value or a namespaced ID of a minecraft:predicate type.
+Changed minecraft:enter_block
+The block field has been renamed to blocks and now accepts a single namespaced ID, a list of namespaced IDs, or a hash-prefixed tag ID of a minecraft:block type.
+Changed minecraft:fall_after_explosion trigger
+The cause field now accepts an inline value or a namespaced ID of a minecraft:predicate type.
+Changed minecraft:fishing_rod_hooked trigger
+The entity field now accepts an inline value or a namespaced ID of a minecraft:predicate type.
+Changed minecraft:placed_block trigger
+The location field now accepts an inline value or a namespaced ID of a minecraft:predicate type.
+Changed minecraft:item_used_on_block trigger
+The location field now accepts an inline value or a namespaced ID of a minecraft:predicate type.
+Changed minecraft:allay_drop_item_on_block trigger
+The location field now accepts an inline value or a namespaced ID of a minecraft:predicate type.
+Changed minecraft:player_killed_entity trigger
+The entity field now accepts an inline value or a namespaced ID of a minecraft:predicate type.
+The killing_blow.tags.id field now accepts a single namespaced ID, a list of namespaced IDs, or a hash-prefixed tag ID of a minecraft:damage_type type.
+Changed minecraft:entity_killed_player trigger
+The entity field now accepts an inline value or a namespaced ID of a minecraft:predicate type.
+The killing_blow.tags.id field now accepts a single namespaced ID, a list of namespaced IDs, or a hash-prefixed tag ID of a minecraft:damage_type type.
+Changed minecraft:kill_mob_near_sculk_catalyst trigger
+The entity field now accepts an inline value or a namespaced ID of a minecraft:predicate type.
+The killing_blow.tags.id field now accepts a single namespaced ID, a list of namespaced IDs, or a hash-prefixed tag ID of a minecraft:damage_type type.
+Changed minecraft:lightning_strike trigger
+bystander and lightning fields now accept an inline value or a namespaced ID of a minecraft:predicate type
+Changed minecraft:player_generates_container_loot trigger
+The loot_table field has been renamed to loot_tables and now accepts a single namespaced ID, a list of namespaced IDs, a list of inline values, or a hash-prefixed tag ID of a minecraft:loot_table type.
+If a tag or a list is used, trigger will run when any listed loot table is generated.
+Changed minecraft:thrown_item_picked_up_by_player trigger
+The entity field now accepts an inline value or a namespaced ID of a minecraft:predicate type.
+Changed minecraft:thrown_item_picked_up_by_entity trigger
+The entity field now accepts an inline value or a namespaced ID of a minecraft:predicate type.
+Changed minecraft:player_hurt_entity trigger
+The entity field now accepts an inline value or a namespaced ID of a minecraft:predicate type.
+The damage.type.tags.id field now accepts a single namespaced ID, a list of namespaced IDs, or a hash-prefixed tag ID of a minecraft:damage_type type.
+Changed minecraft:entity_hurt_player trigger
+The damage.type.tags.id field now accepts a single namespaced ID, a list of namespaced IDs, or a hash-prefixed tag ID of a minecraft:damage_type type.
+Changed minecraft:player_interacted_with_entity trigger
+The entity field now accepts an inline value or a namespaced ID of a minecraft:predicate type.
+Changed minecraft:player_sheared_equipment trigger
+The entity field now accepts an inline value or a namespaced ID of a minecraft:predicate type.
+Changed minecraft:crafter_recipe_crafted trigger
+The recipe_id field has been renamed to recipes and now accepts a single namespaced ID, a list of namespaced IDs, or a hash-prefixed tag ID of a minecraft:recipe type.
+If a tag or a list is used, trigger will run when any listed recipe is used.
+Changed minecraft:recipe_crafted trigger
+The recipe_id field has been renamed to recipes and now accepts a single namespaced ID, a list of namespaced IDs, or a hash-prefixed tag ID of a minecraft:recipe type.
+If a tag or a list is used, trigger will run when any listed recipe is used.
+Changed minecraft:recipe_unlocked trigger
+The recipe field has been renamed to recipes and now accepts a single namespaced ID, a list of namespaced IDs, or a hash-prefixed tag ID of a minecraft:recipe type.
+If a tag or a list is used, trigger will run when any listed recipe is unlocked
+Changed minecraft:slide_down_block
+The block field has been renamed to blocks and now accepts a single namespaced ID, a list of namespaced IDs, or a hash-prefixed tag ID of a minecraft:block type.
+Changed minecraft:summoned_entity trigger
+The entity field now accepts an inline value or a namespaced ID of a minecraft:predicate type.
+Changed minecraft:tame_animal trigger
+The entity field now accepts an inline value or a namespaced ID of a minecraft:predicate type.
+Changed minecraft:target_hit trigger
+The projectile field now accepts an inline value or a namespaced ID of a minecraft:predicate type.
+Changed minecraft:villager_trade trigger
+The villager field now accepts an inline value or a namespaced ID of a minecraft:predicate type.
+Block entity data
+
+minecraft:sign and minecraft:hanging_sign
+By default, commands and other click events contained in sign text are no longer executed when the block is clicked.
+Additionally, text components on newly placed signs are no longer resolved by default.
+New boolean field called allow_op_features (defaults to false) has been added to restore previous behavior.
+Placed signs and items with the minecraft:block_entity_data component containing sign data stored in worlds saved before this version will have allow_op_features set to true
+Any newly created sign will need to have that field set explicitly.
+Changed the rules for opening the sign edit screen after a block is placed:
+Previously, the screen would open unless minecraft:block_entity_data was applied successfully.
+Now, the screen will open only if it could be opened normally by clicking the block (i.e. it's not waxed and only has editable text on the front side).
+Signs will now accept and return the minecraft:sign_text_front, minecraft:sign_text_back and minecraft:waxed components.
+minecraft:brewing_stand
+The following fields are now stored as integers rather than shorts:
+Changed the BrewTime field from a short to an integer, this is the amount of time that the current brewing process has taken so far.
+Changed the Fuel field from a byte to an integer, this is the amount of fuel remaining.
+The following new fields have been added:
+Added the total_brew_time integer field, this is the total amount of time the current brewing process will take.
+Added the total_fuel integer field, this represents the amount of fuel that was added in the last refuel.
+Added the speed_multiplier float field, this will be used to speed up or slow down the next brewing process.
+minecraft:furnace, minecraft:smoker and minecraft:blast_furnace
+The following fields are now stored as integers rather than shorts:
+Changed the cooking_time_spent field from a short to an integer, this is the amount of time that the current cooking process has taken so far.
+Changed the cooking_total_time field from a short to an integer, this is the total amount of time the current cooking process will take.
+Changed the lit_time_remaining field from a short to an integer, this is the amount of burn time remaining.
+Changed the lit_total_time field from a short to an integer, this is the total amount of burn time that was added in the last refuel.
+The following new fields have been added:
+Added the speed_multiplier float field, this will be used to speed up or slow down the next cooking process.
+Controls
+
+The numeric keypad plus-or-minus key, opening bracket key and closing bracket key now display their associated glyph in the Key Binds menu.
+Proper IDs for each of these have not yet been added, however.
+Up to 40 more mouse buttons are available for binding game controls to on Linux (buttons 8 to 48), and up to 24 more on macOS (buttons 8 to 32).
+The key codes for these existed previously, but could only be accessed by changing options.txt and would not result in button presses actually being recognised.
+These buttons are still not accessible on Windows.
+
+ID
+
+Displayed name
+
+Description
+
+key.mouse.9
+
+Button 9
+
+ Ninth Mouse Button
+
+key.mouse.10
+
+Button 10
+
+ Tenth Mouse Button
+
+key.mouse.11
+
+Button 11
+
+ Eleventh Mouse Button
+
+key.mouse.12
+
+Button 12
+
+ Twelfth Mouse Button
+
+key.mouse.13
+
+Button 13
+
+ Thirteenth Mouse Button
+
+key.mouse.14
+
+Button 14
+
+ Fourteenth Mouse Button
+
+key.mouse.15
+
+Button 15
+
+ Fifteenth Mouse Button
+
+key.mouse.16
+
+Button 16
+
+ Sixteenth Mouse Button
+
+key.mouse.17
+
+Button 17
+
+ Seventeenth Mouse Button
+
+key.mouse.18
+
+Button 18
+
+ Eighteenth Mouse Button
+
+key.mouse.19
+
+Button 19
+
+ Nineteenth Mouse Button
+
+key.mouse.20
+
+Button 20
+
+ Twentieth Mouse Button
+
+key.mouse.21
+
+Button 21
+
+ Twenty-First Mouse Button
+
+key.mouse.22
+
+Button 22
+
+ Twenty-Second Mouse Button
+
+key.mouse.23
+
+Button 23
+
+ Twenty-Third Mouse Button
+
+key.mouse.24
+
+Button 24
+
+ Twenty-Fourth Mouse Button
+
+key.mouse.25
+
+Button 25
+
+ Twenty-Fifth Mouse Button
+
+key.mouse.26
+
+Button 26
+
+ Twenty-Sixth Mouse Button
+
+key.mouse.27
+
+Button 27
+
+ Twenty-Seventh Mouse Button
+
+key.mouse.28
+
+Button 28
+
+ Twenty-Eighth Mouse Button
+
+key.mouse.29
+
+Button 29
+
+ Twenty-Ninth Mouse Button
+
+key.mouse.30
+
+Button 30
+
+ Thirtieth Mouse Button
+
+key.mouse.31
+
+Button 31
+
+ Thirty-First Mouse Button
+
+key.mouse.32
+
+Button 32
+
+ Thirty-Second Mouse Button
+
+key.mouse.33
+
+Button 33
+
+ Thirty-Third Mouse Button
+
+key.mouse.34
+
+Button 34
+
+ Thirty-Fourth Mouse Button
+
+key.mouse.35
+
+Button 35
+
+ Thirty-Fifth Mouse Button
+
+key.mouse.36
+
+Button 36
+
+ Thirty-Sixth Mouse Button
+
+key.mouse.37
+
+Button 37
+
+ Thirty-Seventh Mouse Button
+
+key.mouse.38
+
+Button 38
+
+ Thirty-Eighth Mouse Button
+
+key.mouse.39
+
+Button 39
+
+ Thirty-Ninth Mouse Button
+
+key.mouse.40
+
+Button 40
+
+ Fortieth Mouse Button
+
+key.mouse.41
+
+Button 41
+
+ Forty-First Mouse Button
+
+key.mouse.42
+
+Button 42
+
+ Forty-Second Mouse Button
+
+key.mouse.43
+
+Button 43
+
+ Forty-Third Mouse Button
+
+key.mouse.44
+
+Button 44
+
+ Forty-Fourth Mouse Button
+
+key.mouse.45
+
+Button 45
+
+ Forty-Fifth Mouse Button
+
+key.mouse.46
+
+Button 46
+
+ Forty-Sixth Mouse Button
+
+key.mouse.47
+
+Button 47
+
+ Forty-Seventh Mouse Button
+
+key.mouse.48
+
+Button 48
+
+ Forty-Eighth Mouse Button
+
+Data pack
+
+The pack format version is now 111.0.
+Debug screen
+
+The debug overlay now supports a separate GUI scale than the rest of the game.
+This is customizable through the Debug Options screen, F3 + F6.
+The default scale is "Auto", which tries to stay at a higher resolution than normal.
+Another option is "Unchanged", which matches the regular GUI scale.
+The rest of the options work the same as in the normal "GUI Scale", controlling the scale directly.
+Added a "player_speed" debug entry that displays the speed of the player in blocks per tick.
+The debug overlay now shows the display refresh rate.
+Environment attribute
+
+minecraft:visual/ambient_particles
+Now supports interpolation between Timeline keyframes (probabilities will be crossfaded).
+Introduced support for new modifier: append
+Unlike override which totally replaces the particle list, this modifier concatenates all elements with the layers below.
+Game window and input backend
+
+The minimum window size is now 320×240 pixels.
+Minecraft now uses SDL3 instead of GLFW for window management, input and platform integration.
+Keyboard input now uses SDL scancodes for physical key positions and SDL keycodes for layout-dependent text editing shortcuts.
+Loot functions
+
+The conditions field is now available in all loot functions and has been renamed to condition.
+It now also accepts an inline value or a namespaced ID, but no longer an inline list of conditions.
+Functionality of old condition list format can be achieved by explicitly using minecraft:all_of loot condition type.
+The function field (describing function type) has been renamed to type.
+Changed minecraft:sequence
+The functions field now accepts an inline value, a single namespaced ID, a list of namespaced IDs, a list of inline values, or a hash-prefixed tag ID of a minecraft:item_modifier type.
+Added optional condition field which accepts an inline value or a namespaced ID of a minecraft:predicate type.
+Inline format of minecraft:sequence (previously only a list of inline functions) can now also accept a list of namespaced IDs, a list of inline values, or a hash-prefixed tag ID of a minecraft:item_modifier type.
+This format is now consistenly available for all fields of loot function type, which means that every such field can accept an inline value, a single namespaced ID, a list of namespaced IDs, a list of inline values, or a hash-prefixed tag ID of a minecraft:item_modifier type.
+Changed minecraft:modify_contents
+The modifier field now accepts an inline value or a namespaced ID of a minecraft:item_modifier type.
+Changed minecraft:set_attributes
+Number providers in amount sub-fields of modifiers list now accept an inline value or a namespaced ID of a minecraft:number_provider type.
+Changed minecraft:enchanted_count_increase
+The count field now accepts an inline value or a namespaced ID of a minecraft:number_provider type.
+Changed minecraft:enchant_with_levels
+The levels field now accepts an inline value or a namespaced ID of a minecraft:number_provider type.
+Changed minecraft:set_custom_model_data
+Elements in floats and colors lists can now be an inline value or a namespaced ID of a minecraft:number_provider type.
+Changed minecraft:set_enchantments
+Values in enchantments map can now be an inline value or a namespaced ID of a minecraft:number_provider type.
+Changed minecraft:set_count
+The count field now accepts an inline value or a namespaced ID of a minecraft:number_provider type.
+Changed minecraft:limit_count
+The min and max fields inside limit structure now accept an inline value or a namespaced ID of a minecraft:number_provider type.
+Changed minecraft:set_damage
+The count field now accepts an inline value or a namespaced ID of a minecraft:number_provider type.
+Changed minecraft:set_ominous_bottle_amplifier
+The amplifier field now accepts an inline value or a namespaced ID of a minecraft:number_provider type.
+Changed minecraft:set_random_dyes
+The number_of_dyes field now accepts an inline value or a namespaced ID of a minecraft:number_provider type.
+Changed minecraft:set_stew_effect
+The duration field in elements of effects list now accepts an inline value or a namespaced ID of a minecraft:number_provider type.
+Changed minecraft:set_loot_table
+The name field has been renamed to tag
+Changed minecraft:exploration_map
+The destination field is no longer optional and now accepts a single namespaced ID, a list of namespaced IDs, or a hash-prefixed tag ID of a minecraft:structure type.
+Removed minecraft:reference
+This function has become obsolete, as any field that takes a function now accepts (among other things) a namespaced ID to other functions.
+Loot tables
+
+The rolls and bonus_rolls fields now accept an inline value or a namespaced ID of a minecraft:number_provider type.
+Loot table types that have a dedicated registry now support registry element and tag references.
+This means that the majority of fields of such types that previously accepted single elements will now accept either a namespaced ID or an inline value, while fields that previously accepted lists can now accept an inline value, a single namespaced ID, a list of namespaced IDs, a list of inline values, or a hash-prefixed tag ID
+Affected types:
+minecraft:advancement
+minecraft:item_modifier
+minecraft:loot_table
+minecraft:number_provider
+minecraft:predicate
+minecraft:recipe
+minecraft:slot_source
+Existing reference types for predicates, item modifiers and slot sources are now obsolete and have been removed
+Loot table types
+Added the minecraft:container_process loot table type
+Currently used to evaluate cooking and brewing fuel values.
+It takes the following parameters:
+container, the container or inventory being evaluated.
+block_entity, the block entity being fueled.
+block_state, the current state of the block being fueled.
+origin, the location of the block being fueled.
+Changed minecraft:advancement_location
+Block entities are now available in context and can be matched by conditions like minecraft:match_block
+Loot pool entries
+The conditions field in loot pool entries has been renamed to condition and now accepts an inline value or a namespaced ID of a minecraft:predicate type.
+The functions field in loot pool entries has been renamed to modifier and now accepts an inline value (including list as a short form of minecraft:sequence) or a namespaced ID of a minecraft:item_modifier type.
+This field is now present on all loot entries, including previously omitted minecraft:alternatives, minecraft:sequence and minecraft:group.
+Changed minecraft:tag loot pool entry
+The name field has been renamed to items and now accepts a single namespaced ID, a list of namespaced IDs, or a hash-prefixed tag ID of a minecraft:item type.
+Changed minecraft:loot_table loot pool entry
+The value field now accepts a single namespaced ID, a list of namespaced IDs, a list of inline values, or a hash-prefixed tag ID of a minecraft:loot_table type.
+Added expand field, working the same as in minecraft:tag pool entry:
+If true, each entry inside tag will be added to outer pool, with weights equal to weight of this entry.
+If false, this pool entry will operate as a single entry in outer pool. If this entry gets selected, it will return all items from all referenced loot tables.
+Number providers
+
+The type field always needs to be specified explicitly when using an inline number provider (it was previously defaulting to minecraft:uniform).
+Added vanilla number providers
+minecraft:cooking/time_bamboo
+Returns the burn time in ticks for bamboo and scaffolding.
+minecraft:cooking/time_blaze_rod
+Returns the burn time in ticks for blaze rods.
+minecraft:cooking/time_boats
+Returns the burn time in ticks for boats.
+minecraft:cooking/time_coal
+Returns the burn time in ticks for coal.
+minecraft:cooking/time_coal_block
+Returns the burn time in ticks for coal blocks.
+minecraft:cooking/time_dried_kelp_block
+Returns the burn time in ticks for dried kelp blocks.
+minecraft:cooking/time_dry_plants
+Returns the burn time in ticks for various dry plants.
+minecraft:cooking/time_hanging_signs
+Returns the burn time in ticks for hanging signs.
+minecraft:cooking/time_lava_bucket
+Returns the burn time in ticks for lava buckets.
+minecraft:cooking/time_roots
+Returns the burn time in ticks for mangrove roots.
+minecraft:cooking/time_wood_blocks
+Returns the burn time in ticks for wood blocks.
+minecraft:cooking/time_wood_items_extra_small
+Returns the burn time in ticks for very small wood items such as buttons.
+minecraft:cooking/time_wood_items_large
+Returns the burn time in ticks for large wood items such as doors.
+minecraft:cooking/time_wood_items_small
+Returns the burn time in ticks for small wood items such as bows.
+minecraft:cooking/time_wood_slabs
+Returns the burn time in ticks for wood slabs.
+minecraft:cooking/time_wool
+Returns the burn time in ticks for most wool blocks.
+minecraft:cooking/time_wool_carpets
+Returns the burn time in ticks for wool carpets.
+minecraft:cooking/time_wool_slabs
+Returns the burn time in ticks for wool slabs and cushions.
+minecraft:cooking/speed_default
+Returns the default speed multiplier for cooking fuel.
+minecraft:brewing/speed_default
+Returns the default speed multiplier for brewing fuel.
+minecraft:brewing/uses_default
+Returns the default number of brews provided by brewing fuel.
+Changed minecraft:number_dispatcher
+Fields:
+cases - a list of cases in the order that the dispatcher will try to execute them.
+Fields:
+condition - an inline value or a namespaced ID of a minecraft:predicate type.
+number_provider - an inline value or a namespaced ID of a minecraft:number_provider type which is executed if the condition is fulfilled.
+default - an optional inline value or a namespaced ID of a minecraft:number_provider type.
+Defaults to a constant 0 if omitted.
+Changed minecraft:conditional_value
+Fields:
+conditions - an inline value or a namespaced ID of a minecraft:predicate type.
+on_true - an inline value or a namespaced ID of a minecraft:number_provider type which is executed if its condition is fulfilled.
+on_false - an optional inline value or a namespaced ID of a minecraft:number_provider type.
+Defaults to a constant 0 if omitted.
+Changed minecraft:weighted_list
+Fields:
+distribution - a list of objects with the following fields.
+Fields:
+data - an inline value or a namespaced ID of a minecraft:number_provider type.
+weight - a positive integer
+Changed minecraft:uniform
+The min and max fields now accept an inline value or a namespaced ID of a minecraft:number_provider type.
+Changed minecraft:binomial
+The n and p fields now accept an inline value or a namespaced ID of a minecraft:number_provider type.
+Changed minecraft:sum
+The summands field now accepts an inline value, a single namespaced ID, a list of namespaced IDs, a list of inline values, or a hash-prefixed tag ID of a minecraft:number_provider type.
+Predicates
+
+The condition field (describing predicate type) has been renamed to type.
+Changed minecraft:all_of
+The terms field now accepts an inline value, a single namespaced ID, a list of namespaced IDs, a list of inline values, or a hash-prefixed tag ID of a minecraft:predicate type.
+Note: values of this type can no longer be shortened to a single list, a full object with type minecraft:all_of needs to be used explicitly.
+Changed minecraft:any_of
+The terms field now accepts an inline value, a single namespaced ID, a list of namespaced IDs, a list of inline values, or a hash-prefixed tag ID of a minecraft:predicate type.
+Changed minecraft:inverted
+The term field now accepts an inline value or a namespaced ID of a minecraft:predicate type.
+Changed minecraft:random_chance
+The chance field now accepts an inline value or a namespaced ID of a minecraft:number_provider type.
+Changed minecraft:value_check
+The value field now accepts an inline value or a namespaced ID of a minecraft:number_provider type.
+The min and max fields inside range structure now accept an inline value or a namespaced ID of a minecraft:number_provider type.
+Changed minecraft:time_check
+The min and max fields inside value structure now accept an inline value or a namespaced ID of a minecraft:number_provider type.
+Changed minecraft:entity_scores
+The min and max fields inside values of scores map now accept an inline value or a namespaced ID of a minecraft:number_provider type.
+Changed minecraft:damage_source_properties
+The predicate.tags.id field now accepts a single namespaced ID, a list of namespaced IDs, or a hash-prefixed tag ID of a minecraft:damage_type type.
+Removed minecraft:reference
+This condition has become obsolete, as any field that takes a loot condition now accepts (among other things) a namespaced ID to other conditions.
+Added vanilla predicates
+minecraft:block/fast_cooking
+Added minecraft:match_block condition type
+Matches block state and optionally block entity data and components (if present).
+Fields (same as elements of minecraft:can_place_on components):
+blocks – optional block id, list of namespaced block IDs, or hash-prefixed block tag to match.
+state: optional map of block state property keys to values to match.
+nbt: optional block entity NBT to match.
+match will fail if this field is present, but block entity is not available in context.
+components – optional map of exact components to match.
+match will fail if this field is present, but block entity is not available in context.
+predicates – optional map of component predicates to match.
+match will fail if this field is present, but block entity is not available in context.
+Removed minecraft:block_state_property condition type
+This has been fully replaced by minecraft:match_block
+Recipes
+
+The recipes for smokers and blast furnaces now use the same cooking time in their data definition as their furnace counterparts.
+The cooking time speedup is now done through the minecraft:cooking/speed_default number provider used by the furnace fuel components.
+Resource pack
+
+The version is now 92.0.
+Shaders
+
+Added new shaders to support order-independent transparency:
+core/oit_depth_bounds_cull.fsh
+Updated core shaders to support order-independent transparency.
+Introduced new defines:
+OIT_ALWAYS_WRITE_DEPTH - A boolean indicating that the OIT algorithm should always write depth for the executing pipeline during the depth bounds stag.
+core/integrate_depth.fsh was added and is used to integrate the "3d hud" and always-on-top gizmo depth buffers into the main depth buffer.
+Slot sources
+
+Changed minecraft:group
+The terms field now accepts an inline value, a single namespaced ID, a list of namespaced IDs, a list of inline values, or a hash-prefixed tag ID of a minecraft:slot_source type.
+Inline format of minecraft:group (previously only a list of inline slot source) can now also accept a list of namespaced IDs, a list of inline values, or a hash-prefixed tag ID of a minecraft:slot_source type.
+This format is now available consistently available for all fields of slot source.
+Changed minecraft:filtered
+The slot_source field now accepts an inline value or a namespaced ID of a minecraft:slot_source type.
+Changed minecraft:contents
+The slot_source field now accepts an inline value or a namespaced ID of a minecraft:slot_source type.
+Changed minecraft:limit_slots
+The slot_source field now accepts an inline value or a namespaced ID of a minecraft:slot_source type.
+Removed minecraft:reference
+This slot source has become obsolete, as any field that takes slot source now accepts (among other fields) a namespaced ID of a minecraft:slot_source type.
+Tags
+
+Removed the #brewing_fuel item tag.
+The brewing_fuel item component is now used to identify brewing fuels.
+Added value #all_signs to #blocks_fluid_flow block tag.
+Removed value #all_signs from #blocks_motion_no_leaves block tag.
+Twenty-one tags no longer have the function of adding an item like fuel item, due to cooking_fuel components.
+
+#logs, #bamboo_blocks, #planks, #wooden_stairs, #wooden_slabs, #wooden_trapdoors, #wooden_pressure_plates, #wooden_shelves, #wooden_fences, #fence_gates, #banners, #signs, #hanging_signs, #boats, #wool, #wool_stairs, #wool_slabs, #wooden_buttons, #saplings, #wool_carpets, and #cushions
+
+The tag #non_flammable_wood no longer prevents an item from being classified as fuel item.
+UI
+
+Removed the Raw Input mouse setting.
+Mouse input now always uses relative mouse mode while playing in-game.
+Key bindings now use physical keys instead of keyboard-layout-specific key codes.
+Borderless Fullscreen is now the default fullscreen mode.
+Switching between Borderless and Exclusive Fullscreen no longer requires restarting the game.
+Exclusive fullscreen mode on macOS is no longer supported.
+The minimum window size is now 320 by 240 pixels.
+On macOS, holding a key while entering text now displays the native accent and candidate popup.
+On Linux systems, the game will now use and prefer Wayland natively if available.
+Villager trade definition
+
+The given_item_modifiers field has been renamed to given_item_modifier
+Note: unlike other fields of type minecraft:item_modifier this field does not support namespaced element or tag IDs.
+World generation
+
+Biomes
+Removed the spawners, spawn_costs, and creature_spawn_probability fields.
+These values have been moved to the new environment attributes.
+Features
+Removed feature types:
+minecraft:nether_forest_vegetation
+minecraft:twisting_vines
+minecraft:weeping_vines
+Noise Settings
+The final_density field no longer has the beardifier density function implicitly added to the final result.
+The aquifers_enabled field has been replaced by an optional aquifers object:
+If not present, no aquifers will be generated.
+Fields:
+barrier - Density Function, moved from noise_router.barrier
+fluid_level_floodedness - Density Function, moved from noise_router.fluid_level_floodedness
+fluid_level_spread - Density Function, moved from noise_router.fluid_level_spread
+lava - Density Function, moved from noise_router.lava
+surface_level - Density Function, duplicated from noise_router.preliminary_surface_level
+exclusion - Density Function, any aquifer cell where this value is positive will have no fluid.
+The ore_veins_enabled field has been replaced by an optional list of ore_veins objects:
+If not present, no ore veins will be generated
+Fields:
+ore_block - Block State, the ore block to place
+raw_ore_block - Block State, the raw ore block to place.
+filler_block - Block State, the filler block to place.
+raw_ore_chance - float between 0 and 1, the probability for a raw_ore_block to be placed instead of an ore_block.
+density - Density Function, the probability between 0 and 1 for the ore vein to replace a block.
+If 0 or lower, no block will be replaced
+richness - Density Function, the probability between 0 and 1 for ore_block or raw_ore_block to be placed (as opposed to filler_block).
+If 0 or lower, all blocks will be filler_block.
+If 1 or greater, no blocks will be filler_block.
+filler_gap - Density Function, acts as an override to richness: if positive, filler_block will always be placed.
+The following fields from noise_router have been moved:
+barrier, fluid_level_floodedness, fluid_level_spread, lava - moved into aquifers field.
+vein_toggle, vein_ridged, vein_gap - moved into ore_veins field.
+Density Functions
+Updated constant
+argument has been renamed to value
+Updated add, mul, min, and max
+argument1 has been renamed to left.
+argument2 has been renamed to right.
+Updated abs, square, cube, half_negative, quarter_negative, squeeze, interpolated, flat_cache, cache_2d, cache_once, cache_all_in_cell, and blend_density density functions
+argument has been renamed to input.
+Updated shift_a, shift_b, and shift
+argument has been renamed to noise
+Added sub
+Performs subtraction between two arguments.
+Format: object with fields:
+left - Density Function, the left-hand side of the operation
+right - Density Function, the right-hand side of the operation
+Added div
+Performs division between two arguments.
+Format: object with fields:
+left - Density Function, the left-hand side of the operation.
+right - Density Function, the right-hand side of the operation.
+Updated reciprocal
+Renamed from invert
+Added negate
+Negates the input.
+Format: object with fields:
+input - Density Function, the function to negate.
+Added lerp
+Performs (unclamped) linear interpolation between two arguments based on an alpha.
+Format: object with fields:
+alpha - Density Function, the interpolation factor (0=first, 1=second)
+Any value outside of [0; 1] will extrapolate
+first - Density Function, the value at alpha=0
+second - Density Function, the value at alpha=1
+Added floor, round, ceil, and truncate
+Rounds the input value to an integer multiple of a given function in a type-dependent direction:
+floor: rounds towards negative infinity.
+round: rounds towards the nearest integer (ties round up).
+ceil: rounds towards positive infinity.
+truncate: rounds towards 0.
+Format: object with fields:
+input - Density Function, the input to round.
+multiple - Density Function, the output will be rounded to an integer multiple of this value.
+If not specified, defaults to constant 1 (i.e. rounding to integer).
+Added beardifier
+Outputs the structure bearding density. Generally summed together with the base terrain density to produce ground below, carve air around, or bury structures.
+Format: no fields
+Fixes
+76 issues fixed
+From released versions before 26.3
+
+MC-2157 – Particles emitted from dragon eggs when teleporting do not point in the correct direction.
+MC-40597 – The interaction of Minecraft's built-in fullscreen mode and macOS fullscreen can glitch the game window.
+MC-46421 – You cannot use nether portals, end portals, and end gateways while in Spectator mode.
+MC-58061 – Endermen can teleport onto signs.
+MC-110989 – /spreadplayers considers signs to be a valid block to be spread onto.
+MC-116286 – /spreadplayers can spread entities on structure void.
+MC-121278 – Keybindings (e.g. ⎈ Control + A) are being mapped to the US keyboard layout even if you're using another layout.
+MC-122477 – Opening the chat sometimes appends the character the used key types to the message on Linux.
+MC-133407 – Keybinds switch when upgrading to 1.13 if not using a QWERTY keyboard.
+MC-148541 – /spreadplayers can spread players to seagrass near the surface of the water.
+MC-149058 – Using hotkeys to move items into the anvil UI appends the character the used key types to the new item name.
+MC-212671 – Loot table tag entry with "expand": true does not apply functions.
+MC-252934 – Placing structures with item frames, paintings, or cushions logs Block-attached entity at invalid position: [BlockPosition].
+MC-263708 – Keybinds menu renders Keypad keys the same as regular keys.
+MC-266429 – Holding shift on macOS causes hotbar scroll direction to reverse (mouse only).
+MC-268521 – The game window doesn't have a minimal width and height.
+MC-269968 – Can't scroll while holding shift on macOS (except in the hotbar) (mouse only).
+MC-299019 – Using a Bed while riding a rideable mob causes the player to sleep either on the ground, or on top of the mob.
+MC-303493 – The apply_impulse entity effect does not apply components of the impulse that would cause the affected entity to hit a solid block when used with a tick or location_changed advancement trigger.
+MC-303789 – Looking directly up with an apply_impulse enchantment entity effect will limit the impulse's effect on the X and Z axes to only apply on one of the two horizontal axes.
+MC-306619 – Cannot jump while sneaking while using a Chinese input method.
+MC-308127 – The "Friends Screen" key bind overrides debug hotkeys using the same key.
+MC-308222 – Worldgen heightmaps do not persist properly through chunk saving/loading.
+MC-308469 – Hitting the ender dragon's head hitbox no longer causes the ender dragon to take more damage.
+MC-308804 – The input method does not switch to the corresponding CJK mode in the Create New World screen.
+MC-309891 – The chat_restriction.disabled_by_launcher string lacks a period, unlike similar strings.
+MC-309893 – The gamerule.minecraft.fire_spread_radius_around_player.description string lacks a period, unlike similar strings.
+MC-309897 – The gui.report_to_server string is improperly capitalized.
+MC-309898 – The editGamerule.inGame.discardChanges.title string is improperly capitalized.
+MC-309901 – The structure_block.position.x string is improperly capitalized.
+MC-309902 – Some strings contain stray spaces adjacent to line breaks.
+MC-309903 – The "Isn't It Iron Pick" advancement name is missing a question mark.
+MC-309907 – The word "whoosh" is mispelled as "woosh" in the subtitles.block.bubble_column.upwards_inside string.
+MC-309908 – The subtitles.entity.copper_golem.no_item_get string is missing an article before the word "item".
+MC-309914 – The commands.op.failed string has awkward and inconsistent adverb placement, unlike similar strings.
+MC-309915 – The commands.kick.owner.failed string is missing articles before the words "server" and "LAN".
+MC-309916 – Some /stopwatch strings incorrectly capitalize the word "Stopwatch" mid-sentence, which is inconsistent with other commands.
+MC-309919 – The mco.errorMessage.6002 string is improperly capitalized.
+MC-309920 – The mco.configure.world.close.question.line1 string is improperly capitalized.
+MC-309921 – The mco.snapshot.subscription.info string uses the "to" preposition instead of "with".
+MC-309922 – The advMode.trackOutput string is improperly capitalized.
+MC-309923 – The gamerule.minecraft.entity_drops.description string is improperly capitalized.
+MC-309924 – The argument.enum.invalid string surrounds the placeholder with double quotes instead of single quotes, unlike every other command.
+MC-309925 – The mount.onboard string is improperly capitalized.
+MC-309926 – The selectWorld.edit.backupSize string is improperly capitalized.
+MC-309927 – The gui.friends.error.unauthorized string lacks a period, unlike similar strings.
+MC-309928 – The multiplayer.confirm_command.signature_required string lacks a period.
+MC-309937 – The argument.pos.outofbounds string ends with a period, unlike similar strings.
+MC-309938 – The quickplay.error.invalid_identifier string is missing an article before the word "world".
+MC-309940 – The datapackFailure.safeMode.failed.title string ends with a period, unlike similar title strings.
+From the 26.3 development versions
+
+MC-309166 – Block breaking is delayed after hitting an entity in Survival/Adventure mode.
+MC-309394 – The game crashes when trying to render the item texture of a filled map in the world with the "Improved Transparency" option enabled.
+MC-309474 – Block displays do not display glass blocks when the "Improved Transparency" setting is enabled.
+MC-309475 – Shelf mushrooms held in the off hand are rotated incorrectly.
+MC-309506 – Blocks z-fight with the world border with the "Improved Transparency" option enabled.
+MC-309513 – The top texture of stripped poplar logs uses a different color from the middle of the top texture of poplar logs.
+MC-309521 – The texture of poplar hanging signs uses a recolored version of the texture of stripped pale oak instead of stripped poplar.
+MC-309522 – Translucent objects can be seen through glass block elements when the "Improved Transparency" option is enabled.
+MC-309524 – Drowned that are outside of water continue to aim their trident at players within 3 blocks of them.
+From the previous development version
+
+MC-309656 – Cushions can be placed on top of fire.
+MC-309659 – Cushions cannot be placed on the highest edge of a lectern.
+MC-309685 – Sleeping on the head part of a straw bed teleports the player to Y=-Infinity.
+MC-309686 – The game crashes when shooting some projectiles outside the vertical limits of the world.
+MC-309693 – The ender dragon appears to fly backwards until perching.
+MC-309695 – You can place cushions at any height inside cauldrons, composters, and hoppers.
+MC-309697 – The texture of the top half of poplar doors has a miscolored pixel on the hinge.
+MC-309703 – Breaking a cushion causes it to lose its custom name.
+MC-309707 – The texture of straw beds does not align with the texture of hay bales.
+MC-309718 – Mob positions permanently desync after tick sprinting.
+MC-309771 – The main target's depth buffer only contains the player's arm when fetched from post effects.
+MC-309790 – You can sleep while on a cushion.
+MC-309809 – Waxing a sign or a hanging sign doesn't play any sound.
+MC-309832 – Placed cushions do not respect the color tag in the entity_data component of the item used to place them.
+MC-309980 – Cushions last longer as fuel than in Bedrock Edition.
+MC-310045 – Opaque particles turn translucent when seen through experience orbs with the "Improved Transparency" option enabled.
+MC-310075 – The game crashes when placing a bee nest or beehive at the lowest height of the world.
+Videos
+Videos made by slicedlime:
+
+
+
+
+
+
+
+
+References
+
+ "Minecraft 26.3 Snapshot 4"     – Minecraft.net, July 16, 2026.
+
+Navigation

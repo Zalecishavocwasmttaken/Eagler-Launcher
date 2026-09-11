@@ -1,0 +1,94 @@
+/weather
+
+Permission levelrequired
+
+2 ‌[JE  only]
+1 ‌[BE  only]
+
+Restrictions
+
+Cheat only‌[BE  only]
+
+{
+    "title": "<code>/weather</code>",
+    "rows": [
+        {
+            "field": "\n* 2 ‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Java Edition\">(link to Java Edition article, displayed as JE)  only</span></i>]</sup>\n* 1 ‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Bedrock Edition\">(link to Bedrock Edition article, displayed as BE)  only</span></i>]</sup>",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "(link to Cheat article, displayed as Cheat) only‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Bedrock Edition\">(link to Bedrock Edition article, displayed as BE)  only</span></i>]</sup>",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+Sets the weather. In Bedrock Edition, it can also be used to get the current weather.
+
+Contents
+
+1 Syntax
+2 Arguments
+3 Result
+4 Output
+5 Examples
+6 History
+
+6.1 Java Edition
+6.2 Bedrock Edition
+
+7 External links
+8 Navigation
+
+Syntax
+Java Edition
+weather (clear|rain|thunder) [<duration>]
+Bedrock Edition
+weather <clear|rain|thunder> [duration: int]
+weather query
+Arguments
+clear|rain|thunder
+
+ clear – Set the weather to clear. And it will turn into thunder after the clear weather ends.
+ rain – Set the weather to rain (or snowfall in cold biomes). And it will turn into clear after the rain ends.
+ thunder – Set the weather to a thunderstorm (or blizzard in cold biomes). And it will turn into clear after the thunder ends.
+JE: <duration>: timeBE: duration: int: int
+
+Specifies the time for the specified weather to last.
+In Java Edition, if not specified, the duration defaults to a random value. The range of the random value depends on the specified weather type:
+clear - 12000 to 180000 ticks (both inclusive). i.e. 10 to 150 minutes (both inclusive).
+rain - 12000 to 24000 ticks (both inclusive). i.e. 10 to 20 minutes (both inclusive).
+thunder - 3600 to 15600 ticks (both inclusive). i.e. 3 to 13 minutes (both inclusive).
+In Bedrock Edition, the time is specified in game ticks. If 0 or not specified, the duration defaults to a random value between 300 seconds and 900 seconds.
+In Java Edition, it must be a single-precision floating-point number suffixed with a unit. It must be not less than 1 gameticks. Units include:d: an in-game day, 24000 gameticks;s: a second, 20 gameticks;t (default and omitable): a single gametick; the default unit.The time is set to the closest integer after unit conversion to gametick. For example. .5d is same as 12000 gameticks.In Bedrock Edition it must be a [Int] 32-bit integer number.    And it should be between 0 and 1000000 (inclusive).
+Result
+
+CommandTriggerJava EditionBedrock Edition
+
+AnyThe command is incomplete, or any argument is not specified correctly. Unparseable Unparseableduration: int is lower than 0 or higher than 1000000. N/A FailedOtherwiseSuccessful
+Output
+
+CommandEditionSituationSuccess Count/execute store success .../execute store result ...
+
+AnyJava EditionOn success11the specified duration (if unspecified, defaults to -1)Bedrock EditionOn fail0N/AN/AOn success1N/AN/A
+Examples
+To get clear weather for one Minecraft day: /weather clear 24000
+To make it rain, but let it end at its own pace: /weather rain
+History
+Java Edition
+Java Edition1.4.212w32a
+Added /weather.1.1317w45a
+If the player doesn't specify a time, it now defaults to 5 minutes (previously random).1.19.422w03a
+Now /weather uses time argument types rather than integer.
+
+Before this snapshot, the integer argument specifies a time in seconds. If not specified, the duration defaults to 5 minutes. If 0, resets to random weather duration.1.20.524w11a
+Now works in non-overworld dimensions.
+Bedrock Edition
+Pocket Edition Alphav0.16.0build 1
+Added /weather.Bedrock Edition1.18.30?
+The duration: int argument is now in ticks instead of seconds.
+External links
+"/weather Command"     – Microsoft Learn, August 1, 2024.
+Navigation

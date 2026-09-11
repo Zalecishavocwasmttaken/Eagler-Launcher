@@ -1,0 +1,219 @@
+Minecraft 23w44a
+
+Edition
+
+Java Edition
+
+Release date
+
+November 1, 2023
+
+Type
+
+Snapshot
+
+Snapshot for
+
+1.20.3
+
+Downloads
+
+Client (.json)Server
+
+Obfuscation maps
+
+ClientServer
+
+Protocol version
+
+ dec: 1073741985 hex: 400000A1
+
+Data version
+
+3688
+
+Resource pack format
+
+20
+
+Data pack format
+
+23
+
+Minimum Java version
+
+Java SE 17
+
+◄◄   1.20.2
+1.20.3
+  1.20.4 ►►
+
+◄   23w43b
+
+ 23w44a
+
+  23w45a ►
+
+{
+    "title": "Minecraft 23w44a",
+    "images": [
+        "23w44a.jpg",
+        "Java Edition 23w44a.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "November 1, 2023",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Snapshot article, displayed as Snapshot)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition 1.20.3 article, displayed as 1.20.3)",
+            "label": "Snapshot for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/678129d53a4eda1fef19d0ce362eb12b53bf2ea3/client.jar Client] ([https://piston-meta.mojang.com/v1/packages/c18d3537d1c262a5527126b317dcf6056f7d8e4d/23w44a.json .json])<br />[https://piston-data.mojang.com/v1/objects/009b4831cdda78d8f9b235265e45d0bf14a920da/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/605e3d758c89549ea2184a982d486462fe125e4a/client.txt Client]<br />[https://piston-data.mojang.com/v1/objects/0510a85cbc7b7a3e585c752e9d5bd5d6511f6221/server.txt Server]",
+            "label": "(link to Obfuscation map article, displayed as Obfuscation maps)"
+        },
+        {
+            "field": " <span style=\"font-size:smaller\"><abbr title=\"decimal\">dec</abbr>: </span>1073741985<br /> <span style=\"font-size:smaller\"><abbr title=\"hexadecimal\">hex</abbr>: </span>400000A1",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "3688",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "20",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "23",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Data pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_17_.28LTS.29 Java SE 17]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Java Edition  1.20.2|<span style=\"margin-right:-0.35em\">◄</span>◄   1.20.2]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition 1.20.3|1.20.3]]'''</td>\n<td style=\"padding: 0.4em\" >[[Java Edition  1.20.4|  1.20.4 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  23w43b|◄   23w43b]]\n</td>\n<td style=\"padding: 0.4em\">''' 23w44a'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  23w45a|  23w45a ►]]\n</td>\n</tr>\n</table>"
+}
+
+23w44a is the sixth snapshot for Java Edition 1.20.3, released on November 1, 2023, which makes tweaks to commands and fixes bugs.
+
+Contents
+
+1 Changes
+
+1.1 Blocks
+1.2 Mobs
+1.3 Command format
+1.4 General
+
+2 Experimental
+
+2.1 Changes
+
+2.1.1 Blocks
+
+3 Fixes
+4 Videos
+5 References
+6 Navigation
+
+Changes
+Blocks
+Decorated pots
+
+Now can utilize loot tables and read from the LootTable tag key.
+Mobs
+Bats
+
+The model of the bat has been changed to match Bedrock Edition.
+Command format
+/execute
+
+/execute (if|unless) function will no longer always fail if all functions had no return.
+If there were no /returns in called functions, if will fail and unless will pass.
+First /return in any of called functions will return (for a single context).
+/function
+
+If /function <function tag> runs multiple functions in combination with /return run, execution will stop after first /return in any of the functions.
+A single call to the /function command will always have return when run with /return run.
+For example, /return run execute [split context] run function <some function with conditional return> will always return after processing the first context.
+/return
+
+/return run now always return.
+If there are no valid results from returned command, function containing /return run fails (i.e. success=0 and result=0).
+/return run now propagates success value together with results value (previously it always set success to 1).
+/return run now also allows storing values, which means /execute store ... run return run some_command both stores value and returns it outside function.
+Added new subcommand /return fail, to make whole function fail (i.e. return success=0 and result=0).
+/tick
+
+The <time> parameter in the /tick step command is now optional. The default value is 1.
+General
+Data pack
+
+The pack format version is now 23.
+Experimental
+These changes only take effect when the Update 1.21 experimental data pack is enabled.
+
+Changes
+Blocks
+Chiseled copper
+
+Now can be crafted from a cut copper by stonecutting, resulting in a chiseled copper with the matching variant.
+Copper door and copper trapdoor
+
+Updated block and item textures for all variants.
+Tuff bricks, tuff brick slab, tuff brick stairs, and tuff brick wall
+
+Updated block and item textures.
+Fixes
+14 issues fixed
+From released versions before 1.20
+
+MC-219293 – When teleporting via Chorus Fruit, the burping and teleporting sounds play at the wrong location.
+MC-257516 – "Fox teleports" sound plays for both Players and Friendly Creatures sound categories.
+From the 1.20.3 development versions
+
+MC-265805 – Executing a tail-recursive function consumes memory resources linearly with recursion depth.
+MC-266052 – Subtitles for turning copper bulb on or off display raw translation string.
+MC-266053 – Subtitles for opening or closing a copper trapdoor display raw translation string.
+MC-266064 – Footsteps on Polished Tuff create missing subtitle.
+MC-266084 – Top of copper doors include an open part of the window.
+MC-266086 – Tuff bricks do not properly align with other bricks.
+MC-266105 – Bat head upside down when spawned while ticks are frozen.
+MC-266112 – New Bat's ears are lower than the official render and Bedrock's.
+MC-266117 – Chiseled copper cannot be stonecut from cut copper blocks.
+MC-266147 – Copper Door item texture is inconsistent with the block.
+From the previous development version
+
+MC-266197 – The "Transfer Now" button in the realms menu cannot be selected via keyboard navigation.
+MC-266215 – The pivot point of the head of the new bats is different from that of Bedrock's.
+Videos
+Videos made by slicedlime:
+
+
+
+
+
+
+
+
+References
+
+ "Minecraft Snapshot 23w44a"     – Minecraft.net, November 1, 2023.
+
+Navigation

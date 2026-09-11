@@ -1,0 +1,70 @@
+Not to be confused with Commands/debugmobspawning.
+
+
+
+This feature is exclusive to Java Edition. 
+
+
+
+This feature is intended for debugging purposes only, and should not be used during normal play. It might cause crashes and corrupt world saves.
+
+/debugpath
+
+Permission levelrequired
+
+2
+
+Restrictions
+
+-DMC_DEBUG_DEV_COMMANDS debug property
+
+{
+    "title": "<code>/debugpath</code>",
+    "rows": [
+        {
+            "field": "2",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "<code>-DMC_DEBUG_DEV_COMMANDS</code> (link to debug property article, displayed as debug property)",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+/debugpath is a command that can be enabled with the debug property -DMC_DEBUG_DEV_COMMANDS. It attempts to create a path for a mob to a specified position.
+
+Contents
+
+1 Syntax
+2 Arguments
+3 Result
+4 Output
+5 History
+6 Navigation
+
+Syntax
+debugpath <to>
+
+If the executor is a mob, attempts to create a path for that mob to the specified position, using its pathfinding algorithm. This does not cause the mob to try to pathfind to that position; it simply tests if such a path can be made.
+Arguments
+<to>: block_pos
+
+Specifies the block position the mob will attempt to pathfind to.
+Must be a block position composed of <X>, <Y> and <Z>, each of which must be an integer or a tilde and caret notation.
+Result
+
+CommandTriggerJava Edition
+
+AnyThe command is incomplete, or any argument is not specified correctly. UnparseableThe executor of the command is not a mob (i.e. it's a player, a mannequin, a command block, or the server itself). FailedA path from the execution position to the specified block position could not be made.The created path cannot be followed by the mob, due to obstacles.OtherwiseSuccessful
+Output
+
+CommandEditionSituationSuccess Count/execute store success .../execute store result ...
+
+AnyJava EditionOn fail000On success111
+History
+Java Edition1.21.9Pre-Release 1
+Added debug property -DMC_DEBUG_DEV_COMMANDS, making the command accessible in the vanilla game.
+Navigation

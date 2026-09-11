@@ -1,0 +1,308 @@
+This page covers a development version that has a major issue under certain conditions. 
+The dedicated server for this version has a security vulnerability in the Log4j library that could be used to perform a remote code execution exploit. It can be addressed by appending a certain JVM argument to the server startup command line.
+
+Minecraft 20w30a
+
+Edition
+
+Java Edition
+
+Release date
+
+July 22, 2020
+
+Type
+
+Snapshot
+
+Snapshot for
+
+1.16.2
+
+Downloads
+
+Client (.json)Server
+
+Obfuscation maps
+
+ClientServer
+
+Protocol version
+
+742
+
+Data version
+
+2572
+
+Resource pack format
+
+5
+
+Data pack format
+
+5
+
+Minimum Java version
+
+Java SE 8
+
+◄◄   1.16.1
+1.16.2
+  1.16.3 ►►
+
+◄   20w29a
+
+ 20w30a
+
+  1.16.2 Pre-release 1 ►
+
+{
+    "title": "Minecraft 20w30a",
+    "images": [
+        "20w30a.jpg",
+        "Java Edition 20w30a.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "July 22, 2020",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Snapshot article, displayed as Snapshot)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition 1.16.2 article, displayed as 1.16.2)",
+            "label": "Snapshot for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/60762a56f1552578d27b91df594ba2a8953dabcc/client.jar Client] ([https://piston-meta.mojang.com/v1/packages/97b01440f8964c8eee644953ea9eecc3d83b2c64/20w30a.json .json])<br />[https://piston-data.mojang.com/v1/objects/db5da41d9c5f6c0d839661269d70f5b8c1ff7d0a/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/a5a8ae491becf7fa134e2962f8abaeb277d200e6/client.txt Client]<br />[https://piston-data.mojang.com/v1/objects/bd3035b7f4004634f3a79a388a0a2c7f5130f1cb/server.txt Server]",
+            "label": "(link to Obfuscation map article, displayed as Obfuscation maps)"
+        },
+        {
+            "field": "742",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "2572",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "5",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "5",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Data pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_8_.28LTS.29 Java SE 8]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Java Edition  1.16.1|<span style=\"margin-right:-0.35em\">◄</span>◄   1.16.1]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition 1.16.2|1.16.2]]'''</td>\n<td style=\"padding: 0.4em\" >[[Java Edition  1.16.3|  1.16.3 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  20w29a|◄   20w29a]]\n</td>\n<td style=\"padding: 0.4em\">''' 20w30a'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  1.16.2 Pre-release 1|  1.16.2 Pre-release 1 ►]]\n</td>\n</tr>\n</table>"
+}
+
+20w30a is the fourth and final snapshot for Java Edition 1.16.2, released on July 22, 2020, which allows lanterns to be waterlogged and fixes several bugs.
+
+Contents
+
+1 Changes
+
+1.1 Blocks
+1.2 Mobs
+1.3 World generation
+1.4 Command format
+1.5 Gameplay
+1.6 General
+
+2 Fixes
+3 Videos
+4 Trivia
+5 References
+6 Navigation
+
+Changes
+Blocks
+Lanterns and soul lanterns
+
+Can now be waterlogged.
+Signs
+
+The sign editing screen is now initialized with the existing sign text when the sign is re-edited using third-party tools.
+Mobs
+Vexes
+
+The attack animation of unarmed vexes has been changed.
+World generation
+Bastion remnants
+
+Chest loot has been changed.
+Loot overall was improved; rarer items had their weights increased and many item amounts were increased. Many pools had their rolls increased as well.
+Removed all "empty" loot entries.
+Most items with damage had their average durability increased.
+Added enchanted golden axes, golden carrots, enchanted golden apple and blocks of iron to various loot tables.
+Hoglin stable chests may contain an enchanted diamond pickaxe.
+Removed iron nuggets from treasure chests.
+Unenchanted diamond armor in treasure chests is no longer damaged.
+Chests in bastion remnants are now more likely to be located on top of gilded blackstone.
+Command format
+/summon
+
+Added an error for attempting to summon an entity with a duplicate UUID: "Unable to summon entity due to duplicate UUIDs."
+Gameplay
+Advancements
+
+Can now modify the ":(" (advancements.sad_label) under the description of the empty advancement screen.
+Changed the capitalization of "Beacon" to "beacon" in the description of "Bring Home the Beacon."
+Changed the capitalization of "Compass" to "compass" in the description of "Country Lode, Take Me Home."
+Death messages
+
+Changed the death message for being shot by a skull from "<player> was shot by a <entity>'s skull" to "<player> was shot by a skull from <entity>."
+Respawning
+
+Changed how respawn positions are chosen for beds and respawn anchors.
+Respawn anchors now prioritize cardinal directions over corners.
+Beds now prioritize the side of the bed the player entered from, and then spaces circling around the foot of the bed up to the head of the bed.
+Respawning players now face the block they respawned at.
+Placing players onto dangerous blocks is now avoided when possible.
+General
+Data packs
+
+Changed some GUI text strings.
+Changed the second line of the data pack error message from "You can either try to load only with vanilla data pack ("safe mode") or go back to title screen and fix it manually." to "You can either try to load it with only the vanilla data pack ("safe mode"), or go back to the title screen and fix it manually."
+Minor grammatical changes were made.
+Changed "This pack was made for a newer version of Minecraft and may no longer work correctly." to "This pack was made for a newer version of Minecraft and may not work correctly." (pack.incompatible.confirm.new).
+Changed "Do you want to add following packs to Minecraft?" to "Do you want to add the following packs to Minecraft?" (pack.dropConfirm).
+Recipe book
+
+Changed capitalization in various text strings:
+"Right Click for more" to "Right Click for More."
+"Showing all" to "Showing All."
+"Showing craftable" to "Showing Craftable."
+"Showing smeltable" to "Showing Smeltable."
+"Showing blastable" to "Showing Blastable."
+"Showing smokable" to "Showing Smokable."
+"You died!" to "You Died!".
+"Game over!" to "Game Over!".
+"Title screen" to "Title Screen".
+"Spectate world" to "Spectate World".
+Subtitles
+
+Changed "Turtle shell thunks" to "Turtle Shell thunks" (subtitles.item.armor.equip_turtle).
+Tags
+
+Entries can now be marked as optional using "required": false.
+For example, values: ["#minecraft:beds", "minecraft:stone"] allows all beds and stone in the tag. This can also be written as values: [{id: "#minecraft:beds", "required": true}, {id: "minecraft:stone", "required": true}].[verify for Java Edition] Setting "required" to false makes either entry optional.
+Translation strings
+
+Capitalized various text strings.
+
+Show changes
+
+Changed "Back to title screen" to "Back to Title Screen" (gui.toTitle).
+Changed "Back to server list" to "Back to Server List" (gui.toList).
+Changed "Game paused" to "Game Paused" (menu.paused).
+Changed "Optimize world" to "Optimize World" (optimizeWorld.confirm.title).
+Changed "Now playing: <record>" to "Now Playing: <record>" (record.nowPlaying).
+Changed "Continue without support" to "Continue without Support" (options.graphics.warning.accept).
+Changed "Take me back" to "Take me Back" (options.graphics.warning.cancel).
+Changed "Spectate world" to "Spectate World" (deathScreen.spectate).
+Changed "Title screen" to "Title Screen" (deathScreen.titleScreen).
+Changed "You died!" to "You Died!" (deathScreen.title).
+Changed "Game over!" to "Game Over!" (deathScreen.title.hardcore).
+Changed "Level requirement: <level>" to "Level Requirement: <level>" (container.enchant.level.requirement).
+Changed "Save mode - write to file" to "Save Mode - Write to File" (structure_block.mode_info.save).
+Changed "Load mode - load from file" to "Load mode - Load from File" (structure_block.mode_info.load).
+Changed "Data mode - game logic marker" to "Data mode - Game Logic Marker" (structure_block.mode_info.data).
+Changed "Corner mode - placement and size marker" to "Corner Mode - Placement and Size Marker" (structure_block.mode_info.corner).
+Changed "Show invisible blocks:" to "Show Invisible Blocks:" (structure_block.show_air).
+Changed "Show bounding box:" to "Show Bounding Box:" (structure_block.show_boundingbox).
+Changed "Target pool:" to "Target Pool:" (jigsaw_block.pool).
+Changed "Target name:" to "Target Name:" (jigsaw_block.target).
+Changed "Joint type:" to "Joint Type:" (jigsaw_block.joint_label).
+Changed "Raiders remaining: <number>" to "Raiders Remaining: <number>" (event.minecraft.raid.raiders_remaining).
+Changed "Press <dismount> to dismount" to "Press <dismount> to Dismount" (mount.onboard).
+Changed "When in main hand:" to "When in Main Hand:" (item.modifiers.mainhand).
+Changed "When in off hand:" to "When in Off Hand:" (item.modifiers.offhand).
+Changed "When on feet:" to "When on Feet:" (item.modifiers.feet).
+Changed "When on legs:" to "When on Legs:" (item.modifiers.legs).
+Changed "When on body:" to "When on Body:" (item.modifiers.body).
+Changed "When on head:" to "When on Head:" (item.modifiers.head).
+Changed "World updates" to "World Updates" (gamerule.category.updates).
+
+Corrected punctuation in various text strings.
+Changed the description of Fabulous graphics: "Fabulous! graphics uses screen shaders for drawing weather, clouds and particles behind translucent blocks and water.[New Line]This may severely impact performance for portable devices and 4K displays." to "Fabulous! graphics uses screen shaders for drawing weather, clouds,  and particles behind translucent blocks and water.[New Line]This may severely impact performance for portable devices and 4K displays."
+Changed the description of Fancy graphics: "Fancy graphics balances performance and quality for the majority of machines.[New Line]Weather, clouds and particles may not appear behind translucent blocks or water." to "Fancy graphics balances performance and quality for the majority of machines.[New Line]Weather, clouds, and particles may not appear behind translucent blocks or water."
+Changed "Multiplayer is disabled, please check your launcher settings." to "Multiplayer is disabled. Please check your launcher settings." (title.multiplayer.disabled).
+Changed "Unable to switch gamemode, no permission" to "Unable to switch gamemode; no permission" (debug.creative_spectator.error).
+Changed "Unable to open game mode switcher, no permission" to "Unable to open game mode switcher; no permission" (debug.gamemodes.error).
+Changed "Reload failed, keeping old data" to "Reload failed; keeping old data" (commands.reload.failure).
+Corrected "Mojang" to "Mojang Studios" in the multiplayer warning message.
+Changed the description of Fast graphics to say "leaves" instead of "tree-leaves."
+Fixes
+29 issues fixed
+From released versions before 1.16
+
+MC-35765 – Text viewed in a right-to-left language while the game is set to another language renders backward and disconnected.
+MC-57869 – Some item tooltips use § for coloring, rendering them incorrect in right-to-left languages.
+MC-111702 – Memory leak with complex JSON text while chat is open.
+MC-116857 – Advancement descriptions use unnecessary capitalization on generic resource names.
+MC-148447 – Villagers often get stuck while trying to go through a door at the same time.
+MC-149060 – Villagers "spam" doors by opening and closing them really fast.
+MC-153195 – Mobs can drop items with duplicate enchantments.
+MC-181925 – Unarmed vexes raise their arms in an offensive way when attacking.
+From 1.16
+
+MC-187344 – Fast graphics tooltip has incorrect "tree-leaves" spelling.
+MC-187379 – Text for pack.incompatible.confirm.new makes no sense.
+MC-187380 – Incorrect grammar in en_us translation of pack.dropConfirm.
+MC-188389 – Several minor errors in datapackFailure.title.
+MC-188390 – Comma splices in four strings.
+MC-188392 – Death message for getting shot by a skull is not grammatically correct in all situations.
+MC-188621 – Mojang "Production Manager" credit is indented further than other credits.
+MC-188880 – Baby zombified piglins riding on chickens are not positioned properly.
+MC-189918 – Multiplayer warning uses "Mojang" instead of "Mojang Studios."
+MC-190102 – Some UI strings are not consistently capitalized.
+MC-190288 – Fabulous and Fancy graphics tooltips have missing commas.
+MC-191441 – Right-to-left text is rendered bottom-up in some cases.
+From 1.16.1
+
+MC-191562 – "Cancel" button overlaps "Done" button when uploading a world to Realms, making users unable to upload world.
+MC-192296 – Spider jockey from a spawner minecart crashes with java.lang.IllegalStateException: Entity is already tracked.
+MC-193276 – Player floats slightly above a strider while riding it.
+MC-193339 – NullPointerException during shutdown when rcon enabled with no password.
+From the 1.16.2 development versions
+
+MC-194273 – Save data of new Nether biomes is lost when upgrading a world to 20w28a or above.
+MC-194350 – Some feature configurations do not load in a datapack (java.lang.IllegalArgumentException: value already present: clh@77f95e19).
+From the previous development version
+
+MC-195052 – The angle argument in the /spawnpoint command does not use the minecraft:rotation parser.
+MC-195119 – Villages no longer generate in "Classic Flat" Superflat preset.
+MC-195582 – Typing a colon twice or after a slash in chat when specifying a function/item/block/etc. in a command crashes the game.
+Videos
+Video made by slicedlime:
+
+
+
+
+Trivia
+This snapshot, being the last for 1.16.2, was released on the same week of the year as the last snapshot for 1.3.1, 12w30e.
+References
+
+ "Important Message: Security vulnerability in Java Edition"     – Minecraft.net, December 10, 2021.
+
+ "Minecraft Snapshot 20w30a"     – Minecraft.net, July 22, 2020.
+
+Navigation

@@ -1,0 +1,165 @@
+Preview 1.19.60.23
+
+Edition
+
+Bedrock Edition
+
+Release date
+
+Windows, Android, Xbox - December 7, 2022 iOS, iPadOS - December 8, 2022
+
+Internal version
+
+Windows: 1.19.6023.0Xbox: 1.19.6023.70Android, iOS, iPadOS: 1.19.60.23
+
+Type
+
+Preview
+
+Preview for
+
+1.19.60
+
+Downloads
+
+ Server
+Windows
+Linux
+
+Protocol version
+
+562
+
+◄◄   1.19.51
+1.19.60
+  1.19.62 ►►
+
+◄   Preview 1.19.60.22
+
+ Preview 1.19.60.23
+
+  Preview 1.19.60.24 ►
+
+{
+    "title": "Preview 1.19.60.23",
+    "images": [
+        "Bedrock 1.19.60.23 PatchNotes.jpg",
+        "Bedrock 1.19.60.23.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Bedrock Edition article, displayed as Bedrock Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "'''Windows, Android, Xbox''' - December 7, 2022 <br>'''iOS, iPadOS''' - December 8, 2022",
+            "label": "Release date"
+        },
+        {
+            "field": "'''Windows''': 1.19.6023.0<br>'''Xbox''': 1.19.6023.70<br>'''Android, iOS, iPadOS''': 1.19.60.23",
+            "label": "Internal version"
+        },
+        {
+            "field": "Preview",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Bedrock Edition 1.19.60 article, displayed as 1.19.60)",
+            "label": "Preview for"
+        },
+        {
+            "field": "'''Server'''<br>\n[https://minecraft.net/bedrockdedicatedserver/bin-win-preview/bedrock-server-1.19.60.23.zip Windows]\n[https://minecraft.net/bedrockdedicatedserver/bin-linux-preview/bedrock-server-1.19.60.23.zip Linux]",
+            "label": "Downloads"
+        },
+        {
+            "field": "562",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Bedrock Edition  1.19.51|<span style=\"margin-right:-0.35em\">◄</span>◄   1.19.51]]</td>\n<td style=\"padding: 0.4em\">'''[[Bedrock Edition 1.19.60|1.19.60]]'''</td>\n<td style=\"padding: 0.4em\" >[[Bedrock Edition  1.19.62|  1.19.62 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Bedrock Edition  Preview 1.19.60.22|◄   Preview 1.19.60.22]]\n</td>\n<td style=\"padding: 0.4em\">''' Preview 1.19.60.23'''</td>\n<td style=\"padding: 0.4em\">\n[[Bedrock Edition  Preview 1.19.60.24|  Preview 1.19.60.24 ►]]\n</td>\n</tr>\n</table>"
+}
+
+Beta 1.19.60.23 (Android) or Preview 1.19.60.23 (Windows, iOS, iPadOS, Xbox) is the third beta/Preview version for Bedrock Edition 1.19.60, released on December 7-8, 2022, which fixes bugs.
+
+Contents
+
+1 Changes
+
+1.1 Blocks
+1.2 Technical
+
+2 Experimental
+
+2.1 Changes
+
+2.1.1 Blocks
+2.1.2 Technical
+
+3 Fixes
+4 References
+5 Navigation
+
+Changes
+Blocks
+Campfire
+
+Campfires no longer set players and mobs on fire.
+Technical
+Components
+
+Expanded minecraft:shooter component to define multiple projectiles that can specify different projectile definitions and condition filters.
+Exposed more fields to shooter component to allow for more projectile customization such as throw power, sounds, and whether the attack is a magic attack.
+Projectiles that teleport their owner will no longer do so while their owner is sleeping. (MCPE-161189)
+Molang
+
+Fixed a bug where dividing any value in Molang by a dynamically determined negative variable resulted in a division by a positive (absolute) value instead.
+This is a Molang Versioned Change that only takes effect for Molang expressions in packs that use a min_engine_version of 1.19.60 or higher.
+Experimental
+These additions and changes are accessible by enabling the "Beta APIs" and "Next Major Update" experimental toggle.
+
+Changes
+Blocks
+Chiseled Bookshelf
+
+Chiseled bookshelf no longer triggers observer blocks on world load.
+Technical
+API
+
+Added method setOnFire(seconds: number, useEffects?: boolean = true): boolean) which sets an entity on fire (if it is not in water or rain).
+Added method extinguishFire(useEffects?: boolean = true): void which extinguishes the fire.
+If an entity is on fire, you can call getComponent(minecraft:onfire) on it, which returns an object of type EntityOnFireComponent, which has a property onFireTicksRemaining.
+Fixed a bug where viewDirectionwould return the direction from the previous tick.
+Fixed a bug where getEntitiesFromViewDirectionwould use the direction from the previous tick.
+Fixed a bug where getBlockFromViewDirectionwould use the direction from the previous tick.
+Fixed a bug where headLocationwould return the location from the previous tick.
+Renamed ScriptScriptCommandMessageEvent to ScriptEventCommandMessageEvent.
+Fixes
+Blocks
+
+Respawn anchor no longer retains its charges if mined with Silk Touch or picked. (MCPE-145682)
+Scaffolding now displays particles and produces vibrations when the block under it is destroyed. (MCPE-163738)
+The sculk shrieker block's shriek sound can now be heard at the longer distance of 32 blocks. (MCPE-163989)
+Gameplay
+
+Bamboo sapling will no longer replace double plants when placed. (MCPE-99806)
+Campfires do not destroy minecarts and boats anymore. (MCPE-109489)
+Ender pearls will no longer teleport a sleeping player. (MCPE-161189)
+Graphical
+
+Players can no longer see through terrain by riding a horse, mule, or donkey at the edge of a 2-block-tall space. (MCPE-133984)
+Items
+
+Blocks that require supporting blocks now appear properly on a map when placed on partial blocks or above air. (MCPE-159713)
+Mobs
+
+Ravagers are now able to attack on various partial blocks like mud. (MCPE-162483)
+Glow squid now emit particles when spawned outside of water.
+User Interface
+
+Fixed structure block UI so the Y value field can be accessed with just the keyboard. (MCPE-164148)
+References
+
+ "Minecraft Beta & Preview - 1.19.60.23"     – Minecraft Feedback, December 7, 2022.
+
+Navigation

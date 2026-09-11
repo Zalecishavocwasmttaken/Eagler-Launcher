@@ -1,0 +1,1221 @@
+Plugin channels allow client mods and server plugins to communicate without cluttering up chat. This post by Dinnerbone is a good introduction and basic documentation.
+
+Contents
+
+1 Definitions
+
+1.1 Data Types
+
+1.1.1 Entity Path
+1.1.2 Path Node
+1.1.3 Block Box
+1.1.4 Chunk Section Position
+
+2 Channels internal to Minecraft
+
+2.1 Brand
+2.2 Debug/Path
+2.3 Debug/Neighbors Update
+2.4 Debug/Redstone Update Order
+2.5 Debug/Structures
+2.6 Debug/World Generation Attempt
+2.7 Debug/Add POI
+2.8 Debug/Remove POI
+2.9 Debug/Update POI
+2.10 Debug/Village Sections
+2.11 Debug/Goal Selector
+2.12 Debug/Brain
+2.13 Debug/Bee
+2.14 Debug/Hive
+2.15 Debug/Add Game Test Marker
+2.16 Debug/Clear Game Test Markers
+2.17 Debug/Raids
+2.18 Debug/Game Event
+2.19 Debug/Add Game Event Listener
+
+3 Notable community plugin channels
+
+3.1 Register
+3.2 Unregister
+3.3 "Common" standard
+
+3.3.1 Supported Versions
+3.3.2 Register
+
+3.4 BungeeCord
+3.5 Forge
+3.6 Fabric API
+3.7 WorldEdit CUI
+
+Definitions
+Data Types
+Entity Path
+Represents calculated path of entity.
+
+Field Name
+
+Field Type
+
+Notes
+
+Reaches Target
+
+Boolean
+
+Seems to always be true.
+
+Current node index
+
+Int
+
+Index in nodes that the entity is currently targeting.
+
+Target position
+
+Position
+
+The position that the entity is trying to reach as its destination.
+
+Nodes
+
+Prefixed Array of Path Node
+
+The nodes of this path.
+
+Target Nodes
+
+Prefixed Array of Path Node
+
+The nodes that the entity is targeting.
+
+Traversed Nodes
+
+Prefixed Array of Path Node
+
+The nodes that the entity has completed.
+
+Remaining Nodes
+
+Prefixed Array of Path Node
+
+The nodes that the entity needs to traverse.
+
+You can read more at A* search algorithm.
+
+Path Node
+Represents single point in path
+
+Field Name
+
+Field Type
+
+Notes
+
+X
+
+Int
+
+Y
+
+Int
+
+Z
+
+Int
+
+Distance from origin
+
+Float
+
+Sum of the length of the previous nodes + the length of this node
+
+Cost
+
+Float
+
+Has been visited
+
+Boolean
+
+Node type
+
+Int Enum
+
+See below
+
+Heap Weight
+
+Float
+
+Node type can be one of the following values:
+
+ID
+
+Type
+
+0
+
+Blocked
+
+1
+
+Open
+
+2
+
+Walkable
+
+3
+
+Walkable door
+
+4
+
+Trapdoor
+
+5
+
+Powder snow
+
+6
+
+Danger powder snow
+
+7
+
+Fence
+
+8
+
+Lava
+
+9
+
+Water
+
+10
+
+Water border
+
+11
+
+Rail
+
+12
+
+Unpassable rail
+
+13
+
+Danger fire
+
+14
+
+Damage fire
+
+15
+
+Danger other
+
+16
+
+Damage other
+
+17
+
+Open door
+
+18
+
+Closed wooden door
+
+19
+
+Closed iron door
+
+20
+
+Breach (water)
+
+21
+
+Leaves
+
+22
+
+Sticky honey
+
+23
+
+Cocoa
+
+24
+
+Damage cautious
+
+25
+
+Danger trapdoor
+
+Block Box
+Represents a box with integer precision
+
+Field Name
+
+Field Type
+
+Notes
+
+Min X
+
+Int
+
+must be less than max
+
+Min Y
+
+Int
+
+must be less than max
+
+Min Z
+
+Int
+
+must be less than max
+
+Max X
+
+Int
+
+must be more than min
+
+Max Y
+
+Int
+
+must be more than min
+
+Max Z
+
+Int
+
+must be more than min
+
+Chunk Section Position
+Represents a box with integer precision
+Note: What you are seeing here is the latest version of the Data types article, but the position type was different before 1.14.
+64-bit value split into three signed integer parts:
+
+x: 22 MSBs
+z: 22 middle bits
+y: 20 LSBs
+For example, a 64-bit position can be broken down as follows:
+Example value (big endian): 0000000000000000000000 0000000000000000000000 00000000000000000000
+
+The red value is the X coordinate, which is 0 in this example.
+The blue value is the Z coordinate, which is 0 in this example.
+The green value is the Y coordinate, which is 0 in this example.
+Encoded as follows:
+
+((x & 0x3FFFFF) << 42) | ((z & 0x3FFFFF) << 20) | (y & 0xFFFFF)
+
+And decoded as:
+
+val = read_long();
+x = val >> 42;
+z = val << 20 >> 42;
+y = val << 42 >> 42;
+
+Note: The above assumes that the right shift operator sign extends the value (this is called an arithmetic shift), so that the signedness of the coordinates is preserved. In many languages, this requires the integer type of val to be signed.
+
+Channels internal to Minecraft
+These are channels used by Minecraft. Most of them are debugging-related except for brand.
+
+Brand
+Announces the server and client implementation name right after a player has logged in.
+These brands are used in crash reports and a few other locations. It's recommended that custom clients and servers use their own brand names for the purpose of identification. The brand is not processed in any other way, and Notchian clients will connect to servers with different brands with no issue (the brand is not used to validate).
+The Notchian server sends a minecraft:brand packet right after it sends a Login (play) packet, and the Notchian client sends it right after receiving a Login (play) packet. However, some modified clients and servers will not send this packet (or will take longer to send it than normal), so it is important to not crash if the brand has not been sent. Additionally, the brand may change at any time (for instance, if connected through a BungeeCord instance, you may switch from a server with one brand to a server with another brand without receiving a Login (play) packet).
+
+Channel
+
+Bound to
+
+Field Name
+
+Field Type
+
+Notes
+
+minecraft:brand
+
+Two-way
+
+Channels
+
+String (32767)
+
+The brand of the server/client. The Notchian value is "vanilla".
+
+Debug/Path
+The rendering as seen in the snapshot 16w14a announcement.
+Never sent by the Notchian server. Requires modifications to the client to render.
+
+Channel
+
+Bound to
+
+Field Name
+
+Field Type
+
+Notes
+
+minecraft:debug/path
+
+Client
+
+Entity ID
+
+Int
+
+ID of the entity that is traversing the path.
+
+Path
+
+Entity Path
+
+Node reach proximity
+
+Float
+
+The current node is rendered red; the others are rendered blue. The target position is rendered as a green cube.
+
+Debug/Neighbors Update
+Never sent by the Notchian server. Requires modifications to the client to render.
+
+Channel
+
+Bound to
+
+Field Name
+
+Field Type
+
+Notes
+
+minecraft:debug/path
+
+Client
+
+Time
+
+VarLong
+
+World timestamp at which the update occurred. 200 ticks after this timestamp, the given update stops rendering.
+
+Location
+
+Position
+
+Location of the block that updated.
+
+Debug/Redstone Update Order
+Never sent by the Notchian server. Requires modifications to the client to render.
+
+Channel
+
+Bound to
+
+Field Name
+
+Field Type
+
+Notes
+
+minecraft:debug/redstone_update_order
+
+Client
+
+Time
+
+VarLong
+
+World timestamp at which the update occurred. 200 ticks after this timestamp, the given update stops rendering.
+
+Wires
+
+Location
+
+Prefixed Array
+
+Position
+
+Location of the redstone wire.
+
+Orientation
+
+VarInt
+
+Packed orientation. (unknown format)
+
+Debug/Structures
+Used to debug structures. Never sent by the Notchian server. Requires modifications to the client to render.
+Adds a single new structure, which will always be rendered if the player is in the same dimension.
+
+Channel
+
+Bound to
+
+Field Name
+
+Field Type
+
+Notes
+
+minecraft:debug/structures
+
+Client
+
+Dimension
+
+VarInt
+
+The ID of the type of dimension in the minecraft:dimension_type registry
+
+Box
+
+Block Box
+
+Main box for the structure (rendered in white).
+
+Sub-boxes
+
+Box
+
+Prefixed Array
+
+Block box
+
+Starting piece
+
+Boolean
+
+If true, the sub-box is rendered in green, otherwise in blue.
+
+Debug/World Generation Attempt
+Used to debug something with world generation. Never sent by the Notchian server. Requires modifications to the client to render.
+Adds a colored cube of the list of things to render. This cube is never removed.
+
+Channel
+
+Bound to
+
+Field Name
+
+Field Type
+
+Notes
+
+minecraft:debug/worldgen_attempt
+
+Client
+
+Location
+
+Position
+
+The center of the location to render.
+
+Size
+
+Float
+
+Diameter/side length of a cube to render.
+
+Red
+
+Float
+
+Red value to render, from 0.0 to 1.0.
+
+Green
+
+Float
+
+Green value to render, from 0.0 to 1.0.
+
+Blue
+
+Float
+
+Blue value to render, from 0.0 to 1.0.
+
+Alpha
+
+Float
+
+Alpha value to render, from 0.0 to 1.0.
+
+Debug/Add POI
+Used to add debugging POI. Never sent by the Notchian server. Requires modifications to the client to render.
+
+Channel
+
+Bound to
+
+Field Name
+
+Field Type
+
+Notes
+
+minecraft:debug/poi_added
+
+Client
+
+Location of POI
+
+Position
+
+POI Type
+
+String (32767)
+
+Type of POI, see the POI article.
+
+Free tickets
+
+Int
+
+Debug/Remove POI
+Used to remove debugging POI. Never sent by the Notchian server. Requires modifications to the client to render.
+
+Channel
+
+Bound to
+
+Field Name
+
+Field Type
+
+Notes
+
+minecraft:debug/poi_ticket_count
+
+Client
+
+Location of POI
+
+Position
+
+Debug/Update POI
+Used to set amount of free tickets for a given POI. Never sent by the Notchian server. Requires modifications to the client to render.
+
+Channel
+
+Bound to
+
+Field Name
+
+Field Type
+
+Notes
+
+minecraft:debug/poi_ticket_count
+
+Client
+
+Location of POI
+
+Position
+
+Free tickets
+
+Int
+
+Debug/Village Sections
+Used to add/remove Village Sections. Never sent by the Notchian server. Requires modifications to the client to render.
+
+Channel
+
+Bound to
+
+Field Name
+
+Field Type
+
+Notes
+
+minecraft:debug/village_sections
+
+Client
+
+Sections to add
+
+Specified Array of Chunk Section Position
+
+Sections to remove
+
+Specified Array of Chunk Section Position
+
+Debug/Goal Selector
+Used to debug goals of entities. Never sent by the Notchian server. Requires modifications to the client to render.
+Adds multiple lines of text on the given location, spaced by 0.25 units upward on the Y-axis.
+
+Channel
+
+Bound to
+
+Field Name
+
+Field Type
+
+Notes
+
+minecraft:debug/goal_selector
+
+Client
+
+Entity ID
+
+Int
+
+Location
+
+Position
+
+The location of the goal selector.
+
+Goals
+
+Priority
+
+Prefixed Array
+
+Int
+
+Currently unused
+
+Is running
+
+Boolean
+
+Defines the color of the text. #00FF00 if true, #CCCCCC otherwise.
+
+Name
+
+String (255)
+
+Debug/Brain
+Used to debug villagers but renders on any entity with a brain. Never sent by the Notchian server. Requires modifications to the client to render.
+
+Channel
+
+Bound to
+
+Field Name
+
+Field Type
+
+Notes
+
+minecraft:debug/brain
+
+Client
+
+Unique ID
+
+UUID
+
+Entity ID
+
+Int
+
+Name
+
+String (32767)
+
+A randomly generated name using the UUID.
+
+Profession
+
+String (32767)
+
+Experience
+
+Int
+
+Health
+
+Float
+
+Max Health
+
+Float
+
+X
+
+Double
+
+Y
+
+Double
+
+Z
+
+Double
+
+Inventory
+
+String (32767)
+
+Doesn't render if empty
+
+Path
+
+Prefixed Optional Entity Path
+
+Wants golem
+
+Boolean
+
+Anger level
+
+Integer
+
+Possibly used for the warden.
+
+Possible activities
+
+Specified Array of String (32767)
+
+Running tasks
+
+Specified Array of String (32767)
+
+Memories
+
+Specified Array of String (32767)
+
+Gossips
+
+Specified Array of String (32767)
+
+POIs
+
+Specified Array of Position
+
+Potential POIs
+
+Specified Array of Position
+
+Debug/Bee
+Used to debug bee pathfinding to hives and flowers. Never sent by the Notchian server. Requires modifications to the client to render.
+
+Channel
+
+Bound to
+
+Field Name
+
+Field Type
+
+Notes
+
+minecraft:debug/bee
+
+Client
+
+Unique ID
+
+UUID
+
+Entity ID
+
+Int
+
+X
+
+Double
+
+Y
+
+Double
+
+Z
+
+Double
+
+Path
+
+Prefixed Optional Entity Path
+
+Hive position
+
+Prefixed Optional Position
+
+Flower position
+
+Prefixed Optional Position
+
+Travel ticks
+
+Int
+
+Goals
+
+Specified Array of String (32767)
+
+Blacklisted hives
+
+Specified Array of Position
+
+Debug/Hive
+Used to debug hives. Never sent by the Notchian server. Requires modifications to the client to render.
+
+Channel
+
+Bound to
+
+Field Name
+
+Field Type
+
+Notes
+
+minecraft:debug/hive
+
+Client
+
+Location
+
+Position
+
+Hive type
+
+String (32767)
+
+Occupant count
+
+Int
+
+Honey level
+
+Int
+
+Sedated
+
+Boolean
+
+Debug/Add Game Test Marker
+Used to set different debug markers in the world. Never sent by the Notchian server. This interestingly renders without problems since 1.16.5.
+
+Channel
+
+Bound to
+
+Field Name
+
+Field Type
+
+Notes
+
+minecraft:debug/game_test_add_marker
+
+Client
+
+Location
+
+Position
+
+Color
+
+Int
+
+ARGB with each channel having 8 bits.
+
+Text
+
+String (32767)
+
+The text to display above the given location.
+
+Lifetime
+
+Int
+
+Given in milliseconds.
+
+Debug/Clear Game Test Markers
+Clears all debug markers.
+
+Channel
+
+Bound to
+
+Field Name
+
+Field Type
+
+Notes
+
+minecraft:debug/game_test_clear
+
+Client
+
+no fields
+
+Debug/Raids
+Used to set debug raid centers. Never sent by the Notchian server. Requires modifications to the client to render.
+
+Channel
+
+Bound to
+
+Field Name
+
+Field Type
+
+Notes
+
+minecraft:debug/raids
+
+Client
+
+Locations
+
+Prefixed Array of Position
+
+Locations of raid centers.
+
+Debug/Game Event
+Never sent, but used to debug game events. Never sent by the Notchian server. Requires modifications to the client to render.
+
+Channel
+
+Bound to
+
+Field Name
+
+Field Type
+
+Notes
+
+minecraft:debug/game_event
+
+Client
+
+Game event type
+
+VarInt
+
+The ID of the type of game_event in the minecraft:game_event registry
+
+X
+
+Double
+
+Y
+
+Double
+
+Z
+
+Double
+
+Debug/Add Game Event Listener
+Used to add game event listeners. Never sent by the Notchian server. Requires modifications to the client to render.
+
+Channel
+
+Bound to
+
+Field Name
+
+Field Type
+
+Notes
+
+minecraft:debug/game_event_listeners
+
+Client
+
+Listener type
+
+VarInt
+
+The ID of the type of position_source_type in the minecraft:position_source_type registry
+
+Listener data
+
+Listener data
+
+See below.
+
+Listener range
+
+VarInt
+
+Listener data for a block:
+
+Field Name
+
+Field Type
+
+Notes
+
+Location
+
+Position
+
+Listener data for an entity:
+
+Field Name
+
+Field Type
+
+Notes
+
+Entity ID
+
+VarInt
+
+Y offset
+
+Float
+
+The y offset from the entity's position.
+
+Notable community plugin channels
+Channels listed in this section are not used by the vanilla Minecraft client or server. This is just a likely-incomplete list of channels used by mods/plugins popular within the Minecraft community.
+
+Register
+
+Channel
+
+Bound to
+
+Field Name
+
+Field Type
+
+Notes
+
+minecraft:register
+
+Two-way
+
+Channels
+
+Byte Array
+
+An ASCII (sometimes UTF-8) string without a length prefix containing the channels separated by \u0000
+
+Allows the client or server to register for one or more custom channels, indicating that data should be sent on those channels if the receiving end supports it too. This format is used on Bukkit, BungeeCord, Velocity and Fabric API.
+
+Unregister
+
+Channel
+
+Bound to
+
+Field Name
+
+Field Type
+
+Notes
+
+minecraft:unregister
+
+Two-way
+
+Channels
+
+Byte Array
+
+An ASCII (sometimes UTF-8) string without a length prefix containing the channels separated by \u0000
+
+Allows the client or server to unregister from one or more custom channels, indicating that the receiving end should stop sending data on those channels. This format is used on Bukkit, BungeeCord, Velocity and Fabric API.
+
+"Common" standard
+The common standard was created by the FabricMC, NeoForged, PaperMC and SpongePowered team because the current register channel lacked the game phase. It is currently used by Fabric API and NeoForge. The current version of the standard is 1, which contains the following payloads:
+
+Supported Versions
+
+Channel
+
+Bound to
+
+Field Name
+
+Field Type
+
+Notes
+
+c:version
+
+Two-way
+
+Supported Versions
+
+Prefixed Array of Integer
+
+Register
+
+Channel
+
+Bound to
+
+Field Name
+
+Field Type
+
+Notes
+
+c:register
+
+Two-way
+
+Common Version
+
+Integer
+
+The highest version that both the client and the server supports.
+
+Phase
+
+String
+
+"play" or "configuration"
+
+Channels
+
+Prefixed Array of Identifier
+
+Note: this standard only supports registering channels, not unregistering.
+
+BungeeCord
+bungeecord:main
+Formerly BungeeCord; additionally, note that the channel name is remapped by spigot so that the old name can still be used in plugins.
+See here
+
+Forge
+Main page: Minecraft Wiki:Projects/wiki.vg merge/Minecraft Forge Handshake
+fml:handshake, fml:play
+Previously FML|HS, FML
+Used by Minecraft Forge to negotiate required mods, among other things.
+fml:handshake and fml:play
+
+Fabric API
+fabric:accepted_attachments_v1, fabric:attachment_sync_v1, fabric:custom_ingredient_sync and much more
+
+WorldEdit CUI
+Main article: /WorldEditCUI
+worldedit:cui
+Used by the server-side WorldEdit and the client-side WorldEditCUI to coordinate selections.
+
+
+
+This article is licensed under a Creative Commons Attribution-ShareAlike 3.0 license. 
+This article has been imported from wiki.vg or is a derivative of such a page. Thus, the wiki's usual license does not apply.Derivative works must be licensed using the same or a compatible license.

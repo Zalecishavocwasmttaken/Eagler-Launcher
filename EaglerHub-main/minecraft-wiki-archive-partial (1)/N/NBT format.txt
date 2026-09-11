@@ -1,0 +1,750 @@
+For NBT path format, see NBT path.
+
+The Named Binary Tag (NBT) is a tree data structure used by Minecraft in many save files to store arbitrary data. The format comprises a handful of tags. Tags have a numeric type ID, a name, and a payload. A user-accessible version in the form of strings is the stringified Named Binary Tag (SNBT) format.
+
+Contents
+
+1 SNBT format
+
+1.1 Data types
+1.2 Number format
+
+1.2.1 Signedness suffixes
+
+1.3 Escape sequences
+1.4 Operations
+
+2 NBT object
+
+2.1 Generating NBT object
+2.2 Conversion to SNBT
+2.3 Conversion from SNBT
+2.4 Modifying entity/block based on NBT object
+2.5 Testing NBT tags
+
+3 Binary format
+
+3.1 TAG definition
+3.2 Usage
+
+3.2.1 Uses
+
+4 JSON and NBT
+
+4.1 Conversion from JSON
+4.2 Conversion to JSON
+
+5 Official software
+6 History
+7 Notes
+8 References
+9 External links
+10 Navigation
+
+SNBT format
+
+
+
+This section is a work in progress. 
+Please help expand and improve it. The talk page may contain suggestions.Note: Some sections might have to be written differently.
+
+
+
+
+
+This feature is exclusive to Java Edition. 
+
+String Named Binary Tag (SNBT), is the stringified representation of any NBT data tag. It is often used in commands in Java Edition. The root tag is most commonly a map, also known as a compound holding key-value pairs enclosed in curly braces (see below for details). An example of SNBT is specifying complex data for entities with commands.
+
+Example: {
+  key1: 123,
+  'key2': 'somevalue1',
+  "key3": {
+    subkey1: 0x1C8,
+    "subkey2": "somevalue2"
+  }
+}
+
+Data types
+
+SNBT Data Types
+
+Type
+
+Description
+
+Format
+
+Example
+
+[Byte] Byte
+
+A signed 8-bit integer, ranging from -128 to 127 (inclusive).
+
+<number>b or <number>B
+
+34B, -20b
+
+[Boolean] Boolean
+
+NBT has no boolean data type, but byte value 0 and 1 can be represented as true, false. When a byte field is used as a boolean value, [Boolean] icon is shown.
+
+true, false
+
+true
+
+[Short] Short
+
+A signed 16-bit integer, ranging from -32,768 to 32,767 (inclusive).
+
+<number>s or <number>S
+
+31415s, -27183s
+
+[Int] Int
+
+A signed 32-bit integer, ranging from -2,147,483,648 to 2,147,483,647 (inclusive).
+
+<integer_number>, <number>i or <number>I
+
+31415926
+
+[Long] Long
+
+A signed 64-bit integer, ranging from -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807 (inclusive).
+
+<number>l or <number>L
+
+31415926l
+
+[Float] Float
+
+A 32-bit, single-precision floating-point number, ranging from -3.4E38 to +3.4E38.
+See IEEE floating point on Wikipedia for details.
+
+<number>f or <number>F
+
+3.1415926f
+
+[Double] Double
+
+A 64-bit, double-precision floating-point, ranging from -1.79E308 to +1.79E308.
+See IEEE floating point on Wikipedia for details.
+
+<decimal_number>, <number>d or <number>D
+
+3.1415926
+
+[String] String
+
+A sequence of characters
+
+A string of characters, enclosed in double quotes " or single quotes '.
+Quote enclosure is optional if the string contains only 0-9, A-Z, a-z, _, -, ., and + characters, and if the string does not begin with 0-9, -, ., or +.
+Nested quotes of the same type used for enclosure can be included within the string by escaping the character with a backslash (\" or \'). Backslashes can be included in a string by escaping them with a second backslash (\\).
+Strings enclosed in quotes also accept a number of other escape sequences for representing characters such as \n for line feeds. See § Escape sequences for more information.
+<[a-zA-Z0-9_\-\.\+] text>, "<text>" (" within needs to be escaped to \"), or '<text>' (' within needs to be escaped to \')
+
+"Hello \"World!\""
+'Hello "World!"'
+'Hello \'World!\''
+"Hello 'World!'"
+
+[NBT List / JSON Array] List
+
+An ordered list of tags of the same type*.
+
+Unnamed tags enclosed in square brackets and delimited by commas.
+In SNBT, heterogenous lists (a list containing more than one type of tag) may be written and are handled as expected at runtime; but when saved to NBT, any non-compound entries are saved as a compound with a single empty key paired with that value. For example, [1,"abc"] represents [{"":1},{"":"abc"}].
+[<value>,<value>,...]
+
+[3.2,64.5,129.5]
+
+[NBT Compound / JSON Object] Compound
+
+An unordered list of attribute-value pairs.
+Each tag can be of any type.
+
+Named tags enclosed in double quotes " or single quotes '
+The key (tag name) can be unquoted if it contains only 0-9, A-Z, a-z, _, -, ., and + characters. Otherwise, the key should be quoted and use the same formatting rules as strings.
+{<[a-zA-Z0-9_\-\.\+] tag_name>:<value>,"<tag name>":<value>,...}
+
+{X:3,Y:64,Z:129}
+{foo: 1, bar: "abc", baz: {}}
+
+[Byte Array] Byte Array
+
+An ordered list of 8-bit integers. Note that [B;1b,2b,3b] and [1b,2b,3b] are considered different types: the second one is a [NBT List / JSON Array] list.
+
+B; followed by an ordered list of byte tags, delimited by commas. Tag is enclosed in square brackets. Note that booleans are not acceptable values in this list.
+[B;<byte>b,<byte>B,...]
+
+[B;1b,2b,3b]
+
+[Int Array] Int Array
+
+An ordered list of 32-bit integers. Note that [I;1,2,3] and [1,2,3] are considered different types: the second one is a [NBT List / JSON Array] list.
+
+I; followed by an ordered list of int tags, delimited by commas. Byte and short tags may also be used. Tag is enclosed in square brackets.
+[I;<integer>,<integer>i,...]
+
+[I;1,2,3]
+[I;1b,2s,3i]
+
+[Long Array] Long Array
+
+An ordered list of 64-bit integers. Note that [L;1l,2l,3l] and [1l,2l,3l] are considered different types: the second one is a [NBT List / JSON Array] list.
+
+L; followed by an ordered list of long tags, delimited by commas. Byte, short, and int tags may also be used. Tag is enclosed in square brackets.
+[L;<long>l,<long>L,...]
+
+[L;1l,2l,3l]
+[L;1b,2s,3i,4l]
+
+Number format
+There are many other ways to represent a number:
+
+Either whole or fraction parts of a float number can be omitted (e.g. .1 and 1.).
+Float numbers can use E notation (e.g. 1.2e3, 87E48, and 0.1e-1).
+Integer numbers can be prefixed with 0x or 0b to represent a hexadecimal number or a binary number, respectively (e.g. 0xbad, 0xCAFE, and 0b101).
+Numbers can contain _ character between sequences of digits, but not at the start or the end of sequence (e.g. 0b10_01, 0xAB_CD, 1_2.3_4__5f, and 1_2e3_4).
+Signedness suffixes
+Besides the data type suffixes (i.e. b for byte, L for long, etc), there is also signedness suffixes (u and U for unsigned integers, s and S for signed integers). These suffixes cannot be used on decimal numbers; only integers. The method used for representing signed integers is Two's complement.
+If these suffixes are used, there must always be a data type suffix after the signedness suffix. If not used, defaults to signed.
+If two suffixes are present on an integer, from left to right, the first suffix represents the signedness of the value and the second suffix represents the data type. If only one suffix is present, the suffix represents the data type.
+Examples:
+
+-16b, -16sb, and 240uB all represent byte value -16.
+15s, 15sS, and 15Us all represent short value 15.
+82u, -87uI, 30bu, and 253sb are all incorrect and give errors.
+Escape sequences
+Minecraft supports 13 escape sequences. Here is a list of all of them:
+
+Escape sequence
+Hex value in ASCII
+Character represented
+
+\b
+08
+Backspace
+
+\f
+0C
+Formfeed
+
+\n
+0A
+Newline (Line Feed)
+
+\r
+0D
+Carriage Return
+
+\s
+20
+Space ( )
+
+\t
+09
+Horizontal Tab
+
+\\
+5C
+Backslash (\)
+
+\'
+27
+Apostrophe or single quotation mark (')
+
+\"
+22
+Double quotation mark (")
+
+\xhh
+hh
+Unicode code point below 0x100 (256 in decimal) (e.g. \x42 for U+0042)
+
+\uhhhh
+non-ASCII
+Unicode code point below 0x1_0000 (65536 in decimal) (e.g. \u2604 for U+2604)
+
+\Uhhhhhhhh
+non-ASCII
+Unicode code point below 0x1_0000_0000(4 294 967 296 in decimal) (e.g. \U00051020 for U+51020)
+
+\N{<name>}
+non-ASCII
+The character with the specified name (e.g. \N{Snowman})
+
+Operations
+SNBT currently only supports 2 operations:
+
+bool(arg) - Converts argument to boolean. Argument can only be a number or a boolean.
+If argument is a boolean value, returns value directly.
+If argument is a number value, returns false if it's 0, otherwise returns true.
+Examples:
+bool(true) → true
+bool(5) → true
+bool(0) → false
+bool("foo") → error
+uuid(str) - Converts string representation of UUID to integer array.
+Example: uuid("f81d4fae-7dec-11d0-a765-00a0c91e6bf6") -> [I; -132296786, 2112623056, -1486552928, -920753162]
+NBT object
+When the game is running, entities and block entities in loading chunks are stored in the memory. They are not stored with NBT, as it is a serialization format.
+When processing NBT operations, the game generates NBT objects from entities/block entities, parses the provided SNBT into NBT, and then modify the entities/blocks using it.
+
+Generating NBT object
+When generating NBT from an entity/block, the entity/block's properties are added into programmatic NBT object.
+Note that not all properties are added. For example, the value of whether a player is opening a chest won't be added into NBT object.
+A value is added with certain data type. For example, a resource location is converted to a string value.
+These NBT objects are also stored into game's save files as NBT files when the game quits or automatically saves. So the data structures that NBT tags describe and the data type for each tag are basically the same ones used in game's save files. These data structures are described in other articles and commands expect data tags to use the same attribute names (which are case-sensitive):
+
+Data Structure Specification Links
+
+Objects
+
+Examples
+
+Block entities
+
+chests, furnaces, command blocks, mob spawners, signs, etc.
+
+Items
+
+items in inventories (includes specifications for enchantments, lore, custom names, etc.)
+
+Item entities
+
+items on the ground
+
+Mobs
+
+creepers, cows, villagers, etc.
+
+Projectiles
+
+arrows, fireballs, thrown potions, etc.
+
+Vehicles
+
+boats, minecarts, etc.
+
+Dynamic tiles
+
+primed TNT, falling sand/gravel/concrete powder/anvils
+
+Other entities
+
+firework rockets, paintings, and item frames
+
+Conversion to SNBT
+
+
+
+This feature is exclusive to Java Edition. 
+
+A programmatic NBT object would be converted to a SNBT when trying to get it with /data get etc.
+After converted, a number is always followed by a letter (lowercase for b, s, f, d, and uppercase for L) except [Int] Integer. For example, 3s for a short, 3.2f for a float, etc.
+And a string is always enclosed by double or single quotes. If the string does not contain any quote marks, double quotes are used. If the string contains a double quote then single quotes are used, and vice versa. If the string contains both then the opposite of the first instance of either in the string is used (e.g. if a " appears before a ' then the string will be enclosed in single quotes)
+Other data types are expressed as the #Data types table above.
+
+Conversion from SNBT
+
+
+
+This feature is exclusive to Java Edition. 
+
+An SNBT is converted to a programmatic NBT object when parsed by the game.
+A number that followed by a letter (B, S, L, F, D, or their lowercase) is resolved to corresponding data type. For example, 3s for a short, 3.2f for a float, etc. The letter can be uppercase or lowercase. When no letter is used, it assumes double if there's a decimal point, int if there's no decimal point.
+A heterogeneous list (i.e. ones where elements are not of the same type) is converted to a non-heterogeneous list. ​[more information needed]
+A square-bracketed literal is assumed to be a list unless an identifier is used: [B;1B,2B,3B] for a byte array, [I;1,2,3] for an int array and [L;1L,2L,3L] for a long array.
+true and false are converted as 1b and 0b respectively.
+
+Modifying entity/block based on NBT object
+
+
+
+This feature is exclusive to Java Edition. 
+
+Modifying entity/block based on a programmatic NBT object is not a simple process. All certain tags need to be resolved before changing properties of a block/entity. Note that only certain properties can be changed. For example, when using /data command to modify a block entity, its coordinates cannot be changed.
+If a property needs a value of resource location and gets a [String] string tag, the string is converted to a resource location.
+If a property needs a value of JSON text and gets a [String] string tag, the string is parsed into JSON text object.
+If a property needs a boolean value and gets a numeric tag, true if the number is not 0 after some rounding operation and conversion to byte.
+If a property needs a boolean value and gets a non-numeric tag, the property becomes false.
+If a property needs a numeric value of certain type and gets a numeric tag of wrong type, the value gets some rounding operation and converts to the required type.
+If a property needs a numeric value and gets a non-numeric tag, the number becomes 0.
+If a property needs a string value and gets a non-string tag, the string becomes an empty string.
+If a property needs a list or array of certain type and gets a wrong-type tag, an empty list/array is got.
+If a property needs a compound tag and gets a non-compound tag, an empty compound tag is got.
+
+Testing NBT tags
+
+
+
+This feature is exclusive to Java Edition. 
+
+In some places - such as the /execute if data command, the nbt argument in target selector, and the custom_data component predicate - an SNBT compound is used to test for an NBT compound object partially matching with it. When this happens, the game converts SNBT into a programmatic NBT object, gets the programmatic NBT object from block/entity/storage/component, then compares the two NBT objects.
+The test only checks for the presence of the SNBT's tags in the target entity/block/storage/component. This means that the entity/block/storage can have additional tags and still match, hence this is often referred to as a "partial" match and can be thought of as checking if the source object contains some subset of tags. For example, {foo:1,bar:2} can be tested for with either {foo:1}, {bar:2}, {foo:1,bar:2}, or even {}.
+This is true even for lists. The order and number of elements in a list are not considered, and as long as every requested element is in the list, it matches even if  there are additional elements. For example, an entity with data {Pos:[1d,2d,3d],Tags:["a","b"]} can be targeted by @e[nbt={Pos:[3d,2d,1d]}] or even just @e[nbt={Pos:[2d]}] even though the former represents a totally different position and the latter is not a valid position at all. Note that whilst empty compounds match with any compound, an empty list only matches with another empty list, so @e[nbt={Tags:[]}] will not match, because the Tags list has some elements.
+However, the order and number of elements in a byte/long/int array is acknowledged.
+The requested data tags in the target entity/block/storage/component must match exactly for the provided tags to pass, including the data type (e.g. 1, an int, does not match 1d, a double). Namespaces also cannot be omitted because, in NBT objects, it is just a plain string that won't be resolved into a resource location (e.g. @e[nbt={Item:{id:"stone"}}] does not match a stone item entity, it must be @e[nbt={Item:{id:"minecraft:stone"}}]).
+
+Binary format
+An NBT file is a zipped Compound tag. Some of the files utilized by Minecraft may be uncompressed, but in most cases, the files follow Notch's original specification and are compressed with GZip.
+
+TAG definition
+A tag is an individual part of the data tree. The first byte in a tag is the tag type (ID), followed by a two byte big-endian unsigned 16-bit integer (ushort) for the length of the name, then the name as a string in UTF-8 format (Note TAG_End is not named and does not contain the extra 2 bytes; the name is assumed to be empty). Finally, depending on the type of the tag, the bytes that follow are part of that tag's payload. This table describes each of the 13 known tags in version 19133 of the NBT format:
+
+ID
+
+HEX
+
+Icon
+
+Tag Type
+
+Payload
+
+Description
+
+Storage Capacity
+
+0
+
+0x00
+
+TAG_End
+
+-
+
+Used to mark the end of compound tags. This tag does not have a name, so it is always a single byte 0. It may also be the type of empty List tags.
+
+N/A
+
+1
+
+0x01
+
+[Byte]
+
+TAG_Byte
+
+1 byte / 8 bits, signed
+
+A signed integer type. Sometimes used for booleans.
+
+Full range of -(27) to (27 - 1)(-128 to 127).
+
+2
+
+0x02
+
+[Short]
+
+TAG_Short
+
+2 bytes / 16 bits, signed, big endian
+
+A signed integer type.
+
+Full range of -(215) to (215 - 1)(-32,768 to 32,767).
+
+3
+
+0x03
+
+[Int]
+
+TAG_Int
+
+4 bytes / 32 bits, signed, big endian
+
+A signed integer type.
+
+Full range of -(231) to (231 - 1)(-2,147,483,648 to 2,147,483,647).
+
+4
+
+0x04
+
+[Long]
+
+TAG_Long
+
+8 bytes / 64 bits, signed, big endian
+
+A signed integer type.
+
+Full range of -(263) to (263 - 1)(-9,223,372,036,854,775,808 to 9,223,372,036,854,775,807).
+
+5
+
+0x05
+
+[Float]
+
+TAG_Float
+
+4 bytes / 32 bits, signed, big endian, IEEE 754-2008, binary32
+
+A signed floating point type.
+
+Precision varies throughout number line;See Single-precision floating-point format. Maximum value ~ ±3.4E38.
+
+6
+
+0x06
+
+[Double]
+
+TAG_Double
+
+8 bytes / 64 bits, signed, big endian, IEEE 754-2008, binary64
+
+A signed floating point type.
+
+Precision varies throughout number line;See Double-precision floating-point format. Maximum value ~ ±1.79E308.
+
+7
+
+0x07
+
+[Byte Array]
+
+TAG_Byte_Array
+
+4 bytes / 32 bits, signed, big endian for size, then the bytes of length size
+
+An array of bytes.
+
+Maximum number of elements ranges between (231 - 9) and (231 - 1) (2,147,483,639 and 2,147,483,647), depending on the specific JVM.
+
+8
+
+0x08
+
+[String]
+
+TAG_String
+
+2 bytes / 16 bits, unsigned, big endian for size, then the bytes of length size as UTF-8 formatted character data. not null-terminated
+
+A UTF-8 string. It has a size, rather than being null terminated.
+
+65,535 bytes interpretable as UTF-8 (see modified UTF-8 format; most commonly-used characters are a single byte).
+
+9
+
+0x09
+
+[NBT List / JSON Array]
+
+TAG_List
+
+1 byte / 8 bits for the tag ID of the list's contents, then 4 bytes / 32 bits, big-endian for size. Followed by length size number of items of tag id
+
+A list of tag payloads, without tag IDs or names, apart from the one before the length.
+
+Due to JVM limitations and the implementation of ArrayList, the maximum number of list elements is (231 - 9), or 2,147,483,639. Also note that List and Compound tags may not be nested beyond a depth of 512.
+
+10
+
+0x0A
+
+[NBT Compound / JSON Object]
+
+TAG_Compound
+
+Contains any number of tags, delimited by TAG_End. Each tag consisting of 1 byte / 8 bits tag ID, followed by 2 bytes / 16 bits, unsigned, big-endian for size, then an UTF-8 formatted string containing the tag name. Lastly, the payload data.
+
+A list of fully formed tags, including their IDs, names, and payloads. No two tags may have the same name.
+
+Unlike lists, there is no hard limit to the number of tags within a Compound (of course, there is always the implicit limit of virtual memory). Note, however, that Compound and List tags may not be nested beyond a depth of 512.
+
+11
+
+0x0B
+
+[Int Array]
+
+TAG_Int_Array
+
+4 bytes / 32 bits, signed, big-endian for size, then size number of TAG_Int payloads.
+
+An array of TAG_Int's payloads.
+
+Maximum number of elements ranges between (231 - 9) and (231 - 1) (2,147,483,639 and 2,147,483,647), depending on the specific JVM.
+
+12
+
+0x0C
+
+[Long Array]
+
+TAG_Long_Array
+
+4 bytes / 32 bits, signed, big-endian for size, then size number of TAG_Long payloads.
+
+An array of TAG_Long's payloads.
+
+Maximum number of elements ranges between (231 - 9) and (231 - 1) (2,147,483,639 and 2,147,483,647), depending on the specific JVM.
+
+The List and Compound tags can be and often are recursively nested. It should also be noted that, in a list of lists, each of the sub-lists can list a different kind of tag.
+
+Usage
+Minecraft sometimes uses the NBT format inconsistently; in some instances, empty lists may be represented as a list of Byte tags rather than a list of the correct type, or as a list of End tags in newer versions of Minecraft, which can break some older NBT tools.
+In most cases, the files follow Notch's original specification and are compressed with GZip. But some of the files utilized by Minecraft may be uncompressed, or with zlib (aka DEFLATE with a few bytes extra).
+All NBT files created by Minecraft have either a [NBT Compound / JSON Object] compound or sometimes a [NBT List / JSON Array] list‌[Bedrock Edition  only] as the root tag, this tag has a name but is often the empty string.
+In Bedrock Edition, all numbers are encoded in little-endian. This includes the size prefix before tag names, [String] string values and [NBT List / JSON Array] list or [Byte Array][Int Array][Long Array] array values, as well as values in all numeric tags.
+In Bedrock Edition, the level.dat is uncompressed NBT file with an 8-byte header, consisting of a little-endian 4-byte integer indicating the version of the tool used to save the file. It is followed by another integer containing the length of the file, minus the header.
+
+Uses
+
+
+
+This section is missing information about: Bedrock Edition NBTs 
+Please expand the section to include this information. Further details may exist on the talk page.
+
+level.dat is stored in compressed NBT format.
+<player>.dat files are stored in compressed NBT format.
+idcounts.dat is stored in compressed NBT format.
+villages.dat is stored in compressed NBT format.
+raids.dat is stored in compressed NBT format.
+map_<#>.dat files are stored in compressed NBT format.
+servers.dat, which is used to store the list of saved multiplayer servers as uncompressed NBT.
+hotbar.nbt, which is used to save hotbars as uncompressed NBT format.
+Chunks are stored in compressed NBT format within Region files.
+scoreboard.dat is stored in compressed NBT format.
+Generated structures are stored in compressed NBT format.
+Saved structures are stored in compressed NBT format.
+JSON and NBT
+See also: JSON
+
+JSON as a format is very different from NBT. NBT is a data structure which can be represented as a binary stream or as text, while JSON is a text-only format designed for data-interchange. There are only six data types in JSON: JsonString, JsonNumber, JsonBoolean, JsonNull, JsonObject, and JsonArray. In NBT, there are multiple numeric types, and there are no null and boolean data types. Arrays in NBT must be homogeneous; they cannot contain elements of different types. However, in JSON, the elements of a JsonArray may be of any type. The keys of tags in SNBT are allowed to be unquoted, while the keys of name-value pairs in JSON must be double-quoted.
+Due to the differences between the two formats, conversion from NBT to JSON may result in a loss of information and precision. However, this conversion is still used in Java Edition on occasion, currently only for the ambient particles of custom biomes and the rule processor type of processor lists.
+
+Conversion from JSON
+
+
+
+This feature is exclusive to Java Edition. 
+
+Data type in JSON
+Converts to
+
+JsonString
+[String] string
+
+JsonBoolean
+[Byte] byte
+
+JsonNumber
+
+If in the range of byte (e.g. 0, 1.0, 1.27e2), converts to a [Byte] byte.
+Otherwise, if in the range of short (e.g. 128, 1234), converts to a [Short] short.
+Otherwise, if in the range of int (e.g. 12345678.0, -1.23e8), converts to an [Int] int.
+Otherwise, if in the range of long (e.g. 2147483649), converts to a [Long] long.
+Otherwise, if it can be stored precisely by float (e.g. 0.5, 31.75), converts to a [Float] float.
+Otherwise, converts to a [Double] double.
+
+JsonNull
+
+Cannot be converted.
+
+JsonArray
+
+The conversion from JsonArray to NBT is a little buggy.
+First converts all the elements in the array to NBT, if their data types are different, this array cannot be converted into NBT. That means arrays like [0,1,true] and [5e-1,0.25] can be converted to NBT successfully, while [0,1,128], [0.5, 0.6], and [0.0, 0.1] cannot be converted to NBT.
+And when it can be converted to NBT:
+
+If the elements are converted to byte, the array is converted to a [Byte Array] byte array.
+If the elements are converted to int, the array is converted to an [Int Array] int array.
+If the elements are converted to long, the array is converted to a [Long Array] long array.
+Otherwise, the array is converted to a [NBT List / JSON Array] list.
+For example, [true, 127] is converted to [B; 1B, 127B].
+
+JsonObject
+
+[NBT Compound / JSON Object] compound
+
+Conversion to JSON
+
+
+
+This feature is exclusive to Java Edition. 
+
+Data type in NBT
+Converts to
+
+[String] string
+JsonString
+
+[Byte] byte[Short] short[Int] int[Long] long[Float] float[Double] double
+JsonNumber
+
+[Byte Array] byte array[Int Array] int array [Long Array] long array[NBT List / JSON Array] list
+
+JsonArray
+
+[NBT Compound / JSON Object] compound
+
+JsonObject
+
+Official software
+See also: Tutorial:Running the data generator
+
+Mojang has provided sample Java NBT classes for developers to use and reference as part of the source code for the MCRegion to Anvil file format converter. Since Java Edition 1.13, Minecraft includes a built-in converter between the SNBT format and compressed NBT format, which comes with both the client and official server.
+The data generator from Minecraft is able to convert uncompressed Stringified NBT files with .snbt extension in an input folder to GZip compressed NBT format files with .nbt extension in an output folder, and vice versa.
+The vanilla data generator can convert any GZip compressed NBT format to SNBT format. The file extension of a file can simply be changed, such as level.dat to level.nbt and put in the input folder, and the generator then decodes the GZip compressed NBT data.
+
+History
+The NBT file format was described by Notch in a brief specification.
+The NBT file format dates all the way back to Indev with tags 0 to 10 in use.
+
+Java Edition1.0.0September 28, 2011
+Notch works on "saving arbitrary data with item instances."1.2.112w07a
+Added [Int Array] int array tags.1.814w03a
+NBT data in commands now supports using string IDs (names of blocks/items) rather than numerical IDs.1.1217w18a
+Added [Long Array] long array tags.1.1318w01a
+Added a data generator to both the Minecraft client and the default multiplayer software.1.1419w08a
+[String] String tags and names of tags in compound in SNBT can now be within single quotes ' in addition to double quotes ".1.1620w21a
+Added conversion function between NBT and JSON.1.20.524w09a
+When heterogenous (differently-typed) lists are written to the custom_data component using a JSON file (such as a loot table), any entries in the list that are not compounds are saved as compounds with empty keys containing the value.1.21.525w04a
+SNBT (textual representation of NBT-like data) has been expanded to accept heterogenous lists, i.e. ones where elements are not of the same type.25w09a
+SNBT now supports freeform numeric literals. This means that .1, 2e3, 123_456 are now all valid number literals.
+SNBT now supports writing numbers in hexadecial (e.g. 0xABCD) and binary (e.g. 0b1001).
+SNBT now supports 's' and 'u' suffixes (for signed and unsigned representation, respectively) (e.g., 240ub is equal to -16sb).
+SNBT now supports string escape sequences (such as \n for newline, etc.), as well as Unicode escape sequences such as \x42, \u0048, and \N{Snowman}.
+SNBT now allows trailing commas.[verify]
+All NBT components now supports heterogenous (differently-typed) lists (e.g., [1, "abc"]). Any entries in the list that are not compounds are saved to NBT as compounds with a single empty key containing that value.
+Empty keys in NBT paths are no longer valid25w10a
+SNBT now supports bool(arg) to convert an argument to a boolean value and uuid(string) to convert a string UUID into its array representation.
+Notes
+
+ Since b is also a valid hexadecimal digit, byte sized hexadecimal values can only be written with a signed suffix, like 0x11ub or 0x11sb
+
+ This escape sequence is useless, since Minecraft doesn't support these characters anyways.[verify]
+
+ In practice, this is limited to \U0010FFFF (1 114 111 in decimal) due to U+10FFFF being the maximum Unicode codepoint.
+
+ In practice, in-game NBT supports heterogeneous lists since Java Edition 1.21.5 by using invisible 'wrapper' objects that are not observable by in-game means. The underlying NBT file format does not support them, but hidden transformations make it appear to do so in-game.
+
+References
+
+ https://web.archive.org/web/0/https://www.mojang.com/2012/02/new-minecraft-map-format-anvil/
+
+ MCW:Projects/wiki.vg merge/Data Generators § NBT converters
+
+ http://web.archive.org/web/20110723210920/http://www.minecraft.net/docs/NBT.txt specification
+
+ "Allow single quote in strings by boq · Pull Request #52"     – Mojang/brigadier – GitHub.
+
+External links
+nbt, Java library for working with the NBT format.
+NBT on wiki.vg
+NBTEditor, a lightweight NBT editor.
+NBTExplorer, a tool for viewing and editing NBT files.
+NBT Studio, successor to NBTExplorer that includes additional features like Bedrock support and SNBT.
+webNBT, an online tool for viewing and editing NBT files.
+XNBTEdit, GUI/CLI XML NBT editor and converter (not tested on MC 1.21).
+Navigation

@@ -1,0 +1,384 @@
+Not to be confused with Minecraft x Fossil.
+
+  This article is about Overworld fossils.   For the similar features generated in the Soul Sand Valley, see Nether Fossil.   For other uses, see Bone (disambiguation).
+
+Fossil
+
+
+
+			Skull
+
+
+
+			Spine
+
+
+Biomes
+
+Desert
+Swamp
+Mangrove Swamp
+Swamp Hills‌[BE  only]
+Desert Hills‌[BE  only]
+Desert Lakes‌[BE  only]
+
+Generates inexisting chunks  
+
+No
+
+Consists of
+
+Bone Block
+Coal Ore
+Diamond Ore‌[JE  only]
+Deepslate Diamond Ore
+
+{
+    "title": "Fossil",
+    "rows": [
+        {
+            "field": "(values exceeds 1000 characters...)",
+            "label": "(link to Biome article, displayed as Biomes)"
+        },
+        {
+            "field": "No",
+            "label": "Generates in<br>existing chunks  "
+        },
+        {
+            "field": "(values exceeds 1000 characters...)",
+            "label": "Consists of"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+A fossil is a rarely-occurring skeletal feature composed of bone blocks, coal ore above Y=0, or diamond ore below Y=-8.
+
+
+
+ There is a related tutorial page for this topic! 
+See Tutorial:Mining/Fossils.
+
+Contents
+
+1 Generation
+2 Structure
+3 Data values
+
+3.1 ID
+3.2 Config
+
+4 History
+
+4.1 Reveal
+4.2 Java Edition
+4.3 Bedrock Edition
+4.4 Legacy Console Edition
+4.5 New Nintendo 3DS Edition
+
+5 Issues
+6 Trivia
+7 Gallery
+
+7.1 Renders
+
+7.1.1 Skulls
+7.1.2 Spines
+
+7.2 Screenshots
+
+8 See also
+9 References
+10 Navigation
+
+Generation
+Fossils randomly generate only in desert, swamp and mangrove swamp biomes. Each chunk has two attempts within Y-coordinates 0 to 320 or -63 to -8 underground to generate a fossil, each with a chance of 1⁄64. They have an equal chance to generate as any of the four variants of skull or four variants of spine.
+Fossils first generate the pure-bone layer with a structure integrity of 0.9, meaning 10% of the bone blocks are removed and do not override original terrain blocks, leaving 90% bone blocks. Next, the ore layer generates with a structure integrity of 0.1, replacing 10% of the existing fossil with coal ore for fossils that generate above Y level 0. Diamond ore or deepslate diamond ore generate below Y level -8. The locations of these ore blocks do not always correspond with the voids generated in the initial bone fossil, so the resulting combination of both generations usually result in an incomplete fossil structure composed of bone blocks and ores.
+Because fossils are features instead of structures, they generate even when the "Generate Structures" option is turned off.
+
+An interactive widget is being loaded. If this does not work for you, please reload the page or check if JavaScript is working or enabled.
+Structure
+Main article: /Structure
+Naturally-generated fossils are composed of a mix of bone blocks and coal or diamond ores, as detailed above. They are made with NBT structure files and have files for each type of fossil located in the folder minecraft.jar/data/minecraft/structures/fossil.
+There are 4 type of skulls and 4 type of spines.
+
+Structure file
+
+Description
+
+Consists of
+
+Images
+
+fossil/skull_1fossil/skull_1_coal
+
+The largest skull.
+
+86 in total Bone Block, Coal Ore, or Deepslate Diamond Ore
+
+fossil/skull_2fossil/skull_2_coal
+
+The second largest skull.
+
+75 in total Bone Block, Coal Ore, or Deepslate Diamond Ore
+
+fossil/skull_3fossil/skull_3_coal
+
+The second smallest skull.
+
+58 in total Bone Block, Coal Ore, or Deepslate Diamond Ore
+
+fossil/skull_4fossil/skull_4_coal
+
+The smallest skull, one-eyed.
+
+32 in total Bone Block, Coal Ore, or Deepslate Diamond Ore
+
+fossil/spine_1fossil/spine_1_coal
+
+The narrowest spine.
+
+37 in total Bone Block, Coal Ore, or Deepslate Diamond Ore
+
+fossil/spine_2fossil/spine_2_coal
+
+The second narrowest spine.
+
+61 in total Bone Block, Coal Ore, or Deepslate Diamond Ore
+
+fossil/spine_3fossil/spine_3_coal
+
+The second widest spine.
+
+97 in total Bone Block, Coal Ore, or Deepslate Diamond Ore
+
+fossil/spine_4fossil/spine_4_coal
+
+The widest spine.
+
+121 in total Bone Block, Coal Ore, or Deepslate Diamond Ore
+
+Data values
+ID
+Java Edition:
+
+Feature typeIdentifier
+ [No displayed name]fossil
+
+Configured featureIdentifier
+ [No displayed name]fossil_coal
+
+ [No displayed name]fossil_diamonds
+
+Bedrock Edition:
+
+FeatureIdentifier
+ [No displayed name]fossil_feature
+
+ [No displayed name]deepslate_diamond_fossil_feature
+
+Config
+Main article: Configured feature
+Java Edition:
+
+[NBT Compound / JSON Object] config
+[NBT List / JSON Array] fossil_structures: (Cannot be empty) A list of fossil structure templates to choose from.
+[String]: One structure template (an [String] ID)
+[NBT List / JSON Array] overlay_structures: (Cannot be empty) A list of overlay structure templates to choose from. Has to have the same length as [NBT List / JSON Array] fossil_structures.
+[String]: One structure template (an [String] ID)
+[String][NBT List / JSON Array][NBT Compound / JSON Object] fossil_processors: One processor list (an [String] ID, or a new [NBT List / JSON Array][NBT Compound / JSON Object] processor list definition) — The processor for fossil structure templates.
+[String][NBT List / JSON Array][NBT Compound / JSON Object] overlay_processors: One processor list (an [String] ID, or a new [NBT List / JSON Array][NBT Compound / JSON Object] processor list definition) — The processor for overlay structure templates.
+[Int] max_empty_corners_allowed: Integer between 0 and 7 — How many corners of the structure are allowed to be empty for it to generate. Prevents structures floating in the air.
+
+An example
+
+{
+  "type": "minecraft:fossil",
+  "config": {
+    "fossil_processors": "minecraft:fossil_rot",
+    "fossil_structures": [
+      "minecraft:fossil/spine_1",
+      "minecraft:fossil/spine_2",
+      "minecraft:fossil/spine_3",
+      "minecraft:fossil/spine_4",
+      "minecraft:fossil/skull_1",
+      "minecraft:fossil/skull_2",
+      "minecraft:fossil/skull_3",
+      "minecraft:fossil/skull_4"
+    ],
+    "max_empty_corners_allowed": 4,
+    "overlay_processors": "minecraft:fossil_coal",
+    "overlay_structures": [
+      "minecraft:fossil/spine_1_coal",
+      "minecraft:fossil/spine_2_coal",
+      "minecraft:fossil/spine_3_coal",
+      "minecraft:fossil/spine_4_coal",
+      "minecraft:fossil/skull_1_coal",
+      "minecraft:fossil/skull_2_coal",
+      "minecraft:fossil/skull_3_coal",
+      "minecraft:fossil/skull_4_coal"
+    ]
+  }
+}
+
+The placement of fossil is hardcoded (for its lowest point) with 2 steps in order:
+
+It takes minimum value between OCEAN_FLOOR_WG heightmap and original placement position;
+It takes maximum value between 10 blocks above bottom of the world and placement position from first step minus 15-24 (randomly).
+History
+Reveal
+May 13, 2016
+ProfMobius tweets an image of the new structure blocks in action, generating what appears to be a fossil made of quartz.September 28, 2019
+Prerelease footage of the soul sand valley biome at MINECON Live 2019 appears to have used these fossils (as opposed to the distinct nether fossils).
+Java Edition
+Java Edition1.1016w20a
+Added fossils.1.1620w22a
+Fossils can no longer overwrite desert pyramids or the end portal room of strongholds.1.1721w06a
+Fossils can now generate in the air due to a bug.21w10a
+Fossils that generate below Y=0 now generate with either normal or deepslate diamond ore instead of coal ore.
+
+Fossils can no longer generate in the air.21w15a
+Because world generation has been reverted, fossils generate the way they did before the 1.17 snapshots.1.18Experimental Snapshot 1
+The fossil generation changes in the 1.17 snapshots have been reintroduced.experimental snapshot 5
+Fossils with diamond ore no longer generate above the deepslate level.
+Bedrock Edition
+Pocket Edition1.1.3alpha 1.1.3.0
+Added fossils.Bedrock Edition1.18.10beta 1.18.10.21
+Fossils that generate below Y=0 now generate with either normal or deepslate diamond ore instead of coal ore.
+Legacy Console Edition
+Legacy Console EditionXbox 360Xbox OnePS3PS4PS VitaWii USwitchTU43CU331.361.361.36Patch 131.0.1
+Added fossils.
+New Nintendo 3DS Edition
+New Nintendo 3DS Edition1.9.19
+Added fossils.
+Issues
+Issues relating to "Fossil" are maintained on the bug tracker. Issues should be reported and viewed there.
+
+Trivia
+Hidden in the structure NBT is data that credits ProfMobius with the creation of the fossils.
+Gallery
+Renders
+Skulls
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Spines
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Screenshots
+
+
+
+			A fossil that generated inside a cave.
+
+
+
+			Excavating the fossil.
+
+
+
+			All skull and spine structures, excluding those made of coal ore.
+
+
+
+			Fossil generated on a superflat world. Some bone blocks are removed/replaced with coal ores.
+
+
+
+			A fossil that has been excavated.
+
+
+
+			A partially excavated fossil underground.
+
+
+
+			A fossil whose bone block is partly replaced by deepslate diamond ore.
+
+
+
+			The smallest skull fossil and largest spine fossil together compared to the largest mob, the ender dragon.
+
+
+
+			The same from above.
+
+
+
+			Many fossils that have generated on a superflat world in a swamp biome.
+
+
+
+			A fossil that has generated underwater, inside an underwater ravine.
+
+
+
+			A fossil that generated mid-air in a flooded cave.
+
+
+
+			A fossil generated at the bottom of an ocean.
+
+
+
+			A fossil generated in an ocean ravine.
+
+
+
+			Another fossil generated at the bottom of an ocean.
+
+
+
+			A fossil that generated just below the seafloor.
+
+
+
+			A fossil generated partially exposed to air in a desert biome.
+
+
+
+			A fossil generated in a trial chamber.
+
+
+See also
+Feature
+Nether fossil
+References
+
+ MC-199180 – Fossils can generate with structures turned off – resolved as "Works As Intended".
+
+ MC-214784 – Fossils can generate floating in caves – resolved as "Fixed".
+
+Navigation

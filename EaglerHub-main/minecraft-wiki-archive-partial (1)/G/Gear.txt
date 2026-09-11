@@ -1,0 +1,204 @@
+This page describes content that has been removed from Java Edition. 
+This feature was present in earlier versions of Java Edition, but has since been removed.
+
+Gear
+
+Renewable
+
+No
+
+Stackable
+
+Yes (64)
+
+Tool
+
+None
+
+Blast resistance
+
+0.5
+
+Hardness
+
+0.5
+
+Luminous
+
+No
+
+Transparent
+
+Yes
+
+Flammable
+
+No
+
+Catches firefrom lava
+
+No
+
+{
+    "title": "Gear",
+    "rows": [
+        {
+            "field": "No",
+            "label": "(link to Renewable resource article, displayed as Renewable)"
+        },
+        {
+            "field": "Yes (64)",
+            "label": "Stackable"
+        },
+        {
+            "field": "None",
+            "label": "Tool"
+        },
+        {
+            "field": "0.5",
+            "label": "(link to Explosion#Blast resistance article, displayed as Blast resistance)"
+        },
+        {
+            "field": "0.5",
+            "label": "(link to Breaking#Blocks by hardness article, displayed as Hardness)"
+        },
+        {
+            "field": "No",
+            "label": "(link to Light article, displayed as Luminous)"
+        },
+        {
+            "field": "Yes",
+            "label": "(link to Opacity article, displayed as Transparent)"
+        },
+        {
+            "field": "No",
+            "label": "(link to Fire#Flammable blocks article, displayed as Flammable)"
+        },
+        {
+            "field": "No",
+            "label": "Catches fire<br>from (link to lava article, displayed as lava)"
+        }
+    ],
+    "invimages": [
+        "Gear"
+    ],
+    "images": [
+        "Gear.gif"
+    ]
+}
+
+The gear was a block that could be placed on walls and grounds, but had no clearly defined or implemented functionality. It is believed that gears were intended to be used in mechanisms, similarly to redstone wire.
+
+Contents
+
+1 Obtaining
+2 Breaking
+3 Usage
+
+3.1 Texture generation
+
+4 Sounds
+5 Data values
+
+5.1 ID
+
+6 History
+7 Issues
+8 Trivia
+9 Gallery
+
+9.1 Screenshots
+
+10 References
+11 Navigation
+
+Obtaining
+Gears are only known to be obtainable through the use of inventory editors and other external tools.
+
+Breaking
+Gears cannot be targeted by the player and thus cannot be destroyed by mining them. If it were possible, they would have a hardness value of 0.5 and a breaking time of 0.75 seconds.
+
+Usage
+Gears would only render on the sides of full, solid blocks, including infinite water and lava sources.
+When edited into the game, a placed gear would show nothing in its block space and was invisible unless horizontally adjacent to one or more blocks. The placed gear would then show an animated gear sprite on the near side of each of those blocks. It was not possible to destroy a placed gear by mining a block that its gear sprite was shown on, because the placed gear itself was actually adjacent to that block. If the block a gear sprite was shown on was destroyed, the adjacent placed gear would no longer show that sprite. Removing all blocks adjacent to a placed gear would remove all of its visible gear sprites, leaving the placed gear invisible. Placed gears could not be destroyed directly by the player; attempts to do so would phase through to the block behind it, much like water. Placed gears could only be removed by letting water or lava flow into them, or by explosions.
+
+Texture generation
+Code which generates the frames of the gear texture can be found here.
+The animation for gears was generated using two predefined image files - misc/gear.png for the rotating gear and misc/gearmiddle.png for the stationary center.
+
+
+
+			misc/gear.png
+
+
+
+			misc/gearmiddle.png
+
+
+The animation is rendered as a 16×16 texture like most other blocks, with gear.png being downsampled. The gear rotates exactly 1/64 of a full rotation (5.625 degrees) every game tick - this means that although there would theoretically be many possible frames created by intermediate rotations, only 64 unique frames can ever appear in practice. The resulting gear takes 3.2 seconds to make a full rotation and has 18.75 RPM.
+There are two different animations used for gears - one for clockwise rotation, and another for counterclockwise rotation, to allow for logical meshing. These are generated effectively identically, with the only difference being the direction of rotation; both start on the same frame, but cycle through them in the opposite direction.
+
+
+
+			Clockwise rotation
+
+
+
+			Counterclockwise rotation
+
+
+Sounds
+
+
+
+This section of the article is empty. 
+You can help by expanding it.
+
+Data values
+ID
+NameNumeric ID Form
+ [No displayed name]55Block & Item
+
+History
+There is an associated page detailing the algorithm used for generating this block's texture in legacy versions; see Procedural animated texture generation/Gears.
+Java Edition IndevJanuary 26, 2010
+Notch posted a video of gears being placed onto the wall of a cliff.0.3120100128-2200
+   Added gears.
+
+Gears have a numerical ID of 55.
+
+  There are also two identical gear placeholder textures in terrain.png, one per direction.20100130
+Gears are now visible in the inventory.Java Edition Alphav1.0.1
+Removed gears. Existing gears would automatically convert into redstone wire as the latter had a numerical ID of 55, the same as gears.
+Issues
+"Gear" is a removed block and as such issues relating to it cannot be fixed.
+
+Trivia
+In an episode of How We Make Minecraft, it's stated that the original plans for gears were forgotten.
+Gallery
+Screenshots
+
+
+
+			Gears placed into the world.
+
+
+
+			More gears placed into the world.
+
+
+
+			In-game animation of gears.
+
+
+References
+
+ "MC Texture Generator v1.2.0 - Gear support!"     by NeRdTheNed  – GitHub, August 2, 2021.
+
+ "Redstone: How We Make Minecraft"  – Minecraft on YouTube, February 26, 2021
+
+Navigation
+
+
+
+This article is linked to on an official Minecraft page.

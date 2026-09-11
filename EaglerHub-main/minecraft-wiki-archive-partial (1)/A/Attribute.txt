@@ -1,0 +1,3082 @@
+This article is about the entity attribute system.   For the command, see Commands/attribute.   For item attributes, see Data component format.  For the attributes controlling various visual and gameplay features, see environment attribute.
+
+
+
+This feature is exclusive to Java Edition. 
+
+Attributes control certain numeric properties of players, mobs, and armor stands. Every entity has a base value for each of its attributes, and modifiers that determine the final value.
+
+Contents
+
+1 List of attributes
+
+1.1 Air Drag Modifier
+1.2 Armor
+1.3 Armor Toughness
+1.4 Attack Damage
+1.5 Attack Knockback
+1.6 Attack Speed
+1.7 Nameplate Score Distance
+1.8 Block Break Speed
+1.9 Block Interaction Range
+1.10 Bounciness
+1.11 Burning Time
+1.12 Camera Distance
+1.13 Entity Interaction Range
+1.14 Explosion Knockback Resistance
+1.15 Fall Damage Multiplier
+1.16 Flying Speed
+1.17 Mob Follow Range
+1.18 Friction Modifier
+1.19 Gravity
+1.20 Jump Strength
+1.21 Knockback Resistance
+1.22 Luck
+1.23 Max Absorption
+1.24 Max Health
+1.25 Mining Efficiency
+1.26 Movement Efficiency
+1.27 Movement Speed
+1.28 Name Tag Distance
+1.29 Oxygen Bonus
+1.30 Safe Fall Distance
+1.31 Scale
+1.32 Sneaking Speed
+1.33 Zombie Reinforcements
+1.34 Step Height
+1.35 Submerged Mining Speed
+1.36 Sweeping Damage Ratio
+1.37 Mob Tempt Range
+1.38 Water Movement Efficiency
+1.39 Waypoint Receive Range
+1.40 Waypoint Transmit Range
+
+2 Modifiers
+
+2.1 Operations
+2.2 Applying modifiers
+
+2.2.1 Commands
+2.2.2 Items
+2.2.3 Enchantments
+2.2.4 Sulfur cube archetypes
+2.2.5 Hardcoded
+
+2.2.5.1 Effects
+2.2.5.2 Misc
+
+3 History
+
+3.1 Java Edition
+3.2 Bedrock Edition
+3.3 Legacy Console Edition
+
+4 Issues
+5 References
+6 Navigation
+
+List of attributes
+Each attribute is identified with a namespaced identifier, and has a default, minimum, and maximum value.
+Most attributes are present on all living entities, but some attributes only apply to specific entity types. Additionally, some entity types have a base value other than the default.
+
+Air Drag Modifier
+
+Air Drag Modifier
+
+ID
+
+air_drag_modifier
+
+Default
+
+1
+
+Minimum
+
+0
+
+Maximum
+
+2048
+
+{
+    "title": "Air Drag Modifier",
+    "rows": [
+        {
+            "field": "<code>air_drag_modifier</code>",
+            "label": "ID"
+        },
+        {
+            "field": "1",
+            "label": "Default"
+        },
+        {
+            "field": "0",
+            "label": "Minimum"
+        },
+        {
+            "field": "2048",
+            "label": "Maximum"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+This attribute modifies the air drag an entity experiences. The final air drag is calculated as 1−(1−friction)⋅air drag modifier, clamped to 0 to 1. The friction is 0.91 for sulfur cubes that have absorbed a block, parrots, and bees. For all other entities, including sulfur cubes that have no absorbed block, the friction is 0.98.
+
+Armor
+
+Armor
+
+ID
+
+armor
+
+Default
+
+0  ()
+
+Minimum
+
+0  ()
+
+Maximum
+
+30  ( × 15)
+
+{
+    "title": "Armor",
+    "rows": [
+        {
+            "field": "<code>armor</code>",
+            "label": "ID"
+        },
+        {
+            "field": "0  (<span class=\"iconbar pixel-image nowrap\" style=\"--icon-offset:-1px;\" title=\"0 armor points\">(link to File:Empty Armor (icon).png article, displayed as 9px|link=|alt=🛡)</span>)",
+            "label": "Default"
+        },
+        {
+            "field": "0  (<span class=\"iconbar pixel-image nowrap\" style=\"--icon-offset:-1px;\" title=\"0 armor points\">(link to File:Empty Armor (icon).png article, displayed as 9px|link=|alt=🛡)</span>)",
+            "label": "Minimum"
+        },
+        {
+            "field": "30  (<span class=\"iconbar pixel-image nowrap\" style=\"--icon-offset:-1px;\" title=\"2 armor point\">(link to File:Armor (icon).png article, displayed as 9px|link=|alt=🛡)</span> × 15)",
+            "label": "Maximum"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+This attribute determines the number of armor points an entity has.
+
+Entity
+Base value
+
+Magma Cube (large)
+
+12 ( × 6)
+
+Killer Bunny
+
+8 ()
+
+Magma Cube (medium)
+
+6 ()
+
+Wither
+
+4 ()
+
+Magma Cube (small)
+
+3 ()
+
+Zombie Husk Drowned Zombie Villager Zombified Piglin
+
+2 ()
+
+Armor Toughness
+
+Armor Toughness
+
+ID
+
+armor_toughness
+
+Default
+
+0
+
+Minimum
+
+0
+
+Maximum
+
+20
+
+{
+    "title": "Armor Toughness",
+    "rows": [
+        {
+            "field": "<code>armor_toughness</code>",
+            "label": "ID"
+        },
+        {
+            "field": "0",
+            "label": "Default"
+        },
+        {
+            "field": "0",
+            "label": "Minimum"
+        },
+        {
+            "field": "20",
+            "label": "Maximum"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+This attribute determines an entity's armor toughness.
+
+Attack Damage
+
+Attack Damage
+
+ID
+
+attack_damage
+
+Default
+
+2HP
+
+Minimum
+
+0HP
+
+Maximum
+
+2048HP × 1024
+
+{
+    "title": "Attack Damage",
+    "rows": [
+        {
+            "field": "<code>attack_damage</code>",
+            "label": "ID"
+        },
+        {
+            "field": "2<span class=\"hidden-alt-text\">HP</span><span class=\"nowrap mc-hearts\"><span class=\"iconbar pixel-image nowrap\" style=\"--icon-offset:-1px;\" title=\"1  heart\">(link to File:Heart (icon).png article, displayed as 9px|link=|alt=❤️)</span></span>",
+            "label": "Default"
+        },
+        {
+            "field": "0<span class=\"hidden-alt-text\">HP</span><span class=\"nowrap mc-hearts\"><span class=\"iconbar pixel-image nowrap\" style=\"--icon-offset:-1px;\" title=\"0  hearts\">(link to File:Empty Heart (icon).png article, displayed as 9px|link=|alt=🖤)</span></span>",
+            "label": "Minimum"
+        },
+        {
+            "field": "2048<span class=\"hidden-alt-text\">HP</span><span class=\"nowrap mc-hearts\"><span class=\"iconbar pixel-image nowrap\" style=\"--icon-offset:-1px;\" title=\"1  heart\">(link to File:Heart (icon).png article, displayed as 9px|link=|alt=❤️)</span> × 1024</span>",
+            "label": "Maximum"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+This attribute determines the damage dealt by an entity's melee attack. Only the entities listed below have this attribute.
+
+Entity
+Base value
+
+Giant
+50HP × 25
+
+Warden
+30HP × 15
+
+Iron Golem
+15HP × 7.5
+
+Ravager
+12HP × 6
+
+Frog
+10HP
+
+Elder Guardian
+8HP
+
+Enderman Piglin Brute
+7HP
+
+Blaze Guardian Hoglin Panda Polar Bear Zoglin
+
+6HP
+
+Piglin Pillager Vindicator Zombified Piglin
+
+5HP
+
+Vex Wolf Wither Skeleton
+4HP
+
+Cat Dolphin Drowned Husk Ocelot Zombie Zombie Villager Nautilus Zombie Nautilus Parrot Rabbit Breeze Creaking
+
+3HP
+
+Allay Axolotl Bee Fox Goat Endermite Creeper Witch Evoker Illusioner Skeleton Bogged Parched Spider Cave Spider
+
+2HP
+
+Player Silverfish Baby Goat
+
+1HP
+
+Baby Hoglin Baby Zoglin
+
+0.5HP × 0.25
+
+Phantom
+
+6HP + Size
+
+Slime Magma Cube
+
+1HP × Size
+
+Attack Knockback
+
+Attack Knockback
+
+ID
+
+attack_knockback
+
+Default
+
+0
+
+Minimum
+
+0
+
+Maximum
+
+5
+
+{
+    "title": "Attack Knockback",
+    "rows": [
+        {
+            "field": "<code>attack_knockback</code>",
+            "label": "ID"
+        },
+        {
+            "field": "0",
+            "label": "Default"
+        },
+        {
+            "field": "0",
+            "label": "Minimum"
+        },
+        {
+            "field": "5",
+            "label": "Maximum"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+This attribute determines additional knockback applied to an entity's melee attack.​[more information needed]
+
+Entity
+Base value
+
+Ravager Warden
+
+1.5
+
+Hoglin Zoglin
+
+1
+
+Attack Speed
+
+Attack Speed
+
+ID
+
+attack_speed
+
+Default
+
+4
+
+Minimum
+
+0
+
+Maximum
+
+1024
+
+{
+    "title": "Attack Speed",
+    "rows": [
+        {
+            "field": "<code>attack_speed</code>",
+            "label": "ID"
+        },
+        {
+            "field": "4",
+            "label": "Default"
+        },
+        {
+            "field": "0",
+            "label": "Minimum"
+        },
+        {
+            "field": "1024",
+            "label": "Maximum"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+This attribute determines the rate at which a player's attack cooldown recharges. Its value is the number of full-strength attacks per second. Only players have this attribute.
+
+Nameplate Score Distance
+
+Nameplate Score Distance
+
+ID
+
+below_name_distance
+
+Default
+
+10
+
+Minimum
+
+0
+
+Maximum
+
+512
+
+{
+    "title": "Nameplate Score Distance",
+    "rows": [
+        {
+            "field": "<code>below_name_distance</code>",
+            "label": "ID"
+        },
+        {
+            "field": "10",
+            "label": "Default"
+        },
+        {
+            "field": "0",
+            "label": "Minimum"
+        },
+        {
+            "field": "512",
+            "label": "Maximum"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+This attribute determines the distance within which a scoreboard objective with a below_name display slot is visible above an entity.
+
+Block Break Speed
+
+Block Break Speed
+
+ID
+
+block_break_speed
+
+Default
+
+1
+
+Minimum
+
+0
+
+Maximum
+
+1024
+
+{
+    "title": "Block Break Speed",
+    "rows": [
+        {
+            "field": "<code>block_break_speed</code>",
+            "label": "ID"
+        },
+        {
+            "field": "1",
+            "label": "Default"
+        },
+        {
+            "field": "0",
+            "label": "Minimum"
+        },
+        {
+            "field": "1024",
+            "label": "Maximum"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+This attribute multiplies the speed at which a player breaks blocks. Only players have this attribute.
+
+Block Interaction Range
+
+Block Interaction Range
+
+ID
+
+block_interaction_range
+
+Default
+
+4.5
+
+Minimum
+
+0
+
+Maximum
+
+64
+
+{
+    "title": "Block Interaction Range",
+    "rows": [
+        {
+            "field": "<code>block_interaction_range</code>",
+            "label": "ID"
+        },
+        {
+            "field": "4.5",
+            "label": "Default"
+        },
+        {
+            "field": "0",
+            "label": "Minimum"
+        },
+        {
+            "field": "64",
+            "label": "Maximum"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+This attribute determines the block interaction range for players. Only players have this attribute.
+
+Bounciness
+
+Bounciness
+
+ID
+
+bounciness
+
+Default
+
+0
+
+Minimum
+
+0
+
+Maximum
+
+1
+
+{
+    "title": "Bounciness",
+    "rows": [
+        {
+            "field": "<code>bounciness</code>",
+            "label": "ID"
+        },
+        {
+            "field": "0",
+            "label": "Default"
+        },
+        {
+            "field": "0",
+            "label": "Minimum"
+        },
+        {
+            "field": "1",
+            "label": "Maximum"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+This attribute determines the restitution of motion an entity is given when landing on the ground.
+
+Burning Time
+
+Burning Time
+
+ID
+
+burning_time
+
+Default
+
+1
+
+Minimum
+
+0
+
+Maximum
+
+1024
+
+{
+    "title": "Burning Time",
+    "rows": [
+        {
+            "field": "<code>burning_time</code>",
+            "label": "ID"
+        },
+        {
+            "field": "1",
+            "label": "Default"
+        },
+        {
+            "field": "0",
+            "label": "Minimum"
+        },
+        {
+            "field": "1024",
+            "label": "Maximum"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+This attribute multiplies the duration for which an entity should remain on fire after being ignited.
+
+Camera Distance
+
+Camera Distance
+
+ID
+
+camera_distance
+
+Default
+
+4
+
+Minimum
+
+0
+
+Maximum
+
+32
+
+{
+    "title": "Camera Distance",
+    "rows": [
+        {
+            "field": "<code>camera_distance</code>",
+            "label": "ID"
+        },
+        {
+            "field": "4",
+            "label": "Default"
+        },
+        {
+            "field": "0",
+            "label": "Minimum"
+        },
+        {
+            "field": "32",
+            "label": "Maximum"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+This attribute determines the maximum distance at which the camera is placed away from the player or spectated entity when in a third-person view. This distance is multiplied by the scale attribute to get a final target camera distance. If the entity being ridden has a larger camera_distance attribute, that distance will be used. The final distance can be reduced by colliding certain blocks.
+
+Entity
+Base value
+
+Ghast Happy Ghast
+
+8
+
+Giant Ender Dragon
+
+16
+
+Entity Interaction Range
+
+Entity Interaction Range
+
+ID
+
+entity_interaction_range
+
+Default
+
+3
+
+Minimum
+
+0
+
+Maximum
+
+64
+
+{
+    "title": "Entity Interaction Range",
+    "rows": [
+        {
+            "field": "<code>entity_interaction_range</code>",
+            "label": "ID"
+        },
+        {
+            "field": "3",
+            "label": "Default"
+        },
+        {
+            "field": "0",
+            "label": "Minimum"
+        },
+        {
+            "field": "64",
+            "label": "Maximum"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+This attribute determines the entity interaction range for players.
+
+Explosion Knockback Resistance
+
+Explosion Knockback Resistance
+
+ID
+
+explosion_knockback_resistance
+
+Default
+
+0
+
+Minimum
+
+0
+
+Maximum
+
+1
+
+{
+    "title": "Explosion Knockback Resistance",
+    "rows": [
+        {
+            "field": "<code>explosion_knockback_resistance</code>",
+            "label": "ID"
+        },
+        {
+            "field": "0",
+            "label": "Default"
+        },
+        {
+            "field": "0",
+            "label": "Minimum"
+        },
+        {
+            "field": "1",
+            "label": "Maximum"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+This attribute determines the proportion of knockback from explosions an entity resists. A value of 1 eliminates the knockback.
+
+Fall Damage Multiplier
+
+Fall Damage Multiplier
+
+ID
+
+fall_damage_multiplier
+
+Default
+
+1
+
+Minimum
+
+0
+
+Maximum
+
+100
+
+{
+    "title": "Fall Damage Multiplier",
+    "rows": [
+        {
+            "field": "<code>fall_damage_multiplier</code>",
+            "label": "ID"
+        },
+        {
+            "field": "1",
+            "label": "Default"
+        },
+        {
+            "field": "0",
+            "label": "Minimum"
+        },
+        {
+            "field": "100",
+            "label": "Maximum"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+This attribute multiplies the amount of fall damage an entity receives.
+
+Entity
+Base value
+
+Camel Donkey Horse Llama Mule Skeleton Horse Trader Llama Zombie Horse Camel Husk
+
+0.5
+
+Flying Speed
+
+Flying Speed
+
+ID
+
+flying_speed
+
+Default
+
+0.4
+
+Minimum
+
+0
+
+Maximum
+
+1024
+
+{
+    "title": "Flying Speed",
+    "rows": [
+        {
+            "field": "<code>flying_speed</code>",
+            "label": "ID"
+        },
+        {
+            "field": "0.4",
+            "label": "Default"
+        },
+        {
+            "field": "0",
+            "label": "Minimum"
+        },
+        {
+            "field": "1024",
+            "label": "Maximum"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+This attribute determines the flying speed of an entity.​[more information needed] Only the entities listed below have this attribute.
+
+Entity
+Base value
+
+Bee Wither
+
+0.6
+
+Allay
+0.1
+
+Ghast
+0.06
+
+Happy Ghast
+0.05
+
+Parrot
+0.4
+
+Mob Follow Range
+
+Mob Follow Range
+
+ID
+
+follow_range
+
+Default
+
+32
+
+Minimum
+
+0
+
+Maximum
+
+2048
+
+{
+    "title": "Mob Follow Range",
+    "rows": [
+        {
+            "field": "<code>follow_range</code>",
+            "label": "ID"
+        },
+        {
+            "field": "32",
+            "label": "Default"
+        },
+        {
+            "field": "0",
+            "label": "Minimum"
+        },
+        {
+            "field": "2048",
+            "label": "Maximum"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+This attribute determines the range in blocks within which a mob targets players or other mobs to track. Exiting this range causes the mob to cease following the player/mob. Only mobs have this attribute.
+
+Entity
+Base value
+
+Ghast
+100
+
+Enderman
+64
+
+Allay Bee Blaze
+
+48
+
+Llama Wither
+
+40
+
+Zombie Husk Drowned Zombie Villager Zombified Piglin
+
+35
+
+Fox Pillager Ravager Creaking
+
+32
+
+Breeze Warden
+24
+
+Polar Bear
+20
+
+Illusioner
+18
+
+Evoker Vindicator Piglin Brute
+
+12
+
+All other mobs
+16
+
+Friction Modifier
+
+Friction Modifier
+
+ID
+
+friction_modifier
+
+Default
+
+1
+
+Minimum
+
+0
+
+Maximum
+
+2048
+
+{
+    "title": "Friction Modifier",
+    "rows": [
+        {
+            "field": "<code>friction_modifier</code>",
+            "label": "ID"
+        },
+        {
+            "field": "1",
+            "label": "Default"
+        },
+        {
+            "field": "0",
+            "label": "Minimum"
+        },
+        {
+            "field": "2048",
+            "label": "Maximum"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+This attribute determines the friction experienced by an entity.​[more information needed]
+
+Gravity
+
+Gravity
+
+ID
+
+gravity
+
+Default
+
+0.08
+
+Minimum
+
+-1
+
+Maximum
+
+1
+
+{
+    "title": "Gravity",
+    "rows": [
+        {
+            "field": "<code>gravity</code>",
+            "label": "ID"
+        },
+        {
+            "field": "0.08",
+            "label": "Default"
+        },
+        {
+            "field": "-1",
+            "label": "Minimum"
+        },
+        {
+            "field": "1",
+            "label": "Maximum"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+This attribute determines the gravity affecting an entity in blocks per tick squared.
+
+Jump Strength
+
+Jump Strength
+
+ID
+
+jump_strength
+
+Default
+
+0.42
+
+Minimum
+
+0
+
+Maximum
+
+32
+
+{
+    "title": "Jump Strength",
+    "rows": [
+        {
+            "field": "<code>jump_strength</code>",
+            "label": "ID"
+        },
+        {
+            "field": "0.42",
+            "label": "Default"
+        },
+        {
+            "field": "0",
+            "label": "Minimum"
+        },
+        {
+            "field": "32",
+            "label": "Maximum"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+This attribute determines the initial vertical velocity of an entity when they jump, in blocks per tick.
+
+Entity
+Base value
+
+Horse Skeleton Horse Zombie Horse
+
+Random(0.4–1.0)
+
+Donkey Mule Llama Trader Llama
+
+0.5
+
+Knockback Resistance
+
+Knockback Resistance
+
+ID
+
+knockback_resistance
+
+Default
+
+0
+
+Minimum
+
+-2
+
+Maximum
+
+1
+
+{
+    "title": "Knockback Resistance",
+    "rows": [
+        {
+            "field": "<code>knockback_resistance</code>",
+            "label": "ID"
+        },
+        {
+            "field": "0",
+            "label": "Default"
+        },
+        {
+            "field": "-2",
+            "label": "Minimum"
+        },
+        {
+            "field": "1",
+            "label": "Maximum"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+This attribute determines the proportion of horizontal knockback from attacks and projectiles an entity resists. A value of 1 eliminates the knockback. Vertical knockback is not affected. It does not affect explosions.
+
+Entity
+Base value
+
+Iron Golem Warden
+
+1
+
+Ravager
+0.75
+
+Hoglin Zoglin Nautilus Zombie Nautilus
+
+0.6
+
+Luck
+
+Luck
+
+ID
+
+luck
+
+Default
+
+0
+
+Minimum
+
+-1024
+
+Maximum
+
+1024
+
+{
+    "title": "Luck",
+    "rows": [
+        {
+            "field": "<code>luck</code>",
+            "label": "ID"
+        },
+        {
+            "field": "0",
+            "label": "Default"
+        },
+        {
+            "field": "-1024",
+            "label": "Minimum"
+        },
+        {
+            "field": "1024",
+            "label": "Maximum"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+This attribute affects the results of loot tables, with a higher attribute value increasing the amount and quality of results.
+The number of rolls is increased by the pools "bonus rolls"-value times this attributes value, rounded down, and the weight of each entry is increased by its quality times this attributes value, also rounded down.
+Only players have this attribute.
+
+Max Absorption
+
+Max Absorption
+
+ID
+
+max_absorption
+
+Default
+
+0HP
+
+Minimum
+
+0HP
+
+Maximum
+
+2048HP × 1024
+
+{
+    "title": "Max Absorption",
+    "rows": [
+        {
+            "field": "<code>max_absorption</code>",
+            "label": "ID"
+        },
+        {
+            "field": "0<span class=\"hidden-alt-text\">HP</span><span class=\"nowrap mc-hearts\"><span class=\"iconbar pixel-image nowrap\" style=\"--icon-offset:-1px;\" title=\"0 absorption hearts\">(link to File:Empty Heart (icon).png article, displayed as 9px|link=|alt=🖤)</span></span>",
+            "label": "Default"
+        },
+        {
+            "field": "0<span class=\"hidden-alt-text\">HP</span><span class=\"nowrap mc-hearts\"><span class=\"iconbar pixel-image nowrap\" style=\"--icon-offset:-1px;\" title=\"0 absorption hearts\">(link to File:Empty Heart (icon).png article, displayed as 9px|link=|alt=🖤)</span></span>",
+            "label": "Minimum"
+        },
+        {
+            "field": "2048<span class=\"hidden-alt-text\">HP</span><span class=\"nowrap mc-hearts\"><span class=\"iconbar pixel-image nowrap\" style=\"--icon-offset:-1px;\" title=\"1 absorption heart\">(link to File:Absorption Heart (icon).png article, displayed as 9px|link=|alt=❤️)</span> × 1024</span>",
+            "label": "Maximum"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+This attribute determines an entity's maximum absorption.
+
+Max Health
+
+Max Health
+
+ID
+
+max_health
+
+Default
+
+20HP × 10
+
+Minimum
+
+1HP
+
+Maximum
+
+1024HP × 512
+
+{
+    "title": "Max Health",
+    "rows": [
+        {
+            "field": "<code>max_health</code>",
+            "label": "ID"
+        },
+        {
+            "field": "20<span class=\"hidden-alt-text\">HP</span><span class=\"nowrap mc-hearts\"><span class=\"iconbar pixel-image nowrap\" style=\"--icon-offset:-1px;\" title=\"1  heart\">(link to File:Heart (icon).png article, displayed as 9px|link=|alt=❤️)</span> × 10</span>",
+            "label": "Default"
+        },
+        {
+            "field": "1<span class=\"hidden-alt-text\">HP</span><span class=\"nowrap mc-hearts\"><span class=\"iconbar pixel-image nowrap\" style=\"--icon-offset:-1px;\" title=\"0.5  hearts\">(link to File:Half Heart (icon).png article, displayed as 9px|link=|alt=💔)</span></span>",
+            "label": "Minimum"
+        },
+        {
+            "field": "1024<span class=\"hidden-alt-text\">HP</span><span class=\"nowrap mc-hearts\"><span class=\"iconbar pixel-image nowrap\" style=\"--icon-offset:-1px;\" title=\"1  heart\">(link to File:Heart (icon).png article, displayed as 9px|link=|alt=❤️)</span> × 512</span>",
+            "label": "Maximum"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+This attribute determines an entity's maximum health. It determines the highest health they may be healed to.
+
+Entity
+Base value
+
+Warden
+
+500HP × 250
+
+Wither
+
+300HP × 150
+
+Ender Dragon
+
+200HP × 100
+
+Iron Golem Giant Ravager
+
+100HP × 50
+
+Elder Guardian
+
+80HP × 40
+
+Piglin Brute
+
+50HP × 25
+
+Tamed Wolf Enderman Zoglin Hoglin
+
+40HP × 20
+
+Camel Camel Husk Illusioner
+
+32HP × 16
+
+Polar Bear Guardian Shulker Breeze Turtle
+
+30HP × 15
+
+Witch
+
+26HP × 13
+
+Zombie Horse
+
+25HP × 12.5
+
+Evoker Pillager Vindicator
+
+24HP × 12
+
+Happy Ghast
+
+20HP × 10
+
+Piglin Bogged Parched Spider
+
+16HP × 8
+
+Skeleton Horse Nautilus Zombie Nautilus
+
+15HP × 7.5
+
+Axolotl Sniffer
+
+14HP × 7
+
+Armadillo Copper Golem Cave Spider
+
+12HP × 6
+
+Bee Cow Mooshroom Dolphin Cat Ocelot Fox Frog Goat Panda Pig Squid Glow Squid Ghast
+
+10HP
+
+Sheep Wolf Endermite Silverfish
+
+8HP
+
+Bat Tadpole Parrot
+
+6HP
+
+Chicken Snow Golem
+
+4HP
+
+Cod Salmon Tropical Fish Pufferfish Rabbit
+
+3HP
+
+Creaking
+
+1HP
+
+Horse Donkey Mule Llama Trader Llama
+
+Random(15HP × 7.5 - 30HP × 15)
+
+Slime Magma Cube
+
+1HP × Size × Size
+
+Sulfur Cube
+
+4HP × Size
+
+Mining Efficiency
+
+Mining Efficiency
+
+ID
+
+mining_efficiency
+
+Default
+
+0
+
+Minimum
+
+0
+
+Maximum
+
+1024
+
+{
+    "title": "Mining Efficiency",
+    "rows": [
+        {
+            "field": "<code>mining_efficiency</code>",
+            "label": "ID"
+        },
+        {
+            "field": "0",
+            "label": "Default"
+        },
+        {
+            "field": "0",
+            "label": "Minimum"
+        },
+        {
+            "field": "1024",
+            "label": "Maximum"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+This attribute increases the speed at which a player breaks blocks. Only players have this attribute.
+
+Movement Efficiency
+
+Movement Efficiency
+
+ID
+
+movement_efficiency
+
+Default
+
+0
+
+Minimum
+
+0
+
+Maximum
+
+1
+
+{
+    "title": "Movement Efficiency",
+    "rows": [
+        {
+            "field": "<code>movement_efficiency</code>",
+            "label": "ID"
+        },
+        {
+            "field": "0",
+            "label": "Default"
+        },
+        {
+            "field": "0",
+            "label": "Minimum"
+        },
+        {
+            "field": "1",
+            "label": "Maximum"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+This attribute is a factor to improve walking on terrain that slows down movement, such as soul sand. A value of 1 removes the slowdown.
+
+Movement Speed
+
+Movement Speed
+
+ID
+
+movement_speed
+
+Default
+
+0.7
+
+Minimum
+
+0
+
+Maximum
+
+1024
+
+{
+    "title": "Movement Speed",
+    "rows": [
+        {
+            "field": "<code>movement_speed</code>",
+            "label": "ID"
+        },
+        {
+            "field": "0.7",
+            "label": "Default"
+        },
+        {
+            "field": "0",
+            "label": "Minimum"
+        },
+        {
+            "field": "1024",
+            "label": "Maximum"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+This attribute determines the speed at which an entity moves. It represents a multiplier for acceleration per tick. A mob's actual speed in blocks/second is approximately 43 times this value (see Entity#Formulas.)
+
+Entity
+Base value
+
+Dolphin
+1.2
+
+Zombie Nautilus
+
+1.1
+
+Axolotl Frog Nautilus Tadpole
+
+1
+
+Armor Stand Bat Cod Ender Dragon Ghast Glow Squid Phantom Pufferfish Salmon Shulker Squid Tropical Fish Vex Wandering Trader
+
+0.7
+
+Breeze
+
+0.63
+
+Wither
+
+0.6
+
+Evoker Giant Guardian Illusioner Villager
+
+0.5
+
+Creaking
+
+0.4
+
+Piglin Piglin Brute Pillager Vindicator
+
+0.35
+
+Bee Cat Cave Spider Elder Guardian Enderman Fox Hoglin Ocelot Rabbit Ravager Spider Warden Wolf Zoglin
+
+0.3
+
+Chicken Creeper Endermite Iron Golem Pig Polar Bear Silverfish Skeleton Stray Bogged Parched Turtle Witch Wither Skeleton
+
+0.25
+
+Blaze Drowned Husk Sheep Zombie Zombie Villager Zombified Piglin
+
+0.23
+
+Cow Goat Mooshroom Parrot Skeleton Horse Snow Golem Copper Golem Magma Cube
+
+0.2
+
+Llama Strider Trader Llama
+
+0.175
+
+Panda
+0.15
+
+Armadillo
+0.14
+
+Allay Sniffer Player
+
+0.1
+
+Camel Camel Husk
+0.09
+
+Panda (lazy)
+0.07
+
+Happy Ghast
+0.05
+
+Horse Donkey Mule
+
+Random (0.1125 – 0.3375)
+
+Zombie Horse
+
+Random (0.2135 – 0.2846)
+
+Slime Sulfur Cube
+
+0.2 + (0.1 × Size)
+
+Name Tag Distance
+
+Name Tag Distance
+
+ID
+
+name_tag_distance
+
+Default
+
+64
+
+Minimum
+
+0
+
+Maximum
+
+512
+
+{
+    "title": "Name Tag Distance",
+    "rows": [
+        {
+            "field": "<code>name_tag_distance</code>",
+            "label": "ID"
+        },
+        {
+            "field": "64",
+            "label": "Default"
+        },
+        {
+            "field": "0",
+            "label": "Minimum"
+        },
+        {
+            "field": "512",
+            "label": "Maximum"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+This attribute determines the distance within which an entity's custom name is visible.
+
+Oxygen Bonus
+
+Oxygen Bonus
+
+ID
+
+oxygen_bonus
+
+Default
+
+0
+
+Minimum
+
+0
+
+Maximum
+
+1024
+
+{
+    "title": "Oxygen Bonus",
+    "rows": [
+        {
+            "field": "<code>oxygen_bonus</code>",
+            "label": "ID"
+        },
+        {
+            "field": "0",
+            "label": "Default"
+        },
+        {
+            "field": "0",
+            "label": "Minimum"
+        },
+        {
+            "field": "1024",
+            "label": "Maximum"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+This attribute determines the chance that an entity's remaining air decreases while underwater in any given game tick. The chance is given by 1⁄(oxygen_bonus + 1).
+
+Safe Fall Distance
+
+Safe Fall Distance
+
+ID
+
+safe_fall_distance
+
+Default
+
+3
+
+Minimum
+
+-1024
+
+Maximum
+
+1024
+
+{
+    "title": "Safe Fall Distance",
+    "rows": [
+        {
+            "field": "<code>safe_fall_distance</code>",
+            "label": "ID"
+        },
+        {
+            "field": "3",
+            "label": "Default"
+        },
+        {
+            "field": "-1024",
+            "label": "Minimum"
+        },
+        {
+            "field": "1024",
+            "label": "Maximum"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+This attribute determines the distance in blocks an entity can fall before fall damage starts to accumulate.
+
+Entity
+Base value
+
+Camel Camel Husk Donkey Horse Llama Mule Skeleton Horse Trader Llama Zombie Horse
+
+6
+
+Fox
+
+5
+
+Scale
+
+Scale
+
+ID
+
+scale
+
+Default
+
+1
+
+Minimum
+
+0.0625
+
+Maximum
+
+16
+
+{
+    "title": "Scale",
+    "rows": [
+        {
+            "field": "<code>scale</code>",
+            "label": "ID"
+        },
+        {
+            "field": "1",
+            "label": "Default"
+        },
+        {
+            "field": "0.0625",
+            "label": "Minimum"
+        },
+        {
+            "field": "16",
+            "label": "Maximum"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+This attribute multiplies an entity's size and hitbox dimensions.
+
+Sneaking Speed
+
+Sneaking Speed
+
+ID
+
+sneaking_speed
+
+Default
+
+0.3
+
+Minimum
+
+0
+
+Maximum
+
+1
+
+{
+    "title": "Sneaking Speed",
+    "rows": [
+        {
+            "field": "<code>sneaking_speed</code>",
+            "label": "ID"
+        },
+        {
+            "field": "0.3",
+            "label": "Default"
+        },
+        {
+            "field": "0",
+            "label": "Minimum"
+        },
+        {
+            "field": "1",
+            "label": "Maximum"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+This attribute multiplies a player's movement speed when sneaking or crawling. Only players have this attribute.
+
+Zombie Reinforcements
+
+Zombie Reinforcements
+
+ID
+
+spawn_reinforcements
+
+Default
+
+0
+
+Minimum
+
+0
+
+Maximum
+
+1
+
+{
+    "title": "Zombie Reinforcements",
+    "rows": [
+        {
+            "field": "<code>spawn_reinforcements</code>",
+            "label": "ID"
+        },
+        {
+            "field": "0",
+            "label": "Default"
+        },
+        {
+            "field": "0",
+            "label": "Minimum"
+        },
+        {
+            "field": "1",
+            "label": "Maximum"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+This attribute determines the chance for a zombie to spawn another zombie when attacked. Only the entities listed below have this attribute.
+
+Entity
+Base value
+
+Zombie Husk Drowned Zombie Villager
+
+Random(0 – 0.1)
+
+Zombified Piglin
+
+0
+
+Step Height
+
+Step Height
+
+ID
+
+step_height
+
+Default
+
+0.6
+
+Minimum
+
+0
+
+Maximum
+
+10
+
+{
+    "title": "Step Height",
+    "rows": [
+        {
+            "field": "<code>step_height</code>",
+            "label": "ID"
+        },
+        {
+            "field": "0.6",
+            "label": "Default"
+        },
+        {
+            "field": "0",
+            "label": "Minimum"
+        },
+        {
+            "field": "10",
+            "label": "Maximum"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+This attribute determines the maximum number of blocks that an entity can step up without jumping. Sneaking prevents drops from heights that are higher than this value.
+
+Entity
+Base value
+
+Camel Camel Husk
+1.5
+
+Creaking
+1.0625
+
+Axolotl Donkey Drowned Enderman Frog Horse Iron Golem Llama Mule Ravager Skeleton Horse Trader Llama Turtle Zombie Horse Copper Golem
+
+1
+
+Armor Stand
+
+0
+
+Submerged Mining Speed
+
+Submerged Mining Speed
+
+ID
+
+submerged_mining_speed
+
+Default
+
+0.2
+
+Minimum
+
+0
+
+Maximum
+
+20
+
+{
+    "title": "Submerged Mining Speed",
+    "rows": [
+        {
+            "field": "<code>submerged_mining_speed</code>",
+            "label": "ID"
+        },
+        {
+            "field": "0.2",
+            "label": "Default"
+        },
+        {
+            "field": "0",
+            "label": "Minimum"
+        },
+        {
+            "field": "20",
+            "label": "Maximum"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+This attribute multiplies a player's mining speed when underwater. Only players have this attribute.
+
+Sweeping Damage Ratio
+
+Sweeping Damage Ratio
+
+ID
+
+sweeping_damage_ratio
+
+Default
+
+0
+
+Minimum
+
+0
+
+Maximum
+
+1
+
+{
+    "title": "Sweeping Damage Ratio",
+    "rows": [
+        {
+            "field": "<code>sweeping_damage_ratio</code>",
+            "label": "ID"
+        },
+        {
+            "field": "0",
+            "label": "Default"
+        },
+        {
+            "field": "0",
+            "label": "Minimum"
+        },
+        {
+            "field": "1",
+            "label": "Maximum"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+This attribute determines the proportion of the base attack damage dealt to secondary targets when a player performs a sweep attack. This is in addition to the base damage of the sweep damage itself. Only players have this attribute.
+
+Mob Tempt Range
+
+Mob Tempt Range
+
+ID
+
+tempt_range
+
+Default
+
+10
+
+Minimum
+
+0
+
+Maximum
+
+2048
+
+{
+    "title": "Mob Tempt Range",
+    "rows": [
+        {
+            "field": "<code>tempt_range</code>",
+            "label": "ID"
+        },
+        {
+            "field": "10",
+            "label": "Default"
+        },
+        {
+            "field": "0",
+            "label": "Minimum"
+        },
+        {
+            "field": "2048",
+            "label": "Maximum"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+This attribute determines the range in blocks in which a mob can be tempted, following a player holding a specific item.
+
+Entity
+Base value
+
+Happy Ghast
+16
+
+Armadillo Axolotl Bee Chicken Cow Mooshroom Horse Donkey Mule Llama Trader Llama Zombie Horse Skeleton Horse Cat Ocelot Fox Frog Tadpole Goat Nautilus Zombie Nautilus Panda Parrot Pig Polar Bear Rabbit Sheep Sniffer Turtle Wolf Strider
+10
+
+Sulfur Cube
+8
+
+Water Movement Efficiency
+
+Water Movement Efficiency
+
+ID
+
+water_movement_efficiency
+
+Default
+
+0
+
+Minimum
+
+0
+
+Maximum
+
+1
+
+{
+    "title": "Water Movement Efficiency",
+    "rows": [
+        {
+            "field": "<code>water_movement_efficiency</code>",
+            "label": "ID"
+        },
+        {
+            "field": "0",
+            "label": "Default"
+        },
+        {
+            "field": "0",
+            "label": "Minimum"
+        },
+        {
+            "field": "1",
+            "label": "Maximum"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+This attribute determines movement speed and drag when submerged.​[more information needed]
+
+Waypoint Receive Range
+
+Waypoint Receive Range
+
+ID
+
+waypoint_receive_range
+
+Default
+
+0
+
+Minimum
+
+0
+
+Maximum
+
+60,000,000
+
+{
+    "title": "Waypoint Receive Range",
+    "rows": [
+        {
+            "field": "<code>waypoint_receive_range</code>",
+            "label": "ID"
+        },
+        {
+            "field": "0",
+            "label": "Default"
+        },
+        {
+            "field": "0",
+            "label": "Minimum"
+        },
+        {
+            "field": "60,000,000",
+            "label": "Maximum"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+This attribute determines the maximum distance from a player to a waypoint at which the waypoint is displayed on the locator bar. Only players have this attribute.
+
+Entity
+Base value
+
+Player
+60,000,000
+
+Waypoint Transmit Range
+
+Waypoint Transmit Range
+
+ID
+
+waypoint_transmit_range
+
+Default
+
+0
+
+Minimum
+
+0
+
+Maximum
+
+60,000,000
+
+{
+    "title": "Waypoint Transmit Range",
+    "rows": [
+        {
+            "field": "<code>waypoint_transmit_range</code>",
+            "label": "ID"
+        },
+        {
+            "field": "0",
+            "label": "Default"
+        },
+        {
+            "field": "0",
+            "label": "Minimum"
+        },
+        {
+            "field": "60,000,000",
+            "label": "Maximum"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+This attribute determines the distance at which an entity displays as a waypoint on the locator bar.
+
+Entity
+Base value
+
+Player
+60,000,000
+
+Modifiers
+Attribute modifiers are persistent increases or decreases to an attribute's base value by preset operations.
+Each modifier has a namespaced identifier to uniquely identify it. Modifiers affect exactly one attribute, increasing or decreasing its value depending on the modifier's operation and value. The resulting value after modification is capped by the attribute's minimum and maximum limits.
+
+Operations
+A modifier may perform one of three possible operations:
+
+Operation
+Description
+
+add_value
+
+Adds all of the modifiers' amounts to the base attribute.
+Total=Base+Amount1+Amount2+…+Amountn
+For example, applying two add_value modifiers with amounts of 2 and 4, to attribute base of 3:
+Total=3+2+4=9
+
+add_multiplied_base
+
+Multiplies the base attribute by (1 + sum of modifiers' amounts).
+Total=Base×(1+Amount1+Amount2+…+Amountn)
+For example, applying two add_multiplied_base modifiers with amounts of 2 and 4, to attribute base of 3:
+Total=3×(1+2+4)=3×7=21
+
+add_multiplied_total
+
+Multiplies the base attribute by (1 + modifiers' amounts) for every modifier.
+Total=Base×(1+Amount1)×(1+Amount2)×…×(1+Amountn)
+For example, applying two add_multiplied_total modifiers with amounts of 2 and 4, to attribute base of 3:
+Total=3×(1+2)×(1+4)=3×3×5=45
+
+If multiple modifiers are applied to an attribute, the game first executes all add_value modifiers, then  all add_multiplied_base modifiers, and finally all add_multiplied_total modifiers. The Total value is always carried as the Base for the next set of modifiers.
+The final value is clamped to fit the attribute's minimum and maximum value range.
+
+ Simplified, the calculation used in the game's code is like: Total=Base+(Base×Amount1)+(Base×Amount2)+…+(Base×Amountn)
+
+Applying modifiers
+Various systems in the game add and remove modifiers.
+
+Commands
+The /attribute command can add or remove specific modifiers, including custom ones. Except for players, it is also possible add, remove and custom with /data.
+
+Items
+The attribute_modifiers item component defines modifiers that are automatically added to an entity when the item is equipped in a certain slot, and removed when it is removed.
+All vanilla weapons and armor use this component to add and remove modifiers with the following IDs:
+
+Modifier ID
+
+Attribute
+
+Items
+
+minecraft:base_attack_damage
+
+attack_damage
+
+Swords Spears Trident Mace Axes Pickaxes Shovels Hoes
+
+minecraft:base_attack_speed
+
+attack_speed
+
+Swords Spears Trident Mace Axes Pickaxes Shovels Hoes
+
+minecraft:armor.helmet
+
+armorarmor_toughnessknockback_resistance
+
+Helmets
+
+minecraft:armor.chestplate
+
+armorarmor_toughnessknockback_resistance
+
+Chestplates
+
+minecraft:armor.leggings
+
+armorarmor_toughnessknockback_resistance
+
+Leggings
+
+minecraft:armor.boots
+
+armorarmor_toughnessknockback_resistance
+
+Boots
+
+minecraft:armor.body
+
+armorarmor_toughnessknockback_resistance
+
+Horse Armor Nautilus Armor Wolf Armor
+
+minecraft:waypoint_transmit_range_hide
+
+waypoint_transmit_range
+
+Carved Pumpkin Heads
+
+Enchantments
+Enchantment attribute effects define modifiers that are automatically added to an entity when the enchanted item is equipped in a certain slot, and removed when it is removed.
+Some enchantments use this effect to add and remove modifiers with the following IDs. The listed IDs are followed by / and the name of the slot the enchantment is active in.
+
+Modifier ID
+
+Attribute
+
+Level-based value
+
+Operation
+
+Enchantment
+
+minecraft:enchantment.aqua_affinity
+
+submerged_mining_speed
+
+type: minecraft:linear,
+base: 4.0,
+per_level_above_first: 4.0
+
+add_multiplied_total
+
+Aqua Affinity
+
+minecraft:enchantment.blast_protection
+
+explosion_knockback_resistance
+
+type: minecraft:linear,
+base: 0.15,
+per_level_above_first: 0.15
+
+add_value
+
+Blast Protection
+
+minecraft:enchantment.depth_strider
+
+water_movement_efficiency
+
+type: minecraft:linear,
+base: 0.33333334,
+per_level_above_first: 0.33333334
+
+add_value
+
+Depth Strider
+
+minecraft:enchantment.efficiency
+
+mining_efficiency
+
+type: minecraft:levels_squared,
+added: 1.0
+
+add_value
+
+Efficiency
+
+minecraft:enchantment.fire_protection
+
+burning_time
+
+type: minecraft:linear,
+base: -0.15,
+per_level_above_first: -0.15
+
+add_multiplied_base
+
+Fire Protection
+
+minecraft:enchantment.respiration
+
+oxygen_bonus
+
+type: minecraft:linear,
+base: 1.0,
+per_level_above_first: 1.0
+
+add_value
+
+Respiration
+
+minecraft:enchantment.soul_speed
+
+movement_speed
+
+type: minecraft:linear,
+base: 0.0405,
+per_level_above_first: 0.0105
+
+add_value
+
+Soul Speed
+
+movement_efficiency
+
+1.0
+
+add_value
+
+minecraft:enchantment.sweeping_edge
+
+sweeping_damage_ratio
+
+type: minecraft:fraction
+denominator: {
+type: minecraft:linear
+base: 2.0,
+per_level_above_first: 1.0
+},
+numerator: {
+
+type: minecraft:linear,
+base: 1.0,
+per_level_above_first: 1.0
+}
+
+add_value
+
+Sweeping Edge
+
+minecraft:enchantment.swift_sneak
+
+sneaking_speed
+
+type: minecraft:linear,
+base: 0.15,
+per_level_above_first: 0.15
+
+add_value
+
+Swift Sneak
+
+Sulfur cube archetypes
+
+
+
+This article is missing information about: explosion_knockback_resistance attribute 
+Please expand the article to include this information. Further details may exist on the talk page.
+
+Sulfur cube archetype definitions define modifiers that are automatically added to a sulfur cube when one of the specified items is given to it, and removed when it is removed.
+See sulfur cube archetype for the values.
+The vanilla archetypes add and remove modifiers with the following IDs:
+
+Modifier ID
+
+Attribute
+
+Operation
+
+minecraft:bouncy_add_knockback_resistanceminecraft:fast_flat_add_knockback_resistanceminecraft:fast_sliding_add_knockback_resistanceminecraft:high_resistance_add_knockback_resistanceminecraft:light_add_knockback_resistanceminecraft:regular_add_knockback_resistanceminecraft:slow_flat_add_knockback_resistanceminecraft:slow_sliding_add_knockback_resistanceminecraft:sticky_add_knockback_resistance
+
+knockback_resistance
+
+add_value
+
+minecraft:bouncy_add_bouncinessminecraft:fast_flat_add_bouncinessminecraft:fast_sliding_add_bouncinessminecraft:high_resistance_add_bouncinessminecraft:light_add_bouncinessminecraft:regular_add_bouncinessminecraft:slow_flat_add_bouncinessminecraft:slow_sliding_add_bouncinessminecraft:sticky_add_bounciness
+
+bounciness
+
+add_value
+
+minecraft:bouncy_mul_friction_modifierminecraft:fast_flat_mul_friction_modifierminecraft:fast_sliding_mul_friction_modifierminecraft:high_resistance_mul_friction_modifierminecraft:light_mul_friction_modifierminecraft:regular_mul_friction_modifierminecraft:slow_flat_mul_friction_modifierminecraft:slow_sliding_mul_friction_modifierminecraft:sticky_mul_friction_modifier
+
+friction_modifier
+
+add_multiplied_total
+
+minecraft:bouncy_mul_air_drag_modifierminecraft:fast_flat_mul_air_drag_modifierminecraft:fast_sliding_mul_air_drag_modifierminecraft:high_resistance_mul_air_drag_modifierminecraft:light_mul_air_drag_modifierminecraft:regular_mul_air_drag_modifierminecraft:slow_flat_mul_air_drag_modifierminecraft:slow_sliding_mul_air_drag_modifierminecraft:sticky_mul_air_drag_modifier
+
+air_drag_modifier
+
+add_multiplied_total
+
+Hardcoded
+Some other attribute modifiers are hardcoded, not depending on data packs or data components, but rather on the game code. Although it is still possible to change these modifiers with /attribute, it is not possible to prevent them from appearing in specific conditions.
+
+Effects
+Some status effects apply modifiers when the effect is applied, and remove them when the effect runs out. The final value of the added attribute is multiplied by effect potency (in other words, multiplied by amplifier + 1).
+
+Modifier ID
+
+Attribute
+
+Value
+
+Operation
+
+Effect
+
+minecraft:effect.speed
+
+movement_speed
+
+0.2
+
+add_multiplied_total
+
+Speed
+
+minecraft:effect.slowness
+
+movement_speed
+
+-0.15
+
+add_multiplied_total
+
+Slowness
+
+minecraft:effect.haste
+
+attack_speed
+
+0.1
+
+add_multiplied_total
+
+Haste
+
+minecraft:effect.mining_fatigue
+
+attack_speed
+
+-0.1
+
+add_multiplied_total
+
+Mining Fatigue
+
+minecraft:effect.strength
+
+attack_damage
+
+3.0
+
+add_value
+
+Strength
+
+minecraft:effect.weakness
+
+attack_damage
+
+-4.0
+
+add_value
+
+Weakness
+
+minecraft:effect.jump_boost
+
+safe_fall_distance
+
+1.0
+
+add_value
+
+Jump Boost
+
+minecraft:effect.waypoint_transmit_range_hide
+
+waypoint_transmit_range
+
+-1.0
+
+add_multiplied_total
+
+Invisibility
+
+minecraft:effect.health_boost
+
+max_health
+
+4.0
+
+add_value
+
+Health Boost
+
+minecraft:effect.absorption
+
+max_absorption
+
+4.0
+
+add_value
+
+Absorption
+
+minecraft:effect.luck
+
+luck
+
+1.0
+
+add_value
+
+Luck
+
+minecraft:effect.unluck
+
+luck
+
+-1.0
+
+add_value
+
+Bad Luck
+
+Misc
+Other parts of the game add and remove additional modifiers. In this table, every mention of "zombies" represents the class Zombie, that is, the entities: zombie, drowned, husk, zombie villager, and zombified piglin.
+
+Modifier ID
+
+Attribute
+
+Value
+
+Operation
+
+Details
+
+minecraft:random_spawn_bonus
+
+follow_range
+
+triangle(0.0, 0.11485)
+
+add_value
+
+Applied randomly to all mobs when they spawn.
+
+minecraft:random_spawn_bonus
+
+knockback_resistance
+
+nextDouble()*0.05
+
+add_value
+
+Applied randomly to all zombies when they spawn.
+
+minecraft:zombie_random_spawn_bonus
+
+follow_range
+
+nextDouble()*1.5*difficultyModifier
+
+add_multiplied_total
+
+Applied randomly to some zombies when they spawn. Only applies if greater than 1.
+
+minecraft:leader_zombie_bonus
+
+spawn_reinforcements_chance
+
+nextDouble()*0.25+0.5
+
+add_value
+
+Applied randomly to some zombies to turn them into "leaders".
+
+max_health
+
+nextDouble()*3.0+1.0
+
+add_multiplied_total
+
+minecraft:reinforcement_caller_charge
+
+spawn_reinforcements_chance
+
+existingAmount - 0.05
+
+add_value
+
+Applied to a zombie when it successfully spawns a reinforcement. The existingAmount is the value of the modifier previously, or 0.0 if it does not exist.
+
+minecraft:reinforcement_callee_charge
+
+spawn_reinforcements_chance
+
+-0.05
+
+add_value
+
+Applied to zombie reinforcements when they spawn.
+
+minecraft:baby
+
+movement_speed
+
+Zombie: 0.5  Piglin: 0.2
+
+add_multiplied_base
+
+Applied to zombies and piglins as babies, and removed when they are not babies.
+
+minecraft:attacking
+
+movement_speed
+
+Enderman: 0.15  Zombified piglin: 0.05
+
+add_value
+
+Applied to endermen when they acquire a target, and removed when they lose it.Applied to adult zombified piglins when they get angry, and removed when they stop being angry.
+
+minecraft:covered
+
+armor
+
+20.0
+
+add_value
+
+Applied to shulkers when their shell fully closes, and removed when it opens.
+
+minecraft:creative_mode_block_range
+
+block_interaction_range
+
+0.5
+
+add_value
+
+Applied to players when they enter creative mode, and removed when leaving creative mode.
+
+minecraft:creative_mode_entity_range
+
+entity_interaction_range
+
+2.0
+
+add_value
+
+Applied to players when they enter creative mode, and removed when leaving creative mode.
+
+minecraft:drinking
+
+movement_speed
+
+-0.25
+
+add_value
+
+Applied to witches when they start drinking a potion, and removed when they finish drinking it.
+
+minecraft:powder_snow
+
+movement_speed
+
+-0.05*getPercentFrozen()
+
+add_value
+
+Applied to all living entities while inside powder snow, and removed when the frost effect wears off. The getPercentFrozen() is the float min(140,TicksFrozen)/140.
+
+minecraft:sprinting
+
+movement_speed
+
+0.3
+
+add_multiplied_total
+
+Applied to all living entities when they start sprinting, and removed when they stop.
+
+minecraft:waypoint_transmit_range_crouch
+
+waypoint_transmit_range
+
+-1.0
+
+add_multiplied_total
+
+Applied to players when they start sneaking, and removed when they stop.
+
+minecraft:evil
+
+attack_damage
+
+5.0
+
+add_value
+
+Applied to rabbits when they become the killer bunny, and removed when they become a different variant.
+
+minecraft:suffocating
+
+attack_damage
+
+-0.34
+
+add_multiplied_base
+
+Applied to striders when they become cold outside of lava, and removed when they return to lava.
+
+History
+Java Edition
+Java Edition1.6.113w16a
+Added attributes and modifiers.
+The following attributes existed: "Max Health", "Follow Range", "Knockback Resistance"; furthermore, "Jump Strength" and "Speed" existed as horse-specific attributes.
+The only modifiers were both "Random spawn bonus", one used on Zombies to knockback resistance with operation 0, and the other on all mobs to follow range with operation 1.13w17a
+Added "Spawn Reinforcements Chance" attribute for Zombies.
+Added "Zombie reinforcement charge" (to spawn reinforcements charge), "Random zombie-spawn bonus" (to follow range), and "Leader zombie bonus" (to both reinforcements charge and max health).13w18a
+Replaced "Zombie reinforcement charge" with "Zombie reinforcement caller charge"13w21a
+Attributes now can be specified in NBT.
+Attributes now have IDs and corresponding translation keys.
+Modifiers now display on items.
+Added "Attack Damage" and made "Speed" generic.
+Added "potion.moveSpeed", "potion.moveSlowdown", "potion.damageBoost", and "potion.weakness" modifiers.
+Added "Sprinting speed boost", "Fleeing speed bonus", "Attacking speed boost" (for both pigmen and endermen), "Drinking speed penalty", and "Baby speed boost".
+Added "Tool modifier" and "Weapon modifier".13w23b
+Added "potion.healthBoost" modifier.1.7.213w36a
+Attributes/modifiers can be added to items or mobs without the use of third-party NBT editing software by adding data tags to the /give and /summon commands.1.915w34b
+Added attack speed attribute.15w36d
+Added armor attribute.15w44b
+Added luck attribute.1.9.1pre1
+Added armorToughness attribute.1.12pre1
+Added flyingSpeed attribute.1.1418w43a
+Added attackKnockback attribute.1.1620w06a
+Knockback resistance is now a scale rather than probability.20w14a
+Items and entities no longer keep unknown attributes.
+
+Names of some attributes have been renamed to meet resource location requirements (i.e., lowercase separated by underscores instead of camel case).
+
+Renamed generic.maxHealth to generic.max_health.
+
+Renamed zombie.spawnReinforcements to zombie.spawn_reinforcements.
+
+Renamed horse.jumpStrength to horse.jump_strength.
+
+Renamed generic.followRange to generic.follow_range.
+
+Renamed generic.knockbackResistance to generic.knockback_resistance.
+
+Renamed generic.movementSpeed to generic.movement_speed.
+
+Renamed generic.flyingSpeed to generic.flying_speed.
+
+Renamed generic.attackDamage to generic.attack_damage
+
+Renamed generic.attackKnockback to generic.attack_knockback
+
+Renamed generic.attackSpeed to generic.attack_speed
+
+Renamed generic.armorToughness to generic.armor_toughness.20w17a
+Added the /attribute command, which can query and change attributes.1.18.222w03a
+Knockback resistance no longer gives a 50% chance to ignore all knockback.1.20.223w31a
+Added the generic.max_absorption attribute.1.20.523w51a
+Added generic.scale and generic.step_height attributes for all living entities, as well as generic.block_interaction_range and generic.entity_interaction_range attributes for players.24w03a
+Renamed generic.block_interaction_range and generic.entity_interaction_range to player.block_interaction_range and player.entity_interaction_range.24w06a
+Added generic.gravity, generic.safe_fall_distance, generic.fall_damage_multiplier and player.block_break_speed attributes.
+Renamed horse.jump_strength to generic.jump_strength.1.2124w18a
+Added generic.burning_time, generic.explosion_knockback_resistance, player.mining_efficiency, generic.movement_efficiency, generic.oxygen_bonus, player.sneaking_speed, player.submerged_mining_speed, player.sweeping_damage_ratioand generic.water_movement_efficiency attributes.
+generic.attack_knockback attribute now also works for players.24w21a
+The uuid and name arguments have been replaced with a singular id argument.1.21.224w33a
+Added the tempt_range attribute.
+
+Removed the generic., player., or zombie. prefixes from all the attributes. Instead of using the resource locations, the argument instead just asks for the name of the attribute.1.21.424w44a
+Players can no longer sprint while sneaking or crawling when having the sneaking_speed attribute set to 0.8 or higher.1.21.6ExperimentLocator Bar25w15a
+Added waypoint_transmit_range and waypoint_receive_range attributes.1.21.625w15a
+Added camera_distance attribute.25w17a
+waypoint_transmit_range and waypoint_receive_range are no longer experimental.26.2snap1
+Added bounciness, friction_modifier, and air_drag_modifier attributes.
+The minimum value of minecraft:knockback_resistance is now -2.0.snap 4
+Added nameplate_distance and below_name_distance attributes.snap 5
+Renamed nameplate_distance to name_tag_distance.Java Edition Combat Tests1.14.3
+Added generic.attackReach attribute.6
+Renamed generic.attackReach to generic.attack_reach.
+Bedrock Edition
+Pocket Edition Alphav0.12.1build 1
+Added attributes.
+Legacy Console Edition
+Legacy Console EditionXbox 360Xbox OnePS3PS4PS VitaWii USwitchTU19CU71.121.121.12Patch 11.0.1
+Added attributes.TU36CU251.281.281.28Patch 7
+Attributes of items are shown above the HUD when switching items in the hotbar if the item has less than 3 enchantments.TU46CU361.381.381.38Patch 15
+Added armor and luck attributes.TU54CU441.521.521.52Patch 241.0.4
+Added flying speed attribute.[verify]
+Issues
+Issues relating to "Attribute" are maintained on the bug tracker. Issues should be reported and viewed there.
+
+References
+
+ MC-32578 – Attribute "knockback_resistance" ineffective against explosions – resolved as "Invalid".
+
+ MC-301000
+
+ MC-268917
+
+ MC-133544 – resolved as "Works As Intended".
+
+ MC-278349
+
+Navigation

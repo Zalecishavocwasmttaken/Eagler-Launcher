@@ -1,0 +1,283 @@
+Minecraft 26.2 Snapshot 6
+
+Edition
+
+Java Edition
+
+Release date
+
+May 5, 2026
+
+Type
+
+Snapshot
+
+Snapshot for
+
+26.2
+
+Downloads
+
+Client (.json)Server
+
+Protocol version
+
+ dec: 1073742136 hex: 40000138
+
+Data version
+
+4890
+
+Resource pack format
+
+86.2
+
+Data pack format
+
+105.0
+
+Minimum Java version
+
+Java SE 25
+
+◄◄   26.1.2
+26.2
+  26.3 ►►
+
+◄   26.2 Snapshot 5
+
+ 26.2 Snapshot 6
+
+  26.2 Snapshot 7 ►
+
+{
+    "title": "Minecraft 26.2 Snapshot 6",
+    "images": [
+        "26.2-snapshot-6.jpg",
+        "Java Edition 26.2 Snapshot 6.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "May 5, 2026",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Snapshot article, displayed as Snapshot)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition 26.2 article, displayed as 26.2)",
+            "label": "Snapshot for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/7926cea1792ec1065f006056dbd29d842a58c827/client.jar Client] ([https://piston-meta.mojang.com/v1/packages/6427e43fd34dd3d111fc084b8d933b9033dc27dd/26.2-snapshot-6.json .json])<br />[https://piston-data.mojang.com/v1/objects/8bdae5a048cd361668da1df06e81c4e590a36064/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": " <span style=\"font-size:smaller\"><abbr title=\"decimal\">dec</abbr>: </span>1073742136<br /> <span style=\"font-size:smaller\"><abbr title=\"hexadecimal\">hex</abbr>: </span>40000138",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "4890",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "86.2",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "105.0",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Data pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_25_.28LTS.29 Java SE 25]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Java Edition  26.1.2|<span style=\"margin-right:-0.35em\">◄</span>◄   26.1.2]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition 26.2|26.2]]'''</td>\n<td style=\"padding: 0.4em\" >[[Java Edition  26.3|  26.3 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  26.2 Snapshot 5|◄   26.2 Snapshot 5]]\n</td>\n<td style=\"padding: 0.4em\">''' 26.2 Snapshot 6'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  26.2 Snapshot 7|  26.2 Snapshot 7 ►]]\n</td>\n</tr>\n</table>"
+}
+
+
+26.2 Snapshot 6 (known as 26.2-snapshot-6 in the launcher) is the sixth snapshot for Java Edition 26.2, released on May 5, 2026, which redesigns sulfur springs, makes changes to the sulfur caves biome, adds 3 new languages, adds 2 new archetypes to the sulfur cube, and adds a new advancement.
+
+Contents
+
+1 Additions
+
+1.1 Gameplay
+1.2 General
+
+2 Changes
+
+2.1 Blocks
+2.2 Mobs
+2.3 World generation
+2.4 General
+
+3 Fixes
+4 Videos
+5 References
+6 Navigation
+
+Additions
+Gameplay
+Advancements
+
+Added one new advancement.
+IconAdvancementIn-game descriptionActual requirements (if different)Uh OhHave a Sulfur Cube absorb a TNT block—
+General
+Languages
+
+Added support for Gallo, Uzbek, and Võro languages.
+Tags
+
+Added the following tags for items that can be placed inside a sulfur cube to determine its archetype:
+#sulfur_cube_archetype/hot
+#sulfur_cube_archetype/slow_bouncy
+Changes
+Blocks
+Potent sulfur
+
+Geyser eruptions emit game events at the beginning and at the end of the eruption that can be detected by sculk sensors.
+Mobs
+Sulfur cube
+
+Sulfur cube archetypes
+New archetype: Slow Bouncy
+Slow speed, high bounciness, medium friction and medium air drag.
+It is buoyant.
+Used when absorbing stone blocks.
+New special archetype: Hot
+Same properties as Regular, but damages entities on contact like magma blocks do.
+Used when absorbing magma blocks.
+Can no longer absorb blocks of redstone.
+Wandering traders
+
+Can now sell sulfur spikes.
+World generation
+Sulfur caves
+
+Redesigned all surface sulfur springs features.
+Is now less likely to generate underneath oceans, hills or mountains.
+No longer generate with bands of tuff and granite.
+General
+Configured features
+
+Added the minecraft:weighted_random_selector feature type
+Randomly selects one of the given features to generate based on their weights.
+Format: object with fields:
+features - list of placed features and their weights.
+Changed minecraft:large_dripstone
+The maximum allowed value for column_radius has been reduced from 19 to 16 to prevent features from reaching beyond neighboring chunks.
+Wind offset is now clamped to ensure the full dripstone (radius + wind) stays within neighboring chunk bounds.
+Changed minecraft:root_system
+New field level_test_distance indicating how far away from the origin the root system will check the existing terrain.
+New field max_level_deviation indicating how far the ground level can deviate from the original ground level at these test positions.
+Data pack
+
+The pack format version is now 105.0.
+Identifiers
+
+Added minecraft:sulfur_cube_archetype registry entries:
+hot
+slow_bouncy
+The entry format for minecraft:sulfur_cube_archetype registry has been updated:
+explosion_fuse has been replaced by explosion: an optional field, if present, the sulfur cube of this archetype will explode:
+fuse: positive integer, the fuse time when ignited.
+power: non-negative integer, the explosion power.
+causes_fire: boolean, whether the explosion causes fire.
+Added contact_damage: an optional field, if present, the sulfur cube of this archetype will deal damage to entities when they come in contact with it:
+amount: non-negative float, amount of damage dealt.
+damage_type: damage type.
+attribute_to_source: boolean indicating if the damage is attributed to the sulfur cube.
+Added knockback_modifiers: a field that contains various modifier fields for the sulfur cubes knockback magnitude and direction.
+horizontal_power: float that represents the horizontal power of the knockback.
+vertical_power: float that represents the vertical power of the knockback.
+Removed the HurtByTimestamp tag from Living Entities, ticks_since_last_hurt_by_mob should be used instead.
+Sounds
+
+Updated eruption sounds for sulfur springs.
+Structure definition
+
+Changed the minecraft:block_rot structure processor.
+Now evaluates the block state produced by previous block processors in the chain, instead of always using the original block defined in the structure.
+The first processor in the chain still always evaluates against the original structure-defined block.
+Surface rules
+
+Changed the noise_threshold surface rule condition.
+Added the is_3d field - boolean, true if the noise should be evaluated in 3D.
+If not specified, defaults to false.
+Removed the noise_gradient surface rule.
+Can be replaced with noise_threshold.
+Tags
+
+Added #sulfur_cube_archetype/hot, and #sulfur_cube_archetype/slow_bouncy to #sulfur_cube_swallowable item tag.
+Fixes
+41 issues fixed
+From released versions before 26.2
+
+MC-248758 – Logged Error: Detected setBlock in a far chunk.
+MC-302554 – Glowing falling blocks no longer show the glowing outline.
+MC-305239 – Growing world borders reset to their starting size upon reopening the world.
+MC-306778 – The fog color no longer transitions smoothly when the weather changes at night while under the Night Vision effect.
+MC-307043 – Applying a freeze effect while damaging a mob causes an incorrect value for ticks_since_last_hurt_by_mob.
+MC-307584 – The border around the selected pack in the resource/data pack menu disappears when pressing Enter.
+From the 26.2 development versions
+
+MC-307281 – /item replace cannot place items in sulfur cubes' body slot.
+MC-307297 – Sulfur cubes shake from freezing when inside powder snow despite not being able to freeze.
+MC-307310 – Potent sulfur can generate outside of water.
+MC-307323 – Sulfur caves can generate on the surface.
+MC-307351 – Dispenser arrows cannot push sulfur cubes.
+MC-307397 – Mace effects do not apply when hitting sulfur cubes.
+MC-307407 – Vertical velocity after bouncing does not take drag into consideration.
+MC-307424 – Chiseled cinnabar and sulfur are listed incorrectly in the Creative mode inventory.
+MC-307482 – Sulfur cubes with an absorbed block don't inherit any status effects from tipped arrows.
+MC-307517 – Beacon beams render in front of nether fog.
+MC-307544 – Sulfur spikes have an inaccurate map color.
+MC-307560 – Wandering traders are unable to sell sulfur spikes.
+MC-307667 – Dispensers can equip small sulfur cubes.
+MC-307673 – Sulfur caves appear much smaller due to their tuff border.
+MC-307674 – Knockback does nothing to sulfur cubes if they have a block inside.
+MC-307684 – Named sulfur cubes can despawn after being picked up with a bucket and replaced.
+MC-307774 – The bool(arg) SNBT operation returns false for some non-zero number values.
+MC-307864 – Small sulfur cubes become large client-side when fed a slimeball after restarting their aging.
+From the previous development version
+
+MC-307777 – The patterns on banners are now invisible under some circumstances.
+MC-307778 – Priming sulfur cubes with absorbed TNT does not play the hand use animation.
+MC-307779 – Potent sulfur no longer causes noxious gas to appear upon world generation.
+MC-307780 – The server crashes when the management server is enabled.
+MC-307782 – Sulfur spring geysers can push players in Creative mode who are flying.
+MC-307783 – Lines are drawn between leashed entities in view.
+MC-307784 – Structure block rotation buttons aren't disabled correctly.
+MC-307785 – Geysers do not emit a game event when erupting.
+MC-307797 – Dying to a sulfur cube doesn't increase the player's killed_by:sulfur_cube statistic.
+MC-307802 – The player's arm swings when attempting to interact with a sulfur cube with ignited TNT inside.
+MC-307803 – The game crashes when a sulfur cube with an archetype that has explosion_fuse set to a value lower than 4 is primed by an explosion.
+MC-307821 – The glowing effect is now always white on the frame part of bell block displays.
+MC-307824 – Attempting to light a sulfur cube with TNT inside while TNT explosions are disabled does not display a message.
+MC-307825 – Disabling TNT explosions does not prevent already primed TNT sulfur cubes from exploding.
+MC-307829 – Sulfur cubes with TNT absorbed still explode with the game rule mob_griefing set to false.
+MC-307837 – Igniters deplete when used on TNT sulfur cubes while TNT explosions are disabled.
+MC-307854 – Weapons enchanted with Fire Aspect don't ignite TNT sulfur cubes.
+Videos
+Videos made by slicedlime:
+
+
+
+
+
+
+
+
+References
+
+ "Minecraft 26.2 Snapshot 6"     – Minecraft.net, May 5, 2026.
+
+Navigation

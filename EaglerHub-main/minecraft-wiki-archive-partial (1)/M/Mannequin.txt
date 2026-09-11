@@ -1,0 +1,132 @@
+This article is about the entity that resembles a player in Java Edition.   For the interactive mob in Bedrock Edition and Minecraft Education, see NPC.
+
+ Not to be confused with Armor Stand.
+
+
+
+This feature is exclusive to Java Edition. 
+
+Mannequin
+
+Health points
+
+20HP × 10
+
+Hitbox size
+
+Height: 1.8 blocksWidth: 0.6 blocks
+
+Spawn
+
+By commands
+
+{
+    "title": "Mannequin",
+    "rows": [
+        {
+            "field": "20<span class=\"hidden-alt-text\">HP</span><span class=\"nowrap mc-hearts\"><span class=\"iconbar pixel-image nowrap\" style=\"--icon-offset:-1px;\" title=\"1  heart\">(link to File:Heart (icon).png article, displayed as 9px|link=|alt=❤️)</span> × 10</span>",
+            "label": "(link to Health article, displayed as Health points)"
+        },
+        {
+            "field": "Height: 1.8 blocks<br>Width: 0.6 blocks",
+            "label": "(link to Hitbox article, displayed as Hitbox size)"
+        },
+        {
+            "field": "By commands",
+            "label": "(link to Mob spawning article, displayed as Spawn)"
+        }
+    ],
+    "invimages": [],
+    "images": [
+        "Alex (slim) JE2.png"
+    ]
+}
+
+Mannequins are mob-like entities that resemble a player's avatar without having a connected player.
+
+Contents
+
+1 Spawning
+2 Drops
+
+2.1 On death
+
+3 Behavior
+4 Sounds
+5 Data values
+
+5.1 ID
+5.2 Entity data
+
+6 Advancements
+7 History
+8 Issues
+9 References
+10 Navigation
+
+Spawning
+Mannequins are spawned only with commands such as /summon. They neither spawn naturally nor have an associated spawn egg.
+
+Drops
+On death
+Mannequins do not drop any items or experience upon death.
+
+Behavior
+Mannequins function like a player avatar, even if the player is not connected. They can hold items in their hands, wear armor, take damage, and have attributes and effects. Unlike players, they cannot pick up items, though they can have items placed into their hands or armor slots with commands. Armor can also be equipped on them via dispenser.
+Vindicators named "Johnny" attack mannequins, but other hostile mobs do not.
+Models match those of players, with the specific exception of deadmau5, whose ears do not render.
+Unlike player avatars, mannequins do not take damage when outside the world border.
+
+Sounds
+SoundsSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitchAttenuationdistance​DyingFriendly MobsWhen a mannequin diesentity.generic.deathsubtitles.entity.generic.death​1.00.8–1.216​Something hurtsFriendly MobsWhen a mannequin is damagedentity.generic.hurtsubtitles.entity.generic.hurt​1.00.8–1.216​Something fellFriendly MobsWhen a mannequin fell from more than 8 blocksentity.generic.big_fallsubtitles.entity.generic.big_fall​1.00.8–1.216
+Data values
+ID
+EntityIdentifier
+Translation keyMannequinmannequin
+entity.minecraft.mannequin
+Entity data
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+except for the tags: CanPickUpLoot, DeathLootTable, DeathLootTableSeed, drop_chances, home_pos, home_radius, leash, LeftHanded, NoAI, and PersistenceRequired.
+[String][NBT Compound / JSON Object] profile The textures and/or player profile used to render the mannequin's player model. Cannot be removed, and is always saved as a [NBT Compound / JSON Object] compound. If specified as a string, it corresponds to [String] name. Represents the minecraft:profile component.
+A player profile and/or textures object see Template:Nbt inherit/profile/template
+[NBT List / JSON Array] hidden_layers - List of outer skin layers to hide.
+Valid entries: cape, jacket, left_sleeve, right_sleeve, left_pants_leg, right_pants_leg, hat.
+[String] main_hand - Which hand is the main hand of the mannequin.
+One of left and right.
+[String] pose - The pose of the mannequin.
+Valid entries: standing, crouching, swimming, fall_flying, sleeping
+[Boolean] immovable - Optional boolean specifying that the mannequin cannot be moved (defaults to false).
+[String][NBT List / JSON Array][NBT Compound / JSON Object] description - Optional text component shown where a Player's below_name score would show.
+The default "NPC" (entity.minecraft.mannequin.label) text is shown if omitted.
+[Boolean] hide_description - Optional boolean specifying that no description should be shown at all.
+A mannequin with the description hidden displays as if a Player had no below_name display.
+
+Advancements
+Advancements that apply to all mobs:
+
+IconAdvancementIn-game descriptionActual requirements (if different)AdventureAdventure, exploration and combatKill any mob, or be killed by any living entity.A Throwaway JokeThrow a Trident at something.Note: Throwing away your only weapon is not a good idea.Hit a mob with a thrown trident.Take AimShoot something with an ArrowUsing a bow or a crossbow, shoot a mob with an arrow, tipped arrow, or spectral arrow.Mob KabobHit five mobs in the same Charge attack using the Spear.Armor Stand and Mannequin also count for this advancement.ArbalisticKill five unique mobs with one crossbow shotArmor Stand and Mannequin also count for this advancement.This is a hidden advancement, meaning that it can be viewed by the player only after completing it, regardless of if its child advancement(s), if any, have been completed.Over-OverkillDeal 50 hearts of damage in a single hit using the MaceDamage can be dealt to any mob, even those that do not have 50 hearts of health overall.
+
+History
+Java Edition1.21.925w36a
+Added mannequins.
+
+ Mannequins currently use the classic[verify] Steve skin with the slim model by default.25w37a
+ Mannequins now use the classic Steve skin with the classic model by default.pre1
+ Mannequins now use the slim Alex skin with the slim model by default.
+
+Mannequins description text can now be configured.
+
+Now accept minecraft:profile component from spawner items.
+
+CustomNameVisible tag now works on mannequins. Previously, mannequins always acted as if the tag was set to true.
+Issues
+Issues relating to "Mannequin" are maintained on the bug tracker. Issues should be reported and viewed there.
+
+References
+
+ MC-301771 – Mannequins with the name and profile "deadmau5" do not display ears – resolved as "Invalid".
+
+Navigation

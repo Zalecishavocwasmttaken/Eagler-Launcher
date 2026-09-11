@@ -1,0 +1,317 @@
+Villagers converting to witches is an example of mob conversion.
+Mob conversion is a game mechanic where under specific circumstances certain mobs can convert to mobs of a different type, or to a different variant of the same mob.
+
+Contents
+
+1 List of mob conversions
+
+1.1 Mob type conversions
+1.2 Mob variant conversions
+
+2 Data transfer
+
+2.1 Mobs which split into several upon death
+
+3 See also
+4 Notes
+5 References
+6 Navigation
+
+List of mob conversions
+Mob type conversions
+In these instances, a mob converts to a different mob, with a different identifier. In Java Edition, data is transferred according to § Data transfer.
+
+From
+
+To
+
+Method
+
+Husk
+
+Zombie
+
+Drowning in water
+
+Zombie
+
+Drowned
+
+Mooshroom
+
+Cow
+
+Shearing
+
+Zombie Villager
+
+Villager
+
+Fed golden apple while afflicted by Weakness
+
+Old Villager‌[Bedrock Edition  only]
+
+Automatically converted when the world is updated
+
+Old Zombie Villager‌[Bedrock Edition  only]
+
+Zombie Villager
+
+Villager
+
+Killed by either zombies, zombie villagers, husks, drowned, or zombified piglins‌[JE  only]
+
+Witch
+
+Lightning strike
+
+Pig
+
+Zombified Piglin
+
+Piglin
+
+Being outside the Nether for 300 game ticks (15 seconds)
+
+Piglin Brute
+
+Hoglin
+
+Zoglin
+
+Skeleton
+
+Stray
+
+Freezing in powder snow
+
+Tadpole
+
+Frog
+
+Aging naturally (20 minutes)
+
+Mob variant conversions
+
+
+
+This section is a work in progress. 
+Please help expand and improve it. The talk page may contain suggestions.
+
+
+In these instances, a mob converts to a different variant of the same type of mob. Only one top-level data field is modified.
+
+Mob type
+
+Converts to
+
+Method
+
+Notes
+
+Ageable babies (32)
+
+An adult
+
+Aging naturally
+
+Bogged
+
+A sheared bogged
+
+Shearing
+
+Copper golem
+
+A more oxidized variant
+
+Oxidation
+
+A less oxidized variant
+
+Scraping with an axe
+
+A non-waxed variant
+
+A waxed variant
+
+Waxing with honeycomb
+
+Creeper
+
+A charged creeper
+
+Lightning strike
+
+Goat
+
+A goat with one fewer horn
+
+Ramming certain blocks. See Goat § Goat horns
+
+Iron golem
+
+A more cracked variant
+
+Taking damage
+
+A less cracked variant
+
+Being healed, including being repaired by a player using iron ingots
+
+Mooshroom
+
+The other variant (red or brown)
+
+Lightning strike
+
+NPC
+
+One of their skins
+
+Changing their skins in their menu
+
+Rabbit
+
+A toast rabbit, or a regular rabbit
+
+Naming the rabbit "Toast", or renaming from "Toast" to something else, respectively
+
+Snow golem
+
+The sheared variant
+
+Shearing
+
+Although canonically a simple change of equipment, this "conversion" is included here because sheared and unsheared snow golems are considered different variants by the game.
+
+Sheep
+
+A different color of sheep
+
+Dyeing or an evoker's conversion spell
+
+A rainbow sheep, or a fixed-color sheep
+
+Naming the sheep "jeb_", or renaming "jeb_" to something else, respectively
+
+A sheared sheep
+
+Shearing
+
+A woolly sheep
+
+Eating grass
+
+Shulker
+
+A different-colored shulker
+
+Dyeing‌[Bedrock Edition  only]
+
+They can only be dyed in Creative mode.
+
+Villager
+
+A villager with a different profession
+
+See Villager § Professions
+
+Not relevant to zombie villagers, as they cannot change professions without first converting to a villager.
+
+ The chance of conversion is dependent on the difficulty setting.
+
+ See also MC-301192 – Snow Golem pumpkin is stored as a boolean, rather than a head equipment slot – resolved as "Invalid".
+
+Data transfer
+
+
+
+This feature is exclusive to Java Edition. 
+
+A mob which converts to another mob retains the following entity data, provided that the new mob is able to make use of said data:
+
+AbsorptionAmount
+active_effects
+Age
+angry_at
+anger_end_time
+Brain.memories.minecraft:angry_at.ttl[needs testing]
+Brain.memories.minecraft:angry_at.value[needs testing]
+CanBreakDoors
+CanPickUpLoot
+CustomName
+CustomNameVisible
+data
+drop_chances
+equipment, if the new mob is able to render any equipment; otherwise, this tag is not retained. (Main-hand items are only retained if the new mob is able to use such an item as a weapon.)
+fall_distance
+FallFlying
+Fire
+ForcedAge
+HurtTime
+Invulnerable
+invulnerable_time​[upcoming: JE 26.3]
+IsBaby
+leash
+LeftHanded
+Motion
+NoAI
+NoGravity
+OnGround
+Passengers
+PersistenceRequired
+PortalCooldown
+Position
+RootVehicle
+Rotation
+Silent
+sleeping_pos
+Tags
+Team
+VillagerData
+Xp
+Notably, the following fields are not retained:
+
+attributes
+Brain, except for the sub-fields mentioned above[needs testing]
+Gossips
+Health
+Loot tables
+UUID
+Mobs which split into several upon death
+When a slime or magma cube splits into several smaller ones upon death, the smaller ones inherit their progenitor's data as if the event were a mob conversion, with the exception of the following fields:
+
+drop_chances
+equipment
+fall_distance
+FallFlying
+HurtTime
+leash
+Motion
+OnGround
+Passengers
+Position
+Rotation
+sleeping_pos
+See also
+Mob type
+Mob variant
+Block conversion
+Notes
+
+ The initial version of this list was provided by Mojang in the 24w37a changelog.
+
+ There are currently several bugs where data is not retained.
+
+ The health of the converted mob is set to the same percentage of max health as the original mob had before conversion.
+
+References
+
+ MC-260592 – Zombie Villagers wearing/holding Curse of Binding items do not drop or keep these items after they are cured
+
+ MC-304420 – Saddle is deleted when a pig is struck by lightning
+
+ MC-305199 – Armor is deleted when a villager converts to a witch
+
+Navigation

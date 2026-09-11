@@ -1,0 +1,270 @@
+Preview 1.20.70.22
+
+Edition
+
+Bedrock Edition
+
+Release date
+
+February 7, 2024
+
+Server version
+
+1.20.70.22
+
+Editor version
+
+0.5.5
+
+Build version
+
+21740455
+
+Internal version
+
+Windows: 1.20.7022.0Xbox: 1.20.7022.70Android, iOS, iPadOS: 1.20.70.22
+
+Version code
+
+Android:
+952007022（armeabi-v7a，33)
+962007022（x86，33)
+972007022（arm64-v8a，33)
+982007022（x86_64，33)
+
+Type
+
+Preview
+
+Preview for
+
+1.20.70
+
+Downloads
+
+ ServerWindowsLinux
+
+Protocol version
+
+658
+
+◄◄   1.20.62
+1.20.70
+  1.20.71 ►►
+
+◄   Preview 1.20.70.21
+
+ Preview 1.20.70.22
+
+  Preview 1.20.70.24 ►
+
+{
+    "title": "Preview 1.20.70.22",
+    "images": [
+        "Bedrock 1.20.70.22 PatchNotes.png",
+        "Bedrock 1.20.70.22.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Bedrock Edition article, displayed as Bedrock Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "February 7, 2024",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Bedrock Dedicated Server 1.20.70.22 article, displayed as 1.20.70.22)",
+            "label": "Server version"
+        },
+        {
+            "field": "(link to Bedrock Editor 0.5.5 article, displayed as 0.5.5)",
+            "label": "''(link to Bedrock Editor article, displayed as Editor)'' version"
+        },
+        {
+            "field": "21740455",
+            "label": "Build version"
+        },
+        {
+            "field": "'''Windows''': 1.20.7022.0<br>'''Xbox''': 1.20.7022.70<br>'''Android, iOS, iPadOS''': 1.20.70.22",
+            "label": "Internal version"
+        },
+        {
+            "field": "'''Android''':<br>\n952007022（armeabi-v7a，33)<br>\n962007022（x86，33)<br>\n972007022（arm64-v8a，33)<br>\n982007022（x86_64，33)<br>",
+            "label": "Version code"
+        },
+        {
+            "field": "Preview",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Bedrock Edition 1.20.70 article, displayed as 1.20.70)",
+            "label": "Preview for"
+        },
+        {
+            "field": "'''Server'''<br>[https://minecraft.net/bedrockdedicatedserver/bin-win-preview/bedrock-server-1.20.70.22.zip Windows]<br>[https://minecraft.net/bedrockdedicatedserver/bin-linux-preview/bedrock-server-1.20.70.22.zip Linux]",
+            "label": "Downloads"
+        },
+        {
+            "field": "658",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Bedrock Edition  1.20.62|<span style=\"margin-right:-0.35em\">◄</span>◄   1.20.62]]</td>\n<td style=\"padding: 0.4em\">'''[[Bedrock Edition 1.20.70|1.20.70]]'''</td>\n<td style=\"padding: 0.4em\" >[[Bedrock Edition  1.20.71|  1.20.71 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Bedrock Edition  Preview 1.20.70.21|◄   Preview 1.20.70.21]]\n</td>\n<td style=\"padding: 0.4em\">''' Preview 1.20.70.22'''</td>\n<td style=\"padding: 0.4em\">\n[[Bedrock Edition  Preview 1.20.70.24|  Preview 1.20.70.24 ►]]\n</td>\n</tr>\n</table>"
+}
+
+Beta 1.20.70.22 (Android) or Preview 1.20.70.22 (Windows, iOS, iPadOS, Xbox) is the third beta/Preview version for Bedrock Edition 1.20.70, released on February 7, 2024, which brings more parity from Java Edition and fixes bugs.
+
+Contents
+
+1 Changes
+
+1.1 Blocks
+1.2 General
+1.3 Technical
+
+2 Experimental
+
+2.1 Changes
+
+2.1.1 Blocks
+2.1.2 Mobs
+2.1.3 Technical
+
+3 Fixes
+4 References
+5 Navigation
+
+Changes
+Blocks
+End Portal Frame
+
+The end portal frame has been moved to the "Nature" category in the Creative inventory.
+Wood and Stripped Wood
+
+The different wood type and stripped bit block states for the wood ID have now been split up into their own IDs.
+
+Old ID
+
+New ID
+
+ wood
+
+ oak_wood
+
+ spruce_wood
+
+ birch_wood
+
+ jungle_wood
+
+ acacia_wood
+
+ dark_oak_wood
+
+ stripped_oak_wood
+
+ stripped_spruce_wood
+
+ stripped_birch_wood
+
+ stripped_jungle_wood
+
+ stripped_acacia_wood
+
+ stripped_dark_oak_wood
+
+General
+Death screen
+
+The updated death screen is now enabled by default, even when resource packs are applied to a world.
+Experiments
+
+Removed the "Molang Features" experimental toggle.
+Play screen
+
+The feedback button in the Friends Drawer in the new play screen now leads to the correct feedback page.
+Realms Stories
+
+Added four new Realm Events.
+Added two extra-special LARGE Realm Events.
+Added screen-reader narration for Comments screen.
+When in split-screen mode, only the primary user can access Realms Stories.
+Technical
+API
+
+Added Player.setGameMode and Player.getGameMode to beta for changing the player's GameMode.
+Added GameRuleChangeAfterEvent, GameRule and world.afterEvents.gameRuleChange for responding to game rules changes.
+Moved explosion from beta to 1.9.0.
+JSON
+
+Entities
+Entities with a damage_sensor component can once again be killed via commands.
+The damage_sensor component can once again trigger entity events on entities other than the owner.
+Molang
+
+Released query.is_attached and query.has_player_rider from experimental.
+Removed experimental Molang queries query.get_ride and query.get_riders.
+Released Molang query.scoreboard for use with behavior packs from experimental. (resource packs will return 0)
+Experimental
+These additions and changes are accessible by enabling the "Armadillo and Wolf Armor", "Update 1.21", and "Beta APIs" experimental toggles.
+
+Changes
+Blocks
+Vault
+
+Tweaked the texture to make them easier to distinguish from trial spawners.
+Mobs
+Armadillo
+
+Now do not panic when damaged but roll up instead, and hide their head and feet.
+Now peek out to see if “the coast is clear” before unrolling.
+Updated animations and sounds for rolling up, unrolling, and the peek out animation.
+The time for a rolled-up armadillo to stay without threats before unrolling has been increased from 3 to 4 seconds.
+Breeze
+
+The breeze's attack damage has been tweaked.
+Technical
+API
+
+Added events PlayerGameModeChangeAfterEvent, PlayerGameModeChangeBeforeEvent with signals world.afterEvents.playerGameModeChange and world.beforeEvents.playerGameModeChange to beta.
+Removed function triggerEvent().
+WorldBeforeEvents
+Removed property itemDefinitionEvent.
+WorldAfterEvents
+Removed property itemDefinitionEvent.
+Fixes
+13 issues fixed
+From released versions before 1.20.70
+
+MCPE-19426 – Strongholds sometimes don't generate the end portal.
+MCPE-151348 – Cave vines without glow berries drop a glow berry when mined using Silk Touch.
+MCPE-162868 – Blue and black candle are placed as wrong colors on a cake.
+From the previous development version
+
+MCPE-177975 – The world list layout (grid vs list) isn't saved with the new menus.
+Others
+
+The breeze is only suggested in the type selector when the appropriate experimental toggle is enabled.
+Fixed gamepad back button input not working correctly on the Realms Stories settings screen.
+Fixed issue with time blocks not rendering in the correct time zones on Switch.
+Fixed the timing of PlayerInteractWithEntityAfterEvent and PlayerInteractWithBlockAfterEvent.
+Fixed minecraft:geometry.full_block faces not rotating to match transform component.
+Fixed minecraft:geometry.full_block blocks not culling faces against some vanilla blocks.
+Fixed a bug where item dynamic properties could sometimes be applied to items with a stack size greater than 1.
+Fixed a crash on Android devices when entering Deferred Technical Preview worlds.
+Fixed a circular visual artifact that could occur when using the new point light shadows feature in the Deferred Technical Preview.
+3 issues fixed
+From released versions before 1.20.70
+
+REALMS-11290 – end_dragon_fight_ticking_area prevents mob spawning in realm.
+REALMS-11358 – item despawn timer continues in the end main island no matter if a player loads the chunks or not.
+Others
+
+Fixed a bug where text in the Realms subscription landing page was slightly truncated.
+References
+
+ "Minecraft Beta & Preview - 1.20.70.22"     – Minecraft Feedback, February 7, 2024.
+
+Navigation

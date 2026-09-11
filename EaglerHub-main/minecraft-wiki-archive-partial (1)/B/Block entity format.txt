@@ -1,0 +1,1060 @@
+Not to be confused with Entity format.
+
+ For Bedrock Edition, see Bedrock Edition level format/Block entity format.
+
+
+
+This feature is exclusive to Java Edition. 
+
+A block entity is used to store information about a block that can't be stored in the block's block states. It is stored inside the chunk data and structure files.
+
+Block Entities
+
+Block Entity ID
+
+Associated Block
+
+banner
+
+Banners
+
+barrel
+
+Barrel
+
+beacon
+
+Beacon
+
+beehive
+
+Bee Nest/Beehive
+
+bell
+
+Bell
+
+blast_furnace
+
+Blast Furnace
+
+brewing_stand
+
+Brewing Stand
+
+brushable_block
+
+Suspicious Gravel/Suspicious Sand
+
+calibrated_sculk_sensor
+
+Calibrated Sculk Sensor
+
+campfire
+
+Campfire
+
+chest
+
+Chest/Copper Chests
+
+chiseled_bookshelf
+
+Chiseled Bookshelf
+
+comparator
+
+Redstone Comparator
+
+command_block
+
+Command Block
+
+conduit
+
+Conduit
+
+copper_golem_statue
+
+Copper Golem Statues
+
+crafter
+
+Crafter
+
+creaking_heart
+
+Creaking Heart
+
+daylight_detector
+
+Daylight Detector
+
+decorated_pot
+
+Decorated Pot
+
+dispenser
+
+Dispenser
+
+dropper
+
+Dropper
+
+enchanting_table
+
+Enchanting Table
+
+ender_chest
+
+Ender Chest
+
+end_gateway
+
+End Gateway
+
+end_portal
+
+End Portal
+
+furnace
+
+Furnace
+
+hanging_sign
+
+Hanging Signs
+
+hopper
+
+Hopper
+
+jigsaw
+
+Jigsaw Block
+
+jukebox
+
+Jukebox
+
+lectern
+
+Lectern
+
+mob_spawner
+
+Monster Spawner
+
+piston
+
+Moving Piston
+
+potent_sulfur
+
+Potent Sulfur
+
+shelf
+
+Shelves
+
+shulker_box
+
+Shulker Boxes
+
+sign
+
+Signs
+
+skull
+
+Heads
+
+sculk_catalyst
+
+Sculk Catalyst
+
+sculk_sensor
+
+Sculk Sensor
+
+sculk_shrieker
+
+Sculk Shrieker
+
+smoker
+
+Smoker
+
+soul_campfire
+
+Soul Campfire
+
+structure_block
+
+Structure Block
+
+test_block
+
+Test Block
+
+test_instance_block
+
+Test Instance Block
+
+trapped_chest
+
+Trapped Chest
+
+trial_spawner
+
+Trial Spawner
+
+vault
+
+Vault
+
+Contents
+
+1 NBT format
+2 Types
+
+2.1 Pattern
+
+3 History
+4 Navigation
+
+NBT format
+Block entities are stored using NBT in the following format:
+
+[NBT Compound / JSON Object]: A block entity
+[String] id: Block entity ID
+[Boolean] keepPacked: 1 or 0 (true/false) - If true, this is an invalid block entity, and this block is not immediately placed when a loaded chunk is loaded. If false, this is a normal block entity that can be immediately placed.
+[Int] x: X coordinate of the block entity.
+[Int] y: Y coordinate of the block entity.
+[Int] z: Z coordinate of the block entity.
+[NBT Compound / JSON Object] components: Optional map of data components that are not represented by additional fields.
+See Data component format § List of components.
+Additional fields depending on the block entity type ([String] id), see Block entity format § Types
+
+Types
+
+banner
+
+[NBT Compound / JSON Object] Block entity data
+Tags common to all block entities see Template:Nbt inherit/blockentity/template
+Tags common to all objects that can be renamed see Template:Nbt inherit/nameable/template
+[NBT List / JSON Array] patterns: List of all patterns applied to the banner. Represents the minecraft:banner_patterns component.
+[NBT Compound / JSON Object]: An individual pattern.
+[String] color: Color of the section.
+[String][NBT Compound / JSON Object] pattern: One Banner pattern (an [String] ID, or a new [NBT Compound / JSON Object] Banner pattern definition) — The banner pattern the color is applied to.
+A banner pattern see Template:Nbt inherit/banner pattern/template
+
+Color
+
+ID (JE)
+
+Data value (BE)
+
+Hex color
+
+ White
+
+white
+
+0
+
+#F9FFFE
+
+ Orange
+
+orange
+
+1
+
+#F9801D
+
+ Magenta
+
+magenta
+
+2
+
+#C74EBD
+
+ Light blue
+
+light_blue
+
+3
+
+#3AB3DA
+
+ Yellow
+
+yellow
+
+4
+
+#FED83D
+
+ Lime
+
+lime
+
+5
+
+#80C71F
+
+ Pink
+
+pink
+
+6
+
+#F38BAA
+
+ Gray
+
+gray
+
+7
+
+#474F52
+
+ Light gray
+
+light_gray
+
+8
+
+#9D9D97
+
+ Cyan
+
+cyan
+
+9
+
+#169C9C
+
+ Purple
+
+purple
+
+10
+
+#8932B8
+
+ Blue
+
+blue
+
+11
+
+#3C44AA
+
+ Brown
+
+brown
+
+12
+
+#835432
+
+ Green
+
+green
+
+13
+
+#5E7C16
+
+ Red
+
+red
+
+14
+
+#B02E26
+
+ Black
+
+black
+
+15
+
+#1D1D21
+
+Pattern
+Main article: Banner/Patterns[edit]
+
+barrel
+
+[NBT Compound / JSON Object] Block entity data
+Tags common to all block entities see Template:Nbt inherit/blockentity/template
+Tags common to all objects that can be renamed see Template:Nbt inherit/nameable/template
+Tags common to all containers that can be locked see Template:Nbt inherit/lockable/template
+Tags common to all objects that use loot tables to produce items see Template:Nbt inherit/lootable/template
+[NBT List / JSON Array] Items: List of items in the container. Represents the minecraft:container component. The component is still present on the block entity, even if the tag does not exist (due to a loot table existing instead).
+[NBT Compound / JSON Object]: An item, including the slot tag. Barrel slots are numbered 0-26, 0 starts in the top left corner.
+An item stack in a container slot see Template:Nbt inherit/item/template
+
+beacon
+
+[NBT Compound / JSON Object] Block entity data
+Tags common to all block entities see Template:Nbt inherit/blockentity/template
+Tags common to all objects that can be renamed see Template:Nbt inherit/nameable/template
+Tags common to all containers that can be locked see Template:Nbt inherit/lockable/template
+[String] primary_effect: Optional. The primary effect selected, see Potion effects for resource locations. Cannot be set to an effect that beacons do not normally use. Although Regeneration cannot normally be chosen as the primary effect, setting this value to minecraft:regeneration works and even allows Regeneration II to be chosen as the secondary via the normal beacon GUI.
+[String] secondary_effect: Optional. The secondary effect selected, see Potion effects for resource locations. Cannot be set to an effect that beacons do not normally use. When set without a primary effect, does nothing. When set to the same as the primary, the effect is given at level 2 (the normally available behavior for 5 effects). When set to a different value than the primary (normally only Regeneration), gives the effect at level 1.
+
+beehive
+
+[NBT Compound / JSON Object] Block entity data
+Tags common to all block entities see Template:Nbt inherit/blockentity/template
+[NBT List / JSON Array] bees: Entities currently in the hive. Represents the minecraft:bees component.
+[NBT Compound / JSON Object] An entity in the hive.
+[NBT Compound / JSON Object] entity_data: The NBT data of the entity in the hive. [String] id is required.
+Tags common to all entities see Template:Nbt inherit/entity/template
+[Int] min_ticks_in_hive: The minimum amount of time in ticks for this entity to stay in the hive.
+[Int] ticks_in_hive: The amount of ticks the entity has stayed in the hive.
+[Int Array] flower_pos: Stores the block location, as 3 integers, of the flower that the last bee to enter the hive pollenated. When a bee leaves the hive without its own saved flower_pos tag, it has a 90% chance to use this hive's flower position, creating a sort of gossip system for hives.
+
+bell
+
+[NBT Compound / JSON Object] Block entity data
+Tags common to all block entities see Template:Nbt inherit/blockentity/template
+
+blast_furnace
+
+[NBT Compound / JSON Object] Block entity data
+Tags common to all block entities see Template:Nbt inherit/blockentity/template
+Tags common to all objects that can be renamed see Template:Nbt inherit/nameable/template
+Tags common to all containers that can be locked see Template:Nbt inherit/lockable/template
+[NBT List / JSON Array] Items: List of items in this container. Represents the minecraft:container component.
+[NBT Compound / JSON Object]: An item in the furnace, including the slot tag:Slot 0: The item(s) being smelted.Slot 1: The item(s) to use as the next fuel source.Slot 2: The item(s) in the result slot.
+An item stack in a container slot see Template:Nbt inherit/item/template
+[Short] lit_time_remaining: Number of ticks left before the current fuel runs out.
+[Short] cooking_time_spent: Number of ticks the item has been smelting for. The item finishes smelting when this value reaches 200 (10 seconds). Is reset to 0 if lit_time_remaining reaches 0.
+[Short] cooking_total_time: Number of ticks it takes for the item to be smelted.
+[Short] lit_total_time: Represent the total time the furnace should be lit.
+[NBT Compound / JSON Object] RecipesUsed: Which recipes have been used since the last time a recipe result item was manually removed from the GUI. Used to calculate experience given to the player when taking out the resulting item. Is not preserved when removed.
+[Int] recipe ID: How many times this specific recipe has been used. The recipe ID is the identifier of the smelting recipe, as a resource location, as used in the /recipe command.
+
+brewing_stand
+
+[NBT Compound / JSON Object] Block entity data
+Tags common to all block entities see Template:Nbt inherit/blockentity/template
+Tags common to all objects that can be renamed see Template:Nbt inherit/nameable/template
+Tags common to all containers that can be locked see Template:Nbt inherit/lockable/template
+[NBT List / JSON Array] Items: List of items in this container. Represents the minecraft:container component.
+[NBT Compound / JSON Object]: An item in the brewing stand, including the slot tag:Slot 0: Left potion slot.Slot 1: Middle potion slot.Slot 2: Right potion slot.Slot 3: Where the potion ingredient goes. Slot 4: Fuel (Blaze Powder).
+An item stack in a container slot see Template:Nbt inherit/item/template
+[Short] BrewTime: The number of ticks the potions have to brew.
+[Byte] Fuel: Remaining fuel for the brewing stand. 20 when full, and counts down by 1 each time a potion is brewed.
+
+brushable_block
+
+[NBT Compound / JSON Object] Block entity data
+Tags common to all block entities see Template:Nbt inherit/blockentity/template
+Tags common to all objects that use loot tables to produce items see Template:Nbt inherit/lootable/template
+[NBT Compound / JSON Object] item: The item in the block. May not exist.
+See item format.
+
+calibrated_sculk_sensor
+
+[NBT Compound / JSON Object]: Block entity data.
+Tags common to all block entities see Template:Nbt inherit/blockentity/template
+[Int] last_vibration_frequency: The frequency of the last vibration.
+[NBT Compound / JSON Object] listener: The vibration event listener for this sculk shrieker, sculk sensor, or calibrated sculk sensor.
+[NBT Compound / JSON Object] event: Exists only if there is an incoming vibration.
+[Float] distance: The distance between this vibration's source and the block.
+[String] game_event: The resource location of the vibration event that caused the current incoming vibration.
+[NBT List / JSON Array] pos: The coordinates of the source of this vibration.
+[Double]: X coordinate.
+[Double]: Y coordinate.
+[Double]: Z coordinate.
+[Int Array] projectile_owner: If the vibration was caused by a projectile, this is the UUID of the entity that launched the projectile. Does not exist if vibration was not caused by a projectile.
+[Int Array] source: The UUID of the entity that caused the vibration. Does not exist if vibration was not caused by an entity.
+[Int] event_delay: How many ticks remain until triggered by the vibration. Set to 0 if there is no incoming vibration
+[NBT Compound / JSON Object] selector: The data of the vibration selector.​[more information needed]
+[Long] tick: The game time when the vibration occurs, or -1 if there is no vibration to choose from.​[more information needed]
+[NBT Compound / JSON Object] event: Candidate game event, with the same structure as the [NBT Compound / JSON Object] event tag above.​[more information needed]
+
+campfire
+
+[NBT Compound / JSON Object] Block entity data
+Tags common to all block entities see Template:Nbt inherit/blockentity/template
+[NBT List / JSON Array] Items: List of items in this container. Represents the minecraft:container component.
+[NBT Compound / JSON Object]: An item, including the slot tag. Campfire slots are numbered 0-3, with 0 starting in the bottom right corner based on the rotation the campfire was placed in, and the rest moving around clockwise.
+An item stack in a container slot see Template:Nbt inherit/item/template
+[Int Array] CookingTimes: How long each item has been cooking, first index is slot 0, etc.
+[Int Array] CookingTotalTimes: How long each item has to cook, first index is slot 0, etc.
+
+chiseled_bookshelf
+
+[NBT Compound / JSON Object] Block entity data
+Tags common to all block entities see Template:Nbt inherit/blockentity/template
+[NBT List / JSON Array] Items: List of books in the bookshelf. Represents the minecraft:container component.
+[NBT Compound / JSON Object]: An item, including the slot tag. The valid slot numbers are 0-5.
+An item stack in a container slot see Template:Nbt inherit/item/template
+[Int] last_interacted_slot: Last interacted slot (0–5), or -1 if no slot has been interacted with yet.
+
+chest
+
+[NBT Compound / JSON Object] Block entity data
+Tags common to all block entities see Template:Nbt inherit/blockentity/template
+Tags common to all objects that can be renamed see Template:Nbt inherit/nameable/template
+Tags common to all containers that can be locked see Template:Nbt inherit/lockable/template
+Tags common to all objects that use loot tables to produce items see Template:Nbt inherit/lootable/template
+[NBT List / JSON Array] Items: List of items in this container. Represents the minecraft:container component. The component is still present on the block entity, even if the tag does not exist (due to a loot table existing instead).
+[NBT Compound / JSON Object]: An item, including the slot tag. Chest slots are numbered 0-26, 0 starts in the top left corner.
+An item stack in a container slot see Template:Nbt inherit/item/template
+
+comparator
+
+[NBT Compound / JSON Object] Block entity data
+Tags common to all block entities see Template:Nbt inherit/blockentity/template
+[Int] OutputSignal: Represents the strength of the analog signal output of this redstone comparator.
+
+command_block
+
+[NBT Compound / JSON Object] Block entity data
+Tags common to all block entities see Template:Nbt inherit/blockentity/template
+Tags common to all objects that can be renamed see Template:Nbt inherit/nameable/template
+Replaces the usual '@' when using commands such as /say and /tell.
+[Byte] auto: 1 or 0 (true/false) - Allows to activate the command without the requirement of a redstone signal.
+[String] Command: The command to issue to the server.
+[Byte] conditionMet: 1 or 0 (true/false) - Indicates whether a conditional command block had its condition met when last activated. True if not a conditional command block.
+[Long] LastExecution: stores the tick a chain command block was last executed in.
+[String] LastOutput: The last line of output generated by the command block. Still stored even if the game rule commandBlockOutput is false. Appears in the GUI of the block when right-clicked, and includes a timestamp of when the output was produced.
+[Byte] powered: 1 or 0 (true/false) - States whether or not the command block is powered by redstone or not.
+[Int] SuccessCount: Represents the strength of the analog signal output by redstone comparators attached to this command block.
+[Byte] TrackOutput: 1 or 0 (true/false) - Determines whether the LastOutput is stored. Can be toggled in the GUI by clicking a button near the "Previous Output" textbox. Caption on the button indicates current state: "O" if true, "X" if false.
+[Byte] UpdateLastExecution: 1 or 0 (true/false) - Defaults to true. If set to false, loops can be created where the same command block can run multiple times in one tick.
+
+conduit
+
+[NBT Compound / JSON Object] Block entity data
+Tags common to all block entities see Template:Nbt inherit/blockentity/template
+[Int Array] Target: The UUID of the hostile mob the conduit is currently attacking, stored as four ints. May not be present.
+
+copper_golem_statue
+
+[NBT Compound / JSON Object] Block entity data
+Tags common to all block entities see Template:Nbt inherit/blockentity/template
+
+crafter
+
+[NBT Compound / JSON Object] Block entity data
+Tags common to all block entities see Template:Nbt inherit/blockentity/template
+Tags common to all objects that can be renamed see Template:Nbt inherit/nameable/template
+Tags common to all containers that can be locked see Template:Nbt inherit/lockable/template
+Tags common to all objects that use loot tables to produce items see Template:Nbt inherit/lootable/template
+[NBT List / JSON Array] Items: List of items in this container. Represents the minecraft:container component. The component is still present on the block entity, even if the tag does not exist (due to a loot table existing instead).
+[NBT Compound / JSON Object]: An item in the crafter, including the slot tag. Crafter slots are numbered 0-8. 0 starts in the top left corner.
+An item stack in a container slot see Template:Nbt inherit/item/template
+[Int Array] disabled_slots: Indexes of slots that are disabled.
+[Boolean] triggered: Set to 1 when it is powered. It is otherwise 0.
+[Int] crafting_ticks_remaining: Set to 6 when the crafter crafts something.​[more information needed]
+
+creaking_heart
+
+[NBT Compound / JSON Object] Block entity data
+Tags common to all block entities see Template:Nbt inherit/blockentity/template
+[Int Array] creaking: The UUID of the transient creaking associated with this creaking heart, stored as four ints.
+
+daylight_detector
+
+[NBT Compound / JSON Object] Block entity data
+Tags common to all block entities see Template:Nbt inherit/blockentity/template
+
+decorated_pot
+
+[NBT Compound / JSON Object] Block entity data
+Tags common to all block entities see Template:Nbt inherit/blockentity/template
+Tags common to all objects that use loot tables to produce items see Template:Nbt inherit/lootable/template
+[NBT Compound / JSON Object] item: The single item stack stored in this container. Does not exist if the decorated pot is empty. Represents the minecraft:container component. The item is implicitly in slot 0, despite not using the [Byte] Slot tag. The component is still present on the block entity, even if the tag does not exist (due to a loot table existing instead).
+A single item stack see Template:Nbt inherit/itemnoslot/template
+[NBT List / JSON Array] sherds​[until: JE 26.3]: List of sherds on this decorated pot. Represents the minecraft:pot_decorations component.
+[String]: Item ID of this face. Each value defaults to bricks's ID, and can be either a brick or any sherd.
+[NBT Compound / JSON Object] sherds​[upcoming: JE 26.3]: A map for face to the item stacks. Represents the minecraft:pot_decorations component. Item stacks with the minecraft:provides_pottery_pattern component define the face texture.
+[NBT Compound / JSON Object] left: The item stack in the left side.
+A single item stack see Template:Nbt inherit/itemnoslot/template
+[NBT Compound / JSON Object] back: The item stack in the back side.
+A single item stack see Template:Nbt inherit/itemnoslot/template
+[NBT Compound / JSON Object] right: The item stack in the right side.
+A single item stack see Template:Nbt inherit/itemnoslot/template
+[NBT Compound / JSON Object] front: The item stack in the front side.
+A single item stack see Template:Nbt inherit/itemnoslot/template
+
+dispenser
+
+[NBT Compound / JSON Object] Block entity data
+Tags common to all block entities see Template:Nbt inherit/blockentity/template
+Tags common to all objects that can be renamed see Template:Nbt inherit/nameable/template
+Tags common to all containers that can be locked see Template:Nbt inherit/lockable/template
+Tags common to all objects that use loot tables to produce items see Template:Nbt inherit/lootable/template
+[NBT List / JSON Array] Items: List of items in this container. Represents the minecraft:container component. The component is still present on the block entity, even if the tag does not exist (due to a loot table existing instead).
+[NBT Compound / JSON Object]: An item, including the slot tag. Dispenser slots are numbered 0-8 with 0 in the top left corner.
+An item stack in a container slot see Template:Nbt inherit/item/template
+
+dropper
+
+[NBT Compound / JSON Object] Block entity data
+Tags common to all block entities see Template:Nbt inherit/blockentity/template
+Tags common to all objects that can be renamed see Template:Nbt inherit/nameable/template
+Tags common to all containers that can be locked see Template:Nbt inherit/lockable/template
+Tags common to all objects that use loot tables to produce items see Template:Nbt inherit/lootable/template
+[NBT List / JSON Array] Items: List of items in this container. Represents the minecraft:container component. The component is still present on the block entity, even if the tag does not exist (due to a loot table existing instead).
+[NBT Compound / JSON Object]: An item, including the slot tag. Dropper slots are numbered 0-8 with 0 in the top left corner.
+An item stack in a container slot see Template:Nbt inherit/item/template
+[Byte] Lunar: Exists only in the april fools snapshot 23w13a_or_b. Optional. When set to any full number from -128 to 127, turns it to a lunar base dropper, and placing light or heavy pressure plate on top of it creates the lunar base structure.
+
+enchanting_table
+
+[NBT Compound / JSON Object] Block entity data
+Tags common to all block entities see Template:Nbt inherit/blockentity/template
+Tags common to all objects that can be renamed see Template:Nbt inherit/nameable/template
+
+ender_chest
+
+[NBT Compound / JSON Object] Block entity data
+Tags common to all block entities see Template:Nbt inherit/blockentity/template
+
+end_gateway
+
+[NBT Compound / JSON Object] Block entity data
+Tags common to all block entities see Template:Nbt inherit/blockentity/template
+[Long] Age: Age of the portal, in ticks. This is used to determine when the beam is rendered.
+[Byte] ExactTeleport: 1 or 0 (true/false) - Teleports entities directly to the exit_portal coordinates instead of near them.
+[Int Array] exit_portal: Location entities are teleported to when entering the portal. Stored as 3 ints. Is not preserved when removed.
+
+end_portal
+
+[NBT Compound / JSON Object] Block entity data
+Tags common to all block entities see Template:Nbt inherit/blockentity/template
+
+furnace
+
+[NBT Compound / JSON Object] Block entity data
+Tags common to all block entities see Template:Nbt inherit/blockentity/template
+Tags common to all objects that can be renamed see Template:Nbt inherit/nameable/template
+Tags common to all containers that can be locked see Template:Nbt inherit/lockable/template
+[NBT List / JSON Array] Items: List of items in this container. Represents the minecraft:container component.
+[NBT Compound / JSON Object]: An item in the furnace, including the slot tag:Slot 0: The item(s) being smelted.Slot 1: The item(s) to use as the next fuel source.Slot 2: The item(s) in the result slot.
+An item stack in a container slot see Template:Nbt inherit/item/template
+[Short] lit_time_remaining: Number of ticks left before the current fuel runs out.
+[Short] cooking_time_spent: Number of ticks the item has been smelting for. The item finishes smelting when this value reaches 200 (10 seconds). Is reset to 0 if lit_time_remaining reaches 0.
+[Short] cooking_total_time: Number of ticks it takes for the item to be smelted.
+[Short] lit_total_time: Represent the total time the furnace should be lit.
+[NBT Compound / JSON Object] RecipesUsed: Which recipes have been used since the last time a recipe result item was manually removed from the GUI. Used to calculate experience given to the player when taking out the resulting item. Is not preserved when removed.
+[Int] recipe ID: How many times this specific recipe has been used. The recipe ID is the identifier of the smelting recipe, as a resource location, as used in the /recipe command.
+
+hanging_sign
+
+[NBT Compound / JSON Object] Block entity data
+Tags common to all block entities see Template:Nbt inherit/blockentity/template
+[Boolean] is_waxed: 1 or 0 (true/false), defaults to false. true if the text is locked with honeycomb. Represents the minecraft:waxed​[upcoming: JE 26.3] component.
+[Boolean] allow_op_features:​[upcoming: JE 26.3] 1 or 0 (true/false), defaults to false. If true, the sign will execute run_command, show_dialog, and custom click events from [NBT Compound / JSON Object] front_text or [NBT Compound / JSON Object] back_text when the relevant side of the sign is used. Only events on the root component of each line will be executed; click events in nested text components are ignored. Unlike the normal behavior of run_command, commands are not limited by chat restrictions. Commands run with permission level 2 (like command blocks), at the center of the sign block, and as the player who clicked.
+[NBT Compound / JSON Object] front_text: A compound that describes front text. Represents the minecraft:sign_text_front​[upcoming: JE 26.3] component.
+A sign text object see Template:Nbt inherit/sign_text_object/template
+[NBT Compound / JSON Object] back_text: A compound that describes back text. Represents the minecraft:sign_text_back​[upcoming: JE 26.3] component.
+A sign text object see Template:Nbt inherit/sign_text_object/template
+
+Before 1.20:
+
+[NBT Compound / JSON Object] Block entity data
+Tags common to all block entities see Template:Nbt inherit/blockentity/template
+[Byte] GlowingText: 1 or 0 (true/false) - true if the sign has been dyed with a glow ink sac.
+[String] Color: The color that has been used to dye the sign. The default value is "black". One of "white", "orange", "magenta", "light_blue", "yellow", "lime", "pink", "gray", "light_gray", "cyan", "purple", "blue", "brown", "green", "red", or "black".
+[String] Text1: First row of text.
+[String] Text2: Second row of text.
+[String] Text3: Third row of text.
+[String] Text4: Fourth row of text.
+
+hopper
+
+[NBT Compound / JSON Object] Block entity data
+Tags common to all block entities see Template:Nbt inherit/blockentity/template
+Tags common to all objects that can be renamed see Template:Nbt inherit/nameable/template
+Tags common to all containers that can be locked see Template:Nbt inherit/lockable/template
+Tags common to all objects that use loot tables to produce items see Template:Nbt inherit/lootable/template
+[NBT List / JSON Array] Items: List of items in this container. Represents the minecraft:container component. The component is still present on the block entity, even if the tag does not exist (due to a loot table existing instead).
+[NBT Compound / JSON Object]: An item, including the slot tag.
+An item stack in a container slot see Template:Nbt inherit/item/template
+[Int] TransferCooldown: Time until the next transfer in game ticks, naturally between 1 and 8 or 0 if there is no transfer.
+
+jigsaw
+
+[NBT Compound / JSON Object] Block entity data
+Tags common to all block entities see Template:Nbt inherit/blockentity/template
+[String] final_state: The block that this jigsaw block becomes.
+[String] joint: The joint option value, either "rollable" or "aligned".
+[String] name: The jigsaw block's name. This jigsaw block gets aligned with another structure's jigsaw block that has this value in the target tag.
+[String] pool: The jigsaw block's target pool to select a structure from.
+[String] target: The jigsaw block's target name. This jigsaw block gets aligned with another structure's jigsaw block that has this value in the name tag.
+[Int] selection_priority: Priority of this jigsaw block being selected for generation. Jigsaw blocks with higher selection priority get selected first.
+[Int] placement_priority: Priority of the piece generated by this jigsaw block to place its children. Pieces with higher placement priority generate their children first.
+
+jukebox
+
+[NBT Compound / JSON Object] Block entity data
+Tags common to all block entities see Template:Nbt inherit/blockentity/template
+[NBT Compound / JSON Object] RecordItem: The single item stack stored in this jukebox. Does not exist if the jukebox is empty. The item must have a jukebox_playable component in order to be placed into here by a player. Represents the container.0 (or contents) slot.
+A single item stack see Template:Nbt inherit/itemnoslot/template
+[Long] ticks_since_song_started: The number of ticks since the song started playing. Automatically stops the sound event of the song once it reaches the song's length in ticks, and controls when particles are created. Does not exist when there is no song playing or no item.
+
+lectern
+
+[NBT Compound / JSON Object] Block entity data
+Tags common to all block entities see Template:Nbt inherit/blockentity/template
+[NBT Compound / JSON Object] Book: The book item, without the slot tag, currently on the lectern, may not exist.
+A single item stack see Template:Nbt inherit/itemnoslot/template
+[Int] Page: The page the book is currently on, starting from 0, does not exist if there's no book. Value is clamped between 0 and the last page - 1.
+
+mob_spawner
+
+[NBT Compound / JSON Object] Block entity data
+Tags common to all block entities see Template:Nbt inherit/blockentity/template
+[Short] Delay: Ticks until next spawn. If 0, it spawns immediately when a player enters its range. If set to -1 (this state never occurs in a natural spawner; it seems to be a feature accessed only via NBT editing), the spawner resets this and SpawnData as though it had just completed a successful spawn cycle, immediately when a player enters its range. Setting this to -1 can be useful if the player wants the game to properly randomize the spawner's Delay and SpawnData, rather than starting with pre-defined values.
+[Short] MaxNearbyEntities: Overrides the maximum number of nearby (within a box of SpawnRange*2+1 × SpawnRange*2+1 × 8 centered around the spawner block) entities whose IDs match this spawner's entity ID. This is relative to a mob's hitbox, not its physical position. Also, all entities within all chunk sections (16×16×16 cubes) overlapped by this box are tested for their ID and hitbox overlap, rather than just entities within the box, meaning that a large amount of entities outside the box (or within it, of course) can cause substantial lag.
+[Short] MaxSpawnDelay: The maximum random delay for the next spawn delay. Requires the MinSpawnDelay and SpawnCount properties to also be set.
+[Short] MinSpawnDelay: The minimum random delay for the next spawn delay. May be equal to MaxSpawnDelay. Requires the SpawnCount property to also be set, otherwise it defaults to 0.
+[Short] RequiredPlayerRange: Overrides the block radius of the sphere of activation by players for this spawner. For every gametick, a spawner checks all players in the current world to test whether a player is within this sphere. Requires the MaxNearbyEntities property to also be set.
+[Short] SpawnCount: How many mobs to attempt to spawn each time. Requires the MinSpawnDelay property to also be set.
+[NBT Compound / JSON Object] SpawnData: Contains tags to copy to the next spawned entity(s) after spawning. Any of the entity or mob tags may be used. If a spawner specifies any of these tags, almost all variable data such as mob equipment, villager profession, sheep wool color, etc., are not automatically generated, and must also be manually specified (that this does not apply to position data, which are randomized as normal unless Pos is specified. Similarly, unless Size and Health are specified for a Slime or Magma Cube, these are still randomized). This also determines the appearance of the miniature entity spinning in the spawner cage. Warning: If SpawnPotentials exists, this tag gets overwritten after the next spawning attempt: see above for more details.
+[NBT List / JSON Array] SpawnPotentials: Optional. List of possible entities to spawn. If this tag does not exist, but SpawnData exists, Minecraft generates it the next time the spawner tries to spawn an entity. The generated list contains a single entry derived from the SpawnData tag.
+[NBT Compound / JSON Object]: A potential future spawn. After the spawner makes an attempt at spawning, it chooses one of these entries at random and uses it to prepare for the next spawn, overwriting SpawnData.
+[Int] weight: The chance that this spawn gets picked in comparison to other spawn weights. Must be positive and at least 1.
+[NBT Compound / JSON Object] data
+Spawn Data see Template:Nbt inherit/spawn data/template
+[Short] SpawnRange: The radius around which the spawner attempts to place mobs randomly. The spawn area is square, includes the block the spawner is in, and is centered around the spawner's x,z coordinates - not the spawner itself. It is 2 blocks high, centered around the spawner's y coordinate (its bottom), allowing mobs to spawn as high as its top surface and as low as 1 block below its bottom surface. Vertical spawn coordinates are integers, while horizontal coordinates are floating point and weighted toward values near the spawner itself. Default value is 4.
+
+piston
+
+[NBT Compound / JSON Object] Block entity data
+Tags common to all block entities see Template:Nbt inherit/blockentity/template
+[NBT Compound / JSON Object] blockState: The moving block represented by this block entity.
+Block state see Template:Nbt inherit/block state/template
+[Byte] extending: 1 or 0 (true/false) – true if the piston is extending instead of withdrawing.
+[Int] facing: Direction that the piston pushes (0=down, 1=up, 2=north, 3=south, 4=west, 5=east).
+[Float] progress: How far the block has been moved. Starts at 0.0, and increments by 0.5 each tick, including the tick on which moving the piston is created. If the value is 1.0 or higher at the start of a tick of the block entity (before incrementing), then the block transforms into the stored blockState. Negative values can be used to increase the time until transformation.
+[Byte] source: 1 or 0 (true/false) – true if the block represents the piston head itself, false if it represents a block being pushed.
+
+potent_sulfur
+
+[NBT Compound / JSON Object] Block entity data
+Tags common to all block entities see Template:Nbt inherit/blockentity/template
+[Int] countdown: The number of seconds remaining until this potent sulfur block switches between dormant and erupting phases.
+
+sculk_catalyst
+
+[NBT Compound / JSON Object] Block entity data
+Tags common to all block entities see Template:Nbt inherit/blockentity/template
+[NBT List / JSON Array] cursors: List of sculk charge clusters associated with the sculk catalyst.
+[NBT Compound / JSON Object]: A sculk charge cluster. Each cluster is stored within a single sculk block.
+[Int] charge: How many sculk charges are being carried in the cluster.
+[NBT List / JSON Array] pos: List of three integers representing the coordinates of the cluster.
+[Int] decay_delay: 1, or 0 (true/false) - Not to be confused with update_delay. This controls the decay of the cluster. If this is true, then the cluster was spread from a sculk block or sculk vein, and this cluster can only spread to sculk, sculk veins, and blocks with the [Boolean] sculk_replaceable tag set to true. If this is false, then all the sculk charges disappear when the cluster discharges to a block that is not in the sculk family.
+[Int] update_delay: Delay in game ticks until the cluster begins to discharge (or travel) after being created. Usually starts at 1 game tick when a cluster discharges to a new block.
+[NBT List / JSON Array] facings: If the block to replace is an air or water block, the block is replaced with sculk veins, and the faces where the sculk veins are placed are stored in this list. The sculk veins never grow directly on the faces of a sculk block. The same thing is done to any air or water blocks that are adjacent to blocks that are adjacent to this sculk block, if sculk veins can't grow in the blocks adjacent to this sculk block without growing directly on the faces of sculk blocks.
+
+sculk_sensor
+
+[NBT Compound / JSON Object]: Block entity data.
+Tags common to all block entities see Template:Nbt inherit/blockentity/template
+[Int] last_vibration_frequency: The frequency of the last vibration.
+[NBT Compound / JSON Object] listener: The vibration event listener for this sculk shrieker, sculk sensor, or calibrated sculk sensor.
+[NBT Compound / JSON Object] event: Exists only if there is an incoming vibration.
+[Float] distance: The distance between this vibration's source and the block.
+[String] game_event: The resource location of the vibration event that caused the current incoming vibration.
+[NBT List / JSON Array] pos: The coordinates of the source of this vibration.
+[Double]: X coordinate.
+[Double]: Y coordinate.
+[Double]: Z coordinate.
+[Int Array] projectile_owner: If the vibration was caused by a projectile, this is the UUID of the entity that launched the projectile. Does not exist if vibration was not caused by a projectile.
+[Int Array] source: The UUID of the entity that caused the vibration. Does not exist if vibration was not caused by an entity.
+[Int] event_delay: How many ticks remain until triggered by the vibration. Set to 0 if there is no incoming vibration
+[NBT Compound / JSON Object] selector: The data of the vibration selector.​[more information needed]
+[Long] tick: The game time when the vibration occurs, or -1 if there is no vibration to choose from.​[more information needed]
+[NBT Compound / JSON Object] event: Candidate game event, with the same structure as the [NBT Compound / JSON Object] event tag above.​[more information needed]
+
+sculk_shrieker
+
+[NBT Compound / JSON Object]: The block entity's root tag.
+Tags common to all block entities see Template:Nbt inherit/blockentity/template
+
+shulker_box
+
+[NBT Compound / JSON Object] Block entity data
+Tags common to all block entities see Template:Nbt inherit/blockentity/template
+Tags common to all objects that can be renamed see Template:Nbt inherit/nameable/template
+Tags common to all containers that can be locked see Template:Nbt inherit/lockable/template
+Tags common to all objects that use loot tables to produce items see Template:Nbt inherit/lootable/template
+[NBT List / JSON Array] Items: List of items in this container. Does not exist if the shulker box is empty (unlike all other container blocks with the Items tag, which store an empty list). Represents the minecraft:container component. The component is still present on the block entity, even if the tag does not exist.
+[NBT Compound / JSON Object]: An item, including the slot tag. Shulker box slots are numbered 0–26, 0 starts in the top left corner.
+An item stack in a container slot see Template:Nbt inherit/item/template
+
+sign
+
+[NBT Compound / JSON Object] Block entity data
+Tags common to all block entities see Template:Nbt inherit/blockentity/template
+[Boolean] is_waxed: 1 or 0 (true/false), defaults to false. true if the text is locked with honeycomb. Represents the minecraft:waxed​[upcoming: JE 26.3] component.
+[Boolean] allow_op_features:​[upcoming: JE 26.3] 1 or 0 (true/false), defaults to false. If true, the sign will execute run_command, show_dialog, and custom click events from [NBT Compound / JSON Object] front_text or [NBT Compound / JSON Object] back_text when the relevant side of the sign is used. Only events on the root component of each line will be executed; click events in nested text components are ignored. Unlike the normal behavior of run_command, commands are not limited by chat restrictions. Commands run with permission level 2 (like command blocks), at the center of the sign block, and as the player who clicked.
+[NBT Compound / JSON Object] front_text: A compound that describes front text. Represents the minecraft:sign_text_front​[upcoming: JE 26.3] component.
+A sign text object see Template:Nbt inherit/sign_text_object/template
+[NBT Compound / JSON Object] back_text: A compound that describes back text. Represents the minecraft:sign_text_back​[upcoming: JE 26.3] component.
+A sign text object see Template:Nbt inherit/sign_text_object/template
+
+Before 1.20:
+
+[NBT Compound / JSON Object] Block entity data
+Tags common to all block entities see Template:Nbt inherit/blockentity/template
+[Byte] GlowingText: 1 or 0 (true/false) - true if the sign has been dyed with a glow ink sac.
+[String] Color: The color that has been used to dye the sign. The default value is "black". One of "white", "orange", "magenta", "light_blue", "yellow", "lime", "pink", "gray", "light_gray", "cyan", "purple", "blue", "brown", "green", "red", or "black".
+[String] Text1: First row of text.
+[String] Text2: Second row of text.
+[String] Text3: Third row of text.
+[String] Text4: Fourth row of text.
+
+skull
+
+[NBT Compound / JSON Object] Block entity data
+Tags common to all block entities see Template:Nbt inherit/blockentity/template
+[String] custom_name: Optional. The custom name of the head or skull. Represents the minecraft:custom_name component.
+[String] note_block_sound: Optional. If this block is a player head, this is the sound event produced by the note block that this head is placed on. Does nothing if present on any other head or skull type. Represents the minecraft:note_block_sound component.
+[String][NBT Compound / JSON Object] profile: Optional. The textures and/or player profile used to render a player head. If specified as a string, it corresponds to [String] name and is always saved as a [NBT Compound / JSON Object] compound. If omitted, a the wide Steve skin is used. Does nothing if present on any other head or skull type. Represents the minecraft:profile component.
+A player profile and/or textures object see Template:Nbt inherit/profile/template
+
+smoker
+
+[NBT Compound / JSON Object] Block entity data
+Tags common to all block entities see Template:Nbt inherit/blockentity/template
+Tags common to all objects that can be renamed see Template:Nbt inherit/nameable/template
+Tags common to all containers that can be locked see Template:Nbt inherit/lockable/template
+[NBT List / JSON Array] Items: List of items in this container. Represents the minecraft:container component.
+[NBT Compound / JSON Object]: An item in the furnace, including the slot tag:Slot 0: The item(s) being smelted.Slot 1: The item(s) to use as the next fuel source.Slot 2: The item(s) in the result slot.
+An item stack in a container slot see Template:Nbt inherit/item/template
+[Short] lit_time_remaining: Number of ticks left before the current fuel runs out.
+[Short] cooking_time_spent: Number of ticks the item has been smelting for. The item finishes smelting when this value reaches 200 (10 seconds). Is reset to 0 if lit_time_remaining reaches 0.
+[Short] cooking_total_time: Number of ticks it takes for the item to be smelted.
+[Short] lit_total_time: Represent the total time the furnace should be lit.
+[NBT Compound / JSON Object] RecipesUsed: Which recipes have been used since the last time a recipe result item was manually removed from the GUI. Used to calculate experience given to the player when taking out the resulting item. Is not preserved when removed.
+[Int] recipe ID: How many times this specific recipe has been used. The recipe ID is the identifier of the smelting recipe, as a resource location, as used in the /recipe command.
+
+soul_campfire
+
+[NBT Compound / JSON Object] Block entity data
+Tags common to all block entities see Template:Nbt inherit/blockentity/template
+[NBT List / JSON Array] Items: List of items in this container. Represents the minecraft:container component.
+[NBT Compound / JSON Object]: An item, including the slot tag. Campfire slots are numbered 0-3, with 0 starting in the bottom right corner based on the rotation the campfire was placed in, and the rest moving around clockwise.
+An item stack in a container slot see Template:Nbt inherit/item/template
+[Int Array] CookingTimes: How long each item has been cooking, first index is slot 0, etc.
+[Int Array] CookingTotalTimes: How long each item has to cook, first index is slot 0, etc.
+
+structure_block
+
+[NBT Compound / JSON Object] Block entity data
+Tags common to all block entities see Template:Nbt inherit/blockentity/template
+[String] author: Author of the structure; only set to "?" for most vanilla structures.
+[Byte] ignoreEntities: 1 or 0 (true/false): Whether entities should be ignored in the structure.
+[Float] integrity: How complete the structure is that gets placed.
+[String] metadata: Value of the data structure block field.
+[String] mirror: How the structure is mirrored, one of "NONE", "LEFT_RIGHT" (mirrored over X axis when not rotated), or "FRONT_BACK" (mirrored over Z axis when not rotated).
+[String] mode: The current mode of this structure block, one of "SAVE", "LOAD", "CORNER", or "DATA".
+[String] name: Name of the structure.
+[Int] posX: X-position of the structure.
+[Int] posY: Y-position of the structure.
+[Int] posZ: Z-position of the structure.
+[Byte] powered: 1 or 0 (true/false): Whether this structure block is being powered by redstone.
+[String] rotation: Rotation of the structure, one of "NONE", "CLOCKWISE_90", "CLOCKWISE_180", or "COUNTERCLOCKWISE_90".
+[Long] seed: The seed to use for the structure integrity, 0 means random.
+[Byte] showboundingbox: 1 or 0 (true/false): Whether to show the structure's bounding box to players in Creative mode.
+[Int] sizeX: X-size of the structure, its length.
+[Int] sizeY: Y-size of the structure, its height.
+[Int] sizeZ: Z-size of the structure, its depth.
+
+trapped_chest
+
+[NBT Compound / JSON Object] Block entity data
+Tags common to all block entities see Template:Nbt inherit/blockentity/template
+Tags common to all objects that can be renamed see Template:Nbt inherit/nameable/template
+Tags common to all containers that can be locked see Template:Nbt inherit/lockable/template
+Tags common to all objects that use loot tables to produce items see Template:Nbt inherit/lootable/template
+[NBT List / JSON Array] Items: List of items in this container. Represents the minecraft:container component. The component is still present on the block entity, even if the tag does not exist (due to a loot table existing instead).
+[NBT Compound / JSON Object]: An item, including the slot tag. Chest slots are numbered 0-26, 0 starts in the top left corner.
+An item stack in a container slot see Template:Nbt inherit/item/template
+
+trial_spawner
+
+[NBT Compound / JSON Object] Block entity data
+Tags common to all block entities see Template:Nbt inherit/blockentity/template
+[Int] required_player_range: Between 1 and 128. Defaults to 14. — Maximum distance in blocks for players to join the battle.
+[Int] target_cooldown_length: Defaults to 36000. — Time in ticks of the cooldown period. Includes the time spent ejecting rewards.
+[String][NBT Compound / JSON Object] normal_config: (optional) One trial spawner configuration (an [String] ID, or a new [NBT Compound / JSON Object] trial spawner configuration definition) — The configuration to use when not ominous.
+Trial Spawner Configuration see Template:Nbt inherit/trial_spawner_config/template
+[String][NBT Compound / JSON Object] ominous_config: (optional) One trial spawner configuration (an [String] ID, or a new [NBT Compound / JSON Object] trial spawner configuration definition) — The configuration to use when ominous.
+Trial Spawner Configuration see Template:Nbt inherit/trial_spawner_config/template
+The following fields are used to keep track of the current state of the trial spawner.
+[NBT List / JSON Array] registered_players: A set of player UUIDs. — All the players that have joined the battle. The length of this array determines the amount of mobs and amount of rewards.
+[Int Array]: A UUID.
+[NBT List / JSON Array] current_mobs: A set of mob UUIDs. — The mobs that were spawned by this spawner and are still alive.
+[Int Array]: A UUID.
+[Long] cooldown_ends_at: Gametime in ticks when the cooldown ends. 0 if not currently in cooldown.
+[Long] next_mob_spawns_at: Gametime in ticks when the next spawn attempt happens. 0 if not currently active.
+[Int] total_mobs_spawned: The total amount of mobs that have already been spawned in this cycle. 0 if not currently active.
+[NBT Compound / JSON Object] spawn_data: The next mob to attempt to spawn. Selected from [NBT List / JSON Array] spawn_potentials after the last attempt. Determines the mob displayed in the spawner.
+Spawn Data see Template:Nbt inherit/spawn data/template
+[String] ejecting_loot_table: A resource location to the loot table that is given as a reward. Unset if not currently giving rewards. Selected from [NBT List / JSON Array] loot_tables_to_eject after all mobs are defeated.
+
+vault
+
+[NBT Compound / JSON Object] Block entity data
+Tags common to all block entities see Template:Nbt inherit/blockentity/template
+[NBT Compound / JSON Object] config: Configuration data that does not automatically change. All fields are optional.
+[String] loot_table: A resource location to the loot table that is ejected when unlocking the vault. Defaults to "minecraft:chests/trial_chambers/reward".
+[String] override_loot_table_to_display: A resource location to the loot table that is used to display items in the vault. If not present, the game uses the loot_table field.
+[Double] activation_range: The range in blocks when the vault should activate. Defaults to 4.
+[Double] deactivation_range: The range in blocks when the vault should deactivate. Defaults to 4.5.
+[NBT Compound / JSON Object] key_item: The key item that is used to check for valid keys. Defaults to "minecraft:trial_key".
+An item stack in a container slot see Template:Nbt inherit/item/template
+[NBT Compound / JSON Object] server_data: Data that is only stored on the server.
+[NBT List / JSON Array] rewarded_players: A set of player UUIDs that have already received their rewards from this vault.
+[Long] state_updating_resumes_at: The game time when the vault processes block state changes, such as changing from unlocking to ejecting after a delay.
+[NBT List / JSON Array] items_to_eject: List of item stacks that have been rolled by the loot table and are waiting to be ejected.
+[NBT Compound / JSON Object]: An item stack
+An item stack in a container slot see Template:Nbt inherit/item/template
+[Int] total_ejections_needed: The total amount of item stacks that need to be ejected.
+[NBT Compound / JSON Object] shared_data: Data that is synced between the server and client.
+[NBT Compound / JSON Object] display_item: The item that is currently being displayed.
+[NBT List / JSON Array] connected_players: A set of player UUIDs that are within range of the vault.
+[Double] connected_particles_range: The range in blocks when the vault emits particles.
+
+History
+
+
+
+This section is missing information about: How were chest and furnace contents handled in their initial implementation versions? Or spawner entities? Or signs, when implemented as placed blocks rather than as entities? 
+Please expand the section to include this information. Further details may exist on the talk page.
+
+Java Edition Beta1.2
+Added Trap for dispensers.
+
+Added Music for note blocks.1.7
+Added Piston for moving pistons.1.8Pre-release
+Chest is now used to render chests newly changed model.Java Edition1.0.0Beta 1.9 Prerelease 3
+Added Cauldron for brewing stands.
+
+Added EnchantTable for enchantment tables.
+
+Added AirPortal for End portal blocks.1.3.112w21a
+Added EnderChest for ender chests.1.4.212w32a
+Added Control for command blocks.
+
+Added Beacon for beacons.12w36a
+Added Skull for heads.1.513w01a
+Added DLDetector for daylight sensors.
+
+Added Hopper for hoppers.
+
+Added Comparator for redstone comparators.13w03a
+Added Dropper for droppers.1.7.213w36a
+Added FlowerPot for flower pots.1.814w30a
+Added Banner for banners.1.915w31a
+Added EndGateway for the End gateway block.
+
+Added Structure for structure blocks.
+
+Added powered and conditional fields to Control15w47a
+Added PaymentItem to Beacon.15w49a
+Removed PaymentItem from Beacon.1.1116w32a
+The namespaced ID of block entities have been lowercased, renamed and namespaced.16w39a
+Added shulker_box for shulker boxes.1.1217w15a
+Added bed for beds.1.1317w47a
+Removed noteblock for note blocks.
+
+Removed flower_pot for flower pots.
+
+Removed color from bed.
+
+Removed Base from banner.
+
+Removed Rot and SkullType from skull.
+
+Added trapped_chest for trapped chests.
+
+Merged fields BlockId and BlockData into blockState for piston.
+
+Removed Record from jukebox.18w15a
+Added conduit for conduits.1.1418w44a
+Added barrel for barrels.
+
+Added bell for bells.
+
+Added lectern for lectern.18w46a
+Added jigsaw for jigsaw block.19w02a
+Added campfire for camfires.18w50a
+Added blast_furnace for blast furnaces.
+
+Added smoker for smokers.1.1519w34a
+Added beehive for beehives and bee nests.1.1720w49a
+Added sculk_sensor for sculk sensors.1.19Deep Dark Experimental Snapshot 1
+Added sculk_catelyst for sculk catelyst.
+
+Added sculk_shrieker for sculk shriekers.22w11a
+Implemented the previously mentioned features into normal snapshot.1.19.3ExperimentUpdate 1.2022w42a
+Added chiseled_bookshelf for chiseled bookshelves.
+
+Added hanging_sign for hanging signs.1.19.4ExperimentUpdate 1.2023w07a
+Added decorated_pot for decorated pots.
+
+Added suspicious_sand for suspicious sand.1.2023w12a
+Added calibrated_sculk_sensor for calibrated sculk sensors.
+
+Renamed suspicious_sand to brushable_block.1.20.223w32a
+Some fields in beacon were changed:
+Primary (integer) -> primary_effect (string, resource identifier)
+Secondary (integer) -> secondary_effect (string, resource identifier)1.20.3ExperimentUpdate 1.2123w45a
+Added trial_spawner for trial spawners.23w42a
+Added crafter for crafters.1.20.5ExperimentUpdate 1.2124w05a
+Added vault for vaults.1.21.2ExperimentWinter Drop24w40a
+Added creaking_heart for creaking heart.24w39a
+Renamed Lock field in containers to lock as now it has become a compound that represents an item predicate.1.21.4Pre-Release 2
+Some fields for furnace, blast_furnace, and smoker were changed:
+Renamed CookTime to cooking_time_spent.
+Renamed CookTimeTotal to cooking_total_time.
+Renamed BurnTime to lit_time_remaining.
+Added the field lit_total_time representing the total time the furnace should be lit.1.21.525w03a
+Added test_block for test blocks.
+
+Added test_instance_block for test instance blocks.25w07a
+The CustomName field is no longer preserved when removed.
+
+The LootTable field is no longer preserved when removed.
+
+The exit_portal field for end_gateway is no longer preserved when removed.
+
+The RecipesUsed field for furnace, smoker and blast_furnace is no longer preserved when removed.
+
+The note_block_sound field for skull is no longer preserved when removed.25w09a
+The CookingTimes and CookingTotalTimes for campfire fields are no longer preserved when removed.
+
+The last_interacted_slot field for chiseled_bookshelf now defaults to -1 if not specified.
+
+The TransferCooldown field for hopper now default to -1 if not specified.
+
+The jigsaw fields, name, target, and pool now default to minecraft:empty if not specified, and the final_state field now defaults to minecraft:air if not specified.
+
+The warning_level field for sculk_shrieker now defaults to 0 if not specified.
+
+structure_blockThe ignoreEntities and showboundingbox fields now default to true if not specified, the posY field now defaults to 1 if not specified.1.21.925w31a
+Added copper_golem_statue for copper golem statues.
+
+Added shelf for shelves.25w34a
+Added align_items_to_bottom to shelf.26.2snap3
+Removed bed for beds.snap5
+Added potent_sulfur for potent sulfur.Upcoming Java Edition26.3snap1
+minecraft:decorated_pot: Field sherds no longer stores a list of 4 item IDs. Instead, the new format is an object with 4 optional item stack fields.
+Navigation

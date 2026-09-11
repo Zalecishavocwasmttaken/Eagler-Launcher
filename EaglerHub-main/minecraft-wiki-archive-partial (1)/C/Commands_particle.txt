@@ -1,0 +1,160 @@
+/particle
+
+Permission levelrequired
+
+2 ‌[JE  only]
+1 ‌[BE  only]
+
+Restrictions
+
+Cheat only‌[BE  only]
+
+{
+    "title": "<code>/particle</code>",
+    "rows": [
+        {
+            "field": "\n* 2 ‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Java Edition\">(link to Java Edition article, displayed as JE)  only</span></i>]</sup>\n* 1 ‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Bedrock Edition\">(link to Bedrock Edition article, displayed as BE)  only</span></i>]</sup>",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "(link to Cheat article, displayed as Cheat) only‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Bedrock Edition\">(link to Bedrock Edition article, displayed as BE)  only</span></i>]</sup>",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+Creates particles.
+
+Contents
+
+1 Syntax
+2 Arguments
+
+2.1 Extra parameters of particle types
+
+3 Result
+4 Output
+5 Examples
+6 History
+
+6.1 Java Edition
+6.2 Bedrock Edition
+
+7 References
+8 External links
+9 Navigation
+
+Syntax
+Java Edition
+particle <name> [<pos>]
+particle <name> <pos> <delta> <speed> <count> [force|normal] [<viewers>]
+Bedrock Edition
+particle <effect: string> [position: x y z]
+Arguments
+JE: <name>: particleBE: effect: string: basic_string
+
+Specifies the particle type to create.
+In Java Edition, it must be in the format of particle_type_id{configuration tags} for particle types with configurations, or the format of particle_type_id for particle types without configurations.In Bedrock Edition it must be a single word that has no space or a double-quoted string (When quoted, \ can be used to escape characters). And it should be the namespaced identifier of a particle (the namespace cannot be omitted).
+JE: <pos>: vec3BE: position: x y z: CommandPositionFloat
+
+Specifies the position at which to create particle. If not specified, defaults to the position of the commmand execution.
+Must be three-dimensional coordinates with double-precision floating-point number‌[Java Edition  only] or single-precision floating-point number‌[Bedrock Edition  only] elements. Accepts tilde and caret notations.
+JE: <count>: integer
+
+Specifies the number of particle effects to create. If 0, see below for what it results in.
+Must be a [Int]32-bit integer number (from -2147483648 (-231) to 2147483647 (231-1) ). And it must be between 0 and 2147483647 (inclusive).
+JE: <delta>: vec3 — Must be three-dimensional coordinates with double-precision floating-point number elements. Accepts tilde and caret notations.
+JE: <speed>: float — Must be a [Float]Single-precision floating-point number (from -(2-2-23)×2127 (≈-3.4×1038) to (2-2-23)2×127 (≈3.4×1038) ). And it must be greater than or equal to 0.0.
+
+<delta> and <speed> parameters determine where the particles are created and the parameters to pass into the particles (see the table Extra parameters of particle types below). Based on whether <count> is 0 or not, the two parameters have different meanings.
+if <count> is 0, creates a single particle at the <pos>. Multiplies each of the three values in<delta> by <speed> value, then passes them into the particles as three parameters.
+This means that for most particles that receive parameters, if <count> is 0, the <delta> acts as motion values for the particle, with <speed> acting as a multiplier, so the particle move in the direction of <delta>.
+If <count> is not 0, the specified count of particles are created at random positions. The positions obey normal distributions in each of the X, Y, and Z directions. Each normal distribution has a mean value of each value in <pos>, meaning that particles are more likely to be created closer to the <pos>. Each normal distribution has a standard deviation of each value in <delta> (e.g. 1 1 1 means that the coordinates on X, Y, and Z axes obey three standard normal distributions, meaning that there is a 99.7% probability that the particle is created in a 6×6×6 cuboid region centered at the <pos>; 2 2 2 means that the particle has a 99.7% probability of being created in a 12×12×12 cuboid region centered at the <pos>). Negative values are accepted in <delta>, but have the same effect as their positive counterparts (e.g. -1 -1 -1 has the same effect as 1 1 1). Each of the extra parameters to be passed into the particles also follows a normal distribution, with a mean of 0 and a standard deviation of each value in <speed>.
+<delta> accepts relative coordinates and local coordinates, which are converted to absolute coordinates, so relative coordinates and local coordinates are generally useless here.
+If not specified, <delta> defaults to 0 0 0; <speed> defaults to 0.
+JE: force|normal
+
+Specifies the display mode: normal or force.
+normal: The particle(s) are sent to players within 32.0 blocks (exclusive), may not be shown if the "Particles" option in Video Settings is "Minimal" (depending on the particle type, some particle types still displays when it is "Minimal")
+force: Allows the particle(s) to be sent to players within 512.0 blocks (exclusive). Always shown even if the "Particles" option in Video Settings is "Minimal".
+Defaults to the normal mode.
+JE: <viewers>: entity
+
+Allows control of which player should view this particle instead of everyone in the viewing range of the particle.
+Must be a player name, a target selector or a UUID.  And the target selector must be of player type.
+Extra parameters of particle types
+Main article: Particle format
+
+
+
+This section needs expansion. 
+You can help by expanding it.
+
+Result
+
+CommandTriggerJava EditionBedrock Edition
+
+AnyThe command is incomplete, or any argument is not specified correctly. Unparseable Unparseable<targets> fails to resolve to one or more online players. Failed N/AAll the targeted players are not less than 32.0 (in normal mode) / 512.0 (in force mode) blocks away from the particle(s). SuccessfulOtherwiseSuccessful
+Output
+
+CommandEditionSituationSuccess Count/execute store success .../execute store result ...
+
+AnyJava EditionOn fail000On success11the number of players who can see the particle(s)Bedrock EditionOn fail0N/AN/AOn success1N/AN/A
+Examples
+To create a stationary huge explosion particle 10 blocks to the east:
+
+Java Edition: /particle minecraft:explosion_emitter ~10 ~ ~
+Bedrock Edition: /particle minecraft:huge_explosion_emitter ~10 ~ ~
+Using the particle format arguments in Java Edition to create purple dust with large particles:
+
+/particle minecraft:dust{color:[1, 0, 1], scale:4} ~ ~ ~ 1 1 1 1 10
+Using the <delta> and <speed> arguments to pass parameters to the command and make a single particle move downward (note that count must be zero):
+
+/particle minecraft:white_smoke ^ ^1 ^2 0 -1 0 0.1 0
+The same command with <count> nonzero instead uses <delta> to determine particle distribution, producing a vertical cloud of particles:
+
+/particle minecraft:white_smoke ^ ^1 ^2 0 -1 0 0.1 10
+History
+Java Edition
+Java Edition1.814w04a
+Added /particle.14w25a
+/particle now accepts blockdust, blockcrack and iconcrack, which it could not before despite these particles indeed existing.
+
+The block/item data is specified as part of the ID: for example, blockcrack_1_1 represents granite.14w28a
+Due to a bug, /particle commands using blockdust, blockcrack and iconcrack no longer work.14w28b
+blockdust, blockcrack and iconcrack are no longer listed as supported by /particle due to the aforementioned bug. Commands can still attempt to use them (they do not reject them in the same way non-existent particles are rejected); however, they just result in errors.14w29a
+Added force argument to /particle.
+
+iconcrack now works again, supporting an item ID and a value for damage.
+
+blockdust and blockcrack now work, but only if an ID alone is provided; specifying block metadata will produce an error.1.915w32c
+the range limit increased to 32 blocks (when the command /particle is used along with the force mode, the limit is 512 blocks).15w49a
+Added player and params arguments to /particle.
+
+iconcrack, blockdust and blockcrack now use the new params field rather than specifying block/item ID and block metadata/item damage in the particle ID. The latter two particle types can now have block metadata specified again.1.1317w45a
+The <params> argument has been removed, instead the parameters for particles like block can be specified right after the <name> argument using the new block argument.17w47a
+Particle names have been changed for /particle.
+
+/particle can no longer access[verify] take, a particle used for handing the pickup animation of dropped items.[verify]18w03a
+Added the /particle <name> <pos> shortcut.1.1922w12a
+Added the shriek particle.
+
+Removed the origin parameter from the vibration particle.1.20.5Pre-Release 1
+Particle options in the /particle command, and in fields like Particles in Area Effect clouds, now use the same representation (SNBT format) as in worldgen files (eg. the ash particle in the basalt_delta biome file of the vanilla data pack).
+Bedrock Edition
+Pocket Edition1.0.5alpha 1.0.5.0
+Added /particle.alpha 1.0.5.3
+Removed /particle.Bedrock Edition1.8.0beta 1.8.0.8
+Re-added /particle.1.17.30beta 1.17.20.23
+The /particle command no longer outputs 0 when run successfully.
+
+The /particle command's position argument is now optional.
+References
+
+ MC-61033
+
+External links
+"/particle Command"     – Microsoft Learn, October 11, 2023.
+Navigation

@@ -1,0 +1,257 @@
+This page covers a development version that has a major issue under certain conditions. 
+The dedicated server for this version has a security vulnerability in the Log4j library that could be used to perform a remote code execution exploit. It can be addressed by appending a certain JVM argument to the server startup command line.
+
+Minecraft 17w16a
+
+Edition
+
+Java Edition
+
+Release date
+
+April 20, 2017
+
+Type
+
+Snapshot
+
+Snapshot for
+
+1.12
+
+Downloads
+
+Client (.json)Server
+
+Protocol version
+
+322
+
+Data version
+
+1126
+
+Resource pack format
+
+3
+
+Minimum Java version
+
+Java SE 8
+
+◄◄   1.11.2
+1.12
+  1.12.1 ►►
+
+◄   17w15a
+
+ 17w16a
+
+  17w16b ►
+
+{
+    "title": "Minecraft 17w16a",
+    "images": [
+        "17w16a.png",
+        "Java Edition 17w16a.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "April 20, 2017",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Snapshot article, displayed as Snapshot)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition 1.12 article, displayed as 1.12)",
+            "label": "Snapshot for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/2b7de5e297fda9fc35500c6db18627be00ad003c/client.jar Client] ([https://piston-meta.mojang.com/v1/packages/4baeef9effd9d3eacdb6bef1a974f20be394278b/17w16a.json .json])<br />[https://piston-data.mojang.com/v1/objects/47cfe5d44ccf6333b697da3e82e35bb3725e53d8/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "322",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "1126",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "3",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_8_.28LTS.29 Java SE 8]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Java Edition  1.11.2|<span style=\"margin-right:-0.35em\">◄</span>◄   1.11.2]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition 1.12|1.12]]'''</td>\n<td style=\"padding: 0.4em\" >[[Java Edition  1.12.1|  1.12.1 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  17w15a|◄   17w15a]]\n</td>\n<td style=\"padding: 0.4em\">''' 17w16a'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  17w16b|  17w16b ►]]\n</td>\n</tr>\n</table>"
+}
+
+17w16a is the sixth snapshot for Java Edition 1.12, released on April 20, 2017.
+
+Contents
+
+1 Additions
+
+1.1 Blocks
+1.2 Mobs
+1.3 Command format
+1.4 General
+
+2 Changes
+
+2.1 Blocks
+2.2 Items
+2.3 Mobs
+2.4 General
+
+3 Fixes
+4 Videos
+5 Trivia
+6 References
+7 Navigation
+
+Additions
+Blocks
+ Note blocks
+
+When placed on top of a bone block, wool, clay, packed ice, or gold blocks, the note block produces no sound when altered or activated (this is to make place for new note block sounds coming up).
+Added sound events (when using /playsound) for the following:
+minecraft:block.note.bell
+minecraft:block.note.chime
+minecraft:block.note.flute
+minecraft:block.note.guitar
+minecraft:block.note.xylophone
+Mobs
+ Illusioners
+
+New illager.
+Affects players with Blindness for 20 seconds then shoots with a bow.
+Summons duplicates of itself.
+All duplicates show the shooting animation, but only the real one, which is invisible, can be attacked.
+Does not have a spawn egg and therefore can only be summoned with /summon illusion_illager.
+Targets players, adult villagers, wandering traders, and iron golems.
+Command format
+Selectors
+
+@s
+Targets the executing entity, e.g: /execute @e[type=Villager] ~ ~ ~ /say @s
+General
+All the tutorial hints
+Version exclusive: Tutorial hints
+
+Displayed in the top right.
+Display only in Survival mode, and only upon starting a new world for the first time.
+Saved per player, stored in options.txt.
+Name: tutorialStep
+List of criteria: movement, find_tree, punch_tree, open_inventory, craft_planks, and none.
+Controls
+
+Version exclusive: Added keybinding options for Creative mode saving to saved toolbars.
+JSON format
+
+Added 'group' to recipe JSON format, to clump similar recipes together.
+Added new 'keybind' text component, to refer to the player's keybindings.
+Changes
+Blocks
+Hardened clay
+
+Renamed to terracotta.
+Glazed terracotta
+
+No longer "stick" to slime blocks, but can still be pushed by pistons.
+Shulker boxes
+
+Colors changed in accordance with the changes to other block colors.
+This causes the 'default' (purple) shulker boxes to be a vibrant purple that mismatches all other purpur items and blocks (reverted in 17w17a).
+Command blocks
+
+Now executes all of the commands in a chain before scheduling them for the next tick.
+It is now possible to stop/modify the operation of a chain via commands and get results instantly (as opposed to getting them in a 1 tick delay).
+Items
+Fishing rods
+
+Version exclusive: Added sounds for reeling in the fishing bobber.
+Mobs
+Comparison of old and new shulker and shulker box colors
+Shulkers
+
+Colors changed in accordance with the changes to other block colors.
+This causes the 'default' (purple) shulkers to be a vibrant purple that mismatches all other purpur items and blocks (reverted in 17w17a).
+General
+Narrator
+
+Now displays a message whenever it isn't available.
+Controls
+
+Version exclusive: Pressing F1 now hides all toast messages.
+NBT format
+
+Improved NBT parsing in commands.
+Keys can now (optionally) be quoted, e.g: "Motion":[0.0,0.0,0.0]
+Unquoted string values are now stricter; they can no longer contain spaces or special symbols, e.g: CustomName:Test Test
+Indices, which were previously optional in lists, are no longer allowed, e.g: Motion:[0:7.3,1:1.0,2:3.1]
+Empty keys and values are no longer allowed.
+Improved error messaging; now points to where exactly the error occurred.
+Fixes
+27 issues fixed
+From released versions before 1.12
+
+MC-9565 – Fences and Cobblestone Walls connect to Fence Gates, which are facing the other direction
+MC-95560 – Wrong command message: The last character of NBT parsing error message is missing
+MC-97662 – NBT parser regex checks for pipebars as tag declaration
+MC-114219 – NBT integer array regex matches non-integer arrays
+MC-114220 – NBT integer arrays have a trailing comma in the string representation
+From the 1.12 development versions
+
+MC-113915 – Inadvertently saving/overwriting saved hotbars due to stuck modifier key
+MC-114889 – Parrots on shoulders disappear when flying up in creative or spectator mode
+MC-115046 – Recipe book icon changes when wearing enchanted armor
+MC-115336 – Closing crafting menu drops or deletes items in some cases
+MC-115528 – Local client crashes when using the new shift-click recipe book in a server
+MC-115603 – Shift clicking recipe deletes other applicable items with different meta data
+From the previous development version
+
+MC-115797 – Server output shows errors and nothing else
+MC-115802 – Crash when going to Statistics/items-blocks or trying to customize Superflat settings
+MC-115806 – Clicking on coloring white bed recipe selects creating bed recipe (placing planks in armor slots of a player)
+MC-115807 – Game crash if right clicked on the underside of block with torch in hand
+MC-115809 – Advancements/recipes notifications don't show correctly in F1 mode.
+MC-115812 – ⇧ Shift + F3 crashes the game
+MC-115837 – Gap between advancements and recipe toast
+MC-115873 – Can't drop items by clicking outside of inventory
+MC-115938 – Toasts darken in some GUIs and while some tooltips are displayed
+MC-115942 – Parrots imitating mobs causes null pointer exception
+MC-116004 – "Parrot" isn't translatable in the "imitates" subtitle
+MC-116136 – Parrots are invisible when on shoulder
+MC-116213 – Parrots on your shoulder change color when the player is wearing an enchanted elytra
+MC-116314 – Bows destroy other bows while crafting using recipe book
+MC-116316 – Shulker boxes not matching the new hues
+From the current version, hotfixed
+
+MC-116352 – Crash when opening the chat settings
+Videos
+Video made by slicedlime:
+
+
+
+
+Trivia
+17w16a was previously removed from the launcher for some time but was added back in September 2018.
+References
+
+ "Important Message: Security vulnerability in Java Edition"     – Minecraft.net, December 10, 2021.
+
+ "Minecraft Snapshot 17w16a"     – Minecraft.net, April 20, 2017.
+
+Navigation

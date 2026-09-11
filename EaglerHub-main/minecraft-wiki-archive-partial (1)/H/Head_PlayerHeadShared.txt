@@ -1,0 +1,19 @@
+[Int Array] Id: UUID of owner, stored as four ints. Optional. Used to update the other tags when the chunk loads or the holder logs in, in case the owner's name has changed.
+[String] Name: Username of owner. If missing or empty, the head appears as a Steve head. Otherwise, used to store or retrieve the downloaded skin in the cache. Need not be a valid player name, but must not be all spaces.
+[NBT Compound / JSON Object] Properties
+[NBT List / JSON Array] textures
+[NBT Compound / JSON Object]: An individual texture.
+[String] Value: A Base64-encoded JSON object.
+[Boolean] isPublic: Optional.
+[Boolean] signatureRequired
+[String] profileId: Optional: The hexadecimal text form of the player's UUID, without hyphens.
+[String] profileName: Optional: Player name.
+[NBT Compound / JSON Object] textures
+[NBT Compound / JSON Object] CAPE: Optional.
+[String] url: URL of a player cape (64x32 PNG).
+[NBT Compound / JSON Object] SKIN
+[String] url: URL of a player skin on textures.minecraft.net.
+[NBT Compound / JSON Object] metadata
+[String] model: The model of the player skin. Can be "classic" or "slim".
+[Long] timestamp: Optional: Unix time in milliseconds.
+[String] Signature: Optional.

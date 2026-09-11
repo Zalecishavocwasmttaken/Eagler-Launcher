@@ -1,0 +1,772 @@
+This article has no navigation boxes. 
+Please add one or more navigation box templates to this article to help with navigation and categorization.
+
+
+
+This article is a stub. 
+You can help by expanding it. The talk page may contain suggestions.
+
+
+Minecraft uses several different types of noise generators, specifically those making use of gradient noise, for the generation of terrain alongside other features.
+There are/were noise generators that use Perlin Noise and Simplex Noise.
+
+Example of Perlin noise, the generator frequently used ingame
+Contents
+
+1 Specifications
+
+1.1 Customization
+
+1.1.1 Old Customized worlds (1.8-1.12)
+1.1.2 Custom worlds (1.16-1.19)
+
+2 Types of noise generators
+
+2.1 Terrain noise generators
+
+2.1.1 Low noise
+2.1.2 High noise
+2.1.3 Selector noise
+2.1.4 Depth noise
+
+2.2 Other noise generators
+
+2.2.1 Biome fill noise
+2.2.2 Biome distribution
+2.2.3 Badlands clay band offset noise
+2.2.4 Badlands pillar noise
+2.2.5 Swamp noise
+2.2.6 Flower noise
+
+2.3 Removed noise generators
+
+2.3.1 Major noise generation prior to Infdev 20100327
+2.3.2 Floating island carver noise
+2.3.3 Scale noise
+2.3.4 Tree density noise
+2.3.5 Sand noise
+2.3.6 Gravel noise
+2.3.7 Biomes prior to Beta 1.8
+
+3 Overflowing
+
+Specifications
+Noise generators can be defined by the following parameters:
+
+Octaves: The amount of different copies of this noise generator, each scaled down from the last by a factor of 2.  Fewer octaves result in an unnatural appearance. More octaves added with lacunarity result in a rougher fractal appearance reminiscent of proper terrain.
+Frequency: ​[more information needed]
+Factor: A value the noise is multiplied with after processing (lacunarity). To make the set of values more or less extreme.
+Offset: A value added to the noise after processing. To shift the resulting set of values by this value.
+These values are displayed and calculated differently in the code. Vanilla simply applies a "scale" value (frequency*(2^octaves)), defined as how much the noise generator increments per sampling (every four blocks).
+
+Customization
+
+
+
+This feature is exclusive to Java Edition. 
+
+Old Customized worlds (1.8-1.12)
+
+
+
+This section of the article is empty. 
+You can help by expanding it.
+
+Custom worlds (1.16-1.19)
+
+
+
+This section of the article is empty. 
+You can help by expanding it.
+
+Types of noise generators
+
+
+
+This section is missing information about: generators mentioned in this video: https://youtu.be/w9VS3mETEK8 
+Please expand the section to include this information. Further details may exist on the talk page.
+
+Stratum colors are determined using only the first 48 bits of the 64-bit world seed in Java Edition. The strata repeat every 64 blocks on the Y-axis, and the elevation of a particular stratum can vary through a biome by as much as 4 blocks. Stratum elevations vary with respect to the X-axis only, neglecting the Z-axis.
+
+Terrain noise generators
+These are used for defining the shape of generated terrain itself.
+A table of default/hardcoded settings, as well as values resulting from these, is as follows. Note that not all of these are used in vanilla, but are instead used by mods such as CubicWorldGen.
+
+Fundamental terrain noise generators (Overworld)
+
+Generator
+
+Low noise
+
+High noise
+
+Selector noise
+
+Depth noise
+
+Parameter
+
+X
+
+Y
+
+Z
+
+X
+
+Y
+
+Z
+
+X
+
+Z
+
+Offset
+
+0
+
+0.5
+
+0
+
+Factor
+
+1
+
+12.75
+
+1.024
+
+Octaves
+
+16
+
+8
+
+16
+
+Frequency
+
+0.00522...
+
+0.00261...
+
+0.00522...
+
+0.01671...
+
+0.00835...
+
+0.01671...
+
+0.00153...
+
+Period
+
+191.51
+
+383.02
+
+191.51
+
+59.85
+
+119.69
+
+59.85
+
+655.36
+
+Increments per block
+
+171.103
+
+85.5515
+
+171.103
+
+2.138
+
+1.069
+
+2.138
+
+50
+
+Increments per sampling
+
+684.412
+
+342.206
+
+684.412
+
+8.555
+
+4.278
+
+8.555
+
+200
+
+Expected 32-bit overflow distance
+
+12,550,824
+
+25,101,648
+
+12,550,824
+
+1,004,065,924
+
+2,008,131,848
+
+1,004,065,924
+
+42,949,673
+
+Low noise
+Low noise is one of the two main noise generators used for defining terrain shape. This noise generator, which uses Perlin noise, is one which is actually used as a heightmap.
+
+High noise
+This is effectively identical to low noise, but is only used when selector noise is above a given threshold value.
+
+Selector noise
+Selector noise is a third important noise generator used for terrain generation. Selector noise, using Perlin noise, dictates which of either low noise or high noise is used for generating terrain at a given position - above 1 high noise is used, below 0 low noise is used, and values between 0-1 are linearly interpolated between the low and high noise values.
+
+Depth noise
+A rather insignificant noise generator, this uses Perlin noise to make terrain slightly more nuanced in general. The possible values it can have are tightly clamped to a thin set of values. It is also only defined for the X and Z axes.
+
+Other noise generators
+
+
+
+This section is missing information about: Nether soul sand, gravel and equivalent of biome fill noise 
+Please expand the section to include this information. Further details may exist on the talk page.
+
+These noise generators are oriented to the generation of other world features.
+
+Decorative noise generators (Overworld)
+
+Generator
+
+Biome fill noise
+
+Badlands pillar noise
+
+Badlands clay band offset noise
+
+Swamplands noise
+
+Flower distribution noise
+
+Parameter
+
+X
+
+Z
+
+X
+
+Y
+
+Z
+
+X
+
+Y
+
+Z
+
+X
+
+Y
+
+Z
+
+X
+
+Y
+
+Z
+
+Offset
+
+3
+
+?
+
+?
+
+?
+
+?
+
+Factor
+
+2.333...
+
+?
+
+?
+
+?
+
+?
+
+Octaves
+
+4
+
+?
+
+?
+
+?
+
+?
+
+Frequency
+
+0.00781...
+
+?
+
+?
+
+?
+
+?
+
+?
+
+?
+
+?
+
+?
+
+?
+
+?
+
+?
+
+?
+
+Period
+
+128
+
+?
+
+?
+
+?
+
+?
+
+?
+
+?
+
+?
+
+?
+
+?
+
+?
+
+?
+
+?
+
+Increments per block
+
+0.0625
+
+?
+
+?
+
+?
+
+?
+
+?
+
+?
+
+?
+
+?
+
+?
+
+?
+
+?
+
+?
+
+Increments per sampling
+
+0.25
+
+?
+
+?
+
+?
+
+?
+
+?
+
+?
+
+?
+
+?
+
+?
+
+?
+
+?
+
+?
+
+Expected 32-bit overflow distance
+
+34,359,738,368
+
+?
+
+?
+
+?
+
+?
+
+?
+
+?
+
+?
+
+?
+
+?
+
+?
+
+?
+
+?
+
+Expected 64-bit overflow distance
+
+147 quintillion
+
+?
+
+?
+
+?
+
+?
+
+?
+
+?
+
+?
+
+?
+
+?
+
+?
+
+?
+
+?
+
+Biome fill noise
+Upon generation, a top layer block (e.g. dirt, sand) will be placed to a certain thickness to replace the bare stone heightmap. The thickness of this dirt relies on a noise generator in vanilla.
+
+Biome distribution
+Ocean biome variants are distributed using a Perlin noise function.
+The Multi Noise Biome Source (used for the Nether and the Overworld since 1.18) also uses perlin noise.
+
+Badlands clay band offset noise
+
+
+
+This section of the article is empty. 
+You can help by expanding it.
+
+Badlands pillar noise
+
+
+
+This section of the article is empty. 
+You can help by expanding it.
+
+Swamp noise
+Swamps use a noise generator for two purposes: for the generation of marshy areas composing a mixture of water and grass blocks, and for the variation of the two different grass colors used.
+
+Flower noise
+The placement of flowers, most prominently in flower forest and meadow biomes but possibly also elsewhere, is controlled via a noise function. Flowers generated naturally will be in different positions from those grown via bone meal, and those grown via bone meal is not dependent on world seed.
+
+Removed noise generators
+These are no longer used in the current version of the game.
+
+Removed noise generators (Overworld)
+
+Generator
+
+Infdev pre-0327 noise
+
+Island carver noise
+
+Scale noise
+
+Sand noise
+
+Gravel noise
+
+Tree density noise
+
+Parameter
+
+X
+
+Z
+
+X
+
+Z
+
+X
+
+Z
+
+X
+
+Z
+
+X
+
+Z
+
+X
+
+Z
+
+Offset
+
+?
+
+?
+
+?
+
+?
+
+?
+
+?
+
+Factor
+
+?
+
+?
+
+?
+
+?
+
+?
+
+?
+
+Octaves
+
+16[verify]
+
+16[verify]
+
+16[verify]
+
+4[verify]
+
+4[verify]
+
+?
+
+Frequency
+
+0.00195...
+
+0.00007...
+
+0.000009...
+
+0.00391...
+
+0.00391...
+
+?
+
+Period
+
+512
+
+14246.96
+
+116924.175
+
+256
+
+256
+
+?
+
+Increments per block
+
+64
+
+2.3
+
+0.28025
+
+0.03125
+
+0.03125
+
+?
+
+Increments per sampling
+
+256
+
+9.2
+
+1.121
+
+0.125
+
+0.125
+
+?
+
+Expected 32-bit overflow distance
+
+33,554,432
+
+933,688,542
+
+7,662,742,722
+
+68,719,476,736
+
+68,719,476,736
+
+8,589,934,592
+
+Expected 64-bit overflow distance
+
+144 quadrillion
+
+4 quintillion
+
+32 quintillion
+
+295 quintillion
+
+295 quintillion
+
+?
+
+Major noise generation prior to Infdev 20100327
+Before inf-20100327, terrain was generated using 2D Perlin noise, as opposed to the 3D noise currently used by the game today.
+
+Floating island carver noise
+During Indev, floating islands were produced by using an extra noise generator to carve out air into existing terrain.
+
+Scale noise
+A noise generator that appears to only have effects in hilly areas, with little to no impact on flat low-lying regions.
+
+Tree density noise
+A noise generator existed since Infdev which dictated the density of trees in the world. In Infdev to Alpha, it was the sole value used to determine tree density. In Beta, it was used along with an added value provided by the biome. This noise generator was likely removed in early release versions although this is yet to be confirmed, as a similar noise generator also seems to exist in 1.12.2.
+
+Sand noise
+A noise generator was used for generating the surface block used for low-altitude areas commonly characteristic of beaches. This noise generator would determine if a given area would use sand as the surface block or not. This was probably removed in Beta 1.8.
+
+Gravel noise
+Effectively identical to sand noise and used in very similar cases, except that the Y and Z parameters were switched. This determined where gravel would generate in beach-like areas, resulting in two-block deep depressions.
+
+Biomes prior to Beta 1.8
+
+
+
+This section is missing information about: didn't these use simplex noise rather than Perlin noise? 
+Please expand the section to include this information. Further details may exist on the talk page.
+
+Biomes before Beta 1.8 used two noise generators: one of them for temperature and the other for rainfall values. The placement of biomes depended of the values of these noise generators.
+
+Overflowing
+Main article: Far Lands
+
+
+
+This section would benefit from the addition of more images. 
+Please remove this notice once you have added  suitable images to the article.The specific instructions are: Add images for overflowing of swamp noise, flower generation noise, and pre-Beta 1.8 temperature/rainfall noise
+
+Noise generators are capable of overflowing once hitting the integer limit for their given data type, producing spectacular results. The most notable of these are the Far Lands, resulting in noise generator overflows being referred to as types of Far Lands as a result.
+In current versions of Java Edition, overflowing is not usually visible without either direct modification to terrain generation code or possibly via custom world generation.
+
+
+
+			Low noise overflowing
+
+
+
+			High noise overflowing
+
+
+
+			Selector noise overflowing; note how the noise pattern continues beyond the overflow for areas where the same noise is selected
+
+
+
+			Depth noise overflowing; note the incline (where it overflows) and the perpendicular rifts caused by it
+
+
+
+			Biome fill noise overflowing
+
+
+
+			Pre-inf-20100327 terrain generation noise overflowing
+
+
+
+			Floating island carver noise overflowing
+
+
+
+			Scale noise overflowing
+
+
+
+			Sand noise overflowing
+
+
+
+			Gravel noise overflowing

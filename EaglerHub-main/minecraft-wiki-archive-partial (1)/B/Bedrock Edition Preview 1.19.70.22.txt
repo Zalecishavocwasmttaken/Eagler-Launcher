@@ -1,0 +1,240 @@
+Preview 1.19.70.22
+
+Edition
+
+Bedrock Edition
+
+Release date
+
+Windows, iOS, iPadOS, Xbox - February 8, 2023Android - February 11, 2023
+
+Internal version
+
+Windows: 1.19.7022.0Xbox: 1.19.7022.70Android, iOS, iPadOS: 1.19.70.22
+
+Version code
+
+Android:
+951907022 (armeabi-v7a, 31)
+961907022 (x86, 31)
+971907022 (arm64-v8a, 31)
+981907022 (x86_64, 31)
+
+Type
+
+Preview
+
+Preview for
+
+1.19.70
+
+Downloads
+
+ Server
+Windows
+Linux
+
+Protocol version
+
+571
+
+◄◄   1.19.63
+1.19.70
+  1.19.71 ►►
+
+◄   Preview 1.19.70.21
+
+ Preview 1.19.70.22
+
+  Preview 1.19.70.23 ►
+
+{
+    "title": "Preview 1.19.70.22",
+    "images": [
+        "Bedrock 1.19.70.22 PatchNotes.jpg",
+        "Bedrock 1.19.70.22.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Bedrock Edition article, displayed as Bedrock Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "'''Windows, iOS, iPadOS, Xbox''' - February 8, 2023<br>'''Android''' - February 11, 2023",
+            "label": "Release date"
+        },
+        {
+            "field": "'''Windows''': 1.19.7022.0<br>'''Xbox''': 1.19.7022.70<br>'''Android, iOS, iPadOS''': 1.19.70.22",
+            "label": "Internal version"
+        },
+        {
+            "field": "'''Android''':<br>\n951907022 (armeabi-v7a, 31)<br>\n961907022 (x86, 31)<br>\n971907022 (arm64-v8a, 31)<br>\n981907022 (x86_64, 31)<br>",
+            "label": "Version code"
+        },
+        {
+            "field": "Preview",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Bedrock Edition 1.19.70 article, displayed as 1.19.70)",
+            "label": "Preview for"
+        },
+        {
+            "field": "'''Server'''<br>\n[https://minecraft.net/bedrockdedicatedserver/bin-win-preview/bedrock-server-1.19.70.22.zip Windows]\n[https://minecraft.net/bedrockdedicatedserver/bin-linux-preview/bedrock-server-1.19.70.22.zip Linux]",
+            "label": "Downloads"
+        },
+        {
+            "field": "571",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Bedrock Edition  1.19.63|<span style=\"margin-right:-0.35em\">◄</span>◄   1.19.63]]</td>\n<td style=\"padding: 0.4em\">'''[[Bedrock Edition 1.19.70|1.19.70]]'''</td>\n<td style=\"padding: 0.4em\" >[[Bedrock Edition  1.19.71|  1.19.71 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Bedrock Edition  Preview 1.19.70.21|◄   Preview 1.19.70.21]]\n</td>\n<td style=\"padding: 0.4em\">''' Preview 1.19.70.22'''</td>\n<td style=\"padding: 0.4em\">\n[[Bedrock Edition  Preview 1.19.70.23|  Preview 1.19.70.23 ►]]\n</td>\n</tr>\n</table>"
+}
+
+Beta 1.19.70.22 (Android) or Preview 1.19.70.22 (Windows, iOS, iPadOS, Xbox) is the third beta/Preview version for Bedrock Edition 1.19.70, released on February 8-11, 2023, which fixes bugs.
+
+Contents
+
+1 Changes
+
+1.1 Blocks
+
+2 Experimental
+
+2.1 Changes
+
+2.1.1 Blocks
+2.1.2 Mobs
+2.1.3 Technical
+
+3 Fixes
+4 References
+5 Navigation
+
+Changes
+Blocks
+Vines
+
+Now drop nothing when mined with Silk Touch enchanted tools except shears.
+Experimental
+These additions and changes are accessible by enabling the "Next Major Update" and "Beta APIs" experimental toggle.
+
+Changes
+Blocks
+Bamboo Fences and Bamboo Fence Gates
+
+Removed black lines along the edges of Bamboo Fences and Bamboo Fence Gates. (MCPE-163360)
+Bamboo Hanging Sign and Mangrove Hanging Sign
+
+Mangrove and Bamboo Hanging Signs are now placed correctly in the Creative Inventory. (MCPE-163340)
+Mobs
+Camels
+
+Camels can once again overcome obstacles as high as one block and a half. (MCPE-166452)
+Technical
+API
+
+Replaced general setVelocity call with methods to apply impulses to entities:
+Added function clearVelocity(): void - Sets the current velocity of the Entity to zero.
+Added function applyImpulse(vector: Vector3): void - Applies impulse vector to the current velocity of the Entity.
+Added function applyKnockback(directionX: number, directionZ: number, horizontalStrength: number, verticalStrength: number): void - Applies ** knockback to the Entity in specified direction based on vertical and horizontal strength.
+Removed function setVelocity.
+BeforeExplosionEvent
+Added function getImpactedBlocks(): Vector3[] - Gets the blocks locations that are impacted by the explosion.
+Added function setImpactedBlocks(blocks: Vector3[]): void - Sets the blocks locations that are impacted by the explosion.
+Removed property impactedBlocks.
+BeforeItemUseOnEvent
+Added function getBlockLocation(): Vector3 - Gets the location of the block being impacted.
+Removed property blockLocation.
+BlockInventoryComponent
+Removed property location.
+BlockLavaContainerComponent
+Removed property location.
+BlockPistonComponent
+Added function getAttachedBlocks(): Vector3[] - Gets the blocks locations that are impacted by the activation of this piston.
+Removed property attachedBlocks.
+Removed property location.
+BlockPotionContainerComponent
+Removed property location.
+BlockRecordPlayerComponent
+Removed property location.
+BlockSignComponent
+Removed property location.
+BlockSnowContainerComponent
+Removed property location.
+BlockWaterContainerComponent
+Removed property location.
+Added function getHeadLocation(): Vector3 - Gets the head location of the Entity.
+Removed property headLocation.
+ExplosionEvent
+Added function getImpactedBlocks(): Vector3[] - Gets the blocks locations that are impacted by the explosion.
+Removed property impactedBlocks.
+ItemStartUseOnEvent
+Added function getBlockLocation(): Vector3 - Gets the location of the block being impacted.
+Added function getBuildBlockLocation(): Vector3 - Gets the location of the resulting build block.
+Removed property blockLocation.
+Removed property buildBlockLocation.
+ItemStopUseOnEvent
+Added function getBlockLocation(): Vector3 - Gets the location of the block being impacted.
+Removed property blockLocation.
+ItemUseOnEvent
+Added function getBlockLocation(): Vector3 - Gets the location of the block being impacted.
+Removed property blockLocation.
+NavigationResult
+Added function getPath(): Vector3[] - Gets the locations of the blocks that comprise the navigation route.
+Removed property path.
+Player
+Added function getHeadLocation(): Vector3 - Gets the head location of the Player.
+Removed property headLocation.
+ItemStack
+Added read-only property getMaxAmount: number - Returns the maximum stack size for the item.
+Added read-only property isStackable: bool - Returns whether the item is stackable.
+Added function isStackableWith(itemStack: ItemStack): bool - Returns whether the item can be stacked with the given item.
+Added read-only property type: ItemType - Returns the type of the item.
+Added function clone(): ItemStack - Returns a copy of the item stack.
+Added property keepOnDeath: bool - Sets whether the item is kept on death.
+Added property lockMode: ItemLockMode - Sets whether the item can be moved or dropped.
+Added function setCanPlaceOn(blockIdentifiers?: string[]) - Sets which blocks the item can be placed on.
+Added function setCanDestroy(blockIdentifiers?: string[]) - Sets which blocks this item can destroy.
+Fixes
+Vanilla Parity
+
+Impact sounds of projectiles on Amethyst blocks and clusters are now audible.
+Dead Bush will now drop Sticks when broken with any tool except Shears, even those with the Silk Touch enchantment. Vines will drop nothing in the same situation. (MCPE-163246)
+Bells no longer break when a block is placed underneath or above them. (MCPE-166742)
+Spectator Mode
+
+Phasing through blocks in third person view no longer makes the camera zoom in and out towards the player’s head. (MCPE-160467)
+End Gateways can no longer be used in Spectator Mode. (MCPE-165689)
+Gameplay
+
+Redstone source can now power a single block from different sides at the same time. (MCPE-163651)
+Players are no longer able to begin flying if they have no space to stand up. (MCPE-166413)
+Players can now fall off of an edge while sneaking if not holding the sneak button.
+Blocks
+
+Composter now always consumes an item when becoming full. (MCPE-162020)
+Mobs
+
+Witches will drink a Fire Resistance Potion when standing on a Campfire.
+Items
+
+Crossbow now shakes while charging arrows. (MCPE-152952)
+Loot table conditions are no longer ignored in-game when used inside functions. (MCPE-164582)
+Spawn eggs for Snow Golem, Wither, and Trader Llama now appear correctly in the inventory and hotbar.
+Marketplace
+
+Added a new 'Marketplace' icon to the Marketplace screen sidebar.
+User Interface
+
+Carrots now display the proper name in item tooltips when used in can_place_on and can_destroy item components. (MCPE-160838)
+Tweaked the keyboard interaction on Android devices for text input fields.
+Commands
+
+The /summon command no longer causes some entities to be spawned in at an angle.
+References
+
+ "Minecraft Beta & Preview - 1.19.70.22"     – Minecraft Feedback, February 8, 2023.
+
+Navigation

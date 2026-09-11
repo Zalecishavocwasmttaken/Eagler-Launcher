@@ -1,0 +1,3633 @@
+The tables shows all blocks and items with their associated metadata or damage values respectively in the current Bedrock Edition version.
+
+Contents
+
+1 Planks
+2 Stone
+3 Dirt
+4 Saplings
+5 Water and Lava
+6 Sand
+7 Logs
+8 Leaves
+9 Fire
+10 Sandstone
+11 Red Sandstone
+12 Beds
+13 Grass
+14 Flowers
+15 Double Plants
+16 Piston Head/Sticky Piston Head
+17 Stairs
+18 Redstone Wire
+19 Daylight Detector
+20 Crops
+21 Farmland
+22 Banner
+
+22.1 Standing
+22.2 Wall
+
+23 Rails
+
+23.1 Activator Rails, Detector Rails, and Powered Rails
+
+24 Ladders, Furnaces, Chests, Trapped Chests Ender Chests
+25 Sign
+
+25.1 Standing
+25.2 Wall
+
+26 Dispenser and Dropper
+27 Hopper
+28 Levers
+29 Pressure Plates
+30 Buttons
+31 Snow
+32 Cacti and Sugar Cane
+33 Cake
+34 Redstone Repeater
+35 Redstone Comparator
+36 Trapdoors
+37 Infested Block
+38 Stone Bricks
+39 Prismarine
+40 Sponge
+41 Brown and red mushroom blocks
+42 Pumpkin stem and Melon stem
+43 Vines
+44 Fence Gates
+45 Nether Wart
+46 Brewing Stand
+47 Cauldron
+48 Nether Portal
+49 End Portal Frame
+50 Cocoa
+51 Tripwire Hook
+52 Tripwire
+53 Torches and Redstone Torches
+54 Anvil
+55 Walls
+56 Flower Pot
+57 Heads
+58 Block of Quartz
+59 Coal
+60 Dyes
+61 Observer
+62 Bamboo
+63 Basalt
+64 Barrel
+65 Bubble Column
+66 Coral
+67 Coral Block
+68 Coral Fan
+69 Frosted Ice
+70 Loom
+71 Grindstone
+72 Item Frame
+73 Lectern
+74 Scaffolding
+75 Seagrass
+76 Sea Pickle
+77 Lantern
+78 Campfire
+79 Turtle Egg
+80 Respawn Anchor
+81 Smoker
+82 Stonecutter
+83 Twisting Vines
+84 Weeping Vines
+85 Bell
+86 Blast Furnace
+87 Bone Block
+88 Iron Chain
+89 Colored Torch
+90 Composter
+91 Colored blocks
+92 Glow Sticks
+93 Wood and Stripped Wood
+94 Compound Creator
+95 Compound
+96 Banner Pattern
+97 Slab
+
+Planks
+Alias IDs only.
+
+
+   DV
+   Description
+
+
+0
+Oak Planks
+
+1
+Spruce Planks
+
+2
+Birch Planks
+
+3
+Jungle Planks
+
+4
+Acacia Planks
+
+5
+Dark Oak Planks
+
+Stone
+Alias IDs only.
+
+
+   DV
+   Description
+
+
+0
+Stone
+
+1
+Granite
+
+2
+Polished Granite
+
+3
+Diorite
+
+4
+Polished Diorite
+
+5
+Andesite
+
+6
+Polished Andesite
+
+Dirt
+Alias IDs only.
+
+
+   DV
+   Description
+
+
+0
+Dirt
+
+1
+Coarse Dirt
+
+Saplings
+Alias IDs only.
+The data value is split in half. The bottom three bits determine the type of sapling (and thus the eventual tree type), according to the following table:
+
+Bits
+Values
+
+0x10x20x4
+A three-bit field storing a value of 0 to 5 specifying the type of sapling:
+0:  Oak Sapling
+1:  Spruce Sapling
+2:  Birch Sapling
+3:  Jungle Sapling
+4:  Acacia Sapling
+5:  Dark Oak Sapling
+
+0x8
+Set if sapling is ready to grow into a tree.
+
+The 0x8 bit functions as the counter. The counter is cleared when a sapling is dropped as an item.
+
+Water and Lava
+If bit 0x8 is set, this liquid is "falling" and only spreads downward. At this level, the lower bits are essentially ignored, since this block is then at its highest fluid level.
+The lower three bits are the fluid block's level. 0x0 is the highest fluid level (not necessarily filling the block - this depends on the neighboring fluid blocks above each upper corner of the block). Data values increase as the fluid level of the block drops: 0x1 is next highest, 0x2 lower, on through 0x7, the lowest fluid level. Along a line on a flat plane, water drops one level per meter from the source, lava drops one in the nether and two everywhere else.
+The stationary versions of each fluid are "stable" and currently not being checked by the engine for further level changes. Oddly the in-code names for stationary water and lava are "water" and "lava" and the regular versions are "flowing_water" and "flowing_lava".
+
+Sand
+Alias IDs only.
+
+
+   DV
+   Description
+
+
+0
+Sand
+
+1
+Red sand
+
+Logs
+Alias IDs only.
+
+Bits
+Values
+
+0x10x2
+A two-bit field storing a value of 0 to 3 specifying the type of log:
+0:  Oak Log
+1:  Spruce Log
+2:  Birch Log
+3:  Jungle Log
+
+0x40x8
+A two-bit field storing a value of 0 to 2 specifying the orientation of the log:
+0:  Facing Up/Down
+1:  Facing East/West
+2:  Facing North/South
+
+Bits
+Values
+
+0x10x2
+A two-bit field storing a value of 0 to 1 specifying the type of log:
+0:  Acacia Log
+1:  Dark Oak Log
+
+0x40x8
+A two-bit field storing a value of 0 to 2 specifying the orientation of the log:
+0:  Facing Up/Down
+1:  Facing East/West
+2:  Facing North/South
+
+Leaves
+If bit 0x4 is set, the leaves are permanent and will never decay. This bit is set on player-placed leaf blocks and overrides the meaning of bit 0x8.
+If bit 0x8 is set, the leaves will be checked for decay. The bit will be cleared after the check if the leaves do not decay. The bit will be set again whenever a block adjacent to the leaves is changed.
+
+
+   DV
+   Description
+
+
+0
+Oak Leaves
+
+1
+Spruce Leaves
+
+2
+Birch Leaves
+
+3
+Jungle Leaves
+
+4
+Oak Leaves (no decay)
+
+5
+Spruce Leaves (no decay)
+
+6
+Birch Leaves (no decay)
+
+7
+Jungle Leaves (no decay)
+
+8
+Oak Leaves (check decay)
+
+9
+Spruce Leaves (check decay)
+
+10
+Birch Leaves (check decay)
+
+11
+Jungle Leaves (check decay)
+
+12
+Oak Leaves (no decay and check decay)
+
+13
+Spruce Leaves (no decay and check decay)
+
+14
+Birch Leaves (no decay and check decay)
+
+15
+Jungle Leaves (no decay and check decay)
+
+
+   DV
+   Description
+
+
+0
+Acacia Leaves
+
+1
+Dark Oak Leaves
+
+4
+Acacia Leaves (no decay)
+
+5
+Dark Oak Leaves (no decay)
+
+8
+Acacia Leaves (check decay)
+
+9
+Dark Oak Leaves (check decay)
+
+12
+Acacia Leaves (no decay and check decay)
+
+13
+Dark Oak Leaves (no decay and check decay)
+
+Fire
+0x0 is a placed or spread fire. Once it reaches 0xF the eternal fire-trick will work since there will be no further updates of the block.
+
+Sandstone
+Alias IDs only.
+For normal sandstone the bottom has a cracked pattern. The other types of sandstone have bottom faces
+same as the tops.
+
+
+   DV
+   Description
+
+
+0
+Sandstone
+
+1
+Chiseled Sandstone
+
+2
+Smooth Sandstone
+
+3
+Cut Sandstone
+
+Red Sandstone
+Alias IDs only.
+
+
+   DV
+   Description
+
+
+0
+Red Sandstone
+
+1
+Chiseled Red Sandstone
+
+2
+Smooth Red Sandstone
+
+3
+Cut Red Sandstone
+
+Beds
+
+Lowest two bits value
+Facing
+
+0
+Head facing South
+
+1
+Head facing West
+
+2
+Head facing North
+
+3
+Head facing East
+
+Bit flag
+Meaning
+
+0x4
+When 0, the bed is emptyWhen 1, the bed is occupied
+
+0x8
+When 0, the foot of the bedWhen 1, the head of the bed
+
+Grass
+Alias IDs only.
+
+
+   DV
+   Description
+
+
+0
+Fern (Unused/removed variant which looks identical to grass, but turned into a large fern when bone meal is used)
+
+1
+Short Grass
+
+2
+Fern
+
+3
+Fern (Unused/removed looks identical to actual fern, but turns into tall grass when bone meal is used)
+
+Flowers
+Alias IDs only.
+
+
+   DV
+   Description
+
+
+0
+Poppy
+
+1
+Blue Orchid
+
+2
+Allium
+
+3
+Azure Bluet
+
+4
+Red Tulip
+
+5
+Orange Tulip
+
+6
+White Tulip
+
+7
+Pink Tulip
+
+8
+Oxeye Daisy
+
+9
+Cornflower
+
+10
+Lily of the Valley
+
+Double Plants
+
+
+   DV
+   Description
+
+
+0
+Sunflower (bottom)
+
+1
+Lilac (bottom)
+
+2
+Tall Grass (bottom)
+
+3
+Large Fern (bottom)
+
+4
+Rose Bush (bottom)
+
+5
+Peony (bottom)
+
+6
+Sunflower (top)
+
+7
+Lilac (top)
+
+8
+Tall Grass (top)
+
+9
+Large Fern (top)
+
+10
+Rose Bush (top)
+
+11
+Peony (top)
+
+Piston Head/Sticky Piston Head
+The bottom three bits are a value from 0 to 5, indicating the direction of the piston (the direction the piston head is pointing).
+
+0: Down
+1: Up
+2: north
+3: south
+4: west
+5: east
+Stairs
+
+Bits
+Description
+
+0x10x2
+A two-bit field containing a value from 0 to 3 specifying the direction of the stairs' full-block side:
+0: East
+1: West
+2: South
+3: North
+
+0x4
+Set if stairs are upside-down
+
+0x8
+
+(unused)
+
+Redstone Wire
+
+Bits
+Values
+
+0x10x20x40x8
+A four-bit field storing a value from 0 to 15 specifying the redstone dust's current redstone power level.
+
+Daylight Detector
+
+Bits
+Values
+
+0x10x20x40x8
+Four bits storing a value from 0 to 15 representing the daylight detector's current redstone power level.
+
+Crops
+Crops grow from values 0 to 7. Carrots, beetroot and potatoes appear to have 4 stages, but actually grow identically to wheat, merely using the same texture for multiple stages.
+
+Wheat
+
+Icon
+Value
+
+0
+
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+7
+
+Carrots
+
+Icon
+Value
+
+0, 1
+
+2, 3
+
+4, 5, 6
+
+7
+
+Potatoes
+
+Icon
+Value
+
+0, 1
+
+2, 3
+
+4, 5, 6
+
+7
+
+Beetroot
+
+Icon
+Value
+
+0, 1
+
+2, 3
+
+4, 5, 6
+
+7
+
+Farmland
+
+Value
+Meaning
+
+0
+Dry land
+
+1 to 7
+Increasing levels of wetness.The wetness value counts down to 0 while the farmlanddoes not have access to water. The wet texture is only used on level 7.
+
+Banner
+Standing
+
+Bits
+Description
+
+0x10x20x40x8
+A four-bit field storing a value from 0 to 15 specifying the block's orientation:
+0: south
+1: south-southwest
+2: southwest
+3: west-southwest
+4: west
+5: west-northwest
+6: northwest
+7: north-northwest
+8: north
+9: north-northeast
+10: northeast
+11: east-northeast
+12: east
+13: east-southeast
+14: southeast
+15: south-southeast
+
+Wall
+
+Bits
+Description
+
+0x10x20x4
+A three-bit field storing a value from 2 to 5 specifying the block's orientation:
+2: north
+3: south
+4: west
+5: east
+
+0x8
+Unused.
+
+Rails
+
+Value
+Description
+
+0
+Straight rail connecting to the north and south.
+
+1
+Straight rail connecting to the east and west.
+
+2
+Sloped rail ascending to the east.
+
+3
+Sloped rail ascending to the west.
+
+4
+Sloped rail ascending to the north.
+
+5
+Sloped rail ascending to the south.
+
+6
+Curved rail connecting to the south and east.
+
+7
+Curved rail connecting to the south and west.
+
+8
+Curved rail connecting to the north and west.
+
+9
+Curved rail connecting to the north and east.
+
+Activator Rails, Detector Rails, and Powered Rails
+
+Bits
+Values
+
+0x10x20x4
+A three-bit field storing a value from 0 to 5:
+0: flat track going north-south
+1: flat track going west-east
+2: sloped track ascending to the east
+3: sloped track ascending to the west
+4: sloped track ascending to the north
+5: sloped track ascending to the south
+
+0x8
+Set if rail is active.
+
+Ladders, Furnaces, Chests, Trapped Chests Ender Chests
+Ladder
+
+Bits
+Values
+
+0x10x20x4
+A three-bit field storing a value from 2 to 5:
+2: Ladder facing north
+3: Ladder facing south
+4: Ladder facing west
+5: Ladder facing east
+Invalid values default to 2.
+
+0x8
+Unused.
+
+Furnace
+
+Bits
+Values
+
+0x10x20x4
+
+A three-bit field storing a value from 2 to 5:
+2: Furnace facing north
+3: Furnace facing south
+4: Furnace facing west
+5: Furnace facing east
+Invalid values default to 2.
+
+0x8
+Unused.
+
+Chest
+
+Bits
+Values
+
+0x10x20x4
+A three-bit field storing a value from 2 to 5:
+2: Chest facing north
+3: Chest facing south
+4: Chest facing west
+5: Chest facing east
+Invalid values default to 2.
+
+0x8
+Unused.
+
+Trapped Chest
+
+Bits
+Values
+
+0x10x20x4
+A three-bit field storing a value from 2 to 5:
+2: Trapped chest facing north
+3: Trapped chest facing south
+4: Trapped chest facing west
+5: Trapped chest facing east
+Invalid values default to 2.
+
+0x8
+Unused.
+
+Ender Chest
+
+Bits
+Values
+
+0x10x20x4
+A three-bit field storing a value from 2 to 5:
+2: Ender chest facing north
+3: Ender chest facing south
+4: Ender chest facing west
+5: Ender chest facing east
+Invalid values default to 2.
+
+0x8
+Unused.
+
+Sign
+Standing
+
+Bits
+Description
+
+0x10x20x40x8
+A four-bit field storing a value from 0 to 15 specifying the block's orientation:
+0: south
+1: south-southwest
+2: southwest
+3: west-southwest
+4: west
+5: west-northwest
+6: northwest
+7: north-northwest
+8: north
+9: north-northeast
+10: northeast
+11: east-northeast
+12: east
+13: east-southeast
+14: southeast
+15: south-southeast
+
+Wall
+
+Bits
+Description
+
+0x10x20x4
+A three-bit field storing a value from 2 to 5 specifying the block's orientation:
+2: north
+3: south
+4: west
+5: east
+
+Dispenser and Dropper
+Dropper
+
+Bits
+Values
+
+0x10x20x4
+A three-bit field storing a value from 0 to 5 specifying which direction the dropper is facing:
+0: Dropper facing down
+1: Dropper facing up
+2: Dropper facing north
+3: Dropper facing south
+4: Dropper facing west
+5: Dropper facing east
+
+0x8
+Set if dropper is activated.
+
+Dispenser
+
+Bits
+Values
+
+0x10x20x4
+Three bits storing a value from 0 to 5:
+0: Dispenser facing down
+1: Dispenser facing up
+2: Dispenser facing north
+3: Dispenser facing south
+4: Dispenser facing west
+5: Dispenser facing east
+
+0x8
+If set, the dispenser is activated.
+
+Hopper
+
+Bits
+Values
+
+0x10x20x4
+A three-bit field storing a value from 0 to 5:
+0: Output facing down
+1: (unused)
+2: Output facing north
+3: Output facing south
+4: Output facing west
+5: Output facing east
+
+0x8
+Set if activated/disabled.
+
+Levers
+
+Bits
+Values
+
+0x10x20x4
+A three-bit field storing a value from 0 to 7:
+0: Lever on block bottom points east when off.
+1: Lever on block side facing east
+2: Lever on block side facing west
+3: Lever on block side facing south
+4: Lever on block side facing north
+5: Lever on block top points south when off.
+6: Lever on block top points east when off.
+7: Lever on block bottom points south when off.
+
+0x8
+If this bit is set, the lever is active.
+
+Pressure Plates
+Stone or wooden pressure plate
+
+Bits
+Values
+
+0x1
+If this bit is set, the pressure plate is active.
+
+0x20x40x8
+Unused.
+
+Weighted pressure plate
+
+Bits
+Values
+
+0x10x20x40x8
+A four-bit field storing a value from 0 to 15 representing the weighted pressure plate's current redstone power level.
+
+Buttons
+
+Bits
+Values
+
+0x10x20x4
+Three bits storing a value from 0 to 5:
+0: Button on block bottom facing down
+1: Button on block side facing east
+2: Button on block side facing west
+3: Button on block side facing south
+4: Button on block side facing north
+5: Button on block top facing up
+
+0x8
+If this bit is set, the button is currently active.
+
+Snow
+Heights of snow from 0-7, going from left to right
+
+
+   DV
+   Description
+
+
+0
+One layer, 2 pixels thick
+
+1
+Two layers, 4 pixels thick
+
+2
+Three layers, 6 pixels thick
+
+3
+Four layers, 8 pixels thick
+
+4
+Five layers, 10 pixels thick
+
+5
+Six layers, 12 pixels thick
+
+6
+Seven layers, 14 pixels thick
+
+7
+Eight layers, 16 pixels thick
+
+8
+Snowlogging
+
+Cacti and Sugar Cane
+Cactus
+
+Value
+Meaning
+
+0
+Freshly planted cactus.
+
+1 to 15
+The data value is incremented at random intervals.When it becomes 15, a new cactus block is created on top as long as the total height does not exceed 3.
+
+Sugar Cane
+
+Value
+Meaning
+
+0
+Freshly planted sugar cane.
+
+1 to 15
+The data value is incremented at random intervals.When it becomes 15, a new sugar cane block is created on top as long as the total height does not exceed 3.
+
+Cake
+
+Value
+Stage
+
+0
+Whole intact cake
+
+1
+1 piece eaten
+
+2
+2 pieces eaten
+
+3
+3 pieces eaten
+
+4
+4 pieces eaten
+
+5
+5 pieces eaten
+
+6
+6 pieces eaten
+
+Redstone Repeater
+
+Bits
+Values
+
+0x10x2
+A two-bit field storing a value from 0 to 3 specifying the direction the redstone repeater is facing:
+0: Facing north.
+1: Facing east.
+2: Facing south.
+3: Facing west.
+
+0x40x8
+A two-bit field storing a value from 0 to 3 specifying the redstone repeater's delay:
+0: Delay of 1 redstone tick.
+1: Delay of 2 redstone tick.
+2: Delay of 3 redstone tick.
+3: Delay of 4 redstone tick.
+
+Effectively, add the repeater's facing value (0 to 3) to 4×(delay-1). For example, a repeater facing west with a delay of 3 redstone ticks would have a block data value of 3 + 4×(3-1) = 11.
+
+Redstone Comparator
+A redstone comparator's block data specifies its orientation, mode, and powered status.
+
+Bits
+Values
+
+0x10x2
+A two-bit field storing a value from 0 to 3 specifying the redstone comparator's orientation:
+0: Facing north.
+1: Facing east.
+2: Facing south.
+3: Facing west.
+
+0x4
+Set if in subtraction mode (front torch up and powered).
+
+0x8
+Set if powered (at any power level).
+
+Trapdoors
+
+Bits
+Values
+
+0x10x2
+A two-bit field storing a value from 0 to 3:
+0: Trapdoor on the south side of a block
+1: Trapdoor on the north side of a block
+2: Trapdoor on the east side of a block
+3: Trapdoor on the west side of a block
+
+0x4
+If this bit is set, the trapdoor is open.
+
+0x8
+If this bit is set, the trapdoor is on the top half of a block. Otherwise, it is on the bottom half.
+
+Infested Block
+Alias IDs only.
+
+
+   DV
+   Description
+
+
+0
+Infested Stone
+
+1
+Infested Cobblestone
+
+2
+Infested Stone Bricks
+
+3
+Infested Mossy Stone Brick
+
+4
+Infested Cracked Stone Brick
+
+5
+Infested Chiseled Stone Brick
+
+Stone Bricks
+Alias IDs only.
+
+
+   DV
+   Description
+
+
+0
+Stone bricks
+
+1
+Mossy stone bricks
+
+2
+Cracked stone bricks
+
+3
+Chiseled stone bricks
+
+4
+Smooth stone bricks (removed, converts to normal stone bricks)
+
+Prismarine
+Alias IDs only.
+
+
+   DV
+   Description
+
+
+0
+Prismarine
+
+1
+Prismarine Bricks
+
+2
+Dark Prismarine
+
+Sponge
+Alias IDs only.
+
+
+   DV
+   Description
+
+
+0
+Sponge
+
+1
+Wet Sponge
+
+Brown and red mushroom blocks
+Mushroom blocks consist of the same blocks throughout their structure, the data value of each block decides the texture. The default texture on all sides is porous flesh. The cap texture can be either the brown mushroom or red mushroom texture, the textures for porous and stem sides are identical. Although data values 11-13 are unused they have the same texture as data value 0 as placeholders (to keep people from destroying their maps).
+
+
+   DV
+   Description
+
+
+0
+Pores on all sides
+
+1
+Cap texture on top, west and north
+
+2
+Cap texture on top and north
+
+3
+Cap texture on top, north and east
+
+4
+Cap texture on top and west
+
+5
+Cap texture on top
+
+6
+Cap texture on top and east
+
+7
+Cap texture on top, south and west
+
+8
+Cap texture on top and south
+
+9
+Cap texture on top, east and south
+
+10
+Stem texture on all four sides, pores on top and bottom
+
+14
+Cap texture on all six sides
+
+15
+Stem texture on all six sides
+
+Pumpkin stem and Melon stem
+
+Value
+Stage
+
+0
+Freshly planted stem
+
+1
+First stage of growth
+
+2
+Second stage of growth
+
+3
+Third stage of growth
+
+4
+Fourth stage of growth
+
+5
+Fifth stage of growth
+
+6
+Sixth stage of growth
+
+7
+Seventh stage of growthIn this stage a stem can generate a melon or pumpkin next toit on an empty dirt, grass or farmland block
+
+Vines
+Determines the face against which the vine is anchored. Note that (except for Top) these are testable as bit flags, unlike most of the other directional data for other block types. Multiple sides can contain vines. The "top" attachment is assumed to be present if data is 0 or there is solid block above.
+
+1: south
+2: west
+4: north
+8: east
+Fence Gates
+The left circle was opened from the outside, the right one from the inside. Facing directions: Red = North; Green = East; Yellow = South; Blue = West
+
+Bits
+Description
+
+0x10x2
+Two bits storing a value from 0 to 3 specifying the direction the gate is facing:
+0: Facing south
+1: Facing west
+2: Facing north
+3: Facing east
+
+0x4
+0 if the gate is closed, 1 if open.
+
+Nether Wart
+Like Crops, the data value is related to the size of the Nether Wart. There are three distinct visual stages to Nether Wart's growth (the associated data values are given):
+
+Icon
+Value
+
+0
+
+1-2
+
+3
+
+Brewing Stand
+The bottom three bits are bit flags for which bottle slots actually contain bottles.
+
+Bits
+Values
+
+0x1
+The slot pointing east
+
+0x2
+The slot pointing northwest
+
+0x4
+The slot pointing southwest
+
+Cauldron
+The data value stores the amount of water kept in the cauldron, in units of glass bottles that can be filled.
+
+DV
+Description
+
+0
+Empty
+
+1
+⅓ filled
+
+2
+⅔ filled
+
+3
+Fully filled
+
+Nether Portal
+
+DV
+Orientation
+
+0
+Automatic
+
+1
+Facing North/South (obsidian to east and west)
+
+2
+Facing East/West (obsidian to north and south)
+
+End Portal Frame
+The bottom two bits determine which "side" of the whole portal frame this block is a part of. To make the frame activate, each of the portal frame blocks in the pattern must "face" toward the middle. Since the image is near-symmetrical, it is difficult to tell which direction an individual block is actually facing, but if the block isn't facing in that direction and that is the last frame block where the Eye of Ender is placed, the frame won't activate.
+Direction vectors for the blocks are the following:
+
+0: To the south
+1: To the west
+2: To the north
+3: To the east
+0x4 is a bit flag: 0 is an "empty" frame block, 1 is a block with an Eye of Ender inserted.
+
+Cocoa
+
+Bits
+Values
+
+0x10x2
+A two-bit field storing a value from 0 to 4 specifying the direction the pod is attached to:
+0: Attached to the north
+1: Attached to the east
+2: Attached to the south
+3: Attached to the west
+
+0x40x8
+A two-bit field storing a value from 0 to 3 specifying the stage of growth of the plant:
+0: First stage
+1: Second stage
+2: Final stage
+
+Tripwire Hook
+
+Bits
+Values
+
+0x10x2
+A two-bit field storing a value from 0 to 3:
+0: Tripwire hook on block side facing south
+1: Tripwire hook on block side facing west
+2: Tripwire hook on block side facing north
+3: Tripwire hook on block side facing east
+
+0x4
+If set, the tripwire hook is connected and ready to trip ("middle" position).
+
+0x8
+If set, the tripwire hook is currently activated ("down" position)
+
+Tripwire
+
+Bits
+Description
+
+0x1
+Set if tripwire is activated (an entity is intersecting its collision mask).
+
+0x2
+Unused
+
+0x4
+Set if tripwire is attached to a valid tripwire circuit.
+
+0x8
+Set if tripwire is disarmed.
+
+Torches and Redstone Torches
+
+
+   DV
+   Description
+
+
+0
+(unused)
+
+1
+Facing east (attached to a block to its west)
+
+2
+Facing west (attached to a block to its east)
+
+3
+Facing south (attached to a block to its north)
+
+4
+Facing north (attached to a block to its south)
+
+5
+Facing up (attached to a block beneath it)
+
+Anvil
+
+
+   DV
+   Description
+
+
+0
+Anvil, facing West
+
+1
+Anvil, facing North
+
+2
+Anvil, facing East
+
+3
+Anvil, facing South
+
+4
+Chipped Anvil, facing West
+
+5
+Chipped Anvil, facing North
+
+6
+Chipped Anvil, facing East
+
+7
+Chipped Anvil, facing South
+
+8
+Damaged Anvil, facing West
+
+9
+Damaged Anvil, facing North
+
+10
+Damaged Anvil, facing East
+
+11
+Damaged Anvil, facing South
+
+12
+Deprecated Anvil, facing West
+
+13
+Deprecated Anvil, facing North
+
+14
+Deprecated Anvil, facing East
+
+15
+Deprecated Anvil, facing South
+
+Walls
+
+
+   DV
+   Description
+
+
+0
+Cobblestone Wall
+
+1
+Mossy Cobblestone Wall
+
+2
+Granite Wall
+
+3
+Diorite Wall
+
+4
+Andesite Wall
+
+5
+Sandstone Wall
+
+6
+Brick Wall
+
+7
+Stone Brick Wall
+
+8
+Mossy Stone Brick Wall
+
+9
+Nether Brick Wall
+
+10
+End Stone Brick Wall
+
+11
+Prismarine Wall
+
+12
+Red Sandstone Wall
+
+13
+Red Nether Brick Wall
+
+Flower Pot
+
+
+   DV
+   Description
+
+
+0
+Empty Flower Pot
+
+1
+Potted Flower Pot
+
+Heads
+For the block, data values determine the block placement:
+
+
+   DV
+   Description
+
+
+0
+(unused)
+
+1
+On the floor (rotation is stored in the tile entity)
+
+2
+On a wall, facing north
+
+3
+On a wall, facing south
+
+4
+On a wall, facing west
+
+5
+On a wall, facing east
+
+For the item and for the tile entity, data values determine the skull type (alias IDs only):
+
+
+   DV
+   Description
+
+
+0
+Skeleton Skull
+
+1
+Wither Skeleton Skull
+
+2
+Zombie Head
+
+3
+Head
+
+4
+Creeper Head
+
+5
+Dragon Head
+
+Block of Quartz
+Alias IDs only.
+
+
+   DV
+   Description
+
+
+0
+Block of Quartz
+
+1
+Chiseled Quartz Block
+
+2
+Quartz Pillar (vertical)
+
+3
+Quartz Pillar (east-west)
+
+4
+Quartz Pillar (north-south)
+
+Coal
+Alias IDs only.
+
+
+   DV
+   Description
+
+
+0
+Coal
+
+1
+Charcoal
+
+Dyes
+Alias IDs only.
+
+DV
+Description
+
+0
+Ink Sac
+
+1
+Red Dye
+
+2
+Green Dye
+
+3
+Cocoa Beans
+
+4
+Lapis Lazuli
+
+5
+Purple Dye
+
+6
+Cyan Dye
+
+7
+Light Gray Dye
+
+8
+Gray Dye
+
+9
+Pink Dye
+
+10
+Lime Dye
+
+11
+Yellow Dye
+
+12
+Light Blue Dye
+
+13
+Magenta Dye
+
+14
+Orange Dye
+
+15
+Bone Meal
+
+Observer
+
+Bits
+Values
+
+0x10x20x4
+Three bits storing a value from 0 to 5:
+0: Observer facing down
+1: Observer facing up
+2: Observer facing north
+3: Observer facing south
+4: Observer facing west
+5: Observer facing east
+
+0x8
+If set, the observer is powered.
+
+Bamboo
+Bamboo shoot:
+
+
+   DV
+   Description
+
+
+0
+Newly planted bamboo shoot
+
+1
+Bamboo shoot that may grow into bamboo
+
+Bamboo:
+
+
+   DV
+   Description
+
+
+0
+Thin leafless bamboo
+
+1
+Thick leafless bamboo
+
+2
+Thin small-leaved bamboo
+
+3
+Thick small-leaved bamboo
+
+4
+Thin big-leaved bamboo
+
+5
+Thick big-leaved bamboo
+
+Basalt
+
+
+   DV
+   Description
+
+
+0
+Basalt is oriented vertically
+
+1
+Basalt is oriented north-south
+
+2
+Basalt is oriented east-west
+
+Barrel
+
+
+   DV
+   Description
+
+
+0
+Down facing barrel
+
+1
+Up facing barrel
+
+2
+East facing barrel
+
+3
+West facing barrel
+
+4
+South facing barrel
+
+5
+North facing barrel
+
+Bubble Column
+
+
+   DV
+   Description
+
+
+0
+The bubble column is a whirlpool.
+
+1
+The bubble column is upwards.
+
+Coral
+
+
+   DV
+   Description
+
+
+0
+Tube Coral
+
+1
+Brain Coral
+
+2
+Bubble Coral
+
+3
+Fire Coral
+
+4
+Horn Coral
+
+8
+Dead Tube Coral
+
+9
+Dead Brain Coral
+
+10
+Dead Bubble Coral
+
+11
+Dead Fire Coral
+
+12
+Dead Horn Coral
+
+Coral Block
+
+
+   DV
+   Description
+
+
+0
+Tube Coral Block
+
+1
+Brain Coral Block
+
+2
+Bubble Coral Block
+
+3
+Fire Coral Block
+
+4
+Horn Coral Block
+
+8
+Dead Tube Coral Block
+
+9
+Dead Brain Coral Block
+
+10
+Dead Bubble Coral Block
+
+11
+Dead Fire Coral Block
+
+12
+Dead Horn Coral Block
+
+Coral Fan
+Coral fan:
+
+
+   DV
+   Description
+
+
+0
+Tube Coral Fan facing east-west
+
+1
+Brain Coral Fan facing east-west
+
+2
+Bubble Coral Fan facing east-west
+
+3
+Fire Coral Fan facing east-west
+
+4
+Horn Coral Fan facing east-west
+
+8
+Tube Coral Fan facing north-south
+
+9
+Brain Coral Fan facing north-south
+
+10
+Bubble Coral Fan facing north-south
+
+11
+Fire Coral Fan facing north-south
+
+12
+Horn Coral Fan facing north-south
+
+Dead coral fan:
+
+
+   DV
+   Description
+
+
+0
+Dead Tube Coral Fan facing east-west
+
+1
+Dead Brain Coral Fan facing east-west
+
+2
+Dead Bubble Coral Fan facing east-west
+
+3
+Dead Fire Coral Fan facing east-west
+
+4
+Dead Horn Coral Fan facing east-west
+
+8
+Dead Tube Coral Fan facing north-south
+
+9
+Dead Brain Coral Fan facing north-south
+
+10
+Dead Bubble Coral Fan facing north-south
+
+11
+Dead Fire Coral Fan facing north-south
+
+12
+Dead Horn Coral Fan facing north-south
+
+Coral fan (hang):
+
+
+   DV
+   Description
+
+
+0
+Tube Coral Wall Fan facing west
+
+1
+Brain Coral Wall Fan facing west
+
+2
+Dead Tube Coral Wall Fan facing west
+
+3
+Dead Brain Coral Wall Fan facing west
+
+4
+Tube Coral Wall Fan facing east
+
+5
+Brain Coral Wall Fan facing east
+
+6
+Dead Tube Coral Wall Fan facing east
+
+7
+Dead Brain Coral Wall Fan facing east
+
+8
+Tube Coral Wall Fan facing north
+
+9
+Brain Coral Wall Fan facing north
+
+10
+Dead Tube Coral Wall Fan facing north
+
+11
+Dead Brain Coral Wall Fan facing north
+
+12
+Tube Coral Wall Fan facing south
+
+13
+Brain Coral Wall Fan facing south
+
+14
+Dead Tube Coral Wall Fan facing south
+
+15
+Dead Brain Coral Wall Fan facing south
+
+Coral fan (hang 2):
+
+
+   DV
+   Description
+
+
+0
+Bubble Coral Wall Fan facing west
+
+1
+Fire Coral Wall Fan facing west
+
+2
+Dead Bubble Coral Wall Fan facing west
+
+3
+Dead Fire Coral Wall Fan facing west
+
+4
+Bubble Coral Wall Fan facing east
+
+5
+Fire Coral Wall Fan facing east
+
+6
+Dead Bubble Coral Wall Fan facing east
+
+7
+Dead Fire Coral Wall Fan facing east
+
+8
+Bubble Coral Wall Fan facing north
+
+9
+Fire Coral Wall Fan facing north
+
+10
+Dead Bubble Coral Wall Fan facing north
+
+11
+Dead Fire Coral Wall Fan facing north
+
+12
+Bubble Coral Wall Fan facing south
+
+13
+Fire Coral Wall Fan facing south
+
+14
+Dead Bubble Coral Wall Fan facing south
+
+15
+Dead Fire Coral Wall Fan facing south
+
+Coral fan (hang 3):
+
+
+   DV
+   Description
+
+
+0
+Horn Coral Wall Fan facing west
+
+2
+Dead Horn Coral Wall Fan facing west
+
+4
+Horn Coral Wall Fan facing east
+
+6
+Dead Horn Coral Wall Fan facing east
+
+8
+Horn Coral Wall Fan facing north
+
+10
+Dead Horn Coral Wall Fan facing north
+
+12
+Horn Coral Wall Fan facing south
+
+14
+Dead Horn Coral Wall Fan facing south
+
+Frosted Ice
+
+
+   DV
+   Description
+
+
+0
+New frosted ice
+
+1
+Slightly cracked frosted ice
+
+2
+Cracked frosted ice
+
+3
+Very cracked frosted ice
+
+Loom
+
+
+   DV
+   Description
+
+
+0
+South facing loom
+
+1
+West facing loom
+
+2
+North facing loom
+
+3
+East facing loom
+
+Grindstone
+
+
+   DV
+   Description
+
+
+0
+East facing standing grindstone
+
+1
+West facing standing grindstone
+
+2
+South facing standing grindstone
+
+3
+North facing standing grindstone
+
+4
+East facing hanging grindstone
+
+5
+West facing hanging grindstone
+
+6
+South facing hanging grindstone
+
+7
+North facing hanging grindstone
+
+8
+East facing side grindstone
+
+9
+West facing side grindstone
+
+10
+South facing side grindstone
+
+11
+North facing side grindstone
+
+12
+East facing "multiple" grindstone (looks identical to data value 0)
+
+13
+West facing "multiple" grindstone (looks identical to data value 1)
+
+14
+South facing "multiple" grindstone (looks identical to data value 2)
+
+15
+North facing "multiple" grindstone (looks identical to data value 3)
+
+Item Frame
+
+
+   DV
+   Description
+
+
+0
+East facing item frame
+
+1
+West facing item frame
+
+2
+South facing item frame
+
+3
+North facing item frame
+
+4
+East facing item frame with map
+
+5
+West facing item frame with map
+
+6
+South facing item frame with map
+
+7
+North facing item frame with map
+
+8
+Down facing item frame
+
+Lectern
+
+
+   DV
+   Description
+
+
+0
+South facing lectern
+
+1
+West facing lectern
+
+2
+North facing lectern
+
+3
+East facing lectern
+
+4
+South facing lectern that emits power
+
+5
+West facing lectern that emits power
+
+6
+North facing lectern that emits power
+
+7
+East facing lectern that emits power
+
+Scaffolding
+
+
+   DV
+   Description
+
+
+0
+Unknown
+
+1
+Unknown
+
+2
+Unknown
+
+3
+Unknown
+
+4
+Unknown
+
+5
+Unknown
+
+6
+Unknown
+
+7
+Scaffolding at distance 0
+
+8
+Scaffolding at distance 1
+
+9
+Scaffolding at distance 2
+
+10
+Scaffolding at distance 3
+
+11
+Scaffolding at distance 4
+
+12
+Scaffolding at distance 5
+
+13
+Scaffolding at distance 6
+
+14
+Scaffolding at distance 7
+
+Seagrass
+
+
+   DV
+   Description
+
+
+0
+Seagrass
+
+1
+Tall Seagrass top
+
+2
+Tall Seagrass bottom
+
+Sea Pickle
+
+
+   DV
+   Description
+
+
+0
+One Sea Pickle in water
+
+1
+Two Sea Pickles in water
+
+2
+Three Sea Pickles in water
+
+3
+Four Sea Pickles in water
+
+4
+One Sea Pickle out of water
+
+5
+Two Sea Pickles out of water
+
+6
+Three Sea Pickles out of water
+
+7
+Four Sea Pickles out of water
+
+Lantern
+
+
+   DV
+   Description
+
+
+0
+Standing lantern
+
+1
+Hanging lantern
+
+Campfire
+
+
+   DV
+   Description
+
+
+0
+East facing lit campfire
+
+1
+West facing lit campfire
+
+2
+South facing lit campfire
+
+3
+North facing lit campfire
+
+4
+East facing unlit campfire
+
+5
+West facing unlit campfire
+
+6
+South facing unlit campfire
+
+7
+North facing unlit campfire
+
+Turtle Egg
+
+
+   DV
+   Description
+
+
+0
+One uncracked egg.
+
+1
+Two uncracked eggs.
+
+2
+Three uncracked eggs.
+
+3
+Four uncracked eggs.
+
+4
+One slightly cracked egg.
+
+5
+Two slightly cracked eggs.
+
+6
+Three slightly cracked eggs.
+
+7
+Four slightly cracked eggs.
+
+8
+One cracked egg.
+
+9
+Two cracked eggs.
+
+10
+Three cracked eggs.
+
+11
+Four cracked eggs.
+
+12
+One uncracked egg.
+
+13
+Two uncracked eggs.
+
+14
+Three uncracked eggs.
+
+15
+Four uncracked eggs.
+
+Respawn Anchor
+
+
+   DV
+   Description
+
+
+0
+Uncharged respawn anchor
+
+1
+Respawn anchor with one charges
+
+2
+Respawn anchor with two charges
+
+3
+Respawn anchor with three charges
+
+4
+Respawn anchor with four charges
+
+Smoker
+
+Bits
+
+Values
+
+0x10x20x4
+
+A three-bit field storing a value from 2 to 5:
+
+2: Smoker facing north
+3: Smoker facing south
+4: Smoker facing west
+5: Smoker facing east
+Invalid values default to 2.
+
+0x8
+
+Unused.
+
+Stonecutter
+
+
+   DV
+   Description
+
+
+0
+Unused
+
+1
+Unused
+
+2
+East facing stonecutter
+
+3
+West facing stonecutter
+
+4
+South facing stonecutter
+
+5
+North facing stonecutter
+
+Twisting Vines
+
+
+   DV
+   Description
+
+
+0
+Twisting vines with age 0
+
+1
+Twisting vines with age 1
+
+2
+Twisting vines with age 2
+
+3
+Twisting vines with age 3
+
+4
+Twisting vines with age 4
+
+5
+Twisting vines with age 5
+
+6
+Twisting vines with age 6
+
+7
+Twisting vines with age 7
+
+8
+Twisting vines with age 8
+
+9
+Twisting vines with age 9
+
+10
+Twisting vines with age 10
+
+11
+Twisting vines with age 11
+
+12
+Twisting vines with age 12
+
+13
+Twisting vines with age 13
+
+14
+Twisting vines with age 14
+
+15
+Twisting vines with age 15
+
+16
+Twisting vines with age 16
+
+17
+Twisting vines with age 17
+
+18
+Twisting vines with age 18
+
+19
+Twisting vines with age 19
+
+20
+Twisting vines with age 20
+
+21
+Twisting vines with age 21
+
+22
+Twisting vines with age 22
+
+23
+Twisting vines with age 23
+
+24
+Twisting vines with age 24
+
+25
+Twisting vines with age 25
+
+Weeping Vines
+
+
+   DV
+   Description
+
+
+0
+Weeping vines with age 0
+
+1
+Weeping vines with age 1
+
+2
+Weeping vines with age 2
+
+3
+Weeping vines with age 3
+
+4
+Weeping vines with age 4
+
+5
+Weeping vines with age 5
+
+6
+Weeping vines with age 6
+
+7
+Weeping vines with age 7
+
+8
+Weeping vines with age 8
+
+9
+Weeping vines with age 9
+
+10
+Weeping vines with age 10
+
+11
+Weeping vines with age 11
+
+12
+Weeping vines with age 12
+
+13
+Weeping vines with age 13
+
+14
+Weeping vines with age 14
+
+15
+Weeping vines with age 15
+
+16
+Weeping vines with age 16
+
+17
+Weeping vines with age 17
+
+18
+Weeping vines with age 18
+
+19
+Weeping vines with age 19
+
+20
+Weeping vines with age 20
+
+21
+Weeping vines with age 21
+
+22
+Weeping vines with age 22
+
+23
+Weeping vines with age 23
+
+24
+Weeping vines with age 24
+
+25
+Weeping vines with age 25
+
+Bell
+
+
+   DV
+   Description
+
+
+0
+East facing standing bell
+
+1
+West facing standing bell
+
+2
+South facing standing bell
+
+3
+North facing standing bell
+
+4
+East facing hanging bell
+
+5
+West facing hanging bell
+
+6
+South facing hanging bell
+
+7
+North facing hanging bell
+
+8
+East facing side bell (attached to 1 wall)
+
+9
+West facing side bell (attached to 1 wall)
+
+10
+South facing side bell (attached to 1 wall)
+
+11
+North facing side bell (attached to 1 wall)
+
+12
+East facing "multiple" bell (between 2 walls)
+
+13
+West facing "multiple" bell (between 2 walls)
+
+14
+South facing "multiple" bell (between 2 walls)
+
+15
+North facing "multiple" bell (between 2 walls)
+
+0x16
+Each time the bell is rung, this value toggles between 0 and 1.
+
+Blast Furnace
+
+Bits
+
+Values
+
+0x10x20x4
+
+A three-bit field storing a value from 2 to 5:
+
+2: Blast furnace facing north
+3: Blast furnace facing south
+4: Blast furnace facing west
+5: Blast furnace facing east
+Invalid values default to 2.
+
+0x8
+
+Unused.
+
+Bone Block
+
+
+   DV
+   Description
+
+
+0
+Bone block facing up/down
+
+1
+Unused
+
+2
+Unused
+
+3
+Unused
+
+4
+Bone block facing east/west
+
+5
+Unused
+
+6
+Unused
+
+7
+Unused
+
+8
+Bone block facing north/south
+
+Iron Chain
+
+
+   DV
+   Description
+
+
+0
+Iron Chain is oriented vertically
+
+1
+Iron Chain is oriented north-south
+
+2
+Iron Chain is oriented east-west
+
+Colored Torch
+Colored torch (red/green)
+
+
+   DV
+   Description
+
+
+0
+Red Torch
+
+1
+Green Torch
+
+Colored torch (blue/purple)
+
+
+   DV
+   Description
+
+
+0
+Blue Torch
+
+1
+Purple Torch
+
+Composter
+
+
+   DV
+   Description
+
+
+0
+Empty composter
+
+1
+Composter with 1 successful compost
+
+2
+Composter with 2 successful composts
+
+3
+Composter with 3 successful composts
+
+4
+Composter with 4 successful composts
+
+5
+Composter with 5 successful composts
+
+6
+Composter with 6 successful composts
+
+7
+Composter with 7 successful composts
+
+8
+Composter ready to provide bone meal
+
+Colored blocks
+Wool, Stained Terracotta, Stained Glass, Concrete, Concrete Powder, Shulker Box, Hardened Stained Glass, Hardened Stained Glass Pane and Carpet:
+Alias IDs only.
+
+
+   DV
+   Description
+
+
+0
+White
+
+1
+Orange
+
+2
+Magenta
+
+3
+Light Blue
+
+4
+Yellow
+
+5
+Lime
+
+6
+Pink
+
+7
+Gray
+
+8
+Light Gray
+
+9
+Cyan
+
+10
+Purple
+
+11
+Blue
+
+12
+Brown
+
+13
+Green
+
+14
+Red
+
+15
+Black
+
+Glow Sticks
+
+
+   DV
+   Description
+
+
+0
+White
+
+1
+Orange
+
+2
+Magenta
+
+3
+Light Blue
+
+4
+Yellow
+
+5
+Lime
+
+6
+Pink
+
+7
+Gray
+
+8
+Light Gray (unused)
+
+9
+Cyan
+
+10
+Purple
+
+11
+Blue
+
+12
+Brown
+
+13
+Green
+
+14
+Red
+
+15
+Black (unused)
+
+Wood and Stripped Wood
+
+
+   DV
+   Description
+
+
+0
+Oak Wood
+
+1
+Spruce Wood
+
+2
+Birch Wood
+
+3
+Jungle Wood
+
+4
+Acacia Wood
+
+5
+Dark Oak Wood
+
+8
+Stripped Oak Wood
+
+9
+Stripped Spruce Wood
+
+10
+Stripped Birch Wood
+
+11
+Stripped Jungle Wood
+
+12
+Stripped Acacia Wood
+
+13
+Stripped Dark Oak Wood
+
+Compound Creator
+
+Bits
+
+Values
+
+0x1
+0x2
+
+A two-bit field storing the block's facing:
+0: north
+1: east
+2: south
+3: west
+
+0x4
+0x8
+
+A two-bit field storing the type of block:
+0: Compound Creator
+1: Material Reducer
+2: Element Constructor
+3: Lab Table
+
+Compound
+
+
+   DV
+   Description
+
+
+0
+Salt
+
+1
+Sodium oxide
+
+2
+Sodium hydroxide
+
+3
+Magnesium nitrate
+
+4
+Iron sulfide
+
+5
+Lithium hydride
+
+6
+Sodium hydride
+
+7
+Calcium bromide
+
+8
+Magnesium oxide
+
+9
+Sodium acetate
+
+10
+Luminol
+
+11
+Charcoal (unused)
+
+12
+item.compound.sugar.name (unused)
+
+13
+Aluminum oxide
+
+14
+Boron trioxide
+
+15
+Soap
+
+16
+Polyethylene
+
+17
+Garbage
+
+18
+Magnesium Salts
+
+34
+item.compound.ink.name (unused)
+
+38
+item.compound..name (unused)
+
+39
+item.compound..name (unused)
+
+40
+item.compound..name (unused)
+
+41+
+item.compound..name (unused)
+
+Banner Pattern
+
+
+   DV
+   Description
+
+
+0
+Creeper Charge
+
+1
+Skull Charge
+
+2
+Flower Charge
+
+3
+Thing
+
+4
+Field Masoned
+
+5
+Bordure Indented
+
+6
+Snout
+
+7
+Globe
+
+Slab
+
+
+   DV
+   Description
+
+
+0
+Double Stone Slab
+
+1
+Double Sandstone Slab
+
+2
+Double Wooden Slab
+
+3
+Double Cobblestone Slab
+
+4
+Double Brick Slab
+
+5
+Double Stone Brick Slab
+
+6
+Double Quartz Slab
+
+7
+Double Nether Brick Slab
+
+8
+Double Upper Stone Slab
+
+9
+Double Upper Sandstone Slab
+
+10
+Double Upper Wooden Slab
+
+11
+Double Upper Cobblestone Slab
+
+12
+Double Upper Brick Slab
+
+13
+Double Upper Stone Brick Slab
+
+14
+Double Upper Quartz Slab
+
+15
+Double Upper Nether Brick Slab
+
+
+   DV
+   Description
+
+
+0
+Smooth Stone Slab
+
+1
+Sandstone Slab
+
+2
+Wooden Slab
+
+3
+Cobblestone Slab
+
+4
+Brick Slab
+
+5
+Stone Brick Slab
+
+6
+Quartz Slab
+
+7
+Nether Brick Slab
+
+8
+Upper Smooth Stone Slab
+
+9
+Upper Sandstone Slab
+
+10
+Upper Wooden Slab
+
+11
+Upper Cobblestone Slab
+
+12
+Upper Brick Slab
+
+13
+Upper Stone Brick Slab
+
+14
+Upper Quartz Slab
+
+15
+Upper Nether Brick Slab
+
+
+   DV
+   Description
+
+
+0
+Double Oak Slab
+
+1
+Double Spruce Slab
+
+2
+Double Birch Slab
+
+3
+Double Jungle Slab
+
+4
+Double Acacia Slab
+
+5
+Double Dark Oak Slab
+
+8
+Double Upper Oak Slab
+
+9
+Double Upper Spruce Slab
+
+10
+Double Upper Birch Slab
+
+11
+Double Upper Jungle Slab
+
+12
+Double Upper Acacia Slab
+
+13
+Double Upper Dark Oak Slab
+
+
+   DV
+   Description
+
+
+0
+Oak Slab
+
+1
+Spruce Slab
+
+2
+Birch Slab
+
+3
+Jungle Slab
+
+4
+Acacia Slab
+
+5
+Dark Oak Slab
+
+8
+Upper Oak Slab
+
+9
+Upper Spruce Slab
+
+10
+Upper Birch Slab
+
+11
+Upper Jungle Slab
+
+12
+Upper Acacia Slab
+
+13
+Upper Dark Oak Slab
+
+
+   DV
+   Description
+
+
+0
+Double Red Sandstone Slab
+
+1
+Double Purpur Slab
+
+2
+Double Prismarine Slab
+
+3
+Double Prismarine Brick Slab
+
+4
+Double Dark Prismarine Slab
+
+5
+Double Mossy cobblestone Slab
+
+6
+Double Smooth Sandstone Slab
+
+7
+Double Red Nether Brick Slab
+
+8
+Double Upper Red Sandstone Slab
+
+9
+Double Upper Purpur Slab
+
+10
+Double Upper Prismarine Slab
+
+11
+Double Upper Prismarine Brick Slab
+
+12
+Double Upper Dark Prismarine Slab
+
+13
+Double Upper Mossy cobblestone Slab
+
+14
+Double Upper Smooth Sandstone Slab
+
+15
+Double Upper Red Nether Brick Slab
+
+
+   DV
+   Description
+
+
+0
+Red Sandstone Slab
+
+1
+Purpur Slab
+
+2
+Prismarine Slab
+
+3
+Dark Prismarine Slab
+
+4
+Prismarine Brick Slab
+
+5
+Mossy cobblestone Slab
+
+6
+Smooth Sandstone Slab
+
+7
+Red Nether Brick Slab
+
+8
+Upper Red Sandstone Slab
+
+9
+Upper Purpur Slab
+
+10
+Upper Prismarine Slab
+
+11
+Upper Dark Prismarine Slab
+
+12
+Upper Prismarine Brick Slab
+
+13
+Upper Mossy cobblestone Slab
+
+14
+Upper Smooth Sandstone Slab
+
+15
+Upper Red Nether Brick Slab
+
+
+   DV
+   Description
+
+
+0
+Double End Stone Brick Slab
+
+1
+Double Smooth Red Sandstone Slab
+
+2
+Double Polished Andesite Slab
+
+3
+Double Andesite Slab
+
+4
+Double Diorite Slab
+
+5
+Double Polished Diorite Slab
+
+6
+Double Granite Slab
+
+7
+Double Polished Granite Slab
+
+8
+Double Upper End Stone Brick Slab
+
+9
+Double Upper Smooth Red Sandstone Slab
+
+10
+Double Upper Polished Andesite Slab
+
+11
+Double Upper Andesite Slab
+
+12
+Double Upper Diorite Slab
+
+13
+Double Upper Polished Diorite Slab
+
+14
+Double Upper Granite Slab
+
+15
+Double Upper Polished Granite Slab
+
+
+   DV
+   Description
+
+
+0
+End Stone Brick Slab
+
+1
+Smooth Red Sandstone Slab
+
+2
+Polished Andesite Slab
+
+3
+Andesite Slab
+
+4
+Diorite Slab
+
+5
+Polished Diorite Slab
+
+6
+Granite Slab
+
+7
+Polished Granite Slab
+
+8
+Upper End Stone Brick Slab
+
+9
+Upper Smooth Red Sandstone Slab
+
+10
+Upper Polished Andesite Slab
+
+11
+Upper Andesite Slab
+
+12
+Upper Diorite Slab
+
+13
+Upper Polished Diorite Slab
+
+14
+Upper Granite Slab
+
+15
+Upper Polished Granite Slab
+
+
+   DV
+   Description
+
+
+0
+Double Mossy Stone Brick Slab
+
+1
+Double Smooth Quartz Slab
+
+2
+Double Stone Slab
+
+3
+Double Cut Sandstone Slab
+
+4
+Double Cut Red Sandstone Slab
+
+8
+Double Upper Mossy Stone Brick Slab
+
+9
+Double Upper Smooth Quartz Slab
+
+10
+Double Upper Stone Slab
+
+11
+Double Upper Cut Sandstone Slab
+
+12
+Double Upper Cut Red Sandstone Slab
+
+
+   DV
+   Description
+
+
+0
+Mossy Stone Brick Slab
+
+1
+Smooth Quartz Slab
+
+2
+Stone Slab
+
+3
+Cut Sandstone Slab
+
+4
+Cut Red Sandstone Slab
+
+8
+Upper Mossy Stone Brick Slab
+
+9
+Upper Smooth Quartz Slab
+
+10
+Upper Stone Slab
+
+11
+Upper Cut Sandstone Slab
+
+12
+Upper Cut Red Sandstone Slab
+
+
+   DV
+   Description
+
+
+0
+Bottom slab
+
+1
+Top slab

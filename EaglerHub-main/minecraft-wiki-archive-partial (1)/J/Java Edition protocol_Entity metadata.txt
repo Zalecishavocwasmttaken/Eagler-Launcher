@@ -1,0 +1,6126 @@
+Various Entities have different metadata fields and status codes.
+These are the valid codes for Minecraft Java Edition 26.2; for upcoming snapshots, see Java Edition protocol/Development version#Entity Metadata.
+This page is maintained semi-automatically using a work-in-progress script made by mat, so it should update fairly quickly to new Minecraft versions. Regardless, it's not recommended that you parse it programmatically. Instead, consider using Bixilon's PixLyzer or Burger (or mat's Burger fork, which the script for updating this page depends on).
+
+Contents
+
+1 Entities
+2 Entity Metadata Format
+
+2.1 Wolf Variant
+2.2 Painting Variant
+
+3 Entity Metadata
+
+3.1 Entity
+3.2 Area Effect Cloud
+3.3 Dragon Fireball
+3.4 End Crystal
+3.5 Evoker Fangs
+3.6 Experience Orb
+3.7 Eye of Ender
+3.8 Falling Block
+3.9 Fireball
+3.10 Firework Rocket
+3.11 Interaction
+3.12 Item
+3.13 Item Frame
+3.14 Glow Item Frame
+3.15 Leash Knot
+3.16 Lightning Bolt
+3.17 Llama Spit
+3.18 Marker
+3.19 Ominous Item Spawner
+3.20 Painting
+3.21 Shulker Bullet
+3.22 Small Fireball
+3.23 Primed TNT
+3.24 Wind Charge
+3.25 Wither Skull
+3.26 Fishing Bobber
+3.27 Abstract Arrow
+3.28 Arrow
+3.29 Spectral Arrow
+3.30 Trident
+3.31 Display
+3.32 Block Display
+3.33 Item Display
+3.34 Text Display
+3.35 Living Entity
+3.36 Armor Stand
+3.37 Avatar
+3.38 Mannequin
+3.39 Player
+3.40 Mob
+3.41 Bat
+3.42 Ender Dragon
+3.43 Ghast
+3.44 Phantom
+3.45 Creature
+3.46 Allay
+3.47 Copper Golem
+3.48 Iron Golem
+3.49 Pufferfish
+3.50 Shulker
+3.51 Snow Golem
+3.52 Tadpole
+3.53 Ageable Mob
+3.54 Dolphin
+3.55 Squid
+3.56 Glow Squid
+3.57 Animal
+3.58 Armadillo
+3.59 Axolotl
+3.60 Bee
+3.61 Chicken
+3.62 Cow
+3.63 Fox
+3.64 Frog
+3.65 Happy Ghast
+3.66 Goat
+3.67 Hoglin
+3.68 Mooshroom
+3.69 Ocelot
+3.70 Panda
+3.71 Pig
+3.72 Polar Bear
+3.73 Rabbit
+3.74 Sheep
+3.75 Sniffer
+3.76 Strider
+3.77 Turtle
+3.78 Abstract Horse
+3.79 Camel
+3.80 Camel Husk
+3.81 Horse
+3.82 Skeleton Horse
+3.83 Zombie Horse
+3.84 Chested Horse
+3.85 Donkey
+3.86 Llama
+3.87 Trader Llama
+3.88 Mule
+3.89 Tameable Animal
+3.90 Cat
+3.91 Parrot
+3.92 Wolf
+3.93 Abstract Nautilus
+3.94 Nautilus
+3.95 Zombie Nautilus
+3.96 Abstract Cube Mob
+3.97 Magma Cube
+3.98 Slime
+3.99 Sulfur Cube
+3.100 Abstract Villager
+3.101 Villager
+3.102 Wandering Trader
+3.103 Abstract Fish
+3.104 Cod
+3.105 Salmon
+3.106 Tropical Fish
+3.107 Monster
+3.108 Blaze
+3.109 Bogged
+3.110 Breeze
+3.111 Creaking
+3.112 Creeper
+3.113 Enderman
+3.114 Endermite
+3.115 Giant
+3.116 Guardian
+3.117 Elder Guardian
+3.118 Parched
+3.119 Silverfish
+3.120 Skeleton
+3.121 Spider
+3.122 Cave Spider
+3.123 Stray
+3.124 Vex
+3.125 Warden
+3.126 Wither
+3.127 Wither Skeleton
+3.128 Zoglin
+3.129 Zombie
+3.130 Drowned
+3.131 Husk
+3.132 Zombie Villager
+3.133 Zombified Piglin
+3.134 Base Piglin
+3.135 Piglin
+3.136 Piglin Brute
+3.137 Raider
+3.138 Pillager
+3.139 Ravager
+3.140 Vindicator
+3.141 Witch
+3.142 Spellcaster Illager
+3.143 Evoker
+3.144 Illusioner
+3.145 Thrown Item Projectile
+3.146 Thrown Egg
+3.147 Thrown Ender Pearl
+3.148 Thrown Bottle o' Enchanting
+3.149 Splash Potion
+3.150 Lingering Potion
+3.151 Snowball
+3.152 Abstract Vehicle
+3.153 Boat
+3.154 Acacia Boat
+3.155 Acacia Boat with Chest
+3.156 Bamboo Raft with Chest
+3.157 Bamboo Raft
+3.158 Birch Boat
+3.159 Birch Boat with Chest
+3.160 Cherry Boat
+3.161 Cherry Boat with Chest
+3.162 Dark Oak Boat
+3.163 Dark Oak Boat with Chest
+3.164 Jungle Boat
+3.165 Jungle Boat with Chest
+3.166 Mangrove Boat
+3.167 Mangrove Boat with Chest
+3.168 Oak Boat
+3.169 Oak Boat with Chest
+3.170 Pale Oak Boat
+3.171 Pale Oak Boat with Chest
+3.172 Spruce Boat
+3.173 Spruce Boat with Chest
+3.174 Abstract Minecart
+3.175 Minecart with Chest
+3.176 Minecart with Command Block
+3.177 Minecart with Furnace
+3.178 Minecart with Hopper
+3.179 Minecart
+3.180 Minecart with Monster Spawner
+3.181 Minecart with TNT
+
+Entities
+
+
+
+These entity IDs are up to date for 26.2. Use Data Generators or Burger to get older IDs. If using Burger just replace the version number to what you want to see.
+
+Most entities are spawned via Spawn Entity, however, care should be taken for the following cases:
+Entities marked in __ blue must be spawned in their own special ways:
+
+Experience Orb, should be spawned using Spawn Experience Orb
+Entities marked in __ red must not be spawned at all, as they're server-side only:
+
+Marker, more info can be found here.
+
+Type
+
+Name
+
+bounding box width
+
+bounding box height
+
+ID
+
+0
+
+Acacia Boat
+
+1.375
+
+0.5625
+
+minecraft:acacia_boat
+
+1
+
+Acacia Boat with Chest
+
+1.375
+
+0.5625
+
+minecraft:acacia_chest_boat
+
+2
+
+Allay
+
+0.35
+
+0.6
+
+minecraft:allay
+
+3
+
+Area Effect Cloud
+
+2.0 * Radius
+
+0.5
+
+minecraft:area_effect_cloud
+
+4
+
+Armadillo
+
+0.7
+
+0.65
+
+minecraft:armadillo
+
+5
+
+Armor Stand
+
+normal: 0.5 marker: 0.0 small: 0.25
+
+normal: 1.975 marker: 0.0 small: 0.9875
+
+minecraft:armor_stand
+
+6
+
+Arrow
+
+0.5
+
+0.5
+
+minecraft:arrow
+
+7
+
+Axolotl
+
+0.75
+
+0.42
+
+minecraft:axolotl
+
+8
+
+Bamboo Raft with Chest
+
+1.375
+
+0.5625
+
+minecraft:bamboo_chest_raft
+
+9
+
+Bamboo Raft
+
+1.375
+
+0.5625
+
+minecraft:bamboo_raft
+
+10
+
+Bat
+
+0.5
+
+0.9
+
+minecraft:bat
+
+11
+
+Bee
+
+0.7
+
+0.6
+
+minecraft:bee
+
+12
+
+Birch Boat
+
+1.375
+
+0.5625
+
+minecraft:birch_boat
+
+13
+
+Birch Boat with Chest
+
+1.375
+
+0.5625
+
+minecraft:birch_chest_boat
+
+14
+
+Blaze
+
+0.6
+
+1.8
+
+minecraft:blaze
+
+15
+
+Block Display
+
+0.0
+
+0.0
+
+minecraft:block_display
+
+16
+
+Bogged
+
+0.6
+
+1.99
+
+minecraft:bogged
+
+17
+
+Breeze
+
+0.6
+
+1.77
+
+minecraft:breeze
+
+18
+
+Wind Charge
+
+0.3125
+
+0.3125
+
+minecraft:breeze_wind_charge
+
+19
+
+Camel
+
+1.7
+
+2.375
+
+minecraft:camel
+
+20
+
+Camel Husk
+
+1.7
+
+2.375
+
+minecraft:camel_husk
+
+21
+
+Cat
+
+0.6
+
+0.7
+
+minecraft:cat
+
+22
+
+Cave Spider
+
+0.7
+
+0.5
+
+minecraft:cave_spider
+
+23
+
+Cherry Boat
+
+1.375
+
+0.5625
+
+minecraft:cherry_boat
+
+24
+
+Cherry Boat with Chest
+
+1.375
+
+0.5625
+
+minecraft:cherry_chest_boat
+
+25
+
+Minecart with Chest
+
+0.98
+
+0.7
+
+minecraft:chest_minecart
+
+26
+
+Chicken
+
+0.4
+
+0.7
+
+minecraft:chicken
+
+27
+
+Cod
+
+0.5
+
+0.3
+
+minecraft:cod
+
+28
+
+Copper Golem
+
+0.49
+
+0.98
+
+minecraft:copper_golem
+
+29
+
+Minecart with Command Block
+
+0.98
+
+0.7
+
+minecraft:command_block_minecart
+
+30
+
+Cow
+
+0.9
+
+1.4
+
+minecraft:cow
+
+31
+
+Creaking
+
+0.9
+
+2.7
+
+minecraft:creaking
+
+32
+
+Creeper
+
+0.6
+
+1.7
+
+minecraft:creeper
+
+33
+
+Dark Oak Boat
+
+1.375
+
+0.5625
+
+minecraft:dark_oak_boat
+
+34
+
+Dark Oak Boat with Chest
+
+1.375
+
+0.5625
+
+minecraft:dark_oak_chest_boat
+
+35
+
+Dolphin
+
+0.9
+
+0.6
+
+minecraft:dolphin
+
+36
+
+Donkey
+
+1.3964844
+
+1.5
+
+minecraft:donkey
+
+37
+
+Dragon Fireball
+
+1.0
+
+1.0
+
+minecraft:dragon_fireball
+
+38
+
+Drowned
+
+0.6
+
+1.95
+
+minecraft:drowned
+
+39
+
+Thrown Egg
+
+0.25
+
+0.25
+
+minecraft:egg
+
+40
+
+Elder Guardian
+
+1.9975 (2.35 * guardian)
+
+1.9975 (2.35 * guardian)
+
+minecraft:elder_guardian
+
+41
+
+Enderman
+
+0.6
+
+2.9
+
+minecraft:enderman
+
+42
+
+Endermite
+
+0.4
+
+0.3
+
+minecraft:endermite
+
+43
+
+Ender Dragon
+
+16.0
+
+8.0
+
+minecraft:ender_dragon
+
+44
+
+Thrown Ender Pearl
+
+0.25
+
+0.25
+
+minecraft:ender_pearl
+
+45
+
+End Crystal
+
+2.0
+
+2.0
+
+minecraft:end_crystal
+
+46
+
+Evoker
+
+0.6
+
+1.95
+
+minecraft:evoker
+
+47
+
+Evoker Fangs
+
+0.5
+
+0.8
+
+minecraft:evoker_fangs
+
+48
+
+Thrown Bottle o' Enchanting
+
+0.25
+
+0.25
+
+minecraft:experience_bottle
+
+49
+
+Experience Orb
+
+0.5
+
+0.5
+
+minecraft:experience_orb
+
+50
+
+Eye of Ender
+
+0.25
+
+0.25
+
+minecraft:eye_of_ender
+
+51
+
+Falling Block
+
+0.98
+
+0.98
+
+minecraft:falling_block
+
+52
+
+Fireball
+
+1.0
+
+1.0
+
+minecraft:fireball
+
+53
+
+Firework Rocket
+
+0.25
+
+0.25
+
+minecraft:firework_rocket
+
+54
+
+Fox
+
+0.6
+
+0.7
+
+minecraft:fox
+
+55
+
+Frog
+
+0.5
+
+0.5
+
+minecraft:frog
+
+56
+
+Minecart with Furnace
+
+0.98
+
+0.7
+
+minecraft:furnace_minecart
+
+57
+
+Ghast
+
+4.0
+
+4.0
+
+minecraft:ghast
+
+58
+
+Happy Ghast
+
+4.0
+
+4.0
+
+minecraft:happy_ghast
+
+59
+
+Giant
+
+3.6
+
+12.0
+
+minecraft:giant
+
+60
+
+Glow Item Frame
+
+0.75 or 0.0625 (depth)
+
+0.75
+
+minecraft:glow_item_frame
+
+61
+
+Glow Squid
+
+0.8
+
+0.8
+
+minecraft:glow_squid
+
+62
+
+Goat
+
+1.3
+
+0.9
+
+minecraft:goat
+
+63
+
+Guardian
+
+0.85
+
+0.85
+
+minecraft:guardian
+
+64
+
+Hoglin
+
+1.3964844
+
+1.4
+
+minecraft:hoglin
+
+65
+
+Minecart with Hopper
+
+0.98
+
+0.7
+
+minecraft:hopper_minecart
+
+66
+
+Horse
+
+1.3964844
+
+1.6
+
+minecraft:horse
+
+67
+
+Husk
+
+0.6
+
+1.95
+
+minecraft:husk
+
+68
+
+Illusioner
+
+0.6
+
+1.95
+
+minecraft:illusioner
+
+69
+
+Interaction
+
+0.0
+
+0.0
+
+minecraft:interaction
+
+70
+
+Iron Golem
+
+1.4
+
+2.7
+
+minecraft:iron_golem
+
+71
+
+Item
+
+0.25
+
+0.25
+
+minecraft:item
+
+72
+
+Item Display
+
+0.0
+
+0.0
+
+minecraft:item_display
+
+73
+
+Item Frame
+
+0.75 or 0.0625 (depth)
+
+0.75
+
+minecraft:item_frame
+
+74
+
+Jungle Boat
+
+1.375
+
+0.5625
+
+minecraft:jungle_boat
+
+75
+
+Jungle Boat with Chest
+
+1.375
+
+0.5625
+
+minecraft:jungle_chest_boat
+
+76
+
+Leash Knot
+
+0.375
+
+0.5
+
+minecraft:leash_knot
+
+77
+
+Lightning Bolt
+
+0.0
+
+0.0
+
+minecraft:lightning_bolt
+
+78
+
+Llama
+
+0.9
+
+1.87
+
+minecraft:llama
+
+79
+
+Llama Spit
+
+0.25
+
+0.25
+
+minecraft:llama_spit
+
+80
+
+Magma Cube
+
+0.5202 * size
+
+0.5202 * size
+
+minecraft:magma_cube
+
+81
+
+Mangrove Boat
+
+1.375
+
+0.5625
+
+minecraft:mangrove_boat
+
+82
+
+Mangrove Boat with Chest
+
+1.375
+
+0.5625
+
+minecraft:mangrove_chest_boat
+
+83
+
+Mannequin
+
+0.6
+
+1.8
+
+minecraft:mannequin
+
+84
+
+Marker
+
+0.0
+
+0.0
+
+minecraft:marker
+
+85
+
+Minecart
+
+0.98
+
+0.7
+
+minecraft:minecart
+
+86
+
+Mooshroom
+
+0.9
+
+1.4
+
+minecraft:mooshroom
+
+87
+
+Mule
+
+1.3964844
+
+1.6
+
+minecraft:mule
+
+88
+
+Nautilus
+
+0.875
+
+0.95
+
+minecraft:nautilus
+
+89
+
+Oak Boat
+
+1.375
+
+0.5625
+
+minecraft:oak_boat
+
+90
+
+Oak Boat with Chest
+
+1.375
+
+0.5625
+
+minecraft:oak_chest_boat
+
+91
+
+Ocelot
+
+0.6
+
+0.7
+
+minecraft:ocelot
+
+92
+
+Ominous Item Spawner
+
+0.25
+
+0.25
+
+minecraft:ominous_item_spawner
+
+93
+
+Painting
+
+type width or 0.0625 (depth)
+
+type height
+
+minecraft:painting
+
+94
+
+Pale Oak Boat
+
+1.375
+
+0.5625
+
+minecraft:pale_oak_boat
+
+95
+
+Pale Oak Boat with Chest
+
+1.375
+
+0.5625
+
+minecraft:pale_oak_chest_boat
+
+96
+
+Panda
+
+1.3
+
+1.25
+
+minecraft:panda
+
+97
+
+Parched
+
+0.6
+
+1.99
+
+minecraft:parched
+
+98
+
+Parrot
+
+0.5
+
+0.9
+
+minecraft:parrot
+
+99
+
+Phantom
+
+0.9
+
+0.5
+
+minecraft:phantom
+
+100
+
+Pig
+
+0.9
+
+0.9
+
+minecraft:pig
+
+101
+
+Piglin
+
+0.6
+
+1.95
+
+minecraft:piglin
+
+102
+
+Piglin Brute
+
+0.6
+
+1.95
+
+minecraft:piglin_brute
+
+103
+
+Pillager
+
+0.6
+
+1.95
+
+minecraft:pillager
+
+104
+
+Polar Bear
+
+1.4
+
+1.4
+
+minecraft:polar_bear
+
+105
+
+Splash Potion
+
+0.25
+
+0.25
+
+minecraft:splash_potion
+
+106
+
+Lingering Potion
+
+0.25
+
+0.25
+
+minecraft:lingering_potion
+
+107
+
+Pufferfish
+
+0.7
+
+0.7
+
+minecraft:pufferfish
+
+108
+
+Rabbit
+
+0.4
+
+0.5
+
+minecraft:rabbit
+
+109
+
+Ravager
+
+1.95
+
+2.2
+
+minecraft:ravager
+
+110
+
+Salmon
+
+0.7
+
+0.4
+
+minecraft:salmon
+
+111
+
+Sheep
+
+0.9
+
+1.3
+
+minecraft:sheep
+
+112
+
+Shulker
+
+1.0
+
+1.0-2.0 (depending on peek)
+
+minecraft:shulker
+
+113
+
+Shulker Bullet
+
+0.3125
+
+0.3125
+
+minecraft:shulker_bullet
+
+114
+
+Silverfish
+
+0.4
+
+0.3
+
+minecraft:silverfish
+
+115
+
+Skeleton
+
+0.6
+
+1.99
+
+minecraft:skeleton
+
+116
+
+Skeleton Horse
+
+1.3964844
+
+1.6
+
+minecraft:skeleton_horse
+
+117
+
+Slime
+
+0.5202 * size
+
+0.5202 * size
+
+minecraft:slime
+
+118
+
+Small Fireball
+
+0.3125
+
+0.3125
+
+minecraft:small_fireball
+
+119
+
+Sniffer
+
+1.9
+
+1.75
+
+minecraft:sniffer
+
+120
+
+Snowball
+
+0.25
+
+0.25
+
+minecraft:snowball
+
+121
+
+Snow Golem
+
+0.7
+
+1.9
+
+minecraft:snow_golem
+
+122
+
+Minecart with Monster Spawner
+
+0.98
+
+0.7
+
+minecraft:spawner_minecart
+
+123
+
+Spectral Arrow
+
+0.5
+
+0.5
+
+minecraft:spectral_arrow
+
+124
+
+Spider
+
+1.4
+
+0.9
+
+minecraft:spider
+
+125
+
+Spruce Boat
+
+1.375
+
+0.5625
+
+minecraft:spruce_boat
+
+126
+
+Spruce Boat with Chest
+
+1.375
+
+0.5625
+
+minecraft:spruce_chest_boat
+
+127
+
+Squid
+
+0.8
+
+0.8
+
+minecraft:squid
+
+128
+
+Stray
+
+0.6
+
+1.99
+
+minecraft:stray
+
+129
+
+Strider
+
+0.9
+
+1.7
+
+minecraft:strider
+
+130
+
+Sulfur Cube
+
+0.49
+
+0.49
+
+minecraft:sulfur_cube
+
+131
+
+Tadpole
+
+0.4
+
+0.3
+
+minecraft:tadpole
+
+132
+
+Text Display
+
+0.0
+
+0.0
+
+minecraft:text_display
+
+133
+
+Primed TNT
+
+0.98
+
+0.98
+
+minecraft:tnt
+
+134
+
+Minecart with TNT
+
+0.98
+
+0.7
+
+minecraft:tnt_minecart
+
+135
+
+Trader Llama
+
+0.9
+
+1.87
+
+minecraft:trader_llama
+
+136
+
+Trident
+
+0.5
+
+0.5
+
+minecraft:trident
+
+137
+
+Tropical Fish
+
+0.5
+
+0.4
+
+minecraft:tropical_fish
+
+138
+
+Turtle
+
+1.2
+
+0.4
+
+minecraft:turtle
+
+139
+
+Vex
+
+0.4
+
+0.8
+
+minecraft:vex
+
+140
+
+Villager
+
+0.6
+
+1.95
+
+minecraft:villager
+
+141
+
+Vindicator
+
+0.6
+
+1.95
+
+minecraft:vindicator
+
+142
+
+Wandering Trader
+
+0.6
+
+1.95
+
+minecraft:wandering_trader
+
+143
+
+Warden
+
+0.9
+
+2.9
+
+minecraft:warden
+
+144
+
+Wind Charge
+
+0.3125
+
+0.3125
+
+minecraft:wind_charge
+
+145
+
+Witch
+
+0.6
+
+1.95
+
+minecraft:witch
+
+146
+
+Wither
+
+0.9
+
+3.5
+
+minecraft:wither
+
+147
+
+Wither Skeleton
+
+0.7
+
+2.4
+
+minecraft:wither_skeleton
+
+148
+
+Wither Skull
+
+0.3125
+
+0.3125
+
+minecraft:wither_skull
+
+149
+
+Wolf
+
+0.6
+
+0.85
+
+minecraft:wolf
+
+150
+
+Zoglin
+
+1.3964844
+
+1.4
+
+minecraft:zoglin
+
+151
+
+Zombie
+
+0.6
+
+1.95
+
+minecraft:zombie
+
+152
+
+Zombie Horse
+
+1.3964844
+
+1.6
+
+minecraft:zombie_horse
+
+153
+
+Zombie Nautilus
+
+0.875
+
+0.95
+
+minecraft:zombie_nautilus
+
+154
+
+Zombie Villager
+
+0.6
+
+1.95
+
+minecraft:zombie_villager
+
+155
+
+Zombified Piglin
+
+0.6
+
+1.95
+
+minecraft:zombified_piglin
+
+156
+
+Player
+
+0.6
+
+1.8
+
+minecraft:player
+
+157
+
+Fishing Bobber
+
+0.25
+
+0.25
+
+minecraft:fishing_bobber
+
+Entity Metadata Format
+Note that entity metadata is a totally distinct concept from block metadata.  It is not required to send all metadata fields, or even any metadata fields, so long as the terminating entry is correctly sent.
+Entity Metadata is an array of entries, each of which looks like the following:
+
+Name
+
+Type
+
+Meaning
+
+Index
+
+Unsigned Byte
+
+Unique index key determining the meaning of the following value, see the table below. If this is 0xff then the it is the end of the Entity Metadata array and no more is read.
+
+Type
+
+VarInt Enum
+
+Only if Index is not 0xff; the type of the index, see the table below
+
+Value
+
+Varies
+
+Only if Index is not 0xff: the value of the metadata field, see the table below
+
+Type
+
+Name
+
+Value
+
+Notes
+
+
+
+0
+
+Byte
+
+Byte
+
+
+
+1
+
+VarInt
+
+VarInt
+
+
+
+2
+
+VarLong
+
+VarLong
+
+
+
+3
+
+Float
+
+Float
+
+
+
+4
+
+String
+
+String (32767)
+
+
+
+5
+
+Text Component
+
+Text Component
+
+
+
+6
+
+Optional Text Component
+
+(Boolean, Optional Text Component)
+
+Text Component is present if the Boolean is set to true.
+
+
+
+7
+
+Slot
+
+Slot
+
+
+
+8
+
+Boolean
+
+Boolean
+
+
+
+9
+
+Rotations
+
+(Float, Float, Float)
+
+rotation on x, rotation on y, rotation on z
+
+
+
+10
+
+Position
+
+Position
+
+
+
+11
+
+Optional Position
+
+(Boolean, Optional Position)
+
+Position is present if the Boolean is set to true.
+
+
+
+12
+
+Direction
+
+VarInt Enum
+
+Down = 0, Up = 1, North = 2, South = 3, West = 4, East = 5
+
+
+
+13
+
+Optional Living Entity Reference
+
+(Boolean, Optional UUID)
+
+UUID is present if the Boolean is set to true.
+
+
+
+14
+
+Block State
+
+VarInt
+
+An ID in the block state registry.
+
+
+
+15
+
+Optional Block State
+
+VarInt
+
+0 for absent (air is unrepresentable); otherwise, an ID in the block state registry.
+
+
+
+16
+
+Particle
+
+(VarInt, Varies)
+
+particle type (an ID in the minecraft:particle_type registry), particle data (See Particles.)
+
+
+
+17
+
+Particles
+
+(VarInt, Array of (VarInt, Varies))
+
+length-prefixed list of particle defintions (as above).
+
+
+
+18
+
+Villager Data
+
+(VarInt, VarInt, VarInt)
+
+villager type, villager profession, level (See below.)
+
+
+
+19
+
+Optional VarInt
+
+VarInt
+
+0 for absent; 1 + actual value otherwise. Used for entity IDs.
+
+
+
+20
+
+Pose
+
+VarInt Enum
+
+STANDING = 0, FALL_FLYING = 1, SLEEPING = 2, SWIMMING = 3, SPIN_ATTACK = 4, SNEAKING = 5, LONG_JUMPING = 6, DYING = 7, CROAKING = 8, USING_TONGUE = 9, SITTING = 10, ROARING = 11, SNIFFING = 12, EMERGING = 13, DIGGING = 14, SLIDING = 15, SHOOTING = 16, INHALING = 17
+
+
+
+21
+
+Cat Variant
+
+VarInt
+
+An ID in the minecraft:cat_variant registry.
+
+
+
+22
+
+Cat Sound Variant
+
+VarInt
+
+An ID in the minecraft:cat_sound_variant registry.
+
+
+
+23
+
+Cow Variant
+
+VarInt
+
+An ID in the minecraft:cow_variant registry.
+
+
+
+24
+
+Cow Sound Variant
+
+VarInt
+
+An ID in the minecraft:cow_sound_variant registry.
+
+
+
+25
+
+Wolf Variant
+
+VarInt
+
+An ID in the minecraft:wolf_variant registry.
+
+
+
+26
+
+Wolf Sound Variant
+
+VarInt
+
+An ID in the minecraft:wolf_sound_variant registry.
+
+
+
+27
+
+Frog Variant
+
+VarInt
+
+An ID in the minecraft:frog_variant registry.
+
+
+
+28
+
+Pig Variant
+
+VarInt
+
+An ID in the minecraft:pig_variant registry.
+
+
+
+29
+
+Pig Sound Variant
+
+VarInt
+
+An ID in the minecraft:pig_sound_variant registry.
+
+
+
+30
+
+Chicken Variant
+
+VarInt
+
+An ID in the minecraft:chicken_variant registry.
+
+
+
+31
+
+Chicken Sound Variant
+
+VarInt
+
+An ID in the minecraft:chicken_sound_variant registry.
+
+
+
+32
+
+Zombie Nautilus Variant
+
+VarInt
+
+An ID in the minecraft:zombie_nautilus_variant registry.
+
+
+
+33
+
+Optional Global Position
+
+(Boolean, Optional Identifier, Optional Position)
+
+dimension identifier, position; only if the Boolean is set to true.
+
+
+
+34
+
+Painting Variant
+
+ID or Painting Variant
+
+An ID in the minecraft:painting_variant registry, or an inline definition.
+
+
+
+35
+
+Sniffer State
+
+VarInt Enum
+
+IDLING = 0, FEELING_HAPPY = 1, SCENTING = 2, SNIFFING = 3, SEARCHING = 4, DIGGING = 5, RISING = 6
+
+
+
+36
+
+Armadillo State
+
+VarInt Enum
+
+IDLE = 0, ROLLING = 1, SCARED = 2, UNROLLING = 3
+
+
+
+37
+
+Copper Golem State
+
+Varint Enum
+
+IDLE = 0, GETTING_ITEM = 1, GETTING_NO_ITEM = 2, DROPPING_ITEM = 3, DROPPING_NO_ITEM = 4
+
+
+
+38
+
+Weathering Copper State
+
+Varint Enum
+
+UNAFFECTED = 0, EXPOSED = 1, WEATHERED = 2, OXIDIZED = 3
+
+
+
+39
+
+Vector3
+
+(Float, Float, Float)
+
+x, y, z
+
+
+
+40
+
+Quaternion
+
+(Float, Float, Float, Float)
+
+x, y, z, w
+
+
+
+41
+
+Resolvable Profile
+
+Resolvable Profile
+
+
+
+42
+
+Humanoid Arm
+
+Varint Enum
+
+LEFT = 0, RIGHT = 1
+
+Villager types (minecraft:villager_type registry):
+
+Name
+ID
+
+minecraft:desert
+0
+
+minecraft:jungle
+1
+
+minecraft:plains
+2
+
+minecraft:savanna
+3
+
+minecraft:snow
+4
+
+minecraft:swamp
+5
+
+minecraft:taiga
+6
+
+Villager professions (minecraft:villager_profession registry):
+
+Name
+ID
+
+minecraft:none
+0
+
+minecraft:armorer
+1
+
+minecraft:butcher
+2
+
+minecraft:cartographer
+3
+
+minecraft:cleric
+4
+
+minecraft:farmer
+5
+
+minecraft:fisherman
+6
+
+minecraft:fletcher
+7
+
+minecraft:leatherworker
+8
+
+minecraft:librarian
+9
+
+minecraft:mason
+10
+
+minecraft:nitwit
+11
+
+minecraft:shepherd
+12
+
+minecraft:toolsmith
+13
+
+minecraft:weaponsmith
+14
+
+Wolf Variant
+See also: Java Edition protocol/Registry data § Wolf Variant
+
+Name
+
+Type
+
+Meaning
+
+Wild texture
+
+Identifier
+
+The texture for the wild version of this wolf.
+The Notchian client uses the corresponding asset located at textures.
+
+Tame texture
+
+Identifier
+
+The texture for the tamed version of this wolf.
+The Notchian client uses the corresponding asset located at textures.
+
+Angry texture
+
+Identifier
+
+The texture for the angry version of this wolf.
+The Notchian client uses the corresponding asset located at textures.
+
+Biomes
+
+ID Set
+
+Biomes in which this wolf can spawn in (IDs in the minecraft:biome registry).
+
+Painting Variant
+See also: Java Edition protocol/Registry data § Painting Variant
+
+Name
+
+Type
+
+Meaning
+
+Width
+
+Int
+
+The width of the painting, in blocks.
+
+Height
+
+Int
+
+The height of the painting, in blocks.
+
+Asset ID
+
+Identifier
+
+The texture for the painting.
+The Notchian client uses the corresponding asset located at
+textures/painting.
+
+Title
+
+Prefixed Optional Text Component
+
+The displayed title of the painting. Only present if Has title is true.
+
+Author
+
+Prefixed Optional Text Component
+
+The displayed author of the painting. Only present if Has author is true.
+
+Entity Metadata
+Entity
+The base class.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+0
+
+Byte (0)
+
+Bit mask
+
+Meaning
+
+0
+
+0x01
+
+Is on fire
+
+0x02
+
+Is pressing sneak key (hides the name tag, but does not make the entity visually sneak.)
+
+0x04
+
+Unused (previously riding)
+
+0x08
+
+Is sprinting (shows sprinting particles when on ground.)
+
+0x10
+
+Is swimming
+
+0x20
+
+Is invisible
+
+0x40
+
+has glowing effect
+
+0x80
+
+Is flying with an elytra
+
+1
+
+VarInt (1)
+
+Air ticks
+
+300
+
+2
+
+Optional Text Component (6)
+
+Custom name
+
+empty
+
+3
+
+Boolean (8)
+
+Is custom name visible
+
+false
+
+4
+
+Boolean (8)
+
+Is silent
+
+false
+
+5
+
+Boolean (8)
+
+Has no gravity
+
+false
+
+6
+
+Pose (20)
+
+Pose
+
+STANDING
+
+7
+
+VarInt (1)
+
+Ticks frozen in powder snow
+
+0
+
+On the Notchan server Is pressing sneak key reflects the sneak key state indicated by the client rather than the entity's pose, and can thus be set while swimming, flying or crawling, or unset while stuck sneaking under a block.
+Freezing ticks cap at 140 in the client for the player's snow overlay when stuck in powder snow. If the entity extends LivingEntity and freezing ticks reaches the cap, the mob will start shaking (this excludes the skeleton, which has its own indicator).
+
+Area Effect Cloud
+Extends Entity.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+8
+
+Float (3)
+
+Radius
+
+3.0
+
+9
+
+Boolean (8)
+
+Ignore radius and show effect as single point, not area
+
+false
+
+10
+
+Particle (16)
+
+The particle
+
+-1
+
+Dragon Fireball
+Extends Entity.
+No additional metadata.
+
+End Crystal
+Extends Entity.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+8
+
+Optional Position (11)
+
+Beam target
+
+Empty
+
+9
+
+Boolean (8)
+
+Show bottom
+
+true
+
+Evoker Fangs
+Extends Entity.
+No additional metadata.
+
+Experience Orb
+Extends Entity.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+8
+
+VarInt (1)
+
+The amount of experience this orb will reward once collected.
+
+0
+
+Eye of Ender
+Extends Entity.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+8
+
+Slot (7)
+
+Item
+
+Empty (which behaves as if it were a minecraft:ender_eye)
+
+Falling Block
+Extends Entity.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+8
+
+Position (10)
+
+spawn position
+
+(0, 0, 0)
+
+Fireball
+Extends Entity.
+This is the large fireball shot by ghasts.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+8
+
+Slot (7)
+
+Item
+
+Empty
+
+Firework Rocket
+Extends Entity.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+8
+
+Slot (7)
+
+Firework info
+
+Empty
+
+9
+
+Optional VarInt (19)
+
+Entity ID of entity which used firework (for elytra boosting)
+
+Empty
+
+10
+
+Boolean (8)
+
+Is shot at angle (from a crossbow)
+
+false
+
+Interaction
+Extends Entity.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+8
+
+Float (3)
+
+Width
+
+1.0
+
+9
+
+Float (3)
+
+Height
+
+1.0
+
+10
+
+Boolean (8)
+
+Responsive - can be attacked/interacted with if true
+
+false
+
+Item
+Extends Entity.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+8
+
+Slot (7)
+
+Item
+
+Empty
+
+Item Frame
+Extends Entity.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+8
+
+Direction (12)
+
+Direction
+
+SOUTH
+
+9
+
+Slot (7)
+
+Item
+
+Empty
+
+10
+
+VarInt (1)
+
+Rotation
+
+0
+
+Glow Item Frame
+Extends Item Frame.
+No additional metadata.
+
+Leash Knot
+Extends Entity.
+No additional metadata.
+
+Lightning Bolt
+Extends Entity.
+No additional metadata.
+
+Llama Spit
+Extends Entity.
+No additional metadata.
+
+Marker
+Extends Entity.
+No additional metadata.
+
+Ominous Item Spawner
+Extends Entity.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+8
+
+Slot (7)
+
+Item
+
+Empty
+
+Painting
+Extends Entity.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+8
+
+Direction (12)
+
+SOUTH
+
+9
+
+Painting Variant (34)
+
+Painting Type
+
+KEBAB
+
+Shulker Bullet
+Extends Entity.
+No additional metadata.
+
+Small Fireball
+Extends Entity.
+This is the fireball shot by blazes and dispensers with fire charges.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+8
+
+Slot (7)
+
+Item
+
+Empty (which behaves as if it were a minecraft:fire_charge)
+
+Primed TNT
+Extends Entity.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+8
+
+VarInt (1)
+
+Fuse time. Automatically decreases by 1 each client tick. On the tick on which it is decremented to 0, the entity is deleted by the client, and further attempts to set this value will be ignored.
+
+80
+
+9
+
+Block State (14)
+
+The block state ID that is exploding
+
+TNT
+
+Wind Charge
+Extends Entity.
+No additional metadata.
+
+Wither Skull
+Extends Entity.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+8
+
+Boolean (8)
+
+Is invulnerable
+
+false
+
+Fishing Bobber
+Extends Entity.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+8
+
+VarInt (1)
+
+Hooked entity id + 1, or 0 if there is no hooked entity
+
+0
+
+9
+
+Boolean (8)
+
+Is catchable
+
+False
+
+Abstract Arrow
+Extends Entity.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+8
+
+Byte (0)
+
+Bit mask
+
+Meaning
+
+0
+
+0x01
+
+Is critical
+
+0x02
+
+Is noclip (used by loyalty tridents when returning)
+
+9
+
+Byte (0)
+
+Piercing level
+
+0
+
+10
+
+Boolean (8)
+
+Is in ground
+
+false
+
+Arrow
+Extends Abstract Arrow.
+Used for both tipped and regular arrows.  If not tipped, then color is set to -1 and no tipped arrow particles are used.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+11
+
+VarInt (1)
+
+Color (-1 for no particles)
+
+-1
+
+Spectral Arrow
+Extends Abstract Arrow.
+No additional metadata.
+
+Trident
+Extends Abstract Arrow.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+11
+
+Byte (0)
+
+Loyalty level (enchantment)
+
+0
+
+12
+
+Boolean (8)
+
+Has enchantment glint
+
+False
+
+Display
+Extends Entity.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+8
+
+VarInt (1)
+
+Interpolation delay
+
+0
+
+9
+
+VarInt (1)
+
+Transformation interpolation duration
+
+0
+
+10
+
+VarInt (1)
+
+Position/Rotation interpolation duration
+
+0
+
+11
+
+Vector3 (39)
+
+Translation
+
+(0.0, 0.0, 0.0)
+
+12
+
+Vector3 (39)
+
+Scale
+
+(1.0, 1.0, 1.0)
+
+13
+
+Quaternion (40)
+
+Rotation left
+
+(0.0, 0.0, 0.0, 1.0)
+
+14
+
+Quaternion (40)
+
+Rotation right
+
+(0.0, 0.0, 0.0, 1.0)
+
+15
+
+Byte (0)
+
+Billboard Constraints (FIXED = 0, VERTICAL = 1, HORIZONTAL = 2, CENTER = 3)
+
+0
+
+16
+
+VarInt (1)
+
+Brightness override (blockLight << 4 | skyLight << 20)
+
+-1
+
+17
+
+Float (3)
+
+View range
+
+1.0
+
+18
+
+Float (3)
+
+Shadow radius
+
+0.0
+
+19
+
+Float (3)
+
+Shadow strength
+
+1.0
+
+20
+
+Float (3)
+
+Width
+
+0.0
+
+21
+
+Float (3)
+
+Height
+
+0.0
+
+22
+
+VarInt (1)
+
+Glow color override
+
+-1
+
+Block Display
+Extends Display.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+23
+
+Block State (14)
+
+Displayed block state
+
+0 (Air)
+
+Item Display
+Extends Display.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+23
+
+Slot (7)
+
+Displayed item
+
+Empty
+
+24
+
+Byte (0)
+
+Display type:
+NONE = 0
+THIRD_PERSON_LEFT_HAND = 1
+THIRD_PERSON_RIGHT_HAND = 2
+FIRST_PERSON_LEFT_HAND = 3
+FIRST_PERSON_RIGHT_HAND = 4
+HEAD = 5
+GUI = 6
+GROUND = 7
+FIXED = 8
+
+0 (NONE)
+
+Text Display
+Extends Display.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+23
+
+Text Component (5)
+
+Text
+
+Empty
+
+24
+
+VarInt (1)
+
+Line width
+
+200
+
+25
+
+VarInt (1)
+
+Background color
+
+1073741824 (0x40000000)
+
+26
+
+Byte (0)
+
+Text opacity
+
+-1 (fully opaque)
+
+27
+
+Byte (0)
+
+Bit mask
+
+Meaning
+
+0
+
+0x01
+
+Has shadow
+
+0x02
+
+Is see through
+
+0x04
+
+Use default background color
+
+0x08
+
+Alignment:
+CENTER = 0
+LEFT = 1 or 3
+RIGHT = 2
+
+Living Entity
+Extends Entity.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+8
+
+Byte (0)
+
+Hand states, used to trigger blocking/eating/drinking animation.
+
+0
+
+Bit mask
+
+Meaning
+
+0x01
+
+Is hand active
+
+0x02
+
+Active hand (main hand = 0, offhand = 1)
+
+0x04
+
+Is in riptide spin attack
+
+9
+
+Float (3)
+
+Health
+
+1.0
+
+10
+
+Particles (17)
+
+Potion effect color (or 0 if there is no effect)
+
+0
+
+11
+
+Boolean (8)
+
+Is potion effect ambient: reduces the number of particles generated by potions to 1/5 the normal amount
+
+false
+
+12
+
+VarInt (1)
+
+Number of arrows in entity
+
+0
+
+13
+
+VarInt (1)
+
+Number of bee stingers in entity
+
+0
+
+14
+
+Optional Position (11)
+
+Location of the bed that the entity is currently sleeping in (Empty if it isn't sleeping)
+
+Empty
+
+Armor Stand
+Extends Living Entity.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+15
+
+Byte (0)
+
+Bit mask
+
+Meaning
+
+0
+
+0x01
+
+Is Small
+
+0x02
+
+Unused
+
+0x04
+
+Has Arms
+
+0x08
+
+Has no BasePlate
+
+0x10
+
+Is Marker
+
+16
+
+Rotations (9)
+
+Head rotation
+
+(0.0, 0.0, 0.0)
+
+17
+
+Rotations (9)
+
+Body rotation
+
+(0.0, 0.0, 0.0)
+
+18
+
+Rotations (9)
+
+Left arm rotation
+
+(-10.0, 0.0, -10.0)
+
+19
+
+Rotations (9)
+
+Right arm rotation
+
+(-15.0, 0.0, 10.0)
+
+20
+
+Rotations (9)
+
+Left leg rotation
+
+(-1.0, 0.0, -1.0)
+
+21
+
+Rotations (9)
+
+Right leg rotation
+
+(1.0, 0.0, 1.0)
+
+Note that armor stands with the invisible flag from the base entity class set also cannot be attacked or damaged, except for by the void.
+
+Avatar
+Extends Living Entity.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+15
+
+Humanoid Arm (42)
+
+Main hand (0: left, 1: right)
+
+right (1)
+
+16
+
+Byte (0)
+
+The Displayed Skin Parts bit mask that is sent in Client Information
+
+0
+
+Bit mask
+
+Meaning
+
+0x01
+
+Cape enabled
+
+0x02
+
+Jacket enabled
+
+0x04
+
+Left sleeve enabled
+
+0x08
+
+Right sleeve enabled
+
+0x10
+
+Left pants leg enabled
+
+0x20
+
+Right pants leg enabled
+
+0x40
+
+Hat enabled
+
+0x80
+
+Unused
+
+Mannequin
+Extends Avatar.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+17
+
+Resolvable Profile (41)
+
+The player's skin and display name
+
+Partial profile with all fields empty
+
+18
+
+Boolean (8)
+
+Immovable
+
+false
+
+19
+
+Optional Text Component (6)
+
+The description text below the player's username, usually "NPC"
+
+Empty
+
+Player
+Extends Avatar.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+17
+
+Float (3)
+
+Additional Hearts
+
+0.0
+
+18
+
+VarInt (1)
+
+Score
+
+0
+
+19
+
+Optional VarInt (19)
+
+Left shoulder entity data (for occupying parrot)
+
+Empty
+
+20
+
+Optional VarInt (19)
+
+Right shoulder entity data (for occupying parrot)
+
+Empty
+
+Mob
+Extends Living Entity.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+15
+
+Byte (0)
+
+Bit mask
+
+Meaning
+
+0
+
+0x01
+
+NoAI
+
+0x02
+
+Is left handed
+
+0x04
+
+Is aggressive
+
+Bat
+Extends Mob.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+16
+
+Byte (0)
+
+Bit mask
+
+Meaning
+
+0
+
+0x01
+
+Is hanging
+
+Ender Dragon
+Extends Mob.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+16
+
+VarInt (1)
+
+Dragon phase
+
+10 (hover)
+
+Phases (according to the wiki page on dragon data values) are:
+
+0: circling
+1: strafing (preparing to shoot a fireball)
+2: flying to the portal to land (part of transition to landed state)
+3: landing on the portal (part of transition to landed state)
+4: taking off from the portal (part of transition out of landed state)
+5: landed, performing breath attack
+6: landed, looking for a player for breath attack
+7: landed, roar before beginning breath attack
+8: charging player
+9: flying to portal to die
+10: hovering with no AI (default when using the /summon command).
+Ghast
+Extends Mob.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+16
+
+Boolean (8)
+
+Is attacking
+
+false
+
+Phantom
+Extends Mob.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+16
+
+VarInt (1)
+
+Size
+
+0
+
+Hitbox size is determined by horizontal=0.9 + 0.2*size and vertical=0.5 + 0.1 * i
+
+Creature
+Extends Mob.
+No additional metadata.
+
+Allay
+Extends Creature.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+16
+
+Boolean (8)
+
+Is dancing
+
+false
+
+17
+
+Boolean (8)
+
+Can duplicate
+
+true
+
+Copper Golem
+Extends Creature.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+16
+
+Weathering Copper State (38)
+
+Weathering state
+
+UNAFFECTED
+
+17
+
+Copper Golem State (37)
+
+Copper golem state
+
+IDLE
+
+Iron Golem
+Extends Creature.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+16
+
+Byte (0)
+
+Bit mask
+
+Meaning
+
+0
+
+0x01
+
+Is player-created
+
+Pufferfish
+Extends Creature.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+16
+
+Boolean (8)
+
+From bucket
+
+false
+
+17
+
+VarInt (1)
+
+Puff state (0: small, 1: mid, 2: full)
+
+0
+
+Shulker
+Extends Creature.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+16
+
+Direction (12)
+
+Attach face
+
+Down (0)
+
+17
+
+Byte (0)
+
+Shield height
+
+0
+
+18
+
+Byte (0)
+
+Color (dye color)
+
+16
+
+Snow Golem
+Extends Creature.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+16
+
+Byte (0)
+
+Bit mask
+
+Meaning
+
+0x10
+
+0x01
+
+Unused
+
+0x02
+
+Unused
+
+0x04
+
+Unused
+
+0x08
+
+Unused
+
+0x10
+
+Has pumpkin hat
+
+Tadpole
+Extends Creature.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+16
+
+Boolean (8)
+
+Is from bucket
+
+false
+
+17
+
+Boolean (8)
+
+Age locked
+
+false
+
+Ageable Mob
+Extends Creature.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+16
+
+Boolean (8)
+
+Is baby
+
+false
+
+17
+
+Boolean (8)
+
+Age locked
+
+false
+
+Dolphin
+Extends Ageable Mob.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+18
+
+Boolean (8)
+
+Has fish
+
+false
+
+19
+
+VarInt (1)
+
+Moisture level
+
+2400
+
+Squid
+Extends Ageable Mob.
+No additional metadata.
+
+Glow Squid
+Extends Squid.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+18
+
+VarInt (1)
+
+Dark ticks remaining
+
+0
+
+Animal
+Extends Ageable Mob.
+No additional metadata.
+
+Armadillo
+Extends Animal.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+18
+
+Armadillo State (36)
+
+Armadillo state
+
+IDLE
+
+Axolotl
+Extends Animal.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+18
+
+VarInt (1)
+
+Variant (lucy = 0, wild = 1, gold = 2, cyan = 3, blue = 4)
+
+0 (lucy)
+
+19
+
+Boolean (8)
+
+If it is currently playing dead.
+
+false
+
+20
+
+Boolean (8)
+
+If it was spawned from a bucket.
+
+false
+
+Bee
+Extends Animal.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+18
+
+Byte (0)
+
+Bit mask
+
+Meaning
+
+0
+
+0x01
+
+Unused
+
+0x02
+
+Is angry
+
+0x04
+
+Has stung
+
+0x08
+
+Has nectar
+
+19
+
+VarLong (2)
+
+Anger time in ticks
+
+-1 (Not angry)
+
+Chicken
+Extends Animal.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+18
+
+Chicken Variant (30)
+
+Variant
+
+TEMPERATE
+
+19
+
+Chicken Sound Variant (31)
+
+Sound variant
+
+CLASSIC
+
+Cow
+Extends Animal.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+18
+
+Cow Variant (23)
+
+Variant
+
+TEMPERATE
+
+19
+
+Cow Sound Variant (24)
+
+Sound variant
+
+CLASSIC
+
+Fox
+Extends Animal.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+18
+
+VarInt (1)
+
+Type (0: red, 1: snow)
+
+0 (red)
+
+19
+
+Byte (0)
+
+Bit mask
+
+Meaning
+
+0
+
+0x01
+
+Is sitting
+
+0x02
+
+Unused
+
+0x04
+
+Is crouching
+
+0x08
+
+Is interested
+
+0x10
+
+Is pouncing
+
+0x20
+
+Is sleeping
+
+0x40
+
+Is faceplanted
+
+0x80
+
+Is defending
+
+20
+
+Optional Living Entity Reference (13)
+
+First UUID (in UUIDs NBT)?
+
+Absent
+
+21
+
+Optional Living Entity Reference (13)
+
+Second UUID (in UUIDs NBT)?
+
+Absent
+
+Frog
+Extends Animal.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+18
+
+Frog Variant (27)
+
+Frog Variant
+
+TEMPERATE
+
+19
+
+Optional VarInt (19)
+
+Tongue Target
+
+0
+
+Happy Ghast
+Extends Animal.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+18
+
+Boolean (8)
+
+Is leash holder
+
+false
+
+19
+
+Boolean (8)
+
+Stays still
+
+false
+
+Goat
+Extends Animal.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+18
+
+Boolean (8)
+
+Is Screaming Goat
+
+false
+
+19
+
+Boolean (8)
+
+Has Left Horn
+
+true
+
+20
+
+Boolean (8)
+
+Has Right Horn
+
+true
+
+Hoglin
+Extends Animal.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+18
+
+Boolean (8)
+
+Is immune to zombification
+
+false
+
+Mooshroom
+Extends Animal.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+18
+
+VarInt (1)
+
+Variant ("red" or "brown")
+
+red
+
+Ocelot
+Extends Animal.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+18
+
+Boolean (8)
+
+Is trusting
+
+false
+
+Panda
+Extends Animal.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+18
+
+VarInt (1)
+
+Breed timer?  Set to 32 when something happens, and then counts down to 0 again.  At 29 and 14 (before counting down), will play the entity.panda.cant_breed sound event.
+
+0
+
+19
+
+VarInt (1)
+
+Sneeze timer.  Counts up from 0; when it hits 1 the entity.panda.pre_sneeze event plays and when it hits 21 the entity.panda.sneeze event plays (and it is set back to 0 and the sneeze flag is cleared).
+
+0
+
+20
+
+VarInt (1)
+
+Eat timer.  If nonzero, counts upwards.
+
+0
+
+21
+
+Byte (0)
+
+Main Gene
+
+0
+
+22
+
+Byte (0)
+
+Hidden Gene
+
+0
+
+23
+
+Byte (0)
+
+Bit mask
+
+Meaning
+
+0
+
+0x01
+
+Unused
+
+0x02
+
+Is sneezing
+
+0x04
+
+Is rolling
+
+0x08
+
+Is sitting
+
+0x10
+
+Is on back
+
+Pig
+Extends Animal.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+18
+
+VarInt (1)
+
+Total time to "boost" with a carrot on a stick for
+
+0
+
+19
+
+Pig Variant (28)
+
+Variant
+
+TEMPERATE
+
+20
+
+Pig Sound Variant (29)
+
+Sound variant
+
+CLASSIC
+
+Whenever a carrot on a stick is used, if the pig is not currently boosting it will start to boost for 140 to 980 (inclusive) ticks.  When boost time is changed, a counter is reset which counts up to the boost time, after which boosting will stop.  The value remains set at its modified value even after boosting is stopped.
+
+Polar Bear
+Extends Animal.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+18
+
+Boolean (8)
+
+Is standing up
+
+false
+
+Rabbit
+Extends Animal.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+18
+
+VarInt (1)
+
+Type
+
+0
+
+Sheep
+Extends Animal.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+18
+
+Byte (0)
+
+Bit mask
+
+Meaning
+
+0
+
+0x0F
+
+Color ID
+
+0x10
+
+Is sheared
+
+Sniffer
+Extends Animal.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+18
+
+Sniffer State (35)
+
+Sniffer State
+
+IDLING
+
+19
+
+VarInt (1)
+
+Drop seed at tick
+
+0
+
+Strider
+Extends Animal.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+18
+
+VarInt (1)
+
+Total time to "boost" with warped fungus on a stick for
+
+0
+
+19
+
+Boolean (8)
+
+Is shaking (true unless riding a vehicle or on or in a block tagged with strider_warm_blocks (default: lava))
+
+false
+
+Turtle
+Extends Animal.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+18
+
+Boolean (8)
+
+Has egg
+
+false
+
+19
+
+Boolean (8)
+
+Laying egg
+
+false
+
+Abstract Horse
+Extends Animal.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+18
+
+Byte (0)
+
+Bit mask
+
+Meaning
+
+0
+
+0x01
+
+Unused
+
+0x02
+
+Is tame
+
+0x04
+
+Unused (previously is saddled)
+
+0x08
+
+Has bred
+
+0x10
+
+Is eating
+
+0x20
+
+Is rearing (on hind legs)
+
+0x40
+
+Is mouth open
+
+Camel
+Extends Abstract Horse.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+19
+
+Boolean (8)
+
+Is dashing
+
+False
+
+20
+
+VarLong (2)
+
+Last pose change tick
+
+0
+
+Camel Husk
+Extends Camel.
+No additional metadata.
+
+Horse
+Extends Abstract Horse.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+19
+
+VarInt (1)
+
+Variant (Color & Style)
+
+0
+
+Skeleton Horse
+Extends Abstract Horse.
+No additional metadata.
+
+Zombie Horse
+Extends Abstract Horse.
+No additional metadata.
+
+Chested Horse
+Extends Abstract Horse.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+19
+
+Boolean (8)
+
+Has Chest
+
+false
+
+Donkey
+Extends Chested Horse.
+No additional metadata.
+
+Llama
+Extends Chested Horse.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+20
+
+VarInt (1)
+
+Strength (number of columns of 3 slots in the llama's inventory once a chest is equipped)
+
+0
+
+21
+
+VarInt (1)
+
+Variant (0: llama_creamy.png, 1: llama_white.png, 2: llama_brown.png, 3: llama_gray.png)
+
+0
+
+Trader Llama
+Extends Llama.
+No additional metadata.
+
+Mule
+Extends Chested Horse.
+No additional metadata.
+
+Tameable Animal
+Extends Animal.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+18
+
+Byte (0)
+
+Bit mask
+
+Meaning
+
+0
+
+0x01
+
+Is sitting
+
+0x02
+
+Unused
+
+0x04
+
+Is tamed
+
+19
+
+Optional Living Entity Reference (13)
+
+Owner
+
+Absent
+
+Cat
+Extends Tameable Animal.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+20
+
+Cat Variant (21)
+
+Cat Variant
+
+BLACK
+
+21
+
+Boolean (8)
+
+Is lying
+
+false
+
+22
+
+Boolean (8)
+
+Is relaxed? (This makes their head go slightly upwards, unknown when used)
+
+false
+
+23
+
+VarInt (1)
+
+Collar color (values are those used with dyes)
+
+14 (Red)
+
+24
+
+Cat Sound Variant (22)
+
+Sound variant
+
+CLASSIC
+
+Parrot
+Extends Tameable Animal.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+20
+
+VarInt (1)
+
+Variant (0: red/blue, 1: blue, 2: green, 3: yellow/blue, 4: grey)
+
+0
+
+Wolf
+Extends Tameable Animal.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+20
+
+Boolean (8)
+
+Is begging
+
+false
+
+21
+
+VarInt (1)
+
+Collar color (values are those used with dyes)
+
+14 (Red)
+
+22
+
+VarLong (2)
+
+Anger time
+
+-1
+
+23
+
+Wolf Variant (25)
+
+Variant
+
+PALE
+
+24
+
+Wolf Sound Variant (26)
+
+Sound variant
+
+CLASSIC
+
+Abstract Nautilus
+Extends Tameable Animal.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+20
+
+Boolean (8)
+
+Is dashing
+
+false
+
+Nautilus
+Extends Abstract Nautilus.
+No additional metadata.
+
+Zombie Nautilus
+Extends Abstract Nautilus.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+21
+
+Zombie Nautilus Variant (32)
+
+Variant ID
+
+TEMPERATE
+
+Abstract Cube Mob
+Extends Ageable Mob.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+18
+
+VarInt (1)
+
+Size
+
+1
+
+Magma Cube
+Extends Abstract Cube Mob.
+No additional metadata.
+
+Slime
+Extends Abstract Cube Mob.
+No additional metadata.
+
+Sulfur Cube
+Extends Abstract Cube Mob.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+19
+
+VarInt (1)
+
+Max fuse
+
+-1
+
+20
+
+Boolean (8)
+
+From bucket
+
+false
+
+Abstract Villager
+Extends Ageable Mob.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+18
+
+VarInt (1)
+
+Head shake timer (starts at 40, decrements each tick)
+
+0
+
+Villager
+Extends Abstract Villager.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+19
+
+Villager Data (18)
+
+Villager Data
+
+Plains/None/1
+
+20
+
+Boolean (8)
+
+Villager data finalized
+
+false
+
+Wandering Trader
+Extends Abstract Villager.
+No additional metadata.
+
+Abstract Fish
+Extends Creature.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+16
+
+Boolean (8)
+
+From bucket
+
+False
+
+Cod
+Extends Abstract Fish.
+No additional metadata.
+
+Salmon
+Extends Abstract Fish.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+17
+
+VarInt (1)
+
+Type (SMALL = 0, MEDIUM = 1, LARGE = 2)
+
+1
+
+Tropical Fish
+Extends Abstract Fish.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+17
+
+VarInt (1)
+
+Variant
+
+0
+
+Monster
+Extends Creature.
+No additional metadata.
+
+Blaze
+Extends Monster.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+16
+
+Byte (0)
+
+Bit mask
+
+Meaning
+
+0
+
+0x01
+
+Is on fire
+
+Bogged
+Extends Monster.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+16
+
+Boolean (8)
+
+Is sheared
+
+false
+
+Breeze
+Extends Monster.
+No additional metadata.
+
+Creaking
+Extends Monster.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+16
+
+Boolean (8)
+
+Can move
+
+true
+
+17
+
+Boolean (8)
+
+Is active
+
+false
+
+18
+
+Boolean (8)
+
+Is tearing down
+
+false
+
+19
+
+Optional Position (11)
+
+Home position
+
+Empty
+
+Creeper
+Extends Monster.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+16
+
+VarInt (1)
+
+State (idle = -1, fuse = 1)
+
+-1
+
+17
+
+Boolean (8)
+
+Is charged
+
+false
+
+18
+
+Boolean (8)
+
+Is ignited
+
+false
+
+Enderman
+Extends Monster.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+16
+
+Optional Block State (15)
+
+Carried block
+
+Absent
+
+17
+
+Boolean (8)
+
+Is screaming
+
+false
+
+18
+
+Boolean (8)
+
+Is staring
+
+false
+
+Endermite
+Extends Monster.
+No additional metadata.
+
+Giant
+Extends Monster.
+No additional metadata.
+
+Guardian
+Extends Monster.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+16
+
+Boolean (8)
+
+Is retracting spikes
+
+false
+
+17
+
+VarInt (1)
+
+Target EID
+
+0
+
+Elder Guardian
+Extends Guardian.
+No additional metadata.
+
+Parched
+Extends Monster.
+No additional metadata.
+
+Silverfish
+Extends Monster.
+No additional metadata.
+
+Skeleton
+Extends Monster.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+16
+
+Boolean (8)
+
+Is being converted into a Stray
+
+false
+
+Spider
+Extends Monster.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+16
+
+Byte (0)
+
+Bit mask
+
+Meaning
+
+0
+
+0x01
+
+Is climbing
+
+Cave Spider
+Extends Spider.
+No additional metadata.
+
+Stray
+Extends Monster.
+No additional metadata.
+
+Vex
+Extends Monster.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+16
+
+Byte (0)
+
+Bit mask
+
+Meaning
+
+0
+
+0x01
+
+Is attacking
+
+Warden
+Extends Monster.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+16
+
+VarInt (1)
+
+Anger Level
+
+0
+
+Wither
+Extends Monster.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+16
+
+VarInt (1)
+
+Center head's target (entity ID, or 0 if no target)
+
+0
+
+17
+
+VarInt (1)
+
+Left head's target (entity ID, or 0 if no target)
+
+0
+
+18
+
+VarInt (1)
+
+Right head's target (entity ID, or 0 if no target)
+
+0
+
+19
+
+VarInt (1)
+
+Invulnerable time
+
+0
+
+Wither Skeleton
+Extends Monster.
+No additional metadata.
+
+Zoglin
+Extends Monster.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+16
+
+Boolean (8)
+
+Is baby
+
+false
+
+Zombie
+Extends Monster.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+16
+
+Boolean (8)
+
+Is baby
+
+false
+
+17
+
+VarInt (1)
+
+Unused (previously type)
+
+0
+
+18
+
+Boolean (8)
+
+Is becoming a drowned
+
+false
+
+Drowned
+Extends Zombie.
+No additional metadata.
+
+Husk
+Extends Zombie.
+No additional metadata.
+
+Zombie Villager
+Extends Zombie.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+19
+
+Boolean (8)
+
+Is converting
+
+false
+
+20
+
+Villager Data (18)
+
+Villager Data
+
+Plains/None/1
+
+21
+
+Boolean (8)
+
+Villager data finalized
+
+false
+
+Zombified Piglin
+Extends Zombie.
+No additional metadata.
+
+Base Piglin
+Extends Monster.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+16
+
+Boolean (8)
+
+Is immune to zombification
+
+false
+
+Piglin
+Extends Base Piglin.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+17
+
+Boolean (8)
+
+Is baby
+
+false
+
+18
+
+Boolean (8)
+
+Is charging crossbow
+
+false
+
+19
+
+Boolean (8)
+
+Is dancing
+
+false
+
+Piglin Brute
+Extends Base Piglin.
+No additional metadata.
+
+Raider
+Extends Monster.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+16
+
+Boolean (8)
+
+Is celebrating
+
+false
+
+"Is celebrating" appears to control the pose for vindicators and does not appear to be used by other types.
+
+Pillager
+Extends Raider.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+17
+
+Boolean (8)
+
+Is charging
+
+false
+
+Ravager
+Extends Raider.
+No additional metadata.
+
+Vindicator
+Extends Raider.
+No additional metadata.
+
+Witch
+Extends Raider.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+17
+
+Boolean (8)
+
+Is drinking potion
+
+false
+
+Spellcaster Illager
+Extends Raider.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+17
+
+Byte (0)
+
+Spell (0: none, 1: summon vex, 2: attack, 3: wololo, 4: disappear, 5: blindness)
+
+0
+
+Evoker
+Extends Spellcaster Illager.
+No additional metadata.
+
+Illusioner
+Extends Spellcaster Illager.
+No additional metadata.
+
+Thrown Item Projectile
+Extends Entity.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+8
+
+Slot (7)
+
+Item
+
+Empty (which behaves as the default)
+
+Thrown Egg
+Extends Thrown Item Projectile.
+Default item is minecraft:egg.
+No additional metadata.
+
+Thrown Ender Pearl
+Extends Thrown Item Projectile.
+Default item is minecraft:ender_pearl.
+No additional metadata.
+
+Thrown Bottle o' Enchanting
+Extends Thrown Item Projectile.
+Default item is minecraft:experience_bottle.
+No additional metadata.
+
+Splash Potion
+Extends Thrown Item Projectile.
+No additional metadata.
+
+Lingering Potion
+Extends Thrown Item Projectile.
+No additional metadata.
+
+Snowball
+Extends Thrown Item Projectile.
+Default item is minecraft:snowball.
+No additional metadata.
+
+Abstract Vehicle
+Extends Entity.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+8
+
+VarInt (1)
+
+Shaking power
+
+0
+
+9
+
+VarInt (1)
+
+Shaking direction
+
+1
+
+10
+
+Float (3)
+
+Shaking multiplier
+
+0.0
+
+Boat
+Extends Abstract Vehicle.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+11
+
+Boolean (8)
+
+Is left paddle turning
+
+false
+
+12
+
+Boolean (8)
+
+Is right paddle turning
+
+false
+
+13
+
+VarInt (1)
+
+Splash timer
+
+0
+
+Acacia Boat
+Extends Boat.
+No additional metadata.
+
+Acacia Boat with Chest
+Extends Boat.
+No additional metadata.
+
+Bamboo Raft with Chest
+Extends Boat.
+No additional metadata.
+
+Bamboo Raft
+Extends Boat.
+No additional metadata.
+
+Birch Boat
+Extends Boat.
+No additional metadata.
+
+Birch Boat with Chest
+Extends Boat.
+No additional metadata.
+
+Cherry Boat
+Extends Boat.
+No additional metadata.
+
+Cherry Boat with Chest
+Extends Boat.
+No additional metadata.
+
+Dark Oak Boat
+Extends Boat.
+No additional metadata.
+
+Dark Oak Boat with Chest
+Extends Boat.
+No additional metadata.
+
+Jungle Boat
+Extends Boat.
+No additional metadata.
+
+Jungle Boat with Chest
+Extends Boat.
+No additional metadata.
+
+Mangrove Boat
+Extends Boat.
+No additional metadata.
+
+Mangrove Boat with Chest
+Extends Boat.
+No additional metadata.
+
+Oak Boat
+Extends Boat.
+No additional metadata.
+
+Oak Boat with Chest
+Extends Boat.
+No additional metadata.
+
+Pale Oak Boat
+Extends Boat.
+No additional metadata.
+
+Pale Oak Boat with Chest
+Extends Boat.
+No additional metadata.
+
+Spruce Boat
+Extends Boat.
+No additional metadata.
+
+Spruce Boat with Chest
+Extends Boat.
+No additional metadata.
+
+Abstract Minecart
+Extends Abstract Vehicle.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+11
+
+Optional Block State (15)
+
+Custom block state
+
+0
+
+12
+
+VarInt (1)
+
+Custom block Y position (in 16ths of a block)
+
+6
+
+If custom block state is unset, then each type of Minecart will render its own type of block with its own properties. Note that one does not need to send these values for the metadata fields, as the client will automatically select them if they are not overridden by the metadata field. They are only provided for reference to help with swapping out other blocks.
+
+Rideable Minecarts contain air (minecraft:air) and have a y position of 6
+Chest Minecarts contain chests facing north (minecraft:chest[facing=north]) and have a y position of 8
+Furnace Minecarts contain a normal furnace facing north when unpowered (minecraft:furnace[facing=north]) and a lit furnace facing north when powered (minecraft:furnace[facing=north, lit=true]) and have a y position of 6 in both cases
+Hopper Minecarts contain a hopper (minecraft:hopper) and have a y position of 1
+TNT Minecarts contain TNT (minecraft:tnt) and have a y position of 6
+Command block minecarts contain a Command Block (minecraft:command_block) and have a y position of 6
+Spawner Minecarts contain a spawner (minecraft:spawner) and have a y position of 6
+Minecart with Chest
+Extends Abstract Minecart.
+No additional metadata.
+
+Minecart with Command Block
+Extends Abstract Minecart.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+13
+
+String (4)
+
+Command
+
+14
+
+Text Component (5)
+
+Last output
+
+{"text":""}
+
+Minecart with Furnace
+Extends Abstract Minecart.
+
+Index
+
+Type
+
+Meaning
+
+Default
+
+13
+
+Boolean (8)
+
+Has fuel
+
+false
+
+Minecart with Hopper
+Extends Abstract Minecart.
+No additional metadata.
+
+Minecart
+Extends Abstract Minecart.
+No additional metadata.
+
+Minecart with Monster Spawner
+Extends Abstract Minecart.
+No additional metadata.
+
+Minecart with TNT
+Extends Abstract Minecart.
+No additional metadata.
+
+
+
+This article is licensed under a Creative Commons Attribution-ShareAlike 3.0 license. 
+This article has been imported from wiki.vg or is a derivative of such a page. Thus, the wiki's usual license does not apply.Derivative works must be licensed using the same or a compatible license.

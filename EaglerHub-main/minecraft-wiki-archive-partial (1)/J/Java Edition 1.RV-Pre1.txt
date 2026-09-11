@@ -1,0 +1,238 @@
+This article documents an April Fools' Day joke version. 
+There is no proper release version or development version of Java Edition called 1.RV-Pre1, 1.RV, or the Trendy Update.
+
+
+
+This page covers a release version that has a major issue under certain conditions. 
+The dedicated server for this version has a security vulnerability in the Log4j library that could be used to perform a remote code execution exploit. It can be addressed by appending a certain JVM argument to the server startup command line.
+
+Minecraft 1.RV-Pre1
+
+Edition
+
+Java Edition
+
+Official name
+
+The Trendy Update
+
+Release date
+
+March 31, 2016
+
+Type
+
+Pre-release
+
+Downloads
+
+Client (.json)Server
+
+Protocol version
+
+108
+
+Data version
+
+173
+
+Resource pack format
+
+2
+
+Minimum Java version
+
+Java SE 6
+
+Cache ID
+
+Unspecified
+
+◄◄   15w14a
+1.RV-Pre1
+  3D Shareware v1.34 ►►
+
+{
+    "title": "Minecraft 1.RV-Pre1",
+    "images": [
+        "Trendy update.png",
+        "Java Edition 1.RV-Pre1.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "The Trendy Update",
+            "label": "Official name"
+        },
+        {
+            "field": "March 31, 2016",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Pre-release article, displayed as Pre-release)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/3843fae71dd283e68897ead618255fa1ddcf4c8d/client.jar Client] ([https://piston-meta.mojang.com/v1/packages/3c1973d91e234fa30eb12be0dce7587b0b3c75bd/1.RV-Pre1.json .json])<br />[https://piston-data.mojang.com/v1/objects/f51d9489706f603be6be9716407f1dab5f7f2733/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "108",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "173",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "2",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_6 Java SE 6]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        },
+        {
+            "field": "Unspecified(link to Category:Pending al_version article, displayed as Category:Pending al_version)",
+            "label": "(link to al_version article, displayed as Cache ID)"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" rowspan=\"2\">[[Java Edition  15w14a|<span style=\"margin-right:-0.35em\">◄</span>◄   15w14a]]</td>\n<td rowspan=\"2\" style=\"padding: 0.4em\">'''1.RV-Pre1'''</td>\n<td style=\"padding: 0.4em\" rowspan=\"2\">[[Java Edition  3D Shareware v1.34|  3D Shareware v1.34 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n</tr>\n</table>"
+}
+
+1.RV-Pre1 is an April Fools' joke pre-release, supposedly the first and only pre-release for 1.RV, also known as the Trendy Update, released on March 31, 2016. This version is a fork of 1.9.2.
+
+Contents
+
+1 Additions
+
+1.1 Blocks
+1.2 Items
+
+2 Changes
+3 Issues
+4 Trivia
+5 Gallery
+6 References
+7 Navigation
+
+Additions
+1.RV-Pre1 block and item additions
+Blocks
+ USB charger block
+
+Functions the same as a redstone block, emitting a redstone signal with strength 15.
+Crafted from 7 iron ingots, 1 gold ingot and 1 redstone dust.
+
+Ingredients
+Crafting recipe
+
+Iron Ingot +Redstone Dust +Gold Ingot
+
+Items
+ Reality vision
+
+Equipped via the helmet armor slot.
+When equipped, it shows a 3D minimap.
+Displays a vision overlay (similar to the pumpkin overlay).
+Unlike the pumpkin overlay, this cannot be turned off by pressing F1.
+Activates a shader when equipped.
+Signs display the text "OBEY" while glasses are equipped, a reference to the science fiction movie They Live.
+Stackable up to 64.
+ Ankle monitor
+
+Equipped via the boots armor slot.
+When equipped in Survival mode, they can't be taken off.
+Can be taken off in Creative mode.
+Gives the wearer Slowness I and prints messages in chat if the wearer is 50 blocks away from spawn at night, or in another dimension.
+At night, the Slowness effect will expire and the printed messages will cease if the wearer returns within 50 blocks of spawn.
+Stackable up to 64.
+ Smarter Watch
+
+Equipped on the off-hand slot.
+Shows the time above the hotbar where item tooltips are shown in human readable format (18:00, and 22:00 for example).
+Push notifications in the chat whenever a statistic reaches a significant milestone and when the player takes damage.
+Stackable up to 64.
+Changes
+Mobs
+
+Zombies and skeletons now have a chance of being equipped with any of the 3 equipment items added.
+When they wear the reality vision, they do not attack the player, even if the player attacks them, nor do they retaliate against wolves, snow golems and iron golems. They also don't burn in sunlight.
+Zombies with reality vision still attack villagers.
+Zombies with reality vision can be called by zombies without reality vision as reinforcements to attack the player, tamed wolves, snow golems and iron golems.
+Skeletons do not run away from wolves when wearing reality vision.
+The chance to spawn equipped with them is ~75% for reality vision, 10-15% for the ankle monitor and ~10% for the smarter watch. [check the code]
+Endermen and Creepers now have a chance of being equipped with reality vision
+Endermen do not react to being attacked by the player[needs testing], but are still aggravated by looking at them without wearing a pumpkin.
+They will still attempt to teleport away from environmental damage, like lava (to varying success).
+Creepers are passive, do not retaliate and aren't scared away by ocelots,
+They can still be ignited by flint and steel.
+The chance to be equipped with reality vision is 50%. [check the code]
+Signs
+
+The movie "They Live" is meant to be pronounced "/ðeɪ lɪv/", not "/ðeɪ laɪv/". Darn you, AntVenom.
+Signs have a different unique texture.
+Sign text is now green.
+Signs read "OBEY" while reality vision is equipped. This is a reference to science fiction movie They Live.
+Issues
+1.RV-Pre1 is not supported due to being an April Fools' joke, and therefore issues affecting it will be closed as "Invalid" in the issue tracker.
+
+Trivia
+Despite being an April Fools' joke version, this version was released on March 31.
+Sounds are saved in minecraft/sounds/buzzwords/sound_name.ogg where sound_name is replaced with the actual name of the sound, for example equipvr.ogg.
+The overlay for the reality vision in the assets folder, cantseeshitcaptain.png, is a reference to a popular meme from the TV show Star Trek.
+This is a rare occurrence of official swearing in Minecraft.
+The shader for the reality vision can be disabled by using F4.
+However, when the player goes into third-person view, the shader is activated again.
+More than one reality vision or ankle monitor can be equipped at once by shift-clicking.
+This version was previously removed from the launcher for some time, but was added back in September 2018.
+Curiously, this pre-release uses a #.[letters]-Pre# format instead of a #.##-pre#
+This version features in the lowest number of additions and changes among all April Fool's Day joke versions.
+Gallery
+
+
+
+			The logo for the update.
+
+
+
+			Promotional image for the Trendy Update released by Mojang
+
+
+
+			A player wearing the gear featured in this April Fools' joke version.
+
+
+
+			Signs in this version.
+
+
+
+			Sign
+
+
+
+			Obey Sign
+
+
+
+			Wall Sign
+
+
+
+			Obey Wall Sign
+
+
+References
+
+ "Important Message: Security vulnerability in Java Edition"     – Minecraft.net, December 10, 2021.
+
+ "Minecraft 1.RV - the Trendy Update Pre-release 1"   (Archive)  by Jens Bergensten  – Mojang.com, March 31, 2016.
+
+ MC-100379 – resolved as "Invalid".
+
+Navigation

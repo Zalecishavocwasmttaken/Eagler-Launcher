@@ -1,0 +1,74 @@
+This feature is exclusive to Java Edition. 
+
+
+
+This feature is intended for debugging purposes only, and should not be used during normal play. It might cause crashes and corrupt world saves.
+
+/spawn_armor_trims
+
+Permission levelrequired
+
+2
+
+Restrictions
+
+-DMC_DEBUG_DEV_COMMANDS debug property
+
+{
+    "title": "<code>/spawn_armor_trims</code>",
+    "rows": [
+        {
+            "field": "2",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "<code>-DMC_DEBUG_DEV_COMMANDS</code> (link to debug property article, displayed as debug property)",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+/spawn_armor_trims is a command that can be enabled with the debug property -DMC_DEBUG_DEV_COMMANDS. It spawns armor stands wearing trimmed armor.
+
+Contents
+
+1 Usage
+2 Syntax
+3 Result
+4 Output
+5 History
+6 Navigation
+
+Usage
+A 3-dimensional grid of armor stands with all armor types trimmed with all types of armor trims and trim materials is spawned into the world. The armor stands are positioned such that:
+
+All armor stands on each plane along the X and Y axes have the same trim pattern.
+All armor stands on each plane along the Y and Z axes have the same armor piece.
+All armor stands on each plane along the X and Z axes have the same trim material.
+Each armor stand only has one armor piece.
+All armor stands are invisible, except the ones that wear elytra.
+The armor stands that wear elytra are named "<trim pattern> Armor Trim & <trim material> Material", colored after the trim material's tooltip text color.
+All armor stands have no gravity.
+Syntax
+spawn_armor_trims *_lag_my_game
+
+Spawns the entire grid of armor stands.
+spawn_armor_trims <pattern>
+
+Spawns only the plane of armor stands from the grid along the X and Y axes, which has the specified trim pattern.
+Result
+
+CommandTriggerJava Edition
+
+AnyThe command is incomplete, or any argument is not specified correctly. UnparseableThe specified <pattern> could not be found. ErrorOtherwiseSuccessful
+Output
+
+CommandEditionSituationSuccess Count/execute store success .../execute store result ...
+
+AnyJava EditionOn success110
+History
+Java Edition1.21.9Pre-Release 1
+Added debug property -DMC_DEBUG_DEV_COMMANDS, making the command accessible in the vanilla game.
+Navigation

@@ -1,0 +1,292 @@
+Not to be confused with Ominous Trial Spawner, Trial Omen, or Tricky Trials.
+
+ For other uses, see Ominous.
+
+Trial chambers during an ominous trial
+An ominous trial is an ominous event in which trial chambers become more challenging.
+
+Contents
+
+1 Behavior
+
+1.1 Initiation
+1.2 Time and place
+1.3 Spawner conversion
+1.4 Challenge
+
+1.4.1 Mobs
+1.4.2 Projectile spawning
+
+1.5 Rewards
+
+2 Advancements
+3 History
+
+3.1 Java Edition
+3.2 Bedrock Edition
+
+4 Issues
+5 Gallery
+
+5.1 Mojang screenshots
+
+6 See also
+7 References
+8 Navigation
+
+Behavior
+Initiation
+When a player with Bad Omen is seen by a (non-ominous) trial spawner, the player's Bad Omen is replaced with Trial Omen. The duration of the Trial Omen is always 15 minutes multiplied by the level of Bad Omen, regardless of the remaining duration on the Bad Omen effect. If the player already has the Trial Omen effect, with T minutes remaining, and also has Bad Omen level X (with any amount of time remaining), and is seen by a trial spawner, the player loses the Bad Omen effect (regardless of the values of T and X), and the time remaining on the Trial Omen is set to max(T, 15*X). If T > 15*X, then the Bad Omen is effectively wasted. Notice that the player cannot stack lower levels of Bad Omen to increase the time remaining.
+When a trial spawner sees a player with Trial Omen or Bad Omen, it becomes ominous.
+
+Time and place
+The ominous trial is controlled by the ominous trial spawners. The challenge is provided by the mobs and projectiles spawned by the spawners (more info in § Challenge). Therefore, the ominous trial is located where the ominous trial spawners are, and the duration of the trial is the duration of time that the spawners are both active and ominous. Non-ominous trial spawners also become part of the trial if a player with Bad Omen or Trial Omen is nearby, since the spawners become active and ominous when they see the player.
+In summary, an ominous trial
+
+Lasts as long as either:
+There are active ominous trial spawners in the location.
+There is a player with Trial Omen and there are trial spawners in the location.
+Takes place in:
+Any location where there are active ominous trial spawners nearby.
+Spawner conversion
+Main article: Trial Spawner § Usage
+When an active trial spawner becomes ominous, it despawns its current mobs and resets its total mobs spawned counter.​[more information needed] An inactive trial spawner can also become ominous if it was not previously ominous before going on cooldown, in which case it skips the rest of its cooldown period and immediately becomes active again.
+The Trial Omen effect is not removed upon a trial spawner becoming ominous. Therefore, the ominous trial lasts until the effect runs out or is cleared.
+
+Challenge
+Main article: Ominous Trial Spawner § Usage
+An ominous trial spawner spawns more difficult mobs and also hazardous projectiles.
+
+Mobs
+Ominous trial spawners converted from trial spawners that generate naturally in trial chambers spawn applicable mobs with (better) weapons and wearing armor.
+Each armor set consists of a chestplate and helmet, with each piece having a 50% chance of being missing. All armor is enchanted with Fire Protection IV, Projectile Protection IV, and[verify] Protection IV. In Java Edition, mobs don't drop the armor on death or upon conversion to a drowned. The armor is selected from:
+
+Chainmail armor with bolt armor trim in copper (4 in 7)
+Iron armor with flow armor trim in copper (2 in 7)
+Diamond armor with flow armor trim in copper (1 in 7).
+Melee mobs spawn with a weapon selected from:
+
+Iron sword (4 in 7)
+Iron sword with Sharpness I (1 in 7)
+Iron sword with Knockback I (1 in 7)
+Diamond sword (1 in 7).
+Ranged mobs spawn with a bow with:
+
+no enchantment (2 in 4)
+Power I (1 in 4)
+Punch I (1 in 4).
+Ominous trial spawners with mobs that are unable to wear equipment, such as spiders or silverfish, spawn double the total mob count over the course of the challenge. These spawners also allow an additional mob to be all out at once during their challenge.
+
+Projectile spawning
+When at least one player is within the activation range of an ominous trial spawner, every 8 seconds it spawns ominous item spawners above any player or any mob that was spawned by the ominous trial spawner within 14 blocks. The location where it should spawn is determined by first performing a raycast from the feet of the entity to a random height between 2 and 6 blocks above the entity. If it hits a block, this block is used, otherwise the end of the line is used. Which block can be hit is determined by the same algorithm as the 3rd person camera. The item spawns in the center of the block below it, unless the block has a collision box. The ominous item spawner displays a projectile for 3 to 6 seconds before shooting that projectile downward.
+Each ominous trial spawner has a set of 2 projectiles it spawns, one of which is a lingering potion. The lingering potion effect is selected randomly from one of the following (all with equal chance):
+
+Wind Charged
+Oozing
+Weaving
+Infested
+Strength
+Speed
+Slow Falling
+The second projectile is randomly selected from one of the following (again, all with equal chance):
+
+Arrow
+Arrow with Poison (0:45)
+Arrow with Slowness IV (0:20)
+Small fireball
+Wind charge
+The potions and projectiles chosen do not change between trials and are based on location, so it is likely that spawners close to each other have the same projectiles.
+
+Rewards
+Main article: Ominous Trial Spawner § Loot
+Like its non-ominous variant, an ominous trial spawner ejects loot when it has spawned the total amount of mobs it is able to spawn during a period of activity, and all of those mobs have been defeated. The ominous trial spawner uses a different loot table and gives better loot than a non-ominous trial spawner would. The ominous trial spawner's loot table includes items such as ominous trial keys. This is currently the only method of obtaining ominous trial keys.
+
+Main article: Ominous Vault § Loot
+The ominous trial keys can then be used at any time to open ominous vaults. Each ominous vault can be opened once by each player. A player can open an ominous vault by using an ominous trial key on it.
+In Java Edition and Bedrock Edition, each trial chambers ominous vault contains  items drawn from 3 pools,  with the following distribution:
+
+ Item
+  Stack Size
+  Weight
+  Chance
+  Avg.per container
+  Avg. # containersto loot
+
+1×
+1–3×
+1×
+1×
+1–3×
+1×
+
+Emerald
+4–104–10—145⁄21755⁄15—56.2%5.1331.8
+
+Wind Charge
+8–128–12—116⁄21754⁄15—47.4%5.8672.1
+
+Arrow of Slowness IV
+4–124–12—87⁄21753⁄15—37.5%3.5202.7
+
+Diamond
+2–32–3—58⁄21752⁄15—26.4%0.7333.8
+
+Nothing
+——1——10⁄4025.0%0.2504.0
+
+Flow Armor Trim Smithing Template
+——1——9⁄4022.5%0.2254.4
+
+Enchanted Golden Apple
+——1——9⁄4022.5%0.2254.4
+
+Flow Banner Pattern
+——1——6⁄4015.0%0.1506.7
+
+Ominous Bottle III - V
+11—29⁄21751⁄15—13.9%0.1477.2
+
+Block of Emerald
+1——300⁄2175——13.8%0.1387.2
+
+Enchanted Crossbow
+1——240⁄2175——11.0%0.1109.1
+
+Block of Iron
+1——240⁄2175——11.0%0.1109.1
+
+Golden Apple
+1——180⁄2175——8.3%0.08312.1
+
+Enchanted Diamond Axe
+1——180⁄2175——8.3%0.08312.1
+
+Enchanted Diamond Chestplate
+1——180⁄2175——8.3%0.08312.1
+
+Music Disc (Creator)
+——1——3⁄407.5%0.07513.3
+
+Heavy Core
+——1——3⁄407.5%0.07513.3
+
+Enchanted Book
+1——120⁄2175——5.5%0.05518.1
+
+Enchanted Book
+1——120⁄2175——5.5%0.05518.1
+
+Enchanted Book
+1——120⁄2175——5.5%0.05518.1
+
+Block of Diamond
+1——60⁄2175——2.8%0.02836.2
+{ "chestNames": [ "trial-chambers-reward-ominous" ], "gameVersion": "Java", "loot": { "trial-chambers-reward-ominous": { "poolsJava": [ { "items": { "tipped-arrow-strong-slowness": [ 4, 12, 87 ], "diamond": [ 2, 3, 58 ], "enchanted-book-rnd-wind-burst": [ 1, 1, 120 ], "enchanted-book-rnd-breach-density": [ 1, 1, 120 ], "enchanted-book-rnd-trial-chambers-2": [ 1, 1, 120 ], "golden-apple": [ 1, 1, 180 ], "level-enchanted-diamond-chestplate-4": [ 1, 1, 180 ], "level-enchanted-diamond-axe-2": [ 1, 1, 180 ], "ominous-bottle-2": [ 1, 1, 29 ], "block-of-emerald": [ 1, 1, 300 ], "block-of-diamond": [ 1, 1, 60 ], "wind-charge": [ 8, 12, 116 ], "emerald": [ 4, 10, 145 ], "block-of-iron": [ 1, 1, 240 ], "level-enchanted-crossbow": [ 1, 1, 240 ] }, "rolls": [ 1, 1 ], "totalweight": 2175 }, { "items": { "tipped-arrow-strong-slowness": [ 4, 12, 3 ], "diamond": [ 2, 3, 2 ], "wind-charge": [ 8, 12, 4 ], "emerald": [ 4, 10, 5 ], "ominous-bottle-2": [ 1, 1, 1 ] }, "rolls": [ 1, 3 ], "totalweight": 15 }, { "items": { "disc-creator": [ 1, 1, 3 ], "flow-armor-trim-smithing-template": [ 1, 1, 9 ], "enchanted-golden-apple": [ 1, 1, 9 ], "empty": [ 1, 1, 10 ], "flow-banner-pattern": [ 1, 1, 6 ], "heavy-core": [ 1, 1, 3 ] }, "rolls": [ 1, 1 ], "totalweight": 40 } ], "poolsBedrockUpcoming": [], "itemDataJava": { "block-of-diamond": { "itemname": "block-of-diamond", "sizes": [ 1, "—", "—" ], "sortsize": [ 1, 0, 0 ], "sortweight": [ 60, 0, 0 ], "weights": [ "<sup>60</sup>&frasl;<sub>2175</sub>", "—", "—" ], "avgamount": 0.027586206896551724, "chanceany": 0.02758620689655178 }, "heavy-core": { "sortsize": [ 0, 0, 1 ], "weights": [ "—", "—", "<sup>3</sup>&frasl;<sub>40</sub>" ], "chanceany": 0.07499999999999996, "sizes": [ "—", "—", 1 ], "sortweight": [ 0, 0, 3 ], "armor": 0, "material": 0, "avgamount": 0.075, "itemname": "heavy-core" }, "enchanted-book-rnd-trial-chambers-2": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>120</sup>&frasl;<sub>2175</sub>", "—", "—" ], "chanceany": 0.05517241379310345, "sizes": [ 1, "—", "—" ], "sortweight": [ 120, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.05517241379310345, "itemname": "enchanted-book-rnd-trial-chambers-2" }, "enchanted-book-rnd-wind-burst": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>120</sup>&frasl;<sub>2175</sub>", "—", "—" ], "chanceany": 0.05517241379310345, "sizes": [ 1, "—", "—" ], "sortweight": [ 120, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.05517241379310345, "itemname": "enchanted-book-rnd-wind-burst" }, "block-of-emerald": { "itemname": "block-of-emerald", "sizes": [ 1, "—", "—" ], "sortsize": [ 1, 0, 0 ], "sortweight": [ 300, 0, 0 ], "weights": [ "<sup>300</sup>&frasl;<sub>2175</sub>", "—", "—" ], "avgamount": 0.13793103448275862, "chanceany": 0.13793103448275867 }, "wind-charge": { "itemname": "wind-charge", "sizes": [ "8–12", "8–12", "—" ], "sortsize": [ 10, 10, 0 ], "sortweight": [ 116, 4, 0 ], "weights": [ "<sup>116</sup>&frasl;<sub>2175</sub>", "<sup>4</sup>&frasl;<sub>15</sub>", "—" ], "avgamount": 5.866666666666666, "chanceany": 0.4744480658436214 }, "empty": { "itemname": "empty", "sizes": [ "—", "—", 1 ], "sortsize": [ 0, 0, 1 ], "sortweight": [ 0, 0, 10 ], "weights": [ "—", "—", "<sup>10</sup>&frasl;<sub>40</sub>" ], "avgamount": 0.25, "chanceany": 0.25 }, "level-enchanted-crossbow": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>240</sup>&frasl;<sub>2175</sub>", "—", "—" ], "chanceany": 0.1103448275862069, "sizes": [ 1, "—", "—" ], "sortweight": [ 240, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.1103448275862069, "itemname": "level-enchanted-crossbow" }, "block-of-iron": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>240</sup>&frasl;<sub>2175</sub>", "—", "—" ], "chanceany": 0.1103448275862069, "sizes": [ 1, "—", "—" ], "sortweight": [ 240, 0, 0 ], "armor": 0, "material": 2, "avgamount": 0.1103448275862069, "itemname": "block-of-iron" }, "diamond": { "itemname": "diamond", "sizes": [ "2–3", "2–3", "—" ], "sortsize": [ 2.5, 2.5, 0 ], "sortweight": [ 58, 2, 0 ], "weights": [ "<sup>58</sup>&frasl;<sub>2175</sub>", "<sup>2</sup>&frasl;<sub>15</sub>", "—" ], "avgamount": 0.7333333333333333, "chanceany": 0.26391967078189305 }, "flow-armor-trim-smithing-template": { "sortsize": [ 0, 0, 1 ], "weights": [ "—", "—", "<sup>9</sup>&frasl;<sub>40</sub>" ], "chanceany": 0.22499999999999998, "sizes": [ "—", "—", 1 ], "sortweight": [ 0, 0, 9 ], "armor": 0, "material": 0, "avgamount": 0.225, "itemname": "flow-armor-trim-smithing-template" }, "level-enchanted-diamond-axe-2": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>180</sup>&frasl;<sub>2175</sub>", "—", "—" ], "chanceany": 0.08275862068965523, "sizes": [ 1, "—", "—" ], "sortweight": [ 180, 0, 0 ], "armor": 0, "material": 4, "avgamount": 0.08275862068965517, "itemname": "level-enchanted-diamond-axe-2" }, "flow-banner-pattern": { "itemname": "flow-banner-pattern", "sizes": [ "—", "—", 1 ], "sortsize": [ 0, 0, 1 ], "sortweight": [ 0, 0, 6 ], "weights": [ "—", "—", "<sup>6</sup>&frasl;<sub>40</sub>" ], "avgamount": 0.15, "chanceany": 0.15000000000000002 }, "enchanted-golden-apple": { "sortsize": [ 0, 0, 1 ], "weights": [ "—", "—", "<sup>9</sup>&frasl;<sub>40</sub>" ], "chanceany": 0.22499999999999998, "sizes": [ "—", "—", 1 ], "sortweight": [ 0, 0, 9 ], "armor": 0, "material": 3, "avgamount": 0.225, "itemname": "enchanted-golden-apple" }, "disc-creator": { "sortsize": [ 0, 0, 1 ], "weights": [ "—", "—", "<sup>3</sup>&frasl;<sub>40</sub>" ], "chanceany": 0.07499999999999996, "sizes": [ "—", "—", 1 ], "sortweight": [ 0, 0, 3 ], "armor": 0, "material": 0, "avgamount": 0.075, "itemname": "disc-creator" }, "level-enchanted-diamond-chestplate-4": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>180</sup>&frasl;<sub>2175</sub>", "—", "—" ], "chanceany": 0.08275862068965523, "sizes": [ 1, "—", "—" ], "sortweight": [ 180, 0, 0 ], "armor": 2, "material": 4, "avgamount": 0.08275862068965517, "itemname": "level-enchanted-diamond-chestplate-4" }, "golden-apple": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>180</sup>&frasl;<sub>2175</sub>", "—", "—" ], "chanceany": 0.08275862068965523, "sizes": [ 1, "—", "—" ], "sortweight": [ 180, 0, 0 ], "armor": 0, "material": 3, "avgamount": 0.08275862068965517, "itemname": "golden-apple" }, "tipped-arrow-strong-slowness": { "itemname": "tipped-arrow-strong-slowness", "sizes": [ "4–12", "4–12", "—" ], "sortsize": [ 8, 8, 0 ], "sortweight": [ 87, 3, 0 ], "weights": [ "<sup>87</sup>&frasl;<sub>2175</sub>", "<sup>3</sup>&frasl;<sub>15</sub>", "—" ], "avgamount": 3.52, "chanceany": 0.3753600000000001 }, "emerald": { "itemname": "emerald", "sizes": [ "4–10", "4–10", "—" ], "sortsize": [ 7, 7, 0 ], "sortweight": [ 145, 5, 0 ], "weights": [ "<sup>145</sup>&frasl;<sub>2175</sub>", "<sup>5</sup>&frasl;<sub>15</sub>", "—" ], "avgamount": 5.133333333333334, "chanceany": 0.5621399176954733 }, "ominous-bottle-2": { "itemname": "ominous-bottle-2", "sizes": [ 1, 1, "—" ], "sortsize": [ 1, 1, 0 ], "sortweight": [ 29, 1, 0 ], "weights": [ "<sup>29</sup>&frasl;<sub>2175</sub>", "<sup>1</sup>&frasl;<sub>15</sub>", "—" ], "avgamount": 0.14666666666666667, "chanceany": 0.1391394238683127 }, "enchanted-book-rnd-breach-density": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>120</sup>&frasl;<sub>2175</sub>", "—", "—" ], "chanceany": 0.05517241379310345, "sizes": [ 1, "—", "—" ], "sortweight": [ 120, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.05517241379310345, "itemname": "enchanted-book-rnd-breach-density" } }, "display_name": "trial chambers ominous vault", "superheader": "[[Trial Chambers]]", "poolsJavaUpcoming": [], "structure": "Trial Chambers", "container": "Ominous vault", "itemDataJavaUpcoming": [], "allRollsJavaUpcoming": [], "itemDataBedrock": { "block-of-diamond": { "itemname": "block-of-diamond", "sizes": [ 1, "—", "—" ], "sortsize": [ 1, 0, 0 ], "sortweight": [ 60, 0, 0 ], "weights": [ "<sup>60</sup>&frasl;<sub>2175</sub>", "—", "—" ], "avgamount": 0.027586206896551724, "chanceany": 0.02758620689655178 }, "heavy-core": { "sortsize": [ 0, 0, 1 ], "weights": [ "—", "—", "<sup>3</sup>&frasl;<sub>40</sub>" ], "chanceany": 0.07499999999999996, "sizes": [ "—", "—", 1 ], "sortweight": [ 0, 0, 3 ], "armor": 0, "material": 0, "avgamount": 0.075, "itemname": "heavy-core" }, "enchanted-book-rnd-trial-chambers-2": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>120</sup>&frasl;<sub>2175</sub>", "—", "—" ], "chanceany": 0.05517241379310345, "sizes": [ 1, "—", "—" ], "sortweight": [ 120, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.05517241379310345, "itemname": "enchanted-book-rnd-trial-chambers-2" }, "enchanted-book-rnd-wind-burst": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>120</sup>&frasl;<sub>2175</sub>", "—", "—" ], "chanceany": 0.05517241379310345, "sizes": [ 1, "—", "—" ], "sortweight": [ 120, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.05517241379310345, "itemname": "enchanted-book-rnd-wind-burst" }, "block-of-emerald": { "itemname": "block-of-emerald", "sizes": [ 1, "—", "—" ], "sortsize": [ 1, 0, 0 ], "sortweight": [ 300, 0, 0 ], "weights": [ "<sup>300</sup>&frasl;<sub>2175</sub>", "—", "—" ], "avgamount": 0.13793103448275862, "chanceany": 0.13793103448275867 }, "wind-charge": { "itemname": "wind-charge", "sizes": [ "8–12", "8–12", "—" ], "sortsize": [ 10, 10, 0 ], "sortweight": [ 116, 4, 0 ], "weights": [ "<sup>116</sup>&frasl;<sub>2175</sub>", "<sup>4</sup>&frasl;<sub>15</sub>", "—" ], "avgamount": 5.866666666666666, "chanceany": 0.4744480658436214 }, "empty": { "itemname": "empty", "sizes": [ "—", "—", 1 ], "sortsize": [ 0, 0, 1 ], "sortweight": [ 0, 0, 10 ], "weights": [ "—", "—", "<sup>10</sup>&frasl;<sub>40</sub>" ], "avgamount": 0.25, "chanceany": 0.25 }, "level-enchanted-crossbow": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>240</sup>&frasl;<sub>2175</sub>", "—", "—" ], "chanceany": 0.1103448275862069, "sizes": [ 1, "—", "—" ], "sortweight": [ 240, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.1103448275862069, "itemname": "level-enchanted-crossbow" }, "block-of-iron": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>240</sup>&frasl;<sub>2175</sub>", "—", "—" ], "chanceany": 0.1103448275862069, "sizes": [ 1, "—", "—" ], "sortweight": [ 240, 0, 0 ], "armor": 0, "material": 2, "avgamount": 0.1103448275862069, "itemname": "block-of-iron" }, "diamond": { "itemname": "diamond", "sizes": [ "2–3", "2–3", "—" ], "sortsize": [ 2.5, 2.5, 0 ], "sortweight": [ 58, 2, 0 ], "weights": [ "<sup>58</sup>&frasl;<sub>2175</sub>", "<sup>2</sup>&frasl;<sub>15</sub>", "—" ], "avgamount": 0.7333333333333333, "chanceany": 0.26391967078189305 }, "flow-armor-trim-smithing-template": { "sortsize": [ 0, 0, 1 ], "weights": [ "—", "—", "<sup>9</sup>&frasl;<sub>40</sub>" ], "chanceany": 0.22499999999999998, "sizes": [ "—", "—", 1 ], "sortweight": [ 0, 0, 9 ], "armor": 0, "material": 0, "avgamount": 0.225, "itemname": "flow-armor-trim-smithing-template" }, "level-enchanted-diamond-axe-2": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>180</sup>&frasl;<sub>2175</sub>", "—", "—" ], "chanceany": 0.08275862068965523, "sizes": [ 1, "—", "—" ], "sortweight": [ 180, 0, 0 ], "armor": 0, "material": 4, "avgamount": 0.08275862068965517, "itemname": "level-enchanted-diamond-axe-2" }, "flow-banner-pattern": { "itemname": "flow-banner-pattern", "sizes": [ "—", "—", 1 ], "sortsize": [ 0, 0, 1 ], "sortweight": [ 0, 0, 6 ], "weights": [ "—", "—", "<sup>6</sup>&frasl;<sub>40</sub>" ], "avgamount": 0.15, "chanceany": 0.15000000000000002 }, "enchanted-golden-apple": { "sortsize": [ 0, 0, 1 ], "weights": [ "—", "—", "<sup>9</sup>&frasl;<sub>40</sub>" ], "chanceany": 0.22499999999999998, "sizes": [ "—", "—", 1 ], "sortweight": [ 0, 0, 9 ], "armor": 0, "material": 3, "avgamount": 0.225, "itemname": "enchanted-golden-apple" }, "disc-creator": { "sortsize": [ 0, 0, 1 ], "weights": [ "—", "—", "<sup>3</sup>&frasl;<sub>40</sub>" ], "chanceany": 0.07499999999999996, "sizes": [ "—", "—", 1 ], "sortweight": [ 0, 0, 3 ], "armor": 0, "material": 0, "avgamount": 0.075, "itemname": "disc-creator" }, "level-enchanted-diamond-chestplate-4": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>180</sup>&frasl;<sub>2175</sub>", "—", "—" ], "chanceany": 0.08275862068965523, "sizes": [ 1, "—", "—" ], "sortweight": [ 180, 0, 0 ], "armor": 2, "material": 4, "avgamount": 0.08275862068965517, "itemname": "level-enchanted-diamond-chestplate-4" }, "golden-apple": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>180</sup>&frasl;<sub>2175</sub>", "—", "—" ], "chanceany": 0.08275862068965523, "sizes": [ 1, "—", "—" ], "sortweight": [ 180, 0, 0 ], "armor": 0, "material": 3, "avgamount": 0.08275862068965517, "itemname": "golden-apple" }, "tipped-arrow-strong-slowness": { "itemname": "tipped-arrow-strong-slowness", "sizes": [ "4–12", "4–12", "—" ], "sortsize": [ 8, 8, 0 ], "sortweight": [ 87, 3, 0 ], "weights": [ "<sup>87</sup>&frasl;<sub>2175</sub>", "<sup>3</sup>&frasl;<sub>15</sub>", "—" ], "avgamount": 3.52, "chanceany": 0.3753600000000001 }, "emerald": { "itemname": "emerald", "sizes": [ "4–10", "4–10", "—" ], "sortsize": [ 7, 7, 0 ], "sortweight": [ 145, 5, 0 ], "weights": [ "<sup>145</sup>&frasl;<sub>2175</sub>", "<sup>5</sup>&frasl;<sub>15</sub>", "—" ], "avgamount": 5.133333333333334, "chanceany": 0.5621399176954733 }, "ominous-bottle-2": { "itemname": "ominous-bottle-2", "sizes": [ 1, 1, "—" ], "sortsize": [ 1, 1, 0 ], "sortweight": [ 29, 1, 0 ], "weights": [ "<sup>29</sup>&frasl;<sub>2175</sub>", "<sup>1</sup>&frasl;<sub>15</sub>", "—" ], "avgamount": 0.14666666666666667, "chanceany": 0.1391394238683127 }, "enchanted-book-rnd-breach-density": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>120</sup>&frasl;<sub>2175</sub>", "—", "—" ], "chanceany": 0.05517241379310345, "sizes": [ 1, "—", "—" ], "sortweight": [ 120, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.05517241379310345, "itemname": "enchanted-book-rnd-breach-density" } }, "poolsBedrock": [ { "items": { "tipped-arrow-strong-slowness": [ 4, 12, 87 ], "diamond": [ 2, 3, 58 ], "enchanted-book-rnd-wind-burst": [ 1, 1, 120 ], "enchanted-book-rnd-breach-density": [ 1, 1, 120 ], "enchanted-book-rnd-trial-chambers-2": [ 1, 1, 120 ], "golden-apple": [ 1, 1, 180 ], "level-enchanted-diamond-chestplate-4": [ 1, 1, 180 ], "level-enchanted-diamond-axe-2": [ 1, 1, 180 ], "ominous-bottle-2": [ 1, 1, 29 ], "block-of-emerald": [ 1, 1, 300 ], "block-of-diamond": [ 1, 1, 60 ], "wind-charge": [ 8, 12, 116 ], "emerald": [ 4, 10, 145 ], "block-of-iron": [ 1, 1, 240 ], "level-enchanted-crossbow": [ 1, 1, 240 ] }, "rolls": [ 1, 1 ], "totalweight": 2175 }, { "items": { "tipped-arrow-strong-slowness": [ 4, 12, 3 ], "diamond": [ 2, 3, 2 ], "wind-charge": [ 8, 12, 4 ], "emerald": [ 4, 10, 5 ], "ominous-bottle-2": [ 1, 1, 1 ] }, "rolls": [ 1, 3 ], "totalweight": 15 }, { "items": { "disc-creator": [ 1, 1, 3 ], "flow-armor-trim-smithing-template": [ 1, 1, 9 ], "enchanted-golden-apple": [ 1, 1, 9 ], "empty": [ 1, 1, 10 ], "flow-banner-pattern": [ 1, 1, 6 ], "heavy-core": [ 1, 1, 3 ] }, "rolls": [ 1, 1 ], "totalweight": 40 } ], "allRollsBedrockUpcoming": [], "allRollsBedrock": [ 1, "1–3", 1 ], "itemDataBedrockUpcoming": [], "chest_type": "reward-container", "header": "Ominous vault", "allRollsJava": [ 1, "1–3", 1 ], "link": "[[trial chambers]] ominous vault", "structID": "trial-chambers" } } }
+
+ The size of stacks (or for unstackable items, number) of this item on any given roll.
+
+ The weight of this item relative to other items in the pool.
+
+ The odds of finding any of this item in a single chest.
+
+ The number of items expected per chest, averaged over a large number of chests.
+
+ The average number of chests the player should expect to search to find any of this item.
+
+ 'Nothing' does not refer to the chance of an empty chest.  Instead, it refers to the chance that the random loot generator does not add any loot on a single roll.
+
+ Ominous bottle level between III and V
+
+ Enchantment probabilities are the same as a level-5 to level-20 enchantment would be on an enchanting table that was able to apply treasure enchantments (except Soul Speed, Swift Sneak, and Wind Burst), and where the chance of multiple enchantments is not reduced.
+
+ Enchantment probabilities are the same as a level-10 to level-20 enchantment would be on an enchanting table that was able to apply treasure enchantments (except Soul Speed, Swift Sneak, and Wind Burst), and where the chance of multiple enchantments is not reduced.
+
+ Enchanted with a random level of Breach, or Density.
+
+ Enchanted with a random level of Knockback, Punch, Smite, Looting, or Multishot.
+
+ Enchanted with level I of Wind Burst.
+
+Advancements
+IconAdvancementIn-game descriptionActual requirements (if different)How Did We Get Here?Have every effect applied at the same time
+Have all of these 34 status effects applied to the player at the same time:
+
+Absorption
+Bad Omen
+Blindness
+Breath of the Nautilus
+Conduit Power
+Darkness
+Dolphin's Grace
+Fire Resistance
+Glowing
+Haste
+Hero of the Village
+Hunger
+Infested
+Invisibility
+Jump Boost
+Levitation
+Mining Fatigue
+Nausea
+Night Vision
+Oozing
+Poison
+Raid Omen
+Regeneration
+Resistance
+Slow Falling
+Slowness
+Speed
+Strength
+Trial Omen
+Water Breathing
+Weakness
+Weaving
+Wind Charged
+Wither
+
+The source of the effects is irrelevant for the purposes of this advancement. Other status effects may be applied to the player, but are ignored for this advancement.
+
+See also: Tutorial:Advancement guide/How Did We Get Here?
+
+This is a hidden advancement, meaning that it can be viewed by the player only after completing it, regardless of if its child advancement(s), if any, have been completed.RevaultingUnlock an Ominous Vault with an Ominous Trial Key—Over-OverkillDeal 50 hearts of damage in a single hit using the MaceDamage can be dealt to any mob, even those that do not have 50 hearts of health overall.
+History
+Java Edition
+Java Edition1.20.5ExperimentUpdate 1.2124w13a
+Added ominous trials.1.2124w18a
+Ominous trials are now available without using the "Update 1.21" experimental data pack.
+Bedrock Edition
+Bedrock Edition1.21.0ExperimentUpdate 1.21Preview 1.21.0.20
+Added ominous trials.1.21.0Preview 1.21.0.22
+Ominous trials are now available without using the "Update 1.21" experimental toggle.
+Issues
+Issues relating to "Ominous Trial" are maintained on the bug tracker. Issues should be reported and viewed there.
+
+Gallery
+Mojang screenshots
+
+
+
+			Several strays spawning during an ominous trial
+
+
+
+			Makena fighting several bogged during an ominous trial
+
+
+
+			Noor fighting in the Trial Chambers with the Trial Omen effect.
+
+
+See also
+Raid
+References
+
+ "Introducing the mace and ominous events"     by Cristina Anderca  – Minecraft.net, March 27, 2024.
+
+ MCPE-189946 – Ominous Trial mobs drop equipped armor and weapons on death
+
+ MC-296111 – Tipped arrows from ominous trial spawners use standard potion duration instead of tipped arrow duration
+
+Navigation

@@ -1,0 +1,269 @@
+This feature is exclusive to Bedrock Edition and Minecraft Education. 
+
+Agent
+
+Health points
+
+∞
+
+Behavior
+
+Passive
+
+Attackstrength
+
+5HP
+
+Hitbox size
+
+Height: 0.93 blocksWidth: 0.6 blocks
+
+Spawn
+
+See Spawning
+
+{
+    "title": "Agent",
+    "rows": [
+        {
+            "field": "∞",
+            "label": "(link to Health article, displayed as Health points)"
+        },
+        {
+            "field": "Passive",
+            "label": "Behavior"
+        },
+        {
+            "field": "5<span class=\"hidden-alt-text\">HP</span><span class=\"nowrap mc-hearts\"><span class=\"iconbar pixel-image nowrap\" style=\"--icon-offset:-1px;\" title=\"2.5  hearts\">(link to File:Heart (icon).png article, displayed as 9px|link=|alt=❤️)(link to File:Heart (icon).png article, displayed as 9px|link=|alt=❤️)(link to File:Half Heart (icon).png article, displayed as 9px|link=|alt=💔)</span></span>",
+            "label": "Attack<br/>strength"
+        },
+        {
+            "field": "Height: 0.93 blocks<br>Width: 0.6 blocks",
+            "label": "(link to Hitbox article, displayed as Hitbox size)"
+        },
+        {
+            "field": "See (link to #Spawning article, displayed as Spawning)",
+            "label": "(link to Mob spawning article, displayed as Spawn)"
+        }
+    ],
+    "invimages": [
+        "Agent Spawn Egg"
+    ],
+    "images": [
+        "Agent.png"
+    ]
+}
+
+An agent is a mob that helps players learn coding, by getting a player to code the actions on one. Agents can be programmed to execute several tasks, like planting and harvesting, mining, chopping trees, and building. It is only available in Minecraft Education and Bedrock Edition worlds connected to a WebSocket server.
+
+Contents
+
+1 Spawning
+2 Usage
+
+2.1 Agent commands
+
+3 Sounds
+4 Data values
+
+4.1 ID
+
+5 History
+
+5.1 Bedrock Edition
+5.2 Minecraft Education
+
+6 Issues
+7 Trivia
+8 Gallery
+
+8.1 Textures
+8.2 Screenshots
+8.3 In other media
+
+9 External links
+10 Navigation
+
+Spawning
+In a Bedrock Edition world not connected to a WebSocket server, agents are unused and these have no AI unless spawned by putting the command /summon agent 56 or /execute as @p run agent create into an NPC, but can still store items given to them by a player in its inventory. Agents can also teleport between dimensions with the player. After spawning them, they may not be removed in Bedrock Edition.[verify]
+Agents can be spawned with its spawn egg, obtainable with /give @p agent_spawn_egg 56. However, they do not spawn while using its spawn egg in Bedrock Edition. Agents always spawn with a name tag hovering over them which says the player's name and then ".Agent".
+
+Usage
+In Minecraft Education, agents are used in conjunction with Code Connection, and are programmable by a visual programming language.
+In the Minecraft Education and Bedrock Edition, agents can be used in conjunction with WebSocket servers.
+Agents carry their own 27-slot inventory, which can be manipulated by commands that the player programs one to use, or edited directly by a GUI that the player can access in-game, in any dimension.
+The visual interface allows the player to drag and drop commands, structural constructs and other components into a sequence, and associate the sequence with a custom-named slash command, which can be executed in the traditional way, from the console.
+
+An agent in a dripstone cave
+Agents are completely invulnerable to all forms of damage, although they are targeted by wardens. Agents pass through blocks, vehicles, and projectiles, thus making them unable to ride a minecart or boat. Agents cannot be leashed.
+Agents can push pressure plates and use doors, buttons, levers, and fence gates. They can destroy some blocks that are indestructible in Survival mode, such as bedrock and command block, except for allow and deny blocks.
+
+Agent commands
+Main article: Commands/agent
+attack <direction>
+destroy <direction>
+drop <int:slotNum> <int:quantity> <direction>
+drop all <direction>
+move <direction>
+turn <turnDirection>
+inspect <direction>
+inspect data <direction>
+detect <direction>
+detectredstone <direction>
+transfer <int:srcSlotNum> <int:quantity> <int:dstSlotNum>
+create agent
+remove agent
+teleport to player
+teleport to location facing direction
+collect <string:item>
+till <direction>
+place <int:slotNum> <direction>
+place on move<int:slotNum> <true/false>
+get item count <int:slotNum>
+get item space <int:slotNum>
+get item detail <int:slotNum>
+<direction> refers to forward|back|left|right|up|down
+<turnDirection> refers to left|right
+
+Sounds
+SoundsSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitch​Block placedFriendly MobsWhen an agent is spawnedmob.agent.spawnsubtitles.block.generic.place​??
+Data values
+ID
+NameIdentifierNumeric ID
+Translation key Agentagent56
+entity.agent.name
+History
+Bedrock Edition
+Pocket Edition Alphav0.16.0build 1
+ Added agents.build 2
+Removed agents.Pocket Edition1.0.0alpha 0.17.0.1
+Agents have been re-added, hidden in a(n) .apk file.Bedrock Edition1.8.0beta 1.8.0.8
+Added agent spawn egg texture file.1.9.0beta 1.9.0.0
+Agents can now be spawned by putting the command execute @p ~ ~ ~ agent create into an NPC. Upcoming Bedrock Edition26.50Preview 26.50.25
+The behavior of agents is now available in the vanilla behavior pack.Preview 26.50.26
+The behavior of agents is once again hardcoded and no longer avaliable in the vanilla behavior pack.
+Minecraft Education
+Minecraft Education1.0.1
+ Added learn to code mascot.1.0.2
+The entity ID has been changed from learn_to_code_mascot to agent.1.4.0
+The default name tag color for agents has been changed to blue.1.7
+Agents can now be removed through /remove.
+
+Players now can show their agent's coordinates on the HUD.
+
+/summon agent now creates or teleports the executor's agent to the executor.
+
+Added spawn eggs for agents.1.20.121.20.10.0
+Agents now have no range restrictions, it can move and build far away from the player.
+
+Agents now have an animation for unsuccessful actions.
+
+Agents now choose which item to detect or interact with in a “line of sight” in the direction the code specified, up to 1 block away.
+Issues
+Issues relating to "Agent" are maintained on the bug tracker. Issues should be reported and viewed there.
+
+Trivia
+In 10 Years of Minecraft, there is a puzzle in the "Library" area that involves controlling an agent with glazed terracotta. On the Bedrock Edition version of the map, the agent is added in as a new mob, while on Java Edition, it is an armor stand with remodeled infested chiseled stone bricks on its head.
+Gallery
+Textures
+
+
+
+
+
+
+Screenshots
+
+
+
+			An agent
+
+
+
+			An agent with other passive mobs
+
+
+
+			An agent alongside a NPC and camera in a tutorial world
+
+
+
+			Red-eyed version of Agent in hour of code 2021
+
+
+
+			Yellow-eyed version of Agent in hour of code 2021
+
+
+
+			Green-eyed version of Agent in hour of code 2021
+
+
+
+			Blue-eyed version of Agent in hour of code 2021
+
+
+
+			Pink-eyed version of Agent in hour of code 2021
+
+
+In other media
+
+
+
+			An agent in an official artwork
+
+
+
+			An official render of the agent from Minecraft Education's artwork
+
+
+
+			An agent with Efe and Noor
+
+
+
+			An agent in promotional artwork for the Learn to Code Update
+
+
+
+			An agent in promotional artwork for the GOAT Update
+
+
+
+			An agent in promotional artwork for Mobile, Multiplayer & More
+
+
+
+			An agent building redstone contraptions with children
+
+
+
+			An agent touching a laptop showing the loading screen of Minecraft Education
+
+
+
+
+
+
+
+			An agent in promotional artwork
+
+
+
+			Half a statue of an agent in the Mirror section of Inspiration Island. The player is required to build the other half.
+
+
+
+			An agent with a nitwit picking apples with a ravager
+
+
+External links
+"Build with the agent"     by Tor E. Enne  – Minecraft Education, February 24, 2022.
+Navigation
+
+
+
+
+This was a featured article from May 12, 2025 – May 18, 2025. 
+See Minecraft Wiki:Featured articles for more information.

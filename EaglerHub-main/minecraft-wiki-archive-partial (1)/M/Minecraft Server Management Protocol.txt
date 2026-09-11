@@ -1,0 +1,1096 @@
+This article is a work in progress. 
+Please help expand and improve it. The talk page may contain suggestions.
+
+
+
+
+
+This feature is exclusive to Java Edition. 
+
+Minecraft Server Management Protocol is a server management API (JSON-RPC over WebSocket) for dedicated servers.
+
+Contents
+
+1 Access
+2 Methods
+
+2.1 Allowlist
+2.2 Bans
+2.3 IP Bans
+2.4 Players
+2.5 Operators
+2.6 Server
+2.7 Server Settings
+2.8 Gamerules
+
+3 Notifications
+
+3.1 Server
+3.2 Players
+3.3 Operators
+3.4 Allowlist
+3.5 IP Bans
+3.6 Bans
+3.7 Gamerules
+3.8 World​[upcoming: JE 26.3]
+
+4 Schemas
+
+4.1 Difficulty
+4.2 Game Mode
+4.3 ISO-8601 Instant
+4.4 Incoming IP Ban
+4.5 IP Ban
+4.6 Kick Player
+4.7 Message
+4.8 Operator
+4.9 Player
+4.10 Server State
+4.11 System Message
+4.12 Typed Game Rule
+4.13 Untyped Game Rule
+4.14 User Ban
+4.15 Version
+
+5 History
+6 Issues
+7 Notes
+8 Example implementations
+9 Navigation
+
+Access
+The API is disabled by default and can be enabled in the server.properties file. A server-specific secret can be configured using the management-server-secret property. Clients must authenticate to access the API by providing this secret in one of two ways:
+
+In the Authorization header as a bearer token containing the secret (ex. Authorization: Bearer ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmo)
+In the Sec-WebSocket-Protocol header following the string minecraft-v1, (ex. Sec-WebSocket-Protocol: minecraft-v1,ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmo). This enables use via the web as this header is populated by the JavaScript WebSocket constructor.
+
+server.properties name
+
+Default
+
+Description
+
+management-server-allowed-origins
+
+None
+
+Comma separated list of the origins allowed to connect to the server. Requests will be rejected with a 401 Unauthorized error if they do not contain an Origin HTTP header with a value in this list. If left empty, no clients will be able to connect. The origins provided do not have to be valid URLs/domains.
+
+management-server-enabled
+
+false
+
+Set to true to enable the API
+
+management-server-host
+
+localhost
+
+Host of the API endpoint
+
+management-server-port
+
+0
+
+Port of the API endpoint. Defaults to 0, assigning a random port on startup. Can be changed to a static port.
+
+management-server-secret
+
+If empty on startup a value is generated and written to server.properties
+
+The secret should be exactly 40 alphanumeric characters (A-Z, a-z, 0-9). The secret will be automatically generated if the server property is empty. Unauthorized requests are rejected with 401 Unauthorized.
+
+management-server-tls-enabled
+
+true
+
+Can be set to false to disable TLS. Requires a keystore file to be configured, see management-server-tls-keystore
+
+management-server-tls-keystore
+
+None
+
+The keystore file must be in PKCS12 format
+
+management-server-tls-keystore-password
+
+None
+
+Keystore password can be set in the following ways, in order of priority
+Environment variable: MINECRAFT_MANAGEMENT_TLS_KEYSTORE_PASSWORD
+JVM argument: -Dmanagement.tls.keystore.password=
+Server property: management-server-tls-keystore-password=
+
+The API is accessible at ws://<management-server-host>:<management-server-port> when enabled. It uses the WebSocket protocol and adheres to JSON-RPC 2.0 specification.
+An example command for creating a compatible keystore: keytool -genkeypair -alias testkey -keyalg RSA -keysize 2048 -storetype PKCS12 -keystore test-keystore.p12 -validity 3650
+
+Methods
+Allowlist
+Endpoints are accessible at minecraft:allowlist
+
+Path
+
+Description
+
+Parameters
+
+Result
+
+/
+
+Get the allowlist
+
+None
+
+allowlist: Array<Player>
+
+/set
+
+Set the allowlist to the provided list of players
+
+players: Array<Player>
+
+allowlist: Array<Player>
+
+/add
+
+Add players to the allowlist
+
+add: Array<Player>
+
+allowlist: Array<Player>
+
+/remove
+
+Remove players from allowlist
+
+remove: Array<Player>
+
+allowlist: Array<Player>
+
+/clear
+
+Clear all players in allowlist
+
+None
+
+allowlist: Array<Player>
+
+Bans
+Endpoints are accessible at minecraft:bans
+
+Path
+
+Description
+
+Parameters
+
+Result
+
+/
+
+Get the ban list
+
+None
+
+banlist: Array<User Ban>
+
+/set
+
+Set the banlist
+
+bans: Array<User Ban>
+
+banlist: Array<User Ban>
+
+/add
+
+Add players to the ban list
+
+add: Array<User Ban>
+
+banlist: Array<User Ban>
+
+/remove
+
+Remove players from ban list
+
+remove: Array<Player>
+
+banlist: Array<User Ban>
+
+/clear
+
+Clear all players in ban list
+
+None
+
+banlist: Array<User Ban>
+
+IP Bans
+Endpoints are accessible at minecraft:ip_bans
+
+Path
+
+Description
+
+Parameters
+
+Result
+
+/
+
+Get the ip ban list
+
+None
+
+banlist: Array<IP Ban>
+
+/set
+
+Set the ip banlist
+
+banlist: Array<IP Ban>
+
+banlist: Array<IP Ban>
+
+/add
+
+Add ip to ban list
+
+add: Array<Incoming IP Ban>
+
+banlist: Array<IP Ban>
+
+/remove
+
+Remove ip from ban list
+
+ip: Array<string>
+
+banlist: Array<IP Ban>
+
+/clear
+
+Clear all ips in ban list
+
+None
+
+banlist: Array<IP Ban>
+
+Players
+Endpoints are accessible at minecraft:players
+
+Path
+
+Description
+
+Parameters
+
+Result
+
+/
+
+Get all connected players
+
+None
+
+players: Array<Player>
+
+/kick
+
+Kick players
+
+kick: Array<Kick Player>
+
+kicked: Array<Player>
+
+Operators
+Endpoints are accessible at minecraft:operators
+
+Path
+
+Description
+
+Parameters
+
+Result
+
+/
+
+Get all oped players
+
+None
+
+operators: Array<Operator>
+
+/set
+
+Set all oped players
+
+operators: Array<Operator>
+
+operators: Array<Operator>
+
+/add
+
+Op players
+
+add: Array<Operator>
+
+operators: Array<Operator>
+
+/remove
+
+Deop players
+
+remove: Array<Player>
+
+operators: Array<Operator>
+
+/clear
+
+Deop all players
+
+None
+
+operators: Array<Operator>
+
+Server
+Endpoints are accessible at minecraft:server
+
+Path
+
+Description
+
+Parameters
+
+Result
+
+/status
+
+Get server status
+
+None
+
+status: Server State
+
+/save
+
+Save server state
+
+flush: boolean
+
+saving: boolean
+
+/stop
+
+Stop server
+
+None
+
+stopping: boolean
+
+/system_message
+
+Send a system message
+
+message: System Message
+
+sent: boolean
+
+Server Settings
+Endpoints are accessible at minecraft:serversettings
+
+Path
+
+Description
+
+Parameters
+
+Result
+
+/autosave
+
+Get whether automatic world saving is enabled on the server
+
+None
+
+enabled: boolean
+
+/autosave/set
+
+Enable or disable automatic world saving on the server
+
+enable: boolean
+
+enabled: boolean
+
+/difficulty
+
+Get the current difficulty level of the server
+
+None
+
+difficulty: Difficulty
+
+/difficulty/set
+
+Set the difficulty level of the server
+
+difficulty: Difficulty
+
+difficulty: Difficulty
+
+/enforce_allowlist
+
+Get whether allowlist enforcement is enabled (kicks players immediately when removed from allowlist)
+
+None
+
+enforced: boolean
+
+/enforce_allowlist/set
+
+Enable or disable allowlist enforcement (when enabled, players are kicked immediately upon removal from allowlist)
+
+enforce: boolean
+
+enforced: boolean
+
+/use_allowlist
+
+Get whether the allowlist is enabled on the server
+
+None
+
+used: boolean
+
+/use_allowlist/set
+
+Enable or disable the allowlist on the server (controls whether only allowlisted players can join)
+
+use: boolean
+
+used: boolean
+
+/max_players
+
+Get the maximum number of players allowed to connect to the server
+
+None
+
+max: integer
+
+/max_players/set
+
+Set the maximum number of players allowed to connect to the server
+
+max: integer
+
+max: integer
+
+/pause_when_empty_seconds
+
+Get the number of seconds before the game is automatically paused when no players are online
+
+None
+
+seconds: integer
+
+/pause_when_empty_seconds/set
+
+Set the number of seconds before the game is automatically paused when no players are online
+
+seconds: integer
+
+seconds: integer
+
+/player_idle_timeout
+
+Get the number of seconds before idle players are automatically kicked from the server
+
+None
+
+seconds: integer
+
+/player_idle_timeout/set
+
+Set the number of seconds before idle players are automatically kicked from the server
+
+seconds: integer
+
+seconds: integer
+
+/allow_flight
+
+Get whether flight is allowed for players in Survival mode
+
+None
+
+allowed: boolean
+
+/allow_flight/set
+
+Set whether flight is allowed for players in Survival mode
+
+allowed: boolean
+
+allowed: boolean
+
+/motd
+
+Get the server's message of the day displayed to players
+
+None
+
+message: string
+
+/motd/set
+
+Set the server's message of the day displayed to players
+
+message: string
+
+message: string
+
+/spawn_protection_radius
+
+Get the spawn protection radius in blocks (only operators can edit within this area)
+
+None
+
+radius: integer
+
+/spawn_protection_radius/set
+
+Set the spawn protection radius in blocks (only operators can edit within this area)
+
+radius: integer
+
+radius: integer
+
+/force_game_mode
+
+Get whether players are forced to use the server's default game mode
+
+None
+
+forced: boolean
+
+/force_game_mode/set
+
+Set whether players are forced to use the server's default game mode
+
+force: boolean
+
+forced: boolean
+
+/game_mode
+
+Get the server's default game mode
+
+None
+
+mode: Game Mode
+
+/game_mode/set
+
+Set the server's default game mode
+
+mode: Game Mode
+
+mode: Game Mode
+
+/view_distance
+
+Get the server's view distance in chunks
+
+None
+
+distance: integer
+
+/view_distance/set
+
+Set the server's view distance in chunks
+
+distance: integer
+
+distance: integer
+
+/simulation_distance
+
+Get the server's simulation distance in chunks
+
+None
+
+distance: integer
+
+/simulation_distance/set
+
+Set the server's simulation distance in chunks
+
+distance: integer
+
+distance: integer
+
+/accept_transfers
+
+Get whether the server accepts player transfers from other servers
+
+None
+
+accepted: boolean
+
+/accept_transfers/set
+
+Set whether the server accepts player transfers from other servers
+
+accept: boolean
+
+accepted: boolean
+
+/status_heartbeat_interval
+
+Get the interval in seconds between server status heartbeats
+
+None
+
+seconds: integer
+
+/status_heartbeat_interval/set
+
+Set the interval in seconds between server status heartbeats
+
+seconds: integer
+
+seconds: integer
+
+/operator_user_permission_level
+
+Get the permission level required for operator commands
+
+None
+
+level: integer
+
+/operator_user_permission_level/set
+
+Set the permission level required for operator commands
+
+level: integer
+
+level: integer
+
+/hide_online_players
+
+Get whether the server hides online player information from status queries
+
+None
+
+hidden: boolean
+
+/hide_online_players/set
+
+Set whether the server hides online player information from status queries
+
+hide: boolean
+
+hidden: boolean
+
+/status_replies
+
+Get whether the server responds to connection status requests
+
+None
+
+enabled: boolean
+
+/status_replies/set
+
+Set whether the server responds to connection status requests
+
+enable: boolean
+
+enabled: boolean
+
+/entity_broadcast_range
+
+Get the entity broadcast range as a percentage
+
+None
+
+percentage_points: integer
+
+/entity_broadcast_range/set
+
+Set the entity broadcast range as a percentage
+
+percentage_points: integer
+
+percentage_points: integer
+
+Gamerules
+Endpoints are accessible at minecraft:gamerules
+
+Path
+
+Description
+
+Parameters
+
+Result
+
+/
+
+Get the available game rule keys and their current values
+
+None
+
+gamerules: Array<Typed Game Rule>
+
+/update
+
+Update game rule value
+
+gamerule: Untyped Game Rule
+
+gamerule: Typed Game Rule
+
+Notifications
+Server
+Endpoints are accessible at minecraft:notification/server
+
+Path
+
+Description
+
+Parameters
+
+/started
+
+Server started
+
+None
+
+/stopping
+
+Server shutting down
+
+None
+
+/saving
+
+Server save started
+
+None
+
+/saved
+
+Server save completed
+
+None
+
+/status
+
+Server status heartbeat
+
+status: Server State
+
+/activity
+
+Network connection initialized
+
+None
+
+Players
+Endpoints are accessible at minecraft:notification/players
+
+Path
+
+Description
+
+Parameters
+
+/joined
+
+Player joined
+
+player: Player
+
+/left
+
+Player left
+
+player: Player
+
+Operators
+Endpoints are accessible at minecraft:notification/operators
+
+Path
+
+Description
+
+Parameters
+
+/added
+
+Player was oped
+
+player: Operator
+
+/removed
+
+Player was deoped
+
+player: Operator
+
+Allowlist
+Endpoints are accessible at minecraft:notification/allowlist
+
+Path
+
+Description
+
+Parameters
+
+/added
+
+Player was added to the allowlist
+
+player: Player
+
+/removed
+
+Player was removed from allowlist
+
+player: Player
+
+IP Bans
+Endpoints are accessible at minecraft:notification/ip_bans
+
+Path
+
+Description
+
+Parameters
+
+/added
+
+Ip was added to ip ban list
+
+player: IP Ban
+
+/removed
+
+Ip was removed from ip ban list
+
+player: string
+
+Bans
+Endpoints are accessible at minecraft:notification/bans
+
+Path
+
+Description
+
+Parameters
+
+/added
+
+Player was added to the ban list
+
+player: User Ban
+
+/removed
+
+Player was removed from the ban list
+
+player: Player
+
+Gamerules
+Endpoints are accessible at minecraft:notification/gamerules
+
+Path
+
+Description
+
+Parameters
+
+/updated
+
+Gamerule was changed
+
+gamerule: Typed Game Rule
+
+World​[upcoming: JE 26.3]
+Endpoints are accessible at minecraft:notification/world
+
+Path
+
+Description
+
+Parameters
+
+/upgrade_started
+
+World upgrade started
+
+None
+
+/upgrade_progress
+
+World upgrade progress. Rate limited to 1 notification per second
+
+progress: number between 0 and 1
+
+/upgrade_finished
+
+World upgrade finished
+
+None
+
+/upgrade_failed
+
+World upgrade failed
+
+reason: string
+
+Schemas
+Difficulty
+
+[String]: The difficulty, either peaceful, easy, normal, or hard.
+
+Game Mode
+
+[String]: The game mode, either survival, creative, adventure, or spectator.
+
+ISO-8601 Instant
+
+[String]: An ISO-8601 timestamp that specifies date, time, and timezone offset. Specifically, the format parsed by Java's DateTimeFormatter.ISO_INSTANT. For example, 2011-12-03T10:15:30Z.
+
+Incoming IP Ban
+
+[NBT Compound / JSON Object] An incoming IP ban. At least one of [String] ip or [NBT Compound / JSON Object] player must be present.
+[String] ip: (Optional) IP address to ban. If not present or not a valid IP address, falls back to [NBT Compound / JSON Object] player.
+[NBT Compound / JSON Object] player: (Optional) Player. This player's IP is used if [String] ip isn't valid.
+[String] reason: (Optional) Explanation of why the IP was banned, for display to banned players.
+[String] source: (Optional) Description of the source of the ban. Defaults to Management server. For bans created with /ban-ip, this would be the name of the command executor.
+[String] expires: (Optional) ISO-8601 Instant. If not present, the ban will never expire.
+
+IP Ban
+
+[NBT Compound / JSON Object] An IP ban.
+[String] ip: The IP address that is banned.
+[String] reason: (Optional) Explanation of why the IP was banned, for display to banned players.
+[String] source: (Optional) Description of the source of the ban. Defaults to Management server. For bans created with /ban-ip, this would be the name of the command executor.
+[String] expires: (Optional) ISO-8601 Instant. If not present, the ban will never expire.
+
+Kick Player
+
+[NBT Compound / JSON Object] A kick player request.
+[NBT Compound / JSON Object] player: Player. The player to kick.
+[NBT Compound / JSON Object] message: (Optional) Message. Explanation of why the player was kicked, displayed to the kicked player.
+
+Message
+
+[NBT Compound / JSON Object] A display message that supports translation. If neither [String] translatable nor [String] literal are present, there is no message.
+[String] translatable: (Optional) The translation key to display. If not present, [String] literal is displayed instead.
+[NBT List / JSON Array] translatableParams: (Optional) An array of strings to be inserted into the slots of the translation.
+[String] literal: (Optional) The untranslated message to display if [String] translatable is not present.
+
+Operator
+
+[NBT Compound / JSON Object] A server operator.
+[NBT Compound / JSON Object] player: Player.
+[Int] permissionLevel: (Optional) The permission level that the operator has. Defaults to the default operator permission level.
+[Boolean] bypassesPlayerLimit: (Optional)  Whether this player can join the server even while the number of players online has reached the limit set by the max-players property. Defaults to the player's current [Boolean] bypassesPlayerLimit if they are already an operator, or false if they are not.
+
+Player
+
+[NBT Compound / JSON Object] A player specifier. If neither [String] id nor [String] name are present, this will fail to select any player.
+[String] id: (Optional) The player's UUID in hyphenated hexadecimal form. If not present, falls back to using [String] name.
+[String] name: (Optional) The player's name. Used for selection if [String] id is not present.
+
+Server State
+
+[NBT Compound / JSON Object] The current state of the server.
+[Boolean] started: true if the server has started, otherwise false.
+[NBT List / JSON Array] players: Array<Player>. List of players that are currently online.
+[NBT Compound / JSON Object] version: Version. Version of the server.
+
+System Message
+
+[NBT Compound / JSON Object] A server message.
+[NBT Compound / JSON Object] message: Message. The message to display.
+[Boolean] overlay: If false, the message is displayed in chat. If true, the message is displayed in the action bar.
+[NBT List / JSON Array] receivingPlayers: (Optional) Array<Player>. List of players to send the message to. Defaults to all players.
+
+Typed Game Rule
+
+[NBT Compound / JSON Object] A game rule with a specified type.
+[String] key: The resource ID of the game rule.
+[String] type: The type of the game rule. Either integer or boolean.
+[Int][Boolean][String] value: The value of the game rule. The server will always output an [Int] integer or [Boolean] boolean, as appropriate. Integers can be parsed from [String] strings, but booleans can not.
+
+Untyped Game Rule
+
+[NBT Compound / JSON Object] A game rule of unspecified type.
+[String] key: The resource ID of the game rule.
+[Int][Boolean][String] value: The value of the game rule. Integers can be parsed from [String] strings, but booleans can not.
+
+User Ban
+
+[NBT Compound / JSON Object] A user ban.
+[NBT Compound / JSON Object] player: Player.
+[String] reason: (Optional) Explanation of why the player was banned, for display to banned players.
+[String] source: (Optional) Description of the source of the ban. Defaults to Management server. For bans created with /ban, this would be the name of the command executor.
+[String] expires: (Optional) ISO-8601 Instant. If not present, the ban will never expire.
+
+Version
+
+[NBT Compound / JSON Object] A Minecraft version identifier.
+[String] name: The name of the version.
+[Int] protocol: The protocol version ID.
+
+History
+Java Edition1.21.925w35a
+Added the Minecraft Server Management Protocol.25w37a
+Clients must authenticate to access the API.
+TLS is enabled by default.Pre-Release 1
+Notifications now use minecraft:notification/ prefix instead of notification:.1.21.1125w41a
+The version is now 1.1.0.
+Added a new notification server/activity.25w42a
+Enable authentication from web browsers.
+Added the management-server-allowed-origins field to server.properties.25w44a
+The version is now 2.0.0.
+In the typed_game_rule and untyped_game_rule schemas, the type of the value field has been changed from string to take either a boolean or an integer.26.2snap5
+The version is now 3.0.0.
+The management server now starts before the Minecraft server starts.
+The rpc.discover and notification/server/status methods are now accessible before the dedicated server spins up.Upcoming Java Edition26.3snapshot1
+The version is now 3.1.0.
+Added notifications indicating when the server performs a full world upgrade on startup.
+Issues
+Issues relating to "Minecraft Server Management Protocol" are maintained on the bug tracker. Issues should be reported and viewed there.
+
+Notes
+Supports querying and updating of server state (players, allowlist, operators, settings, game rules).
+Sends notifications on state changes (e.g. player joins, game rule updates).
+Calling {"jsonrpc":"2.0","method":"rpc.discover","id":1} returns an API schema containing supported methods and notifications of the currently running server.
+The Data Generator produces an API schema (json-rpc-api-schema.json) in the reports output folder mirroring the contents returned by the rpc.discover method.
+The API adheres to the JSON-RPC 2.0 specification.
+Uses namespaced methods and the reserved namespace is minecraft (e.g. minecraft:players, minecraft:allowlist/add, minecraft:notification/players/joined).
+Extensible via custom namespaces for additional methods and events.
+Core method groups: players, allowlist, operators, server (save, stop), server settings, game rules.
+Example method call:
+Request: {"method":"minecraft:allowlist/add","id":1,"params":[[{"name":"jeb_"}]]}
+Response: {"jsonrpc":"2.0","id":1,"result":[{"id":"853c80ef-3c37-49fd-aa49-938b674adae6","name":"jeb_"}]}
+Example notification:
+{"jsonrpc":"2.0","method":"minecraft:notification/players/joined","params":[{"id":"853c80ef-3c37-49fd-aa49-938b674adae6","name":"jeb_"}]}
+Example error:
+Request: {"method": "minecraft:foo/bar","id": 1}
+Response: {"jsonrpc":"2.0","id":1,"result":{"jsonrpc":"2.0","id":1,"error":{"code":-32601,"message":"Method not found","data":"Method not found: minecraft:foo/bar"}}}
+Errors and error codes follow JSON-RPC 2.0 error object format.
+Example implementations
+https://github.com/TechnoBro03/MC-SMP (client, Python)
+Navigation

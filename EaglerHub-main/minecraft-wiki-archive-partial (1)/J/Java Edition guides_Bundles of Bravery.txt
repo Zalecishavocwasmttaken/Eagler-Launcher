@@ -1,0 +1,262 @@
+For the Bedrock Edition version of this guide, see Bedrock Edition guides/Bundles of Bravery.
+
+Bundles of Bravery
+
+Edition
+
+Java Edition
+
+Official name
+
+Bundles of Bravery
+
+Version(s)
+
+1.21.2
+1.21.3
+
+◄ Tricky TrialsThe Garden Awakens ►
+
+{
+    "title": "Bundles of Bravery",
+    "images": [],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "Edition"
+        },
+        {
+            "field": "(link to Bundles of Bravery article, displayed as Bundles of Bravery)",
+            "label": "Official name"
+        },
+        {
+            "field": "<ul class=\"hlist\"><li>\n* (link to Java Edition 1.21.2 article, displayed as 1.21.2)\n* (link to Java Edition 1.21.3 article, displayed as 1.21.3)</li></ul>",
+            "label": "Version(s)"
+        }
+    ],
+    "invimages": [],
+    "footer": "<span style=\"display:inline-block; padding:0 .4em;\">[[java Edition guides/Tricky Trials|◄ Tricky Trials]]</span><span style=\"display:inline-block; padding:0 .4em;\">[[java Edition guides/The Garden Awakens |The Garden Awakens ►]]</span>"
+}
+
+This guide is a simplified overview of all non-experimental changes in the Bundles of Bravery drop (Java Edition 1.21.2 and 1.21.3), which assumes at least some familiarity with the Tricky Trials update (Java Edition 1.21 and 1.21.1), excluding experimental features in these versions.
+
+Contents
+
+1 Mobs
+
+1.1 Changed
+
+2 Blocks
+
+2.1 Changed
+
+3 Items
+
+3.1 New
+3.2 Changed
+
+4 Non-mob entities
+
+4.1 Changed
+
+5 Gameplay
+
+5.1 New
+5.2 Changed
+
+6 See also
+
+Mobs
+Changed
+
+Name
+Image
+Changed
+
+Bat
+
+Can now spawn at any height, not just below sea level, as long as it is dark enough and there is a solid block to spawn on.
+
+Blaze
+
+Changed the texture for the bottom face of the blaze's rods.
+
+Breeze
+
+No longer have a minimum distance required to attack a target.
+
+Dolphin,glow squid,and squid
+
+Now have a baby variant.
+There is a 10% chance (for dolphins) or 5% chance (for glow squid and squid) that animals spawned in groups in the wild are babies.
+
+Salmon
+
+Now has small and large variants.
+
+Wolf
+
+Can now also be fed cod, cooked cod, salmon, cooked salmon, tropical fish, pufferfish and rabbit stew to heal, breed them or speed up their growth.
+
+Blocks
+Changed
+
+Name
+Image
+Changed
+
+Bee nestand beehive
+
+Now show information about its level of honey and number of bees.
+Now use their "full" texture when held or in the inventory, and they are at max level of honey.
+
+Loom
+
+Now requires field masoned banner pattern and bordure indented banner pattern to craft corresponding banners.
+
+Nether portal
+
+Reduced teleport cooldown for minecarts and boats from 15 seconds to 0.5 seconds.
+Reduced teleport cooldown for projectiles from 15 seconds to 0.1 seconds.
+
+Redstone torch
+
+Model and item texture has been updated.
+
+Redstone repeater andredstone comparator
+
+
+
+Model has been updated to match the new redstone torch model.
+
+Items
+New
+
+Name
+Image
+Obtaining
+Uses
+
+Bundle
+
+
+
+Name
+Ingredients
+Crafting recipe
+
+Bundle
+
+String +Leather
+
+Dyed Bundle
+
+Any Bundle +Matching Dye
+
+Store up to a stack's worth of mixed item types within itself in a single inventory slot.
+The space taken up by an item depends on its stack size. For example, an item that stacks to 16 (like snowballs) takes up four times as much space as an item that stacks to 64 (like sticks).
+Items that do not stack (like swords) occupy the entire bundle.
+Can be dyed in 16 different colors.
+
+Field masoned banner pattern
+
+Ingredients
+Crafting recipe
+
+Paper +Bricks
+
+Can be used to customize a banner.
+
+Bordure indented banner pattern
+
+Ingredients
+Crafting recipe
+
+Paper +Vines
+
+Can be used to customize a banner.
+
+Changed
+
+Name
+Image
+Changed
+
+Banner patterns
+
+Added unique item textures for each banner pattern.
+
+Non-mob entities
+Changed
+
+Name
+Image
+Changed
+
+Minecart with TNT
+
+Added the explosion_power field, controlling how powerful the explosion is.
+Defaults to 4.
+Field value is added to speed-based explosion power.
+
+Primed TNT
+
+Added the explosion_power field, controlling how powerful the explosion is.
+Defaults to 4.
+
+Arrow and trident
+
+
+
+Now bounce on the world border if hit.
+
+Thrown ender pearl
+
+Now loads and ticks chunks around it in a 3×3 chunk area.
+Ender pearls now ensure that the chunk they are in or travel into is always loaded and ticking.
+An ender pearl creates a ticket for chunk loading any time it moves into a new chunk, and also periodically every 10 seconds.
+They also load chunks when crossing to a new dimension, so that they can always continue to travel.
+This ensures that ender pearls can always land, and makes cross dimensional ender pearl traveling more predictable.
+Ender pearls now unload when a player logs out, and reappear whenever that player logs back in, similar to how mounts behaved previously.
+
+Gameplay
+New
+
+Name
+Description
+
+Death messages
+
+Added a new death message for when killed by a mace smash attack.
+<player/mob> was smashed by <player/mob>
+<player/mob> was smashed by <player/mob> with <item>
+
+Sounds
+
+Added unique break, fall, hit, place, and step sounds for monster spawners.
+
+Changed
+
+Name
+Changed
+
+Oxygen bar
+
+Added an empty state for air bubbles () along with a wobble when the player is drowning.
+Added a popping sound for when bubbles pop on the oxygen bar, increasing in pitch depending on the oxygen left.
+
+Rarity
+
+The rarity of all items and blocks in the game has been re-evaluated to more accurately reflect the current challenge of obtaining them.
+
+Creative mode
+
+Throwing items out of the inventory quickly in creative mode is now throttled.
+
+Raids
+
+A triggered raid no longer starts if the raiders cannot find a place to spawn within a reasonable distance of the village they are trying to raid.
+Raiders must find a place to spawn no more than 96 blocks vertically above or below the village center, or a raid cannot start.
+It is now much less likely for raiders to not find a valid place to spawn when raiding.
+
+See also

@@ -1,0 +1,427 @@
+This article is about features that are in Java Edition, but unused.   For mentioned ideas, see Java Edition mentioned features.   For removed ideas, see Java Edition removed features.
+
+
+
+This article describes content that has been officially made unobtainable in Java Edition. 
+It can still be obtained using third-party software. However, this can cause unexpected behavior such as bugs and crashes.
+
+Since the beginning of Minecraft's development, there have been a number of features added to the game that have no actual use in Survival or in Creative. Some of these features are leftover from removed features, or simply placeholders for new features.
+This article documents only unused features that are currently in the game. See Java Edition removed features for features previously in the game that are no longer available.
+
+Contents
+
+1 Blocks
+
+1.1 Unobtainable block states
+1.2 Unobtainable block state combinations
+1.3 Unobtainable fluid state combinations
+
+2 Entities
+
+2.1 Giant
+2.2 The killer bunny
+2.3 Illusioner
+2.4 Minecart with monster spawner
+2.5 Unused paintings
+2.6 Unused entity states
+
+3 Status effects
+
+3.1 Luck
+3.2 Bad Luck
+3.3 Health Boost
+
+4 Sounds
+5 Key codes
+6 Developer tools
+7 Resources
+
+7.1 Map icons
+
+8 Mob attacks
+
+8.1 Skeleton melee attack
+8.2 Wither skeleton ranged attack
+
+9 Issues
+10 References
+11 Navigation
+
+Blocks
+Unobtainable block states
+
+Block
+
+State
+
+Effect
+
+Decorated pot
+
+cracked: true
+
+When this is set to true, the decorated pot always drops its sherds or bricks regardless of how it is broken.
+
+Piston head
+
+short: true
+
+Piston heads that have this set to true appear shorter by 4 pixels. This state itself does not seem to be used for the piston extension/retraction animation, but its model is used during the animation.
+
+TNT
+
+unstable: true
+
+Breaking TNT that has this set to true does the same thing as lighting it, eventually causing an explosion.
+
+Unobtainable block state combinations
+Certain blocks have certain combinations of block states that cannot be encountered in usual Survival gameplay, and instead require using commands, the debug stick, a debug world, or certain glitches, many version-specific. Some may also be able to be created via update suppression methods, or be able to be created in older game versions and updated forward. As these are impossible to encounter, mapmakers may be able to use some of them as blank slates and remodel these using model files for custom blocks as these cannot be encountered in any gameplay. These states are generally fragile.
+
+Block
+
+Combination
+
+Effect
+
+Bamboo
+
+age: 0
+
+leaves: large
+
+stage: 1
+
+stage: 1
+
+leaves: none, small
+
+Calibrated sculk sensorSculk sensor
+
+power: 0
+sculk_sensor_phase: active
+
+power:1-15
+
+sculk_sensor_phase: cooldown
+
+sculk_sensor_phase: inactive
+
+CampfireSoul campfire
+
+lit: truewaterlogged: true
+
+The graphics setting must be Fabulous! in order to see the emitted flame particles if viewed from out of water.
+
+Candle
+
+lit: truewaterlogged: true
+
+Chorus plant
+
+north: falseeast: falsesouth: falsewest: falsedown: false
+
+Glow lichenSculk vein
+
+north: falseeast: falsesouth: falsewest: falseup: falsedown: false
+
+Hanging signs
+
+attached: falserotation: 1; 2; 3; 5; 6; 7; 9; 10; 11; 13; 14; 15
+
+attached: falsewaterlogged: truerotation: 1; 2; 3; 5; 6; 7; 9; 10; 11; 13; 14; 15
+
+Iron doorIron trapdoor
+
+open ≠ powered
+
+In normal gameplay, open and powered are always simultaneously either true or false, and never mismatched.
+
+Mangrove propagule
+
+age: 0-3hanging: false
+
+stage: 1hanging: true
+
+Pitcher crop
+
+half: upperage: 0; 1; 2
+
+Redstone wire
+
+any side: side / upremaining sides: none
+
+In Java Edition 1.15, redstone wire still stretches all the way to the side opposite its attachment, despite there being valid different block states that have and visually show only one attachment. They were even given distinct models in 20w18a, yet still never made available in normal gameplay.
+
+Resin Clump
+
+all sides: true
+
+Appears identical to with all sides set to false
+
+Scaffolding
+
+bottom: falsedistance: 1-7
+
+bottom: truedistance: 0
+
+Slabs
+
+type: doublewaterlogged: true
+
+Tripwire
+
+disarmed: true
+powered: false
+
+attached: true
+no opposite sides: true
+
+Tripwire hook
+
+attached: false
+powered: true
+
+Interestingly, this combination of block states has a unique model.
+
+Vines
+
+north: falseeast: falsesouth: falsewest: falseup: false
+
+Walls
+
+up: false
+
+all sides: none
+
+any side: tall/low  remaining sides: none
+
+two neighboring sides: tall/low  remaining sides: none
+
+three sides: tall/low  remaining side: none
+
+any side: tall  any other side: low
+
+Unobtainable fluid state combinations
+
+Block
+
+Combination
+
+Effect
+
+Flowing waterFlowing lava
+
+falling: falselevel: 8
+
+Both water and lava created from a corresponding block above have the fluid state falling set to true and level set to 8, while without block above, the fluid state has falling set to false and level set to 1 through 7, making the combinations of falling set to false and level set to 8, and falling set to true and level set to 1 through 7 unobtainable.
+
+falling: truelevel:1-7
+
+Entities
+Giant
+Main article: Giant
+
+Giants are an unused mob added in Indev. They appear to be a giant zombie. Giants have no movement AI, therefore they are unable to walk around. They cannot spawn naturally because the game requires the light level to be both greater than 11 and less than 8 and those conditions cannot be met in vanilla. This makes them impossible to spawn via monster spawners.
+Giants can be summoned only by using the /summon minecraft:giant command.
+In the 18w50a snapshot, the giant has an AI and is able to attack the player. The AI was removed in the 19w03a snapshot.
+In the 2020 April Fools' snapshot, the giant is able to naturally spawn on occasion in custom dimensions.
+In the 2024 April Fools' snapshot, a retextured giant can spawn in the colloseum, in the Potato dimension. It is a part of the boss fight with mega spud, and has an AI.
+
+The killer bunny
+Main article: Killer Rabbit
+
+A variant of the rabbit that is hostile toward all wolves, foxes, and players. Its fur is pure white with blood-red eyes that are horizontal, compared to a normal rabbit's vertical eyes.
+If the killer bunny finds any player within a 16-block radius, it hops quickly toward the player, much faster than a normal rabbit. It moves in a style similar to that of a spider. Once it closes in, it lunges at the player, dealing a fair amount of damage. If the player strikes at the killer bunny, it runs away for a brief moment, then returns to lunging at the player. Killer rabbits are also immune to the Thorns enchantment.
+If it cannot find a player, the killer bunny actively seeks out and attacks any wolves as well, including tamed wolves. These wolves, in turn, turn hostile and attack the killer bunny, leading to a vicious fight.
+On Peaceful difficulty, the killer bunny does not despawn, despite its hostile nature. It still attacks wolves (both tamed and untamed).
+The killer bunny can be spawned only with the /summon minecraft:rabbit ~ ~ ~ {RabbitType:99} command.
+
+Illusioner
+Main article: Illusioner
+
+An unused illager that was added in Java Edition 1.12. Like other illagers, they attack players, villagers, wandering traders and iron golems within a 12 blocks range. It attacks with its spells, and with its bow.
+It has two spells: a spell that blinds its opponent, and a spell that summons duplicates and makes the illusioner invisible.
+The illusioner has a face that is just like the face of an evoker, formerly of a vindicator.
+Illusioners can be spawned only with the /summon minecraft:illusioner command.
+
+Minecart with monster spawner
+Main article: Minecart with Monster Spawner
+
+A combination of a minecart and a monster spawner. Cannot be obtained as an item in the inventory, and can be placed only by using the /summon minecraft:spawner_minecart command.
+The monster spawner inside the minecart acts the same way as normal monster spawners, and the mob being spawned can be changed with /data modify.
+When killed, minecarts with monster spawners drop 1 minecart.
+
+Unused paintings
+Main article: Painting § Unused paintings
+In v0.5.0 alpha, with the addition of paintings to Pocket Edition, four unused 32×32 paintings were present in kz.png that remained unused. They were also added to Java Edition in snapshot 22w16a. They can be summoned by commands (such as /summon minecraft:painting ~ ~ ~ {variant:"water"}) or through a data pack. They can also be found in the Operator Utilities tab in the Creative inventory.
+According to Helen Zbihlyj, these paintings were originally added "as part of a Pocket Edition promo map" (no footage found) that was planned to be a part of Pocket Edition promotion at MINECON 2012 or 2013 and have never been used in game. The artist of these paintings remains unknown.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Unused entity states
+These are all mob states that are unused.
+
+Entitity
+
+State
+
+Notes
+
+All Mobs
+
+Silent:1bNoAI:1bPersistenceRequired:1bGlowing:1bInvulnerable:1b
+
+Slime
+
+Size 4-126
+
+Magma CubeSulfur Cube
+
+Size 2-126
+
+Phantom
+
+size 1-64
+
+Armor Stand
+
+Small:1bNoBasePlate:1bInvisible:1bMarker:1b
+
+Item FrameGlow Item Frame
+
+Invisible:1b
+
+Status effects
+Main article: Status effectsSee also: Fatal Poison
+
+Various status effects remain unused in the game. They can be obtained only by using /effect or potion NBT data.
+
+Luck
+Luck increases the chance of high-quality loot. The Luck effect can be obtained from potions of luck, splash potions of luck, lingering potions of luck and arrows of luck; These items require commands to be obtained.
+From snapshot 19w13a to 1.14 Pre-Release 1, arrows of luck could be obtained from fletcher villagers when the player had the Hero of the Village status effect.
+
+Bad Luck
+Bad Luck is the opposite of Luck; it reduces the chances of high-quality loot. Bad Luck cannot be obtained from potions; It can only be obtained via /effect.
+
+Health Boost
+Added in Java Edition 1.6.1 snapshot 13w23b. The effect boosted the player's hearts for the duration of the effect. It could be obtained from eating a golden apple. Since snapshot 13w24b, golden apples give the player Absorption instead of Health Boost, but the effect was left in the game.
+In Java Edition 1.9 the Health Boost effect's texture was changed to be distinct from Absorption and was again remade in Java Edition 1.14 by Jasper Boerstra (commonly known as Jappa).
+
+Sounds
+
+Nether Ambience
+
+Track
+
+Basalt Deltas Active 1
+
+Basalt Deltas Active 2
+
+Basalt Deltas Active 3
+
+Basalt Deltas Active 4
+
+Basalt Deltas Basalt Ground 4
+
+Warped Forest Mood 8
+
+Warped Forest Mood 9
+
+Silverfish and Endermite Walking Sounds
+
+Track
+
+Step1
+
+Step2
+
+Step3
+
+Step4
+
+Zombie Attacking Iron Door Sounds
+
+Track
+
+Metal1
+
+Metal2
+
+Metal3
+
+Others
+
+Track
+
+Bat loop
+
+Ghast affectionate scream
+
+Classic Hurt
+
+Breath
+
+Some of these sounds are still usable by running:
+
+/playsound minecraft:entity.ghast.scream master @a for the "Ghast affectionate scream" sound.
+/playsound minecraft:entity.player.breath master @a for the "Breath" sound.
+/playsound minecraft:entity.silverfish.step master @a for the "Silverfish walking" sounds.
+/playsound minecraft:entity.endermite.step master @a for the "Endermite walking" sounds.
+/playsound minecraft:entity.zombie.attack_iron_door master @a for the "Zombie attacking iron door" sounds.
+/playsound minecraft:entity.bat.loop @a for the "Bat loop" sound.
+Curiously, the "affectionate scream" can be heard in the Nether Update Official Trailer at 1:03 – 1:04.
+
+Key codes
+A large number of key codes were implemented in Java Edition 26.3 Snapshot 9 which do not correspond to any Windows, macOS or Linux keyboard codes, making them entirely unused in practice. A table is forthcoming.
+
+Developer tools
+Main article: Java developer toolsThere is code for numerous development tools. They remain unused in the latest version of Java Edition but can be enabled with the help of mods.
+Resources
+Main article: Unused textures
+Various resources located in the game's assets files that remain unused.
+
+Map icons
+Some extra icons for maps. The white and green arrows are the only ones used normally, though the colored arrows are used for multiplayer in Bedrock Edition.
+
+Mob attacks
+Skeleton melee attack
+Skeletons normally wield bows, but if one were to spawn in a skeleton with a sword, the skeleton can use it like a normal weapon.
+
+Wither skeleton ranged attack
+If a wither skeleton is spawned with a bow, it can use it as intended, except the arrow is always on fire, even without lava or enchantments.
+
+Issues
+Issues relating to "Unused" are maintained on the bug tracker. Issues should be reported and viewed there.
+
+References
+
+ https://reddit.com/r/Minecraft/comments/u8hpnx/thoughts_on_the_new_paintings/i5olue6/?context=3 (archived)
+
+ MC-185411 – resolved as "Won't fix".
+
+ MC-185414 – resolved as "Won't fix".
+
+ MC-117609
+
+ MC-117609
+
+ MC-218122
+
+ MC-185413 – resolved as "Won't fix".
+
+Navigation

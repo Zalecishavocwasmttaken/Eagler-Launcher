@@ -1,0 +1,88 @@
+This page describes content that has been removed from Minecraft. 
+This feature was present in earlier versions of Minecraft, but has since been removed.
+
+/placefeature
+
+Permission levelrequired
+
+2 ‌[JE  only]
+1 ‌[BE  only]
+
+Restrictions
+
+Cheats only‌[BE  only]
+
+{
+    "title": "<code>/placefeature</code>",
+    "rows": [
+        {
+            "field": "\n* 2 ‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Java Edition\">(link to Java Edition article, displayed as JE)  only</span></i>]</sup>\n* 1 ‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Bedrock Edition\">(link to Bedrock Edition article, displayed as BE)  only</span></i>]</sup>",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "(link to Cheats article, displayed as Cheats) only‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Bedrock Edition\">(link to Bedrock Edition article, displayed as BE)  only</span></i>]</sup>",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+Places a feature at the specified location where meet the placement requirements.
+
+Contents
+
+1 Syntax
+2 Arguments
+3 Result
+4 Output
+5 History
+
+5.1 Java Edition
+5.2 Bedrock Edition
+
+6 References
+7 Navigation
+
+Syntax
+Java Edition
+placefeature <feature> [<pos>]
+Bedrock Edition
+placefeature <featureName: Features> [position: x y z]
+placefeature <featureRule: featureRules> [position: x y z]
+Arguments
+JE: <feature>: resource
+BE: featureName: Features: enum or featureRule: featureRules: enum
+
+In Java Edition, specifies the configured feature to place. Must be a resource location.
+In Bedrock Edition, specifies the feature to place. Must be an namespaced ID of a feature rule or feature. If both a feature rule with the specified ID and a feature with the ID exist, the feature rule is placed.
+See feature for IDs of vanilla features.
+JE: <pos>: block_posBE: position: CommandPosition
+
+Specifies the position of the origin for the feature to be placed.
+In Java Edition, must be a block position composed of <X>, <Y> and <Z>, each of which must be an integer or a tilde and caret notation. In Bedrock Edition, must be a three-dimensional coordinates composed of <X>, <Y> and <Z>, each of which must be a single-precision floating-point number or tilde and caret notation.
+Result
+
+CommandTriggerJava EditionBedrock Edition
+
+Anythe arguments are not specified correctly Unparseable Unparseablethe requirements for the selected feature are not met Failed Failedthere's no configured feature with the provided ID N/A/placefeature ... <pos><pos> is not loadedAnyOtherwiseGenerates the feature in the specified location
+Output
+
+CommandEditionSituationSuccess Count/execute store success .../execute store result ...
+
+AnyJava EditionOn fail000On success111Bedrock EditionOn fail0N/AN/AOn success1N/AN/A
+History
+Java Edition
+Java Edition1.18.222w03a
+Added /placefeature.1.18.2-pre3
+Changed from resource_location to resource argument type for the feature argument.1.1922w18a
+/placefeature has been replaced with /place.
+Bedrock Edition
+Bedrock Edition1.18.30beta 1.18.20.25
+Added /placefeature. The command has not been fully implemented.Preview 1.18.20.28
+Removed /placefeature.
+References
+
+ "@MCPE4theBeacon Not quite ready for full implementation. You might see it go away in the next beta, but the team is still working hard on it!"  – @MattGartzke  on X (formerly Twitter), February 10, 2022
+
+Navigation

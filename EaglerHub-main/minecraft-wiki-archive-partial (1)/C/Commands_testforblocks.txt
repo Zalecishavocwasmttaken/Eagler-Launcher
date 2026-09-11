@@ -1,0 +1,94 @@
+Not to be confused with Commands/testforblock.
+
+
+
+This feature is exclusive to Bedrock Edition and Minecraft Education. 
+
+
+
+This page describes content that has been removed from Java Edition. 
+This feature was present in earlier versions of Java Edition, but has since been removed.
+
+
+
+/testforblocks
+
+Permission levelrequired
+
+1
+
+Restrictions
+
+Cheat only
+
+{
+    "title": "<code>/testforblocks</code>",
+    "rows": [
+        {
+            "field": "1",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "(link to Cheat article, displayed as Cheat) only<br>",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+Tests whether the blocks in two regions match. Shows the number of matching blocks (the total number of blocks in all mode, or the number of source region non-air blocks in masked mode).
+
+Contents
+
+1 Syntax
+2 Arguments
+3 Result
+4 Output
+5 History
+
+5.1 Java Edition
+5.2 Bedrock Edition
+
+6 External links
+7 Navigation
+
+Syntax
+testforblocks <begin: x y z> <end: x y z> <destination: x y z> [masked|all]
+Arguments
+begin: x y z: CommandPosition and end: x y z: CommandPosition
+
+Specifies two opposing corners of the region to use as the pattern to test for (the "source region").
+Must be a three-dimensional coordinates composed of <X>, <Y> and <Z>, each of which must be a single-precision floating-point number or tilde and caret notation.
+Block position is the coordinates of the point at the lower northwest corner of a block. Because of this, the lesser coordinates of each axis falls right on the region boundary, but the greater coordinates are one block from the boundary, and the block volume of the source region is (xgreater - xlesser + 1) × (ygreater - ylesser + 1) × (zgreater - zlesser + 1). For example, 0 0 0 0 0 0 has a 1-block volume, and 0 0 0 1 1 1 and 1 1 1 0 0 0 both identify the same region with an 8-block volume.
+destination: x y z: CommandPosition
+
+Specifies the lower northwestern corner (the corner with the most-negative values) of the region to be checked (the "destination region"). Source and destination regions may overlap.
+Must be a three-dimensional coordinates composed of <X>, <Y> and <Z>, each of which must be a single-precision floating-point number or tilde and caret notation.
+masked|all
+
+Specifies how to match blocks. Must be one of:
+all — every block in the source and destination regions must match exactly.
+masked — air blocks in the source region match any block in the destination region.
+If not specified, defaults to all.
+Result
+
+CommandTriggerBedrock Edition
+
+AnyThe command is incomplete, or any argument is not specified correctly. UnparseableOne or both specified regions are unloaded or out of the world. FailedThe block volume of the source region is greater than 786432.The source and destination regions do not match.AnyOtherwiseSuccessful
+Output
+
+CommandEditionSituationSuccess Count
+
+AnyBedrock EditionOn fail0On success1
+History
+Java Edition
+Java Edition1.814w07a
+Added /testforblocks.1.1317w45a
+Removed /testforblocks.
+Bedrock Edition
+Pocket Edition Alphav0.16.0build 1
+Added /testforblocks.
+External links
+"/testforblocks Command"     – Microsoft Learn, October 11, 2023.
+Navigation

@@ -1,0 +1,244 @@
+v1.19.40
+
+Edition
+
+Bedrock Edition
+
+Release date
+
+October 25, 2022
+
+Server version
+
+1.19.40.02
+
+Internal version
+
+Windows: 1.19.4002.0Android, iOS, iPadOS, Fire: 1.19.40.02Xbox One: 1.19.4002.70PlayStation 4: 2.52
+
+Version code
+
+iOS:852633235
+Android:
+
+951904002 (armeabi-v7a)
+961904002 (x86)
+971904002 (arm64-v8a)
+981904002 (x86_64)
+
+Development versions
+
+Previews (5) Betas (5) (View all)
+
+Downloads
+
+ ServerWindows Linux
+
+Protocol version
+
+557
+
+◄◄   1.19.0
+1.19.40
+  1.20.0 ►►
+
+◄   1.19.31
+
+  1.19.41 ►
+
+{
+    "title": "v1.19.40",
+    "images": [
+        "Bedrock 1.19.40 PatchNotes.png",
+        "Bedrock 1.19.40 (Halloween 2022).png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Bedrock Edition article, displayed as Bedrock Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "October 25, 2022",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Bedrock Dedicated Server 1.19.40.02 article, displayed as 1.19.40.02)",
+            "label": "Server version"
+        },
+        {
+            "field": "'''Windows''': 1.19.4002.0<br>'''Android, iOS, iPadOS, Fire''': 1.19.40.02<br>'''Xbox One''': 1.19.4002.70<br>'''PlayStation 4''': 2.52",
+            "label": "Internal version"
+        },
+        {
+            "field": "'''iOS''':<br>852633235</br>\n'''Android''':\n*951904002 (armeabi-v7a)\n*961904002 (x86)\n*971904002 (arm64-v8a)\n*981904002 (x86_64)",
+            "label": "Version code"
+        },
+        {
+            "field": "<div class=\"hlist\"><span style=\"white-space:nowrap;\">(link to :Category:Bedrock Edition 1.19.40 previews article, displayed as '''Previews''') (5) </span><br/><span style=\"white-space:nowrap;\">(link to :Category:Bedrock Edition 1.19.40 betas article, displayed as '''Betas''') (5) </span><br/>((link to Bedrock Edition 1.19.40/Development versions article, displayed as View all))</div>",
+            "label": "<span style=\"white-space: normal;\">Development versions</span>"
+        },
+        {
+            "field": "'''Server'''<br>[https://minecraft.net/bedrockdedicatedserver/bin-win/bedrock-server-1.19.40.02.zip Windows] [https://minecraft.net/bedrockdedicatedserver/bin-linux/bedrock-server-1.19.40.02.zip Linux]",
+            "label": "Downloads"
+        },
+        {
+            "field": "557",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Bedrock Edition  1.19.0|<span style=\"margin-right:-0.35em\">◄</span>◄   1.19.0]]</td>\n<td rowspan=\"2\" style=\"padding: 0.4em\">'''1.19.40'''</td>\n<td style=\"padding: 0.4em\" >[[Bedrock Edition  1.20.0|  1.20.0 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Bedrock Edition  1.19.31|◄   1.19.31]]\n</td>\n\n<td style=\"padding: 0.4em\">\n[[Bedrock Edition  1.19.41|  1.19.41 ►]]\n</td>\n</tr>\n</table>"
+}
+
+1.19.40 is a minor update to Bedrock Edition released on October 25, 2022, which brought more parity with Java Edition, and fixes bugs.
+
+Contents
+
+1 Additions
+
+1.1 General
+
+2 Changes
+
+2.1 Blocks
+2.2 General
+2.3 Mob
+
+3 Fixes
+4 References
+5 Navigation
+
+Additions
+General
+Tags
+
+Added tag to support recipes instead of item names.
+Added new item tags for recipes:
+minecraft:coals, minecraft:logs, minecraft:logs_that_burn, minecraft:planks, minecraft:soul_fire_base_blocks, minecraft:stone_crafting_materials, minecraft:stone_tool_materials, minecraft:wooden_slabs, minecraft:wool.
+Changes
+Blocks
+Scaffolding
+
+When used as fuel for furnaces, they now burn equally as long as a bamboo does.
+General
+Settings
+
+Profile settings has been split into two new sections: General and Account.
+Crafting
+
+Recipes can now refer to a tag instead of an item.
+Experiments
+
+Renamed experiment "GameTest Framework" to "Beta APIs", which is needed to access all beta APIs, including core Minecraft APIs and GameTest APIs.
+Mob
+Ravager
+
+No longer an illager.
+Removed illager parameter from minecraft:type_family in ravager.json.
+Ravagers now can be hurt by evoker fangs and attacked by "Johnny" vindicators.
+Fixes
+Vanilla Parity
+
+Getting killed by a renamed weapon now produces a death message with the item name
+Getting killed by a mob with a renamed weapon now produces a death message with the item name (MCPE-162055)
+The roofed forest, savanna mutated, and birch forest biomes use the correct grass colors (MCPE-34936)
+Mobs no longer spawn within the bounds of an ancient city (MCPE-153524)
+Sweet berries can now be planted on farmland (MCPE-99632)
+Changed bubble column strength to match Java Edition (MCPE-158858)
+Scaffolds now burn at a more correct rate, 1/4 of an item (MCPE-42949)
+Wither skeletons can now spawn inside of wither roses (MCPE-110127)
+Decreased the amount of hunger used while swimming to match Java Edition (MCPE-154452)
+Ravagers can now be hurt by evoker fangs
+Increased ravager collision box size to match Java Edition (MCPE-142171, MCPE-45531)
+Increased ravager speed to match Java Edition (MCPE-48145)
+Librarian villagers can now offer enchanted books with Curse of Vanishing and Curse of Binding (MCPE-84906)
+Players swimming above mud will not have their screen covered (MCPE-153737)
+Projectiles landing on mud will not repeatedly shake (MCPE-153744)
+Amphibious mobs no longer have trouble pathfinding around mud blocks (MCPE-153961)
+Performance/Stability
+
+Fixed a crash when using spawn eggs in peaceful worlds on PlayStation 4 Edition
+Fixed a crash that could occur when an animated structure was loading from a structure block and the player left a dimension via portal (MCPE-132561)
+Fixed a bug which caused the game to crash when loading an arrow with an unrecognized data value (MCPE-157983)
+Fixed a potential crash source in explosions
+Fixed a crash that could occur when leaving a split screen session
+Fixed an issue with Marketplace bundle prices not showing as free after purchasing
+Added a Clear Cache button in Storage Settings for all platforms. This button clears contents of Marketplace folders (but not worlds) and might help alleviate issues downloading content (MCPE-54531)
+Fixed an issue where wither effect damage would be reduced by armor (MCPE-159407)
+Gameplay
+
+Keyboard players can now sprint when moving diagonally (MCPE-144702)
+Grove biome is now classified as "cold" and villagers spawned there will be the snow variant (MCPE-147834)
+Fixed fall damage accumulating while the player is in a trapdoor block at the top of a bubble column (MCPE-158858)
+Fixed an issue causing player to move in the wrong direction after turning using VR snap camera movement (MCPE-152443)
+Players can no longer perform the backwards sprinting glitch (Patched along MCPE-144702 due to movement behavior change)
+Mobs
+
+Baby villagers will again accept flowers from iron golems
+Guardians are no longer able to float in the air (MCPE-33641)
+Enabled tamed mobs that follow the player to follow the player through end portals
+Fixed an issue where drowned could change held items when attacking (MCPE-40288)
+Fixed a bug where mobs with a long hit range could hit players through walls (MCPE-55790)
+Fixed a bug which caused boats to disappear when pushed through a portal (MCPE-161563)
+When a mob is a passenger in a boat, neither the boat nor the mob are allowed to change dimension (MCPE-154919)
+NPCs can now have no name, hiding the name tag above their head
+Blocks
+
+Falling blocks no longer break when landing on double slabs (MCPE-159921)
+Huge fungus stems no longer replace partial blocks when growing from nylium (MCPE-65661)
+Water texture on some waterlogged blocks no longer renders too bright when placed under other blocks (MCPE-76949)
+Fixed an issue which caused redstone to output the wrong signal strength in certain configurations (MCPE-81981)
+Fixed several issues related to sticky pistons being used near world build limits (MCPE-96088)
+Breaking the block below a snow-covered flower now makes the flower drop instead of the snow layer (MCPE-61609)
+Fixed the beacon block suddenly disappearing when seen from a distance
+The book of an enchanting table now properly faces a nearby player (MCPE-29924)
+Temporarily reverted the changes to dirt path and farmland collision changes, as well as soul sand and mud blocks sinking while ironing out some bugs
+Items
+
+Reverted the change that caused arrows and tridents to stop moving (MCPE-162085)
+Graphical
+
+Fixed an issue with screen position on Android devices (MCPE-159703)
+User Interface
+
+Removed the “Clear Account Sign in Data” button from the Settings menu from non-Switch platforms, as it is only intended to function on Nintendo Switch (MCPE-129704)
+Fixed a bug where usernames could be above max size (MCPE-152884)
+To make finding the right thing in Settings easier, the Profile screen has been split into two new sections: General and Account
+Ensured proper text-to-speech support for the revamped death screen
+Fixed a bug where achievements would be disabled for some world templates
+Fixed a bug in Pocket UI where items could be dropped in the dark-gray areas around the item grid in the crafting table screen
+Fixed a bug in Pocket UI where items could be dropped in the dark-gray areas around the item grid in the inventories for the horse, mule, donkey, and llama
+Fixed a bug where the death screen message was visible when the Show Death Message game rule was set to false
+Fixed an issue where players couldn't drag/drop or select items from the equipment page
+Changed the color of the text descriptions for the 'Darkness Effect Strength' and 'Notification Duration' accessibility options to a lighter shade to make them more readable (MCPE-162047)
+Fixed a bug where death messages were sometimes too long to fit on screen (MCPE-156550)
+Fixed the crafting screen search string not saving correctly
+Fixed an issue with the durability bar missing on inventory screens on Xbox (MCPE-162063)
+Fixed a bug where the sign in button on Create New World didn't work on some platforms
+The copy coordinates gamepad tooltip now uses the correct icon depending on the platform (MCPE-162654)
+Realms
+
+Shortened text when uploading worlds and add-ons so it fits in the dialog
+Fixed a problem where custom add-on packs could not be applied properly in Realms settings, as well as fixed a crash during pack uploading (REALMS-10655)
+Unlocalized text no longer appears when connecting to a Realm with an outdated client
+Mobile Touch Controls
+
+Fixed a bug where items could not be removed from the hotbar by moving them onto other items in Creative Inventory on mobile devices
+Fixed an issue where the stack splitting progress bar was not aligned on touch mode
+Adjusted layout of the touch toolbar and status effect icons based on user feedback
+Fixed a bug that prevented scrolling through the villager trade list on mobile devices
+When the auto-jumping feature is enabled, the player will now automatically jump out of water when moving toward a block on land
+In Creative Mode while using touch input with Action Buttons off, the delay for breaking the first block has been increased to 800 milliseconds. This reduces the chance of breaking a block by accident
+Added support for dragging and dropping with touch gestures in the inventory
+Double tapping 'descend' now toggles off flight in Joystick touch control modes
+Updated the positioning of status effects for Pocket UI
+The inventory button for touch devices is now reset to its default appearance after closing the inventory
+Fixed an issue where players couldn't swap unstackable items with touch controls
+Improved the images for the three control schemes in the touch settings menu
+References
+
+ "Minecraft - 1.19.40 (Bedrock)"     – Minecraft Feedback, October 25, 2022.
+
+ "Minecraft Bedrock 1.19.40 Update Notes for Creators"     – Microsoft Learn, July 17, 2025.
+
+Navigation

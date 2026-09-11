@@ -1,0 +1,812 @@
+This article documents the current list of particle types (contents of the minecraft:particle_type registry, accurate as of 26.2), and the formats of their associated data.
+
+Particle Name
+
+Data
+
+minecraft:angry_villager
+
+None
+
+minecraft:block
+
+Field Name
+
+Field Type
+
+Meaning
+
+BlockState
+
+VarInt
+
+The ID of the block state.
+
+minecraft:block_marker
+
+Field Name
+
+Field Type
+
+Meaning
+
+BlockState
+
+VarInt
+
+The ID of the block state.
+
+minecraft:bubble
+
+None
+
+minecraft:sulfur_bubbles
+
+None
+
+minecraft:noxious_gas
+
+None
+
+minecraft:noxious_gas_cloud
+
+None
+
+minecraft:geyser
+
+Field Name
+
+Field Type
+
+Meaning
+
+Water Blocks
+
+Int
+
+minecraft:geyser_base
+
+Field Name
+
+Field Type
+
+Meaning
+
+Water Blocks
+
+Int
+
+Burst Impulse Base
+
+Float
+
+minecraft:geyser_poof
+
+Field Name
+
+Field Type
+
+Meaning
+
+Water Blocks
+
+Int
+
+Burst Impulse Base
+
+Float
+
+minecraft:geyser_plume
+
+Field Name
+
+Field Type
+
+Meaning
+
+Water Blocks
+
+Int
+
+minecraft:cloud
+
+None
+
+minecraft:copper_fire_flame
+
+None
+
+minecraft:crit
+
+None
+
+minecraft:damage_indicator
+
+None
+
+minecraft:dragon_breath
+
+Field Name
+
+Field Type
+
+Meaning
+
+Power
+
+Float
+
+minecraft:dripping_lava
+
+None
+
+minecraft:falling_lava
+
+None
+
+minecraft:landing_lava
+
+None
+
+minecraft:dripping_water
+
+None
+
+minecraft:falling_water
+
+None
+
+minecraft:dust
+
+Field Name
+
+Field Type
+
+Meaning
+
+Color
+
+Int
+
+The color, encoded as 0xRRGGBB; top bits are ignored.
+
+Scale
+
+Float
+
+The scale, will be clamped between 0.01 and 4.
+
+minecraft:dust_color_transition
+
+Field Name
+
+Field Type
+
+Meaning
+
+From Color
+
+Int
+
+The start color, encoded as 0xRRGGBB; top bits are ignored.
+
+To Color
+
+Int
+
+The start color, encoded as 0xRRGGBB; top bits are ignored.
+
+Scale
+
+Float
+
+The scale, will be clamped between 0.01 and 4.
+
+minecraft:effect
+
+Field Name
+
+Field Type
+
+Meaning
+
+Color
+
+Int
+
+The color, encoded as 0xRRGGBB; top bits are ignored.
+
+Power
+
+Float
+
+minecraft:elder_guardian
+
+None
+
+minecraft:enchanted_hit
+
+None
+
+minecraft:enchant
+
+None
+
+minecraft:end_rod
+
+None
+
+minecraft:entity_effect
+
+Field Name
+
+Field Type
+
+Meaning
+
+Color
+
+Int
+
+The ARGB components of the color encoded as an Int
+
+minecraft:explosion_emitter
+
+None
+
+minecraft:explosion
+
+None
+
+minecraft:gust
+
+None
+
+minecraft:small_gust
+
+None
+
+minecraft:gust_emitter_large
+
+None
+
+minecraft:gust_emitter_small
+
+None
+
+minecraft:sonic_boom
+
+None
+
+minecraft:falling_dust
+
+Field Name
+
+Field Type
+
+Meaning
+
+BlockState
+
+VarInt
+
+The ID of the block state.
+
+minecraft:firework
+
+None
+
+minecraft:fishing
+
+None
+
+minecraft:flame
+
+None
+
+minecraft:infested
+
+None
+
+minecraft:cherry_leaves
+
+None
+
+minecraft:pale_oak_leaves
+
+None
+
+minecraft:tinted_leaves
+
+Field Name
+
+Field Type
+
+Meaning
+
+Color
+
+Int
+
+The ARGB components of the color encoded as an Int
+
+minecraft:sculk_soul
+
+None
+
+minecraft:sculk_charge
+
+Field Name
+
+Field Type
+
+Meaning
+
+Roll
+
+Float
+
+How much the particle will be rotated when displayed.
+
+minecraft:sculk_charge_pop
+
+None
+
+minecraft:soul_fire_flame
+
+None
+
+minecraft:soul
+
+None
+
+minecraft:flash
+
+Field Name
+
+Field Type
+
+Meaning
+
+Color
+
+Int
+
+The ARGB components of the color encoded as an Int
+
+minecraft:happy_villager
+
+None
+
+minecraft:composter
+
+None
+
+minecraft:heart
+
+None
+
+minecraft:instant_effect
+
+Field Name
+
+Field Type
+
+Meaning
+
+Color
+
+Int
+
+The color, encoded as 0xRRGGBB; top bits are ignored.
+
+Power
+
+Float
+
+minecraft:item
+
+Field Name
+
+Field Type
+
+Meaning
+
+Item
+
+Slot
+
+The item that will be used.
+
+minecraft:vibration
+
+Field Name
+
+Field Type
+
+Meaning
+
+Position Source Type
+
+VarInt
+
+The type of the vibration source defined by the minecraft:position_source_type builtin registry.
+
+Type-Specific Data
+
+Field Name
+
+0: minecraft:block
+
+Block Position
+
+Position
+
+The position of the block the vibration originated from.
+
+1: minecraft:entity
+
+Entity ID
+
+VarInt
+
+The ID of the entity the vibration originated from.
+
+Entity eye height
+
+Float
+
+The height of the entity's eye relative to the entity.
+
+Field Name
+
+Ticks
+
+VarInt
+
+The amount of ticks it takes for the vibration to travel from its source to its destination.
+
+minecraft:trail
+
+Field Name
+
+Field Type
+
+Meaning
+
+X
+
+Double
+
+Target X
+
+Y
+
+Double
+
+Target Y
+
+Z
+
+Double
+
+Target Z
+
+Color
+
+Int
+
+The trail color, encoded as 0xRRGGBB; top bits are ignored.
+
+Duration
+
+VarInt
+
+Life time in ticks
+
+minecraft:pause_mob_growth
+
+None
+
+minecraft:reset_mob_growth
+
+None
+
+minecraft:item_slime
+
+None
+
+minecraft:item_cobweb
+
+None
+
+minecraft:item_snowball
+
+None
+
+minecraft:large_smoke
+
+None
+
+minecraft:lava
+
+None
+
+minecraft:mycelium
+
+None
+
+minecraft:note
+
+None
+
+minecraft:poof
+
+None
+
+minecraft:portal
+
+None
+
+minecraft:rain
+
+None
+
+minecraft:smoke
+
+None
+
+minecraft:white_smoke
+
+None
+
+minecraft:sneeze
+
+None
+
+minecraft:spit
+
+None
+
+minecraft:squid_ink
+
+None
+
+minecraft:sweep_attack
+
+None
+
+minecraft:totem_of_undying
+
+None
+
+minecraft:underwater
+
+None
+
+minecraft:splash
+
+None
+
+minecraft:witch
+
+None
+
+minecraft:bubble_pop
+
+None
+
+minecraft:current_down
+
+None
+
+minecraft:bubble_column_up
+
+None
+
+minecraft:nautilus
+
+None
+
+minecraft:dolphin
+
+None
+
+minecraft:campfire_cosy_smoke
+
+None
+
+minecraft:campfire_signal_smoke
+
+None
+
+minecraft:dripping_honey
+
+None
+
+minecraft:falling_honey
+
+None
+
+minecraft:landing_honey
+
+None
+
+minecraft:falling_nectar
+
+None
+
+minecraft:falling_spore_blossom
+
+None
+
+minecraft:ash
+
+None
+
+minecraft:crimson_spore
+
+None
+
+minecraft:warped_spore
+
+None
+
+minecraft:spore_blossom_air
+
+None
+
+minecraft:dripping_obsidian_tear
+
+None
+
+minecraft:falling_obsidian_tear
+
+None
+
+minecraft:landing_obsidian_tear
+
+None
+
+minecraft:reverse_portal
+
+None
+
+minecraft:white_ash
+
+None
+
+minecraft:small_flame
+
+None
+
+minecraft:snowflake
+
+None
+
+minecraft:dripping_dripstone_lava
+
+None
+
+minecraft:falling_dripstone_lava
+
+None
+
+minecraft:dripping_dripstone_water
+
+None
+
+minecraft:falling_dripstone_water
+
+None
+
+minecraft:glow_squid_ink
+
+None
+
+minecraft:glow
+
+None
+
+minecraft:wax_on
+
+None
+
+minecraft:wax_off
+
+None
+
+minecraft:electric_spark
+
+None
+
+minecraft:scrape
+
+None
+
+minecraft:shriek
+
+Field Name
+
+Field Type
+
+Meaning
+
+Delay
+
+VarInt
+
+The time in ticks before the particle is displayed
+
+minecraft:egg_crack
+
+None
+
+minecraft:dust_plume
+
+None
+
+minecraft:trial_spawner_detection
+
+None
+
+minecraft:trial_spawner_detection_ominous
+
+None
+
+minecraft:vault_connection
+
+None
+
+minecraft:dust_pillar
+
+Field Name
+
+Field Type
+
+Meaning
+
+BlockState
+
+VarInt
+
+The ID of the block state.
+
+minecraft:ominous_spawning
+
+None
+
+minecraft:raid_omen
+
+None
+
+minecraft:trial_omen
+
+None
+
+minecraft:block_crumble
+
+Field Name
+
+Field Type
+
+Meaning
+
+BlockState
+
+VarInt
+
+The ID of the block state.
+
+minecraft:firefly
+
+None
+
+minecraft:sulfur_cube_goo
+
+None
+
+
+
+This article is licensed under a Creative Commons Attribution-ShareAlike 3.0 license. 
+This article has been imported from wiki.vg or is a derivative of such a page. Thus, the wiki's usual license does not apply.Derivative works must be licensed using the same or a compatible license.

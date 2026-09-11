@@ -1,0 +1,1331 @@
+For other uses, see AI.
+
+
+
+This article is a work in progress. 
+Please help expand and improve it. The talk page may contain suggestions.
+
+
+This article describes the various components of a mob's AI that control its behavior.
+
+Contents
+
+1 Brain
+
+1.1 Sensor
+
+1.1.1 Sensor parameters
+1.1.2 Targeting condition
+1.1.3 Sensor classes
+
+1.2 Task
+1.3 Memory
+
+2 Control
+
+2.1 Walking
+2.2 Swimming
+2.3 Flying
+
+3 Goals
+
+3.1 List of goals
+3.2 Lists of mob goals
+
+4 Pathfinding
+
+4.1 Navigation
+4.2 Path following
+4.3 Pathfinding penalties
+4.4 Pathfinding on land
+4.5 Pathfinding in water
+4.6 Pathfinding in air
+
+5 See also
+6 Navigation
+
+Brain
+Some mobs use a complex AI system called a brain. A mob's brain stores memories (data), a list of tasks that can be performed, and a list of sensors used to determine which tasks it can perform.
+
+Sensor
+Sensors are used to detect if a mob with a brain can perform certain tasks. Examples of sensors include a sensor to detect if an armadillo should be scared, a sensor to detect the nearest player, and a sensor to detect if a mob is in water.
+By default, sensors run once every 20 game ticks (1 second), although individual sensor classes can have a different scan rate. When a sensor runs, it updates its targeting conditions to match the mob's current follow_range attribute before performing its targeting condition. The first execution of each sensor is delayed by a random number of ticks, preventing multiple sensors from running simultaneously; the random number is an integer between 0 (inclusive) and the scam rate (exclusive).
+
+List of Sensors in Java Edition
+
+Sensor
+
+Class
+
+Uses
+
+dummy
+
+DummySensor
+
+default sensor type
+
+nearest_items
+
+NearestItemSensor
+
+Allay
+Goat
+Piglin
+Piglin Brute
+Villager
+
+mobs
+
+NearestLivingEntitySensor
+
+Allay
+Armadillo
+Axolotl
+Breeze
+Camel
+Copper Golem
+Creaking
+Frog
+Goat
+Happy Ghast
+Hoglin
+Nautilus
+Piglin
+Piglin Brute
+Sniffer
+Tadpole
+Villager
+Zoglin
+Zombie Nautilus
+
+nearest_players
+
+PlayerSensor
+
+Allay
+Breeze
+Creaking
+Goat
+Happy Ghast
+Hoglin
+Nautilus
+Piglin
+Piglin Brute
+Sniffer
+Tadpole
+Villager
+Warden
+Zoglin
+Zombie Nautilus
+
+nearest_bed
+
+NearestBedSensor
+
+Villager
+
+hurt_by
+
+HurtBySensor
+
+Allay
+Armadillo
+Axolotl
+Breeze
+Camel
+Copper Golem
+Frog
+Goat
+Happy Ghast
+Nautilus
+Piglin
+Piglin Brute
+Sniffer
+Tadpole
+Villager
+Zombie Nautilus
+
+villager_hostiles
+
+VillagerHostilesSensor
+
+Villager
+
+villager_babies
+
+VillagerBabiesSensor
+
+Villager
+
+secondary_pois
+
+SecondaryPoiSensor
+
+Villager
+
+golem_detected
+
+GolemSensor
+
+Villager
+
+armadillo_scare_detected
+
+MobSensor
+
+Armadillo
+
+piglin_specific_sensor
+
+PiglinSpecificSensor
+
+Piglin
+
+piglin_brute_specific_sensor
+
+PiglinBruteSpecificSensorregister
+
+Piglin
+
+hoglin_specific_sensor
+
+HoglinSpecificSensor
+
+Hoglin
+
+nearest_adult
+
+AdultSensor
+
+Armadillo
+Axolotl
+Camel
+Goat
+Hoglin
+Nautilus
+Zombie Nautilus
+
+nearest_adult_any_type
+
+AdultSensorAnyType
+
+Happy Ghast
+
+axolotl_attackables
+
+AxolotlAttackablesSensor
+
+Axolotl
+
+food_temptations
+
+TemptingSensor
+
+Armadillo
+Axolotl
+Camel
+Goat
+Happy Ghast
+Sniffer
+
+frog_temptations
+
+TemptingSensor
+
+Frog
+Tadpole
+
+nautilus_temptations
+
+TemptingSensor
+
+Nautilus
+Zombie Nautilus
+
+frog_attackables
+
+FrogAttackablesSensor
+
+Frog
+
+is_in_water
+
+IsInWaterSensor
+
+Frog
+
+warden_entity_sensor
+
+WardenEntitySensor
+
+Warden
+
+breeze_attack_entity_sensor
+
+BreezeAttackEntitySensor
+
+Breeze
+
+Sensor parameters
+Some sensor classes have parameters, namely MobSensor and TemptingSensor. The list of parameters is below:
+
+MobSensor parameters
+
+Sensor
+
+scanRate
+
+mobTest
+
+readyTest
+
+toSet
+
+memoryTimeToLive
+
+armadillo_scare_detected
+
+5
+
+Armadillo.isScaredBy(livingEntity):
+If the livingEntity's hitbox does not intersect the armadillo's hitbox at 2 on the Y-axis and 7 on the X-Z axes, it returns false.
+If the livingEntity is in the tag #unded, it returns true.
+If the livingEntity was the last entity to damage the armadillo, it returns true.
+If the livingEntity is a player who is not in  Spectator mode, is running, or in a vehicle, it returns true.
+Otherwise, it returns false.
+
+Armadillo.canStayRolledUp():
+Return true only if none of the following occurs to the armadillo:
+
+Is panicking (have the memory is_panicking)
+Is in liquid (fluid in the tag #water or #lava)
+Is leashed
+Is in a vehicle
+Is vehicle
+
+danger_detected_recently
+
+80
+
+TemptingSensor parameters
+
+Sensor
+
+temptations
+
+food_temptations
+
+For each mob and item stack, test if the item is food for the mob. For mobs with these sensors, it means the item is tagged:
+Armadillo — Tag #armadillo_food
+Axolotl — Tag #axolotl_food
+Camel — Tag #camel_food
+Goat — Tag #goat_food
+Happy Ghast — Tag #happy_ghast_food
+Sniffer — Tag #sniffer_food
+
+frog_temptations
+
+Check if the item is frog food (it's on the tag #frog_food), regardless of the mob.
+
+nautilus_temptations
+
+Check if the item is nautilus food (it's on the tag #nautilus_food), regardless of the mob.
+
+Technically, all sensor classes have the scanRate parameter, which defines how many ticks the sensor runs. However, most vanilla sensors use the class's default scanRate value (20 by default, but this can change in certain classes; see below). The only sensor that sets its scanRate is armadillo_scare_detected.
+
+Targeting condition
+Many sensors need to filter entities based on certain tests. The test conditions can change depending on the sensor's objective.
+Each targeting condition has the tags [Boolean] isCombat, [Boolean] checkLineOfSight, [Boolean] testInvisible, [Double] range and selector which are used to perform the test. The selector consists of a predicate that depends on the target, but it can be null.
+For sensor targeting conditions, except TemptingSensor, the [Double] range is initially defined as 16.0, but it is updated to the value of the attribute follow_range before the sensor's doTick, selector is null, [Boolean] isCombat is true when testing an attack target, [Boolean] testInvisible is false when the target is in the targeter's attack_target memory, and [Boolean] checkLineOfSight is true.
+The test value is a boolean value that depends on the target and the targeter (and can be null), both living entity such that:
+
+If target and targeter are the same entity, it returns false.
+If the target is not alive or is a player in Spectator mode or an invisible or marker armor stand, returns false.
+If the selector is not null, and the target is valid in the selector test, return false.
+If the targeter is null, [Boolean] isCombat is true, and target is invulnerable, or the difficulty is peaceful, it returns false. The following points assume that targeter is not null.
+If [Boolean] isCombat is true, the targeter can not attack the target or the targeter is allied to the target, return true. See below for more details.
+If [Double] range > 0 and the euclidean distance from targeter to target is greater than max(range × modifier, 2.0), it returns false.
+If [Boolean] testInvisible is false, the modifier is 1.0; else the modifier starts with 1.0 (double) and is cumulative:
+Multiplying by 0.8 if target is a sneaking player,
+Multiplying by 0.07 if target is invisible and without equipament in humanoid armor slot,
+Multiplying by 0.175p if target is invisible and has p≥1 equipaments in humanoid armor slot,
+Multiplying by 0.5 if target is using the corresponding mob head in the head slot (for skeleton, zombie, piglin, piglin brute, and creeper)
+This depends on the component mob_visibility, more specifically, for each target's equipment slot s there is an item with the component equippable.slot equal to s, and the targeter is contained in mob_visibility.targeting_entity_types, the modifier is multiplied by mob_visibility.visibility.​[upcoming: JE 26.3]
+The modifier is limited by 10.0.​[upcoming: JE 26.3]
+If [Boolean] checkLineOfSight is true, the targeter is a mob, and it is not possible to draw a straight line from the targeter's eye to the target without intersecting a block collision box, return false.
+If the mob is a ravager with a stunned tick or roar tick greater than 0, return false.
+Otherwise, it returns true.
+
+The table below shows when the conditions of a living entity (the targeter) can not attack another (the target). At least one condition must be satisfied for it not to attack.
+
+Can not attack
+
+Targeter
+
+Can not attack if...
+
+Living entity (except ender dragon and warden)
+
+The target is a player and the difficulty is peaceful.
+The target is invulnerable.
+The target is not alive.
+
+Mobs (except ender dragon and warden)
+
+The target is a ghast.
+
+Tamable Animal
+
+The target owns the animal.
+
+Dolphin
+
+The dolphin is baby.
+
+Iron Golem
+
+The iron golem was created by a player ([Boolean] PlayerCreated is true) and the target is a player.
+The target is a creeper.
+
+Ender Dragon
+
+The target is invulnerable.
+The target is not alive.
+
+Breeze
+
+The target is not a player or iron golem.
+
+Illager
+
+The target is a baby villager.
+
+Warden
+
+The warden can not target the target:
+
+The target is a player in spectator or creative mode.
+The warden is allied to the target.
+The target is a armor stand.
+The target is a warden.
+The target is dead or dying.
+The target is not within the world border.
+
+An entity A is an ally of an entity B if A = B, if A considers B as an ally, or if B considers A as an ally. The table below shows when one entity considers another as an ally:
+
+Is allied
+
+Targeter
+
+Considers as ally if...
+
+Entity
+
+The targeter and the target have a team, and it is the same team.
+
+Tamable Animal
+
+The animal is tame, and the owner is the target or considers the target as an ally.
+
+Allay
+
+The target is the allay linked player (has the UUID in memory liked_player).
+
+Illager
+
+The target entity type is in the tag #illager_friends and the target and the targeter don't have a team.
+
+Evoker
+
+The target is a vex and the target root owner is the evoker or considers the evoker as ally.
+
+ The root owner of an entity, if it exists, is the first non-ownable entity in a chain of owners of owners ... of owners of the entity. For example, if the entity owner is not an ownable entity, it would be the root owner.
+
+Sensor classes
+Sensors classes are responsible for detecting a specific type of information and storing the results in one or more memory modules in a mob's brain. In the game's code, these classes are part of the package net.minecraft.world.entity.ai.sensing
+
+Class
+Memory requires
+Do tick
+
+DummySensor
+
+None
+
+Performs no actions
+
+AdultSensor
+
+nearest_visible_adult and visible_mobs
+
+Searches the visible_mobs memory for the nearest visible living entity of the same entity type as the mob that is not a baby. Stores the result in the nearest_visible_adult memory.
+If no matching adult is found, nearest_visible_adult is set to empty.
+
+AdultSensorAnyType
+
+Extends AdultSensor
+When setting the nearest visible adult, it tests whether the entity is in the tag #followable_friendly_mobs, rather than whether it's in the same entity type as the mob.
+
+AxolotlAttackablesSensor
+
+nearest_attackabled, visible_mobs, and has_hunting_cooldown
+
+Extends § NearestVisibleLivingEntitySensor
+Searches the visible_mobs memory for the closest living entity that:
+
+is within 8 blocks (euclidean distance),
+is in water (#water fluid tag),
+is in #axolotl_always_hostiles or is in #axolotl_hunt_targets and the axolot is hungry (has memory has_hunting_cooldown),
+is attackable.
+Stores the closest matching entity in the nearest_attackable memory.
+
+BreezeAttackEntitySensor
+
+mobs, visible_mobs, and nearest_attackable
+
+Extends § NearestLivingEntitySensor
+Updates the mobs and visible_mobs memories (by the super method). It then searches the mobs memory for the attackable entity that is not a player in Creative mode or Spectator mode.
+Stores the first matching entity in the nearest_attackable memory. If no matching entity is found, it removes the nearest_attackable memory.
+
+FrogAttackablesSensor
+
+nearest_attackable, visible_mobs, and unreachable_tongue_targets
+
+Extends § NearestVisibleLivingEntitySensor
+Searches the visible_mobs memory for entity that:
+
+is within 10 blocks (euclidean distance),
+can be eaten by a frog (is in #frog_food and is not a slime, magma cube, or sulfur cube with size different that 1),
+is attackable,
+is not listed in the unreachable_tongue_targets memory.
+Stores the closest matching entity in the nearest_attackable memory.
+
+GolemSensor
+
+mobs and golem_detected_recently
+
+Searches the mobs memory for an iron golem. If one is found, it sets the golem_detected_recently memory to true with an expiration time of 599 game ticks (29.95 seconds).
+scanRate: This sensor runs every 200 game ticks (10 seconds) by default. It only checks whether at least one iron golem is present.
+
+HoglinSpecificSensor
+
+visible_mobs, nearest_repellent, nearest_visible_adult_piglin, nearest_visible_adult_hoglins, visible_adult_piglin_count, and visible_adult_hoglin_count
+
+Searches the visible_mobs memory for visible adult piglins and hoglins.
+Stores the nearest visible adult piglin in the nearest_visible_adult_piglin memory and stores visible adult hoglins in the nearest_visible_adult_hoglins memory. It also stores the number of visible adult piglins and hoglins in the visible_adult_piglin_count and visible_adult_hoglin_count memories.
+Searches for the nearest hoglin repellent block within 8 blocks horizontally and 4 blocks vertically, and stores its position in the nearest_repellent memory.
+
+HurtBySensor
+
+hurt_by and hurt_by_entity
+
+Checks the mob's last damageSource.
+If the mob has a last damage source, stores it in the hurt_by memory.
+If the damage source was caused by a living entity, stores that entity in the hurt_by_entity memory.
+If the mob has no last damage source, removes the hurt_by memory.
+If the entity stored in hurt_by_entity is no longer alive or is no longer in the same world, removes the hurt_by_entity memory.
+
+IsInWaterSensor
+
+is_in_water
+
+Checks whether the mob is in water: the hitbox intersects the fluid in the #water fluid tag, if the mob are on the boat, reduce the y-min of the hitbox; disregard heights below the height of the boat, except if the boat is underwater.
+If it is, it sets the is_in_water memory. Otherwise, it removes the is_in_water memory.
+
+MobSensor
+
+mobs
+
+This sensor uses parameters.
+If the sensor's readiness condition (readyTest) is met, it searches the mobs memory for a living entity matching the sensor's predicate (mobTest). If a matching entity is found, it sets the sensor's memory (memoryTimeToLive) to true with an expiration time determined by the sensor (toSet).
+If the readiness condition (readyTest) is not met, it removes the sensor's memory (memoryTimeToLive).
+
+NearestBedSensor
+
+nearest_bed
+
+If the mob is a baby:
+Searches for POIs of type home (bed head) within 48 blocks of the mob. The sensor uses a cache to avoid repeatedly checking the same POIs and attempts to add up to 5 new beds to the cache during each scan.
+The sensor attempts to create a path to the found beds. If a path is found and can reach its target, and the target is a valid POI, it stores the target's position in the mob's nearest_bed memory.
+If no reachable bed is found and fewer than 5 POIs were checked, it removes expired entries from the cache.
+
+NearestItemSensor
+
+nearest_visible_wanted_item
+
+Find the nearest item that:
+Is within a bounding box extending 32 blocks horizontally and 16 blocks vertically from the mob.
+Is within 32 blocks of the mob.
+The mob wants to pick up.
+Is in the mob's line of sight.
+The nearest matching item is stored in the nearest_visible_wanted_item memory. If no matching item is found, the memory is set to empty.
+
+NearestLivingEntitySensor
+
+mobs and visible_mobs
+
+Lists all other living entities that are alive and within a cuboid generated by the mob's hitbox expanded by its follow_range in all directions. Sorts the entities by Euclidean distance from the mob and stores the list in the mobs memory.
+In visible_mobs, stores the entities from mobs filtering entities using the mob's targeting conditions
+
+NearestVisibleLivingEntitySensor
+
+visible_mobs and a memory defined by the subclass
+
+ Searches the visible_mobs memory for the closest living entity that matches the conditions defined by the subclass.
+The matching entity is stored in the memory defined by the subclass. If no matching entity is found, the memory is set to empty.
+
+PiglinBruteSpecificSensor
+
+visible_mobs, nearest_visible_nemesis, and nearby_adult_piglins
+
+Searches the visible_mobs memory for the nearest wither skeleton or wither and stores it in the nearest_visible_nemesis memory.
+Stores nearby adult piglins in the nearby_adult_piglins memory.
+
+PiglinSpecificSensor
+
+visible_mobs, mobs, nearest_visible_nemesis, nearest_targetable_player_not_wearing_gold, nearest_player_holding_wanted_item, nearest_visible_huntable_hoglin, nearest_visible_baby_hoglin, nearest_visible_adult_piglins, nearby_adult_piglins, visible_adult_piglin_count, visible_adult_hoglin_count, and nearest_repellent
+
+Searches the visible_mobs memory and updates memories related to piglin behavior:
+ Stores the nearest wither skeleton or wither as nearest_visible_nemesis.
+ Stores the nearest adult huntable hoglin as nearest_visible_huntable_hoglin
+ Stores the nearest baby hoglin as nearest_visible_baby_hoglin.
+ Stores the nearest player that is not wearing an item in the tag #piglin_safe_armor and can be attacked in nearest_targetable_player_not_wearing_gold.
+ Stores the nearest non-Spectator player holding a iten in the tag #piglin_loved in nearest_player_holding_wanted_item.
+ Stores the nearest zombified piglin or zoglin in nearest_visible_zombified.
+ Stores piglin brutes and adult piglins in nearest_visible_adult_piglins
+[Int] Stores the number of adult piglins and adult hoglins in visible_adult_piglin_count and visible_adult_hoglin_count, respectively.
+Searches the mobs memory and stores adult piglins and piglin brutes in nearby_adult_piglins.
+Searches for the nearest block in the tag #pigling repellents in a box with 17 × 9 × 17  blocks centered on the piglins' position, and stores its position in nearest_repellent. Not lit soul campfires are not considered repellents.
+
+PlayerSensor
+
+nearest_players, nearest_visible_player, nearest_visible_attackable_player and nearest_visible_attackable_players
+
+List all non-Spectator players that are within a Euclidean distance of the mob's follow_range. Sorts the players by distance from the mob and stores the list in nearest_players.
+From this list, it creates nearest_visible_player by filtering players using the mob's targeting conditions. If the resulting list is not empty, stores the first player in nearest_visible_player.
+Creates nearest_visible_attackable_players by filtering nearest_visible_player's list using the mob's attack targeting conditions. If the resulting list is not empty, the first player is stored in nearest_visible_attackable_player.
+
+SecondaryPoiSensor
+
+secondary_job_site
+
+Scans all blocks within a 9 × 5 × 9 area centered on a villager. If a block matches one of the villager profession's secondary job site blocks, it stores its global position in the secondary_job_site memory. It stores all matching blocks.
+If no matching blocks are found, it removes the secondary_job_site memory.
+scanRate: This sensor runs every 40 game ticks (2 seconds) instead of the default 20.
+
+TemptingSensor
+
+tempting_player
+
+This sensor uses parameters.
+Searches for the player that:
+
+Is not on Spectator mode,
+Is in range tempt_range,
+Holding a tempting item for the mob (temptations.test(mob, item)) in mainhand or offhand,
+Is not passenger of the mob.
+If a matching player is found, it stores the nearest (by euclidean distance) player in the tempting_player memory. Otherwise, it removes the tempting_player memory.
+
+VillagerBabiesSensor
+
+visible_villager_babies
+
+Finds all villagers that are babies from the mob's visible_mobs memory and stores them as a list in the visible_villager_babies memory.
+If no visible baby villagers are found, stores an empty list.
+
+VillagerHostilesSensor
+
+nearest_hostile and visible_mobs
+
+Extends § NearestVisibleLivingEntitySensor
+Searches the visible_mobs memory for the nearest living entity matching one of the following hostile entity types and stores it in the nearest_hostile memory:
+
+Drowned — within 8 blocks
+Evoker — within 12 blocks
+Husk — within 8 blocks
+Illusioner — within 12 blocks
+Pillager — within 15 blocks
+Ravager — within 12 blocks
+Vex — within 8 blocks
+Vindicator — within 10 blocks
+Zoglin — within 10 blocks
+Zombie — within 8 blocks
+Zombie Villager — within 8 blocks
+If no matching hostile entity is found, nearest_hostile is set to empty.
+
+WardenEntitySensor
+
+mobs, visible_mobs, and nearest_attackable
+
+Extends § NearestLivingEntitySensor
+Updates the mobs and visible_mobs memories (by the super method). It then searches the mobs memory for the closest targetable player. If none is found, it searches for the closest targetable non-player living entity. In both cases, only entities that the warden can target are considered.
+Stores the first matching entity in the nearest_attackable memory. If no matching entity is found, it removes the nearest_attackable memory.
+
+ Targeting condition with [Boolean] isCombat and [Boolean] checkLineOfSight true, and [Boolean] testInvisible flase iff the entity is not in memory attack_target.
+
+  A POI is considered expired depending on whether the current lastUpdate exceeds the lastUpdate from when the POI was added to the cache by more than 40. The lastUpdate is an auxiliary variable defined as Gametime + random.nextInt(20), at the beginning of the doTick.
+
+ It depends on the mob, defined independently of the sensor.
+
+ It is possible to draw a straight line from the mob's eye to the target without intersecting a block collision box.
+
+ Technically, in memory visible_mobs, a list equal to that of mob is saved, along with a binary list of the same size indicating whether the entity passes the test.
+
+ Targeting condition with [Boolean] isCombat false, [Boolean] checkLineOfSight true, and [Boolean] testInvisible flase iff the entity is not in memory attack_target
+
+ A hoglin is huntable if the nbt tag [Boolean] CannotBeHunted is false. By default it is false.
+
+ Used manhattan distance. If two blocks are equidistant, prioritize the one with the smaller X coordinate. If they are on the same X coordinate, prioritize the one with the smaller Y coordinate. If they are on the same Y coordinate, prioritize the one with the larger Z coordinate. In other words, it is the lexicographical order of (d,X,Y,-Z), with d the manhattan distance.
+
+ Targeting condition, with this [Double] range, [Boolean] testInvisible true, and [Boolean] checkLineOfSight and [Boolean] isCombat false.
+
+Task
+Tasks are activities that mobs with brain AI systems can perform. Sensors are used to determine if a task can be performed, and tasks may use information stored in memories. Examples of tasks include a villager walking to its jobsite, a piglin admiring an item, or a warden emerging. Tasks have priorities, so tasks with a higher priority will overrun tasks with lower priority; for example, if a zombie is wandering and  it sees a player, it will switch tasks to attacking.
+
+Memory
+Memories are used to store data and are used when mobs perform tasks. Examples of memories include a list of all visible mobs in range, the location of a villager's jobsite block, and any cooldowns the mob may have.
+
+Control
+Walking
+Main article:  § Pathfinding on land
+Mob movement on land varies depending on whether it's hostile or passive. Hostile mobs will try to approach and attack the player when within their detection range, while most passive mobs will attempt to run away when attacked. Some mobs will also try to attack or run away from certain blocks or mobs.
+
+Swimming
+Main article:  § Pathfinding in water
+Mob swimming works the same way as walking, but in water. While most mobs will just float on water or sink, some can properly swim like fish, drowned, dolphins, turtles, guardians, and elder guardians.
+
+Flying
+Main article:  § Pathfinding in air
+Mob flying works the same way as walking, but in the air. Most mobs will just fall when suspended in air, with a few exceptions. Mobs with Slow Falling, levitation, and the chicken don't fly normally but can float in mid-air. Category:Flying mobs contains a list of all mobs that can pathfind in air.
+
+Goals
+Goals are a simple AI system used primarily by mobs that already existed before the brain AI. However, there are recent mobs that use both AIs simultaneously, for example, the happy ghast.
+Goals can range from wandering around, opening doors, attacking another mob, and more. Each type of mob that uses goals has its own defined list of goals, and each goal has a priority. Mobs attempt to perform the lowest priority goal they can, and may switch goals if there is an opportunity to pursue a lower priority goal. For example, if a zombie is targeting and chasing a villager (priority of 3) and a player comes within the detection range of the zombie, the zombie may target and chase the player (priority of 2) instead.
+
+List of goals
+List of goals that are used by many different mobs.
+
+List of Goals
+
+Goal
+Description
+Notes
+
+Active Target
+
+Select an entity to target for chasing and attacking
+
+Ambient Stand
+
+Untamed horse bucks when player tries to ride it
+
+Attack
+
+Attack target
+
+Attack with Owner
+
+Tamed animal attacks a target mob attacked by owner
+
+Avoid Entity
+
+Mob runs away from another mob that it is afraid of (e.g. skeletons running from wolves)
+
+Bow Attack
+
+Attack target with bow
+
+Breathe Air
+
+Mob that can drown tries to move out of water
+
+Cat Lie on Bed
+
+Tamed cat lies down on bed
+
+Cat Sit on Block
+
+Cat sits on bed, chest, or furnace
+
+Chase Boat
+
+Chase after boat ridden by player
+
+Unused
+
+Crossbow Attack
+
+Attack target with crossbow
+
+Destroy Egg
+
+Destroy turtle eggs
+
+Disableable Follow Target
+
+Raid entity stops following target
+
+Unused
+
+Dive Jump
+
+Mob jumps up and dives down
+
+Dolphin Jump
+
+Dolphin jumps out of water
+
+Door Interact
+
+Mob tries to open a door
+
+Eat Grass
+
+Mob grazes on grass
+
+Flee Sun
+
+Move out of direct line-of-sight with sky during day
+
+Float
+
+Mob floats in water
+
+Follow Flock Leader
+
+Fish tries to follow the leader of a school of fish
+
+Follow Mob
+
+Mob follows another mob
+
+Follow Owner
+
+Tamed mob follows owner
+
+Follow Parent
+
+Baby mob follows its parent
+
+Go to Walk Target
+
+Mob walks to a target
+
+Hold in Hands
+
+Mob holds an item in its main hand
+
+Horse Bond with Player
+
+Horse attempts to bond with player attempting to tame it
+
+Iron Golem Look
+
+Iron golem looks at a villager
+
+Iron Golem Wander Around
+
+Iron golem wanders around village
+
+uses points of interest
+
+Llama Follow Caravan
+
+Llamas form and follow a caravan
+
+Leap At Target
+
+Mob jumps towards target
+
+cats, foxes, ocelots, spiders
+
+Long Door Interact
+
+Open a door, then close it after a delay
+
+Look At Entity
+
+Mob looks at another mob
+
+Look At Player
+
+Mob looks at player
+
+Look At Trading Player
+
+Villager or wandering trader looks at player while trading
+
+Melee Attack
+
+Mob paths to target and attacks
+
+Move Into Water
+
+Mob paths to water
+
+Move Through Village
+
+Mob moves between points of interest in a village
+
+Move To Raid Center
+
+Raiders move toward village after spawning
+
+Move To Target Position
+
+Mob paths to a specific block
+
+Panic
+
+Mob panics and runs away when damaged
+
+Powder Snow Jump
+
+Mob dives into powder snow
+
+foxes
+
+Prioritized Goal
+
+Used to override the default priority of a goal
+
+Projectile Attack
+
+Mob attacks target with a projectile
+
+arrow, spit, trident, potion, snow ball, wither skull, not fireballs
+
+Raid Goal
+
+Raiders target villagers
+
+Random Look Around
+
+Mob looks around in random directions
+
+Random Stroll
+
+Move to a nearby random position
+
+Revenge
+
+Target entity that attacked the mob
+
+Run Around Like Crazy
+
+Untamed horse runs around randomly when ridden by a player
+
+Spear Use
+
+Mob attacks target with spear
+
+Swell
+
+Creeper attempts to explode near its target
+
+Tempt
+
+Mob follows player holding breeding item
+
+Water Avoiding Random Stroll
+
+Move to a nearby random position, while actively avoiding water
+
+Wander Around Far
+
+Move to a random position, sometimes farther away than Wander Around goal
+
+Zombie Attack
+
+Attack goal for zombies and zombie variants
+
+Lists of mob goals
+Lists of goals and associated priorities for individual mobs.
+
+Zombie
+
+Goal
+Priority
+Notes
+
+Revenge
+1
+Attack entity that damaged the zombie
+
+Active Target - Player
+2
+Target the player
+
+Zombie Attack
+2
+Attack current target
+
+Active Target - Iron Golem
+3
+Target Iron Golem
+
+Active Target - Merchant
+3
+Target Villager or Wandering Trader
+
+Destroy Egg
+4
+Break turtle eggs
+
+Active Target - Turtle
+5
+Target baby turtle
+
+Wander Around Far
+7
+
+Look Around
+8
+Looks away from Entities
+
+Look at Entity
+8
+Looks at nearest Entities
+
+Pathfinding
+Pathfinding is the system used by mobs to navigate through the world. Mobs that use pathfinding calculate routes through the environment and follow these routes using their navigation system. Different mobs use different types of navigation depending on their movement abilities, such as walking, swimming, or flying.
+The default navigation type for mobs is ground path navigation, although individual mobs can replace it with a different navigation implementation.
+Pathfinding is controlled by a mob's AI. Goals and behaviors can request movement to a location or entity, causing the mob's navigation system to calculate and follow a path. The navigation system is updated every tick while the mob's AI is active.
+A mob is considered to be pathfinding when its navigation system has an active path. The path ends when the mob reaches its destination, the path becomes invalid, or the navigation is stopped.
+
+Navigation
+The navigation system controls how mobs follow paths after they have been calculated.
+A navigation system stores the mob's current path, movement speed, and destination. During each AI update, the navigation system checks the current path, advances through nodes that have been reached, and sends movement instructions to the mob's movement controls.
+Navigation can be stopped manually, which clears the mob's current path. A mob is considered to be navigating when it has an active path that has not been completed.
+Different mobs use different navigation systems depending on their movement type. Ground mobs generally use ground navigation, while aquatic and flying mobs use specialized navigation systems.
+Navigation systems can also perform checks while moving, such as:
+
+When a mob becomes stuck.
+Recalculating paths when needed.
+Whether a mob can move directly between two points.
+Adjusting paths around certain blocks.
+Path following
+After a path is created, mobs follow the path by moving from node to node. A node represents a position that the mob must reach while traveling.
+A mob advances to the next node when it is close enough to its current node. Some paths allow mobs to skip nodes when moving directly toward a later point would be safe.
+While following a path, mobs can become stuck if they fail to make sufficient progress. The navigation system checks movement over time and stops the path if the mob cannot continue.
+
+Pathfinding penalties
+Zombified piglin starts pathfinding to a turtle egg
+Due to pathfinding penalties, the zombified piglin takes an indirect path to the turtle egg, pathing through wither roses and taking damage, instead of pathing through the lava or magma blocks, which do not damage the zombified piglin
+When pathfinding to a target, mobs will sometimes avoid certain blocks (usually blocks that cause damage or slow the mob down). These blocks have a penalty associated with them. Generally, mobs try to path through blocks with the smallest penalty. There are some blocks that most mobs cannot path through; these all have a penalty of -1.
+The following table is a list of all pathfinding penalties and their default values. Each type of pathfinding (land, water, air) uses its own subset of these penalties. Some mobs override these default values.
+
+Penalty type
+Penalty
+Description
+
+blocked
+-1
+can't pathfind through block (most full solid blocks)
+
+powder snow
+-1
+powder snow
+
+fence
+-1
+fenceswallsfence gates (closed)
+
+lava
+-1
+lava
+
+unpassable rail
+-1
+rail
+
+damage - other
+-1
+cactussweet berry bush
+
+closed wood door
+-1
+wood door
+
+closed iron door
+-1
+iron door
+
+open
+0
+aircave airvoid air
+
+walkable
+0
+TNT with pressure plate on top (under the mob)
+
+walkable door
+0
+a door the mob can open
+
+trapdoor
+0
+trapdoorslily padbig dripleaf
+
+danger - powder snow
+0
+neighboring block is powder snow
+
+open door
+0
+open wood or iron door
+
+cocoa
+0
+cocoa
+
+damage - cautious
+0
+wither rosepointed dripstone
+
+danger - trapdoor
+0
+neighboring block is trapdoor
+
+breach water
+4
+there is an air block above a water block
+
+water
+8
+water
+
+water border
+8
+neighboring block is water
+
+danger - fire
+8
+neighboring block is:firelavamagma blocklit campfirelava cauldron
+
+danger - other
+8
+neighboring block is: cactussweet berry bush
+
+honey
+8
+honey block
+
+damage - fire
+16
+firelavamagma blocklit campfirelava cauldron
+
+Mob pathfinding penalty overrides
+The following mobs override the default pathfinding penalty for some blocks:
+
+Mob
+Penalty Type
+Penalty
+
+axolotl
+water
+0
+
+bee
+damage - fire
+-1
+
+water
+-1
+
+cocoa
+-1
+
+fence
+-1
+
+water border
+16
+
+chicken
+water
+0
+
+fox
+danger - other
+0
+
+damage - other
+0
+
+frog
+trapdoor
+-1
+
+water
+4
+
+goat
+powder snow
+-1
+
+danger - powder snow
+-1
+
+villagerwandering trader
+damage-fire
+-1
+
+danger - fire
+16
+
+parrot
+danger-fire
+-1
+
+damage - fire
+-1
+
+cocoa
+-1
+
+sniffer
+water
+-1
+
+danger - powder snow
+-1
+
+damage - cautious
+-1
+
+strider
+water
+-1
+
+lava
+0
+
+danger - fire
+0
+
+damage - fire
+0
+
+turtle
+close iron door
+-1
+
+closed wood door
+-1
+
+open door
+-1
+
+water
+0
+
+wolf
+powder snow
+-1
+
+danger - powder snow
+-1
+
+piglinpiglin brute
+damage - fire
+-1
+
+danger - fire
+16
+
+blaze
+water
+-1
+
+danger - fire
+8
+
+damage - fire
+8
+
+lava
+8
+
+breeze
+danger - trapdoor
+-1
+
+damage - fire
+-1
+
+drowned
+water
+0
+
+enderman
+water
+-1
+
+guardian
+water
+0
+
+ravager
+leaves
+0
+
+warden
+unpassable rail
+0
+
+damage - fire
+0
+
+danger - fire
+0
+
+damage - other
+8
+
+powder snow
+8
+
+lava
+8
+
+water creatures
+water
+0
+
+wither skeleton
+lava
+8
+
+zombified piglin
+lava
+8
+
+animal
+damage - fire
+-1
+
+danger - fire
+
+
+
+This section needs expansion. 
+You can help by expanding it.
+
+Pathfinding on land
+All entities move based on random targets that are generated every tick with a priority toward their entity-specific goals.
+These targets can be located anywhere in 3D space within the entity range and are only generated when wandering or when they have no goals.
+For every target, a path is generated; with the entity preferring the path with the lowest score regarding the Pathfinding penalties.
+If an entity cannot take any paths with a low enough score, or any paths without a score of -1, the entity will not move until one is found.
+If an entity's target is located inside a block (including water), the target is moved to the nearest air block above it.
+This means every entity, when wandering, will always prefer to pathfind to a block with the most blocks below it within range.
+Due to the higher chance that a target will be generated within the blocks below it and moved up to the nearest air block above before generating a path.
+
+Pathfinding in water
+Pathfinding in water is roughly the same as land; however, most entities, excluding fish and drowned, will bounce on the surface, preferring land due to the Pathfinding penalties of water.
+Pathfinding in air
+Pathfinding in air is roughly the same as land; however, few entities can pathfind to air.
+See also
+Mob infighting
+Navigation

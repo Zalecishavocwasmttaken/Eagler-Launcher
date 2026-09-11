@@ -1,0 +1,234 @@
+This page covers a development version that has a major issue under certain conditions. 
+The dedicated server for this version has a security vulnerability in the Log4j library that could be used to perform a remote code execution exploit. It can be addressed by appending a certain JVM argument to the server startup command line.
+
+Minecraft 16w35a
+
+Edition
+
+Java Edition
+
+Release date
+
+September 1, 2016
+
+Type
+
+Snapshot
+
+Snapshot for
+
+1.11
+
+Downloads
+
+Client (.json)Server
+
+Protocol version
+
+304
+
+Data version
+
+803
+
+Resource pack format
+
+3
+
+Minimum Java version
+
+Java SE 6
+
+◄◄   1.10.2
+1.11
+  1.11.1 ►►
+
+◄   16w33a
+
+ 16w35a
+
+  16w36a ►
+
+{
+    "title": "Minecraft 16w35a",
+    "images": [
+        "16w35a.png",
+        "Java Edition 16w35a.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "September 1, 2016",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Snapshot article, displayed as Snapshot)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition 1.11 article, displayed as 1.11)",
+            "label": "Snapshot for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/96bf2617491528e0a4d636fa08afe3c8c14282c7/client.jar Client] ([https://piston-meta.mojang.com/v1/packages/e64f1a32444286fc5fcd65dca20709ce5963d066/16w35a.json .json])<br />[https://piston-data.mojang.com/v1/objects/16ad43cb3b87b0279028af26201af7651b87c9e0/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "304",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "803",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "3",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_6 Java SE 6]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Java Edition  1.10.2|<span style=\"margin-right:-0.35em\">◄</span>◄   1.10.2]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition 1.11|1.11]]'''</td>\n<td style=\"padding: 0.4em\" >[[Java Edition  1.11.1|  1.11.1 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  16w33a|◄   16w33a]]\n</td>\n<td style=\"padding: 0.4em\">''' 16w35a'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  16w36a|  16w36a ►]]\n</td>\n</tr>\n</table>"
+}
+
+16w35a is the fourth snapshot for Java Edition 1.11, released on September 1, 2016.
+
+Contents
+
+1 Additions
+2 Changes
+
+2.1 Blocks
+
+2.1.1 General
+
+2.2 Mobs
+2.3 World generation
+2.4 General
+
+3 Fixes
+4 Videos
+5 Trivia
+6 References
+7 Navigation
+
+Additions
+Internationalization
+
+New strings within the game were made available for internationalization:
+/save-all flush command output
+Changes
+Blocks
+General
+Blocks with custom names, including banners, hoppers, chests, furnaces, enchanting tables, dispensers, droppers, brewing stands, and minecarts, retain their custom name when the block is dropped as an item, and when the item is placed again.
+Use the CustomName tag
+ Carpets
+
+1 carpet now smelts 0.335 items, increased from 0.33.
+3 carpets can now fully smelt 1 item.
+ Ladders
+
+1 ladders now smelts 1.5 items, increased from 1.165.
+2 ladders can now fully smelt 3 items.
+ Trapdoors
+
+If placed right next to redstone sources, they now update to an open state.
+Mobs
+ Blazes
+
+Take 1HP damage when hit by a splash water bottle.
+ Enderman
+
+Take 1HP damage and teleport when hit by a splash water bottle.
+ Saddled Pigs
+
+Are now able to be renamed by name tags.
+ Ender Dragons
+
+Now shows their hitbox when F3 + B is activated.
+World generation
+ Desert and Savanna Village wells
+
+The bottom most part of the wells are now made of sandstone and acacia logs instead of cobblestone respectively.
+General
+Options
+
+Changed the title and description of "Snooper Settings"
+Brings it into line with the new privacy policy
+Title is now "Feed us data!" instead of "Machine Specs Collection"
+Description is now "We always want to improve Minecraft and, to help us do that, we'd like to collect some information. This lets us know what hardware to support and where the big problems are. It also gives us a sense of the size of our active player base, so we know if we're doing a good job. You can view all the information we collect below. If you want to opt out then you can simply toggle it off!"
+ Shields
+
+Now block 100% of the damage dealt in melee combat, up from 66%.
+Zombies without any weapons don't deal any damage to the player, nor damage the shield's durability.
+Creeper explosions deal 0 damage to the player.
+Wither skeletons don't inflict the Wither effect when hit by them.
+Burning zombies don't set the player on fire.
+Husks don't apply the Hunger effect.
+Strays don't apply the Slowness effect.
+Now are disabled 100% of the time if a mob or player wielding an axe attacks the player when the shield is blocking, even if they are not sprinting.[verify for Java Edition]
+Fixes
+34 issues fixed
+From released versions before 1.11
+
+MC-4603 – The Ender Dragon is hostile to players in Creative
+MC-5120 – Fireworks pushed by water / fired horizontally out of loaded chunks cause client to hang
+MC-70143 – Eyes of Ender point to stairs after reloading a world
+MC-83337 – Eye of Ender in the mainhand doesn't block offhand item usage
+MC-84095 – Ender Dragon destroys fireballs/Fireballs invisible
+MC-85805 – Two pistons smashing a shulker glitch
+MC-88459 – Height limit message sent twice when trying to place from off hand
+MC-94274 – Hitbox of cocoa beans too small
+MC-94485 – Hand animation continue swing when cocoa block placed already
+MC-95738 – Slimes health resets to max when setting any nbt-tag
+MC-102506 – Ugly Bryce terrain generation (generation of stone above ground)
+MC-103261 – Desert villages generate with cobblestone around the well
+MC-104259 – Player/Mob stuck/through when on farmland while it changes to dirt
+MC-106179 – Zombie burns you when you block with shield
+MC-106252 – Slowness arrows from strays don't stack with crafted/shot arrows
+MC-106300 – Cake hitbox appears at 0,0,0
+MC-106364 – Lightning impact subtitle is misspelled as lighting
+MC-106524 – Stray chunks being generated far away
+MC-106552 – "/save-all flush" puts untranslated messages into chat
+MC-106713 – Snooper information may be de-anonymized by a third party
+From the 1.11 development versions
+
+MC-106056 – Can trade with /summon-ed green villagers (nitwit) only once per villager
+MC-106058 – Villager converted from zombie has random trades from random profession.
+MC-106064 – Some non-nitwit villagers have no trades
+MC-106075 – Hopper timings depend on the gametick they're activated in.
+MC-106099 – Firework Rocket does not spawn
+MC-106165 – Mob Potion effects are inflicted through shields
+MC-106302 – Unable to name saddled pigs
+From the previous development version
+
+MC-106298 – Unequipping horse armor shows armor equipping subtitle "Horse armor equips"
+MC-106303 – 3 carpets are not enough to smelt one item
+MC-106311 – A Tipped Arrow shot in Creative Mode will add to Inventory upon Pickup
+MC-106324 – Generated villagers can have impossible Career
+MC-106343 – Can't use right click ability while looking at a Green Villager
+MC-106362 – Newly generated Villagers have Incorrect Tier 1 trades
+MC-106399 – Igloos generating zombie instead of zombie villager
+Videos
+Video made by slicedlime:
+
+
+
+
+Trivia
+16w35a was previously removed from the launcher for some time, but was added back in September 2018.
+References
+
+ "Important Message: Security vulnerability in Java Edition"     – Minecraft.net, December 10, 2021.
+
+ "Minecraft Snapshot 16w35a"  (archived)   by Searge  – Mojang.com, September 1, 2016.
+
+ https://www.mojang.com/2016/09/weve-just-updated-our-privacy-policy/
+
+Navigation

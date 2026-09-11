@@ -1,0 +1,143 @@
+/function
+
+Permission levelrequired
+
+2 ‌[JE  only]
+1 ‌[BE  only]
+
+Restrictions
+
+Cheat only‌[BE  only]
+
+{
+    "title": "<code>/function</code>",
+    "rows": [
+        {
+            "field": "\n* 2 ‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Java Edition\">(link to Java Edition article, displayed as JE)  only</span></i>]</sup>\n* 1 ‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Bedrock Edition\">(link to Bedrock Edition article, displayed as BE)  only</span></i>]</sup>",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "(link to Cheat article, displayed as Cheat) only‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Bedrock Edition\">(link to Bedrock Edition article, displayed as BE)  only</span></i>]</sup>",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+Runs commands found in the corresponding function file(s) with command execution context (executor, execution position, angles, etc) of the /function command itself.
+
+Contents
+
+1 Usage
+2 Syntax
+3 Arguments
+4 Result
+5 Output
+6 Examples
+7 History
+
+7.1 Java Edition
+7.2 Bedrock Edition
+
+8 See also
+9 References
+10 External links
+11 Navigation
+
+Usage
+In Java Edition, runs a function or all functions in a tag from a data pack.
+In Bedrock Edition, runs a function from a behavior pack.
+In Java Edition, the behavior of /return run function ... (or /return run execute ... run function ...) is different with a direct call to the /function command. If /return run function ... runs multiple functions, execution stops after first /return in any of the functions. If a direct call to the /function ... runs multiple functions, all of the functions are executed, and the return values are added up as the result value of the /function ... command.
+
+Syntax
+Java Edition
+function <name>
+Runs a function or functions in a tag.
+function <name> <arguments>
+function <name> with (block <sourcePos>|entity <source>|storage <source>) [<path>]
+Runs a function or functions in a tag, with arguments for macros.
+Bedrock Edition
+function <name: filepath>
+Runs a function.
+Arguments
+JE: <name>: functionBE: name: filepath: CommandFilePath
+
+Specifies the function(s) to execute.
+In Java Edition, must be a resource location or one prefixed with a #, which resolves into a function or a function tag during command execution. In Bedrock Edition, must be of the format path/to/function/file, which resolves into a function located at [behavior_pack]/functions/path/to/function/file.mcfunction during command execution.
+JE: <arguments>: nbt_compound_tag
+
+Specifies arguments for macro functions in a compound NBT tag.
+Must be a [NBT Compound / JSON Object] compound NBT in SNBT format.
+JE: <sourcePos>: block_pos
+
+The position of the target block entity whose NBT is to be used.
+Must be a block position composed of <X>, <Y> and <Z>, each of which must be an integer or a tilde and caret notation.
+JE: <source>: entity (in entity <target> mode)
+
+Specifies an entity whose NBT is to be used.
+Must be a player name, a target selector or a UUID.
+JE: <source>: resource_location (in storage <target> mode)
+
+Specifies a storage whose NBT is to be used.
+Must be a resource location for an unregistered content.
+JE: <path>: nbt_path
+
+Specifies the NBT path. Should be a path of a single compound tag.
+Must be an NBT path.
+Result
+
+CommandTriggerJava EditionBedrock Edition
+
+AnyThe command is incomplete, or any argument is not specified correctly. Unparseable UnparseableThe specified function or function tag does not exist. Failed FailedThere's no function in the function tag. N/A/function <name>There's any macro line in the function(s). Failed/... with block ...<sourcePos> is unloaded or out of the world.The block at <sourcePos> is not a block entity./... with entity ...<source> fails to resolve to an entity (named player must be online)./... with ... <path>There's no tag at <path>.More than one tag is selected by <path>.The tag at <path> is not a compound tag./... <arguments>/... with ..With the provided arguments, any macro line in the function(s) becomes an unparseable command.AnyOnly one function is specified, and in it there's no /return command being executed. VoidOnly one function is specified, and in it there's a /return command being executed and returning a failure. FailedMultiple functions are specified, and in all of the functions, there is no /return command being executed. VoidOtherwiseSuccessful
+Output
+In Java Edition, for /return run execute store ... run function ...:
+
+CommandEditionSituationSuccess Count/execute store success .../execute store result ...
+
+AnyJava EditionOn failN/A00On voidN/AunchangedunchangedOn successN/A1the return value of the first non-void function(Execution stops after first /return in any of the specified functions)
+In Java Edition, otherwise:
+
+CommandEditionSituationSuccess Count/execute store success .../execute store result ...
+
+AnyJava EditionOn fail000On void0unchangedunchangedOn success11the sum of the return values of all the non-void functions
+In Bedrock Edition:
+
+CommandEditionSituationSuccess Count
+
+AnyBedrock EditionOn fail0On success1
+Examples
+In Java Edition:
+To run a function located at data/custom/function/example/test.mcfunction in a loaded data pack: /function custom:example/test
+To run all functions in a function tag located at data/custom/tags/function/example/test.json: /function #custom:example/test
+To run a function if there is a sheep within a radius of 2 blocks: /execute if entity @e[type=sheep,distance=..2] run function custom:example/test
+To run a function unless the executor is a player: /execute unless entity @s[type=player] run function custom:example/test
+To run a function macro with arguments a=42, b="example": /function custom:example/test {a: 42, b: "example"}
+To run a function macro with arguments from storage custom:storage: /function custom:example/test with custom:storage
+History
+Java Edition
+Java Edition1.12pre1
+Added /function.pre4
+Added new arguments to the /function command: [if|unless] [selector]pre6
+Skipped functions (when a conditional fails) are now considered failures when used in commands.1.1317w49b
+/function now accept function tags as the argument.
+Removed [if|unless] arguments in favor of /execute [if|unless].1.20.223w31a
+Added function macro arguments.1.20.323w41a
+/function command no longer returns the number of commands executed to better accommodate new /return command.23w44a
+If /function <function tag> runs multiple functions in combination with /return run, execution stops after first /return in any of the functions.
+A single call to the /function command always returns when run with /return run. For example, /return run execute [split context] run function <some function with conditional return> always returns after processing the first context.1.20.523w51a
+Fixed a bug that /function executing a function with /return fail has a success value of 1.
+Bedrock Edition
+Bedrock Edition1.8.0beta 1.8.0.8
+Added /function.
+See also
+/tag – To run function in batch, every tick, or on server (re)load.
+References
+
+ MC-267193 – resolved as "fixed".
+
+ MC-268160
+
+External links
+"/function Command"     – Microsoft Learn, October 11, 2023.
+Navigation

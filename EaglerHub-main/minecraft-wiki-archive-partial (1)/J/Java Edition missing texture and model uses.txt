@@ -1,0 +1,3173 @@
+For cases where undefined areas of the texture atlas are used, see Java Edition placeholder texture uses.
+ For cases where the top-left texture is used unexpectedly, see Java Edition default texture uses.
+
+This page documents all known cases where missing textures and models are or were used in vanilla Java Edition.
+For this page, due to the nature and intended use of missing textures and missing models, "vanilla" is defined in a much more strict sense than normal: alongside having no mods installed, use of non-default texture packs or resource packs, as well as non-default data packs, are also forbidden, as these can allow for the arbitrary occurrence of error handling assets. This includes invalid image files saved as pack.png.
+
+Contents
+
+1 Missing texture
+
+1.1 Blocks
+1.2 Items
+1.3 Entities
+1.4 Particles
+1.5 User interface
+1.6 Other
+
+2 Missing model
+
+2.1 Blocks
+2.2 Items
+2.3 Entities
+2.4 Other
+
+3 Missing font character
+4 Invalid data value blocks and items
+
+4.1 Blocks
+4.2 Items
+
+5 Example commands
+
+5.1 Air particles before 24w09a
+5.2 Invalid ID particles
+5.3 Spyglass particles
+5.4 Air item particles
+5.5 Template particles
+5.6 Paintings
+
+6 April Fools' versions
+7 Trivia
+8 Notes
+
+Missing texture
+This section only covers cases where the texture arises due to a texture being absent or invalid. Cases where the texture appears due to a model being absent or invalid are documented in the missing model subsection. Methods of viewing an entire atlas in-game, in which the missing texture is included, are not listed.
+
+Blocks
+
+From
+
+Until
+
+Change type
+
+Error type
+
+Use case
+
+Result
+
+Tickets
+
+Notes
+
+1.5(13w03a)
+
+1.7.2(13w41a)
+
+Feature removed
+
+No texture defined
+
+Locked chest
+
+MC-1561
+
+Did not use the missing texture in 13w02a and 13w02b, despite it existing. This resulted in crashes.This is a missing texture issue and not a missing model issue as custom models were added in 1.8, despite locked chests being removed in 1.7.
+
+1.8(14w06b)
+
+1.8(14w17a)
+
+Fixed
+
+No texture defined
+
+Potted end portal
+
+1.15(19w36a)
+
+1.15(19w37a)
+
+Fixed
+
+Nonexistent texture referenced
+
+Beehive, when full
+
+MC-160456
+
+Game tries to load "textures/block/bee_hive_top.png" and "textures/block/bee_hive_bottom.png"
+
+1.21.9(Pre-Release 1)
+
+Current
+
+Current
+
+Nonexistent texture referenced
+
+Player heads with invalid skin
+
+MC-303065
+
+Example: /give @s minecraft:player_head[profile={texture:""}]
+
+Items
+
+From
+
+Until
+
+Change type
+
+Error type
+
+Use case
+
+Result
+
+Tickets
+
+Notes
+
+1.5(13w03a)
+
+1.5(13w04a)
+
+Fixed
+
+No texture defined
+
+Redstone wire (direct item form)
+
+MC-8149
+
+Did not use the missing texture in 13w02a and 13w02b, despite it existing. This resulted in crashes.
+
+1.5(13w03a)
+
+1.5(13w04a)
+
+Fixed
+
+No texture defined
+
+Oak door (direct item form)
+
+Did not use the missing texture in 13w02a and 13w02b, despite it existing. This resulted in crashes.
+
+1.5(13w03a)
+
+1.5(13w04a)
+
+Fixed
+
+No texture defined
+
+Iron door (direct item form)
+
+Did not use the missing texture in 13w02a and 13w02b, despite it existing. This resulted in crashes.
+
+1.7.2(13w38b)
+
+1.7.2(13w38c)
+
+Feature removed
+
+No texture defined
+
+Air (direct item form)
+
+1.8(14w05a)
+
+1.8(14w25a)
+
+Feature removed
+
+No texture defined
+
+End portal (direct item form)
+
+MC-48102
+
+1.14(18w45a)
+
+1.14(18w46a)
+
+Fixed
+
+Mapping issue
+
+Spruce sign
+
+MC-138984
+
+Dependent on textures-atlas's arrangement of sprites
+
+Entities
+
+
+
+This section is missing information about: 26.3 equipment trim changes 
+Please expand the section to include this information. Further details may exist on the talk page.
+
+From
+
+Until
+
+Change type
+
+Error type
+
+Use case
+
+Result
+
+Tickets
+
+Notes
+
+1.9(15w31a)
+
+1.9(15w31b)
+
+Fixed
+
+Nonexistent texture referenced
+
+Spectral arrow
+
+MC-82809
+
+Game tries to load "textures/entity/projectiles/tracer_arrow.png"
+
+1.16(20w07a)
+
+1.16(Pre-release 3)
+
+Fixed
+
+Nonexistent texture referenced
+
+Turtle shell worn by a piglin
+
+MC-172110
+
+Game tries to load "textures/models/armor/turtle_piglin_helmet.png"
+
+1.20.5(24w05a)
+
+1.20.5(24w05b)
+
+Fixed
+
+Nonexistent texture referenced
+
+Chainmail armor
+
+MC-268168
+
+Game tries to load "textures/models/armor/chain_layer_1.png" and "textures/models/armor/chain_layer_2.png"
+
+1.21.2(24w36a)
+
+1.21.2(24w37a)
+
+Fixed
+
+Nonexistent texture referenced
+
+Chainmail armor
+
+MC-276296
+
+Game tries to load "textures/entity/equipment/humanoid/chain.png" and "textures/entity/equipment/humanoid_leggings/chain.png"
+
+1.21(24w20a)
+
+1.21.6(25w16a)
+
+Fixed
+
+Nonexistent texture referenced
+
+Paintings with invalid variant
+
+Converts to a valid painting if loaded in 25w04a or later.See #Paintings for example commands.
+
+1.21.9(25w36a)
+
+Current
+
+Current
+
+Nonexistent texture referenced
+
+Mannequins with invalid skin
+
+MC-301827
+
+Example: /summon minecraft:mannequin ~ ~ ~ {profile:{texture:""}}
+
+1.21.9(25w36a)
+
+Current
+
+Current
+
+Nonexistent texture referenced
+
+Mannequins with invalid cape
+
+MC-301828
+
+Example: /summon minecraft:mannequin ~ ~ ~ {profile:{name:MuzikBike,cape:""}}
+
+1.21.9(25w36a)
+
+Current
+
+Current
+
+Nonexistent texture referenced
+
+Mannequins with invalid elytra texture
+
+MC-301829
+
+Example: /summon minecraft:mannequin ~ ~ ~ {equipment:{chest:{id:"minecraft:elytra"}},profile:{name:MuzikBike,elytra:""}}
+
+Particles
+Block and item particles (breaking, broken, sprinting on, falling on, iron golem walking on, eating, ...)
+From 13w02a to 13w17a, the missing texture was positioned at the very top-left of the texture atlas. As such, it was used in multiple cases not due to it being the missing texture, but due to it being at the top-left. Only cases in which the texture is used due to being the missing texture are listed here; cases where it is used due to its position are listed at Java Edition default texture uses.
+
+From
+
+Until
+
+Change type
+
+Error type
+
+Use case
+
+Result
+
+Tickets
+
+Notes
+
+1.8(14w25a)
+
+1.8(14w26a)
+
+Fixed
+
+No model defined
+
+Barrier
+
+MC-57883
+
+This concerns the breaking particles.
+
+1.8(14w25a)
+
+1.8(14w28a)
+
+Feature broken
+
+No model defined
+
+blockcrack with invalidID/metadata
+
+Example command: /particle blockcrack_250_0 ~ ~2 ~ 0 0 0 0.1 100Occurs for any combination of block ID and block metadata which does not correspond to something valid.
+
+1.8(14w25a)
+
+1.8(14w28a)
+
+Feature broken
+
+No model defined
+
+iconcrack with invalidID/damage
+
+Example command: /particle iconcrack_250_0 ~ ~2 ~ 0 0 0 0.1 100Occurs for any combination of item ID and item damage which does not correspond to something valid.
+
+1.11(16w32a)
+
+1.11(16w32b)
+
+Fixed
+
+No model defined
+
+Structure void
+
+MC-105970
+
+1.8(14w29a)
+
+1.13(17w45a)
+
+Fixed
+
+No model defined
+
+blockcrack with invalidID/metadata
+
+See #Invalid ID particles for example reproduction commands.Occurs for any block ID which does not correspond to something valid.
+
+1.8(14w29a)
+
+1.13(17w45a)
+
+Fixed
+
+No model defined
+
+iconcrack with invalidID/metadata
+
+See #Invalid ID particles for example reproduction commands.Occurs for any combination of block ID and block metadata which does not correspond to something valid.
+
+1.8(14w29a)
+
+1.13(17w47a)
+
+Fixed
+
+No texture defined
+
+Air (block)
+
+Example command: /particle minecraft:blockcrack minecraft:air ~ ~1 ~ 0 0 0 0 1Does not work for minecraft:blockdust; no particles are created.
+
+1.8(14w25a)
+
+1.13(17w49a)
+
+Fixed
+
+No model defined
+
+Moving piston
+
+MC-58189MC-58556
+
+Produces no particles as of 17w49a, but no actual model existed until 1.13-pre3
+
+1.13(18w15a)
+
+1.13(18w20b)
+
+Fixed
+
+No model defined
+
+Conduit
+
+MC-128234
+
+1.13(18w20a)
+
+1.13(pre2)
+
+Fixed
+
+No model defined
+
+Bubble column
+
+MC-130059
+
+1.8(14w25a)
+
+1.13(pre3)
+
+Fixed
+
+No model defined
+
+End portal
+
+MC-48089
+
+End portals now use obsidian particles.
+
+1.9(15w31a)
+
+1.13(pre3)
+
+Fixed
+
+No model defined
+
+End gateway
+
+MC-48089
+
+End gateways now use obsidian particles.
+
+1.14(18w46a)
+
+1.14(18w50a)
+
+Fixed
+
+No texture defined
+
+Jigsaw block
+
+MC-139428
+
+1.8(14w29a)
+
+1.20.5(24w09a)
+
+Fixed
+
+No texture defined
+
+Air (item)
+
+MC-122177
+
+Example command: /particle minecraft:item minecraft:airCrashes versions 24w09a to 24w14a and is explicitly forbidden from 1.20.5 Pre-release 1 onwards.
+
+1.17(20w48a)
+
+1.21.4(24w45a)
+
+Fixed
+
+No texture defined
+
+Spyglass
+
+MC-206684
+
+See #Spyglass particles for example reproduction commands.
+
+1.21.2(24w36a)
+
+1.21.4(24w45a)
+
+Fixed
+
+No texture defined
+
+Items with template item_model
+
+MC-276737
+
+See #Template particles for example reproduction commands.
+
+1.21.2(24w36a)
+
+Current
+
+Current
+
+missingno referenced
+
+Items with "air" item_model
+
+MC-276725
+
+See #Air item particles for example reproduction commands.
+
+Other particles
+
+From
+
+Until
+
+Change type
+
+Error type
+
+Use case
+
+Result
+
+Tickets
+
+Notes
+
+1.8(14w25a)
+
+1.8(14w25b)
+
+Fixed
+
+[check the code]
+
+Barrier
+
+MC-57041
+
+This concerns the handheld particles.
+
+1.18(21w42a)
+
+Current
+
+Current
+
+missingno referenced
+
+AirCave airVoid air
+
+MC-239407MC-270529
+
+Requires the /particle command with minecraft:block_marker, e.g./particle minecraft:block_marker{block_state:{Name:"minecraft:air"}}
+
+User interface
+
+From
+
+Until
+
+Change type
+
+Error type
+
+Use case
+
+Result
+
+Tickets
+
+Notes
+
+1.14(19w08a)
+
+1.14(19w08b)
+
+Fixed
+
+Nonexistent texture referenced
+
+Instant HealthInstant Damage
+
+MC-144463
+
+Game tries to load "textures/mob_effect/instant_health.png" and "textures/mob_effect/instant_damage.png"
+
+1.21.2(24w36a)
+
+Current
+
+Current
+
+Nonexistent texture referenced
+
+Any item with invalid tooltip_style
+
+MC-276673
+
+Example: /give @s ice[minecraft:tooltip_style=""]
+
+1.21.2(Pre-Release 1)
+
+Current
+
+Current
+
+Nonexistent texture referenced
+
+Any item with invalid camera_overlay
+
+MC-277439
+
+Example: /give @s ice[equippable={slot:"head",camera_overlay:""}]
+
+1.21.6(25w17a)
+
+Current
+
+Current
+
+Nonexistent texture referenced
+
+Any entity with invalid waypoint style
+
+MC-298671
+
+Example: /summon minecraft:armor_stand ~ ~ ~ {attributes:[{id:waypoint_transmit_range,base:200}]}then /waypoint modify @n[type=minecraft:armor_stand] style set nonexistent
+
+1.21.9(25w32a)
+
+Current
+
+Current
+
+Nonexistent texture referenced
+
+Text object with valid atlasand invalid sprite name
+
+MC-302110
+
+Example: /tellraw @s {atlas:"blocks",sprite:"sprite_that_does_not_exist"}
+
+1.21.9(Pre-Release 1)
+
+Current
+
+Current
+
+Nonexistent texture referenced
+
+Text object with invalid profile data
+
+MC-303065
+
+Example: /tellraw @p {"player":{"name":"",texture:""}}
+
+Other
+
+From
+
+Until
+
+Change type
+
+Error type
+
+Use case
+
+Result
+
+Tickets
+
+Notes
+
+1.8(14w25a)
+
+1.8(14w25b)
+
+Fixed
+
+[check the code]
+
+Fire screen effect
+
+MC-56852
+
+[check the code]
+
+1.13(18w20a)
+
+1.13(18w20b)
+
+Fixed
+
+[check the code]
+
+Fire screen effect
+
+MC-129616
+
+[check the code]
+
+1.13(18w20b)
+
+1.13(18w20c)
+
+Fixed
+
+Nonexistent texture referenced
+
+Breaking entity-rendered blocks
+
+MC-129709
+
+Affected chests, shulker boxes, beds and signs. Game tries to load "blocks/destroy_stage_<0-9>"
+
+1.13(pre5)
+
+1.13(pre6)
+
+Fixed
+
+Nonexistent texture referenced
+
+End crystal beam
+
+MC-132278
+
+Game tries to load "textures/entity/end_crystal/end_rcrystal_beam.png"
+
+Missing model
+Blocks
+Blocks and variants accessible through normal gameplay
+
+From
+
+Until
+
+Change type
+
+Error type
+
+Use case
+
+Result
+
+Tickets
+
+Notes
+
+1.8(14w10a)
+
+1.8(14w10b)
+
+Fixed
+
+[check the code]
+
+Wheat
+
+MC-50232
+
+1.8(14w10a)
+
+1.8(14w10b)
+
+Fixed
+
+[check the code]
+
+Carrots
+
+MC-50232
+
+1.8(14w10a)
+
+1.8(14w10b)
+
+Fixed
+
+[check the code]
+
+Potatoes
+
+MC-50232
+
+1.8(14w10a)
+
+1.8(14w10b)
+
+Fixed
+
+[check the code]
+
+Nether wart (all stages)
+
+MC-50276
+
+1.8(14w10a)
+
+1.8(14w10b)
+
+Fixed
+
+[check the code]
+
+Saplings (second stage)
+
+1.8(14w10a)
+
+1.8(14w10b)
+
+Fixed
+
+[check the code]
+
+Powered dispenser facing down
+
+1.8(14w10a)
+
+1.8(14w10b)
+
+Fixed
+
+[check the code]
+
+Dispenser facing up
+
+MC-50259
+
+1.8(14w10a)
+
+1.8(14w10b)
+
+Fixed
+
+[check the code]
+
+Jukebox containing a music disc
+
+MC-50226
+
+1.8(14w10a)
+
+1.8(14w10b)
+
+Fixed
+
+[check the code]
+
+Snow with 8 layers
+
+MC-50254
+
+1.8(14w10a)
+
+1.8(14w10c)
+
+Fixed
+
+[check the code]
+
+Nether Wart (fully grown)
+
+MC-50276
+
+1.14(18w44a)
+
+1.14(18w50a)
+
+Fixed
+
+Undefined in blockstates
+
+Bell (wall attachment)
+
+MC-138587
+
+Unfinished state; not yet accessible
+
+Blocks and variants accessible via commands, intentional
+
+From
+
+Until
+
+Change type
+
+Error type
+
+Use case
+
+Result
+
+Tickets
+
+Notes
+
+1.8(14w10a)
+
+1.8(14w10b)
+
+Fixed
+
+[check the code]
+
+Oak wood
+
+1.8(14w10a)
+
+1.8(14w10b)
+
+Fixed
+
+[check the code]
+
+Birch wood
+
+1.8(14w10a)
+
+1.8(14w10b)
+
+Fixed
+
+[check the code]
+
+Spruce wood
+
+1.8(14w10a)
+
+1.8(14w10b)
+
+Fixed
+
+[check the code]
+
+Jungle wood
+
+1.8(14w10a)
+
+1.8(14w10b)
+
+Fixed
+
+[check the code]
+
+Acacia wood
+
+1.8(14w10a)
+
+1.8(14w10b)
+
+Fixed
+
+[check the code]
+
+Dark oak wood
+
+1.8(14w10a)
+
+1.8(14w10b)
+
+Fixed
+
+[check the code]
+
+Smooth stone
+
+MC-50233
+
+1.8(14w10a)
+
+1.8(14w10c)
+
+Fixed
+
+[check the code]
+
+Smooth sandstone
+
+MC-50351
+
+1.8(14w10a)
+
+1.8(14w10c)
+
+Fixed
+
+[check the code]
+
+Smooth quartz
+
+1.8(14w10a)
+
+1.8(14w25a)
+
+Fixed
+
+[check the code]
+
+Shrub
+
+MC-50447
+
+Blocks and variants accessible via commands, unintentional
+Main article:  § Invalid data value blocks and items
+Items
+Valid data values
+
+
+
+This section is missing information about: check written books 
+Please expand the section to include this information. Further details may exist on the talk page.
+
+From
+
+Until
+
+Change type
+
+Error type
+
+Use case
+
+Result
+
+Tickets
+
+Notes
+
+1.8(14w25a)
+
+1.8(14w25b)
+
+Fixed
+
+[check the code]
+
+Barrier
+
+MC-57041
+
+1.8(14w25a)
+
+1.8(14w25b)
+
+Fixed
+
+[check the code]
+
+Dragon egg
+
+MC-56947
+
+1.8(14w25a)
+
+1.8(14w25b)
+
+Fixed
+
+[check the code]
+
+Maps over ID 0
+
+MC-56868
+
+ID 0 maps appear normally.
+
+1.8(14w25a)
+
+1.9(15w31a)
+
+Fixed
+
+[check the code]
+
+Farmland
+
+MC-58073
+
+1.8(14w25a)
+
+1.9(15w31b)
+
+Fixed
+
+[check the code]
+
+Any damaged item withUnbreakable tag
+
+MC-85723
+
+Example command: /give @a diamond_pickaxe 1 1 {Unbreakable:1}
+
+1.8(14w25a)
+
+1.9(15w49a)
+
+Feature removed
+
+[check the code]
+
+Lit furnace (direct item form)
+
+MC-59234
+
+1.8(14w25a)
+
+1.13(17w47a)
+
+Fixed
+
+[check the code]
+
+Petrified oak slab
+
+MC-65019
+
+1.21.2(24w36a)
+
+Current
+
+Current
+
+Nonexistent model referenced
+
+Any item with invalid item_model
+
+MC-276671
+
+Example: /give @s ice[minecraft:item_model=""]
+
+Invalid data values
+Main article:  § Invalid data value blocks and items
+Entities
+
+From
+
+Until
+
+Change type
+
+Error type
+
+Use case
+
+Result
+
+Tickets
+
+Notes
+
+1.8(14w25a)
+
+1.8(14w25b)
+
+Fixed
+
+[check the code]
+
+Splash potion
+
+MC-56880
+
+Other
+
+From
+
+Until
+
+Change type
+
+Error type
+
+Use case
+
+Result
+
+Tickets
+
+Notes
+
+1.8(14w25a)
+
+1.8(14w25b)
+
+Fixed
+
+[check the code]
+
+Some blocks moved by pistons
+
+MC-56982
+
+Affects all 17 glass panes, iron bars, both fences, both walls, fence gates, all 12 stairs, and grass blocks.
+
+1.8(14w25a)
+
+1.8(14w25b)
+
+Fixed
+
+[check the code]
+
+Some falling blocks
+
+Affects the following IDs:
+
+1.8(14w25a)
+
+1.8(14w25b)
+
+Fixed
+
+[check the code]
+
+Some blocks if displayed in minecarts
+
+Affects the following IDs:
+
+1.8(14w25a)
+
+1.8(14w25b)
+
+Fixed
+
+[check the code]
+
+Several blocks held by endermen
+
+MC-56898
+
+Affects grass blocks in vanilla gameplay; other blocks also display the missing model if commands are used.
+
+1.11(16w32a)
+
+1.11(16w44a)
+
+Fixed
+
+[check the code]
+
+Structure voids moved by pistons
+
+MC-109086
+
+Missing font character
+Many different characters use this, so a comprehensive list will not be made.
+
+Invalid data value blocks and items
+Invalid item data values tend to almost exclusively use the missing model in the later versions of their existence. Only states which show the missing model are listed here; those which use the normal textures, or appear invisible, are not included in this list.
+
+Blocks
+
+ID
+
+Block
+
+Version range
+
+Affected metadata variants
+
+Obtainability in Survival
+
+Crashes14w25a/b?
+
+Notes
+
+Examples
+
+First
+
+Last
+
+001
+
+Stone
+
+14w10a
+
+14w25b
+
+7-15
+
+Arrow transmutation
+
+-
+
+002
+
+Grass Block
+
+14w10a
+
+14w21b
+
+1-15
+
+Arrow transmutation
+
+-
+
+Uses the correct model in 14w25a and 14w25b
+
+Video
+
+003
+
+Dirt
+
+14w10a
+
+14w25b
+
+3-15
+
+Arrow transmutation
+
+-
+
+004
+
+Cobblestone
+
+14w11b
+
+14w25b
+
+1-15
+
+Arrow transmutation
+
+-
+
+005
+
+Planks
+
+14w10a
+
+14w25b
+
+6-15
+
+Arrow transmutation
+
+-
+
+006
+
+Saplings
+
+14w10a
+
+14w25b
+
+6-7, 14-15
+
+Dropped by IDV leaves2, growth
+
+-
+
+Item form crashes 14w11a to 14w21b.
+
+007
+
+Bedrock
+
+14w11b
+
+14w25b
+
+1-15
+
+Arrow transmutation
+
+-
+
+012
+
+Sand
+
+14w10a
+
+14w25b
+
+2-15
+
+Arrow transmutation
+
+-
+
+013
+
+Gravel
+
+14w10a
+
+14w25b
+
+1-15
+
+Arrow transmutation
+
+-
+
+014
+
+Gold Ore
+
+14w10a
+
+14w25b
+
+1-15
+
+Arrow transmutation
+
+-
+
+015
+
+Iron Ore
+
+14w10a
+
+14w25b
+
+1-15
+
+Arrow transmutation
+
+-
+
+016
+
+Coal Ore
+
+14w10a
+
+14w25b
+
+1-15
+
+Arrow transmutation
+
+-
+
+019
+
+Sponge
+
+14w10a
+
+14w25b
+
+1-15
+
+Not obtainable before 14w25a
+
+-
+
+1 later became used for the wet sponge.
+
+020
+
+Glass
+
+14w10a
+
+14w25b
+
+1-15
+
+Arrow transmutation
+
+-
+
+Video
+
+021
+
+Lapis Lazuli Ore
+
+14w10a
+
+14w25b
+
+1-15
+
+Arrow transmutation
+
+-
+
+4 uses the normal model from 14w18a to 14w25b
+
+022
+
+Block of Lapis Lazuli
+
+14w10a
+
+14w25b
+
+1-15
+
+Arrow transmutation
+
+-
+
+023
+
+Dispenser
+
+14w10a
+
+14w25b
+
+6-7, 14-15
+
+Arrow transmutation
+
+-
+
+024
+
+Sandstone
+
+14w10a
+
+14w25b
+
+3-15
+
+Arrow transmutation
+
+-
+
+025
+
+Note Block
+
+14w10a
+
+14w25b
+
+1-15
+
+Arrow transmutation
+
+-
+
+027
+
+Powered Rail
+
+14w10a
+
+14w25b
+
+6-7, 14-15
+
+Door transmutation, powering
+
+!
+
+028
+
+Detector Rail
+
+14w10a
+
+14w25b
+
+6-7, 14-15
+
+Door transmutation, activation
+
+!
+
+May also crash 14w25a and 14w25b from large distances.
+
+029
+
+Sticky Piston
+
+14w17a
+
+14w25b
+
+6-7, 14-15
+
+Arrow transmutation
+
+!
+
+030
+
+Cobweb
+
+14w10a
+
+14w25b
+
+1-15
+
+Door (4), tripwire (5, 7)
+
+-
+
+031
+
+Grass
+
+14w10a
+
+14w25b
+
+3-15
+
+Tripwire (4-5), door (6)
+
+-
+
+MC-50447
+
+032
+
+Dead Bush
+
+14w10a
+
+14w25b
+
+1-15
+
+Tripwire transmutation (4-5 only)
+
+-
+
+033
+
+Piston
+
+14w17a
+
+14w25b
+
+6-7, 14-15
+
+Arrow transmutation
+
+!
+
+Video
+
+034
+
+Piston Head
+
+14w17a
+
+14w25b
+
+6-7, 14-15
+
+Tripwire transmutation (6-7 only)
+
+!
+
+Video
+
+037
+
+Dandelion
+
+14w10a
+
+14w25b
+
+1-15
+
+Tripwire (4-5), door (1)
+
+-
+
+038
+
+Other flowers
+
+14w10a
+
+14w25b
+
+9-15
+
+No currently known methods
+
+-
+
+039
+
+Brown Mushroom
+
+14w10a
+
+14w25b
+
+1-15
+
+Tripwire transmutation (4-5 only)
+
+-
+
+040
+
+Red Mushroom
+
+14w10a
+
+14w25b
+
+1-15
+
+Tripwire transmutation (4-5 only)
+
+-
+
+041
+
+Block of Gold
+
+14w10a
+
+14w25b
+
+1-15
+
+Arrow transmutation
+
+-
+
+042
+
+Block of Iron
+
+14w10a
+
+14w25b
+
+1-15
+
+Arrow transmutation
+
+-
+
+045
+
+Bricks
+
+14w11b
+
+14w25b
+
+1-15
+
+Arrow transmutation
+
+-
+
+046
+
+TNT
+
+14w10a
+
+14w25b
+
+2-15
+
+Arrow transmutation
+
+-
+
+047
+
+Bookshelf
+
+14w10a
+
+14w25b
+
+1-15
+
+Arrow transmutation
+
+-
+
+048
+
+Mossy Cobblestone
+
+14w11b
+
+14w25b
+
+1-15
+
+Arrow transmutation
+
+-
+
+049
+
+Obsidian
+
+14w10a
+
+14w25b
+
+1-15
+
+Arrow transmutation
+
+-
+
+050
+
+Torch
+
+14w06b
+
+14w25b
+
+0, 6-15
+
+Door transmutation (0, 6-7 only)
+
+-
+
+0, which randomly converts to a valid state, uses the normal model from 14w07a onward.15 appears normal from 14w17a onward.
+
+MC-47653Video
+
+052
+
+Spawner
+
+14w18a
+
+14w25b
+
+1-15
+
+Arrow transmutation
+
+-
+
+Flames are still visible:
+
+056
+
+Diamond Ore
+
+14w10a
+
+14w25b
+
+1-15
+
+Arrow transmutation
+
+-
+
+057
+
+Block of Diamond
+
+14w10a
+
+14w25b
+
+1-15
+
+Arrow transmutation
+
+-
+
+058
+
+Crafting Table
+
+14w10a
+
+14w25b
+
+1-15
+
+Arrow transmutation
+
+-
+
+059
+
+Wheat
+
+14w10a
+
+14w25b
+
+8-15
+
+Infdev preserved DV transmutation
+
+!
+
+060
+
+Farmland
+
+14w10a
+
+14w25b
+
+8-15
+
+Arrow transmutation
+
+-
+
+061
+
+Furnace
+
+14w10a
+
+14w25b
+
+1, 6-9, 14-15
+
+Door and arrow transmutation
+
+!
+
+062
+
+Lit Furnace
+
+14w10a
+
+14w25b
+
+0-1, 6-9, 14-15
+
+Door and arrow transmutation
+
+!
+
+State 0 uses a faceless model from 14w18a onward.
+
+065
+
+Ladder
+
+14w07a
+
+14w25b
+
+0-1, 6-15
+
+Door transmutation (0-1, 6-7 only)
+
+-
+
+MC-51025
+
+066
+
+Rail
+
+14w10a
+
+14w25b
+
+10-15
+
+Merge transmutation
+
+-
+
+Must be created before Beta 1.9 Prerelease 6.
+
+070
+
+Stone Pressure Plate
+
+14w10a
+
+14w25b
+
+2-15
+
+Tripwire transmutation (4-5 only)
+
+-
+
+072
+
+Oak Pressure Plate
+
+14w10a
+
+14w25b
+
+2-15
+
+Tripwire transmutation (4-5 only)
+
+-
+
+073
+
+Redstone Ore
+
+14w10a
+
+14w25b
+
+1-15
+
+Arrow transmutation
+
+-
+
+074
+
+Lit Redstone Ore
+
+14w10a
+
+14w25b
+
+1-15
+
+Arrow transmutation
+
+-
+
+075
+
+Unlit Redstone Torch
+
+14w06b
+
+14w25b
+
+0, 6-15
+
+Door transmutation (0, 6-7 only)
+
+-
+
+0, which randomly converts to a valid state, uses the normal model from 14w07a onward.
+
+076
+
+Redstone Torch
+
+14w06b
+
+14w25b
+
+0, 6-15
+
+Door transmutation (0, 6-7 only)
+
+-
+
+0, which randomly converts to a valid state, uses the normal model from 14w07a onward.
+
+MC-48233Video
+
+077
+
+Stone Button
+
+14w10a
+
+14w25b
+
+6-7, 14-15
+
+Door transmutation, pressing
+
+-
+
+Metadata 6 uses the item model for the block up to 14w21b; in 14w25a and 14w25b, it uses the missing model.
+
+078
+
+Snow
+
+14w10a
+
+14w25b
+
+8-15
+
+Arrow transmutation
+
+-
+
+079
+
+Ice
+
+14w10a
+
+14w25b
+
+1-15
+
+Arrow transmutation
+
+-
+
+080
+
+Snow Block
+
+14w10a
+
+14w25b
+
+1-15
+
+Arrow transmutation
+
+-
+
+081
+
+Jukebox
+
+14w10a
+
+14w25b
+
+2-15
+
+Arrow transmutation
+
+-
+
+082
+
+Clay
+
+14w10a
+
+14w25b
+
+1-15
+
+Arrow transmutation
+
+-
+
+086
+
+Carved Pumpkin
+
+14w10a
+
+14w25b
+
+4-15
+
+Arrow transmutation
+
+-
+
+087
+
+Netherrack
+
+14w10a
+
+14w25b
+
+1-15
+
+Arrow transmutation
+
+-
+
+088
+
+Soul Sand
+
+14w10a
+
+14w25b
+
+1-15
+
+Arrow transmutation
+
+-
+
+089
+
+Glowstone
+
+14w10a
+
+14w25b
+
+1-15
+
+Arrow transmutation
+
+-
+
+091
+
+Jack o'Lantern
+
+14w10a
+
+14w25b
+
+4-15
+
+Arrow transmutation
+
+-
+
+092
+
+Cake
+
+14w10a
+
+14w25b
+
+7-15
+
+Arrow transmutation
+
+!
+
+097
+
+Infested blocks
+
+14w10a
+
+14w25b
+
+6-15
+
+Arrow transmutation
+
+-
+
+098
+
+Stone Bricks
+
+14w10a
+
+14w25b
+
+4-15
+
+Arrow transmutation
+
+-
+
+099
+
+Brown Mushroom Block
+
+14w25a
+
+14w25b
+
+11-13
+
+Arrow transmutation
+
+-
+
+100
+
+Red Mushroom Block
+
+14w25a
+
+14w25b
+
+11-13
+
+Arrow transmutation
+
+-
+
+103
+
+Melon
+
+14w10a
+
+14w25b
+
+1-15
+
+Arrow transmutation
+
+-
+
+106
+
+Vines
+
+14w07a
+
+14w08a
+
+0
+
+Door transmutation
+
+-
+
+Tinted: . Crashes 14w10a due to having no model specified.
+
+MC-48539
+
+110
+
+Mycelium
+
+14w11b
+
+14w25b
+
+1-15
+
+Arrow transmutation
+
+-
+
+112
+
+Nether Bricks
+
+14w11b
+
+14w25b
+
+1-15
+
+Arrow transmutation
+
+-
+
+114
+
+Nether Wart
+
+14w10a
+
+14w25b
+
+4-15
+
+Tripwire transmutation (4-7 only)
+
+!
+
+7 renders normally in 14w10b.
+
+116
+
+Enchanting Table
+
+14w18a
+
+14w25b
+
+1-15
+
+Arrow transmutation
+
+-
+
+Book is still visible:
+
+117
+
+Brewing Stand
+
+14w11a
+
+14w25b
+
+8-15
+
+Arrow transmutation
+
+-
+
+In 14w25a and 14w25b, values 9 to 15 are instantly converted to 0.
+
+118
+
+Cauldron
+
+14w10a
+
+14w25b
+
+4-15
+
+Arrow transmutation
+
+!
+
+120
+
+End Portal Frame
+
+14w07a
+
+14w25b
+
+8-15
+
+Arrow transmutation
+
+-
+
+121
+
+End Stone
+
+14w11b
+
+14w25b
+
+1-15
+
+Arrow transmutation
+
+-
+
+122
+
+Dragon Egg
+
+14w10a
+
+14w25b
+
+1-15
+
+Arrow transmutation
+
+-
+
+123
+
+Redstone Lamp
+
+14w10a
+
+14w25b
+
+1-15
+
+Arrow transmutation
+
+-
+
+124
+
+Lit Redstone Lamp
+
+14w10a
+
+14w25b
+
+1-15
+
+Arrow transmutation
+
+-
+
+125
+
+Double wooden slabs
+
+14w10a
+
+14w25b
+
+6-15
+
+Arrow transmutation
+
+-
+
+126
+
+Wooden slabs
+
+14w10a
+
+14w25b
+
+6-7, 14-15
+
+Arrow transmutation
+
+-
+
+127
+
+Cocoa
+
+14w07a
+
+14w25b
+
+12-15
+
+Arrow transmutation
+
+-
+
+129
+
+Emerald Ore
+
+14w10a
+
+14w25b
+
+1-15
+
+Arrow transmutation
+
+-
+
+133
+
+Block of Emerald
+
+14w10a
+
+14w25b
+
+1-15
+
+Arrow transmutation
+
+-
+
+137
+
+Command Block
+
+14w10a
+
+14w25b
+
+2-15
+
+Block not obtainable in survival
+
+-
+
+138
+
+Beacon
+
+14w10a
+
+14w25b
+
+1-15
+
+Arrow transmutation
+
+-
+
+141
+
+Carrots
+
+14w10a
+
+14w25b
+
+8-15
+
+No currently known methods
+
+!
+
+142
+
+Potatoes
+
+14w10a
+
+14w25b
+
+8-15
+
+No currently known methods
+
+!
+
+143
+
+Oak Button
+
+14w10a
+
+14w25b
+
+6-7, 14-15
+
+Door transmutation, pressing
+
+-
+
+Metadata 6 uses the item model for the block up to 14w21b; in 14w25a and 14w25b, it uses the missing model.
+
+145
+
+Anvil
+
+14w10a
+
+14w25b
+
+12-15
+
+Arrow transmutation
+
+-
+
+152
+
+Block of Redstone
+
+14w10a
+
+14w25b
+
+1-15
+
+Arrow transmutation
+
+-
+
+MC-50314
+
+153
+
+Nether Quartz Ore
+
+14w10a
+
+14w25b
+
+1-15
+
+Arrow transmutation
+
+-
+
+154
+
+Hopper
+
+14w10a
+
+14w25b
+
+1, 6-7, 9, 14-15
+
+Arrow transmutation
+
+!
+
+Data values 6, 7, 14 and 15 are also known to render worlds unopenable; caution strongly advised.
+
+155
+
+Block of Quartz
+
+14w10a
+
+14w25b
+
+5-15
+
+Arrow transmutation
+
+-
+
+157
+
+Activator Rail
+
+14w10a
+
+14w25b
+
+6-7, 14-15
+
+Door transmutation, powering
+
+!
+
+158
+
+Dropper
+
+14w10a
+
+14w25b
+
+6-7, 14-15
+
+Arrow transmutation
+
+-
+
+161
+
+Leaves
+
+14w10a
+
+14w25b
+
+2-3, 6-7, 10-11, 14-15
+
+Arrow transmutation
+
+!
+
+162
+
+Logs
+
+14w10a
+
+14w25b
+
+2-3, 6-7, 10-11, 14-15
+
+Arrow transmutation
+
+!
+
+165
+
+Slime Block
+
+14w10a
+
+14w25b
+
+1-15
+
+Arrow transmutation
+
+-
+
+168
+
+Prismarine
+
+14w25a
+
+14w25b
+
+3-15
+
+No currently known methods
+
+-
+
+169
+
+Sea Lantern
+
+14w25a
+
+14w25b
+
+1-15
+
+No currently known methods
+
+-
+
+170
+
+Hay Bale
+
+14w10a
+
+14w25b
+
+12-15
+
+Arrow transmutation
+
+-
+
+172
+
+Terracotta
+
+14w10a
+
+14w25b
+
+1-15
+
+Arrow transmutation
+
+-
+
+173
+
+Block of Coal
+
+14w11b
+
+14w25b
+
+1-15
+
+Arrow transmutation
+
+-
+
+174
+
+Packed Ice
+
+14w10a
+
+14w25b
+
+1-15
+
+Arrow transmutation
+
+-
+
+Items
+
+
+
+This section is missing information about:
+MC-58445 - main ticket for invalid DV items
+MC-58287, MC-58445, MC-59326, MC-63344, MC-88105 - also include invalid DV items
+MC-70806 could also be considered an invalid DV item issue
+more specific tickets for invalid DV items:
+MC-67824 - snow
+MC-70590 - sandstone
+MC-72961 - map(?)
+MC-76072 - skull
+MC-86633 - command block
+video examples:
+https://youtu.be/JFtukepQIxs - grass block
+https://youtu.be/OmjeOn7DwV4 - grass block, egg
+https://youtu.be/1hgVMF0bTfQ - leaves, snowballs, horse armor
+https://web.archive.org/web/20171029092407/https://youtube.com/watch?v=YtIqcvVnXIQ - ice
+https://youtu.be/dwNlbT5JJsU - diamond
+https://www.youtube.com/watch?v=nWYL3lFjJXc - potion
+https://youtube.com/watch?v=unSAkOVp-qE - snow
+non-video examples:
+https://www.minecraftforum.net/forums/minecraft-java-edition/discussion/2229424-how-to-get-a-black-and-purple-block-that-can-kill - diamond sword 
+Please expand the section to include this information. Further details may exist on the talk page.
+
+The vast majority of item-damage combinations will have an absent model from versions 14w25a to 17w46a. A section detailing this in more specifics is pending.
+Due to 17w47a's changes, giving oneself an item with an invalid damage value will no longer display the missing model or missing texture, as the entire concept of data value variants of items no longer exists. Existing such items will be converted into something else entirely, with a defined, functional model.
+
+Example commands
+This section lists reproduction commands which would be excessive to include within table notes sections.
+
+Air particles before 24w09a
+The following commands will create particles for the minecraft:air block in the following version ranges:
+
+14w29a to 15w47c: /particle blockcrack_0 ~ ~ ~ 0 0 0 0.1 1
+15w49a to 17w43b: /particle blockcrack ~ ~ ~ 0 0 0 0 1 0 @p 0
+17w45a to 17w46a: /particle blockcrack minecraft:air ~ ~ ~ 0 0 0 0 1
+The following commands will create particles for the minecraft:air item in the following version ranges:
+
+14w29a to 15w47c: /particle iconcrack_0 ~ ~ ~ 0 0 0 0.1 1
+15w49a to 17w43b: /particle iconcrack ~ ~ ~ 0 0 0 0 1 0 @p 0
+17w45a to 17w46a: /particle iconcrack minecraft:air ~ ~ ~ 0 0 0 0 1
+Invalid ID particles
+The following commands will create particles for a nonexistent block with ID 512 (beyond the upper limit of 255) in the following version ranges:
+
+14w29a to 15w47c: /particle blockcrack_512 ~ ~ ~ 0 0 0 0.1 1
+15w49a to 17w43c: /particle blockcrack ~ ~ ~ 0 0 0 0 1 0 @p 512
+The following commands will create particles for a nonexistent item with ID 512 and damage 256 in the following version ranges:
+
+14w29a to 15w47c: /particle iconcrack_512_156 ~ ~ ~ 0 0 0 0.1 1
+15w49a to 17w43c: /particle iconcrack ~ ~ ~ 0 0 0 0 1 0 @p 512 256
+The IDs and (for items) damage can be changed to any desired value to produce missing texture particles, provided the metadata in question does not correspond to a valid block or item.
+
+Spyglass particles
+Example ways to reproduce this:
+
+Particle command: /particle minecraft:item{item:"minecraft:spyglass"}
+Area effect cloud: /summon minecraft:area_effect_cloud ~ ~ ~ {Particle:{type:item,item:"minecraft:spyglass"},Radius:10,Duration:200}
+Panda consumption: /summon minecraft:panda ~ ~ ~ {HandItems:[{id:"minecraft:spyglass",Count:1}]}
+The item_model item component can also be used to reassign the spyglass model to existing items from versions 24w36a to 24w44a:
+
+Player consumption: /give @s minecraft:sweet_berries[minecraft:item_model="minecraft:spyglass_in_hand"], then eat
+Fox consumption: Drop the item obtained with the above command, have a fox pick it up, and wait
+Egg breaking: /give @s minecraft:egg[minecraft:item_model="minecraft:spyglass_in_hand"], then throw at a block
+Armor/tool breaking: /give @s minecraft:iron_chestplate[item_model="minecraft:spyglass_in_hand",max_damage=1], equip, then take damage
+Missing texture particles also appear when breaking placed spyglass items in Java Edition 22w13oneBlockAtATime.
+
+Air item particles
+Producing air particles is similar to producing spyglass particles via using a separate item with the spyglass model in earlier versions:
+
+Player consumption: /give @s minecraft:sweet_berries[minecraft:item_model="minecraft:air"], then eat
+Fox consumption: Drop the item obtained with the above command, have a fox pick it up, and wait
+Egg breaking: /give @s minecraft:egg[minecraft:item_model="minecraft:air"], then throw at a block
+Armor/tool breaking: /give @s minecraft:iron_chestplate[item_model="minecraft:air",max_damage=1], equip, then take damage
+Template particles
+Refer to the "air item particles" section above, but replace minecraft:air with one of the following six template models:
+
+minecraft:generated
+minecraft:handheld
+minecraft:handheld_rod
+minecraft:handheld_mace
+minecraft:template_bed
+minecraft:template_shulker_box
+These work from 24w36a to 24w44a; 24w45a now uses item_model to refer to assets/minecraft/items rather than assets/minecraft/models/item, and as such these will have no model at all rather than simply appearing empty.
+
+Paintings
+This command can be used from 25w03a to 25w15a to give a painting item which places an invalid variant: /give @s minecraft:painting[painting/variant={asset_id:"",width:2,height:1}]
+This command can summon a painting with an invalid variant from 24w18a to 25w03a (before 24w20a this will kick the player from the world, and from 25w04a will create the default painting variant): /summon minecraft:painting ~ ~ ~ {variant:{asset_id:"",width:1,height:1}}
+In both cases, the width and height can be adjusted to be from any value 1 to 16.
+
+April Fools' versions
+
+
+
+			Placed spyglasses in 22w13oneBlockAtATime had missing particles as a result of MC-206684
+
+
+
+			minecraft:dupe_hack in 23w13a_or_b has no model
+
+
+
+			It's very slippery in 24w14potato has no graphic
+
+
+
+			"Missing" sky box in 25w14craftmine
+
+
+Trivia
+It is also possible, through some methods, to display the contents of atlases themselves, which will include the missing texture.
+Notes
+
+ Ticket originally referred to using placeholder spots in terrain.png, however tickets regarding the missing texture have since been resolved into it
+
+ For some reason, this ticket is marked as affecting a version released after this was fixed.
+
+ Example command: /summon FallingSand ~ ~ ~ {Time:1b,TileID:NUMBER}Replace NUMBER with one of these IDs:
+2 (grass block)
+51 (fire)
+53 (oak stairs)
+55 (redstone wire)
+64 (oak door)
+67 (cobblestone stairs)
+71 (iron door)
+85 (oak fence)
+93 (inactive redstone repeater; has no top or bottom face)
+94 (active redstone repeater; has no top or bottom face)
+101 (iron bars)
+102 (glass pane)
+104 (pumpkin stem)
+105 (melon stem)
+106 (vines)
+107 (fence gate)
+108 (brick stairs)
+109 (stone brick stairs)
+111 (lily pad)
+113 (nether brick fence)
+114 (nether brick stairs)
+128 (sandstone stairs)
+131 (tripwire hook)
+132 (tripwire)
+134 (spruce stairs)
+135 (birch stairs)
+136 (jungle stairs)
+139 (cobblestone wall)
+140 (flower pot)
+156 (quartz stairs)
+160 (stained glass pane)
+163 (acacia stairs)
+164 (dark oak stairs)
+175 (double plant)
+ID 65 (ladder; crashes the game upon landing) also produces a missing model; this is a result of metadata 0 being unused in normal gameplay. The command /summon FallingSand ~ ~ ~ {Time:1b,TileID:65,Data:2}, for example, will produce a normal-looking falling ladder.
+
+ Example command: /summon Minecart ~ ~ ~ {CustomDisplayTile:true,DisplayTile:NUMBER}Replace NUMBER with one of these IDs:
+2 (grass block)
+51 (fire)
+53 (oak stairs)
+55 (redstone wire)
+64 (oak door)
+67 (cobblestone stairs)
+71 (iron door)
+85 (oak fence)
+90 (nether portal)
+93 (inactive redstone repeater)
+94 (active redstone repeater)
+101 (iron bars)
+102 (glass pane)
+104 (pumpkin stem)
+105 (melon stem)
+106 (vines)
+107 (fence gate)
+108 (brick stairs)
+109 (stone brick stairs)
+111 (lily pad)
+113 (nether brick fence)
+114 (nether brick stairs)
+128 (sandstone stairs)
+131 (tripwire hook)
+132 (tripwire)
+134 (spruce stairs)
+135 (birch stairs)
+136 (jungle stairs)
+139 (cobblestone wall)
+140 (flower pot)
+156 (quartz stairs)
+160 (stained glass pane)
+163 (acacia stairs)
+164 (dark oak stairs)
+175 (double plant)
+ID 65 (ladder) also produces a missing model; this is a result of metadata 0 being unused in normal gameplay. The command /summon Minecart ~ ~ ~ {CustomDisplayTile:true,DisplayData:2,DisplayTile:65}, for example, will produce a normal-looking ladder in a minecart.
+
+ Example command: /summon Enderman ~ ~ ~ {carried:NUMBER}Replace NUMBER with one of these IDs:
+2 (grass block)
+51 (fire)
+53 (oak stairs)
+55 (redstone wire)
+64 (oak door)
+67 (cobblestone stairs)
+71 (iron door)
+85 (oak fence)
+90 (nether portal)
+93 (inactive redstone repeater)
+94 (active redstone repeater)
+101 (iron bars)
+102 (glass pane)
+104 (pumpkin stem)
+105 (melon stem)
+106 (vines)
+107 (fence gate)
+108 (brick stairs)
+109 (stone brick stairs)
+111 (lily pad)
+113 (nether brick fence)
+114 (nether brick stairs)
+128 (sandstone stairs)
+131 (tripwire hook)
+132 (tripwire)
+134 (spruce stairs)
+135 (birch stairs)
+136 (jungle stairs)
+139 (cobblestone wall)
+140 (flower pot)
+156 (quartz stairs)
+160 (stained glass pane)
+163 (acacia stairs)
+164 (dark oak stairs)
+175 (double plant)
+ID 65 (ladder) also produces a missing model; this is a result of metadata 0 being unused in normal gameplay. The command /summon Enderman ~ ~ ~-4 {carried:65,carriedData:2}, for example, will produce a normal-looking ladder in a not minecart.

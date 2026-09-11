@@ -1,0 +1,148 @@
+This article documents the Data field in the Spawn Entity packet. The field is of type VarInt, and the meaning of its contents depend on the type of entity being spawned, as defined in the Type field of the same packet, and is documented below.
+
+Contents
+
+1 Item Frame
+2 Painting
+3 Falling Block
+4 Fishing Hook
+5 Projectile
+6 Warden
+
+Item Frame
+
+Value
+
+Orientation
+
+0
+
+Down
+
+1
+
+Up
+
+2
+
+North
+
+3
+
+South
+
+4
+
+West
+
+5
+
+East
+
+The Notchian client clamps invalid values into the valid range through the modulus operator. If the resulting value is negative, the absolute value is used.
+Velocity in the packet is always ignored.
+
+Painting
+
+Value
+
+Orientation
+
+2
+
+North
+
+3
+
+South
+
+4
+
+West
+
+5
+
+East
+
+The Notchian client clamps invalid values into the valid range through the modulus operator. If the resulting value is negative, the absolute value is used.
+
+
+
+Although the values of 0 and 1 are invalid, the Notchian client uses the same clamping algorithm as Item Frame, which can result in any value from 0 to 5. If the resulting value is invalid, the entity will fail to spawn.
+
+Velocity in the packet is always ignored.
+
+Falling Block
+
+Field name
+
+Field type
+
+Notes
+
+Block state ID
+
+VarInt
+
+ID of the block state that the falling block will represent.
+
+Velocity in the packet is always ignored.
+
+Fishing Hook
+
+Field name
+
+Field type
+
+Notes
+
+Owner
+
+VarInt
+
+The entity ID of the owner
+
+
+
+If the entity with the Owner ID doesn't exist in the client, the entity will fail to spawn.
+
+Velocity in the packet is ignored, and instead should be inferred from the shooter's position.
+
+
+
+This section is missing information about: What's the exact algorithm for determining this? 
+Please expand the section to include this information. Further details may exist on the talk page.
+
+Projectile
+
+Field name
+
+Field type
+
+Notes
+
+Owner ID
+
+VarInt
+
+The entity ID of the owner
+
+Warden
+
+Field name
+
+Field type
+
+Notes
+
+Pose
+
+VarInt
+
+If a value of 1 is specified, the Warden will spawn in the emerging pose.
+Any other value is silently ignored.
+
+
+
+This article is licensed under a Creative Commons Attribution-ShareAlike 3.0 license. 
+This article has been imported from wiki.vg or is a derivative of such a page. Thus, the wiki's usual license does not apply.Derivative works must be licensed using the same or a compatible license.

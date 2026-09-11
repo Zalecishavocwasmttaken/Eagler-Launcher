@@ -1,0 +1,89 @@
+v0.6.4
+
+Edition
+
+Bedrock Editor
+
+Release date
+
+May 22, 2024
+
+Client version
+
+1.21.10.20
+
+◄◄   0.6.0
+0.6.4
+  0.7.0 ►►
+
+◄   0.6.3
+
+  0.6.5 ►
+
+{
+    "title": "v0.6.4",
+    "images": [],
+    "rows": [
+        {
+            "field": "''(link to Bedrock Editor article, displayed as Bedrock Editor)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "May 22, 2024",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Bedrock Edition Preview 1.21.10.20 article, displayed as 1.21.10.20)",
+            "label": "Client version"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Bedrock Editor  0.6.0|<span style=\"margin-right:-0.35em\">◄</span>◄   0.6.0]]</td>\n<td rowspan=\"2\" style=\"padding: 0.4em\">'''0.6.4'''</td>\n<td style=\"padding: 0.4em\" >[[Bedrock Editor  0.7.0|  0.7.0 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Bedrock Editor  0.6.3|◄   0.6.3]]\n</td>\n\n<td style=\"padding: 0.4em\">\n[[Bedrock Editor  0.6.5|  0.6.5 ►]]\n</td>\n</tr>\n</table>"
+}
+
+Bedrock Editor v0.6.4 is a minor alpha release for the Bedrock Editor released on May 22, 2024, which adds a Paste Preview tool and fixes bugs.
+
+Contents
+
+1 Additions
+2 Changes
+3 Fixes
+4 References
+5 Navigation
+
+Additions
+Paste Preview tool in Bedrock Editor
+Added Paste Preview tool
+⇧ Shift + ⎈ Control + V - Activate Paste Preview Mode (if there's content in the clipboard)
+⎈ Control + C - Copy Selection to Clipboard
+⎈ Control + V - Immediate paste to cursor position (no preview)
+↑ Up/↓ Down/← Left/→ Right/⇞ Page Up/⇟ Page Down - manually nudge the 3D block cursor in a camera relative direction
+⎈ Control + ↑ Up/↓ Down/← Left/→ Right/⇞ Page Up/⇟ Page Down - Manually nudge the pivot location inside the bounds of the clipboard item, in a camera relative direction
+⇧ Shift + ⎈ Control + ↑ Up/↓ Down/← Left/→ Right/⇞ Page Up/⇟ Page Down - Manually nudge the placement offset, in a camera relative direction
+⎈ Control + D or esc - Deselect Preview Mode
+ Left Mouse Button, ⏎ Return or ⎈ Control + F - Place paste preview in the world at the 3D block cursor position
+⎈ Control + Mouse Click - Remove blocks in the shape of the clipboard item (Note: Current implementation will only use the bounding box... complex shape removal is still in development)
+B - Cursor Block Mode
+F - Cursor Adjacent (Face) Mode
+R - Rotate Cycle CW (0, 90, 180, 270) around Y axis at pivot location
+⇧ Shift + R - Rotate Cycle CCW (270, 180, 90, 0) around Y at pivot location
+X - Mirror X Axis around pivot
+Z - Mirror Z Axis around pivot
+C - Toggle Cursor Control Mode between "Keyboard & Mouse" or "Keyboard Only"
+D - Change Cursor Control mode to "Fixed Distance"
+ Scroll Wheel - Adjust Fixed Cursor distance (only when Fixed distance is enabled)
+Changes
+Add enabled property to IMenu and IMenuCreationParams.
+Added customization and pagination support for the Action bar. Action selector can be opened from plus button to add new items or from bottom right arrow of existing items to modify them.
+Updated documentation for SimpleTool classes.
+Fixes
+Fixed a bug where clicking repeatedly on the "Uniform" checkbox in brush tool settings could cause a crash.
+Top Snow now falls when placed with a brush.
+References
+
+ "Release 0.6.4 (1.21.10.20)"     – GitHub, May 22, 2024.
+
+
+"Minecraft Beta & Preview - 1.21.10.20"     – Minecraft Feedback, May 22, 2024.
+
+Navigation

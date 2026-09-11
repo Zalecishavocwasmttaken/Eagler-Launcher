@@ -1,0 +1,100 @@
+/gamerule
+
+Permission levelrequired
+
+2 ‌[JE  only]
+1 ‌[BE  only]
+
+Restrictions
+
+Cheat only for some rules‌[BE  only]
+
+{
+    "title": "<code>/gamerule</code>",
+    "rows": [
+        {
+            "field": "\n* 2 ‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Java Edition\">(link to Java Edition article, displayed as JE)  only</span></i>]</sup>\n* 1 ‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Bedrock Edition\">(link to Bedrock Edition article, displayed as BE)  only</span></i>]</sup>",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "(link to Cheat article, displayed as Cheat) only for some rules‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Bedrock Edition\">(link to Bedrock Edition article, displayed as BE)  only</span></i>]</sup>",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+Sets or queries a game rule value.
+
+Contents
+
+1 Syntax
+2 Arguments
+3 Result
+4 Output
+5 Examples
+6 History
+
+6.1 Java Edition
+6.2 Bedrock Edition
+
+7 See also
+8 External links
+9 Navigation
+
+Syntax
+Java Edition
+gamerule <rule name> [<value>]
+Bedrock Edition
+gamerule <rule: BoolGameRule> [value: Boolean]
+gamerule <rule: IntGameRule> [value: int]
+Arguments
+Arguments in Java Edition are case sensitive. Arguments in Bedrock Edition are shown for tab autocompletion as lowercase, but when typed are case-insensitive.
+JE: <rule name>
+BE: rule: BoolGameRule: enum and rule: IntGameRule: enum
+
+Specifies the game rule to set or query.
+Must be one of the predefined game rules; see Game rule.
+JE: <value>
+BE: value: Boolean: enum and value: int: int
+
+Specifies the value to set the game rule to. If not specified, queries the value of the game rule instead of setting it.
+Only true or false specified for predefined game rules can affect gameplay, except in the case of maxEntityCramming, randomTickSpeed, spawnRadius, playersSleepingPercentage, functionCommandLimit and maxCommandChainLength where any integer (-2147483648~2147483647) affects gameplay; see Game rule.
+Result
+
+CommandTriggerJava EditionBedrock Edition
+
+AnyThe command is incomplete, or any argument is not specified correctly. Unparseable UnparseableOtherwiseSuccessful
+Output
+
+CommandEditionSituationSuccess Count/execute store success .../execute store result ...
+
+AnyJava EditionOn success11the current value of the game ruleBedrock EditionOn success1N/AN/A
+Examples
+To stop the day-night cycle: gamerule advance_time false
+To stop natural healing: gamerule natural_health_regeneration false
+To stop creepers, ghasts and other mobs from modifying blocks: gamerule mob_griefing false
+To stop the natural cycle of weather: gamerule advance_weather false
+To make players keep all of their valuables when they die: gamerule keep_inventory true
+To stop TNT from exploding: gamerule tnt_explodes false
+To stop command blocks from showing what they do: gamerule command_block_output false
+To stop phantoms from spawning:gamerule spawn_phantoms false
+To change random tick speed (default is 3): gamerule random_tick_speed <speed>
+History
+Java Edition
+Java Edition1.4.212w32a
+Added /gamerule.1.814w29a
+Added the ability to create custom dummy gamerules.1.1317w45a
+/gamerule no longer accepts unknown values (dummy gamerules).
+
+Values to /gamerule are now type-checked.
+Bedrock Edition
+Pocket Edition1.0.5alpha 1.0.5.0
+Added /gamerule.Bedrock Edition?
+Command segments rule: BoolGameRule or rule: IntGameRule no longer accept dummy gamerules.
+See also
+/mobevent – a command in Bedrock Edition for controlling the spawning of raids, patrols, and wandering traders
+External links
+"/gamerule Command"     – Microsoft Learn, January 5, 2024.
+Navigation

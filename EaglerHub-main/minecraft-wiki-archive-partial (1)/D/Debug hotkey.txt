@@ -1,0 +1,305 @@
+This article is about the hotkey.   For other uses, see Debug.
+
+
+
+This feature is exclusive to Java Edition. 
+
+The list of debug keybinds as shown in-game under "Options" → "Controls" → "Key Binds".
+A debug hotkey (or key binding in game) is used to access hidden information and trigger advanced settings in the game through F3 + <key>, where key is usually a letter (A–Z), or just a single F3, which is used to open the debug screen. When F3 is used as a modifier for debug hotkey combination, the debug screen is not opened (or closed if enabled).
+The list for debug hotkeys can be viewed and changed under the "Debug" section of "Options" → "Controls" → "Key Binds".
+Some debug hotkeys may be disabled by reduced_debug_info game rule.
+
+Contents
+
+1 List of debug hotkeys
+
+1.1 Disabled hotkeys
+
+2 History
+3 Issues
+4 Gallery
+5 Notes
+6 Navigation
+
+List of debug hotkeys
+
+Default key bind
+
+In-game name
+
+Description
+
+F3 (toggle)
+
+Toggle Overlay
+
+Toggles the debug screen.
+
+F3 (modifier)
+
+Debug Modifier Key
+
+Used as a modifier for all F3 + <key>-based debug hotkeys.
+
+F3 + A
+
+Reload Chunks
+
+Reloads all loaded chunks
+
+F3 + B
+
+Show Hitboxes
+
+Toggles the entity_hitboxes debug renderer.
+Disabled by reduced_debug_info gamerule.
+
+F3 + C
+
+Copy Location
+
+Copies current location data with the format /execute in <dimension> run tp @s <position> <rotation>.
+Disabled by reduced_debug_info gamerule.
+
+F3 + C (hold)
+
+Debug Crash
+
+When the player holds the key combination for 10 seconds (8 seconds countdown), it crashes the game with the code -1, caused by an exception.
+In the game log, the exception has a message of "Manually triggered debug crash" followed by "Reported exception thrown!" and other reported chat messages (including the crash countdown).
+
+F3 + D
+
+Clear Chat
+
+Retains typed messages accessible through ↑ Up/↓ Down
+
+F3 + G
+
+Show Chunk Boundaries
+
+Toggles the chunk_borders debug renderer.
+Disabled by reduced_debug_info gamerule.
+
+F3 + H
+
+Show Advanced Tooltips
+
+Toggles showing additional information on item tooltips:
+item identifiers,
+tool and armor durability as a fraction on damaged items,
+armor color,
+map scale, and
+details of what type firework is loaded in a crossbow.
+
+F3 + I
+
+Copy Data
+
+Copies entity or block data with the format /summon <entity_type> <position> {[Data, eg. OnGround: 0b, Air: 300s]}. Alternatively, the F3 + ⇧ Shift + I combination copies the client-side data, which often returns the same values as F3 + I.
+Disabled by reduced_debug_info gamerule.
+
+F3 + L
+
+Start/Stop Profiling
+
+See performance metrics.​[more information needed]
+
+F3 + N
+
+Cycle Spectator
+
+Toggles Spectator mode and previous game mode.
+
+F3 + P
+
+Toggle Lost Focus Pause
+
+Toggles automatic pause when the game loses focus, or not selected as the primary window.
+
+F3 + S
+
+Dump Dynamic Textures
+
+All loaded dynamic textures are exported to .minecraft/screenshots/debug as image files alongside associated text metadata where necesary.
+
+F3 + T
+
+Reload Resource Packs
+
+Reloads the changes from adding and removing resource packs in the .minecraft/resourcepacks folder (either by drag and drop in a file explorer, or activating and deactivating certain packs on "Options" → "Resource Packs" settings). This is useful for reloading resource packs without having to restart the game.
+
+F3 + V
+
+Dump Version Info
+
+Presents the client's game version information, in the order of the version's ID, the version's name, data version, series, protocol version, build time, resource pack and data pack formats, and whether the version is stable or not. Further information on version.json.
+
+F3 + X​[upcoming: JE 26.3]
+
+Toggle Improved Transparency
+
+Toggles rendering the game with improved transparency.
+
+F3 + 1
+
+Profiling Chart
+
+Toggles the profiling chart in debug screen.
+
+F3 + 2
+
+FPS Charts
+
+Toggles the FPS charts in debug screen.
+
+F3 + 3
+
+Network Charts
+
+Toggles multiple network charts (such as TPS, bandwidth, and ping graph) in debug screen.
+
+F3 + 4
+
+Lightmap Texture
+
+Toggles the lightmap graph in debug screen.
+
+F3 + Esc
+
+N/A
+
+Pause without pause menu. Only works on singleplayer.
+Not available as a configurable key binding.
+
+F3 + F4
+
+Game Mode Switcher
+
+Opens the game mode switcher, and selects last used game mode.
+
+F3 + F6
+
+Debug Options
+
+Opens the debug options screen, which allows the player to customize the debug screen.
+
+Disabled hotkeys
+These hotkeys are disabled by default, but can be enabled using the -DMC_DEBUG_HOTKEYS debug property. These are not available as configurable key bindings.
+
+Hotkey
+
+Info
+
+F3 + E
+
+Toggles the chunk_section_paths debug renderer.
+
+F3 + F
+
+Toggles fog.
+
+F3 + L
+
+Toggles "smart culling" that culls individual chunk sections.
+
+F3 + M​[upcoming: JE 26.3]
+
+Toggles MultiDrawIndirect rendering.
+
+F3 + O
+
+Toggles the chunk_section_octree debug renderer.
+
+F3 + V
+
+Toggles the chunk_section_visibility debug renderer.
+
+F3 + W
+
+Toggles wireframe rendering.
+
+F3 + U
+
+Locks the viewing frustum used for culling in place and makes it visible.
+
+F3 + ⇧ Shift + U
+
+Unlocks and hides the viewing frustum.
+
+History
+Java Edition?
+F3 + 3 now reloads all sounds.1.4.212w41a
+F3 + H was added to show durability on damaged tools, weapons and armor pieces.1.4.41.4.3
+F3 + B now toggles the "entity hitboxes" debug renderer.1.814w29a
+The reducedDebugInfo game rule allows the server operators to disable certain hotkeys or reduce some information being shown.1.915w32a
+F3 + N was added to toggle between Creative and Spectator modes, when the player is in either of them. The player needs to be allowed to use /gamemode for this to work.15w43a
+ F3 + Q was added, which gives help and shows all F3 + key combinations.
+
+F3 + F was added to increase render distance by 1 (Minimum and Maximum are 2-32).
+
+F3 + ⇧ Shift + F was added to decrease render distance by 1 (Min and Max are 2-32).
+
+The debug screen now does not open when the player uses a specific key combination like F3 + N, F3 + B, etc.
+
+F3 + S (which previously reloaded sounds) has been removed.
+
+F3 + T now reloads all resource pack content, including sounds.1.1016w20a
+F3 + G now toggles the "chunk borders" debug renderer.1.1318w11a
+Pressing F3 + C now copies the player's current location to the clipboard in the form of a /tp command. Holding for 10 seconds and releasing still forces a debug crash.18w14a
+The debug screen now gives a warning before forcing a debug crash via F3 + C.pre6
+F3 + I was added to copy block or entity data to the clipboard.pre7
+F3 + I has been changed to now be ⇧ Shift + F3 + I. It is now clarified that it copies the client-side data of targeted block or entity. It still can be used by anyone.
+
+Added F3 + I to copy targeted block or entity server-side data to clipboard. It can be used only by operators.1.13.118w30a
+Added ⎈ Control + F3 + C to force a JVM crash, instead of a regular crash.1.14.1Pre-Release 1
+Pressing F3 + Esc now toggles pause without pause menu (if pausing is possible).
+
+Pressing F3 + N when in Survival or Adventure mode now changes the player into Creative mode, if cheats are enabled.1.15.2Pre-Release 1
+F3 + D no longer clears recently typed messages and commands from ↑ Up and ↓ Down.1.1620w20a
+Added game mode switcher accessible with F3 + F4.
+
+F3 + N now toggles between Spectator mode and the previous game mode.1.1721w11a
+Added F3 + L to generate performance metrics.21w13a
+Added F3 + E, F3 + L, F3 + V, F3 + W, F3 + U, and F3 + ⇧ Shift + U for debug renderers dealing with chunks.1.1922w12a
+Removed the F3 + F and F3 + ⇧ Shift + F hotkeys that change render distance.1.19.4Pre-release 3
+Pressing F3 + S now dump contents of dynamic textures (like atlases, maps, etc.) to .minecraft/screenshots/debug.1.21.224w34a
+Added F3 + O to toggle rendering the frustum culling octree.24w35a
+Added F3 + F to toggle fog.1.21.625w15a
+Added F3 + V which prints client side version information.1.21.925w31a
+Added F3 + F5 to access debug screen options menu.25w37a
+Added the HOTKEYS debug property, enabling disabled debug hotkeys to be used.Pre-Release 4
+Changed hotkey to access debug screen options menu to F3 + F6.1.21.1125w41a
+Removed the F3 + Q hotkey.
+
+Debug hotkeys can now be rebound.26.1snap1
+Added F3 + 4 to show the lightmap.Upcoming Java Edition26.3snap2
+Added F3 + X to toggle improved transparency rendering.snap8
+Added F3 + M to toggle MultiDrawIndirect rendering.
+Issues
+Issues relating to "Debug hotkey", "Debug key binding", or "F3" are maintained on the bug tracker. Issues should be reported and viewed there.
+
+Gallery
+
+
+
+			Game mode switcher (F3 + F4)
+
+
+
+			Screenshot of the crash alert given in the chat while holding F3 + C.
+
+
+
+			Debug options (F3 + F6)
+
+
+Notes
+
+ Specifically, it was caused by Throwable class.
+
+ While this debug hotkey was in the game's code, it couldn't be used until the introduction of the HOTKEYS debug property in 25w37a.
+
+ This debug hotkey can only be used with the HOTKEYS debug property.
+
+Navigation

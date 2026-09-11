@@ -1,0 +1,245 @@
+This feature is exclusive to Bedrock Edition. 
+
+manifest.json is a manifest file that contains metadata information for the Minecraft package format. It is required by resource packs, behavior packs, skin packs, and world templates in order to be successfully imported into the game.
+
+Contents
+
+1 JSON format
+
+1.1 Version 3
+1.2 Version 2
+
+2 Old versions
+
+2.1 Version 1
+2.2 Version 0
+
+3 History
+4 External links
+5 References
+6 Navigation
+
+JSON format
+Version 3
+
+[NBT Compound / JSON Object]: The root tag.
+[Int] format_version: The syntax version used in the manifest file. In this section, it is version 3.
+[NBT Compound / JSON Object] header: External information about the pack.
+[Boolean] allow_random_seed: Specific to world templates. Whether a random seed should be generated on world creation.
+[String] base_game_version: Specific to world templates. A string "A.B.C" representing the version of the vanilla resource and behavior packs to apply.
+[String] description: A description of the pack. Can be text or a translation key.
+[Boolean] platform_locked: (only for skin and behaviour packs). Locks the pack from being used as a global pack, rendering it impossible to use on other player's worlds or servers.
+[Boolean] lock_template_options: Specific to world templates. If enabled, the player can not modify the world options.
+[String] min_engine_version: A string "A.B.C" representing the minimum version of the game the pack can run on.
+[String] name: The name of the pack. Can be text or a translation key.
+[String] pack_scope: Works in behaviour and resource packs (but needed more often in resource packs). Represents at which level the pack can be applied. "world" packs can be applied to a world, "global" in global resources and "any" anywhere. Defaults to "any".
+[String] uuid: A unique identifier for the pack. Must be of the form "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", where x in a hexadecimal number (0-9 or a-f).
+[String] version: A string of the form "A.B.C" representing the current version of pack. Used to handle updates to the pack.
+[String] buildMeta: Name in front of preRelease.
+[Int] major: First version number, for Marketplace packages this value always needs to be greater than 0.
+[Int] minor: Second version number.
+[Int] patch: Third version number.
+[String] preRelease: Name in front of version.
+[NBT List / JSON Array] modules: Describes modules which are content types that the pack may contain.
+[NBT Compound / JSON Object]: A module object in the list.
+[String] description: An internal description of the module.
+[String] type: The type of the module, can be: "resources" (resource pack), "data" (behavior pack),"persona_piece" (Character Creator item or cape (marketplace content only)), "skin_pack", "world_template", or "script" (script module).
+[String] uuid: An identifier unique to the module. Must be of the form "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", where x in a hexadecimal number (0-9 or a-f).
+[String] version: A string of the form "A.B.C" representing the current version of pack. Used to handle updates to the pack.
+[String] buildMeta: Name in front of preRelease.
+[Int] major: First version number.
+[Int] minor: Second version number.
+[Int] patch: Third version number.
+[String] preRelease: Name in front of version.
+[String] language: Specific to script modules. The language the scripts are written in. Only supports "javascript".
+[String] entry: Specific to script modules. Relative path to the main script file.
+[NBT List / JSON Array] dependencies: Describes external dependencies that the pack requires. The dependency may be another pack, or a script module.
+[NBT Compound / JSON Object]: Describes a pack dependency.
+[String] uuid: uuid of the pack dependency.
+[String] name: The name of the pack. Can be text or a translation key.
+[Int Array][String] version: version of the dependency to use.
+[NBT Compound / JSON Object]: Describes a script module dependency.
+[String] uuid: uuid of the script module. Optional
+[String] module_name: Name of the script module, used for importing the Script API.
+[Int Array][String] version: version of the dependency to use.
+[NBT List / JSON Array] capabilities: Optional features that can be enabled.
+[String]: A capability to enable, can be:
+"chemistry" – specific to Minecraft Education chemistry features.
+"editorExtension" – used internally in the game in the vanilla Bedrock Editor resource pack, and for importing @minecraft/server-editor script module.
+"experimental_custom_ui" – experimental custom UI based on HTML and JavaScript. Unsupported since 1.18.10.28.
+"script_eval" – enables dynamic code execution in scripting via eval() function or Function() constructor.
+"raytraced" – enables PBR features specific to ray tracing, which only supports MER subset. Compatible with Vibrant Visuals.
+"pbr" – enables PBR features specific to Vibrant Visuals with full MERS support.
+[NBT Compound / JSON Object] metadata: Metadata on the pack, currently mandatory in this version.
+[NBT List / JSON Array] authors: List of creators of the pack, currently mandatory in this version.
+[String]: The name of a creator of the pack.
+[String] license: License the pack is distributed under.
+[NBT Compound / JSON Object] generated_with: Tools used to generate the manifest.
+[NBT List / JSON Array]: The name of the list element should be the name of a tool used to generate the manifest. It must be made of simple characters and can be up to 32 characters long.
+[String]: A string of the form "A.B.C" representing a version of the tool used to modify the manifest.
+[String] product_type: If set to "addon", indicates the pack is meant as part of an add-on. This allows the add-on to not disable achievements when activated, and it makes the resource pack required to be downloaded by other players joining the world.
+[String] url: URL to a website.
+[NBT List / JSON Array] subpacks: Only for resource pack. List of sub-packs used in the pack, which can be enabled and disabled individually.
+[NBT Compound / JSON Object]: A sub-pack in the list
+[String] folder_name: Name of the folder where the sub-pack is located.
+[String] name: In-game display name of the sub-pack
+[Int] memory_performance_tier: Denotes the minimum amount of RAM required to run the sub-pack (values range 1–5).
+[NBT List / JSON Array] settings: Order-dependent list of settings the player can modify in the game's UI. Pack settings can be applied to both behavior packs and resource packs. Behavior pack settings can be changed by the world or server owner, and are configured per-world. Resource pack settings can be individually configured on a per-player basis.
+[NBT Compound / JSON Object]: A read-only label, used for describing or breaking up the sections of the settings area.
+[String] type: "label"
+[String] text: Text value of the label.
+[NBT Compound / JSON Object]: A binary toggle.
+[String] type: "toggle"
+[String] text: Textual, user-visible label for the toggle.
+[String] name: Programmatic identifier for the value of this toggle that must include a namespace.
+[Boolean] default: Default value of this setting.
+[NBT Compound / JSON Object]: A sliding that allows for setting of a number within a range.
+[String] type: "slider"
+[String] text: Textual, user-visible label for the slider.
+[String] name: Programmatic identifier for the value of this slider that must include a namespace.
+[Double] min: Minimum value for the slider.
+[Double] max: Maximum value for the slider.
+[Double] step: Incremental "notches" for the slider.
+[Double] default: Default value of the slider.
+[NBT Compound / JSON Object]: A dropdown that allows for you to choose between a fixed number of options.
+[String] type: "dropdown"
+[String] text: Textual, user-visible label for the dropdown.
+[String] name: Programmatic identifier for the value of this dropdown that must include a namespace.
+[NBT List / JSON Array] options: List of all the items in the dropdown.
+[String] text: Textual, user-visible label for the dropdown.
+[String] name: Programmatic identifier for the value of this dropdown item.
+[String] default: Default value of the dropdown.
+
+Version 2
+
+[NBT Compound / JSON Object]: The root tag.
+[Int] format_version: The syntax version used in the manifest file. In this section, it is version 2.
+[NBT Compound / JSON Object] header: External information about the pack.
+[Boolean] allow_random_seed: Specific to world templates. Whether a random seed should be generated on world creation.
+[Int Array] base_game_version: Specific to world templates. A vector [A,B,C] representing the version of the vanilla resource and behavior packs to apply.
+[String] description: A description of the pack. Can be text or a translation key.
+[Boolean] platform_locked: Locks the pack from being used as a global pack, rendering it impossible to use on other player's worlds or servers.
+[Boolean] lock_template_options: Specific to world templates. If enabled, the player can not modify the world options.
+[Int Array] min_engine_version: A vector [A,B,C] representing the minimum version of the game the pack can run on.
+[String] name: The name of the pack. Can be text or a translation key.
+[String] pack_scope: Specific to resource packs. Represents at which level the pack can be applied. "world" packs can be applied to a world, "global" in global resources and "any" anywhere. Defaults to "any".
+[String] uuid: A unique identifier for the pack. Must be of the form "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", where x in a hexadecimal number (0-9 or a-f).
+[Int Array][String] version: A string of the form "A.B.C" or vector [A,B,C] representing the current version of pack. Used to handle updates to the pack.
+[NBT List / JSON Array] modules: Describes modules which are content types that the pack may contain.
+[NBT Compound / JSON Object]: A module object in the list.
+[String] description: An internal description of the module.
+[String] type: The type of the module, can be: "resources" (resource pack), "data" (behavior pack), "persona_piece" (Character Creator item or cape), "skin_pack", "world_template", or "script" (scripting).
+[String] uuid: An identifier unique to the module. Must be of the form "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", where x in a hexadecimal number (0-9 or a-f).
+[Int Array][String] version: A string of the form "A.B.C" or vector [A,B,C] representing the current version of pack. Used to handle updates to the pack.
+[String] language: Specific to script modules. The language the scripts are written in. Only supports "javascript".
+[String] entry: Specific to script modules. Relative path to the main script file.
+[NBT List / JSON Array] dependencies: Describes external dependencies that the pack requires. The dependency may be another pack, or a script module.
+[NBT Compound / JSON Object]: Describes a pack dependency.
+[String] uuid: uuid of the pack dependency.
+[String] name: The name of the pack. Can be text or a translation key.
+[Int Array][String] version: version of the dependency to use.
+[NBT Compound / JSON Object]: Describes a script module dependency.
+[String] uuid: uuid of the script module. Optional
+[String] module_name: Name of the script module, used for importing the Script API.
+[Int Array][String] version: version of the dependency to use.
+[NBT List / JSON Array] capabilities: Optional features that can be enabled.
+[String]: A capability to enable, can be:
+"chemistry" – specific to Minecraft Education chemistry features.
+"editorExtension" – used internally in the game in the vanilla Bedrock Editor resource pack, and for importing @minecraft/server-editor script module.
+"experimental_custom_ui" – experimental custom UI based on HTML and JavaScript. Unsupported since 1.18.10.28.
+"script_eval" – enables dynamic code execution in scripting via eval() function or Function() constructor.
+"raytraced" – enables PBR features specific to ray tracing, which only supports MER subset. Compatible with Vibrant Visuals.
+"pbr" – enables PBR features specific to Vibrant Visuals with full MERS support.
+[NBT Compound / JSON Object] metadata: Metadata on the pack.
+[NBT List / JSON Array] authors: List of creators of the pack.
+[String]: The name of a creator of the pack.
+[String] license: License the pack is distributed under.
+[NBT Compound / JSON Object] generated_with: Tools used to generate the manifest.
+[NBT List / JSON Array]: The name of the list element should be the name of a tool used to generate the manifest. It must be made of simple characters and can be up to 32 characters long.
+[String]: A string of the form "A.B.C" representing a version of the tool used to modify the manifest.
+[String] product_type: If set to "addon", indicates the pack is meant as part of an add-on, this also allows the addon to not disable achievements when activated.
+[String] url: URL to a website.
+
+Old versions
+Version 1
+The previous iteration of manifest.json only ever contains few basic information about the package, such as header, modules, and dependencies, being very similar to version 2 without the modern features.
+These manifest files are documented from multiple built-in resource packs, which are found in the game's directory:
+
+[NBT Compound / JSON Object]: The root tag.
+[Int] format_version: The syntax version used in the manifest file, version 1.
+[NBT Compound / JSON Object] header: The pack's display information.
+[String] description: A description of the pack. Can be text or a translation key.
+[String] name: The name of the pack. Can be text or a translation key.
+[String] uuid: A unique identifier for the pack. Must be of the form "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", where x in a hexadecimal number (0-9 or a-f).
+[Int Array] version: An array consist of three integer numbers representing the current version of pack.
+[Int Array] min_engine_version: An array consist of three integer numbers representing the minimum version of the game the pack can run on.
+[NBT List / JSON Array] modules: Describes modules which are content types that the pack may contain.
+[NBT Compound / JSON Object]: A module object in the list.
+[String] description: An internal description of the module.
+[String] type: The type of the module, can be: "resource" (resource pack), "data" (behavior pack), and "skin_pack".
+[String] uuid: An identifier unique to the module. Must be of the form "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", where x in a hexadecimal number (0-9 or a-f).
+[Int Array] version: An array consist of three integer numbers representing the version of the pack.
+[NBT List / JSON Array] dependencies: Describes external dependencies that the pack requires.
+[NBT Compound / JSON Object]: Describes a pack dependency.
+[String] uuid: uuid of the pack dependency.
+[String] name: The name of the pack. Can be text or a translation key.
+[Int Array] version: An array consist of three integer numbers representing the version of the pack.
+
+Version 0
+The very first version of manifest.json, at the time was named pack_manifest.json, is used back in the v0.16.0 alpha versions. Its syntax is very different from version 1, containing the header object with different properties that would be renamed in the next iteration. Notably, modules and dependencies are contained inside the header object.
+It is retroactively called version 0 in the Creator Documentation. Additionally, when the pack containing this manifest is loaded in later versions, it would get converted to version 1 with the new manifest.json, while the old pack_manifest.json would get backed up as pack_manifest.json.old.
+Version 0 resource packs are separated into the client and server packs, both serve very similar purposes to the modern resource pack (client) and behavior pack (server).
+These manifest files are documented from multiple built-in resource packs, which are found in the game's directory:
+
+[NBT Compound / JSON Object]: The root tag.
+[NBT Compound / JSON Object] header: The pack's display information.
+[String] pack_id: A unique identifier for the pack. Must be of the form "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", where x in a hexadecimal number (0-9 or a-f).
+[String] name: The name of the pack. Can be text or a translation key.
+[Int Array] packs_version: An array consist of three integer numbers representing the current version of pack.
+[String] description: A description of the pack. Can be text or a translation key.
+[NBT List / JSON Array] modules: Describes modules which are content types that the pack may contain.
+[NBT Compound / JSON Object]: A module object in the list.
+[String] description: An internal description of the module.
+[String] type: The type of the module, can be: "resource" (client) and "data" (server).
+[String] uuid: An identifier unique to the module. Must be of the form "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", where x in a hexadecimal number (0-9 or a-f).
+[String] version: A string formatted like X.Y.Z representing the version of the pack.
+[NBT List / JSON Array] dependencies: Describes external dependencies that the pack requires.
+[NBT Compound / JSON Object]: Describes a pack dependency.
+[String] uuid: uuid of the pack dependency.
+[String] name: The name of the pack. Can be text or a translation key.
+[String] version: A string formatted like X.Y.Z representing the version of the pack.
+
+History
+
+
+
+This section of the article is empty. 
+You can help by expanding it.
+
+External links
+"manifest.json for Behavior/Resource/Skin Packs and World Templates"     – Microsoft Learn.
+Manifest file examples in the bedrock-samples provided by Mojang:
+"behavior_pack/manifest.json"     by Mojang  – GitHub.
+"resource_pack/manifest.json"     by Mojang  – GitHub.
+
+References
+
+ https://wiki.bedrock.dev/scripting/api-modules
+
+ https://bedrock.dev/docs/1.18.0.0/1.18.10.28/UI
+
+ https://wiki.bedrock.dev/scripting/api-environment
+
+ https://learn.microsoft.com/en-us/minecraft/creator/documents/texturebudgets
+
+ https://learn.microsoft.com/en-us/minecraft/creator/documents/addons/custompacksettings?view=minecraft-bedrock-stable#:~:text=The%20custom%20pack,per%2Dplayer%20basis.
+
+ https://wiki.bedrock.dev/scripting/api-modules
+
+ https://bedrock.dev/docs/1.18.0.0/1.18.10.28/UI
+
+ https://wiki.bedrock.dev/scripting/api-environment
+
+ https://learn.microsoft.com/en-us/minecraft/creator/reference/content/versiondisambiguation?view=minecraft-bedrock-stable
+
+Navigation

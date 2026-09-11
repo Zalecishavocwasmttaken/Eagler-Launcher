@@ -1,0 +1,256 @@
+This page describes content that has been removed from Java Edition. 
+This feature was present in earlier versions of Java Edition, but has since been removed.
+
+Invalid data value Stone Slab
+
+Rarity tier
+
+  Common
+
+Renewable
+
+No
+
+Stackable
+
+Yes (64)
+
+{
+    "title": "Invalid data value Stone Slab",
+    "rows": [
+        {
+            "field": "<span style=\"white-space: nowrap;\"><span style=\"display: inline-block; background-color: #fff; border: 1px solid #888; border-radius: 0.3em; color: transparent; width: 1em; height: 1em; vertical-align: -0.36em; margin-right: -0.1em\"><br></span> </span> Common",
+            "label": "(link to Rarity article, displayed as Rarity tier)"
+        },
+        {
+            "field": "No",
+            "label": "(link to Renewable resource article, displayed as Renewable)"
+        },
+        {
+            "field": "Yes (64)",
+            "label": "Stackable"
+        }
+    ],
+    "invimages": [],
+    "images": [
+        "Missing Model JE3.png"
+    ]
+}
+
+Invalid data value stone slabs are item forms of the primary stone slab block with damage values outside of the usual range which slabs can usually be obtained in.
+
+Contents
+
+1 Obtaining
+
+1.1 Transmutation (Java Edition/Legacy Console Edition)
+1.2 Breaking upper slabs (Bedrock Edition)
+
+2 Usage
+
+2.1 Placement
+2.2 Conversion to future versions
+
+3 History
+
+3.1 Java Edition
+3.2 Bedrock Edition
+
+4 Issues
+5 References
+6 External links
+7 Navigation
+
+Obtaining
+Without the use of commands, invalid data value stone slab items are unobtainable in the last versions in which they existed without inheriting them from a prior version in which they were obtainable.
+
+Transmutation (Java Edition/Legacy Console Edition)
+Several methods of block transmutation can be used to obtain invalid data value stone slabs, as well as their double variants, in block form. These blocks can be mined from Beta 1.3[verify] to 12w08a[verify] to obtain the item corresponding to these blocks.
+If a large quantity is desired, transmuting double slabs is recommended as this allows for slabs to be converted twice as fast.
+
+Breaking upper slabs (Bedrock Edition)
+In Pocket Edition v0.6.0 alpha, breaking slabs which were placed in the upper half of a block space would drop an invalid data value slab item, corresponding to the top-half slab which had just been broken.
+
+Usage
+Placement
+
+
+
+This section is missing information about: Check how placement behaves in Bedrock Edition and Console Edition 
+Please expand the section to include this information. Further details may exist on the talk page.
+
+From the January 31, 2010 Indev release up to Beta 1.2_02, damage on slab items would not indicate that the item should place a block with additional metadata, and as such a normal smooth stone slab would be placed regardless of the damage on the item.
+From Beta 1.3 up to 14w27b, invalid data value stone slabs would place a slab block with metadata matching the item's damage. From Beta 1.3 up to 12w08a, this would be a lower-half seamless stone slab, as the metadata variants of stone slabs from 8 to 15 were unused, and upper-half slabs were yet to be implemented. From 1.2 up to 14w27b, due to the implementation of upper slabs, this would result in the item placing an upper-half slab, regardless of how the supporting block is targeted.
+Invalid data value stone slab items could also be used to create double slab blocks for placed slabs of the same material,​[more information needed] however were more restricted in their ability to do so; in order to yield a completed double slab, the top face of a lower slab or bottom face of an upper slab must be targeted. Targeting the side or other face of another block in ways that allow for completion when using valid items does not work for invalid data value slabs. In addition, the space above the lower-half slab or under the uper-half slab must be either air or a replaceable block; any block that cannot be directly replaced will block the double slab from being completed.
+From 14w28a to 17w46a, invalid data value slabs now place either a bottom-half or top-half slab depending on the targeted half of a block, like valid slab items. However, their behavior with regard to completing double slabs from earlier versions still persists until an unknown version before 17w43a.​[more information needed]
+
+Conversion to future versions
+In 1.13 (17w47a) onwards, distinguishing between block and item variants using metadata and damage was formally abolished. As a result of this, existing items would be converted over to the new ID system automatically. Invalid data value stone slabs behave anomalously in that instead of converting to their respective materials, they all convert to smooth stone slabs instead.
+
+History
+Java Edition
+Java Edition Indev0.3120100131-2156
+Durability has been introduced. It can be assigned to stone slab items via an inventory editor, but is functionally meaningless in this case.Java Edition Beta1.3
+Slab variants have been added. The durability bar has been removed from stone slabs with higher damage values, and they are now processed as variants.
+
+As no name is defined for slabs above the maximum intended damage value, they trigger a game crash when moused over.1.7
+Block transmutation is now possible, allowing for invalid data value stone slabs to be created, which can be broken to yield their item forms.1.8Pre-release
+Invalid data value stone slab items no longer crash the game when moused over, and are now named "Stone Slab". This name will remain constant for all invalid data value stone slabs, regardless of the slab variant they actually represent.Java Edition1.2.11.2
+Metadata values 8-15 of the slab block now correspond to upper slabs of the first eight materials. As such, the block forms of slabs with these metadata values will not yield invalid data value slabs when broken.1.513w02a
+All seamless stone slabs have been replaced as of this version, meaning that the only obtainable invalid data value slabs that exist from this point onwards are items with damage 8-15, corresponding to upper slabs.1.814w25a
+ With the introduction of data-driven item models, any item with a data value outside of what is accepted by the game has no model to point to, resulting in use of the missing item model.14w30a
+Invalid data value stone slabs, alongside other invalid data value items, now appear the size of a full block when held in third person or by another player or mob.1.915w31a
+ The missing model's inventory appearance has changed, resulting in the appearance of invalid data value stone slabs also changing.
+
+The items also appear the size of a full block when held in first person and when dropped on the ground, and also appear larger than before in an item frame.1.1317w43a
+ The missing texture has changed, resulting in the appearance of invalid data value stone slabs also changing.17w47a
+Numeric IDs for blocks and items have been completely removed from the game, with different slabs being given their own string IDs. As a result, invalid data value stone slabs have been "removed" as any such item now converts cleanly into smooth stone slabs.
+Bedrock Edition
+Pocket Edition Alphav0.6.0
+With the addition of upper slabs, metadata values 8-13 were legitimately obtainable by mining their respective block forms.v0.6.1
+Mining an upper slab now drops its corresponding lower slab item.
+Inventory appearances
+
+From version
+
+Damage value
+
+Notes
+
+8
+
+9
+
+10
+
+11
+
+12
+
+13
+
+14
+
+15
+
+0.31
+
+20100131
+
+Durability introduced. Currently meaningless for stone slabs.
+
+20100201-2227
+
+All 3D items now appear slightly darker on the left.
+
+​[more information needed]
+
+All 3D items now appear much brighter.
+
+Minecraft Infdev
+
+20100611
+
+All 3D items now appear slightly darker.
+
+Alpha v1.0.1
+
+All 3D items now appear very slightly darker.
+
+Beta 1.2
+
+The durability bar appears slightly emptier.
+
+Beta 1.3
+
+Values for damage on stone slabs are now processed as variants. The durability bar is no longer present.
+
+Beta 1.6
+
+Test Build 3
+
+All 3D items now appear much brighter and are rotated 90 degrees clockwise from their previous positions.
+
+Beta 1.7
+
+The sides of non-full blocks now use the bottom half of the texture.
+
+Beta 1.8
+
+Pre-release
+
+All 3D items now appear even brighter than previously, with almost no shading.
+
+1.0.0
+
+RC2
+
+All 3D items are now shaded more reasonably.
+
+1.2.1
+
+1.2
+
+Upper slabs have been implemented. Invalid data value slabs now appear identical to their valid counterparts.
+
+1.2.4
+
+Sandstone's texture was slightly changed.
+
+1.3.1
+
+12w22a
+
+Most 3D items in the inventory have been rotated 90 degrees anti-clockwise.
+
+1.4.2
+
+12w34a
+
+Items appeared slightly darker in the player's inventory than in chests prior to this version.
+
+1.4.6
+
+12w49a
+
+Nether brick slabs have been implemented.
+
+1.5
+
+13w02a
+
+Quartz slabs have been implemented.
+
+1.8
+
+14w10a
+
+Invalid stone slab item forms now appear in the top half of the slot.
+
+14w25a
+
+Model no longer exists
+
+1.9
+
+15w31a
+
+The missing model is no longer rotated or downscaled.
+
+1.13
+
+17w43a
+
+The missing texture has changed.
+
+Issues
+Invalid data value stone slabs are an issue, and due to their removal, can be considered already fixed.
+
+References
+
+ https://youtube.com/watch?v=Hqckf3f8-Hg&t=1m40s
+
+External links
+Invalid Data Value Stone Slab at the Minecraft Discontinued Features wiki
+
+Navigation

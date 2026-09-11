@@ -1,0 +1,172 @@
+Minecraft 26.2 Pre-Release 5
+
+Edition
+
+Java Edition
+
+Release date
+
+June 8, 2026
+
+Type
+
+Pre-release
+
+Pre-Release for
+
+26.2
+
+Downloads
+
+Client (.json)Server
+
+Protocol version
+
+ dec: 1073742143 hex: 4000013F
+
+Data version
+
+4898
+
+Resource pack format
+
+88.0
+
+Data pack format
+
+107.1
+
+Minimum Java version
+
+Java SE 25
+
+◄◄   26.1.2
+26.2
+  26.3 ►►
+
+◄   26.2 Pre-Release 4
+
+ 26.2 Pre-Release 5
+
+  26.2 Pre-Release 6 ►
+
+{
+    "title": "Minecraft 26.2 Pre-Release 5",
+    "images": [
+        "26.2-pre5.jpg",
+        "Java Edition 26.2 Pre-Release 5.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "June 8, 2026",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Pre-release article, displayed as Pre-release)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition 26.2 article, displayed as 26.2)",
+            "label": "Pre-Release for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/13f4cb187df3fad46fe071f8deacd801b1f53b58/client.jar Client] ([https://piston-meta.mojang.com/v1/packages/3ed713f28783ec038cc683149dba91eb870af3f7/26.2-pre-5.json .json])<br />[https://piston-data.mojang.com/v1/objects/af01bff67124778cea0a0d426147c1042e05bf8f/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": " <span style=\"font-size:smaller\"><abbr title=\"decimal\">dec</abbr>: </span>1073742143<br /> <span style=\"font-size:smaller\"><abbr title=\"hexadecimal\">hex</abbr>: </span>4000013F",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "4898",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "88.0",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "107.1",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Data pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_25_.28LTS.29 Java SE 25]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Java Edition  26.1.2|<span style=\"margin-right:-0.35em\">◄</span>◄   26.1.2]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition 26.2|26.2]]'''</td>\n<td style=\"padding: 0.4em\" >[[Java Edition  26.3|  26.3 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  26.2 Pre-Release 4|◄   26.2 Pre-Release 4]]\n</td>\n<td style=\"padding: 0.4em\">''' 26.2 Pre-Release 5'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  26.2 Pre-Release 6|  26.2 Pre-Release 6 ►]]\n</td>\n</tr>\n</table>"
+}
+
+
+26.2 Pre-Release 5 (known as 26.2-pre-5 in the launcher) is the fifth pre-release for Java Edition 26.2, released on June 8, 2026.
+
+Contents
+
+1 Changes
+
+1.1 Mobs
+1.2 General
+
+2 Fixes
+3 Videos
+4 References
+5 Navigation
+
+Changes
+Mobs
+Sulfur cube
+
+The correct sound is now played when a bouncy archetype sulfur cube is hit.
+General
+Game mode switcher
+
+As the host of a world, changing the game mode with F3 + F4 or with commands now changes the default game mode of the world.
+Graphics API
+
+The game setting for Graphics API now changes if a crash is detected during startup.
+If the game crashes at startup with "Prefer Vulkan" set, the setting will automatically be changed to "Default".
+When set to "Default", the game will still attempt to gather systems information about Vulkan at startup.
+If the game crashes at startup with "Default" set, the setting will automatically be changed to "Prefer OpenGL".
+With "Prefer OpenGL" set, no interaction will be made with Vulkan in case that causes crashes.
+Open to LAN
+
+The "Game Mode" and "Allow Commands" buttons are no longer available when opening Hardcore mode worlds to LAN.
+Fixes
+13 issues fixed
+From released versions before 26.2
+
+MC-308575 – The flower_default and flower_warm features generate a single flower, instead of a flower patch.
+From the 26.2 development versions
+
+MC-308470 – The "bouncy" sulfur cube archetype's sounds play at a significantly higher volume.
+MC-308587 – Using a spear with Lunge on a geyser launches you downwards.
+From the previous development version
+
+MC-308619 – Players can change their game mode from the World Options menu in hardcore worlds.
+MC-308620 – Pressing the key bound to the "Friends Screen" key bind in the username field in the friends screen closes it instead of typing.
+MC-308622 – Custom dialog buttons break the game menu.
+MC-308630 – Changing whether commands are enabled does not properly update the state of the "Game Rules" button in the World Options screen.
+MC-308633 – Changing your game mode with commands doesn't update the World Options screen.
+MC-308648 – The "Statistics" button in the game menu is shifted to the right when there is a "Server Links..." button.
+MC-308657 – The gui.friends.error.unauthorized string contains a comma splice.
+MC-308674 – After re-entering the save, the game mode is set to Survival mode.
+MC-308686 – Hardcore death can be bypassed by rejoining the world.
+Private issues
+
+MC-306735 – Ender dragon perch time is not saved to NBT; dragon can be defeated in a single perch by reloading after each attack.
+Videos
+Video made by slicedlime:
+
+
+
+
+References
+
+ "Minecraft 26.2 Pre-Release 5"     – Minecraft.net, June 8, 2026.
+
+Navigation

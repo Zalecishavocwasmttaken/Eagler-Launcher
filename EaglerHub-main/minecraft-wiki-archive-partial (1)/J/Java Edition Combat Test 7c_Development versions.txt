@@ -1,0 +1,79 @@
+Contents
+
+1 Combat Test 7
+
+1.1 Changes
+
+1.1.1 Items
+1.1.2 Gameplay
+
+1.2 Fixes
+
+2 Combat Test 7b
+
+2.1 Changes
+
+2.1.1 Gameplay
+
+2.2 Fixes
+
+3 Notes and references
+
+This is a list of Java Edition Combat Test 7c development versions.
+
+ Combat Test 7
+Combat Test 7 is a development version for Combat Test 7c released on August 12, 2020, for private testing. This combat experiment is a fork of 1.16.2.
+
+Changes
+Items
+Axes
+
+Sword enchantments can now be applied to axes with the help of a book in an anvil, but still not in an enchanting table.
+Potions
+
+Now stack to 16.
+Gameplay
+Attacking
+
+Reintroduced the reach bonus for charged attacks ("200% attacks").
+Reverted how the sweep attack works.
+Now requires the enchantment and a charged attack.
+Reintroduced the attack indicator.
+Removed the reach bonus for charged attacks when the attacker is crouching.
+Bows
+
+Reverted the bow inaccuracy mechanic.
+Eating
+
+Reverted eating being interrupted when the player takes damage.
+Shield
+
+Now activates instantaneously in all cases.
+Now fully blocks explosions.
+Fixes
+Fixed netherite damage values as they previously still used 1.15 values.
+Fixed a speed bug when crouching with a shield.
+ Combat Test 7b
+Combat Test 7b is a development version for Combat Test 7c released on August 13, 2020, for private testing. This combat experiment is a fork of 1.16.2.
+
+Changes
+Gameplay
+Attacking
+
+Base reach has been reverted to 2.5.
+Knockback
+
+Upwards knockback has been decreased slightly.
+Shields
+
+Now give 50% knockback resistance when active.
+Fixes
+Fixed a bug which made knockback resistance sometimes block 100% of knockback.
+Fixed a bug which allowed spectators to attack with sweeping weapons.
+Notes and references
+
+ Reason given by Jeb: "Feedback from PvP players was that it added a tactical layer and options when fighting. Since the charged attacks were reintroduced, I had to redesign how the "quick misses" work. A miss will not count as a charged attack - you need to wait for the full duration of the weapon's original delay. Because of code organization, the penalty for auto-attacking is now specifically 1 tick, instead of 20% of the current weapon's delay. Note: Base reach is still 3, it has not been reverted to 2.5 as in v5."
+
+ Reason given by Jeb: "Every feature adds complexity and this didn't have enough payoff in either PvP or PvE. The feedback was also that the mechanic was inverted (accuracy should increase the longer you aim), but that way the game would get too slow".
+
+ Reason given by Jeb: "I liked the interruption mechanic, but it was inconsistent. Particularly since honey bottles also are drinkable (with fairly high nutrition value)".

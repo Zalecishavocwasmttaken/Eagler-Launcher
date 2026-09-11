@@ -1,0 +1,89 @@
+This feature is exclusive to Java Edition. 
+
+/fillbiome
+
+Permission levelrequired
+
+2
+
+Restrictions
+
+None
+
+{
+    "title": "<code>/fillbiome</code>",
+    "rows": [
+        {
+            "field": "2",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "None",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+Fills a specified area with a specific biome.
+
+Contents
+
+1 Usage
+2 Syntax
+3 Arguments
+4 Result
+5 Output
+6 History
+7 Navigation
+
+Usage
+Because biomes in a world are stored in cells of 4×4×4 blocks, this command is applied on each selected cell instead of each block.
+Although biomes are stored in cells, biome boundaries are slightly fiddled with to make them smooth, so the shape of the region whose biome is actually changed is irregular.
+
+
+
+			This command is used to attempt to change the biome between the two stone blocks to desert.
+
+
+
+			As shown here, the biome changes are not applied at the exact coordinates specified.
+
+
+The command only changes the biome, but not the blocks in it. For example, changing a forest to a desert with this command does not change the grass blocks to sand and does not plant cacti, but rabbits spawn in the new "desert" that still looks like a forest. Also, the grass color will change and mobs like snow golems will die.
+
+Syntax
+/fillbiome <from> <to> <biome>
+The fillbiome command also has an optional alternate syntax when using the replace option:
+
+/fillbiome <from> <to> <biome> replace <filter>
+Arguments
+<from>: block_pos and <to>: block_pos
+
+The two corners to fill the biome between.
+Must be a block position composed of <X>, <Y> and <Z>, each of which must be an integer or a tilde and caret notation.
+<biome>: resource
+
+Specifies the biome to fill the specified area with. See Biome § Biome IDs for a list of vanilla biome IDs.
+Must be an existing registered resource location in minecraft:worldgen/biome registry.
+<filter>: resource_or_tag
+
+Specifies the biomes in the fill region to be replaced. If not specified, replaces all biomes in the fill region.
+Must be an existing registered resource location or tag in minecraft:worldgen/biome registry.
+Result
+
+CommandTriggerJava Edition
+
+AnyThe command is incomplete, or any argument is not specified correctly. UnparseableThe specified region is unloaded or out of the world. FailedThe volume of the specified region is greater than commandModificationBlockLimit gamerule.OtherwiseSuccessful
+Output
+
+CommandEditionSituationSuccess Count/execute store success .../execute store result ...
+
+AnyJava EditionOn fail000On success11the number of cells whose biomes are replaced
+History
+Java Edition1.19.322w46a
+Added fillbiome.Pre-release 1
+/fillbiome now supports a filtered form.1.19.423w03a
+Now the limit volume of the source region is controlled by commandModificationBlockLimit gamerule, instead of a hardcoded value 32768.
+Navigation

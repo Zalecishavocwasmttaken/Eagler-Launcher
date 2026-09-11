@@ -1,0 +1,183 @@
+This article is about the development version.   For the full release of Combat Test 8, see Java Edition Combat Test 8b.
+
+
+
+This page documents a version of the game that was initially only released privately. 
+This version was never intended to be released to the public, but it is available in archived copies.
+
+
+
+This page covers a development version that has a major issue under certain conditions. 
+The dedicated server for this version has a security vulnerability in the Log4j library that could be used to perform a remote code execution exploit. It can be addressed by appending a certain JVM argument to the server startup command line.
+
+Minecraft Combat Test 8
+
+Edition
+
+Java Edition
+
+Release date
+
+August 19, 2020
+
+Type
+
+Snapshot
+
+Snapshot for
+
+Combat Test 8b
+
+Downloads
+
+Client (.json)Server
+
+Obfuscation maps
+
+ClientServer
+
+Protocol version
+
+803
+
+Data version
+
+2705
+
+Resource pack format
+
+6
+
+Data pack format
+
+6
+
+Minimum Java version
+
+Java SE 8
+
+◄◄   Combat Test 7c
+Combat Test 8b
+  Combat Test 8c ►►
+
+ Combat Test 8
+
+{
+    "title": "Minecraft Combat Test 8",
+    "images": [
+        "Java Edition Combat Test 8.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "August 19, 2020",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Snapshot article, displayed as Snapshot)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition Combat Test 8b article, displayed as Combat Test 8b)",
+            "label": "Snapshot for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/0d4f92e7cc264f251f65677b1b078c8bc3f0959c/client.jar Client] ([https://archive.org/download/1-16-combat-4_202404/1_16_combat-4.zip .json])<br />[https://piston-data.mojang.com/v1/objects/f7e28154b5927d0761d0c7bc5dff4a1263f33109/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/b530c54b4d11936a5336eb32db52fac1cf71ada3/client.txt Client]<br />[https://piston-data.mojang.com/v1/objects/4c5f692d446dbc09d8be7c6a1c49c485644d361b/server.txt Server]",
+            "label": "(link to Obfuscation map article, displayed as Obfuscation maps)"
+        },
+        {
+            "field": "803",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "2705",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "6",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "6",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Data pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_8_.28LTS.29 Java SE 8]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" rowspan=\"2\">[[Java Edition  Combat Test 7c|<span style=\"margin-right:-0.35em\">◄</span>◄   Combat Test 7c]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition Combat Test 8b|Combat Test 8b]]'''</td>\n<td style=\"padding: 0.4em\" rowspan=\"2\">[[Java Edition  Combat Test 8c|  Combat Test 8c <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n\n<td style=\"padding: 0.4em\">''' Combat Test 8'''</td>\n</tr>\n</table>"
+}
+
+Combat Test 8 is a development version for Combat Test 8b. Although it is a development version for a future release, this combat experiment is a fork of 1.16.2.
+This version was privately released for testing and thus was not initially made available to the general public.
+
+Contents
+
+1 Changes
+
+1.1 Items
+1.2 Gameplay
+
+2 Fixes
+3 Videos
+4 Trivia
+5 Notes
+6 External links
+7 Navigation
+
+Changes
+Items
+Arrows
+
+Instantaneous effects on tipped arrows are now scaled by 1⁄8, just like the duration of other effects.
+Bows
+
+Returned bow fatigue for holding the bow pulled, but it doesn't start until 3 seconds. Bow fatigue also cancels out "critical arrows".
+Potions
+
+Strength I/II now adds +20%/+40% (was +3/+6 damage).
+Instant Health potions now heal 3×2level (was 2×2level).
+Potions can now be drunk faster (20 ticks, was 32 ticks).
+Gameplay
+Eating
+
+Returned eating interruption for getting hit (by players or mobs), also applies to drinking.
+Liquid food (stews, honey, milk) can now be consumed faster (20 ticks, was 32 or 40 ticks).
+Enchantments
+
+Weapon enchantments are now included in the base damage when calculating critical hits and potion effects.
+Build mechanics
+
+It is now possible to build in front of players' feet when looking down over a ledge.
+Fixes
+From the previous development versions
+
+Fixed shield protection arcs.
+Improved server-side attack range calculations.
+Videos
+Video made by slicedlime:
+
+
+
+
+Trivia
+Combat Test 8 has the same protocol version as Combat Test 8b and Combat Test 8c, which means these versions are cross-compatible with each other.
+This is a rare time where 3 development versions have had the same protocol version excluding joke versions.
+Notes
+
+ Unzip this file in the .minecraft/versions folder.
+
+External links
+A Microsoft Excel sheet that Mojang has been using to check damage values.
+Navigation
+
+ "Important Message: Security vulnerability in Java Edition"     – Minecraft.net, December 10, 2021.

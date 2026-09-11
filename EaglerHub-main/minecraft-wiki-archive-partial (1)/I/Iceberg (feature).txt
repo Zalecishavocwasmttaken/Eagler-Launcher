@@ -1,0 +1,250 @@
+This article is about the smaller feature named "cone iceberg".   For the terrain feature called "large iceberg", see Terrain features § Iceberg.
+
+Iceberg
+
+Biomes
+
+Frozen OceanDeep Frozen Ocean
+
+Generates inexisting chunks  
+
+No
+
+Consists of
+
+Packed Ice
+Blue Ice
+Snow Block
+
+{
+    "title": "Iceberg",
+    "rows": [
+        {
+            "field": "<span class=\"nowrap\"><span class=\"sprite-file\" style=\"\">(link to File:BiomeSprite frozen-ocean.png article, displayed as 16x16px|link=Frozen Ocean|alt=|class=pixel-image|)</span>(link to Frozen Ocean article, displayed as <span class=\"sprite-text\">Frozen Ocean</span>)</span><br><span class=\"nowrap\"><span class=\"sprite-file\" style=\"\">(link to File:BiomeSprite deep-frozen-ocean.png article, displayed as 16x16px|link=Deep Frozen Ocean|alt=|class=pixel-image|)</span>(link to Deep Frozen Ocean article, displayed as <span class=\"sprite-text\">Deep Frozen Ocean</span>)</span>",
+            "label": "(link to Biome article, displayed as Biomes)"
+        },
+        {
+            "field": "No",
+            "label": "Generates in<br>existing chunks  "
+        },
+        {
+            "field": "\n* <span class=\"nowrap\"><span class=\"sprite-file\" style=\"\">(link to File:BlockSprite packed-ice.png article, displayed as 16x16px|link=Packed Ice|alt=|class=pixel-image|)</span>(link to Packed Ice article, displayed as <span class=\"sprite-text\">Packed Ice</span>)</span>\n* <span class=\"nowrap\"><span class=\"sprite-file\" style=\"\">(link to File:BlockSprite blue-ice.png article, displayed as 16x16px|link=Blue Ice|alt=|class=pixel-image|)</span>(link to Blue Ice article, displayed as <span class=\"sprite-text\">Blue Ice</span>)</span>\n* <span class=\"nowrap\"><span class=\"sprite-file\" style=\"\">(link to File:BlockSprite snow-block.png article, displayed as 16x16px|link=Snow Block|alt=|class=pixel-image|)</span>(link to Snow Block article, displayed as <span class=\"sprite-text\">Snow Block</span>)</span>",
+            "label": "Consists of"
+        }
+    ],
+    "invimages": [],
+    "images": [
+        "Iceberg blue 2.png",
+        "Iceberg packed 2.png"
+    ]
+}
+
+An iceberg (also called cone iceberg) is a feature composed of packed ice and/or blue ice.
+
+Contents
+
+1 Generation
+
+1.1 Variants
+
+1.1.1 Composition
+1.1.2 Shape
+1.1.3 Dimensions
+
+1.2 Carving
+1.3 Spacing
+1.4 Blue ice
+
+2 Data values
+
+2.1 ID
+2.2 Config
+
+3 History
+
+3.1 Java Edition
+3.2 Bedrock Edition
+
+4 Issues
+5 Gallery
+
+5.1 Renders
+5.2 Screenshots
+
+6 References
+7 Navigation
+
+Generation
+The iceberg feature generates a small iceberg, shaped like a rounded upside-down cone, or an ice cream cone.
+Cone icebergs generate in frozen oceans and deep frozen oceans. They can consist of packed ice, blue ice, and snow blocks.
+
+Variants
+Composition
+Most cone icebergs are made of packed ice. Each cone iceberg has:
+
+a 30% probability to be topped with snow (snow-capped). The snow is about 1 block thick
+an 1⁄200‌[JE  only] or 1⁄100‌[BE  only] independent probability to try be a § Blue ice iceberg
+This means that 3⁄2000 cone icebergs are snow-capped blue ice icebergs in Java Edition, or 3⁄1000 in Bedrock Edition.
+The iceberg has a 30%‌[JE  only] or 20%‌[BE  only] probability to be elliptic, and is circular otherwise.
+
+Shape
+Cone icebergs have two types:
+
+circular (circle-shaped)
+elliptic (ellipse-shaped)
+Dimensions
+A circular iceberg has a random radius from 0-11. Its max height above sea level is:
+
+90% probability:
+3-17‌[JE  only] or 3-13‌[BE  only]
+10% probability (mutually exclusive):
+10-42‌[JE  only] or 10-34‌[BE  only]
+The max depth below sea level is:
+
+3-18
+An elliptic iceberg has:
+
+a semimajor axis of 7-11‌[JE  only] or 8-15‌[BE  only]
+a semiminor axis of 3-5
+a max height above sea level of 6-11‌[JE  only] or 6-9‌[BE  only]
+a max depth below sea level of 6-18
+Carving
+Carved icebergs are variations of icebergs with a recess or crater on side or bottom of an iceberg. Carvings serve no known purpose but to add character to icebergs.
+Each circular iceberg has a 30% probability of being carved.
+Each elliptic iceberg  has a 90% chance of being carved.
+
+Spacing
+Each chunk (of a valid ocean) has an 1⁄16 ‌[JE  only] or 1⁄8 ‌[BE  only] probability to try to generate a cone iceberg.
+
+Blue ice
+Some packed ice icebergs sometimes have blue ice features attached to them. A blue ice feature is a pile of blue ice blocks that generates adjacent to a packed ice, typically at the bottom of the iceberg.
+
+Data values
+ID
+Java Edition:
+
+Feature typeIdentifier
+ [No displayed name]iceberg
+
+Configured featureIdentifier
+ [No displayed name]iceberg_blue
+
+ [No displayed name]iceberg_packed
+
+Bedrock Edition:
+
+FeatureIdentifier
+ [No displayed name]blue_ice_feature
+
+ [No displayed name]iceberg_feature
+
+Used in:
+
+FeatureIdentifier
+ [No displayed name]minecraft:legacy:ice_feature
+
+Config
+Main article: Configured feature
+Java Edition:
+
+[NBT Compound / JSON Object] config
+[NBT Compound / JSON Object] state The block to use.
+Block state see Template:Nbt inherit/block state/template
+
+An example
+
+{
+  "type": "minecraft:iceberg",
+  "config": {
+    "state": {
+      "Name": "minecraft:packed_ice"
+    }
+  }
+}
+
+Iceberg is hardcoded to generate only on sea level. And will replace only air, water, ice and snow block.
+
+History
+Java Edition
+Java Edition1.1318w15a
+Added icebergs.
+Bedrock Edition
+Bedrock Edition1.4.0beta 1.2.14.2
+Added icebergs.
+Issues
+Issues relating to "Iceberg" are maintained on the bug tracker. Issues should be reported and viewed there.
+
+Gallery
+Renders
+
+
+
+			A circle-shaped blue iceberg without snow blocks
+
+
+
+			A circle-shaped blue iceberg with snow blocks
+
+
+
+			A carved ellipse-shaped blue iceberg without snow blocks
+
+
+
+			A carved ellipse-shaped blue iceberg with snow blocks
+
+
+
+			A tall circle-shaped blue iceberg without snow blocks
+
+
+
+			A carved circle-shaped blue iceberg with snow blocks
+
+
+
+			A circle-shaped packed iceberg without snow blocks
+
+
+
+			A circle-shaped packed iceberg with snow blocks
+
+
+
+			An uncarved ellipse-shaped packed iceberg without snow blocks
+
+
+
+			An uncarved ellipse-shaped packed iceberg with snow blocks
+
+
+
+			A tall circle-shaped packed iceberg without snow blocks
+
+
+
+			A tiny iceberg feature
+
+
+Screenshots
+
+
+
+			An iceberg feature generated with blue ice
+
+
+
+			The top view of an iceberg feature, with other iceberg terrain features in the background.
+
+
+
+			Screenshot of lava spring in an iceberg posted by Henrik Kniberg.
+
+
+
+			Edited screenshot of lava spring in an iceberg posted by Henrik Kniberg.
+
+
+References
+
+Navigation

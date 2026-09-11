@@ -1,0 +1,393 @@
+This article is about the world generation bug.   For the region in Minecraft: Story Mode, see MCSM:Far Lands.   For other uses, see Distance effects.
+
+
+
+This page describes content that has been removed and was only present in earlier versions of Minecraft. 
+This bug used to be in the game but has since been fixed. Note that they still technically exist, just far beyond the world border.
+
+Far Lands
+
+The Far Lands in Java Edition
+
+Generates inexisting chunks  
+
+No
+
+{
+    "title": "Far Lands",
+    "rows": [
+        {
+            "field": "No",
+            "label": "Generates in<br>existing chunks  "
+        }
+    ],
+    "invimages": [],
+    "images": [
+        "Farlands 2.png"
+    ]
+}
+
+
+
+ There is a related tutorial page for this topic! 
+See Tutorial:Far Lands.
+
+The far lands, also spelled farlands was a terrain generation bug and a hard world boundary that appeared when noise generators responsible for terrain shape malfunctioned due to integer overflow. It resulted in massive, spongy walls of terrain appearing around 12,550,821 blocks from the world spawn.
+The insides of the Far Lands consisted of long dark tunnels, with sharp edges and extreme landscapes. The top and corners of the Far Lands were mostly flat, filled with trees and occasionally villages in Bedrock Edition. At approximately 1,004,065,811 blocks from spawn, the noise generation further broke down and produced even more stretched terrain, often being referred to as the "Farther Lands".
+The Far Lands were fixed in Beta 1.8 Pre-release, and an intentional world border was placed more than twice as far as the former hard boundary in Java Edition 1.8. They retain a legacy as one of the franchise's most famous glitches, and are referenced in official games such as Minecraft: Story Mode and Super Smash Bros. Ultimate.
+
+Contents
+
+1 By edition
+
+1.1 Java Edition
+1.2 Bedrock Edition
+
+2 General information
+
+2.1 Post-1.14
+2.2 What the Far Lands are not
+2.3 Types of Far Lands
+2.4 Walking to the Far Lands
+
+3 History
+
+3.1 Java Edition
+3.2 Bedrock Edition
+
+4 Trivia
+5 Gallery
+
+5.1 Screenshots
+5.2 Recreations
+5.3 In other media
+
+6 References
+7 Navigation
+
+By edition
+Java Edition
+Main article: Far Lands (Java Edition)
+Bedrock Edition
+Main article: Far Lands (Bedrock Edition)
+General information
+Post-1.14
+Far Lands at 1,808,764,368,955,220,466,364,897 blocks out.
+Far Lands at 1.8 septillion blocks near stretched terrain.
+Corner Far Lands occurring at 1,808,764,368,955,220,466,364,904 blocks out on both axes.
+Smooth biome blending begins to break down.
+Using a mod that increases integer and floating point number limits, it is possible to remove the hard world border so that a player can travel outwards indefinitely. This allows for a version of the Far Lands to be seen at 1.8 septillion blocks out.
+These Far Lands look different from the solid wall at 12,550,824. Biome blending begins to break down, stretching the terrain. Further out, elevation begins to break down too, making the terrain solid. Due to biome blending breaking down along both axes, the Corner Far Lands generate as almost completely flat formations composed of stacked terrain layers. Decorators still generate well beyond this point, including geodes.
+The Far Lands do not disintegrate into the Fringe Lands and then into a bedrock ocean like they would pre-1.14; instead the terrain completely stops generating at extreme large distances, and a infinite ocean of water/lava generates. Due to how 1.18 changed terrain, bedrock disappears along with the terrain due to bedrock being a part of world generation instead of being a separate layer like water/lava, this is why the Nether Far Lands roof generates with layers of bedrock missing.
+The End Far Lands are affected by the End ring glitch generating in slices.
+
+What the Far Lands are not
+Due to many occurrences at high distance being lumped together with each other, confusion often arises as to what is related to or caused by the Far Lands, and what is not. The following is a list of things which are commonly misattributed to being a product, effect or even type of the Far Lands, despite not being so.
+Precision loss errors are not caused by the Far Lands
+The position where the world appears to render is considerably offset at the point where the Far Lands begin in Java Edition Beta 1.7.3 and earlier, with a magnitude of one block, with the player appearing to be at the edges and corners of blocks at all times.
+However, this is purely a floating-point bug, and exists whether or not the Far Lands themselves do. This can be demonstrated by the following:
+
+Noticing that the precision loss is a gradual change, which increases at each power of 2. This is in stark contrast to the Far Lands, which happen immediately due to integer overflow.
+Backporting a Superflat world (with flat terrain where the Far Lands would be) from 1.1 to Beta 1.7.3, and noticing that the effect persists in said version, proving that it's clearly not linked to terrain. While Far Lands chunks still generate outside of what superflat chunks were generated in 1.1, these still are unrelated.
+Modding the game can be done to either patch out this precision loss issue or the Far Lands individually. This proves their existence to be completely independent.
+Generating the Far Lands in any version between the March 27 and June 18 builds of Infdev inclusive. Whereas the Far Lands clearly generate in these versions, the precision loss bug was first introduced in the June 24th build.
+This is also true of every other precision loss bug, especially those which were not fixed in Beta 1.8 and persisted into later versions after the Far Lands were removed in said version, demonstrating that they are two completely different things which are associated with each other due to happening at high distances.
+The Stripe Lands are not a type of Far Lands
+The Stripe Lands, a mostly Bedrock Edition-exclusive phenomenon which can be seen in Java Edition only through extensive modding, are another example of floating-point precision loss, and are not a terrain bug. While they occur far away from the spawn, they are not considered "Far Lands" and are just an artifact of rendering issues and block hitbox calculations at large distances.
+Fake chunks are not caused by the Far Lands
+"Fake" chunks at the world boundary are another anomaly that happens at high distances. Occurring considerably past the Far Lands' beginning, they are commonly said to be a "part" or "layer" of the Far Lands. While they are among the interesting effects which can be experienced when moving high distances from the world origin, their occurrence is a distinct phenomenon, and, to an extent, actually intended. This is further reinforced by them being at a rather round number (32 million), rather than the seemingly overall arbitrary 12,550,824 of the Far Lands, or power-of-two values such as 16,777,216 where precision loss worsens.
+Hard limits are not caused by the Far Lands
+While the Far Lands themselves are technically a hard limit due to arising from integer overflow, they are treated solely as a terrain phenomenon, and the game still functions fine with them. Integer overflows in other cases such as player position are much more dangerous and much harder to reach, and are considered separately.
+
+Types of Far Lands
+The Far Lands comprise a very wide array of terrain generation bugs. The effects vary depending on which noise generator breaks (for traditional Far Lands, "low noise" and "high noise" are jointly responsible), as well as the player's distance on each axis (the "Edge Far Lands" refer to when noise breaks on only one axis, the "Corner Far Lands" on two, and the "Vertex Far Lands" on three).
+Other noise generators are capable of breaking down. Selector noise, a noise generator which determines whether low noise or high noise is used at a given position in the world, breaks down 80 times further than low and high noise by default, giving rise to what is known as the "Farther Lands".
+A full list of Java Edition noise generators known to break down and give rise to their own unique effects is as follows. Note that it assumes that the X and Z axes are identical, and ignores the Y axis; in many cases, the Y axis has a different value from the X and Z axes, whereas in other cases the noise generator is entirely 2D.
+
+Noise generator
+
+Breaks down at...(32-bit)
+
+Version range
+
+Notes
+
+First
+
+Last
+
+Low noise
+
+12,550,824
+
+inf-20100327
+
+present
+
+Jointly responsible for the Far Lands
+
+High noise
+
+Selector noise
+
+1,004,065,924
+
+inf-20100327
+
+present
+
+Responsible for the Farther Lands
+
+Depth noise
+
+42,949,672
+
+​[more information needed]
+
+present
+
+Causes the terrain to rise up several blocks."Stretching effects" are rare.Impossible to see unless made to start before low and high noise overflow.
+
+Scale noise
+
+7,662,742,722
+
+​[more information needed]
+
+Beta 1.7.3
+
+Superseded by biome-based terrain height in Beta 1.8.
+
+Classic world noise
+
+33,554,432
+
+​[more information needed]
+
+inf-20100325
+
+Causes the famous "stone wall" of Infdev.
+
+Island carver noise
+
+933,688,542
+
+​[more information needed]
+
+in-20100223
+
+Used to create Floating maps in Indev.Due to their limited world size,this breaks far beyond what can generate.
+
+Soil depth
+
+34,359,738,368
+
+​[more information needed]
+
+present
+
+Causes large regions of exposed stone in earlier versions,or gravel in later versions.
+
+Sand beaches
+
+68,719,476,736
+
+​[more information needed]
+
+Beta 1.7.3
+
+Determines whether beaches use sand or not.In the Nether, this controls soul sand.
+
+Gravel beaches
+
+68,719,476,736
+
+​[more information needed]
+
+Beta 1.7.3
+
+Determines whether beaches use gravel or not.Also exists in the Nether for gravel.
+
+ No longer overflows within vanilla bounds as of Beta 1.8 Pre-release
+
+Walking to the Far Lands
+Walking to the Far Lands is a time-consuming challenge involving a terrestrial journey c. 12.5 million blocks out of the world spawn. The most common version used among players is Beta 1.7.3, as it is the last version to contain the Far Lands and has the conveniences such as beds that other previous versions do not have.
+Over +120 journeys to the Far Lands have been tracked as of 2026, with approximately 1⁄6 completed, 1⁄3 currently in progress, and about 1⁄2 inactive/abandoned (including one real life death, TinfoilChef).
+The first player to complete the journey (without using the Nether as a means of shortcut) was KilloCrazyMan in June 2020. Notch awarded him $6,000 through two separate donations, as a result of the feat. The most widely known example comes from KurtJMac's Far Lands or Bust series, through which he helped raise over $530,000 USD for charity over the course of 14 years. KurtJMac completed his journey to the Far Lands on October 4, 2025. In May 2, 2026, KurtJMac was featured in a short documentary video on Minecraft's YouTube channel.
+6 journeys to the Nether Far Lands have been tracked, with Xelanater being the first to complete in June 2022, and 1⁄2 completed, while 1⁄2 are currently in progress.
+Time-wise, the walking (not sprinting) speed is 4.3 blocks per second. Walking for 6 hours per day is equal to 21,600 seconds, giving a traveled distance of 92,880 blocks every day. Walking to the 12.5 million Far Lands would take just under 136 days at this rate.
+
+History
+Java Edition
+Java Edition Infdev20100227-1414
+All generation past 33,554,432 blocks would be solid stone, extending vertically from the bottom of the world to the height limit, continuing out to the 32-bit limit.
+
+These are the first truly visible appearance of the Far Lands, although very visually distinct from convention.20100313
+A world boundary has been added at +/-32,000,000 blocks. The Far Lands can no longer be seen without modifying the game.20100320
+Reimplemented ores, which can generate in the Far Lands.20100325-1545
+Reimplemented caves, which can carve into the Far Lands.20100327
+The rewrite of world generation caused the Far Lands to take on a more familiar form.
+
+First confirmed appearance of the true Far Lands.20100611
+The shape of the Far Lands now more closely resembles what they do in Alpha/Beta, with a subtle vertical stretching.Java Edition Beta1.6Test Build 3
+The Far Lands ceiling is unchanged as Beta 1.6 eliminates the ability to normally place blocks at Y=127.1.8Pre-release
+The Far Lands, as well as several floating point precision errors (notably the world render jitter/offset) no longer occur within vanilla bounds (instead being moved to generating at ~1.8 septillion blocks), effectively patching them out of the game.Java Edition1.2.112w07a
+The height limit has been increased to 256, and as such the Far Lands now generate to that height.1.814w17a
+Added customized world generation, making it possible to create the Sky and Void Far Lands without mods.1.1318w06a
+Removed customized worlds. The Sky and Void Far Lands can no longer be created without mods.1.21.1125w46a
+Added the splash "One does not simply walk to the Far Lands".
+References kurtjmac, who completed his 14-year Far Lands walk a month prior.
+Despite the release article stating that this was disproven on 4 October 2025, it was in fact disproven over five years earlier, on 19 June 2020, by KilloCrazyMan.
+Bedrock Edition
+Pocket Edition Alpha0.9.0build 1
+The Far Lands was first seen in this version.0.16.0build 1
+Added /tp, which makes accessing to high coordinates or the Far Lands without modifying the game or world files feasible.Bedrock Edition1.2.0beta 1.2.0.2
+The skygrid no longer generates.1.2.10
+The skygrid now generates again.1.16.30beta 1.16.20.50
+The Far Lands generation has changed – the skygrid no longer generates in the Overworld, but still generates in the Nether and the End.1.16.100
+The Far Lands layout has been reverted to its prior form.1.16.220beta 1.16.220.50
+The world height limit has been increased, so the Far Lands height has been increased to average 133 and changed with it (may variants height of far lands depending of the area, seeds and coordinates). Sometimes, the Far Lands can generate monoliths after Y=128 or it can generate to the height limit. Any world previously created before 1.16.220.50 will not generate monoliths.1.17.0beta 1.16.230.56
+Stack of terrain connected with pillars now generate on the corner of the Far Lands at positive X coordinates.
+An elevated land now generates at the negative X coordinates of the Far Lands.1.17.10
+The skygrid now generates in the Overworld again.1.17.30beta 1.17.20.20
+Like in Java Edition Beta 1.8, the Far Lands, nothingness and the skygrid have now removed and has been pushed past the maximum signed 32-bit integer limit (or just fixed) in all dimensions, and terrain beyond X/Z ±12,550,821 for the most part changes to normal terrain and generates normally (until 53.9 quadrillion where the Far Lands begin in 1.17.30, beta 1.17.20.20 and onwards).
+However, 3D distortion, the Stripe Lands, non-solid blocks and other distance effects still occur.
+Trivia
+In A Minecraft Movie DLC, a painting can be found in the Mansion Stealth minigame depicting the Far Lands.
+Gallery
+Screenshots
+
+
+
+			The isometric view of the Far Lands in Java Edition Alpha v1.0.15
+
+
+
+			The Far Lands seen in Winter type world in Java Edition Alpha v1.0.4
+
+
+
+			The Far Lands in Java Edition Beta 1.7.3
+
+
+
+			The Far Lands' edge in Java Edition Infdev
+
+
+
+			The Far Lands on mesa biome in Pocket Edition Alpha
+
+
+
+			The corner Far Lands in Infdev-20100327. The vertical noise scale was equal to the horizontal noise scale.
+
+
+
+			A view of the Far Lands
+
+
+
+			When near the Far Lands, the game starts to get laggy
+
+
+
+			Edge Far Lands in Java Edition 1.20.1 at 1.8 septillion blocks
+
+
+
+			Corner Farlands at 1.8 septillion blocks
+
+
+
+			Far Lands in Java Edition 1.21.8 using ultimate scaler mod
+
+
+
+			The Nether roof Far Lands in 1.21.8
+
+
+
+			The Nether Far Lands in 1.21.8
+
+
+
+			The End Far Lands at 1.8 septillion blocks (End ring glitch is present).
+
+
+
+			End Far Lands in 1.21.8
+
+
+
+			Endless ocean at extreme large distances
+
+
+
+			Bedrockless water/lava ocean at extreme large distances
+
+
+Recreations
+These screenshots are made using mods or any other means that would not be possible in the vanilla game.
+
+
+
+			What the Far Lands would look like in Java Edition Alpha v1.1.2_01, recreated in Java Edition 1.21.5 using a mod and resource pack.
+
+
+
+			The Far Lands in Java Edition Beta 1.7.3, recreated using mods.
+
+
+
+			The Far Lands in Java Edition 1.17, enabled using mods.
+
+
+
+			The Sky and Edge Far Lands colliding, discovered using mods. The terrain changes because there are now 2 axises overflowing.
+
+
+In other media
+
+
+
+			The Farlander in what appears to be the Far Lands.
+
+
+
+			Soren looking at the Far Lands in Minecraft: Story Mode.
+
+
+
+			The entrance to The Maze and Ivor's Cottage in the Far Lands.
+
+
+References
+
+ "/v/ is petitioning me to change the name from "Endermen" to "Farlanders". How about we just rename the "far lands" to "the end" instead? ;D"  – @notch (Markus Persson) on X (formerly Twitter), July 30, 2011
+
+ "Terrain generation, Part 1" (archived) – The Word of Notch, Tumblr, March 9, 2011.
+
+ "Turns out I was wrong about nobody ever walking to farlands!"  – @notch (Markus Persson) on X (formerly Twitter), June 20, 2020
+
+ "Farlands Database"   (Archive)  – farlands.cc.
+
+ "I’m not sure how to tell you all, but sadly @tinfoilchef passed away this morning. He will be missed"  – @wabbedu  on X (formerly Twitter), August 13, 2022
+
+ "Killo's Journey To The Far Lands - Grand Finale"  – KilloCrazyMan on YouTube, June 19, 2020
+
+ "Killo's Journey To The Far Lands - Grand Finale" at 13m20s
+
+ "Charity Fundraising at Far Lands or Bust - An expedition in search of adventure, exploration, and for charity!"   (Archive)  – farlandsorbust.com.  Retrieved May 2, 2026.
+
+ "FLoB-a-Thon 2025 - Day 69 - "THE FAR LANDS""  – Far Lands or Bust with KurtJMac on YouTube, October 5, 2025
+
+ "He Walked in Minecraft for 14 YEARS"  – Minecraft on YouTube, May 2, 2026
+
+ "Reaching the Nether Far Lands == UMP 2221"  – Xelanater Ellevanox on YouTube, June 18, 2022
+
+Navigation
+
+
+
+This was a featured article from May 11, 2026 – May 17, 2026. 
+See Minecraft Wiki:Featured articles for more information.

@@ -1,0 +1,360 @@
+This feature is exclusive to Bedrock Edition. 
+
+This page lists some additional NBT structures in Bedrock Edition.
+
+Contents
+
+1 Abilities
+2 Attribute
+3 Attributes
+4 Attribute Modifier
+5 AutonomousEntities
+6 BiomeData
+7 Block
+8 Command Block
+9 Firework Explosion
+10 Limbo entities
+11 Mob Effect
+12 Mob Events
+13 Monster Spawner
+14 Players
+15 Portals
+16 SchedulerWT
+17 Scoreboard
+18 Structuretemplate_<name>
+19 Tickingarea
+20 VILLAGE_[0-9a-f\\-]+_DWELLERS
+21 VILLAGE_[0-9a-f\\-]+_INFO
+22 VILLAGE_[0-9a-f\\-]+_PLAYERS
+23 VILLAGE_[0-9a-f\\-]+_POI
+
+Abilities
+NBT structure of players' ability info:
+
+[NBT Compound / JSON Object]: Parent tag.
+[NBT Compound / JSON Object] abilities: The player's ability setting.
+[Byte] attackmobs: 1 or 0 (true/false) - true if the player can attack mobs.
+[Byte] attackplayers: 1 or 0 (true/false) - true if the player can attack other players.
+[Byte] build: 1 or 0 (true/false) - true if the player can place blocks.
+[Byte] doorsandswitches: 1 or 0 (true/false) - true if the player is able to interact with redstone components.
+[Byte] flying: 1 or 0 (true/false) - true if the player is currently flying.
+[Float] flySpeed: The flying speed, always 0.05.
+[Byte] instabuild: 1 or 0 (true/false) - true if the player can instantly destroy blocks.
+[Byte] invulnerable: 1 or 0 (true/false) - true if the player is immune to all damage and harmful effects.
+[Byte] lightning: 1 or 0 (true/false) - true if the player was struck by lightning.
+[Byte] mayfly: 1 or 0 (true/false) - true if the player can fly.
+[Byte] mine: 1 or 0 (true/false) - true if the player can destroy blocks.
+[Byte] mute: 1 or 0 (true/false) - true if the player messages cannot be seen by other players.
+[Byte] noclip: 1 or 0 (true/false) - true if the player can phase through blocks.
+[Byte] op: 1 or 0 (true/false) - true if the player has operator commands.
+[Byte] opencontainers: 1 or 0 (true/false) - true if the player is able to open containers.
+[Int] permissionsLevel: What permissions a player will default to, when joining a world.
+[Int] playerPermissionsLevel: What permissions a player has.
+[Byte] teleport: 1 or 0 (true/false) - true if the player is allowed to teleport.
+[Float] walkSpeed: The walking speed, always 0.1.
+[Byte] worldbuilder: 1 or 0 (true/false) - true if the player is a world builder.
+Attribute
+NBT structure of an attribute:
+
+[NBT Compound / JSON Object]: Parent tag.
+[Float] Base: The base value of this Attribute.
+[Float] Current: Unknown.
+[Float] DefaultMax: Unknown.
+[Float] DefaultMin: Unknown.
+[Float] Max: Unknown.
+[Float] Min: Unknown.
+[NBT List / JSON Array] Modifiers: (May not exist) List of Modifiers.
+[NBT Compound / JSON Object]: An individual Modifier.
+{{{2}}}  see Attribute Modifier
+[String] Name: The name of this Attribute.
+[NBT List / JSON Array] TemporalBuffs: (May not exist) Unknown.
+[Float] Amount: Unknown.
+[Int] Duration: Unknown.
+[Int] LifeTime: Unknown.
+[Int] Type: Unknown.
+Attributes
+NBT structure for mobs:
+
+[NBT Compound / JSON Object]: Parent tag.
+[NBT List / JSON Array]: List of attributes.
+[NBT Compound / JSON Object]:An attribute.
+{{{2}}}  see Attribute
+Attribute Modifier
+NBT structure of an attribute modifier:
+
+[NBT Compound / JSON Object]: Parent tag.
+[Float] Amount: The amount by which this Modifier modifies the Base value in calculations.
+[String] Name: The Modifier's name.
+[Int] Operand: Unknown.
+[Int] Operation: Defines the operation this Modifier executes on the Attribute's Base value. 0: Increment X by Amount, 1: Increment Y by X * Amount, 2: Y = Y * (1 + Amount) (equivalent to Increment Y by Y * Amount).[needs testing]
+[Long] UUIDLeast: This modifier's UUID Least.
+[Long] UUIDMost: This modifier's UUID Most.
+AutonomousEntities
+The autonomous entities data:
+
+[NBT Compound / JSON Object]: The autonomous entities root tag.
+[NBT List / JSON Array] AutonomousEntityList: Unknown.
+BiomeData
+The biome data:
+
+[NBT Compound / JSON Object]: The biome data root tag.
+[NBT List / JSON Array] list: A list of compound tags representing biomes.
+[NBT Compound / JSON Object]: A biome.
+[Byte] id: The numerical biome ID.
+[Float] snowAccumulation: The biome's snow accumulation. Eg. 0.125.
+Block
+NBT structure of a block:
+
+[NBT Compound / JSON Object]: Parent tag.
+[String] name: The namespaced ID of this block.
+[NBT Compound / JSON Object] states: List of block states of this block.
+[Undefined] <state_name>: A block state and its value with corresponding data type.
+[Int] version: The data version.
+Command Block
+NBT structure of command block and minecart with command block:
+
+[NBT Compound / JSON Object]: Parent tag.
+[String] Command: The command entered into the command block.
+[String] CustomName: The custom name or hover text of this command block.
+[Byte] ExecuteOnFirstTick: 1 or 0 (true/false) - true if it executes on the first tick once saved or activated.
+[Long] LastExecution: Stores the time when a command block was last executed.
+[String] LastOutput: The translation key of the output's last line generated by the command block. Still stored even if the gamerule commandBlockOutput is false. Appears in the command GUI.
+[NBT List / JSON Array] LastOutputParams: The params for the output's translation key.
+[String]: A param.
+[Int] SuccessCount: Represents the strength of the analog signal output by redstone comparators attached to this command block.
+[Int] TickDelay: The delay between each execution.
+[Byte] TrackOutput: 1 or 0 (true/false) - true if the LastOutput is stored. Can be toggled in the GUI by clicking a button near the "Previous Output" textbox.
+[Int] Version: The data version.
+Firework Explosion
+NBT structure of firework and firework star:
+
+[NBT Compound / JSON Object]: Parent tag.
+[Byte Array] FireworkColor: Array of byte values corresponding to the primary colors of this firework's explosion.
+[Byte Array] FireworkFade: Array of byte values corresponding to the fading colors of this firework's explosion.
+[Byte] FireworkFlicker: 1 or 0 (true/false) - true if this explosion has the twinkle effect (glowstone dust).
+[Byte] FireworkTrail: 1 or 0 (true/false) - true if this explosion has the trail effect (diamond).
+[Byte] FireworkType: The shape of this firework's explosion. 0 = Small Ball, 1 = Large Ball, 2 = Star-shaped, 3 = Creeper-shaped, and 4 = Burst.[needs testing]
+Limbo entities
+The limbo entities data:
+
+[NBT Compound / JSON Object]: The limbo entities root tag.
+[NBT Compound / JSON Object] data: A compound with a list of limbo entities.
+[NBT List / JSON Array] LimboEntities: Unknown.
+Mob Effect
+NBT structure of a status effect:
+
+[NBT Compound / JSON Object]: Parent tag.
+[Byte] Ambient: 1 or 0 (true/false) - true if this effect is provided by a beacon and therefore should be less intrusive on screen.
+[Byte] Amplifier: The potion effect level. 0 is level 1.
+[Byte] DisplayOnScreenTextureAnimation: Unknown.
+[Int] Duration: The number of ticks before the effect wears off.
+[Int] DurationEasy: Duration for Easy mode.
+[Int] DurationHard: Duration for Hard mode.
+[Int] DurationNormal: Duration for Normal mode.
+[NBT Compound / JSON Object] FactorCalculationData
+[Int] change_timestamp
+[Float] factor_current
+[Float] factor_previous
+[Float] factor_start
+[Float] factor_target
+[Byte] had_applied
+[Byte] had_last_tick
+[Int] padding_duration
+[Byte] Id: The numerical effect ID.
+[Byte] ShowParticles: 1 or 0 (true/false) - true if particles are shown.
+Mob Events
+NBT structure of mob events:
+
+[NBT Compound / JSON Object]: The mob events root tag.
+[Byte] events_enabled: 1 or 0 (true/false) - true if the mob events can occur.
+[Byte] minecraft:ender_dragon_event: 1 or 0 (true/false) - true if the ender dragon can spawn.
+[Byte] minecraft:pillager_patrols_event: 1 or 0 (true/false) - true if the illager patrol can spawn.
+[Byte] minecraft:wandering_trader_event: 1 or 0 (true/false) - true if the wandering trader can spawn.
+Monster Spawner
+NBT structure of a monster spawner:
+
+[NBT Compound / JSON Object]: Parent tag.
+[Short] Delay: Ticks until next spawn. If 0, it spawns immediately when a player enters its range.
+[Float] DisplayEntityHeight: The height of entity model that displayed in the block.
+[Float] DisplayEntityScale: The scale of entity model that displayed in the block.
+[Float] DisplayEntityWidth: The width of entity model that displayed in the block.
+[String] EntityIdentifier: The id of the entity to be summoned.​[more information needed]
+[Short] MaxNearbyEntities: The maximum number of nearby (within a box of SpawnRange*2+1 × SpawnRange*2+1 × 8 centered around the spawner block[needs testing]) entities whose IDs match this spawner's entity ID.
+[Short] MaxSpawnDelay: The maximum random delay for the next spawn delay.
+[Short] MinSpawnDelay: The minimum random delay for the next spawn delay.
+[Short] RequiredPlayerRange: Overrides the block radius of the sphere of activation by players for this spawner.
+[Short] SpawnCount: How many mobs to attempt to spawn each time.
+[NBT Compound / JSON Object] SpawnData: (May not exist) Contains tags to copy to the next spawned entity(s) after spawning.
+[NBT Compound / JSON Object] Properties: Unknown.
+[String] TypeId: The entity's namespaced ID.
+[Int] Weight: Unknown.
+[NBT List / JSON Array] SpawnPotentials: (May not exist) List of possible entities to spawn.
+[NBT Compound / JSON Object]: A potential future spawn.
+[NBT Compound / JSON Object] Properties: Unknown.
+[String] TypeId: The entity's namespaced ID.
+[Int] Weight: The chance that this spawn gets picked in comparison to other spawn weights. Must be positive and at least 1.
+[Short] SpawnRange: The radius around which the spawner attempts to place mobs randomly. The spawn area is square, includes the block the spawner is in, and is centered around the spawner's x,z coordinates - not the spawner itself.[needs testing] Default value is 4.
+Players
+The players data:
+
+[NBT Compound / JSON Object]: A player root tag.
+[String] MsaId
+[String] SelfSignedId
+[String] ServerId
+Portals
+The portals data:
+
+[NBT Compound / JSON Object]: The portals root tag.
+[NBT Compound / JSON Object] data
+[NBT List / JSON Array] PortalRecords
+[NBT Compound / JSON Object]
+[Int] DimId
+[Byte] Span
+[Int] TpX
+[Int] TpY
+[Int] TpZ
+[Byte] Xa
+[Byte] Za
+SchedulerWT
+The schedulerWT data:
+
+[NBT Compound / JSON Object]: The schedulerWT root tag.
+[Int] daysSinceLastWTSpawn
+[Byte] isSpawningWT
+[Long] nextWTSpawnCheckTick
+Scoreboard
+NBT structure of scoreboards:
+
+[NBT Compound / JSON Object]: The scoreboard data root tag.
+[NBT List / JSON Array] Criteria
+[NBT List / JSON Array] DisplayObjectives: A  list of compound tags representing specific displayed objectives.
+[NBT Compound / JSON Object]: A displayed objective.
+[String] Name: The display slot of this objective.
+[String] ObjectiveName: The internal name of the objective displayed.
+[Byte] SortOrder: The sort order of the objective displayed. 0 = ascending, 1 = descending. If not specified, or the display slot is belowname, 1 by default.
+[NBT List / JSON Array] Entries: A list of compound tags representing individual entities.
+[NBT Compound / JSON Object]: An entity.
+[Byte] IdentityType: The identity type of this entity. 1 = Players, 2 = Others.
+[Long] EntityId: Optional. The entity's Unique ID.
+[Long] PlayerId: Optional. The player's Unique ID.
+[Long] ScoreboardId: The numerical ID given to this entity on the scoreboard system, starting from 1.
+[NBT List / JSON Array] Objectives: A list of compound tags representing objectives.
+[NBT Compound / JSON Object]: An objective.
+[String] Criteria: The criterion of this objective, currently, always dummy.
+[String] DisplayName: The display name of this objective.
+[String] Name: The internal name of this objective.
+[NBT List / JSON Array] Scores: A list of compound tags representing scores tracked on this objective.
+[NBT Compound / JSON Object]: A tracked entity with a score.
+[Int] Score: The score this entity has on this objective.
+[Long] ScoreboardId: The numerical ID given to this entity on the scoreboard system.
+[Long] LastUniqueID: The numerical ID given to the last entity added on the scoreboard system.
+Structuretemplate_<name>
+The structure template data:
+
+[NBT Compound / JSON Object]: The structure template root tag.
+[Int] format_version
+[NBT List / JSON Array] size
+[Int]
+[Int]
+[Int]
+[NBT Compound / JSON Object] structure
+[NBT List / JSON Array] block_indices
+[NBT List / JSON Array]
+[Int]
+[NBT List / JSON Array] entities
+[NBT Compound / JSON Object]
+entity  see Entity
+Tags unique to this entity type.
+[NBT Compound / JSON Object] palette
+[NBT Compound / JSON Object] default
+[NBT List / JSON Array] block_palette
+[NBT Compound / JSON Object]
+others  see Block
+[NBT Compound / JSON Object] block_position_data
+[NBT Compound / JSON Object] <num>
+[NBT Compound / JSON Object] block_entity_data
+block  see Block Entity
+Tags unique to this block entity.
+[NBT List / JSON Array] tick_queue_data: (May not exist)
+[NBT Compound / JSON Object]
+[Int] tick_delay
+[NBT List / JSON Array] structure_world_origin
+[Int]
+[Int]
+[Int]
+Tickingarea
+The /tickingarea data:
+
+[NBT Compound / JSON Object]: The tickingarea root tag.
+[Int] Dimension
+[Byte] IsCircle
+[Int] MaxX
+[Int] MaxZ
+[Int] MinX
+[Int] MinZ
+[String] Name
+[Byte] Preload
+VILLAGE_[0-9a-f\\-]+_DWELLERS
+The village dwellers data:
+
+[NBT Compound / JSON Object]: The village dwellers root tag.
+[NBT List / JSON Array] Dwellers
+[NBT Compound / JSON Object]
+[NBT List / JSON Array] actors
+[NBT Compound / JSON Object]
+[Long] ID
+[NBT List / JSON Array] last_saved_pos
+[Int]
+[Int]
+[Int]
+[Long] TS
+VILLAGE_[0-9a-f\\-]+_INFO
+The village info data:
+
+[NBT Compound / JSON Object]: The village info root tag.
+[Long] BDTime
+[Long] GDTime
+[Byte] Initialized
+[Long] MTick
+[Long] PDTick
+[Int] RX0
+[Int] RX1
+[Int] RY0
+[Int] RY1
+[Int] RZ0
+[Int] RZ1
+[Long] Tick
+[Byte] Version
+[Int] X0
+[Int] X1
+[Int] Y0
+[Int] Y1
+[Int] Z0
+[Int] Z1
+VILLAGE_[0-9a-f\\-]+_PLAYERS
+The village players data:
+
+[NBT Compound / JSON Object]: The village players root tag.
+[NBT List / JSON Array] Players
+VILLAGE_[0-9a-f\\-]+_POI
+The village POIs data:
+
+[NBT Compound / JSON Object]: The village POIs root tag.
+[NBT List / JSON Array] POI
+[NBT Compound / JSON Object]
+[NBT List / JSON Array] instances
+[NBT Compound / JSON Object]
+[Long] Capacity
+[String] InitEvent
+[String] Name
+[Long] OwnerCount
+[Float] Radius
+[Byte] Skip
+[String] SoundEvent
+[Int] Type
+[Byte] UseAABB
+[Long] Weight
+[Int] X
+[Int] Y
+[Int] Z
+[Long] VillagerID

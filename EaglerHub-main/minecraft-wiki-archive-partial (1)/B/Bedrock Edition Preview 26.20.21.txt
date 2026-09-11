@@ -1,0 +1,232 @@
+Preview 26.20.21
+
+Edition
+
+Bedrock Edition
+
+Release date
+
+March 17, 2026
+
+Server version
+
+1.26.20.21
+
+Editor version
+
+1.3.2
+
+Build version
+
+Windows: 42245970Android:42245980 (armeabi-v7a)42245978 (arm64-v8a)
+
+Internal version
+
+Windows, Xbox: 1.26.2021.0Android: 1.26.20.21
+
+Version code
+
+Android:
+952602021 (armeabi-v7a, 35)
+962602021 (x86, 35)
+972602021 (arm64-v8a, 35)
+982602021 (x86_64, 35)
+
+Type
+
+Preview
+
+Preview for
+
+26.20
+
+Downloads
+
+ ServerWindowsLinux
+
+Protocol version
+
+962
+
+◄◄   26.13
+26.20
+  26.21 ►►
+
+◄   Preview 26.20.20
+
+ Preview 26.20.21
+
+  Preview 26.20.22 ►
+
+{
+    "title": "Preview 26.20.21",
+    "images": [
+        "Bedrock 26.20.21.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Bedrock Edition article, displayed as Bedrock Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "March 17, 2026",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Bedrock Dedicated Server 1.26.20.21 article, displayed as 1.26.20.21)",
+            "label": "Server version"
+        },
+        {
+            "field": "(link to Bedrock Editor 1.3.2 article, displayed as 1.3.2)",
+            "label": "''(link to Bedrock Editor article, displayed as Editor)'' version"
+        },
+        {
+            "field": "'''Windows''': 42245970<br>'''Android''':<br>42245980 (armeabi-v7a)<br>42245978 (arm64-v8a)",
+            "label": "Build version"
+        },
+        {
+            "field": "'''Windows, Xbox''': 1.26.2021.0<br>'''Android''': 1.26.20.21",
+            "label": "Internal version"
+        },
+        {
+            "field": "'''Android''':<br />\n952602021 (armeabi-v7a, 35)<br />\n962602021 (x86, 35)<br />\n972602021 (arm64-v8a, 35)<br />\n982602021 (x86_64, 35)",
+            "label": "Version code"
+        },
+        {
+            "field": "Preview",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Bedrock Edition 26.20 article, displayed as 26.20)",
+            "label": "Preview for"
+        },
+        {
+            "field": "'''Server'''<br>[https://www.minecraft.net/bedrockdedicatedserver/bin-win-preview/bedrock-server-1.26.20.21.zip Windows]<br>[https://www.minecraft.net/bedrockdedicatedserver/bin-linux-preview/bedrock-server-1.26.20.21.zip Linux]",
+            "label": "Downloads"
+        },
+        {
+            "field": "962",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Bedrock Edition  26.13|<span style=\"margin-right:-0.35em\">◄</span>◄   26.13]]</td>\n<td style=\"padding: 0.4em\">'''[[Bedrock Edition 26.20|26.20]]'''</td>\n<td style=\"padding: 0.4em\" >[[Bedrock Edition  26.21|  26.21 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Bedrock Edition  Preview 26.20.20|◄   Preview 26.20.20]]\n</td>\n<td style=\"padding: 0.4em\">''' Preview 26.20.21'''</td>\n<td style=\"padding: 0.4em\">\n[[Bedrock Edition  Preview 26.20.22|  Preview 26.20.22 ►]]\n</td>\n</tr>\n</table>"
+}
+
+Beta 26.20.21 (ChromeOS, Android) or Preview 26.20.21 (Windows, iOS, iPadOS, Xbox, PlayStation) is the second beta/Preview for Bedrock Edition 26.20, released on March 17, 2026, which fixes bugs.
+
+Contents
+
+1 Changes
+
+1.1 Mobs
+1.2 General
+1.3 Technical
+
+2 Experimental
+
+2.1 Changes
+
+2.1.1 General
+2.1.2 Technical
+
+3 Fixes
+4 References
+5 Navigation
+
+Changes
+Mobs
+Baby mobs
+
+Baby spawn sounds now play with the correct pitch for pigs, cats, chickens, horses, and wolves.
+Rabbit
+
+Idle animation is now disabled while they are leashed.
+General
+Graphical
+
+Improved how scrollable screen content is displayed in Ore UI menu screens on devices with notches, rounded corners, or safe zones applied. Content now smoothly scrolls beneath the safe area instead of being cut off.
+Technical
+AI Goals
+
+Made the schema for minecraft:behavior.jump_around_target stricter when parsing, now will fail to load an entity json that has invalid data in versions 1.26.20 and newer. Float Range fields valid_distance_to_target and landing_distance_from_target now only accepts an object with min and max values. Other formats will fail to parse.
+Made the schema for minecraft:behavior.jump_to_block stricter when parsing, now will fail to load an entity json that has invalid data in versions 1.26.20 and newer. Float Range field cooldown_range now only accepts an object with min and max values. Other formats will fail to parse.
+Made the schema for minecraft:behavior.move_around_target stricter when parsing, now will fail to load an entity json that has invalid data in versions 1.26.20 and newer. Float Range field destination_position_range now only accepts an object with min and max values. Other formats will fail to parse.
+Made schemas for the following goals stricter when parsing and will fail to load an entity json that has invalid data in versions 1.26.20 and newer:
+minecraft:behavior.find_cover
+minecraft:behavior.find_mount
+minecraft:behavior.find_underwater_treasure
+minecraft:behavior.flee_sun
+minecraft:behavior.float
+minecraft:behavior.follow_owner
+minecraft:behavior.follow_parent
+minecraft:behavior.hold_ground
+API
+
+Added the maximumRenderDistance property to DebugShape.
+Added the maximumRenderDistance property to PrimitiveShape.
+The default render distance used by DebugShape and PrimitiveShape are now the client's render distance instead of infinity.
+Added InvalidType and UnsupportedValue to the InvalidArgumentErrorType enum in @minecraft/common v1.3.0.
+Entity filters
+
+Removed the has_equipment_block_tag entity filter.
+General
+
+Upgraded particles, trading, and cameras JSON resources to Cereal slice 1.26.10 and re-serialized to align with the updated schema.
+Items
+
+New 1.26.10 attachables now use a new controller.render.armor.v2 render_controller rather than using an updated controller.render.armor.
+Network Protocol
+
+Modified the binary format of PlayerEnchantOptionsPacket.
+Experimental
+These additions and changes are accessible by enabling the "Beta APIs" and "Furnace Recipe Book" experimental toggles.
+
+Changes
+General
+Recipe book
+
+Added a recipe unlocking system for the smelting recipe books.
+Technical
+API
+
+Added the opPlayer and deopPlayer functions to @minecraft/server-admin in beta.
+Added the allowCheats boolean property to the World class in @minecraft/server in beta.
+Added WebSocket clients to @minecraft/server-net in beta.
+WebSocket class added which is used to create and connect websocket clients. This is created as the global websocket object in @minecraft/server-net.
+WebSocketClient class added to interact with the websocket and receive data from the server through events.
+Moved BiomeTypes.getAll to 2.7.0 in @minecraft/server.
+Moved BiomeTypes.get to 2.7.0 in @minecraft/server.
+Moved BiomeType.hasTags to 2.7.0 in @minecraft/server.
+Moved BiomeType.getTags to 2.7.0 in @minecraft/server.
+DDUI
+
+Made close buttons client authoritative so that forms close more quickly.
+Fixes
+17 issues fixed
+From released versions before 26.20
+
+MCPE-112509 – Tall seagrass breaks when generated from bone meal.
+MCPE-224063 – When bonemealing sea grass underwater, the tall seagrass bottom half texture is cut off.
+MCPE-234586 – Pick Block action does not work on potted custom blocks using item overrides.
+MCPE-236317 – Block model size constraints are validated before transformation is taken into account.
+MCPE-236685 – MERS of baby bees are not using ALPHA channel the same way.
+MCPE-236881 – HUD fails to load after disabling Screen Animations in-game, sometimes soft-locking the game.
+MCPE-236972 – The color of sleeping baby snow foxes' eyes is inconsistent with their adult variant.
+Other
+
+Fixed fall damage visual effects not triggering when entities hit the ground.
+Fixed an issue where Static Colored Lighting wouldn't propagate in chunks that were completely empty in Vibrant Visuals.
+Fixed changing from handheld to docked Joy-Cons preventing input.
+Fixed a bug where slimes and magma cubes would have their bounce animations snap abruptly.
+Fixed a crash that could occur when loading the Token FAQ page on PlayStation.
+Fixed a crash that could occur when logging Molang content.
+Fixed caret movement acting twice and backspace deleting too many characters when using a physical keyboard on iOS.
+Fixed some creator content's custom armor not rendering properly.
+Baby wolf hind legs are now rotated correctly while sitting.
+Baby zombies no longer levitate when riding baby sheep and baby pandas.
+References
+
+ "Minecraft Beta & Preview - 26.20.21"     – Minecraft Feedback, March 17, 2026.
+
+Navigation

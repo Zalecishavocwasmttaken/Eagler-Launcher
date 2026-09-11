@@ -1,0 +1,1059 @@
+This feature is exclusive to Bedrock Edition. 
+
+This page lists the entity NBT structures in Bedrock Edition.
+
+Contents
+
+1 Entity
+2 Additional fields for entity categories
+
+2.1 Minecart
+2.2 Villagers
+2.3 Monster
+2.4 Humanoid Monster
+2.5 Mob
+2.6 Abstract Arrow
+2.7 Throwable
+
+3 Additional fields for entity types
+
+3.1 Allay
+3.2 Area Effect Cloud
+3.3 Armadillo
+3.4 Armor Stand
+3.5 Arrow
+3.6 Axolotl
+3.7 Bat
+3.8 Bee
+3.9 Boat with Chest
+3.10 Breeze
+3.11 Camel
+3.12 Cat
+3.13 Chicken
+3.14 Cow
+3.15 Creeper
+3.16 Dolphin
+3.17 Donkey
+3.18 Egg
+3.19 End Crystal
+3.20 Enderman
+3.21 Endermite
+3.22 Evoker
+3.23 Experience Orb
+3.24 Experience Potion
+3.25 Falling Block
+3.26 Fireball
+3.27 Fireworks Rocket
+3.28 Fishing Bobber
+3.29 Fox
+3.30 Frog
+3.31 Goat
+3.32 Guardian and Elder Guardian
+3.33 Hoglin
+3.34 Horse
+3.35 Husk
+3.36 Iron Golem
+3.37 Item Entity
+3.38 Llama
+3.39 Llama Spit
+3.40 Minecart with Chest
+3.41 Minecart with Command Block
+3.42 Minecart with Hopper
+3.43 Minecart with TNT
+3.44 Mooshroom
+3.45 Mule
+3.46 NPC
+3.47 Ocelot
+3.48 Painting
+3.49 Panda
+3.50 Pig
+3.51 Piglin
+3.52 Piglin Brute
+3.53 Pillager
+3.54 Player
+3.55 Polar Bear
+3.56 Pufferfish
+3.57 Rabbit
+3.58 Ravager
+3.59 Sheep
+3.60 Shulker Bullet
+3.61 Skeleton
+3.62 Skeleton Horse
+3.63 Slime
+3.64 Sniffer
+3.65 Snowball
+3.66 Strider
+3.67 Sulfur cube
+3.68 Tadpole
+3.69 Thrown Ender Pearl
+3.70 Thrown Potion
+3.71 Thrown Trident
+3.72 TNT
+3.73 Turtle
+3.74 Vex
+3.75 Villager (V2)
+3.76 Vindicator
+3.77 Wandering Trader
+3.78 Warden
+3.79 Wind Charge Projectile
+3.80 Witch
+3.81 Wither
+3.82 Wither Skull
+3.83 Wolf
+3.84 Zombie
+3.85 Zombie Horse
+3.86 Zombie Villager
+3.87 Zombified Piglin
+
+Entity
+All entities share this base:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+[Byte] Chested: 1 or 0 (true/false) - true if this entity is chested. Used by donkey, llama, and mule.
+[Byte] Color: The main color value of the entity. Used by sheep, llama, shulker, tropical fish, etc. Defaults to 0.
+[Byte] Color2: The entity's second color value. Used by tropical fish. Defaults to 0.
+[String] CustomName: (May not exist) The custom name of this entity.
+[Byte] CustomNameVisible: 1 or 0 (true/false) - (may not exist) if true, and this entity has a custom name, the name always appears above the entity, regardless of where the cursor points. If the entity does not have a custom name, a default name is shown.
+[NBT List / JSON Array] definitions: (May not exist) The namespaced ID of this entity and its current and previous component groups.
+[String]: Unknown
+[Float] FallDistance: Distance the entity has fallen. Larger values cause more damage when the entity lands.
+[Short] Fire: Number of ticks until the fire is put out. Default 0 when not on fire.
+[String] identifier: The namespaced ID of this entity.
+[NBT Compound / JSON Object] internalComponents: Unknown.
+[NBT Compound / JSON Object] EntityStorageKeyComponent: Unknown.
+[String] StorageKey: Unknown.
+[Byte] Invulnerable: 1 or 0 (true/false) - true if the entity should not take damage. This applies to living and nonliving entities alike: mobs should not take damage from any source (including potion effects), and cannot be moved by fishing rods, attacks, explosions, or projectiles, and objects such as vehicles cannot be destroyed. Invulnerable player entities are also ignored by any hostile mobs. Note that these entities can be damaged by players in Creative mode.[needs testing]
+[Byte] IsAngry: 1 or 0 (true/false) - true if this entity is angry. Used by wolf and bee.
+[Byte] IsAutonomous: 1 or 0 (true/false) - true if this entity is an autonomous entity.
+[Byte] IsBaby: 1 or 0 (true/false) - true if this entity is a baby.
+[Byte] IsEating: 1 or 0 (true/false) - true if this entity is eating.
+[Byte] IsGliding: 1 or 0 (true/false) - true if this entity is gliding.
+[Byte] IsGlobal: 1 or 0 (true/false) - true if this entity is a global entity (e.g. lightning bolt, ender dragon, arrow).
+[Byte] IsIllagerCaptain: 1 or 0 (true/false) - true if the entity is an illager captain. Used by pillager and vindicator.
+[Byte] IsOrphaned: 1 or 0 (true/false) - true if this entity is not spawn from its parents. Used by all the mobs that can breed.
+[Byte] IsOutOfControl: 1 or 0 (true/false) - true if the entity is out of control. Used by boat.
+[Byte] IsRoaring: 1 or 0 (true/false) - true if this entity is roaring. Used by ravager.
+[Byte] IsScared: 1 or 0 (true/false) - true if this entity is scared.
+[Byte] IsStunned: 1 or 0 (true/false) - true if this entity is stunned. Used by ravager.
+[Byte] IsSwimming: 1 or 0 (true/false) - true if this entity is swimming.
+[Byte] IsTamed: 1 or 0 (true/false) - true if this entity is tamed.
+[Byte] IsTrusting: 1 or 0 (true/false) - true if this entity is trusting a player. Used by fox and ocelot.
+[Int] LastDimensionId: (May not exist) Unknown.
+[NBT Compound / JSON Object] LinksTag: (May not exist) Unknown
+[Long] entityID: The Unique ID of an entity.
+[Int] LinkID: Unknown.
+[Byte] LootDropped: 1 or 0 (true/false) - true if this entity can drop loot when killed.
+[Int] MarkVariant: The ID of the mark variant. Used by villager, horse, bee etc. Defaults to 0.
+[NBT List / JSON Array] Motion: (May not exist) Three TAG_Floats describing the current dX, dY and dZ velocity of the entity in meters per tick.
+[Float]: dX
+[Float]: dY
+[Float]: dZ
+[Byte] OnGround: 1 or 0 (true/false) - true if the entity is touching the ground.
+[Long] OwnerNew: Unknown. Defaults to -1.
+[Byte] Persistent: 1 or 0 (true/false) - true if an entity should be persistent in the world.
+[Int] PortalCooldown: The number of ticks before which the entity may be teleported back through a nether portal. Initially starts at 300 ticks (15 seconds) after teleportation and counts down to 0.
+[NBT List / JSON Array] Pos: Three TAG_Floats describing the current X, Y and Z position of the entity.
+[Float]: X
+[Float]: Y
+[Float]: Z
+[NBT List / JSON Array] Rotation: Two TAG_Floats representing rotation in degrees.
+[Float]: The entity's rotation clockwise around the Y axis (called yaw). Due south is 0. Does not exceed 360 degrees.
+[Float]: The entity's declination from the horizon (called pitch). Horizontal is 0. Positive values look downward. Does not exceed positive or negative 90 degrees.
+[Byte] Saddled: 1 or 0 (true/false) - true if this entity is saddled.
+[Byte] Sheared: 1 or 0 (true/false) - true if this entity is sheared. Used by sheep and snow golem.
+[Byte] ShowBottom: 1 or 0 (true/false) - true if the End Crystal shows the bedrock slate underneath.[needs testing]
+[Byte] Sitting: 1 or 0 (true/false) - true if this entity is sitting.
+[Int] SkinID: The entity's Skin ID value. Used by villager and zombified villager. Defaults to 0.
+[Int] Strength: Determines the number of items the entity can carry (items = 3 × strength). Used by llama. Defaults to 0.
+[Int] StrengthMax: Determines the maximum number of items the entity can carry (items = 3 × strength). Defaults to 0.
+[NBT List / JSON Array] Tags: (May not exist) List of scoreboard tags of this entity.
+[String]: A tag.
+[Long] UniqueID: The Unique ID of this entity.
+[Int] Variant: The ID of the variant. Used by cat, villager, horse, etc. Defaults to 0.
+Additional fields for entity categories
+Minecart
+Minecart entities include:
+
+Minecart
+Minecart with Chest
+Minecart with Command Block
+Minecart with Hopper
+Minecart with TNT
+Additional fields for minecart entities:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+[Byte] CustomDisplayTile: 1 or 0 (true/false) - (may not exist) if is displayed the custom tile in this minecart.
+[NBT Compound / JSON Object] DisplayBlock: (May not exist) The custom block in the minecart.
+Tags common to all blocks  see Template:Bedrock nbt/block/template
+[Int] DisplayOffset: (May not exist) The offset of the block displayed in the Minecart in pixels. Positive values move the block upwards, while negative values move it downwards. A value of 16 moves the block up by exactly one multiple of its height.[needs testing]
+Villagers
+Villager entities include:
+
+Villager
+Villager V2
+Additional fields for village entities:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+[Byte] Willing: 1 or 0 (true/false) - true if the villager is willing to mate. Becomes true after certain trades (those that would cause offers to be refreshed), and false after mating.
+Monster
+Monster entities include:
+
+Blaze
+Breeze
+Creeper
+Ender Dragon
+Enderman
+Endermite
+Ghast
+Guardian
+Elder Guardian
+Elder Guardian Ghost
+Humanoid Monster
+Phantom
+Ravager
+Slime
+Magma Cube
+Silverfish
+Spider
+Cave Spider
+Sulfur Cube
+Vex
+Warden
+Wither
+Additional fields for monsters:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+[Byte] SpawnedByNight: 1 or 0 (true/false) - true if is spawned by night.​[more information needed]
+Humanoid Monster
+Humanoid monster entities include:
+
+Evocation Illager
+Piglin
+Piglin Brute
+Pillager
+Skeleton
+Bogged
+Stray
+Wither Skeleton
+Vindication Illager
+Witch
+Zombie
+Drowned
+Husk
+Zombie Villager
+Zombie Villager V2
+Zombified Piglin
+Additional fields for humanoid monsters:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+[NBT Compound / JSON Object] ItemInHand: (May not exist) The items in the entity's hand.
+Template:Bedrock nbt/Item Stack
+Mob
+Mob entities include:
+
+Agent
+Allay
+Animal
+Armadillo
+Axolotl
+Bee
+Camel
+Cat
+Chicken
+Cow
+Fox
+Frog
+Goat
+Horse
+Donkey
+Mule
+Skeleton Horse
+Zombie Horse
+Llama
+Trader Llama
+Mushroom Cow
+Ocelot
+Panda
+Parrot
+Pig
+Polar Bear
+Rabbit
+Sheep
+Sniffer
+Strider
+Turtle
+Wolf
+Armor Stand
+Bat
+Iron Golem
+Hoglin
+Monsters
+NPC
+Player
+Shulker
+Snow Golem
+Squid
+Glow Squid
+Tripod Camera
+Villagers
+Wandering Trader
+Water Animal
+Dolphin
+Fish
+Cod
+Salmon
+Pufferfish
+Tadpole
+Tropical Fish
+Zoglin
+Additional fields for mobs:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+[NBT List / JSON Array] ActiveEffects: (May not exist) The list of potion effects on this mob.
+[NBT Compound / JSON Object]: An effect.
+Template:Bedrock nbt/mob effect
+[Short] Air: How much air the living entity has, in ticks.
+[NBT List / JSON Array] Armor: The list of items the mob is wearing as armor.
+[NBT Compound / JSON Object]: The item on the head.
+[NBT Compound / JSON Object]: The item on the chest.
+[NBT Compound / JSON Object]: The item on the legs.
+[NBT Compound / JSON Object]: The item on the feets.
+A single item stack  see Template:Bedrock nbt/itemnoslot/template
+[Short] AttackTime: Number of ticks the mob attacks for. 0 when not attacking.
+[NBT List / JSON Array] Attributes: A list of Attributes for this mob. These are used for many purposes in internal calculations. Valid Attributes for a given mob are listed in the main article.
+[NBT Compound / JSON Object]: An Attribute.
+Template:Bedrock nbt/Attribute
+[Float] BodyRot: (May not exist) Unknown.
+[Int] boundX: X of the bound origin.
+[Int] boundY: Y of the bound origin.
+[Int] boundZ: Z of the bound origin.
+[Byte] canPickupItems: 1 or 0 (true/false) - true if this entity can pick up items.
+[Byte] Dead: 1 or 0 (true/false) - true if dead.
+[Short] DeathTime: Number of ticks the mob has been dead for. Controls death animations. 0 when alive.
+[Byte] expDropEnabled: (May not exist) 1 or 0 (true/false) - true if this mob drops experience when killed.
+[Byte] hasBoundOrigin: 1 or 0 (true/false) - true if this mob has bound origin. Only[needs testing] effects Vex. When a vex is idle, it wanders, selecting air blocks from within a 15×11×15[needs testing] cuboid range centered at BoundX, BoundY, BoundZ. when it summoned the vex, this value is set to true, and the central spot is the location of the evoker. Or if an evoker was not involved, this value is false.
+[Byte] hasSetCanPickupItems: 1 or 0 (true/false) - true if canPickupItems has been set by the game.
+[Short] HurtTime: Number of ticks the mob turns red for after being hit. 0 when not recently hit.
+[Long] LeasherID: The Unique ID of an entity that is leashing it with a lead. Set to -1 if there's no leasher.
+[Long] limitedLife: The left time in ticks until this entity disapears. Only[needs testing] effects Evoker Fangs. For other entities, it is set to 0.
+[NBT List / JSON Array] Mainhand: The item being held in the mob's main hand.
+[NBT Compound / JSON Object]: The item.
+A single item stack  see Template:Bedrock nbt/itemnoslot/template
+[Byte] NaturalSpawn: 1 or 0 (true/false) - true if it is naturally spawned.
+[NBT List / JSON Array] Offhand: The item being held in the mob's off hand.
+[NBT Compound / JSON Object]: The item.
+A single item stack  see Template:Bedrock nbt/itemnoslot/template
+[NBT Compound / JSON Object] persistingOffers: (May not exist) Unknown.
+[Int] persistingRiches: (May not exist) Unknown.
+[Byte] Surface: 1 or 0 (true/false) - true if it is naturally spawned on the surface.
+[Long] TargetCaptainID: (May not exist) The Unique ID of a captain to follow. Used by pillager and vindicator.
+[Long] TargetID: The Unique ID of an entity that this entity is angry at.
+[Int] TradeExperience: (May not exist) Trade experiences of this trader entity.
+[Int] TradeTier: (May not exist) Trade tier of this trader entity.
+[Byte] WantsToBeJockey: (May not exist) unknown.
+Abstract Arrow
+Abstract arrow entities include:
+
+Arrow
+Thrown Trident
+Additional fields for abstract arrow entities:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+[Byte] isCreative: 1 or 0 (true/false) - true if its owner is a player in Creative mode.
+[Long] OwnerID: The Unique ID of the entity this projectile was thrown by. Set to -1 if it has no owner.
+[Byte] player: 1 or 0 (true/false) - true if its owner is a player.
+Throwable
+Throwable entities include:
+
+Experience Potion
+Snowball
+Thrown Ender Pearl
+Thrown Egg
+Thrown Ice Bomb
+Thrown Potion
+Additional fields for throwable entities:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+[Byte] inGround: Unknown.
+[Long] OwnerID: The Unique ID of the entity this projectile was thrown by.
+[Byte] shake: Unknown.
+Additional fields for entity types
+Allay
+Additional fields for allay:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Template:Bedrock nbt/inventory
+[Long] AllayDuplicationCooldown: The allay's duplication cooldown in ticks. This is set to 6000 ticks (5 minutes) when the allay duplicates.
+[NBT Compound / JSON Object] VibrationListener: The vibration event listener of this allay.
+[Int] event: Unknown.
+[NBT Compound / JSON Object] pending: Unknown.
+[Float] distance: Unknown.
+[Long] source: Unknown.
+[Int] vibration: Unknown.
+[Int] x: Unknown.
+[Int] y: Unknown.
+[Int] z: Unknown.
+[NBT Compound / JSON Object] selector: Unknown.
+[Int] ticks: Unknown.
+Area Effect Cloud
+Additional fields for area effect cloud:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+[Int] Duration: The maximum age of the field.
+[Int] DurationOnUse: The amount the duration of the field changes upon applying the effect.
+[Float] InitialRadius: The field's initial radius.
+[NBT List / JSON Array] mobEffects: A list of the applied effects.
+Template:Bedrock nbt/Mob Effect
+[Long] OwnerId: The Unique ID of the entity who created the cloud. If it has no owner, defaults to -1.
+[Int] ParticleColor: The color of the particles.
+[Int] ParticleId: The particles displayed by the field.
+[Int] PickupCount: How many dragon's breath can be picked up.
+[Short] PotionId: The name of the default potion effect. See potion data values for valid IDs.
+[Float] Radius: The field's current radius.
+[Float] RadiusChangeOnPickup: The amount the radius changes when picked up by a glass bottle.
+[Float] RadiusOnUse: The amount the radius changes upon applying the effect. Normally negative.
+[Float] RadiusPerTick: The amount the radius changes per tick. Normally negative.
+[Int] ReapplicationDelay: The number of ticks before reapplying the effect.
+[Long] SpawnTick: The time when it was spawned.
+Armadillo
+Additional fields for armadillo:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Additional fields for mobs that can ageable  see Template:Bedrock nbt/ageable/template
+Additional fields for mobs that can breed  see Template:Bedrock nbt/breedable/template
+Template:Bedrock nbt/spawn entity
+[NBT Compound / JSON Object] properties: The armadillo properties.
+[Byte] minecraft:is_rolled_up: 1 or 0 (true/false) - true if the armadillo is rolled up.
+[Byte] minecraft:is_threatened: 1 or 0 (true/false) - true if the armadillo was hit.
+[Byte] minecraft:is_trying_to_relax: 1 or 0 (true/false) - ​[more information needed].
+Armor Stand
+Additional fields for armor stand:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+[NBT Compound / JSON Object] Pose: The ArmorStand's pose.
+[Int] LastSignal: The redstone signal level it received.
+[Int] PoseIndex: The index of current pose.
+Arrow
+Additional fields for arrow:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Template:Bedrock nbt/projectile
+[Byte] auxValue: The metadata of this arrow. See Arrow#Metadata.
+[Byte] enchantFlame: The level of Flame enchantment on the bow that shot this arrow, where 1 is level 1. 0 if no Flame enchantment.
+[Byte] enchantInfinity: The level of Infinity enchantment on the bow that shot this arrow, where 1 is level 1. 0 if no Infinity enchantment.
+[NBT List / JSON Array] mobEffects: Effects on a tipped arrow.
+[NBT Compound / JSON Object]: An effect.
+Template:Bedrock nbt/Mob Effect
+[Byte] enchantPower: The level of Power enchantment on the bow that shot this arrow, where 1 is level 1. 0 if no Power enchantment.
+[Byte] enchantPunch: The level of Punch enchantment on the bow that shot this arrow, where 1 is level 1. 0 if no Punch enchantment.
+Axolotl
+Additional fields for axolotl:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Additional fields for mobs that can ageable  see Template:Bedrock nbt/ageable/template
+Additional fields for mobs that can breed  see Template:Bedrock nbt/breedable/template
+Template:Bedrock nbt/drying out timer
+[Short] DamageTime: (May not exist) Applies a defined amount of damage to the axolotl at specified intervals.
+[Int] TicksRemainingUntilDryOut: Number of ticks until the axolotl dies when it is on the surface. Initially starts at 6000 ticks (5 minutes) and counts down to 0.
+Bat
+Additional fields for bat:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+[Byte] BatFlags: 1 when hanging upside down and 0 when flying.​[more information needed]
+Bee
+Additional fields for bee:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Additional fields for mobs that can ageable  see Template:Bedrock nbt/ageable/template
+Additional fields for mobs that can breed  see Template:Bedrock nbt/breedable/template
+Template:Bedrock nbt/home
+Template:Bedrock nbt/timer
+[NBT Compound / JSON Object] properties: The bee properties.
+[Byte] minecraft:has_nectar: 1 or 0 (true/false) - true if the bee is carrying pollen.
+Boat with Chest
+Additional fields for boat with chest:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Template:Bedrock nbt/inventory
+Breeze
+Additional fields for breeze:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+[NBT Compound / JSON Object] properties: The breeze properties.
+[Byte] minecraft:is_playing_idle_ground_sound: 1 or 0 (true/false) - true if the breeze is playing the mob.breeze.idle_ground sound.
+Camel
+Additional fields for camel:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Additional fields for mobs that can ageable  see Template:Bedrock nbt/ageable/template
+Additional fields for mobs that can breed  see Template:Bedrock nbt/breedable/template
+Template:Bedrock nbt/inventory
+Cat
+Additional fields for cat:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Additional fields for mobs that can ageable  see Template:Bedrock nbt/ageable/template
+Additional fields for mobs that can breed  see Template:Bedrock nbt/breedable/template
+Template:Bedrock nbt/dweller
+Chicken
+Additional fields for chicken:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Additional fields for mobs that can ageable  see Template:Bedrock nbt/ageable/template
+Additional fields for mobs that can breed  see Template:Bedrock nbt/breedable/template
+[NBT List / JSON Array] entries
+[NBT Compound / JSON Object]: An entry.
+[Int] SpawnTimer: Unknown.
+[Byte] StopSpawning: Unknown.
+Cow
+Additional fields for cow:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Additional fields for mobs that can ageable  see Template:Bedrock nbt/ageable/template
+Additional fields for mobs that can breed  see Template:Bedrock nbt/breedable/template
+Creeper
+Additional fields for creeper:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Template:Bedrock nbt/explode
+Dolphin
+Additional fields for dolphin:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Additional fields for mobs that can ageable  see Template:Bedrock nbt/ageable/template
+Template:Bedrock nbt/drying out timer
+[Int] BribeTime: Unknown.
+[Short] DamageTime: (May not exist) Applies a defined amount of damage to the dolphin at specified intervals.
+[Int] TicksRemainingUntilDryOut: Number of ticks until the dolphin dies when it is on the surface. Initially starts at 2400 ticks (2 minutes) and counts down to 0.
+Donkey
+Additional fields for donkey:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Additional fields for mobs that can ageable  see Template:Bedrock nbt/ageable/template
+Additional fields for mobs that can breed  see Template:Bedrock nbt/breedable/template
+Template:Bedrock nbt/inventory
+[Int] Temper: Random number that ranges from 0 to 100; increases with feeding or trying to tame it. Higher values make the donkey easier to tame.
+Egg
+Additional fields for egg:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Template:Bedrock nbt/projectile
+End Crystal
+Additional fields for end crystal:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Template:Bedrock nbt/explode
+[Int] BlockTargetX: (May not exist) The block location its beam points to.
+[Int] BlockTargetY: (May not exist) See above.
+[Int] BlockTargetZ: (May not exist) See above.
+Enderman
+Additional fields for enderman:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+[NBT Compound / JSON Object] carriedBlock: The block carried by the enderman.
+Tags common to all blocks  see Template:Bedrock nbt/block/template
+Endermite
+Additional fields for endermite:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+[Int] Lifetime: How long the endermite has existed in ticks. Disappears when this reaches around 2400.
+Evoker
+Additional fields for evoker:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Template:Bedrock nbt/dweller
+Experience Orb
+Additional fields for experience orb:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+[Short] Age: The number of ticks the XP orb has been "untouched". After 6000 ticks (5 minutes) the orb is destroyed.[needs testing]
+[Int] experience value: The amount of experience the orb gives when picked up.
+Experience Potion
+Additional fields for experience potion:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Template:Bedrock nbt/projectile
+Falling Block
+Additional fields for falling block:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+[NBT Compound / JSON Object] FallingBlock
+Tags common to all blocks  see Template:Bedrock nbt/block/template
+[Byte] Time: The number of ticks the entity has existed. If set to 0, the moment it ticks to 1, it vanishes if the block at its location has a different ID than the entity's FallingBlock.Name. If the block at its location has the same ID as its FallingBlock.Name when Time ticks from 0 to 1, the block is deleted, and the entity continues to fall, having overwritten it. When Time goes above 600, or above 100 while the block is below Y=1 or is outside building height, the entity is deleted. [needs testing]
+Fireball
+Additional fields for fireball:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Template:Bedrock nbt/explode
+Template:Bedrock nbt/projectile
+[NBT List / JSON Array] Direction: List of 3 doubles. Should be identical to Motion.[needs testing]
+[Float]: X
+[Float]: Y
+[Float]: Z
+[Byte] inGround: Unknown.
+[NBT List / JSON Array] power: List of 3 floats that adds to Direction every tick. Act as the acceleration.
+[Float]: X
+[Float]: Y
+[Float]: Z
+Fireworks Rocket
+Additional fields for firework rocket:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+[Int] Life: The number of ticks this fireworks rocket has been flying for.
+[Int] LifeTime: The number of ticks before this fireworks rocket explodes. This value is randomized when the firework is launched.[needs testing]
+Fishing Bobber
+Additional fields for fishing bobber:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Template:Bedrock nbt/projectile
+Fox
+Additional fields for fox:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Additional fields for mobs that can ageable  see Template:Bedrock nbt/ageable/template
+Additional fields for mobs that can breed  see Template:Bedrock nbt/breedable/template
+[Int] TrustedPlayersAmount: The number of players who are trusted by the fox.
+[Long] TrustedPlayer<num>: A player's Unique ID. Note that <num> counts from 0.
+Frog
+Additional fields for frog:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Additional fields for mobs that can breed  see Template:Bedrock nbt/breedable/template
+Goat
+Additional fields for goat:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Additional fields for mobs that can ageable  see Template:Bedrock nbt/ageable/template
+Additional fields for mobs that can breed  see Template:Bedrock nbt/breedable/template
+Template:Bedrock nbt/genetics
+[Int] GoatHornCount: Unknown.
+Guardian and Elder Guardian
+Additional fields for guardian and elder guardian:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Template:Bedrock nbt/home
+Template:Bedrock nbt/timer
+[Byte] Elder: 1 or 0 (true/false) - true if it is an elder guardian.
+Hoglin
+Additional fields for hoglin:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Additional fields for mobs that can ageable  see Template:Bedrock nbt/ageable/template
+Additional fields for mobs that can breed  see Template:Bedrock nbt/breedable/template
+Template:Bedrock nbt/timer
+Horse
+Additional fields for horse:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Additional fields for mobs that can ageable  see Template:Bedrock nbt/ageable/template
+Additional fields for mobs that can breed  see Template:Bedrock nbt/breedable/template
+Template:Bedrock nbt/inventory
+[Int] Temper: Random number that ranges from 0 to 100; increases with feeding or trying to tame it. Higher values make the horse easier to tame.
+Husk
+Additional fields for husk:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Template:Bedrock nbt/timer
+Iron Golem
+Additional fields for iron golem:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Template:Bedrock nbt/dweller
+Item Entity
+Additional fields for item entity:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+[Short] Age: The number of ticks the item has been "untouched". After 6000 ticks (5 minutes) the item is destroyed.
+[Short] Health: The health of the item, which starts at 5. Items take damage from fire, lava, and explosions. The item is destroyed when its health reaches 0.[needs testing]
+[NBT Compound / JSON Object] Item: The item of this stack.
+Template:Bedrock nbt/Item Stack
+[Long] OwnerID: If present, only the player[needs testing] with this Unique ID can pick up the item.
+Llama
+Additional fields for llama:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Additional fields for mobs that can ageable  see Template:Bedrock nbt/ageable/template
+Additional fields for mobs that can breed  see Template:Bedrock nbt/breedable/template
+Template:Bedrock nbt/inventory
+[Int] Temper: Random number that ranges from 0 to 100; increases with feeding or trying to tame it. Higher values make the llama easier to tame.
+Llama Spit
+Additional fields for llama spit:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Template:Bedrock nbt/projectile
+Minecart with Chest
+Additional fields for minecart with chest:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Template:Bedrock nbt/inventory
+Minecart with Command Block
+Additional fields for minecart with command block:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Template:Bedrock nbt/Command Block
+Template:Bedrock nbt/inventory
+[Int] CurrentTickCount: Number of ticks until it executes the command again.
+[Byte] Ticking: Unknown.
+Minecart with Hopper
+Additional fields for minecart with hopper:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Template:Bedrock nbt/inventory
+Minecart with TNT
+Additional fields for minecart with tnt:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Template:Bedrock nbt/explode
+Mooshroom
+Additional fields for mooshroom:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Additional fields for mobs that can ageable  see Template:Bedrock nbt/ageable/template
+Additional fields for mobs that can breed  see Template:Bedrock nbt/breedable/template
+Mule
+Additional fields for mule:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Additional fields for mobs that can ageable  see Template:Bedrock nbt/ageable/template
+Template:Bedrock nbt/inventory
+[Int] Temper: Random number that ranges from 0 to 100; increases with feeding or trying to tame it. Higher values make the mule easier to tame.
+NPC
+Additional fields for NPC:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+[String] Actions: (May not exist) The actions.​[more information needed]
+[String] InterativeText: (May not exist) The interactive text.​[more information needed]
+[NBT List / JSON Array] PlayerSceneMapping: (May not exist) Unknown
+[NBT Compound / JSON Object]: A key-value pair.
+[Long] PlayerID: A player's Unique ID.
+[String] SceneName: Unknown
+[String] RawtextName: (May not exist) The name.​[more information needed]
+Ocelot
+Additional fields for ocelot:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Additional fields for mobs that can ageable  see Template:Bedrock nbt/ageable/template
+Additional fields for mobs that can breed  see Template:Bedrock nbt/breedable/template
+Painting
+Additional fields for painting:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+[Byte] Dir: The direction the painting faces: 0 is south, 1 is west, 2 is north, 3 is east.[needs testing]
+[Byte] Direction: Unknown.
+[String] Motif: (May not exist) The ID of the painting's artwork.
+Panda
+Additional fields for panda:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Additional fields for mobs that can ageable  see Template:Bedrock nbt/ageable/template
+Additional fields for mobs that can breed  see Template:Bedrock nbt/breedable/template
+Template:Bedrock nbt/genetics
+Template:Bedrock nbt/inventory
+Pig
+Additional fields for pig:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Additional fields for mobs that can ageable  see Template:Bedrock nbt/ageable/template
+Additional fields for mobs that can breed  see Template:Bedrock nbt/breedable/template
+Piglin
+Additional fields for piglin:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Template:Bedrock nbt/inventory
+Template:Bedrock nbt/timer
+Piglin Brute
+Additional fields for piglin brute:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Template:Bedrock nbt/home
+Template:Bedrock nbt/timer
+Pillager
+Additional fields for pillager:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Template:Bedrock nbt/dweller
+Player
+Additional fields for player:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Template:Bedrock nbt/Abilities
+Template:Bedrock nbt/timer
+[Long] AgentID: The Unique ID of the player's agent.
+[Int] DimensionId: The ID of the dimension the player is in.
+[Int] EnchantmentSeed: The seed used for the next enchantment in enchantment tables.
+[NBT List / JSON Array] EnderChestInventory: Each compound tag in this list is an item in the player's 27-slot ender chest inventory.
+[NBT Compound / JSON Object]: An item in the inventory.
+[Byte] Slot: The slot the item is in.
+Template:Bedrock nbt/Item Stack
+[NBT List / JSON Array] fogCommandStack: Unknown.
+[String]: Unknown.
+[String] format_version: The format version of this NBT.
+[Byte] HasSeenCredits: 1 or 0 (true/false) - true if the player has traveled to the Overworld via an End portal.
+[NBT List / JSON Array] Inventory: Each compound tag in this list is an item in the player's inventory.
+[NBT Compound / JSON Object]: An item in the inventory, including the slot tag.
+[Byte] Slot: The slot the item is in.
+Template:Bedrock nbt/Item Stack
+[Long] LeftShoulderRiderID: The Unique ID of the entity that is on the player's left shoulder.
+[Int] MapIndex: Unknown.
+[Int] PlayerGameMode: The game mode of the player.
+[Int] PlayerLevel: The level shown on the XP bar.
+[Float] PlayerLevelProgress: The progress/percent across the XP bar to the next level.
+[NBT List / JSON Array] PlayerUIItems: Unknown
+[NBT Compound / JSON Object]: An item in the UI, including the slot tag.
+[Byte] Slot: The slot the item is in.
+Template:Bedrock nbt/Item Stack
+[NBT Compound / JSON Object] recipe_unlocking: Contains information about the recipes that the player has unlocked.
+[NBT List / JSON Array] unlocked_recipes: A list of all recipes the player has unlocked.
+[String]: The name of a recipe, for instance minecraft:stick or minecraft:ladder.
+[Int] used_contexts: Unknown. Defaults to 2.
+[Long] RideID: The Unique ID of the entity that the player is riding.
+[Long] RightShoulderRiderID: The Unique ID of the entity that is on the player's right shoulder.
+[Int] SelectedContainerId: The ID of the selected container.[needs testing]
+[Int] SelectedInventorySlot: The selected inventory slot of the player.
+[Byte] Sleeping: 1 or 0 (true/false) - true if the player is sleeping.
+[Short] SleepTimer: The number of ticks the player had been in bed. 0 when the player is not sleeping. In bed, increases up to 100, then stops. Skips the night after all players in bed have reached 100. When getting out of bed, instantly changes to 100 and then increases for another 9 ticks (up to 109) before returning to 0.[needs testing]
+[Byte] Sneaking: 1 or 0 (true/false) - true if the player is sneaking.
+[Int] SpawnBlockPositionX: The X coordinate of the player's spawn block.
+[Int] SpawnBlockPositionY: The Y coordinate of the player's spawn block.
+[Int] SpawnBlockPositionZ: The Z coordinate of the player's spawn block.
+[Int] SpawnDimension: The dimension of the player's spawn point.
+[Int] SpawnX: The X coordinate of the player's spawn point.
+[Int] SpawnY: The Y coordinate of the player's spawn point.
+[Int] SpawnZ: The Z coordinate of the player's spawn point.
+[Int] TimeSinceRest: The time in ticks since last rest.
+[Int] WardenThreatDecreaseTimer: The number of ticks since the player was threatened for warden spawning. Increases by 1 every tick. After 12000 ticks (10 minutes) it will be set back to 0, and the WardenThreatLevel will be decreased by 1.
+[Int] WardenThreatLevel: A threat level between 0 and 4 (inclusive). The warden will spawn at level 4.
+[Int] WardenThreatLevelIncreaseCooldown: The number of ticks before the WardenThreatLevel can be increased again. Decreases by 1 every tick. It is set 200 ticks (10 seconds) every time the threat level is increased.
+Polar Bear
+Additional fields for polar bear:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Additional fields for mobs that can ageable  see Template:Bedrock nbt/ageable/template
+Pufferfish
+Additional fields for pufferfish:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Template:Bedrock nbt/timer
+Rabbit
+Additional fields for rabbit:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Additional fields for mobs that can ageable  see Template:Bedrock nbt/ageable/template
+Additional fields for mobs that can breed  see Template:Bedrock nbt/breedable/template
+[Int] CarrotsEaten: Unknown.
+[Int] MoreCarrotTicks: Set to 40 when a carrot crop is eaten, decreases by 0–2 every tick until it reaches 0.[needs testing]
+Ravager
+Additional fields for ravager:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Template:Bedrock nbt/dweller
+Template:Bedrock nbt/timer
+Sheep
+Additional fields for sheep:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Additional fields for mobs that can ageable  see Template:Bedrock nbt/ageable/template
+Additional fields for mobs that can breed  see Template:Bedrock nbt/breedable/template
+Shulker Bullet
+Additional fields for shulker bullet:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Template:Bedrock nbt/projectile
+Skeleton
+Additional fields for skeleton:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Template:Bedrock nbt/timer
+[NBT Compound / JSON Object] ItemInHand: The item in its hand. Defaults to a bow.
+Template:Bedrock nbt/Item Stack
+Skeleton Horse
+Additional fields for skeleton horse:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Additional fields for mobs that can ageable  see Template:Bedrock nbt/ageable/template
+Slime
+Additional fields for slime:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+[Byte] Size: The size of the slime. Note that this value is zero-based, so 0 is the smallest slime, 1 is the next larger, etc.
+Sniffer
+Additional fields for sniffer:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Additional fields for mobs that can ageable  see Template:Bedrock nbt/ageable/template
+Additional fields for mobs that can breed  see Template:Bedrock nbt/breedable/template
+Snowball
+Additional fields for snowball:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Template:Bedrock nbt/projectile
+Strider
+Additional fields for strider:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Additional fields for mobs that can ageable  see Template:Bedrock nbt/ageable/template
+Additional fields for mobs that can breed  see Template:Bedrock nbt/breedable/template
+Sulfur cube
+Additional fields for sulfur cube:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Additional fields for mobs that can ageable  see Template:Bedrock nbt/ageable/template
+[Byte] Size: The size of the sulfur cube. 1 is the smallest slime, 2 is the next larger.
+[NBT List / JSON Array] SlotDropChances: List of equipment slots and the chance that the item in that slot drops when the sulfur cube dies.
+[NBT Compound / JSON Object]: A slot entry.
+[Float] DropChance: The probability that the item in this slot will drop (0.0 to 1.0).
+[String] Slot: The name of the equipment slot. Can be mainhand.
+[NBT Compound / JSON Object] properties: The sulfur cube properties.
+[String] minecraft:sulfur_cube_archetype: If the sulfur cube has a block and behavior can be none, bouncy, regular, slow_bouncy, slow_flat, fast_flat, light, fast_sliding, slow_sliding, sticky, high_resistance, explosive, and hot.
+Tadpole
+Additional fields for tadpole:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Additional fields for mobs that can ageable  see Template:Bedrock nbt/ageable/template
+Thrown Ender Pearl
+Additional fields for thrown ender pearl:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Template:Bedrock nbt/projectile
+Thrown Potion
+Additional fields for thrown potion:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Template:Bedrock nbt/projectile
+[Short] PotionId: The ID of the potion effect.
+Thrown Trident
+Additional fields for thrown trident:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Template:Bedrock nbt/projectile
+[Int] favoredSlot: The slot id when it is thrown out.This means thrown trident with Loyalty prefers to return to this slot when this slot is empty. Set to -1 when without Loyalty enchantment.
+[NBT Compound / JSON Object] Trident: The item that is given when the entity is picked up.
+Template:Bedrock nbt/Item Stack
+TNT
+Additional fields for tnt:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Template:Bedrock nbt/explode
+Turtle
+Additional fields for turtle:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Additional fields for mobs that can ageable  see Template:Bedrock nbt/ageable/template
+Additional fields for mobs that can breed  see Template:Bedrock nbt/breedable/template
+Template:Bedrock nbt/home
+[Byte] IsPregnant: 1 or 0 (true/false) - true if the turtle has eggs.
+Vex
+Additional fields for vex:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+[NBT Compound / JSON Object] ItemInHand: The item in its hand. Defaults to an iron sword.
+Template:Bedrock nbt/Item Stack
+Villager (V2)
+Additional fields for villager (v2):
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Additional fields for mobs that can ageable  see Template:Bedrock nbt/ageable/template
+Template:Bedrock nbt/dweller
+Template:Bedrock nbt/economy trade table
+Template:Bedrock nbt/inventory
+Template:Bedrock nbt/trade table
+[Byte] HasResupplied: 1 or 0 (true/false) - true if the villager's trade has been resupplied.
+[Byte] IsInRaid: Unknown.
+[Byte] ReactToBell: Unknown.
+Vindicator
+Additional fields for vindicator:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Template:Bedrock nbt/dweller
+Wandering Trader
+Additional fields for wandering trader:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Template:Bedrock nbt/economy trade table
+Template:Bedrock nbt/timer
+[NBT List / JSON Array] entries
+[NBT Compound / JSON Object]: An entry.
+[Int] SpawnTimer: Unknown.
+[Byte] StopSpawning: Unknown.
+Warden
+Additional fields for warden:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+[NBT List / JSON Array] Nuisances: List of nuisances that have angered the warden.
+[NBT Compound / JSON Object]: A nuisance.
+[Long] ActorId: The Unique ID of the entity that is associated with the anger.
+[Int] Anger: The level of anger. It has a maximum value of 150 and decreases by 1 every second.
+[Byte] Priority: 1 or 0 (true/false) - true if the nuisance is priority.
+[NBT Compound / JSON Object] VibrationListener: The vibration event listener of the warden.
+[Int] event: Unknown.
+[NBT Compound / JSON Object] pending: Unknown.
+[Float] distance: Unknown.
+[Long] source: Unknown.
+[Int] vibration: Unknown.
+[Int] x: Unknown.
+[Int] y: Unknown.
+[Int] z: Unknown.
+[NBT Compound / JSON Object] selector: Unknown.
+[Int] ticks: Unknown.
+Wind Charge Projectile
+Additional fields for wind charge projectile:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Template:Bedrock nbt/projectile
+Witch
+Additional fields for witch:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Template:Bedrock nbt/dweller
+Wither
+Additional fields for wither:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+[Byte] AirAttack: Whether the wither exhibits first or second phase behavior, as well as whether the shield effect is visible - 1 for first phase and shield invisible, 0 for second phase and shield visible.
+[Int] dyingFrames: The number of ticks remaining before the wither explodes during its death animation.
+[Int] firerate: The delay in ticks between wither skull shots. Does not affect the delay between volleys.
+[Int] Invul: The remaining number of ticks the wither will be invulnerable for. Updated to match SpawningFrames or dyingFrames every tick during spawn/death animation, otherwise remains static.
+[Int] lastHealthInterval: The greatest multiple of 75 that is fewer than the wither's lowest health. Does not increase if the wither is healed.
+[Int] maxHealth: Unknown.
+[Float] oldSwellAmount: The swellAmount in the previous tick.
+[Float] overlayAlpha: The alpha/brightness of the wither texture overlay during its death animation. Has no effect outside the death animation.
+[Int] Phase: Which phase the wither is in. Has no effect on wither behavior or shield visibility. Has a value of 1 during spawning and first phase and 0 during second phase and death.
+[Int] ShieldHealth: Unknown.
+[Int] SpawningFrames: The number of ticks remaining before the wither finishes its spawning animation and becomes vulnerable.
+[Float] swellAmount: How much the wither has swelled during its death animation. Has no effect outside the death animation.
+Wither Skull
+Additional fields for wither skull:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Template:Bedrock nbt/explode
+Template:Bedrock nbt/projectile
+Wolf
+Additional fields for wolf:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Additional fields for mobs that can ageable  see Template:Bedrock nbt/ageable/template
+Additional fields for mobs that can breed  see Template:Bedrock nbt/breedable/template
+[NBT Compound / JSON Object] properties: The wolf properties.
+[Byte] minecraft:has_armor: 1 or 0 (true/false) - true if the wolf has wolf armor.
+[Byte] minecraft:has_increased_max_health: 1 or 0 (true/false) - true if the wolf's maximum health is 40HP × 20.
+[Byte] minecraft:is_armorable: 1 or 0 (true/false) - true if the wolf can be equipped with wolf armor.
+Zombie
+Additional fields for zombie:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Template:Bedrock nbt/timer
+Zombie Horse
+Additional fields for zombie horse:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Additional fields for mobs that can ageable  see Template:Bedrock nbt/ageable/template
+Zombie Villager
+Additional fields for zombie villager:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+[Byte] SpawnedFromVillage: 1 or 0 (true/false) - true if spawned from village.
+Zombified Piglin
+Additional fields for zombified piglin:
+
+[NBT Compound / JSON Object]: The entity's root tag.
+[Short] Anger: Unknown.

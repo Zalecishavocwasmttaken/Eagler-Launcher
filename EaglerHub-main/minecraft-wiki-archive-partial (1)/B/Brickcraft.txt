@@ -1,0 +1,347 @@
+For the LEGO sets, see LEGO Minecraft.
+
+Brickcraft
+
+Developer(s)
+
+ Mojang Studios
+ The LEGO Group
+
+Publisher(s)
+
+N/A
+
+Platform(s)
+
+PC
+
+Written in
+
+ C++
+
+Latest version
+
+N/A
+
+Release date
+
+Unreleased
+
+Rating(s)
+
+N/A
+
+Size
+
+≈ 85.0 MiB (development build)
+
+License
+
+N/A
+
+Source available
+
+N/A
+
+Links
+
+Archived download by Omniarchive
+
+{
+    "title": "''Brickcraft''",
+    "rows": [
+        {
+            "field": "\n* (link to File:Mojang Studios logo.svg article, displayed as 20px|link=Mojang Studios) (link to Mojang Studios article, displayed as Mojang Studios)\n* (link to File:LEGO logo.svg article, displayed as x20px|link=The LEGO Group) (link to The LEGO Group article, displayed as The LEGO Group)",
+            "label": "Developer(s)"
+        },
+        {
+            "field": "N/A",
+            "label": "Publisher(s)"
+        },
+        {
+            "field": "PC",
+            "label": "Platform(s)"
+        },
+        {
+            "field": "(link to File:C++.svg article, displayed as x20px|C++|link=wikipedia:C++) (link to wikipedia:C++ article, displayed as C++)",
+            "label": "Written in"
+        },
+        {
+            "field": "N/A",
+            "label": "Latest version"
+        },
+        {
+            "field": "Unreleased",
+            "label": "Release date"
+        },
+        {
+            "field": "N/A",
+            "label": "Rating(s)"
+        },
+        {
+            "field": "≈ 85.0 MiB (development build)",
+            "label": "Size"
+        },
+        {
+            "field": "N/A",
+            "label": "License"
+        },
+        {
+            "field": "N/A",
+            "label": "<span style=\"white-space:normal\">Source available</span>"
+        },
+        {
+            "field": "\n* [https://vault.omniarchive.uk/archive/misc/Rex-2012-06-28.zip Archived download] by Omniarchive",
+            "label": "Links"
+        }
+    ],
+    "invimages": [],
+    "images": [
+        "Brickcraft.png"
+    ]
+}
+
+A screenshot of Brickcraft, in an earlier version without slopes.
+Ditto.
+Ditto.
+Brickcraft (codenamed "Project Rex Kwon Do") was a game developed by Mojang and The Lego Group from September 5, 2011 until its cancellation on July 19, 2012.
+
+Contents
+
+1 Gameplay
+
+1.1 Controls
+1.2 Commands
+1.3 Lua API
+1.4 Directory structure
+
+2 History
+3 Gallery
+4 References
+5 Navigation
+
+Gameplay
+Development goal of the game was to create a Lego brick world with biomes based on different Lego sets. The gameplay would be somewhat similar to Minecraft, but instead of blocks, players would build with Lego bricks in various shapes and sizes.
+The game featured a procedurally-generated Lego world. Beneath the terrain is an infinite gray baseplate. Players can move around the world using a keyboard and place or break bricks. Players have an inventory that consists of these 5 types of bricks:
+
+3005 Brick 1 x 1
+3004 Brick 1 x 2
+3003 Brick 2 x 2
+3001 Brick 2 x 4
+3040 Slope 45 2 x 1
+Players spawn with 10,000 bricks of each type. Breaking an existing brick increases the amount of that type of brick available. Placing bricks in the world consumes the brick. Bricks can be placed and rotated. The  Scroll Wheel rotates between different colors, of which there are 39 total, each corresponding to an actual LEGO brick color.
+Players are able to move around the world, sprint and jump. Coordinates are displayed in the bottom left corner, and the build height limit is 80 bricks above baseplate.
+The game is split between the client (Rex-Kwon-Do.exe executable) and the server (Rex-Kwon-Do Server.exe executable). The client does not have an internal server, so a server is required even for singleplayer gameplay. The server also allows multiplayer gameplay.
+The game uses the UDP protocol (with RakNet as the upper layer) for transport. The server listens on all IPv4 addresses, port 37373. The client connects to a server with IPv4 address or name resolving to an IPv4 address listed in the connection.cfg file, port 37373.
+The world file, world.db, is a SQLite3 database.
+The game supports importing structures from LXFML files (used by Lego Digital Designer). The distribution includes two LXFML files: test.lxfml, a tree, and test_brick_import.lxfml, several small multicolored pillars of each brick type.
+Shaders used by the game are invalid, making it only run on Nvidia graphics cards. A patch is required to run it on AMD and Intel graphics cards.
+
+Controls
+The game is played with mouse and keyboard.
+
+W: Move forward
+S: Move backward
+A: Move left
+D: Move right
+⇧ Shift: Sprint
+␣ Space: Jump
+↹ Tab: Toggle between placement and breaking modes
+E: Switch to previous brick color
+Q: Switch to next brick color
+I: Import structure from chosen LXFML file
+R: Import last imported structure. If there was no structure imported during the session, the server crashes.
+Z: Remove last imported structure
+Esc: Quit the game
+ Mouse Movement: Move camera
+ Scroll Up: Select next brick type
+ Scroll Down: Select previous brick type
+ Left Mouse Button
+In placement mode: Place currently selected brick in the targeted space. Hold and move the mouse to adjust placement position.
+In breaking mode: Break targeted brick
+ Right Mouse Button
+In placement mode: Select alternate brick rotation
+In breaking mode: Switch to placement mode
+Commands
+A small number of default commands are defined in Main.lua. The client has no chat system, so commands must be typed into the server window instead. New commands can be defined via the Lua API.
+The server by default defines a few commands, which are defined in assets/lua/Main.lua.
+
+Command
+Help text
+Description
+
+listcommands
+I list commands :)
+Prints a list of all defined commands with help text to server standard output
+
+msg message
+I relay what you said to everyone :)
+Prints message to server standard output
+
+reloadscripts
+I reload all lua scripts :)
+Reloads Lua scripts
+
+spawnentity
+I spawn a simple box in the game :)
+Spawns a test entity
+
+testlxfml
+I import a test LXFML file onto the server
+Imports a structure from a LXFML file called test.lxfml
+
+importlxfml data
+I import a base64-encoded LXFML file onto the server
+Imports a structure from base64 encoded LXFML data
+
+undoimport
+I undo the last import made by the player who calls the command
+Does nothing
+
+alias command alias
+I create an alias for a command :)
+Creates an alias alias for the command command
+
+unalias alias
+I remove an alias for a command :)
+Removes the alias alias
+
+The assets/lua/Item.lua file contains two more commands, but is completely commented out in the leaked build. Uncommenting the file and restarting the server will make them available.
+
+Command
+Help text
+Description
+
+listplayers
+I list connected players :)
+Prints a list of all connected players to server standard output
+
+addjetpack
+I give players jetpacks! :)
+Assigns a jetpack item to all connected players. Jetpacks cause players to fly into the air uncontrollably, then fall back to the ground in a loop
+
+Lua API
+The server supports a limited modding API using the Lua programming language. This API can be used to define commands, which can be invoked, and player items, which affect the player entity behavior.
+
+Directory structure
+
+ Game
+ assets
+ gui
+ test.swf: Unused Adobe Flash program, likely for a HUD
+ lua: Lua scripts for the modding API
+ Item.lua
+ Main.lua
+ shaders: GLSL shaders
+ chunk.frag
+ chunk.vert
+ floor.frag
+ floor.vert
+ preview.frag
+ preview.vert
+ screen.frag
+ screen.vert
+ textures: Textures
+ LegoColors.bmp: Atlas of 1x1 textures used for the bricks. BMP3 format.
+ peg.png: The brick peg texture. PNG format.
+ unispace.ttf: TrueType font used for HUD
+ bin
+ win32
+ connection.cfg: ASCII text file defining the server address the client connects to
+ FreeImage.dll
+ glew32.dll
+ libfreetype-6.dll
+ lua.debug.pdb
+ lua.release.pdb
+ luabind.debug.pdb
+ luabind.dll
+ luabind.release.pdb
+ msvcp100.dll
+ msvcr100.dll
+ RakNet.dll
+ RakNetDebug.dll
+ Rew-Kwon-Do.instr.pdb [sic]
+ Rex-Kwon-Do.exe: Client executable
+ Rex-Kwon-Do.exp
+ Rex-Kwon-Do.instr.pdb
+ Rex-Kwon-Do.lib
+ Rex-Kwon-Do.pdb
+ Rex-Kwon-Do Server.exe: Server executable
+ Rex-Kwon-Do Server.exp
+ Rex-Kwon-Do Server.lib
+ Rex-Kwon-Do Server.pdb
+ Rex-Kwon-Do Server.sln.docstates.suo
+ Rex-Kwon-Do Server.suo
+ SDL.dll
+ sqlite3.dll
+ test.lxfml: LXFML file containing a tree
+ test_brick_import.lxfml: LXFML file containing several small multicolored pillars of each brick type
+ TestClient.bat
+ Window.swf
+ world.db: World file. Generated, not part of the distribution.
+ zlib1.dll
+ zlibwapi.dll
+ win64
+ glew32.dll
+ libfreetype-6.dll
+ SDL.dll
+ zlib1.dll
+ zlibwapi.dll
+
+History
+Markus "Notch" Persson and Daniel "Kappische" Kaplan had envisioned a hybrid of Minecraft and LEGO bricks, and reached out to The Lego Group to develop a game in collaboration with them, which was codenamed "Project Rex Kwon Do", in reference to the film Napoleon Dynamite. Mojang hired two new programmers to work on the game, and a prototype was created by Notch.
+Before the title had reached a significant stage of development, Mojang cancelled the collaboration to focus on developing their own titles; Minecraft, Scrolls, and 0x10c. Notch claimed at the time that the game had been a first-person shooter.
+The game's true nature remained unknown to the public until Brickcraft's existence was revealed in December 2020 in an episode of the Bits N' Bricks podcast, created by The Lego Group to celebrate the 25th anniversary of the first LEGO video game. Daniel Mathiasen, a Lego Group employee at the time, blamed the cancellation on a series of legal hurdles that The Lego Group had put in place to protect the product's family-friendly image, with Daniel Kaplan claiming that the staff at Mojang had felt more like consultants on the project, rather than its designers.
+Despite the cancellation, The Lego Group remained partnered with Mojang to produce LEGO Minecraft sets, and briefly considered acquiring Mojang, but according to Ronny Scherer, the senior director for the LEGO Games Asia/Pacific division, they decided against it as Minecraft "was still emerging" and they had "no guarantee that it would end up becoming the cultural phenomenon that it became".
+On June 24, 2025, a development build of Brickcraft, dated June 28, 2012, was rediscovered and uploaded onto the Omniarchive site. Daniel Kaplan said that he had the development build on his laptop for over 13 years.
+
+Gallery
+
+
+
+			Cropped image released by Notch of "Project Rex Kwon Do", later revealed to be Brickcraft.
+
+
+
+			The player model.
+
+
+
+			The tree structure (test.lxfml).
+
+
+
+			The other structure (test_brick_import.lxfml).
+
+
+
+			A world with all bricks removed.
+
+
+
+			A player-built tree.
+
+
+References
+
+ "Secret project Rex Kwon Do begins today! It will involve caffeine and giggling."  – @notch (Markus Persson) on X (formerly Twitter), September 5, 2011
+
+ https://www.lego.com/cdn/cs/set/assets/bltf87fd15a8f67c6fd/bits_n_bricks_s01e01_minecraft_feature_and_transcript.pdf
+
+ https://www.mecabricks.com/docs/colour_chart.pdf
+
+ "Brickcraft"     by DEJVOSS  – Omniarchive, June 26, 2025.
+
+ "Napoleon Dynamite - Rex Kwon Do [HQ]"  – FlatheadedGorilla on YouTube, August 1, 2011
+
+ "Remember Project Rex Kwon Do? We cancelled it to focus on Minecraft, Scrolls and eventually 0x10c that we own 100% ourselves instead."  – @notch (Markus Persson) on X (formerly Twitter), July 19, 2012
+
+ "Canceled Mojang project was a first-person shooter"  (archived)   by Jessica Conditt  – joystiq, July 26, 2012.
+
+ "A Lego Minecraft game called 'Brickcraft' was prototyped and greenlit – here's why it never happened"     by Rich Stanton  – PCGamer, December 9, 2020.
+
+ https://www.lego.com/en-us/legogames-25
+
+ "I’ve had it on my laptop for over 13 years 😂"  – @Kappische (Daniel Kaplan) on X (formerly Twitter), June 28, 2025
+
+Navigation

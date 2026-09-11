@@ -1,0 +1,104 @@
+Not to be confused with /dialogue.
+
+
+
+This feature is exclusive to Java Edition. 
+
+/dialog
+
+Permission levelrequired
+
+2
+
+Restrictions
+
+Cheats enabled
+
+{
+    "title": "<code>/dialog</code>",
+    "rows": [
+        {
+            "field": "2",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "(link to Commands#Cheats article, displayed as Cheats) enabled",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+Manages dialog screens displayed to players. Allows server operators to show custom or predefined dialogs in data pack to specified players, and clear any displayed dialogs on their screen.
+
+Contents
+
+1 Syntax
+2 Arguments
+3 Result
+4 Output
+5 Examples
+6 History
+7 Gallery
+8 References
+9 Navigation
+
+Syntax
+/dialog show <targets> <dialog>
+Shows a dialog screen from inline SNBT or minecraft:dialog registry (usually defined in a data pack) to specified players.
+/dialog clear <targets>
+Clears currently displayed dialogs for specified players.
+Arguments
+<targets>: entity
+
+Specifies the players whose dialog is shown or cleared.
+Must be a player name, a target selector or a UUID.  And the target selector must be of player type.
+<dialog>: dialog
+
+Specifies the dialog to show to the players. This argument is only used with /dialog show.
+Specifies a dialog with a resource location or in SNBT format. Must be a valid dialog definition in SNBT format, or a resource location of an existing dialog (an entry in minecraft:dialog registry). For NBT tag, if it is a string tag, the tag is also parsed into a resource location and resolved into an existing dialog; otherwise, the tag is parsed as a new dialog definition.
+Result
+
+CommandTriggerJava Edition
+
+AnyThe command is incomplete, or any argument is not specified correctly. Unparseable/dialog (show|clear) <targets>targets is a target selector that includes any entities other than the player. Failed/dialog show <targets> <dialog>dialog is not a valid dialog SNBT, or dialog does not exist in minecraft:dialog registry (usually in a data pack). FailedAnyOtherwiseSuccessful
+Output
+
+CommandEditionSituationSuccess Count/execute store success .../execute store result ...
+
+AnyJava EditionOn fail000On success11the number of targeted players
+Examples
+A simple confirmation dialog from an example.
+Pressing "Yes" results in a command execution, which requires a confirmation from the player.
+To show the nearest player a dialog located at data/custom/dialog/example/test.json in a loaded data pack:
+/dialog show @p custom:example/test
+To show all players the built-in minecraft:server_links dialog:
+/dialog show @a minecraft:server_links
+To show nearest players a notice dialog with title "Hello" and an "Ok" button in the footer:
+/dialog show @p {type:"minecraft:notice",title:"Hello"}
+To show all players a simple confirmation dialog with two action buttons with the label "Yes please" and "Nope". If the player presses "Yes please", the game runs a command to give the player a diamond, otherwise, if they press "Nope", the game closes the dialog:
+/dialog show @a {type:"minecraft:confirmation",title:"Give yourself diamond?",yes:{label:"Yes please","action":{"type":"run_command","command":"give @s diamond"}},no:{label:"Nope"}}
+To clear any currently visible dialogs for all players:
+/dialog clear @a
+History
+Java Edition1.21.625w20a
+Added /dialog
+Added minecraft:custom_options and minecraft:server_links as blank built-in dialogs.Pre-Release 1
+Added minecraft:quick_actions as a blank built-in dialog.
+Gallery
+
+
+
+			An example dialog created by ioblackshaw, showcased by xisumavoid on YouTube.
+
+
+
+			An entity summoner made and shown off by u/SmoothTurtle872 on Reddit
+
+
+References
+
+ "Tears For Facing Your Fears | Snapshot 25W20A"  – xisumavoid on YouTube, May 13, 2025
+
+Navigation

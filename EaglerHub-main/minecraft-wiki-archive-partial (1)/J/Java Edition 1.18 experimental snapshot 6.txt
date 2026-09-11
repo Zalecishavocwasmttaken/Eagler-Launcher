@@ -1,0 +1,204 @@
+This page covers a development version that has a major issue under certain conditions. 
+The dedicated server for this version has a security vulnerability in the Log4j library that could be used to perform a remote code execution exploit. It can be addressed by appending a certain JVM argument to the server startup command line.
+
+Minecraft 1.18 experimental snapshot 6
+
+Edition
+
+Java Edition
+
+Release date
+
+September 1, 2021
+
+Type
+
+Experimental Snapshot
+
+Experimental snapshot for
+
+1.18
+
+Downloads
+
+Client (.json)Server
+
+Obfuscation maps
+
+ClientServer
+
+Protocol version
+
+ dec: 1073741870 hex: 4000002E
+
+Data version
+
+2830
+
+Resource pack format
+
+7
+
+Data pack format
+
+7
+
+Minimum Java version
+
+Java SE 16
+
+◄◄   1.17.1
+1.18
+  1.18.1 ►►
+
+◄   1.18 experimental snapshot 5
+
+ 1.18 experimental snapshot 6
+
+  1.18 experimental snapshot 7 ►
+
+{
+    "title": "Minecraft 1.18 experimental snapshot 6",
+    "images": [
+        "1.18 Experimental Snapshot 1 banner.jpg",
+        "1.18 experimental snapshot 6 reddit.png",
+        "Java Edition 1.18 experimental snapshot 6 menu.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "September 1, 2021",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Experimental Snapshot article, displayed as Experimental Snapshot)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition 1.18 article, displayed as 1.18)",
+            "label": "Experimental snapshot for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/ba87774ed853139ce670ba836d038c4ae39316cc/client.jar Client] ([https://piston-data.mojang.com/v1/objects/4697c84c6a347d0b8766759d5b00bc5a00b1b858/1_18_experimental-snapshot-6.zip .json])<br />[https://piston-data.mojang.com/v1/objects/a730789b6b7afa5217bf2ec66057985e62b5c2b0/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/13a8a8b0385c24336d5e01fd8debb569281222bb/client.txt Client]<br />[https://piston-data.mojang.com/v1/objects/299e2896d7f27360823fd089eda151cb7bc48a63/server.txt Server]",
+            "label": "(link to Obfuscation map article, displayed as Obfuscation maps)"
+        },
+        {
+            "field": " <span style=\"font-size:smaller\"><abbr title=\"decimal\">dec</abbr>: </span>1073741870<br /> <span style=\"font-size:smaller\"><abbr title=\"hexadecimal\">hex</abbr>: </span>4000002E",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "2830",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "7",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "7",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Data pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_16 Java SE 16]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Java Edition  1.17.1|<span style=\"margin-right:-0.35em\">◄</span>◄   1.17.1]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition 1.18|1.18]]'''</td>\n<td style=\"padding: 0.4em\" >[[Java Edition  1.18.1|  1.18.1 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  1.18 experimental snapshot 5|◄   1.18 experimental snapshot 5]]\n</td>\n<td style=\"padding: 0.4em\">''' 1.18 experimental snapshot 6'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  1.18 experimental snapshot 7|  1.18 experimental snapshot 7 ►]]\n</td>\n</tr>\n</table>"
+}
+
+1.18 experimental snapshot 6 is the sixth experimental snapshot for Java Edition 1.18, released on September 1, 2021, which introduces changes to terrain generation and tweaks biome placement.
+
+Contents
+
+1 Changes
+
+1.1 Mobs
+1.2 World generation
+
+2 Fixes
+3 Videos
+4 Issues
+5 Notes
+6 References
+7 Navigation
+
+Changes
+Mobs
+Horses, mules, and donkeys
+
+Now follow players holding golden carrots, golden apples, and enchanted golden apples.
+Llamas
+
+Now follow players holding hay bales.
+World generation
+Aquifers
+
+Aquifers under oceans or rivers are more likely to link to the underground.
+More likely to find cave openings on ocean floors that actually lead somewhere instead of being cut off.
+Caves at Y=0 to Y=40 which under oceans are more likely to be flooded.
+Giant tree taiga and giant spruce taiga
+
+No longer considered as cold climates.
+Decreased the chance of mixed in with snowy biomes, caused a small reshuffle of other biomes to maintain the overall balance.
+Grove and snowy slopes
+
+Decreased the chance of generating on mountain peaks.
+Altered generation so that they tend to spawn farther away from contrasting temperatures.
+Springs
+
+Slightly reduced the number of water springs.
+Swamps
+
+Now generate in dry areas.
+Decreased the chance of being fragmented.
+Canyons
+
+Underwater variants readded.
+No longer use a specific carver for underwater canyons. Instead, they generate on ocean floors, using normal noise caves and carvers.
+Now have more natural variation.
+General
+
+Decreased the chance of generating cold microbiomes.
+Slightly increased the number of underwater magma blocks, to increase the chance of finding air when diving in aquifers.
+Cave carvers can now carve through sand and gravel on ocean floors.
+Fixes
+Fixed decreased generation rate of lush caves.
+Videos
+Video made by slicedlime:
+
+
+
+
+
+Video made by Henrik Kniberg on the development version for this snapshot:
+
+
+
+
+
+Issues
+This version is not supported on the bug tracker, and therefore issues affecting it will be resolved as "Invalid".
+
+Notes
+
+ Unzip this file in the .minecraft/versions folder.
+
+References
+
+ "Important Message: Security vulnerability in Java Edition"     – Minecraft.net, December 10, 2021.
+
+ "New world generation in Java available for testing"     by Henrik Kniberg  – Minecraft.net, September 1, 2021.
+
+  "Minecraft 1.18 experimental snapshot 6 is out!" – u/MrHenrik2 on Reddit, September 1, 2021
+
+ MC-231984
+
+Navigation

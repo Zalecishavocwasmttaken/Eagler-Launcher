@@ -1,0 +1,179 @@
+Preview 1.21.20.23
+
+Edition
+
+Bedrock Edition
+
+Release date
+
+July 17, 2024
+
+Server version
+
+1.21.20.23
+
+Editor version
+
+0.6.9
+
+Build version
+
+26212918
+
+Internal version
+
+Windows, Xbox: 1.21.2023.0ChromeOS, Android, iOS, iPadOS: 1.21.20.23
+
+Version code
+
+Android:
+952102023 (armeabi-v7a, 34)
+962102023 (x86, 34)
+972102023 (arm64-v8a, 34)
+982102023 (x86_64, 34)
+
+Type
+
+Preview
+
+Preview for
+
+1.21.20
+
+Downloads
+
+ ServerWindowsLinux
+
+Protocol version
+
+712
+
+◄◄   1.21.3
+1.21.20
+  1.21.21 ►►
+
+◄   Preview 1.21.20.22
+
+ Preview 1.21.20.23
+
+  Preview 1.21.20.24 ►
+
+{
+    "title": "Preview 1.21.20.23",
+    "images": [
+        "Bedrock 1.21.20.23 PatchNotes.jpeg",
+        "Bedrock 1.21.20.23.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Bedrock Edition article, displayed as Bedrock Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "July 17, 2024",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Bedrock Dedicated Server 1.21.20.23 article, displayed as 1.21.20.23)",
+            "label": "Server version"
+        },
+        {
+            "field": "(link to Bedrock Editor 0.6.9 article, displayed as 0.6.9)",
+            "label": "''(link to Bedrock Editor article, displayed as Editor)'' version"
+        },
+        {
+            "field": "26212918",
+            "label": "Build version"
+        },
+        {
+            "field": "'''Windows, Xbox''': 1.21.2023.0<br>'''ChromeOS, Android, iOS, iPadOS''': 1.21.20.23",
+            "label": "Internal version"
+        },
+        {
+            "field": "'''Android''':<br />\n952102023 (armeabi-v7a, 34)<br />\n962102023 (x86, 34)<br />\n972102023 (arm64-v8a, 34)<br />\n982102023 (x86_64, 34)<br />",
+            "label": "Version code"
+        },
+        {
+            "field": "Preview",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Bedrock Edition 1.21.20 article, displayed as 1.21.20)",
+            "label": "Preview for"
+        },
+        {
+            "field": "'''Server'''<br>[https://minecraft.net/bedrockdedicatedserver/bin-win-preview/bedrock-server-1.21.20.23.zip Windows]<br>[https://minecraft.net/bedrockdedicatedserver/bin-linux-preview/bedrock-server-1.21.20.23.zip Linux]",
+            "label": "Downloads"
+        },
+        {
+            "field": "712",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Bedrock Edition  1.21.3|<span style=\"margin-right:-0.35em\">◄</span>◄   1.21.3]]</td>\n<td style=\"padding: 0.4em\">'''[[Bedrock Edition 1.21.20|1.21.20]]'''</td>\n<td style=\"padding: 0.4em\" >[[Bedrock Edition  1.21.21|  1.21.21 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Bedrock Edition  Preview 1.21.20.22|◄   Preview 1.21.20.22]]\n</td>\n<td style=\"padding: 0.4em\">''' Preview 1.21.20.23'''</td>\n<td style=\"padding: 0.4em\">\n[[Bedrock Edition  Preview 1.21.20.24|  Preview 1.21.20.24 ►]]\n</td>\n</tr>\n</table>"
+}
+
+Beta 1.21.20.23 (ChromeOS, Android) or Preview 1.21.20.23 (Windows, iOS, iPadOS, Xbox, PlayStation) is the eighth beta/Preview version for Bedrock Edition 1.21.20, released on July 17, 2024, which fixes bugs.
+
+Contents
+
+1 Changes
+
+1.1 Technical
+
+2 Experimental
+
+2.1 Additions
+
+2.1.1 Technical
+
+3 Fixes
+4 References
+5 Navigation
+
+Changes
+Technical
+Entity Components
+
+Improved behavior.follow_owner teleportation logic:
+Entities now seamlessly resume navigation after teleporting to their owner.
+Added the post_teleport_distance field, allowing to specify how far from its owner an entity will be placed after teleporting.
+If no value is specified, stop_distance increased by one will be used.
+These changes only affect entities with format version of 1.21.20 or above.
+General
+
+Removed the "Holiday Creator Features" experiment. Content that uses the experimental features may no longer function correctly.
+Experimental
+These additions and changes are accessible by enabling the "Creator Cameras: Focus Target Camera" experimental toggle.
+
+Additions
+Technical
+Focus Target Camera
+
+Focus target experiment is now available, more functionality to come in future releases.
+A new camera command has been added to target entities and keep them in center screen.
+Includes option to add an offset from the center of the entity.
+Includes option to remove the target.
+Fixes
+9 issues fixed
+From released versions before 1.21.20
+
+MCPE-158895 – Apple Pencil no longer recognized by Minecraft app.
+MCPE-180578 – Particles are always generated on the west side of the entity when the breeze is idle
+MCPE-182145 – Leads attached to boats connect to its center rather than to the front.
+MCPE-182645 – Text copied from sign/book and quill when editing.
+From the previous development version
+
+MCPE-183449 – Flattened light blocks do not have "stone" sound assigned.
+Other
+
+The Swim game tip can now only appears when not breathing in water.
+Fixed an instance where input could stop working as expected when using Touch Controls and Custom Cameras.
+The chat quick access history no longer stores duplicate chat entries.
+Fixed flickering item icon when quick moving a stack to non-empty stacks.
+References
+
+ "Minecraft Beta & Preview - 1.21.20.23"     – Minecraft Feedback, July 17, 2024.
+
+Navigation

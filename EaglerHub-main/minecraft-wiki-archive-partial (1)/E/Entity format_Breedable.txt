@@ -1,0 +1,5 @@
+[Int] Age: Represents the age of the mob in ticks; when negative, the mob is a baby. When 0 or above, the mob is an adult. When above 0, represents the number of ticks before this mob can breed again.
+[Boolean] AgeLocked: 1 or 0 (true/false) - if true, the mob will not age naturally and, if a baby, cannot be fed.
+[Int] ForcedAge: A value of age assigned to this mob when it grows up. Incremented when a baby mob is fed.
+[Int] InLove: Number of ticks until the mob loses its breeding hearts and stops searching for a mate. 0 when not searching for a mate.
+[Int Array] LoveCause: The UUID of the entity that caused this mob to breed, stored as four integers.

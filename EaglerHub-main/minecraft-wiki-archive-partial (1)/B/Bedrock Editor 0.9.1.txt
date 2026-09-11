@@ -1,0 +1,124 @@
+v0.9.1
+
+Edition
+
+Bedrock Editor
+
+Release date
+
+March 11, 2025
+
+Client version
+
+1.21.80.20
+
+◄◄   0.9.0
+0.9.1
+  1.0.0 ►►
+
+  0.9.2 ►
+
+{
+    "title": "v0.9.1",
+    "images": [],
+    "rows": [
+        {
+            "field": "''(link to Bedrock Editor article, displayed as Bedrock Editor)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "March 11, 2025",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Bedrock Edition Preview 1.21.80.20 article, displayed as 1.21.80.20)",
+            "label": "Client version"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" rowspan=\"2\">[[Bedrock Editor  0.9.0|<span style=\"margin-right:-0.35em\">◄</span>◄   0.9.0]]</td>\n<td rowspan=\"2\" style=\"padding: 0.4em\">'''0.9.1'''</td>\n<td style=\"padding: 0.4em\" >[[Bedrock Editor  1.0.0|  1.0.0 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n\n\n<td style=\"padding: 0.4em\">\n[[Bedrock Editor  0.9.2|  0.9.2 ►]]\n</td>\n</tr>\n</table>"
+}
+
+
+
+Other editions with a version "0.9.1": 
+
+Minecraft Launcher
+Pocket Edition Alpha
+
+
+Bedrock Editor v0.9.1 is a minor beta release for the Bedrock Editor released on March 11, 2025, which changes the selection system and fixes bugs.
+
+Contents
+
+1 Additions
+2 Changes
+3 Fixes
+4 Gallery
+5 References
+6 Navigation
+
+Additions
+Added a new RelativeVolumeListBlockVolume volume type for Editor use to replace CompoundBlockVolume.
+Added a new Client Widget Bounding Box and Volume Outline components.
+Added keyboard repeat to cursor controls.
+Added visualization to Smart Fill tool.
+Added visualization to Extrude tool.
+Added visualization to Line tool.
+Added fields "Spawn Position", "Time of Day" and "Weather" in a new section of initial play settings.
+Added feedback UI to show the progress and result.
+Added a "Custom Mapping" subpane to the Workbench extension which adds the ability to add mappings for custom block properties.
+Added global keybind for activating Workbench.
+Added a tool mode key shortcut for Reload operation, it will be unbound by default.
+Changes
+Selection
+
+Selection system has been completely overhauled and now leverage client widgets.
+Selection Marquee now support click and drag to select.
+Selection Marquee still supports opposing corner mode using ⎈ Control key.
+Marquee and Freehand selection now support undo and redo.
+Widgets colors are integrated with the theme manager.
+Updates to keyboard shortcuts:
+Keyboard control for selection volumes now supports keyboard repeat.
+(Marquee) ⇧ Shift +  Left Mouse Button[verify] create multiple volumes.
+(Freehand) ⇧ Shift + ⎈ Control removes brush voxels from selection.
+(Freehand) ⇧ Shift adds brush voxels to existing selection.
+⌥ Alt + Arrow keys move the selection volume (Marquee & Freehand).
+⎈ Control + Arrow keys resize the selection volume (Marquee only).
+⏎ Return selects a volume.
+⇧ Shift + ⏎ Return selects an additional volume.
+⎈ Control + S enters selection mode. ⎈ Control + S again (while in selection mode) cycles between Marquee and Freehand.
+Other
+
+Improved performance on Smart Fill & Extrude.
+Updated brush shape settings to be local to the modal tool and specific configuration of that tool.
+Removed registerBrushShape from BrushShapeManager API, only core brushes will be supported for core tools.
+Updated icon for delete inside the selection tool.
+Updated naming of color setters and getters in the Widget system to use the same terminology (Outline for borders, Hull for fills, Highlight for specialized borders).
+Removed deprecated property pane API.
+Removed CompoundBlockVolume usage in Editor Script APIs.
+Fixes
+Fixed a bug that prevented theme to be changed to Redstone from UI Settings.
+Fixed a bug that caused Keyboard Settings buttons to be misaligned in certain resolutions.
+Gallery
+
+
+
+			Selection System
+
+
+
+			Tool Visualization
+
+
+
+			Custom Blocks Workbench Tool
+
+
+References
+
+ "Release 0.9.1 (1.21.80.20)"     – GitHub, March 11, 2025.
+
+ "Minecraft Beta & Preview - 1.21.80.20"     – Minecraft Feedback, March 11, 2025.
+
+Navigation

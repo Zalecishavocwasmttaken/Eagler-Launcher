@@ -1,0 +1,3207 @@
+This feature is exclusive to Java Edition. 
+
+Entities are stored in the entities folder of respective dimension folders. It is stored like Minecraft Anvil format files, which are named in the form r.x.z.mca.
+
+Contents
+
+1 Directory structure
+2 Entity inheritance
+
+2.1 Abstract classes
+2.2 Interfaces
+
+3 NBT structure
+4 Entity format
+
+4.1 Mobs
+
+4.1.1 Mob-specific data
+
+4.2 Projectiles
+4.3 Items and XP Orbs
+4.4 Vehicles
+4.5 Dynamic tiles
+4.6 Display
+4.7 Other
+
+5 History
+6 References
+7 Navigation
+
+Directory structure
+See also: World § Storage
+
+ world save directory
+ dimensions
+ minecraft
+ overworld
+ entities: Contains entity files for the Overworld. These used to be part of region.
+ r.<x>.<z>.mca
+ the_nether
+ entities
+ r.<x>.<z>.mca: Contains entity files for the Nether.
+ the_end
+ entities: Contains entity files for the End.
+ r.<x>.<z>.mca
+
+Entity inheritance
+Most entities share similar functionalities with each other from abstract classes or interfaces. For instance, horses (and their undead variants), donkeys, camels, mules, and llamas all inherit from Abstract Horse, which share some of its horse-like behaviors and properties to their inheritance. This inheritance can be seen under the game's code for all of its entities.
+An entity that inherits from an abstract class or other entity share their implementation and functionalities with each other, while an entity that inherits from an interface may not necessarily share its functionalities, rather implement the required behaviors from the interface itself. As such, an entity's implementation of the interface may be different from other entities. Any entity may implement multiple interfaces, while only inheriting a single abstract class or other entity.
+
+Abstract classes
+Entity Area Effect CloudEnd CrystalEvoker FangsExperience OrbEye of EnderFalling Block EntityInteractionItem EntityMarkerPrimed TNTDisplay Block DisplayItem DisplayText DisplayHanging Entity Cushion​[upcoming: JE 26.3]Item Frame Glow Item FrameLeash Fence Knot EntityPainting
+Living Entity
+Armor StandAvatar Player Server PlayerAbstract Client Player Local PlayerRemote PlayerMannequin Client MannequinMobEnder DragonGhastPhantomAmbient Creature BatPathfinder Mob AllayAbstract Golem Copper GolemIron GolemShulkerSnow GolemAgeable Mob AbstractCubeMob Magma CubeSlimeSulfur CubeAbstract Villager VillagerWandering Trader
+Animal
+ArmadilloAxolotlBeeChickenFoxFrogGoatHappy GhastHoglinOcelotPandaPigPolar BearRabbitSheepSnifferStriderTurtleAbstract Horse Camel Camel HuskHorseSkeleton HorseZombie HorseAbstract Chested Horse DonkeyMuleLlama Trader LlamaCow Mushroom CowTamable Animal CatWolfAbstract Nautilus NautilusZombie NautilusShoulder Riding Entity Parrot
+
+Monster
+BlazeBreezeCreakingCreeperEndermanEndermiteGiantSilverfishVexWardenWither BossZoglinAbstract Piglin PiglinPiglin BruteAbstract Skeleton BoggedParchedSkeletonStrayWither SkeletonGuardian Elder GuardianPatrolling Monster Raider RavagerWitchAbstract Illager PillagerVindicatorSpellcaster Illager EvokerIllusionerSpider Cave SpiderZombie DrownedHuskZombie VillagerZombified Piglin
+Water Animal DolphinAbstract Fish PufferfishTadpoleAbstract Schooling Fish CodSalmonTropical FishSquid Glow Squid
+
+Projectile
+Firework Rocket EntityFishing HookLlama SpitShulker BulletAbstract Arrow ArrowSpectral ArrowThrown TridentAbstract Hurting Projectile Dragon FireballWither Skull EntityAbstract Wind Charge Breeze Wind ChargeWind ChargeFireball Large FireballSmall FireballThrowable Projectile Throwable Item Projectile Thrown SnowballThrown EggThrown Ender PearlThrown Eye of EnderThrown Experience BottleThrown Potion
+
+Vehicle Entity
+Abstract Minecart MinecartMinecart Command BlockMinecart FurnaceMinecart SpawnerMinecart TNTAbstract Minecart Container Minecart ChestMinecart HopperBoat Chest Boat
+
+Ender DragonGhastPhantomAmbient Creature BatPathfinder Mob AllayAbstract Golem Copper GolemIron GolemShulkerSnow GolemAgeable Mob AbstractCubeMob Magma CubeSlimeSulfur CubeAbstract Villager VillagerWandering Trader
+Animal
+ArmadilloAxolotlBeeChickenFoxFrogGoatHappy GhastHoglinOcelotPandaPigPolar BearRabbitSheepSnifferStriderTurtleAbstract Horse Camel Camel HuskHorseSkeleton HorseZombie HorseAbstract Chested Horse DonkeyMuleLlama Trader LlamaCow Mushroom CowTamable Animal CatWolfAbstract Nautilus NautilusZombie NautilusShoulder Riding Entity Parrot
+
+Monster
+BlazeBreezeCreakingCreeperEndermanEndermiteGiantSilverfishVexWardenWither BossZoglinAbstract Piglin PiglinPiglin BruteAbstract Skeleton BoggedParchedSkeletonStrayWither SkeletonGuardian Elder GuardianPatrolling Monster Raider RavagerWitchAbstract Illager PillagerVindicatorSpellcaster Illager EvokerIllusionerSpider Cave SpiderZombie DrownedHuskZombie VillagerZombified Piglin
+Water Animal DolphinAbstract Fish PufferfishTadpoleAbstract Schooling Fish CodSalmonTropical FishSquid Glow Squid
+Firework Rocket EntityFishing HookLlama SpitShulker BulletAbstract Arrow ArrowSpectral ArrowThrown TridentAbstract Hurting Projectile Dragon FireballWither Skull EntityAbstract Wind Charge Breeze Wind ChargeWind ChargeFireball Large FireballSmall FireballThrowable Projectile Throwable Item Projectile Thrown SnowballThrown EggThrown Ender PearlThrown Eye of EnderThrown Experience BottleThrown Potion
+
+Interfaces
+
+Bucketable
+AxolotlSulfur CubeAbstract Fish PufferfishTadpoleAbstract Schooling Fish CodSalmonTropical Fish
+
+Container User
+Copper Golem
+
+Enemy
+Ender DragonGhastPhantomShulkerHoglin
+Monster
+BlazeBreezeCreakingCreeperEndermanEndermiteGiantSilverfishVexWardenWitherZoglinAbstract Piglin PiglinPiglin BruteAbstract Skeleton BoggedParchedSkeletonStrayWither SkeletonGuardian Elder GuardianPatrolling Monster Raider RavagerWitchAbstract Illager PillagerVindicatorSpellcaster Illager EvokerIllusionerSpider Cave SpiderZombie DrownedHuskZombie VillagerZombified Piglin
+
+Slime Magma Cube
+
+Flying Animal
+BeeParrot
+
+Has Custom Inventory Screen
+Chest Boat
+Abstract Horse
+Camel Camel HuskHorseSkeleton HorseZombie HorseAbstract Chested Horse DonkeyMuleLlama Trader Llama
+
+Inventory Carrier
+AllayPiglinPillagerAbstract Villager VillagerWandering Trader
+
+Item Steerable
+PigStrider
+
+Item Supplier
+Eye of EnderFirework Rocket EntityAbstract Wind Charge Breeze Wind ChargeWind ChargeFireball Large FireballSmall Fireball
+Throwable Item Projectile
+SnowballThrown EggThrown Ender PearlThrown Eye of EnderThrown Experience BottleThrown Potion
+
+Neutral Mob
+BeeEndermanIron GolemPolar BearWolfZombified Piglin
+
+Ownable Entity
+Tamable Animal CatWolfShoulder Riding Entity Parrot
+
+Player Rideable
+Player Rideable Jumping Abstract Horse Camel Camel HuskHorseSkeleton HorseZombie HorseAbstract Chested Horse DonkeyMuleLlama Trader LlamaAbstract Nautilus NautilusZombie Nautilus
+
+Powerable Mob
+CreeperWither
+
+Ranged Attack Mob
+DrownedIllusionerSnow GolemWitchWitherAbstract Skeleton BoggedParchedSkeletonStrayWither SkeletonCrossbow Attack Mob PiglinPillagerLlama Trader Llama
+
+Saddleable
+PigStrider
+Abstract Horse
+Camel Camel HuskHorseSkeleton HorseZombie HorseAbstract Chested Horse DonkeyMuleLlama Trader Llama
+
+Shearable
+Copper GolemMooshroomSheepSnow Golem
+
+Variant Holder
+AxolotlCatFoxFrogHorseMooshroomRabbitShulkerTropical FishLlama Trader LlamaVillager Data Holder VillagerZombie VillagerZombie Nautilus
+
+NBT structure
+Every entity is an unnamed [NBT Compound / JSON Object] compound contained in the Entities list of a chunk file. The sole exception is the Player entity, stored in level.dat, or in <player>.dat files on servers.
+
+[NBT Compound / JSON Object] The root tag.
+[Int] DataVersion: Version of the chunk data.
+[Int Array] Position: Position of this chunk.
+[Int]: X coordinate.
+[Int]: Z coordinate.
+[NBT List / JSON Array] Entities: All the entities. Each compound in this list defines an entity in this chunk.
+[NBT Compound / JSON Object]: An entity. See #Entity format below.
+
+Entity format
+All entities are with the following structure:
+
+[NBT Compound / JSON Object] Entity data
+[Short] Air: How much air the entity has, in game ticks. Decreases when unable to breathe (except suffocating in a block). Increases when it can breathe. [Short] Air being <= -20 game ticks (while still unable to breathe) on a given game tick causes the entity to immediately lose 1 health to drowning damage. This resets [Short] Air to 0 game ticks. Most mobs can have a maximum of 300 game ticks (15 seconds) of [Short] Air, while dolphins can reach up to 4800 game ticks (240 seconds), and axolotls have 6000 game ticks (300 seconds).
+[NBT Compound / JSON Object][NBT List / JSON Array][String] CustomName: The custom name text component of this entity. Appears in player death messages and villager trading interfaces, as well as above the entity when the player's cursor is over it. May be empty or not exist. Represents the minecraft:custom_name component.
+[Boolean] CustomNameVisible: 1 or 0 (true/false) - if true, and this entity has a custom name, the name always appears above the entity, regardless of where the cursor points. If the entity does not have a custom name, a default name is shown. May not exist.
+[NBT Compound / JSON Object] data: Optional arbitrary NBT data. Is removed if empty. Represents the minecraft:custom_data component.
+[Double] fall_distance: Distance the entity has fallen. Larger values cause more damage when the entity lands.
+[Short] Fire: Number of game ticks until the fire is put out. Negative values reflect how long the entity can stand in fire before burning. Default to -20 when not on fire.
+[Boolean] Glowing: 1 or 0 (true/false) - if true, the entity has a glowing outline.
+[Boolean] HasVisualFire: 1 or 0 (true/false) - if true, the entity visually appears on fire, even if it is not actually on fire.
+[String] id: Namespaced ID of the entity's entity type. Does not exist for entities in the world, only stored entities (such as in data components).
+[Boolean] Invulnerable: 1 or 0 (true/false) - if true, the entity should not take damage. This applies to living and nonliving entities alike: mobs should not take damage from any source (including potion effects), and cannot be moved by fishing rods, attacks, explosions, or projectiles, and objects such as vehicles and item frames cannot be destroyed unless their supports are removed. Invulnerable player entities are also ignored by any hostile mobs. Note that these entities can be damaged by players in Creative mode.
+[Int] invulnerable_time:​[upcoming: JE 26.3] Optional, removed if zero or less. When greater than zero, the entity is invulnerable for that many ticks. This behaves the same as setting [Boolean] Invulnerable to true, and the two fields can be enabled or disabled independently. The entity is invulnerable when either [Boolean] Invulnerable is true, [Int] invulnerable_time is positive, or both. Decreases by one every tick. When a cushion is struck by lightning, the dropped item has this set to 20 game ticks (1 second). When a skeleton trap is triggered, the three newly spawned skeletons and skeleton horses have this set to 60 game ticks (3 seconds).
+[NBT List / JSON Array] Motion: List of 3 [Double] doubles describing the current dX, dY, and dZ velocity of the entity in meters per game tick. Only allows between 10.0 and -10.0 (inclusive), else resets to 0.
+[Boolean] NoGravity: 1 or 0 (true/false) - if true, the entity does not fall down naturally. Does not exist if set to false. Set to true by striders in lava.
+[Boolean] OnGround: 1 or 0 (true/false) - if true, the entity is touching the ground.
+[NBT List / JSON Array] Passengers: The data of the entities that are riding this entity.
+[NBT Compound / JSON Object]: The same as this format (recursive). Note that each passenger entity, and the ridden entity (the vehicle) have equal control of the movement of the ridden entity. The topmost entity controls spawning conditions when the vehicle entity is created by a mob spawner.
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags unique to this passenger entity.
+[Int] PortalCooldown: The number of game ticks before which the entity may be teleported back through a nether portal. Initially starts at 300 game ticks (15 seconds) after teleportation and counts down to 0.
+[NBT List / JSON Array] Pos: List of 3 [Double] doubles describing the current X, Y, and Z position (coordinates) of the entity.
+[NBT List / JSON Array] Rotation: List of 2 [Float] floats representing the entity's server-side rotation (facing direction). This does not necessarily match with the direction that the mob is looking in on the client's side. The yaw and pitch are stored inverted for most projectile entities.
+[Float] 0: The entity's yaw. Yaw is rotation about the Y axis. It is measured in degrees and ranges from -180 to +180. The yaw increases as the entity turns clockwise (right from their perspective). A yaw of 0 means the entity is facing south. See table of specific values here: Rotation (yaw).
+[Float] 1: The entity's pitch. Pitch is rotation about the local X axis after yaw is applied. It is measured in degrees and ranges from -90 to +90. A pitch of 0 means the entity is facing parallel to the ground or directly towards the horizon. The pitch increases as the entity looks downwards, so a pitch of 90 is facing directly down and a pitch of -90 facing directly up.
+[Boolean] Silent: 1 or 0 (true/false) - if true, this entity is silenced. May not exist.
+[NBT List / JSON Array] Tags: List of scoreboard tags of this entity. It is not preserved if it is removed.
+[Int] TicksFrozen: Optional. How many game ticks the entity has been freezing. Although this tag is defined for all entities, it is actually only used by mobs that are not in the freeze_immune_entity_types entity type tag. Increases while in powder snow, even partially, up to a maximum of 300 game ticks (15 seconds), and decreases at double speed while not in powder snow.
+[Int Array] UUID: This entity's Universally Unique IDentifier. The 128-bit UUID is stored as four 32-bit integers ([Int] Ints), ordered from most to least significant.
+
+Mobs
+Mobs are a subclass of Living Entity with additional tags to store their health, attacking/damaged state, potion effects, and more depending on the mob. Players and armor stands are a subclass of living entities.
+
+[NBT Compound / JSON Object] Mob data
+Tags common to all entities see Template:Nbt inherit/entity/template
+[Float] AbsorptionAmount: The amount of extra health added by the Absorption effect.
+[NBT List / JSON Array] active_effects: The list of status effects on this mob. May not exist.
+[NBT Compound / JSON Object] Each item is a status effect.
+[Boolean] ambient: 1 or 0 (true/false). Whether or not any particles created should be translucent as opposed to opaque. If absent, particles are spawned opaque.
+[Byte] amplifier: Represents the effect level minus 1; that is, 0b corresponds to level 1. If absent, the effect is level 1.
+[Int] duration: The number of game ticks before the effect wears off. -1 means infinite duration.
+[NBT Compound / JSON Object] hidden_effect: An inactive, lower-amplifier effect of the same type. When the enclosing effect wears off, this replaces it. (The duration field of a hidden effect still decreases every tick if greater than 0. To avoid redundancy, the id field is not stored.)
+[String] id: The effect name.
+[Boolean] show_icon: 1 or 0 (true/false). Whether or not an icon is displayed in the top-right corner of the affected player's screen. Defaults to true if not specified.
+[Boolean] show_particles: 1 or 0 (true/false). Whether or not particles are created. If not specified, particles are created.
+[NBT List / JSON Array] attributes: A list of attributes for this mob. These are used for many purposes in internal calculations, and can be considered a mob's "statistics". Valid attributes for a given mob are listed in the main article.
+[NBT Compound / JSON Object] An individual attribute.
+[String] id: The name of this attribute.
+[Double] base: The base value of this attribute.
+[NBT List / JSON Array] modifiers: A list of modifiers acting on this attribute. Modifiers alter the base value in internal calculations, without changing the original copy. Note that a modifier never modifies base to be higher than its maximum or lower than its minimum for a given attribute.
+[NBT Compound / JSON Object] An individual modifier.
+[Double] amount: The amount by which this modifier modifies the base value in calculations.
+[String] id: A resource location unique to this modifier. Used to identify the modifier so that the correct modifier can be added or removed.
+[String] operation: add_value, add_multiplied_base, add_multiplied_total. Defines the operation this modifier executes on the attribute's base value.
+add_value: Increment Xamount.
+add_multiplied_base: YX * amount.
+add_multiplied_total: Set Y = Y * (1 + amount) (equivalent to Increment YY * amount).
+The specified modifiers are applied to the attribute, probably whenever the attribute is modified.​[more information needed] To compute the effective value of the attribute, the game:
+Sets X = Base.
+Executes all add_value modifiers.
+Sets Y = X.
+Executes all add_multiplied_base modifiers.
+Executes all add_multiplied_total modifiers.
+The value Y is the final effective value of the attribute.​[more information needed]
+[NBT Compound / JSON Object] Brain: Everything this mob has to keep in mind.
+[NBT Compound / JSON Object] memories: Used for complex behaviors.​[more information needed] The only mobs that have this tag are described below.
+Allay memories: see Template:Nbt inherit/allay_memories/template
+Axolotl memories: see Template:Nbt inherit/axolotl_memories/template
+Camel memories: see Template:Nbt inherit/camel_memories/template
+Copper Golem memories: see Template:Nbt inherit/copper_golem_memories/template
+Frog memories: see Template:Nbt inherit/frog_memories/template
+Goat memories: see Template:Nbt inherit/goat_memories/template
+Piglin memories: see Template:Nbt inherit/piglin_memories/template
+Piglin Brute memories: see Template:Nbt inherit/piglin_brute_memories/template
+Sniffer memories: see Template:Nbt inherit/sniffer_memories/template
+Villager memories: see Template:Nbt inherit/villager_memories/template
+Warden memories: see Template:Nbt inherit/warden_memories/template
+[Boolean] CanPickUpLoot: 1 or 0 (true/false) - if true, the mob can pick up loot (wear armor it picks up, use weapons it picks up).
+[NBT List / JSON Array] current_explosion_impact_pos: Exists only if the mob is airborne after being hit by a wind charge explosion. Represents the explosion's position. Used for wind charge fall damage reduction.
+[Int] current_impulse_context_reset_grace_time: ​[more information needed]
+Tags common to all mobs with drops from loot tables see Template:Nbt inherit/death_lootable/template
+[Short] DeathTime: Number of ticks the mob has been dead for. Controls death animations. 0 when alive.
+[NBT Compound / JSON Object] drop_chances: A map between equipment slot type and chance value. Each entry specifies the chance that the item in that slot is dropped when the mob dies. If not specified or removed, the chance defaults to 0.085f. A value in the range (0f, 1f] applies a random damage value to the dropped item, and the item is only dropped if the mob is killed by a player or tamed wolf. For values greater than 1f, the item's damage value is preserved when it is dropped, and it drops regardless of what killed the mob. When a mob picks up equipment, the corresponding drop_chances value is set to 2f. Each entry is also used to calculate the chance that the item is dropped when swapped for a more preferred one, but not directly. If the value is 0f or less, the drop chance is 0%, but if it is greater than 0f, the drop chance is the value +10% and the item damage is preserved.
+[Float] head : Chance value for the head item to drop.
+[Float] chest : Chance value for the chest item to drop.
+[Float] legs : Chance value for the legs item to drop.
+[Float] feet : Chance value for the feet item to drop.
+[Float] mainhand : Chance value for the mainhand item to drop.
+[Float] offhand : Chance value for the offhand item to drop.
+[Float] body : Chance value for the body item to drop.
+[Float] saddle : Chance value for the saddle item to drop.
+[NBT Compound / JSON Object] equipment: Map between equipment slot type and item stack. Does not exist if the inventory is empty.
+[NBT Compound / JSON Object] head: The item being held in mob's head slot.
+[NBT Compound / JSON Object] chest: The item being held in the mob's chest slot.
+[NBT Compound / JSON Object] legs: The item being held in the mob's legs slot.
+[NBT Compound / JSON Object] feet: The item being held in the mob's feet slot.
+[NBT Compound / JSON Object] mainhand: The item being held in the mob's main hand.
+[NBT Compound / JSON Object] offhand: The item being held in the mob's off hand.
+[NBT Compound / JSON Object] body: The item being held in the mob's body slot.
+[NBT Compound / JSON Object] saddle: The item being held in the mob's saddle slot.
+A single item stack see Template:Nbt inherit/itemnoslot/template
+[Byte] FallFlying: Whether or not the mob is gliding through the air. Each tick, this value is set to 0b unless the mob is airborne and wearing an item with the minecraft:gilder component. As mobs (excluding players) do not know how to activate such items, this value is always 0b for them unless changed via commands.
+[Float] Health: The mob's health.
+[Int Array] home_pos: The mob's "home" position. Mobs will limit their pathfinding to stay within the indicated area. Some mobs, like bats, slimes, magma cubes, phantoms and ender dragons may ignore it. Interacting with leashes or riding may change the home position of the mob. For creakings, this is the position of their creaking heart.
+[Int] home_radius: Max radius of the data home_pos.
+[Short] HurtTime: Number of ticks the mob turns red for after being hit. 0 when not recently hit.
+[Int Array] last_hurt_by_mob: The UUID of the last mob that attacked this mob. Clears when the attacking mob dies or despawns.
+[Int] ticks_since_last_hurt_by_mob: (when [Int Array] last_hurt_by_mob exists and is valid) The number of game ticks since the last time the mob was attacked by the mob described by [Int Array] last_hurt_by_mob. Clears [Int Array] last_hurt_by_mob when the value reaches 100 game ticks (5 seconds).
+[Int Array] last_hurt_by_player: The UUID of the last player that attacked this mob.
+[Int] last_hurt_by_player_memory_time: (when [Int Array] last_hurt_by_player exists and is valid) Gets set to 100 game ticks (5 seconds) when attacked by a player, and decreases by 1 for every game tick. Clears [Int Array] last_hurt_by_player when the value reaches 0.
+[NBT Compound / JSON Object][Int Array] leash: Information about where this leash connects to. Does not exist if the entity is not leashed.
+The int array form ([Int Array]) represents the block location of the fence post that the leash is attached to (3 integers representing the X, Y, and Z coordinates respectively), or a compound containing information about the entity the leash is attached to.
+The compound form ([NBT Compound / JSON Object]) contains the UUID of the entity that the leash is attached to.
+[Int Array] UUID: This Universally Unique IDentifier of the entity that the leash is attached to.
+[Boolean] LeftHanded: 1 or 0 (true/false) - if true, the mob renders the main hand as being left.
+[NBT Compound / JSON Object] locator_bar_icon: The waypoint's icon visual data in the locator bar.
+[Int] color: The waypoint's color stored as 32-bit signed integer using two's complement, assuming the color is fully opaque.
+[String] style: The waypoint's style name from waypoint_style directory in a resource pack.
+[Boolean] NoAI: 1 or 0 (true/false) - Setting to true disables the mob's AI. The mob does not and cannot move, to the extent of not falling when normally able.
+[Boolean] PersistenceRequired: 1 or 0 (true/false) - if true, the mob must not despawn naturally.
+[Int Array] sleeping_pos: The coordinate of where the entity is sleeping, absent if not sleeping.
+[String] Team: This tag is actually not part of the NBT data of a mob, but instead used when spawning it, so it cannot be tested for. It makes the mob instantly join the team with that name.
+
+Mob-specific data
+Many mobs additionally have individual data.
+
+allay
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+[Long] DuplicationCooldown: The allay's duplication cooldown in ticks. This is set to 6000 game ticks (5 minutes) when the allay duplicates.
+[NBT List / JSON Array] Inventory: List of items the allay has picked up. This list can contain at most one compound tag. The item given by the player to the allay is stored in its equipment.mainhand tag, not here.
+A single item stack see Template:Nbt inherit/itemnoslot/template
+[NBT Compound / JSON Object] listener: The vibration event listener of this allay.
+[Int] distance: Nonnegative integer.
+[NBT Compound / JSON Object] event: Optional.
+[Int] distance: Nonnegative integer.
+[String] game_event: A resource location of the game event.
+[NBT List / JSON Array] pos: Three doubles representing the X, Y, and Z coordinates.
+[Int Array] projectile_owner: Optional. The projectile owner's UUID. The 128-bit UUID is stored as four 32-bit integers, ordered from most to least significant.
+[Int Array] source: Optional. The source entity's UUID. The 128-bit UUID is stored as four 32-bit integers, ordered from most to least significant.
+[Int] event_delay: Nonnegative integer.
+[Int] event_distance: Nonnegative integer.
+[Int] range: Nonnegative integer.
+[NBT Compound / JSON Object] source: Position source.
+[String] type: A resource location of the position source type.
+For type block
+[Int Array] pos: X, Y, and Z coordinates.
+For type entity
+[Int Array] source_entity: The entity's UUID. The 128-bit UUID is stored as four 32-bit integers, ordered from most to least significant.
+[Float] y_offset:
+
+armadillo
+
+[NBT Compound / JSON Object] Entity data
+Additional fields for mobs that can breed see Template:Nbt inherit/breedable/template
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+[Int] scute_time: The number of ticks until the armadillo drops a scute. A scute is dropped at 0 and this timer gets reset to a new random value between 6000 and 12000.
+[String] state: The name for the armadillo's current posture. state:"idle" means the armadillo is standing normally and is not rolled up. state:"scared" means the armadillo has rolled up as it feels threatened by a nearby mob or player. state:"unrolling" means the armadillo is playing its unrolling animation, exiting its scared state. Any other string for state defaults to the same behavior as "idle".
+
+armor_stand
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+Tags common to mobs except CanPickUpLoot, drop_chances, DeathLootTable, DeathLootTableSeed, home_pos, home_radius, leash, LeftHanded, NoAI, and PersistenceRequired.
+[Int] DisabledSlots: Bit field allowing disable place/replace/remove of armor elements. For example, the value 16191 or4144959 disables placing, removing and replacing of all equipment. These can be found using the bitwise OR operator.
+[Byte] Invisible: 1 or 0 (true/false) - if true, ArmorStand is invisible, although items on it still display.
+[Byte] Marker: 1 or 0 (true/false) - if true, ArmorStand's size is set to 0, has a tiny hitbox, and disables interactions with it. May not exist.
+[Byte] NoBasePlate: 1 or 0 (true/false) - if true, ArmorStand does not display the base beneath it.
+[NBT Compound / JSON Object] Pose: Rotation values for the ArmorStand's pose. All values are in degrees.
+[NBT List / JSON Array] Body: Body-specific rotations.
+[Float]: x-rotation.
+[Float]: y-rotation.
+[Float]: z-rotation.
+[NBT List / JSON Array] Head: Head-specific rotations.
+[Float]: x-rotation.
+[Float]: y-rotation.
+[Float]: z-rotation.
+[NBT List / JSON Array] LeftArm: Left Arm-specific rotations.
+[Float]: x-rotation.
+[Float]: y-rotation.
+[Float]: z-rotation.
+[NBT List / JSON Array] LeftLeg: Left Leg-specific rotations.
+[Float]: x-rotation.
+[Float]: y-rotation.
+[Float]: z-rotation.
+[NBT List / JSON Array] RightArm: Right Arm-specific rotations.
+[Float]: x-rotation.
+[Float]: y-rotation.
+[Float]: z-rotation.
+[NBT List / JSON Array] RightLeg: Right Leg-specific rotations.
+[Float]: x-rotation.
+[Float]: y-rotation.
+[Float]: z-rotation.
+[Byte] ShowArms: 1 or 0 (true/false) - if true, ArmorStand displays full wooden arms. If false, also place and replace interactions with the hand item slot are disabled.
+[Byte] Small: 1 or 0 (true/false) - if true, ArmorStand is much smaller, similar to the size of a baby zombie.
+
+Disabled slots
+
+Binary
+Integer number
+Result
+
+2^0
+1
+Disable adding or changing mainhand item
+
+2^1
+2
+Disable adding or changing boots item
+
+2^2
+4
+Disable adding or changing leggings item
+
+2^3
+8
+Disable adding or changing chestplate item
+
+2^4
+16
+Disable adding or changing helmet item
+
+2^5
+
+32
+
+Disable adding or changing offhand item
+
+2^8
+256
+Disable removing or changing mainhand item
+
+2^9
+512
+Disable removing or changing boots item
+
+2^10
+1024
+Disable removing or changing leggings item
+
+2^11
+2048
+Disable removing or changing chestplate item
+
+2^12
+4096
+Disable removing or changing helmet item
+
+2^13
+
+8192
+
+Disable removing or changing offhand item
+
+2^16
+65536
+Disable adding mainhand item
+
+2^17
+131072
+Disable adding boots item
+
+2^18
+262144
+Disable adding leggings item
+
+2^19
+524288
+Disable adding chestplate item
+
+2^20
+1048576
+Disable adding helmet item
+
+2^21
+
+2097152
+
+Disable adding offhand item
+
+axolotl
+
+[NBT Compound / JSON Object] Entity data
+Additional fields for mobs that can breed see Template:Nbt inherit/breedable/template
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+[Byte] FromBucket: 1 or 0 (true/false) – if true, indicates the axolotl has been released from a bucket.
+[Int] Variant: ID of the axolotl's variant. Represents the minecraft:axolotl/variant component.
+
+Variant
+
+Numerical ID
+
+Identifier
+
+ Lucy
+
+0
+
+lucy
+
+ Wild
+
+1
+
+wild
+
+ Gold
+
+2
+
+gold
+
+ Cyan
+
+3
+
+cyan
+
+ Blue
+
+4
+
+blue
+
+bat
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+[Byte] BatFlags: 1 or 0 (true/false) - true if the bat is hanging upside-down from a block, false if the bat is flying.
+
+bee
+
+[NBT Compound / JSON Object] Entity data
+Additional fields for mobs that can become angry see Template:Nbt inherit/angerable/template
+Additional fields for mobs that can breed see Template:Nbt inherit/breedable/template
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+[Int] CannotEnterHiveTicks: Time left in ticks until the bee can enter a beehive. Used when the bee is angered and released from the hive by a player, but the hive is smoked by a campfire.
+[Int] CropsGrownSincePollination: How many crops the bee has grown since its last pollination. Used to limit number of crops it can grow.
+[Int Array] flower_pos: Block location, as 3 integers, of the flower that the bee is circling.
+[Boolean] HasNectar: 1 or 0 (true/false) - true if the bee is carrying nectar.
+[Boolean] HasStung: 1 or 0 (true/false) - true if the bee has stung a mob or player.
+[Int Array] hive_pos: Block location, as 3 integers, of the bee's hive.
+[Int] TicksSincePollination: Number of ticks passed since the bee's last pollination.
+
+blaze
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+
+bogged
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+
+breeze
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+
+camel
+
+[NBT Compound / JSON Object] Entity data
+Additional fields for mobs that can breed see Template:Nbt inherit/breedable/template
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+[Byte] Bred: 1 or 0 (true/false) – Unknown. Remains 0 after breeding. If true, causes it to stay near other horses with this flag set.
+[Byte] EatingHaystack: 1 or 0 (true/false) – true if the mob is eating grass.
+[Int Array] Owner: The UUID of the entity that tamed the mob, stored as four ints. Has no effect on behavior. Does not exist if there is no owner.
+[Byte] Tame: 1 or 0 (true/false) – true if the mob is tamed.
+[Int] Temper: Ranges from 0 to 100; increases with feeding. Higher values make a mob easier to tame.
+[Long] LastPoseTick: The tick when the camel started changing its pose.
+
+camel_husk
+
+[NBT Compound / JSON Object] Entity data
+Additional fields for mobs that can breed see Template:Nbt inherit/breedable/template
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+[Byte] Bred: 1 or 0 (true/false) – Unknown. Remains 0 after breeding. If true, causes it to stay near other horses with this flag set.
+[Byte] EatingHaystack: 1 or 0 (true/false) – true if the mob is eating grass.
+[Int Array] Owner: The UUID of the entity that tamed the mob, stored as four ints. Has no effect on behavior. Does not exist if there is no owner.
+[Byte] Tame: 1 or 0 (true/false) – true if the mob is tamed.
+[Int] Temper: Ranges from 0 to 100; increases with feeding. Higher values make a mob easier to tame.
+[Long] LastPoseTick: The tick when the camel husk started changing its pose.
+
+cat
+
+[NBT Compound / JSON Object] Entity data
+Additional fields for mobs that can be tamed by players see Template:Nbt inherit/tameable/template
+Additional fields for mobs that can breed see Template:Nbt inherit/breedable/template
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+[Byte] CollarColor: The color of the cat's collar. Present even for stray cats (but does not render); default value is 14. Represents the minecraft:cat/collar component.
+[String] variant: The resource location of the variant of the cat. Represents the minecraft:cat/variant component.
+
+Variant
+
+Resource location (Java Edition)
+
+Data Value (Bedrock)
+
+ White
+
+minecraft:white
+
+0
+
+ Tuxedo
+
+minecraft:black
+
+1
+
+ Ginger
+
+minecraft:red
+
+2
+
+ Siamese
+
+minecraft:siamese
+
+3
+
+ British Shorthair
+
+minecraft:british_shorthair
+
+4
+
+ Calico
+
+minecraft:calico
+
+5
+
+ Persian
+
+minecraft:persian
+
+6
+
+ Ragdoll
+
+minecraft:ragdoll
+
+7
+
+ Tabby
+
+minecraft:tabby
+
+8
+
+ Black
+
+minecraft:all_black
+
+9
+
+ Jellie
+
+minecraft:jellie
+
+10
+
+Color
+
+Data value
+
+ White
+
+0
+
+ Orange
+
+1
+
+ Magenta
+
+2
+
+ Light Blue
+
+3
+
+ Yellow
+
+4
+
+ Lime
+
+5
+
+ Pink
+
+6
+
+ Gray
+
+7
+
+ Light Gray
+
+8
+
+ Cyan
+
+9
+
+ Purple
+
+10
+
+ Blue
+
+11
+
+ Brown
+
+12
+
+ Green
+
+13
+
+ Red
+
+14
+
+ Black
+
+15
+
+chicken
+
+[NBT Compound / JSON Object] Entity data
+Additional fields for mobs that can breed see Template:Nbt inherit/breedable/template
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+[Int] EggLayTime: Number of ticks until the chicken lays its egg. Laying occurs at 0 and this timer gets reset to a new random value between 6000 and 12000.
+[Boolean] IsChickenJockey: 1 or 0 (true/false) - Whether or not the chicken is a jockey for a baby zombie. If true, the chicken can naturally despawn, drops 10 experience upon death instead of 1-3 and cannot lay eggs. Baby zombies can still control a ridden chicken even if this is set false.
+[String] variant: The variant of the chicken. Represents the minecraft:chicken/variant component.
+
+cod
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+[Byte] FromBucket: 1 or 0 (true/false) - Whether the fish had ever been released from a bucket.
+
+copper_golem
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+[String] weather_state: unaffected, exposed, weathered, or oxidized - the oxidation level of the copper golem
+[Long] next_weather_age: The number of ticks gametime must reach for the copper golem's oxidation level to change. Setting the value to -1 automatically sets the oxidation time randomly from 504000 to 552000 + the current gametime. If the value is -2, the copper golem is waxed (it remains unchanged over time).
+
+cow
+
+[NBT Compound / JSON Object] Entity data
+Additional fields for mobs that can breed see Template:Nbt inherit/breedable/template
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+[String] variant: The variant of the cow. Represents the minecraft:cow/variant component.
+
+creaking
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+
+creeper
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+[Byte] ExplosionRadius: The power of the explosion (default value is 3). Despite the name, this represents the explosion power value, so the true radius varies and its maximum is approximately 4/3 times this value.
+[Short] Fuse: States the initial value of the creeper's internal fuse timer (does not affect creepers that fall and explode upon impacting their victim). The internal fuse timer returns to this value if the creeper is no longer within attack range. Default 30.
+[Byte] ignited: 1 or 0 (true/false) - Whether the creeper has been ignited by flint and steel.
+[Byte] powered: 1 or 0 (true/false) - May not exist. True if the creeper is charged from being struck by lightning.
+
+dolphin
+
+[NBT Compound / JSON Object] Entity data
+Additional fields for mobs that can breed see Template:Nbt inherit/breedable/template
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+[Int] Moistness: How moist this dolphin is. Set to 2400 when in water or rain. Decreases by 1 every tick otherwise. The dolphin takes damage when 0 or below.
+[Byte] GotFish: 1 or 0 (true/false) - if true, this dolphin got fish from a player.
+
+donkey
+
+[NBT Compound / JSON Object] Entity data
+Additional fields for mobs that can breed see Template:Nbt inherit/breedable/template
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+[Byte] Bred: 1 or 0 (true/false) – Unknown. Remains 0 after breeding. If true, causes it to stay near other horses with this flag set.
+[Byte] EatingHaystack: 1 or 0 (true/false) – true if the mob is eating grass.
+[Int Array] Owner: The UUID of the entity that tamed the mob, stored as four ints. Has no effect on behavior. Does not exist if there is no owner.
+[Byte] Tame: 1 or 0 (true/false) – true if the mob is tamed.
+[Int] Temper: Ranges from 0 to 100; increases with feeding. Higher values make a mob easier to tame.
+[Byte] ChestedHorse: 1 or 0 (true/false) - true if the horse has chests. A chested horse that is not a donkey or a mule crashes the game.
+[NBT List / JSON Array] Items: List of items. Exists only if ChestedHorse is true.
+[NBT Compound / JSON Object] An item, including the Slot tag. Slots are numbered 2 to 16 for donkeys and mules, and none exist for all other horses.
+An item stack in a container slot see Template:Nbt inherit/item/template
+
+drowned
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+[Byte] CanBreakDoors: 1 or 0 (true/false) - true if the zombie can break doors (default value is 0).
+[Int] DrownedConversionTime: The number of ticks until this zombie converts to a drowned, or husk to zombie. (default value is -1, when no conversion is under way).
+[Int] InWaterTime: The number of ticks this zombie or husk has been under water, used to start the drowning conversion. (default value is -1, when no conversion is under way).
+[Byte] IsBaby: 1 or 0 (true/false) - true if this zombie is a baby. May be absent.
+
+elder_guardian
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+
+ender_dragon
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+[Int] DragonDeathTime: Number of ticks the dragon has been dead for. At 150, the dragon begins spawning experience orbs every 5 ticks (first drop at 155). Removes dragon at values 200 and higher. 0 when alive.
+[Int] DragonPhase: A number indicating the dragon's current state. 0 means circling. 1 means strafing (preparing to shoot a fireball). 2 means flying to the portal to land (part of transition to landed state). 3 means landing on the portal (part of transition to landed state). 4 means taking off from the portal (part of transition out of landed state). 5 means landed, performing breath attack. 6 means landed, looking for a player for breath attack. 7 means landed, roar before beginning breath attack. 8 means charging player. 9 means flying to portal to die. 10 means hovering (flapping wings while pacing around a fixed point) (default when using the /summon command).
+[Float] sitting_damage_recieved: The amount of damage the dragon has received while perched. When this value would become 50 or higher, it is reset to 0 and the dragon ends its perch.
+
+enderman
+
+[NBT Compound / JSON Object] Entity data
+Additional fields for mobs that can become angry see Template:Nbt inherit/angerable/template
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+[NBT Compound / JSON Object] carriedBlockState: Optional. The block carried by the enderman.
+Block state see Template:Nbt inherit/block state/template
+
+endermite
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+[Int] Lifetime: How long the endermite has existed in ticks. Disappears when this reaches around 2400.
+
+evoker
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+Tags common to all mobs spawnable in raids see Template:Nbt inherit/raidable/template
+[Int] SpellTicks: Number of ticks until a spell can be cast. Set to a positive value when a spell is cast, and decreases by 1 per tick.
+
+fox
+
+[NBT Compound / JSON Object] Entity data
+Additional fields for mobs that can breed see Template:Nbt inherit/breedable/template
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+[Byte] Crouching: 1 or 0 (true/false) – Whether the fox is crouching.
+[Byte] Sitting: 1 or 0 (true/false) – Whether the fox is sitting.
+[Byte] Sleeping: 1 or 0 (true/false) – Whether the fox is sleeping.
+[NBT List / JSON Array] Trusted: A list of players that the fox trusts. For a list with more than 2 elements, only the first and the last are considered.
+[Int Array]: The UUID of each trusted player, stored as four ints.
+[String] Type: The fox's variant. Represents the minecraft:fox/variant component.
+
+Variant
+
+Data Value
+
+ Red
+
+"red"
+
+ Snow
+
+"snow"
+
+frog
+
+[NBT Compound / JSON Object] Entity data
+Additional fields for mobs that can breed see Template:Nbt inherit/breedable/template
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+[String] variant: ID of the frog's variant. Represents the minecraft:frog/variant component.
+
+Variant
+
+Data value
+
+ Temperate
+
+minecraft:temperate
+
+ Warm
+
+minecraft:warm
+
+ Cold
+
+minecraft:cold
+
+ghast
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+[Byte] ExplosionPower: The radius of the explosion created by the fireballs the ghast fires. Default value is 1.
+
+giant
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+
+glow_squid
+
+[NBT Compound / JSON Object] Entity data
+Additional fields for mobs that can breed see Template:Nbt inherit/breedable/template
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+[Int] DarkTicksRemaining: Countdown of ticks remaining until the glow squid starts glowing. Not glowing while positive, glowing when countdown reaches zero.
+
+goat
+
+[NBT Compound / JSON Object] Entity data
+Additional fields for mobs that can breed see Template:Nbt inherit/breedable/template
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+[Byte] HasLeftHorn: 1 or 0 (true/false) – if true, indicates this goat has the left horn.
+[Byte] HasRightHorn: 1 or 0 (true/false) – if true, indicates this goat has the right horn.
+[Byte] IsScreamingGoat: 1 or 0 (true/false) – if true, indicates this is a screaming goat.
+
+guardian
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+
+happy_ghast
+
+[NBT Compound / JSON Object] Entity data
+Additional fields for mobs that can breed see Template:Nbt inherit/breedable/template
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+[Int] still_timeout: Prevents the Happy Ghast from moving when greater than 0. Set to 10 when a player is less than 2 blocks above and decreases by 1 per tick otherwise. Movement resumes when it reaches 0.
+
+hoglin
+
+[NBT Compound / JSON Object] Entity data
+Additional fields for mobs that can breed see Template:Nbt inherit/breedable/template
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+[Boolean] CannotBeHunted: 1 or 0 (true/false) - if true, piglins do not attack the hoglin. Set to true for hoglins spawned as a part of bastion remnants.
+[Boolean] IsImmuneToZombification: 1 or 0 (true/false) – if true, the hoglin does not transform to a zoglin when in the Overworld and TimeInOverworld does not increment.
+[Int] TimeInOverworld: The number of ticks that the hoglin has existed in the Overworld; the hoglin converts to a zoglin when this is greater than 300.
+
+horse
+
+[NBT Compound / JSON Object] Entity data
+Additional fields for mobs that can breed see Template:Nbt inherit/breedable/template
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+[Byte] Bred: 1 or 0 (true/false) – Unknown. Remains 0 after breeding. If true, causes it to stay near other horses with this flag set.
+[Byte] EatingHaystack: 1 or 0 (true/false) – true if the mob is eating grass.
+[Int Array] Owner: The UUID of the entity that tamed the mob, stored as four ints. Has no effect on behavior. Does not exist if there is no owner.
+[Byte] Tame: 1 or 0 (true/false) – true if the mob is tamed.
+[Int] Temper: Ranges from 0 to 100; increases with feeding. Higher values make a mob easier to tame.
+[Int] Variant: The variant and markings of the horse. Encoded as variant | (markings << 8). Unused values lead to white horses. The encoded variant field represents the minecraft:horse/variant component.
+
+White
+Creamy
+Chestnut
+Brown
+Black
+Gray
+Dark Brown
+
+None
+
+0
+1
+2
+3
+4
+5
+6
+
+White
+
+256
+257
+258
+259
+260
+261
+262
+
+White Field
+
+512
+513
+514
+515
+516
+517
+518
+
+White Dots
+
+768
+769
+770
+771
+772
+773
+774
+
+Black Dots
+
+1024
+1025
+1026
+1027
+1028
+1029
+1030
+
+Variant names taken from the names of the texture file they correspond to.
+Summoning a horse without specifying the Variant value results in a white horse. Summoning a horse with a correct color byte but an incorrect marking byte results in a horse of the corresponding color but no markings. Summoning a horse with a correct marking byte but an incorrect color byte results in a white horse with the corresponding markings.
+
+husk
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+[Byte] CanBreakDoors: 1 or 0 (true/false) - true if the zombie can break doors (default value is 0).
+[Int] DrownedConversionTime: The number of ticks until this zombie converts to a drowned, or husk to zombie. (default value is -1, when no conversion is under way).
+[Int] InWaterTime: The number of ticks this zombie or husk has been under water, used to start the drowning conversion. (default value is -1, when no conversion is under way).
+[Byte] IsBaby: 1 or 0 (true/false) - true if this zombie is a baby. May be absent.
+
+illusioner
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+Tags common to all mobs spawnable in raids see Template:Nbt inherit/raidable/template
+[Int] SpellTicks: Number of ticks until a spell can be cast. Set to a positive value when a spell is cast, and decreases by 1 per tick.
+
+iron_golem
+
+[NBT Compound / JSON Object] Entity data
+Additional fields for mobs that can become angry see Template:Nbt inherit/angerable/template
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+[Byte] PlayerCreated: 1 or 0 (true/false) – if true, this golem is player-created and never attacks players.
+
+llama
+
+[NBT Compound / JSON Object] Entity data
+Additional fields for mobs that can breed see Template:Nbt inherit/breedable/template
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+[Byte] Bred: 1 or 0 (true/false) – Unknown. Remains 0 after breeding. If true, causes it to stay near other horses with this flag set.
+[Byte] EatingHaystack: 1 or 0 (true/false) – true if the mob is eating grass.
+[Int Array] Owner: The UUID of the entity that tamed the mob, stored as four ints. Has no effect on behavior. Does not exist if there is no owner.
+[Byte] Tame: 1 or 0 (true/false) – true if the mob is tamed.
+[Int] Temper: Ranges from 0 to 100; increases with feeding. Higher values make a mob easier to tame.
+[Byte] ChestedHorse: 1 or 0 (true/false) - true if the llama has chests.
+[Int] DespawnDelay: A timer for trader llamas to despawn, present only in trader_llama. The trader llama despawns when this value reaches 0.
+[NBT List / JSON Array] Items: List of items. Exists only if ChestedHorse is true.
+[NBT Compound / JSON Object] An item, including the Slot tag.
+An item stack in a container slot see Template:Nbt inherit/item/template
+[Int] Strength: Ranges from 1 to 5, defaults to 3.  Determines the number of items the llama can carry (items = 3 × strength).  Also increases the tendency of wolves to run away when attacked by llama spit. Strengths 4 and 5 always causes a wolf to flee.
+[Int] Variant: The variant of the llama. Represents the minecraft:llama/variant component.
+
+Variant
+
+Numerical ID
+
+Identifier
+
+ Creamy
+
+0
+
+creamy
+
+ White
+
+1
+
+white
+
+ Brown
+
+2
+
+brown
+
+ Gray
+
+3
+
+gray
+
+magma_cube
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+Tags common to all cube mobs see Template:Nbt inherit/cube mob/template
+
+mannequin
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+except for the tags: CanPickUpLoot, DeathLootTable, DeathLootTableSeed, drop_chances, home_pos, home_radius, leash, LeftHanded, NoAI, and PersistenceRequired.
+[String][NBT Compound / JSON Object] profile The textures and/or player profile used to render the mannequin's player model. Cannot be removed, and is always saved as a [NBT Compound / JSON Object] compound. If specified as a string, it corresponds to [String] name. Represents the minecraft:profile component.
+A player profile and/or textures object see Template:Nbt inherit/profile/template
+[NBT List / JSON Array] hidden_layers - List of outer skin layers to hide.
+Valid entries: cape, jacket, left_sleeve, right_sleeve, left_pants_leg, right_pants_leg, hat.
+[String] main_hand - Which hand is the main hand of the mannequin.
+One of left and right.
+[String] pose - The pose of the mannequin.
+Valid entries: standing, crouching, swimming, fall_flying, sleeping
+[Boolean] immovable - Optional boolean specifying that the mannequin cannot be moved (defaults to false).
+[String][NBT List / JSON Array][NBT Compound / JSON Object] description - Optional text component shown where a Player's below_name score would show.
+The default "NPC" (entity.minecraft.mannequin.label) text is shown if omitted.
+[Boolean] hide_description - Optional boolean specifying that no description should be shown at all.
+A mannequin with the description hidden displays as if a Player had no below_name display.
+
+mooshroom
+
+[NBT Compound / JSON Object] Entity data
+Additional fields for mobs that can breed see Template:Nbt inherit/breedable/template
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+[NBT List / JSON Array] stew_effects: The effects applied to the suspicious stew from milking the mooshroom.
+[NBT Compound / JSON Object]
+[String] id: Optional. The Effect identifier of the status effect the brown mooshroom may give to a suspicious stew.
+[Int] duration: Optional. An integer indicating the duration of the status effect the brown mooshroom may give to a suspicious stew.
+[String] Type: ID of the mooshroom's type. Represents the minecraft:mooshroom/variant component.
+
+Variant
+
+Identifier
+
+ Red
+
+red
+
+ Brown
+
+brown
+
+mule
+
+[NBT Compound / JSON Object] Entity data
+Additional fields for mobs that can breed see Template:Nbt inherit/breedable/template
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+[Byte] Bred: 1 or 0 (true/false) – Unknown. Remains 0 after breeding. If true, causes it to stay near other horses with this flag set.
+[Byte] EatingHaystack: 1 or 0 (true/false) – true if the mob is eating grass.
+[Int Array] Owner: The UUID of the entity that tamed the mob, stored as four ints. Has no effect on behavior. Does not exist if there is no owner.
+[Byte] Tame: 1 or 0 (true/false) – true if the mob is tamed.
+[Int] Temper: Ranges from 0 to 100; increases with feeding. Higher values make a mob easier to tame.
+[Byte] ChestedHorse: 1 or 0 (true/false) - true if the horse has chests. A chested horse that is not a donkey or a mule crashes the game.
+[NBT List / JSON Array] Items: List of items. Exists only if ChestedHorse is true.
+[NBT Compound / JSON Object] An item, including the Slot tag. Slots are numbered 2 to 16 for donkeys and mules, and none exist for all other horses.
+An item stack in a container slot see Template:Nbt inherit/item/template
+
+nautilus
+
+[NBT Compound / JSON Object] Entity data
+Additional fields for mobs that can breed see Template:Nbt inherit/breedable/template
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+
+ocelot
+
+[NBT Compound / JSON Object] Entity data
+Additional fields for mobs that can breed see Template:Nbt inherit/breedable/template
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+[Byte] Trusting: 1 or 0 (true/false) - true if the ocelot trusts players.
+
+panda
+
+[NBT Compound / JSON Object] Entity data
+Additional fields for mobs that can breed see Template:Nbt inherit/breedable/template
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+[String] HiddenGene: The secondary gene this panda has, that can transfer to the child.
+[String] MainGene: The primary gene this panda has, that determines the behavior and appearance of the panda and that can transfer to the child.
+
+Gene
+
+Data value
+
+ Normal
+
+normal
+
+ Lazy
+
+lazy
+
+ Worried
+
+worried
+
+ Playful
+
+playful
+
+ Brown
+
+brown
+
+ Weak
+
+weak
+
+ Aggressive
+
+aggressive
+
+parrot
+
+[NBT Compound / JSON Object] Entity data
+Additional fields for mobs that can be tamed by players see Template:Nbt inherit/tameable/template
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+[Int] Variant: Specifies the color variant of the parrot, default is 0. Represents the minecraft:parrot/variant component.
+
+Variant
+
+Numerical ID
+
+Identifier
+
+ Red
+
+0
+
+red_blue
+
+ Blue
+
+1
+
+blue
+
+ Green
+
+2
+
+green
+
+ Cyan
+
+3
+
+yellow_blue
+
+ Gray
+
+4
+
+gray
+
+phantom
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+[Int] size: The size of the phantom. Ranges from 0 to 64, similar to slimes. Unlike slimes, phantoms always have a constant 20HP × 10 HP, and deal 6HP+size damage. Naturally spawned phantoms are always size 0.
+[Int Array] anchor_pos: The phantom, when not actively attacking, attempts to circle around X,Y,Z. Appears to reset to a point above the target player every time the phantom flies up after a swoop. Set to spawn location if not specified.
+
+pig
+
+[NBT Compound / JSON Object] Entity data
+Additional fields for mobs that can breed see Template:Nbt inherit/breedable/template
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+[String] variant: the variant of the pig. Represents the minecraft:pig/variant component.
+
+piglin
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+[Byte] CannotHunt: 1 or 0 (true/false) – if true, the piglin does not attack hoglins. Set to true for piglins spawned as a part of bastion remnants during world generation.
+[NBT List / JSON Array] Inventory: Each compound tag in this list is an item in the piglin's inventory. It can hold a maximum of 8 items.
+[NBT Compound / JSON Object] An item in the inventory, excluding the Slot tag.
+A single item stack see Template:Nbt inherit/itemnoslot/template
+[Byte] IsBaby: 1 or 0 (true/false) – true if the piglin is a baby. May not exist.
+[Byte] IsImmuneToZombification: 1 or 0 (true/false) – if true, the piglin does not transform to a zombified piglin when in the Overworld.
+[Int] TimeInOverworld: The number of ticks that the piglin has existed in the Overworld; the piglin converts to a zombified piglin when this is greater than 300.
+
+piglin_brute
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+[Byte] IsImmuneToZombification: 1 or 0 (true/false) – if true, the piglin brute does not transform to a zombified piglin when in the Overworld.
+[Int] TimeInOverworld: The number of ticks that the piglin brute has existed in the Overworld; the piglin brute converts to a zombified piglin when this is greater than 300.
+
+pillager
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+Tags common to all mobs spawnable in raids see Template:Nbt inherit/raidable/template
+[NBT List / JSON Array] Inventory: Each compound tag in this list is an item in the pillager's inventory, up to a maximum of 5 slots. Items in two or more slots that can be stacked together are automatically be condensed into one slot. Pillagers don't change their inventory automatically or drop items from it upon death. The inventory is currently unused.​[more information needed]
+[NBT Compound / JSON Object] An item in the inventory, excluding the Slot tag.
+A single item stack see Template:Nbt inherit/itemnoslot/template
+
+player
+
+[NBT Compound / JSON Object] The root tag. In level.dat files, this tag is called Player.
+Tags common to all entities see Template:Nbt inherit/entity/template
+except for the tags: CustomName, CustomNameVisible, and Glowing.
+Tags common to all mobs see Template:Nbt inherit/mob/template
+except for the tags:, CanPickUpLoot, LeftHanded, PersistenceRequired, Leash, drop_chances.
+[NBT Compound / JSON Object] abilities: The abilities this player has.
+[Byte] flying: 1 or 0 (true/false) - true if the player is currently flying.
+[Float] flySpeed: The flying speed, set to 0.05.
+[Byte] instabuild: 1 or 0 (true/false) - If true, the player can place blocks without depleting them. This is true for Creative mode, and false for other game modes.
+[Byte] invulnerable: 1 or 0 (true/false) - Behavior is not the same as the invulnerable tag on other entities. If true, the player is immune to all damage and harmful effects except for void damage and /kill. Also, all mobs, whether hostile or not, are passive to the player. true when in Creative or Spectator mode, and false when in Survival or Adventure mode.
+[Byte] mayBuild: 1 or 0 (true/false) - If true, the player can place blocks. true when in Creative or Survival mode, and false when in Spectator or Adventure mode.
+[Byte] mayfly: 1 or 0 (true/false) - If true, the player can fly and doesn't take fall damage. true when in Creative and Spectator modes, and false when in Survival and Adventure modes.
+[Float] walkSpeed: The walking speed, set to 0.1.
+[Int] DataVersion: Version of the player NBT structure. Is increased with every new snapshot and release. See Data version.
+[String] Dimension: The ID of the dimension the player is in. Used to store the player's last known location along with Pos.
+[NBT List / JSON Array] EnderItems: Each compound tag in this list is an item in the player's 27-slot ender chest inventory. When empty, list type may have unexpected value.
+[NBT Compound / JSON Object] An item in the inventory.
+Includes the [Byte] Slot tag - slots are numbered 0–26, inclusive.
+See Data component format § Item format.
+[NBT List / JSON Array] entered_nether_pos: May not exist. A list of 3 doubles, describing the Overworld position from which the player entered the Nether. Used by the nether_travel advancement trigger. Set every time the player passes through a portal from the Overworld to the Nether. When entering a dimension other than the nether (not by respawning) this tag is removed. Entering the Nether without using a portal does not update this tag.
+[Double] x: The X coordinate in the Overworld.
+[Double] y: The Y coordinate in the Overworld.
+[Double] z: The Z coordinate in the Overworld.
+[Float] foodExhaustionLevel: See Hunger § Mechanics.
+[Int] foodLevel: The value of the hunger bar. Referred to as hunger. See Hunger.
+[Float] foodSaturationLevel: Referred to as saturation. See Hunger § Mechanics.
+[Int] foodTickTimer: See Hunger.
+[Boolean] ignore_fall_damage_from_current_explosion: 1 or 0 (true/false) - true if the current explosion should apply a fall damage reduction. Only used by explosions from wind charges.
+[NBT List / JSON Array] Inventory: Each compound tag in this list is an item in the player's inventory. (Note: when empty, list type may have unexpected value.)
+[NBT Compound / JSON Object] An item in the inventory.
+See Data component format § Item format.
+[NBT Compound / JSON Object] LastDeathLocation: May not exist. Location of the player's last death.
+[String] dimension: Dimension of last death.
+[Int Array] pos: Coordinates of last death.
+[Int] playerGameType: The current game mode of the player. 0 means Survival, 1 means Creative, 2 means Adventure, and 3 means Spectator.
+[Int] previousPlayerGameType: The previous game mode of the player.
+[NBT Compound / JSON Object] recipeBook: Contains a JSON object detailing recipes the player has unlocked.
+Tags related to the recipe book see Template:Nbt inherit/Recipe Book/template
+[NBT Compound / JSON Object] respawn: May not exist. The respawn information of the player. Removed when the player attempts to respawn with no valid bed or respawn anchor to spawn at these coordinates. They are unaffected by breaking a bed or respawn anchor at these coordinates, and are unaffected by the player's death.
+[Int Array] pos: block position to spawn at
+[Float] yaw: angle to spawn with (default: 0.0)
+[String] dimension: dimension id to spawn in (default minecraft:overworld) (required)
+[Float] pitch: pitch to spawn with. (required)
+[Boolean] forced: true if this spawn was set through commands (default: false)
+[NBT Compound / JSON Object] RootVehicle: May not exist. The root entity that the player is riding.
+[Int Array] Attach: The UUID of the entity the player is riding, stored as four ints.
+[NBT Compound / JSON Object] Entity: The NBT data of the root vehicle.
+See Entity format.
+[Int] Score: The score displayed upon death.
+[Byte] seenCredits: 1 or 0 (true/false) - true if the player has entered the exit portal in the End at least once.
+[NBT Compound / JSON Object] SelectedItem: Data of the item currently being held by the player, excluding the Slot tag. Only exists when using the /data command, this value is not saved in the player.dat format.
+See item format.
+[Int] SelectedItemSlot: The selected hotbar slot of the player. Values are 0-indexed, so the leftmost slot is 0 and the rightmost slot is 8.
+[NBT Compound / JSON Object] ShoulderEntityLeft: The entity that is on the player's left shoulder. Always displays as a parrot.
+See Entity format.
+[NBT Compound / JSON Object] ShoulderEntityRight: The entity that is on the player's right shoulder. Always displays as a parrot.
+See Entity format.
+[Short] SleepTimer: The number of game ticks the player had been in bed. 0 when the player is not sleeping. When in bed, increases up to 100 ticks, then stops. Skips the night after enough players in beds have reached 100 (see Bed § Passing the night). When getting out of bed, instantly changes to 100 ticks and then increases for another 9 ticks (up to 109 ticks) before returning to 0 ticks.
+[Boolean] spawn_extra_particles_on_fall: ​[more information needed]
+[NBT Compound / JSON Object] warden_spawn_tracker: Contains data about the warden spawning process for this player.
+[Int] warning_level: A warning level between 0, and 4 (inclusive). The warden spawns at level 4.
+[Int] cooldown_ticks: The number of game ticks before the warning_level can be increased again. Decreases by 1 every tick. It is set to 200 game ticks (10 seconds) every time the warning level is increased.
+[Int] ticks_since_last_warning: The number of game ticks since the player was warned for warden spawning. Increases by 1 every tick. After 12000 game ticks (10 minutes) it resets to a value of 0, and the warning_level decreases by 1 level.
+[Int] XpLevel: The level shown on the experience bar.
+[Float] XpP: The progress across the experience bar to the next level, stored as a percentage.[verify]
+[Int] XpSeed: The seed used for the next enchantment in enchanting tables.
+[Int] XpTotal: The total amount of experience the player has collected over time; used for the score upon death.
+
+polar_bear
+
+[NBT Compound / JSON Object] Entity data
+Additional fields for mobs that can become angry see Template:Nbt inherit/angerable/template
+Additional fields for mobs that can breed see Template:Nbt inherit/breedable/template
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+
+pufferfish
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+[Byte] FromBucket: 1 or 0 (true/false) - if true, the fish has been released from a bucket.
+[Int] PuffState: A value from 0–2.
+0 means the fish is deflated
+1 means it is halfway puffed-up
+2 means it is fully puffed-up
+
+rabbit
+
+[NBT Compound / JSON Object] Entity data
+Additional fields for mobs that can breed see Template:Nbt inherit/breedable/template
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+[Int] MoreCarrotTicks: Set to 40 when a carrot crop is eaten, decreases by 0–2 every tick until it reaches 0. Rabbit can eat another crop only when it reaches 0.
+[Int] RabbitType: Determines the skin of the rabbit. Also determines if rabbit should be hostile. Represents the minecraft:rabbit/variant component.
+
+Variant
+
+Numerical ID
+
+Identifier
+
+ Brown
+
+0
+
+brown
+
+ White
+
+1
+
+white
+
+ Black
+
+2
+
+black
+
+ White Splotched
+
+3
+
+white_splotched
+
+ Gold
+
+4
+
+gold
+
+ Salt
+
+5
+
+salt
+
+ The Killer Bunny
+
+99
+
+evil
+
+ Toast
+
+none
+
+none
+
+ravager
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+Tags common to all mobs spawnable in raids see Template:Nbt inherit/raidable/template
+[Int] AttackTick: Attack cooldown for this ravager.
+[Int] RoarTick: Roar attack cooldown for this ravager.
+[Int] StunTick: Stun attack cooldown for this ravager.
+
+salmon
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+[Byte] FromBucket: 1 or 0 (true/false) - Whether the fish had ever been released from a bucket.
+[String] type: Can be small, medium, or large. The size of the salmon. Represents the minecraft:salmon/size component.
+
+sheep
+
+[NBT Compound / JSON Object] Entity data
+Additional fields for mobs that can breed see Template:Nbt inherit/breedable/template
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+[Byte] Color: The color of the sheep. Default is 0. Represents the minecraft:sheep/color component.
+[Byte] Sheared: 1 or 0 (true/false) - true if the sheep has been shorn.
+
+Color
+
+Data value
+
+ White
+
+0
+
+ Orange
+
+1
+
+ Magenta
+
+2
+
+ Light Blue
+
+3
+
+ Yellow
+
+4
+
+ Lime
+
+5
+
+ Pink
+
+6
+
+ Gray
+
+7
+
+ Light Gray
+
+8
+
+ Cyan
+
+9
+
+ Purple
+
+10
+
+ Blue
+
+11
+
+ Brown
+
+12
+
+ Green
+
+13
+
+ Red
+
+14
+
+ Black
+
+15
+
+shulker
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+[Byte] AttachFace: Which face of its block the shulker is attached to. The shulker also opens up in the direction going from the center of the block to that face. 0b means the top face. 1b means the bottom face. 2b means the north face. 3b means the south face. 4b means the west face. 5b means the east face.
+[Byte] Color: The color of the shulker. Default is 0 (white). Shulkers that spawn naturally in end cities or that are spawned from shulker spawn eggs have value 16 (not dyed). Represents the minecraft:shulker/color component, with 16 encoding the absence of the component.
+[Byte] Peek: Percentage of the shulker's way through the process of opening to fully (timewise).
+The "height" of the shulker at any Peek value is calculated via the equation 1.5 - (cos((((Peek - 128) % 256) - 128) * pi / 100) / 2) with % being the modulo function.​[more information needed]
+This "height" goes in the direction that the shulker is facing according to AttachFace.​[more information needed]
+
+Color
+
+Data value
+
+ White
+
+0
+
+ Orange
+
+1
+
+ Magenta
+
+2
+
+ Light Blue
+
+3
+
+ Yellow
+
+4
+
+ Lime
+
+5
+
+ Pink
+
+6
+
+ Gray
+
+7
+
+ Light Gray
+
+8
+
+ Cyan
+
+9
+
+ Purple
+
+10
+
+ Blue
+
+11
+
+ Brown
+
+12
+
+ Green
+
+13
+
+ Red
+
+14
+
+ Black
+
+15
+
+ Default
+
+16
+
+silverfish
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+
+skeleton
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+[Int] StrayConversionTime: The number of ticks until this skeleton converts to a stray (default value is -1, when no conversion is under way).
+
+skeleton_horse
+
+[NBT Compound / JSON Object] Entity data
+Additional fields for mobs that can breed see Template:Nbt inherit/breedable/template
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+[Byte] Bred: 1 or 0 (true/false) – Unknown. Remains 0 after breeding. If true, causes it to stay near other horses with this flag set.
+[Byte] EatingHaystack: 1 or 0 (true/false) – true if the mob is eating grass.
+[Int Array] Owner: The UUID of the entity that tamed the mob, stored as four ints. Has no effect on behavior. Does not exist if there is no owner.
+[Byte] Tame: 1 or 0 (true/false) – true if the mob is tamed.
+[Int] Temper: Ranges from 0 to 100; increases with feeding. Higher values make a mob easier to tame.
+[Byte] SkeletonTrap: 1 or 0 (true/false) - true if the horse is a trapped skeleton horse. Does not affect horse type.
+[Int] SkeletonTrapTime: Incremented each tick when SkeletonTrap is set to 1. The horse automatically despawns when it reaches 18000 (15 minutes).
+
+slime
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+Tags common to all cube mobs see Template:Nbt inherit/cube mob/template
+
+sniffer
+
+[NBT Compound / JSON Object] Entity data
+Additional fields for mobs that can breed see Template:Nbt inherit/breedable/template
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+
+snow_golem
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+[Byte] Pumpkin : 1 or 0 (true/false) - whether or not the Snow Golem has a pumpkin on its head.
+
+spider
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+
+strider
+
+[NBT Compound / JSON Object] Entity data
+Additional fields for mobs that can breed see Template:Nbt inherit/breedable/template
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+
+squid
+
+[NBT Compound / JSON Object] Entity data
+Additional fields for mobs that can breed see Template:Nbt inherit/breedable/template
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+
+stray
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+
+sulfur_cube
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+Only on sulfur cubes, the equipment.body tag represents the minecraft:sulfur_cube_content component in predicates and loot functions.
+Tags common to all cube mobs see Template:Nbt inherit/cube mob/template
+[Int] pickup_timer: The ticks left before the sulfur cube picks up items from the ground. Is set to 100 when the item is removed using shears, then ticks down until it reaches 0.
+[Byte] from_bucket: 1 or 0 (true/false) - 1 if the sulfur cube was spawned by using a Bucket of Sulfur Cube, 0 if not.
+[Int] fuse: The number of ticks before the sulfur cube explodes. For sulfur cubes that are not ignited, this value is -1.
+
+tadpole
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+[Int] Age: Represents the age of the tadpole in ticks. When greater than or equal to 24000 game ticks (20 minutes), the tadpole grows up to a frog.
+[Byte] FromBucket: 1 or 0 (true/false) - Whether the tadpole had ever been released from a bucket.
+
+trader_llama
+
+[NBT Compound / JSON Object] Entity data
+Additional fields for mobs that can breed see Template:Nbt inherit/breedable/template
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+[Byte] Bred: 1 or 0 (true/false) – Unknown. Remains 0 after breeding. If true, causes it to stay near other horses with this flag set.
+[Byte] EatingHaystack: 1 or 0 (true/false) – true if the mob is eating grass.
+[Int Array] Owner: The UUID of the entity that tamed the mob, stored as four ints. Has no effect on behavior. Does not exist if there is no owner.
+[Byte] Tame: 1 or 0 (true/false) – true if the mob is tamed.
+[Int] Temper: Ranges from 0 to 100; increases with feeding. Higher values make a mob easier to tame.
+[Byte] ChestedHorse: 1 or 0 (true/false) - true if the llama has chests.
+[Int] DespawnDelay: A timer for trader llamas to despawn, present only in trader_llama. The trader llama despawns when this value reaches 0.
+[NBT List / JSON Array] Items: List of items. Exists only if ChestedHorse is true.
+[NBT Compound / JSON Object] An item, including the Slot tag.
+An item stack in a container slot see Template:Nbt inherit/item/template
+[Int] Strength: Ranges from 1 to 5, defaults to 3.  Determines the number of items the llama can carry (items = 3 × strength).  Also increases the tendency of wolves to run away when attacked by llama spit. Strengths 4 and 5 always causes a wolf to flee.
+[Int] Variant: The variant of the llama. Represents the minecraft:llama/variant component.
+
+Variant
+
+Numerical ID
+
+Identifier
+
+ Creamy
+
+0
+
+creamy
+
+ White
+
+1
+
+white
+
+ Brown
+
+2
+
+brown
+
+ Gray
+
+3
+
+gray
+
+tropical_fish
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+[Byte] FromBucket: 1 or 0 (true/false) - Whether the fish had ever been released from a bucket.
+[Int] Variant: A 4-byte integer. Encodes the minecraft:tropical_fish/base_color, minecraft:tropical_fish/pattern, and minecraft:tropical_fish/pattern_color components.
+The least significant byte has a value of either 0 for a small fish, or 1 for a large fish. Values above 1 result in an invisible fish.
+The next byte has a value from 0–5, representing the pattern on the fish. Values above 5 result in a fish with no pattern.
+The next byte has a value from 0–15, representing the color of the fish's body.
+The most significant byte has a value from 0–15, representing the color of the fish's pattern.
+
+Color
+
+Data value
+
+ White
+
+0
+
+ Orange
+
+1
+
+ Magenta
+
+2
+
+ Light Blue
+
+3
+
+ Yellow
+
+4
+
+ Lime
+
+5
+
+ Pink
+
+6
+
+ Gray
+
+7
+
+ Light Gray
+
+8
+
+ Cyan
+
+9
+
+ Purple
+
+10
+
+ Blue
+
+11
+
+ Brown
+
+12
+
+ Green
+
+13
+
+ Red
+
+14
+
+ Black
+
+15
+
+The fish sizes and patterns are depicted in the following table, with white body color and dark-gray pattern color.
+
+second-least byte
+
+0
+1
+2
+3
+4
+5
+
+least byte
+1
+
+Flopper
+
+Glitter
+
+Betty
+
+Stripey
+
+Blockfish
+
+Clayfish
+
+Kob
+
+Snooper
+
+Brinely
+
+Sunstreak
+
+Dasher
+
+Spotty
+
+0
+
+The 22 varieties of tropical fish most commonly found throughout the world have Variant tag values from the following table, which also lists what color/shape/patterns come from that value.
+
+Shape
+Pattern
+Base color
+Pattern color
+Variant
+Type
+Name
+
+0
+0
+1
+0
+65536
+Orange-White Kob
+Clownfish
+
+0
+1
+7
+0
+459008
+Gray-White Sunstreak
+Triggerfish
+
+0
+0
+14
+0
+917504
+Red-White Kob
+Tomato Clownfish
+
+1
+3
+14
+0
+918273
+Red-White Blockfish
+Red Snapper
+
+1
+4
+14
+0
+918529
+Red-White Betty
+Red Cichlid
+
+1
+5
+0
+1
+16778497
+White-Orange Clayfish
+Ornate Butterflyfish
+
+0
+4
+5
+3
+50660352
+Lime-Light Blue Brinely
+Queen Angelfish
+
+0
+5
+6
+3
+50726144
+Pink-Light Blue Spotty
+Cotton Candy Betta
+
+1
+0
+0
+4
+67108865
+White-Yellow Flopper
+Threadfin
+
+0
+5
+0
+4
+67110144
+White-Yellow Spotty
+Goatfish
+
+1
+0
+4
+4
+67371009
+Yellow Flopper
+Yellow Tang
+
+0
+3
+9
+4
+67699456
+Cyan-Yellow Dasher
+Yellowtail Parrotfish
+
+1
+3
+10
+4
+67764993
+Purple-Yellow Blockfish
+Dottyback
+
+0
+3
+9
+6
+101253888
+Cyan-Pink Dasher
+Parrotfish
+
+1
+2
+0
+7
+117441025
+White-Gray Glitter
+Moorish Idol
+
+1
+5
+0
+7
+117441793
+White-Gray Clayfish
+Butterflyfish
+
+1
+1
+1
+7
+117506305
+Orange-Gray Stripey
+Anemone
+
+1
+0
+7
+7
+117899265
+Gray Flopper
+Black Tang
+
+0
+1
+11
+7
+118161664
+Blue-Gray SunStreak
+Cichlid
+
+1
+0
+7
+11
+185008129
+Gray-Blue Flopper
+Blue Tang
+
+1
+5
+0
+14
+234882305
+White-Red Clayfish
+Emperor Red Snapper
+
+0
+2
+7
+14
+235340288
+Gray-Red Snooper
+Red Lipped Blenny
+
+The variant number is the sum of the most significant byte × 224 + second most significant byte × 216 + second least significant byte × 28 + least significant byte.
+
+turtle
+
+[NBT Compound / JSON Object] Entity data
+Additional fields for mobs that can breed see Template:Nbt inherit/breedable/template
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+[Byte] has_egg: 1, or 0 (true/false) - true means the turtle is currently pregnant.
+
+vex
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+[Int Array] bound_pos: When a vex is idle, it wanders, selecting air blocks from within a 15×11×15 cuboid range centered at X,Y,Z. This central spot is the location of the evoker when it summoned the vex, or if an evoker was not involved, bound_pos do not exist.
+[Int] life_ticks: Ticks of life remaining, decreasing by 1 per tick. When it reaches zero, the vex starts taking damage and life_ticks is set to 20.
+[Int Array] owner: The UUID of the evoker this vex was spawned by, stored as four ints. May not exist.
+
+villager
+
+[NBT Compound / JSON Object] Entity data
+Additional fields for mobs that can breed see Template:Nbt inherit/breedable/template
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+[Byte] FoodLevel: How many unspent nutrition points the villager has. Together with the villager's inventory, determines whether the villager can breed.
+[NBT List / JSON Array] Gossips: Pieces of gossip that can be exchanged between villagers when they meet. Is not preserved when removed.
+[NBT Compound / JSON Object] A piece of gossip.
+[Int] Value: The strength of the gossip.
+for major_negative: weight -5, max 100, +25 if the villager sees you kill another villager, -10 every 20min, -10 when shared
+for minor_negative: weight -1, max 200, +25 when hit, -20 every 20min, -20 when shared
+for major_positive: weight 5, max 20, +20 when cured, does not decrease and never shared
+for minor_positive: weight 1, max 200, +25 when cured, -1 every 20min, -5 when shared
+for trading: weight 1, max 25, +2 per trade, -2 every 20min, -20 when shared
+[Int Array] Target: The UUID of the player who caused the gossip, stored as four ints.
+[String] Type: An ID value indicating the type of gossip. The possible values are major_negative, minor_negative, major_positive, minor_positive, and trading.
+[NBT List / JSON Array] Inventory: Each compound tag in this list is an item in the villager's inventory, up to a maximum of 8 slots. Items in two or more slots that can be stacked together are automatically condensed into one slot. If there are more than 8 slots, the last slot is removed until the total is 8. If there are 9 slots but two previous slots can be condensed, the last slot returns after the two other slots are combined.
+[NBT Compound / JSON Object] An item in the inventory, excluding the Slot tag.
+A single item stack see Template:Nbt inherit/itemnoslot/template
+[Long] LastGossipDecay: The last tick all gossip of the villager has decreased strength naturally.
+[Long] LastRestock: The last tick the villager went to their job site block to resupply their trades.
+[NBT Compound / JSON Object] Offers: Is generated when the trading menu is opened for the first time.
+[NBT List / JSON Array] Recipes: List of trade options.
+[NBT Compound / JSON Object] A trade option.
+[NBT Compound / JSON Object] buy: The first 'cost' item, without the Slot tag.
+A single item stack see Template:Nbt inherit/itemnoslot/template
+[NBT Compound / JSON Object] buyB: Optional. The second 'cost' item, without the Slot tag.
+A single item stack see Template:Nbt inherit/itemnoslot/template
+[Int] demand: The price adjuster of the first 'cost' item based on demand. Updated when a villager resupply.
+[Int] maxUses: The maximum number of times this trade can be used before it is disabled. Increases by a random amount from 2 to 12 when offers are refreshed.
+[Float] priceMultiplier: The multiplier on the [Int] demand price adjuster; the final adjusted price is added to the first 'cost' item's price.
+[Byte] rewardExp: 1 or 0 (true/false) – Whether this trade provides XP orb drops. All trades from naturally-generated villagers in Java Edition reward XP orbs.
+[NBT Compound / JSON Object] sell: The item being sold for each set of cost items, without the Slot tag.
+A single item stack see Template:Nbt inherit/itemnoslot/template
+[Int] specialPrice: A modifier added to the original price of the first 'cost' item.
+[Int] uses: The number of times this trade has been used. The trade becomes disabled when this is greater or equal to maxUses.
+[Int] xp: How much experience the villager gets from this trade.
+[Int] RestocksToday: The number of restocks a villager has done in 10 minutes from the last restock, or 0 if the villager has not restocked in the last 10 minutes. When a villager has restocked twice in less than 10 minutes, it waits at least 10 minutes for another restock.
+[NBT Compound / JSON Object] VillagerData: Information about the villager’s type, profession, and level.
+[Int] level: The current level of this villager's profession. Influences the trading options generated by the villager. If it is greater than their profession's maximum level, no new offers are generated. Increments when the villager fills his trading xp bar. Also used for badge rendering.
+1: Novice
+2: Apprentice
+3: Journeyman
+4: Expert
+5: Master
+[String] profession: A resource location indicating the villager's profession; see Villager § Professions.
+[String] type: A resource location indicating the villager's type; see Villager § Appearance. Represents the minecraft:villager/variant component.
+[Byte] VillagerDataFinalized: This field is seemingly only used by the game's data fixer, and is always 1b for villagers and zombie villagers spawned in 26.1 Snapshot 1 and later.
+[Int] Xp: How much experience the villager currently has, increases with trading in various amounts.
+0 to 9: Novice
+10 to 69: Apprentice
+70 to 149: Journeyman
+150 to 249: Expert
+250 and more: Master
+
+Type
+
+Data value
+
+ Desert
+
+minecraft:desert
+
+ Jungle
+
+minecraft:jungle
+
+ Plains
+
+minecraft:plains
+
+ Savanna
+
+minecraft:savanna
+
+ Snowy
+
+minecraft:snow
+
+ Swamp
+
+minecraft:swamp
+
+ Taiga
+
+minecraft:taiga
+
+Profession
+
+Data value
+
+ Armorer
+
+minecraft:armorer
+
+ Butcher
+
+minecraft:butcher
+
+ Cartographer
+
+minecraft:cartographer
+
+ Cleric
+
+minecraft:cleric
+
+ Farmer
+
+minecraft:farmer
+
+ Fisherman
+
+minecraft:fisherman
+
+ Fletcher
+
+minecraft:fletcher
+
+ Leatherworker
+
+minecraft:leatherworker
+
+ Librarian
+
+minecraft:librarian
+
+ Nitwit
+
+minecraft:nitwit
+
+ Unemployed
+
+minecraft:none
+
+ Mason
+
+minecraft:mason
+
+ Shepherd
+
+minecraft:shepherd
+
+ Toolsmith
+
+minecraft:toolsmith
+
+ Weaponsmith
+
+minecraft:weaponsmith
+
+vindicator
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+Tags common to all mobs spawnable in raids see Template:Nbt inherit/raidable/template
+[Byte] Johnny: 1 or 0 (true/false) - if true, causes the vindicator to exhibit Johnny behavior. Setting to false prevents the vindicator exhibiting Johnny behavior, even if named Johnny. Optional.
+
+wandering_trader
+
+[NBT Compound / JSON Object] Entity data
+Additional fields for mobs that can breed see Template:Nbt inherit/breedable/template
+The Age tag cannot be set to a negative number, making it impossible for them to be a baby.
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+[Int] DespawnDelay: The number of ticks counted down until this wandering trader is forced to despawn. The wandering trader despawns when this value reaches 1. If set to a value of 0 or less, the value will not change and the wandering trader will not despawn.
+[NBT Compound / JSON Object] Offers: Is generated when the trading menu is opened for the first time.
+[NBT List / JSON Array] Recipes: List of trade options.
+[NBT Compound / JSON Object] A trade option.
+[NBT Compound / JSON Object] buy: The first 'cost' item, without the Slot tag.
+A single item stack see Template:Nbt inherit/itemnoslot/template
+[NBT Compound / JSON Object] buyB: May not exist. The second 'cost' item, without the Slot tag.
+A single item stack see Template:Nbt inherit/itemnoslot/template
+[Int] maxUses: The maximum number of times this trade can be used before it is disabled. Increases by a random amount from 2 to 12 when offers are refreshed.
+[Byte] rewardExp: 1 or 0 (true/false) - true if this trade provides XP orb drops. All trades from naturally-generated villagers in Java Edition reward XP orbs.
+[NBT Compound / JSON Object] sell: The item being sold for each set of cost items, without the Slot tag.
+A single item stack see Template:Nbt inherit/itemnoslot/template
+[Int] uses: The number of times this trade has been used. The trade becomes disabled when this is greater or equal to maxUses.
+[Int Array] wander_target: The block location that the trader wanders toward.
+[NBT List / JSON Array] Inventory: Each compound tag in this list is an item in the wandering trader's inventory, up to a maximum of 8 slots. Items in two or more slots that can be stacked together are automatically be condensed into one slot. If there are more than 8 slots, the last slot is removed until the total is 8. If there are 9 slots but two previous slots can be condensed, the last slot returns after the two other slots are combined. Wandering traders don't change their inventory automatically or drop items from it upon death. The inventory is currently unused.
+[NBT Compound / JSON Object] An item in the inventory, excluding the Slot tag.
+A single item stack see Template:Nbt inherit/itemnoslot/template
+
+warden
+
+[NBT Compound / JSON Object]: Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+[NBT Compound / JSON Object] anger: Anger management of the warden.
+[NBT List / JSON Array] suspects: List of suspects that have angered the warden.
+[NBT Compound / JSON Object]: A suspect.
+[Int] anger: The level of anger. It has a maximum value of 150 and decreases by 1 every second.
+[Int Array] uuid: The UUID of the entity that is associated with the anger, stored as four ints.
+[NBT Compound / JSON Object] listener: The vibration event listener for this warden.
+[NBT Compound / JSON Object] event: Exists only if there is an incoming vibration.
+[Float] distance: The distance between this vibration's source and the block.
+[String] game_event: The resource location of the vibration event that caused the current incoming vibration.
+[NBT List / JSON Array] pos: The coordinates of the source of this vibration.
+[Double]: X coordinate.
+[Double]: Y coordinate.
+[Double]: Z coordinate.
+[Int Array] projectile_owner: If the vibration was caused by a projectile, this is the UUID of the entity that launched the projectile. Does not exist if vibration was not caused by a projectile.
+[Int Array] source: The UUID of the entity that caused the vibration. Does not exist if vibration was not caused by an entity.
+[Int] event_delay: How many ticks remain until triggered by the vibration. Set to 0 if there is no incoming vibration
+[NBT Compound / JSON Object] selector: The data of the vibration selector.​[more information needed]
+[Long] tick: The game time when the vibration occurs, or -1 if there is no vibration to choose from.​[more information needed]
+[NBT Compound / JSON Object] event: Candidate game event, with the same structure as the [NBT Compound / JSON Object] event tag above.​[more information needed]
+
+witch
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+Tags common to all mobs spawnable in raids see Template:Nbt inherit/raidable/template
+
+wither
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+[Int] Invul: The number of ticks of invulnerability left after being initially created. 0 once invulnerability has expired.
+
+wither_skeleton
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+
+wolf
+
+[NBT Compound / JSON Object] Entity data
+Additional fields for mobs that can become angry see Template:Nbt inherit/angerable/template
+Additional fields for mobs that can be tamed by players see Template:Nbt inherit/tameable/template
+Additional fields for mobs that can breed see Template:Nbt inherit/breedable/template
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+[Byte] CollarColor: The color of the wolf's collar. Present even for wild wolves (but does not render). Default value is 14 (red). Represents the minecraft:wolf/collar component.
+[String] variant: The variant of this wolf. Default value is "minecraft:pale". Represents the minecraft:wolf/variant component.
+[String] sound_variant: The sound variation for this wolf. Represents the minecraft:wolf/sound_variant component.
+
+Color
+
+Data value
+
+ White
+
+0
+
+ Orange
+
+1
+
+ Magenta
+
+2
+
+ Light Blue
+
+3
+
+ Yellow
+
+4
+
+ Lime
+
+5
+
+ Pink
+
+6
+
+ Gray
+
+7
+
+ Light Gray
+
+8
+
+ Cyan
+
+9
+
+ Purple
+
+10
+
+ Blue
+
+11
+
+ Brown
+
+12
+
+ Green
+
+13
+
+ Red
+
+14
+
+ Black
+
+15
+
+Variants
+pale (default)
+ashen
+black
+chestnut
+rusty
+snowy
+spotted
+striped
+woods
+Sound Variants
+classic
+angry
+big
+cute
+grumpy
+puglin
+sad
+
+zoglin
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+[Byte] IsBaby: 1 or 0 (true/false) - true if the zoglin is a baby. May not exist.
+
+zombie
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+[Byte] CanBreakDoors: 1 or 0 (true/false) - true if the zombie can break doors (default value is 0).
+[Int] DrownedConversionTime: The number of ticks until this zombie converts to a drowned, or husk to zombie. (default value is -1, when no conversion is under way).
+[Int] InWaterTime: The number of ticks this zombie or husk has been under water, used to start the drowning conversion. (default value is -1, when no conversion is under way).
+[Byte] IsBaby: 1 or 0 (true/false) - true if this zombie is a baby. May be absent.
+
+zombie_horse
+
+[NBT Compound / JSON Object] Entity data
+Additional fields for mobs that can breed see Template:Nbt inherit/breedable/template
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+[Byte] Bred: 1 or 0 (true/false) – Unknown. Remains 0 after breeding. If true, causes it to stay near other horses with this flag set.
+[Byte] EatingHaystack: 1 or 0 (true/false) – true if the mob is eating grass.
+[Int Array] Owner: The UUID of the entity that tamed the mob, stored as four ints. Has no effect on behavior. Does not exist if there is no owner.
+[Byte] Tame: 1 or 0 (true/false) – true if the mob is tamed.
+[Int] Temper: Ranges from 0 to 100; increases with feeding. Higher values make a mob easier to tame.
+
+zombie_nautilus
+
+[NBT Compound / JSON Object] Entity data
+Additional fields for mobs that can be tamed by players see Template:Nbt inherit/tameable/template
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+[String] variant: the variant of the nautilus. Represents the minecraft:zombie_nautilus/variant component.
+
+ minecraft:warm for the coral variant, minecraft:temperate or anything else for the temperate variant.
+
+
+
+zombie_villager
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+[NBT List / JSON Array] Gossips: Pieces of gossip that can be exchanged between villagers when they meet. Is not preserved when removed.
+[NBT Compound / JSON Object] A piece of gossip.
+[Int] Value: The strength of the gossip.
+for major_negative: weight -5, max 100, +25 if the villager sees you kill another villager, -10 every 20min, -10 when shared
+for minor_negative: weight -1, max 200, +25 when hit, -20 every 20min, -20 when shared
+for major_positive: weight 5, max 20, +20 when cured, does not decrease and never shared
+for minor_positive: weight 1, max 200, +25 when cured, -1 every 20min, -5 when shared
+for trading: weight 1, max 25, +2 per trade, -2 every 20min, -20 when shared
+[Int Array] Target: The UUID of the player who caused the gossip, stored as four ints.
+[String] Type: An ID value indicating the type of gossip. The possible values are major_negative, minor_negative, major_positive, minor_positive, and trading.
+[NBT List / JSON Array] Inventory: Each compound tag in this list is an item in the villager's inventory, up to a maximum of 8 slots. Items in two or more slots that can be stacked together are automatically condensed into one slot. If there are more than 8 slots, the last slot is removed until the total is 8. If there are 9 slots but two previous slots can be condensed, the last slot returns after the two other slots are combined.
+[NBT Compound / JSON Object] An item in the inventory, excluding the Slot tag.
+A single item stack see Template:Nbt inherit/itemnoslot/template
+[Long] LastGossipDecay: The last tick all gossip of the villager has decreased strength naturally.
+[Long] LastRestock: The last tick the villager went to their job site block to resupply their trades.
+[NBT Compound / JSON Object] Offers: Is generated when the trading menu is opened for the first time.
+[NBT List / JSON Array] Recipes: List of trade options.
+[NBT Compound / JSON Object] A trade option.
+[NBT Compound / JSON Object] buy: The first 'cost' item, without the Slot tag.
+A single item stack see Template:Nbt inherit/itemnoslot/template
+[NBT Compound / JSON Object] buyB: Optional. The second 'cost' item, without the Slot tag.
+A single item stack see Template:Nbt inherit/itemnoslot/template
+[Int] demand: The price adjuster of the first 'cost' item based on demand. Updated when a villager resupply.
+[Int] maxUses: The maximum number of times this trade can be used before it is disabled. Increases by a random amount from 2 to 12 when offers are refreshed.
+[Float] priceMultiplier: The multiplier on the [Int] demand price adjuster; the final adjusted price is added to the first 'cost' item's price.
+[Byte] rewardExp: 1 or 0 (true/false) – Whether this trade provides XP orb drops. All trades from naturally-generated villagers in Java Edition reward XP orbs.
+[NBT Compound / JSON Object] sell: The item being sold for each set of cost items, without the Slot tag.
+A single item stack see Template:Nbt inherit/itemnoslot/template
+[Int] specialPrice: A modifier added to the original price of the first 'cost' item.
+[Int] uses: The number of times this trade has been used. The trade becomes disabled when this is greater or equal to maxUses.
+[Int] xp: How much experience the villager gets from this trade.
+[Int] RestocksToday: The number of restocks a villager has done in 10 minutes from the last restock, or 0 if the villager has not restocked in the last 10 minutes. When a villager has restocked twice in less than 10 minutes, it waits at least 10 minutes for another restock.
+[NBT Compound / JSON Object] VillagerData: Information about the villager’s type, profession, and level.
+[Int] level: The current level of this villager's profession. Influences the trading options generated by the villager. If it is greater than their profession's maximum level, no new offers are generated. Increments when the villager fills his trading xp bar. Also used for badge rendering.
+1: Novice
+2: Apprentice
+3: Journeyman
+4: Expert
+5: Master
+[String] profession: A resource location indicating the villager's profession; see Villager § Professions.
+[String] type: A resource location indicating the villager's type; see Villager § Appearance. Represents the minecraft:villager/variant component.
+[Byte] VillagerDataFinalized: This field is seemingly only used by the game's data fixer, and is always 1b for villagers and zombie villagers spawned in 26.1 Snapshot 1 and later.
+[Int] Xp: How much experience the villager currently has, increases with trading in various amounts.
+0 to 9: Novice
+10 to 69: Apprentice
+70 to 149: Journeyman
+150 to 249: Expert
+250 and more: Master
+[Byte] CanBreakDoors: 1 or 0 (true/false) - true if the zombie can break doors (default value is 0).
+[Int] DrownedConversionTime: The number of ticks until this zombie converts to a drowned, or husk to zombie. (default value is -1, when no conversion is under way).
+[Int] InWaterTime: The number of ticks this zombie or husk has been under water, used to start the drowning conversion. (default value is -1, when no conversion is under way).
+[Byte] IsBaby: 1 or 0 (true/false) - true if this zombie is a baby. May be absent.
+[Int] ConversionTime: -1 when not being converted back to a villager, positive for the number of ticks until conversion back into a villager. The regeneration effect parallels this.
+[Int Array] ConversionPlayer: The UUID of the player who started curing the zombie, stored as four ints.
+
+Type
+
+Data value
+
+ Desert
+
+minecraft:desert
+
+ Jungle
+
+minecraft:jungle
+
+ Plains
+
+minecraft:plains
+
+ Savanna
+
+minecraft:savanna
+
+ Snowy
+
+minecraft:snow
+
+ Swamp
+
+minecraft:swamp
+
+ Taiga
+
+minecraft:taiga
+
+Profession
+
+Data value
+
+ Armorer
+
+minecraft:armorer
+
+ Butcher
+
+minecraft:butcher
+
+ Cartographer
+
+minecraft:cartographer
+
+ Cleric
+
+minecraft:cleric
+
+ Farmer
+
+minecraft:farmer
+
+ Fisherman
+
+minecraft:fisherman
+
+ Fletcher
+
+minecraft:fletcher
+
+ Leatherworker
+
+minecraft:leatherworker
+
+ Librarian
+
+minecraft:librarian
+
+ Nitwit
+
+minecraft:nitwit
+
+ Unemployed
+
+minecraft:none
+
+ Mason
+
+minecraft:mason
+
+ Shepherd
+
+minecraft:shepherd
+
+ Toolsmith
+
+minecraft:toolsmith
+
+ Weaponsmith
+
+minecraft:weaponsmith
+
+zombified_piglin
+
+[NBT Compound / JSON Object] Entity data
+Additional fields for mobs that can become angry see Template:Nbt inherit/angerable/template
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+[Byte] CanBreakDoors: 1 or 0 (true/false) - true if the zombie can break doors (default value is 0).
+[Int] DrownedConversionTime: The number of ticks until this zombie converts to a drowned, or husk to zombie. (default value is -1, when no conversion is under way).
+[Int] InWaterTime: The number of ticks this zombie or husk has been under water, used to start the drowning conversion. (default value is -1, when no conversion is under way).
+[Byte] IsBaby: 1 or 0 (true/false) - true if this zombie is a baby. May be absent.
+
+Projectiles
+Projectiles are a subclass of Entity.
+
+arrow
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all arrows and tridents see Template:Nbt inherit/arrow/template
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all projectiles see Template:Nbt inherit/projectile/template
+
+breeze_wind_charge
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all projectiles see Template:Nbt inherit/projectile/template
+Tags common to all hurting projectiles see Template:Nbt inherit/hurting projectile/template
+
+dragon_fireball
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all fireballs see Template:Nbt inherit/fireball/template
+Tags common to all projectiles see Template:Nbt inherit/projectile/template
+
+egg
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all projectiles see Template:Nbt inherit/projectile/template
+[NBT Compound / JSON Object] Item: The item to render as, may be absent.
+A single item stack see Template:Nbt inherit/itemnoslot/template
+
+ender_pearl
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all projectiles see Template:Nbt inherit/projectile/template
+[NBT Compound / JSON Object] Item: The item to render as, may be absent.
+A single item stack see Template:Nbt inherit/itemnoslot/template
+
+experience_bottle
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all projectiles see Template:Nbt inherit/projectile/template
+[NBT Compound / JSON Object] Item: The item to render as, may be absent.
+A single item stack see Template:Nbt inherit/itemnoslot/template
+
+fireball
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all projectiles see Template:Nbt inherit/projectile/template
+Tags common to all hurting projectiles see Template:Nbt inherit/hurting projectile/template
+[Byte] ExplosionPower: The power and size of the explosion created by the fireball upon impact. Default value 1.
+[NBT Compound / JSON Object] Item: The item to render as, may be absent.
+A single item stack see Template:Nbt inherit/itemnoslot/template
+
+firework_rocket
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all projectiles see Template:Nbt inherit/projectile/template
+[NBT Compound / JSON Object] FireworksItem: The crafted firework rocket.
+A single item stack see Template:Nbt inherit/itemnoslot/template
+[Int] Life: The number of ticks this fireworks rocket has been flying for.
+[Int] LifeTime: The number of ticks before this fireworks rocket explodes. This value is randomized when the firework is launched: ((Flight + 1) * 10 + random(0 to 5) + random(0 to 6))
+[Boolean] ShotAtAngle: 1 or 0 (true/false) - If true, this firework was shot from a crossbow or dispenser.
+
+lingering_potion
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all projectiles see Template:Nbt inherit/projectile/template
+[NBT Compound / JSON Object] Item: The item to render as.
+A single item stack see Template:Nbt inherit/itemnoslot/template
+
+llama_spit
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all projectiles see Template:Nbt inherit/projectile/template
+
+shulker_bullet
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all projectiles see Template:Nbt inherit/projectile/template
+[Int] Steps: How many "steps" it takes to attack to the target. The higher it is, the further out of the way the bullet travels to get to the target. If set to 0, it makes no attempt to attack the target and instead uses TXD/TYD/TZD in a straight line.
+[Int Array] Target: The UUID of the target of this shulker bullet, stored as four ints. Is not preserved when removed.
+[Double] TXD: The offset in the X direction to travel in accordance with its target. Is not preserved when removed.
+[Double] TYD: The offset in the Y direction to travel in accordance with its target. Is not preserved when removed.
+[Double] TZD: The offset in the Z direction to travel in accordance with its target. Is not preserved when removed.
+
+small_fireball
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all fireballs see Template:Nbt inherit/fireball/template
+Tags common to all projectiles see Template:Nbt inherit/projectile/template
+[NBT Compound / JSON Object] Item: The item to render as, may be absent.
+A single item stack see Template:Nbt inherit/itemnoslot/template
+
+snowball
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all projectiles see Template:Nbt inherit/projectile/template
+[NBT Compound / JSON Object] Item: The item to render as, may be absent.
+A single item stack see Template:Nbt inherit/itemnoslot/template
+
+spectral_arrow
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all arrows and tridents see Template:Nbt inherit/arrow/template
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all projectiles see Template:Nbt inherit/projectile/template
+[Int] Duration: The time in ticks that the Glowing effect persists.
+
+splash_potion
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all projectiles see Template:Nbt inherit/projectile/template
+[NBT Compound / JSON Object] Item: The item to render as.
+A single item stack see Template:Nbt inherit/itemnoslot/template
+
+trident
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all arrows and tridents see Template:Nbt inherit/arrow/template
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all projectiles see Template:Nbt inherit/projectile/template
+[Boolean] DealtDamage: 1 or 0 (true/false) - If true, the trident has already damaged an entity or been stuck in the ground for more than 4 ticks, in which case subsequent collisions with entities deal no damage and Loyalty tridents begin to return to the player.
+
+wind_charge
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all projectiles see Template:Nbt inherit/projectile/template
+Tags common to all hurting projectiles see Template:Nbt inherit/hurting projectile/template
+
+wither_skull
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all fireballs see Template:Nbt inherit/fireball/template
+Tags common to all projectiles see Template:Nbt inherit/projectile/template
+[Boolean] dangerous: 1 or 0 (true/false) - If true, the wither skull renders as blue, moves more slowly, and ignores the hardness values of most blocks upon exploding.
+
+Items and XP Orbs
+Items and XPOrbs are a subclass of Entity.
+
+experience_orb
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+[Short] Age: The number of ticks the XP orb has been "untouched". After 6000 ticks (5 minutes) the orb despawns.
+[Int] Count: The remaining number of times that the orb can be picked up. When the orb is picked up, the value decreases by 1. When multiple orbs are merged, their values are added up to result orb. When the value reaches 0, the orb is depleted.
+[Short] Health: The health of XP orbs. XP orbs take damage from fire, lava, falling anvils, and explosions. The orb is destroyed when its health reaches 0.
+[Short] Value: The amount of experience the orb gives when picked up.
+
+item
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+[Short] Age: The number of ticks the item has been "untouched". After 6000 ticks (5 minutes) the item is destroyed. If set to -32768, the Age does not increase, preventing the item from despawning automatically.
+[Short] Health: The health of the item, which starts at 5. Items take damage from fire, lava, cacti and explosions. The item is destroyed when its health reaches 0.
+[NBT Compound / JSON Object] Item: The inventory item, without the Slot tag.
+A single item stack see Template:Nbt inherit/itemnoslot/template
+[Int Array] Owner: If present, only the player with this UUID can pick up the item. Used by the give command (and can be set in a summon command) to prevent the wrong player from picking up the spawned item entity. Is not preserved when removed.
+[Short] PickupDelay: The number of ticks the item cannot be picked up. Decreases by 1 per tick. If set to 32767, the PickupDelay does not decrease, preventing the item from being picked up.
+[Int Array] Thrower: The UUID of the entity who dropped the item. Is not preserved when removed.
+
+Vehicles
+Vehicles are subclasses of Entity.
+
+boat
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+
+chest_boat
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all container entities see Template:Nbt inherit/container entity/template
+Tags common to all entities see Template:Nbt inherit/entity/template
+
+minecart
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all minecarts see Template:Nbt inherit/vehicle/template
+
+chest_minecart
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all container entities see Template:Nbt inherit/container entity/template
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all minecarts see Template:Nbt inherit/vehicle/template
+
+command_block_minecart
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all minecarts see Template:Nbt inherit/vehicle/template
+[String] Command: The command entered into the minecart.
+[String] LastOutput: The last line of output generated by the minecart. Still stored even if the gamerule commandBlockOutput is false. Appears in the GUI of the minecart when right-clicked, and includes a timestamp of when the output was produced.
+[Int] SuccessCount: Represents the strength of the analog signal output by redstone comparators attached to this minecart. Only updated when the minecart is activated with an activator rail.
+[Boolean] TrackOutput: 1 or 0 (true/false) - Determines whether the LastOutput is stored. Can be toggled in the GUI by clicking a button near the "Previous Output" textbox. Caption on the button indicates current state: "O" if true,"X" if false.
+
+furnace_minecart
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all minecarts see Template:Nbt inherit/vehicle/template
+[Short] Fuel: The number of ticks until the minecart runs out of fuel.
+[Double] PushX: Force along X axis, used for smooth acceleration/deceleration.
+[Double] PushZ: Force along Z axis, used for smooth acceleration/deceleration.
+
+hopper_minecart
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all container entities see Template:Nbt inherit/container entity/template
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all minecarts see Template:Nbt inherit/vehicle/template
+[Boolean] Enabled: 1 or 0 (true/false) - If true, the minecart hopper picks up items into its inventory.
+
+spawner_minecart
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all minecarts see Template:Nbt inherit/vehicle/template
+[Short] Delay: Ticks until next spawn. If 0, it spawns immediately when a player enters its range. If set to -1 (this state never occurs in a natural spawner; it seems to be a feature accessed only via NBT editing), the spawner resets this and SpawnData as though it had just completed a successful spawn cycle, immediately when a player enters its range. Setting this to -1 can be useful if the player wants the game to properly randomize the spawner's Delay and SpawnData, rather than starting with pre-defined values.
+[Short] MaxNearbyEntities: Overrides the maximum number of nearby (within a box of SpawnRange*2+1 × SpawnRange*2+1 × 8 centered around the spawner block) entities whose IDs match this spawner's entity ID. This is relative to a mob's hitbox, not its physical position. Also, all entities within all chunk sections (16×16×16 cubes) overlapped by this box are tested for their ID and hitbox overlap, rather than just entities within the box, meaning that a large amount of entities outside the box (or within it, of course) can cause substantial lag.
+[Short] MaxSpawnDelay: The maximum random delay for the next spawn delay. Requires the MinSpawnDelay and SpawnCount properties to also be set.
+[Short] MinSpawnDelay: The minimum random delay for the next spawn delay. May be equal to MaxSpawnDelay. Requires the SpawnCount property to also be set, otherwise it defaults to 0.
+[Short] RequiredPlayerRange: Overrides the block radius of the sphere of activation by players for this spawner. For every gametick, a spawner checks all players in the current world to test whether a player is within this sphere. Requires the MaxNearbyEntities property to also be set.
+[Short] SpawnCount: How many mobs to attempt to spawn each time. Requires the MinSpawnDelay property to also be set.
+[NBT Compound / JSON Object] SpawnData: Contains tags to copy to the next spawned entity(s) after spawning. Any of the entity or mob tags may be used. If a spawner specifies any of these tags, almost all variable data such as mob equipment, villager profession, sheep wool color, etc., are not automatically generated, and must also be manually specified (that this does not apply to position data, which are randomized as normal unless Pos is specified. Similarly, unless Size and Health are specified for a Slime or Magma Cube, these are still randomized). This also determines the appearance of the miniature entity spinning in the spawner cage. Warning: If SpawnPotentials exists, this tag gets overwritten after the next spawning attempt: see above for more details.
+[NBT List / JSON Array] SpawnPotentials: Optional. List of possible entities to spawn. If this tag does not exist, but SpawnData exists, Minecraft generates it the next time the spawner tries to spawn an entity. The generated list contains a single entry derived from the SpawnData tag.
+[NBT Compound / JSON Object]: A potential future spawn. After the spawner makes an attempt at spawning, it chooses one of these entries at random and uses it to prepare for the next spawn, overwriting SpawnData.
+[Int] weight: The chance that this spawn gets picked in comparison to other spawn weights. Must be positive and at least 1.
+[NBT Compound / JSON Object] data
+Spawn Data see Template:Nbt inherit/spawn data/template
+[Short] SpawnRange: The radius around which the spawner attempts to place mobs randomly. The spawn area is square, includes the block the spawner is in, and is centered around the spawner's x,z coordinates - not the spawner itself. It is 2 blocks high, centered around the spawner's y coordinate (its bottom), allowing mobs to spawn as high as its top surface and as low as 1 block below its bottom surface. Vertical spawn coordinates are integers, while horizontal coordinates are floating point and weighted toward values near the spawner itself. Default value is 4.
+
+tnt_minecart
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all minecarts see Template:Nbt inherit/vehicle/template
+[Int] fuse: Time until explosion or -1 if not activated.
+[Float] explosion_power: A value from 0 to 128. Additional explosion power, which is added to the speed-based explosion power. Defaults to 4.0. If set to the default value, this field is not saved to the entity's NBT.
+[Float] explosion_speed_factor: Controls the amount of added damage depending on the speed of the Minecart. Defaults to 1.0. If set to the default value, this field is not saved to the entity's NBT.
+
+Dynamic tiles
+Dynamic tiles are a subclass of Entity and are used to simulate realistically moving blocks.
+
+falling_block
+
+[NBT Compound / JSON Object] Dynamic block entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+[NBT Compound / JSON Object] BlockState: The falling block represented by this entity.
+Block state see Template:Nbt inherit/block state/template
+[NBT Compound / JSON Object] TileEntityData: Optional. The tags of the block entity for this block.
+Tags common to all block entities see Template:Nbt inherit/blockentity/template
+[Byte] CancelDrop: 1 or 0 (true/false) - true if the block should be destroyed instead of placed after landing on a solid block. When true, the block is not dropped as an item, even if the DropItem tag is set to true. However, if the entity is deleted due to its Time value being too high, this tag is ignored and an item is dropped depending on the DropItem tag. CancelDrop defaults to 1 for falling suspicious sand and suspicious gravel, and 0 for the other vanilla falling blocks and any summoned falling block.
+[Byte] DropItem: 1 or 0 (true/false) – true if the block should drop as an item when it breaks. Any block that does not have an item form with the same ID as the block does not drop even if this is set.
+[Float] FallHurtAmount: Multiplied by the FallDistance to calculate the amount of damage to inflict. By default this value is 2HP for anvils, and 6HP for pointed dripstone.
+[Int] FallHurtMax: The maximum hit points of damage to inflict on entities that intersect this falling block. For vanilla falling blocks, always 40HP × 20.
+[Byte] HurtEntities: 1 or 0 (true/false) – true if the block should hurt entities it falls on. Defaults to 1 for anvils and pointed dripstone and to 0 for the other vanilla falling blocks and any summoned falling block.
+[Int] Time: The number of ticks the entity has existed. When Time goes above 600, or above 100 while the block is at Y=-64 or is outside building height, the entity is deleted.
+
+tnt
+
+[NBT Compound / JSON Object] Dynamic block entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+[Short] fuse: Ticks until explosion. Defaults to 80.​[more information needed]
+[NBT Compound / JSON Object] block_state: The block model to use. defaults to TNT if not specified.
+[String] Name: The resource location of the block.
+[NBT Compound / JSON Object] Properties: Optional. The block states of the block.
+[String] Name: The block state name and its value.
+[Float] explosion_power: A value from 0 to 128. The power of the explosion.  Defaults to 4.0. If set to the default value, this field is not saved to the entity's NBT.
+[Int Array] owner: The UUID of the entity this TNT was lit by, stored as four ints. May not exist.
+
+Display
+Display entities are subclasses of Entity.
+
+block_display
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all display entities see Template:Nbt inherit/display entity/template
+[NBT Compound / JSON Object] block_state: The block state to display.
+Block state see Template:Nbt inherit/block state/template
+
+item_display
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all display entities see Template:Nbt inherit/display entity/template
+[NBT Compound / JSON Object] item: The item to display.
+A single item stack see Template:Nbt inherit/itemnoslot/template
+[String] item_display: The model to display. Describes item model transform applied to item (as defined in display field in model JSON). Can be none, thirdperson_lefthand, thirdperson_righthand, firstperson_lefthand, firstperson_righthand, head, gui, ground, and fixed.[verify] Defaults to none.
+
+text_display
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all display entities see Template:Nbt inherit/display entity/template
+[String] alignment: Text alignment direction. Can be center, left, and right. Defaults to center.
+[Int] background: The background color, arranged by ARGB. Since pixels with an alpha channel less than 0.1 are discarded when rendering in vanilla shader, the background becomes fully transparent when A is less than 26 (0x1A). Defaults to 1073741824 (0x40000000). Interpolated.
+[Boolean] default_background: If true, rendering uses default text background color (same as in chat), which overrides [Int] background. Defaults to false.
+[Int] line_width: Maximum line width used to split lines (note: new line can be also added with \n characters). Defaults to 200.
+[Boolean] see_through: Whether the text is visible through blocks. Defaults to false.
+[Boolean] shadow: Whether the text is displayed with shadow. Defaults to false.
+[String] text: The text to be displayed, in the text component format, which is resolved with the context of the display entity.
+[Byte] text_opacity: Alpha value of rendered text. Value ranges from 0 to 255. Values up to 3 are treated as fully opaque (255). Similar to the background, the text rendering is discarded for values between 4 and 26. NBT stores the value as signed byte, -128 to 127. Defaults to -1, which represents 255 and is completely opaque. SNBT to NBT handles conversion from unsigned to signed, but if needed, replace values greater than 127 with alpha-256 or alphaUB. Interpolated.
+
+Other
+Other entity types that are a subclass of Entity but do not fit into any of the above categories.
+
+area_effect_cloud
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+[Int] Age: Age of the field. Increases by 1 every tick. When this is bigger than Duration + WaitTime the area effect cloud dissipates.
+[Int] Color: The color of the displayed particle. Uses the same format as the color tag from Display Properties.
+[Int] Duration: The maximum age of the field after WaitTime.
+[Int] DurationOnUse: The amount the duration of the field changes upon applying the effect.
+[String][NBT Compound / JSON Object] potion_contents: The potion and custom effects contained in this area effect cloud. Represents the minecraft:potion_contents component. If set to a string, it is converted to a compound, with the string corresponding to [String] potion.
+A custom potion contents object see Template:Nbt inherit/potion_contents/template
+[Int Array] Owner: The UUID of the entity who created the cloud, stored as four ints. Is not preserved when removed.
+[NBT Compound / JSON Object] custom_particle: The particle displayed by the field.
+[String] type: The id of the particle type, see particles for valid options.
+Additional fields based on the type, see Particle format.
+[Float] potion_duration_scale: The duration of the potion effect applied is scaled by this factor. (defaults to 1.0). Area Effect Clouds created by Lingering Potions will have a scale of 0.25. Represents the minecraft:potion_duration_scale component.
+[Float] Radius: The field's radius.
+[Float] RadiusOnUse: The amount the radius changes upon applying the effect. Normally negative.
+[Float] RadiusPerTick: The amount the radius changes per tick. Normally negative.
+[Int] ReapplicationDelay: The number of ticks before reapplying the effect.
+[Int] WaitTime: The time before deploying the field. The Radius is ignored, meaning that any specified effects is not applied and specified particles appear only at the center of the field, until Age hits this number.
+
+cushion
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+[Int Array] block_pos: The block space the cushion occupies. Stored as 3 ints.
+[String] color: The cushion's color. Defaults to "white". Represents the minecraft:cushion/color component.
+
+Color
+
+Data value
+
+ White
+
+"white"
+
+ Orange
+
+"orange"
+
+ Magenta
+
+"magenta"
+
+ Light Blue
+
+"light_blue"
+
+ Yellow
+
+"yellow"
+
+ Lime
+
+"lime"
+
+ Pink
+
+"pink"
+
+ Gray
+
+"gray"
+
+ Light Gray
+
+"light_gray"
+
+ Cyan
+
+"cyan"
+
+ Purple
+
+"purple"
+
+ Blue
+
+"blue"
+
+ Brown
+
+"brown"
+
+ Green
+
+"green"
+
+ Red
+
+"red"
+
+ Black
+
+"black"
+
+end_crystal
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+[Int Array] beam_target: The block location, as 3 integers, that its beam points to.
+[Byte] ShowBottom: 1 or 0 (true/false) – if true, the end crystal shows the bedrock slate underneath. Defaults to false when placing by hand, and true when naturally generated or using /summon.
+
+evoker_fangs
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+[Int Array] Owner: The UUID of the entity that that fired the fangs, stored as four ints. If the entity is an Illager, the fangs do not damage other Illagers. Is not preserved when removed.
+[Int] Warmup: Time in ticks until the fangs appear. The fangs appear and begin to close as soon as this value becomes zero or less; negative values simply result in no delay. The value continues ticking down while the closing animation is playing, reaching -20 on naturally spawned fangs.
+
+eye_of_ender
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+[NBT Compound / JSON Object] Item: The item to render as, may be absent.
+A single item stack see Template:Nbt inherit/itemnoslot/template
+
+fishing_bobber
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all projectiles see Template:Nbt inherit/projectile/template
+
+glow_item_frame
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all block entities that can hang from blocks see Template:Nbt inherit/hangable/template
+[Byte] Facing: The direction the item frame faces: 3 is south, 4 is west, 2 is north, 5 is east, 1 is top, and 0 is bottom.
+[Boolean] Fixed: 1, or 0 (true/false) - If true: the item frame does not drop when it has no support block, it can not be moved by pistons, and it won't take damage (except from creative players). An item cannot be placed in or removed from a fixed item frame. The item in a fixed item frame (if any) can not be rotated.
+[Boolean] Invisible: 1, or 0 (true/false) - Whether the item frame (background) is invisible. An item or map inside an invisible item frame is still visible.
+[NBT Compound / JSON Object] Item: The item placed into the item frame. If the item frame is empty, this tag does not exist. Represents the entity's contents (container.0) slot.
+A single item stack see Template:Nbt inherit/itemnoslot/template
+[Float] ItemDropChance: The chance for the item to drop when the item frame breaks. This is a 100% chance by default.
+[Byte] ItemRotation: The current angle or rotation of the item, as a multiple of 45 degrees, going clockwise. 0 means the item is upright, 1 means the item is turned 45 degrees clockwise from the upright orientation.​[more information needed] This value can only ever be between 0 and 7, just like its redstone output when measured with a comparator.
+
+interaction
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+[Float] width: The width of the entity's bounding box. Defaults to 1.
+[Float] height: The height of the entity's bounding box. Defaults to 1.
+[Byte] response: 1 or 0 (true/false). Specifies whether an interaction should trigger a response (hand animation). Defaults to 0 (false).
+[NBT Compound / JSON Object] attack: The last attack (left click) to hit the entity.
+[Int Array] player: The UUID of the player that attacked the entity. The 128-bit UUID is stored as four 32-bit integers, ordered from most to least significant.
+[Long] timestamp: When the attack took place.
+[NBT Compound / JSON Object] interaction: The last interaction (right click) to hit the entity.
+[Int Array] player: The UUID of the player that interacted with the entity. The 128-bit UUID is stored as four 32-bit integers, ordered from most to least significant.
+[Long] timestamp: When the interaction took place.
+
+item_frame
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all block entities that can hang from blocks see Template:Nbt inherit/hangable/template
+[Byte] Facing: The direction the item frame faces: 3 is south, 4 is west, 2 is north, 5 is east, 1 is top, and 0 is bottom.
+[Boolean] Fixed: 1, or 0 (true/false) - If true: the item frame does not drop when it has no support block, it can not be moved by pistons, and it won't take damage (except from creative players). An item cannot be placed in or removed from a fixed item frame. The item in a fixed item frame (if any) can not be rotated.
+[Boolean] Invisible: 1, or 0 (true/false) - Whether the item frame (background) is invisible. An item or map inside an invisible item frame is still visible.
+[NBT Compound / JSON Object] Item: The item placed into the item frame. If the item frame is empty, this tag does not exist. Represents the entity's contents (container.0) slot.
+A single item stack see Template:Nbt inherit/itemnoslot/template
+[Float] ItemDropChance: The chance for the item to drop when the item frame breaks. This is a 100% chance by default.
+[Byte] ItemRotation: The current angle or rotation of the item, as a multiple of 45 degrees, going clockwise. 0 means the item is upright, 1 means the item is turned 45 degrees clockwise from the upright orientation.​[more information needed] This value can only ever be between 0 and 7, just like its redstone output when measured with a comparator.
+
+leash_knot
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+
+lightning_bolt
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+
+marker
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+
+ominous_item_spawner
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+[NBT Compound / JSON Object] item: The item to display and dispense.
+A single item stack see Template:Nbt inherit/itemnoslot/template
+[Long] spawn_item_after_ticks: Total time in ticks to display the item, before dispensing it.
+
+painting
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all block entities that can hang from blocks see Template:Nbt inherit/hangable/template
+[Byte] facing: The direction the painting faces: 0 is south, 1 is west, 2 is north, 3 is east
+[String] variant: One painting variant (an [String] ID). Represents the minecraft:painting/variant component.
+
+History
+Java Edition1.4.21.4.1
+Added PersistenceRequired.1.915w31a
+Added tags HandItems, ArmorItems, HandDropChances, and ArmorDropChances to Living.
+
+The Tag Equipment (under Living) has become deprecated.
+The Tag DropChances (under Living) has become deprecated.1.1720w45a
+Entities have been extracted from main (terrain) chunks and are now stored in separate entities directory (similar to POI storage). Those new files are still region files with NBT.1.1922w11a
+The Id tag for each effect in a mob's ActiveEffects tag is now a [Int] TAG_Integer instead of a [Byte] TAG_Byte.1.20.223w32a
+In NBT format for entity type mooshroom, removed EffectId and EffectDuration, and added stew_effects, with the same format as effects field in suspicious_stew item format.
+
+In NBT format for entity type area_effect_cloud, renamed Effects to effects.
+
+In NBT format for entity type arrow, renamed CustomPotionEffects to custom_potion_effects.
+
+In NBT format for living entities (players, armor stands, and all mobs), renamed ActiveEffects to active_effects, and inside that renamed Ambient to ambient, Amplifier to amplifier, Duration to duration, HiddenEffect to hidden_effect, Id to id, ShowIcon to show_icon, ShowParticles to show_particles, and changed id from a [Int] TAG_Integer to a [String] TAG_String.1.20.323w42a
+In NBT format for entity type tnt, added block_state, and renamed Fuse to fuse.23w43a
+In NBT format for entity type arrow and spectral_arrow, added item.
+
+In NBT format for entity type trident, renamed Trident to item.1.20.523w51a
+Added [Byte] armor tag in wolf to denote whether a wolf is wearing wolf armor.24w05a
+Replaced [NBT Compound / JSON Object] ArmorItem tag in horse with [NBT Compound / JSON Object] body_armor_item.
+
+Replaced [NBT Compound / JSON Object] DecorItem tag in llama with [NBT Compound / JSON Object] body_armor_item.
+
+Replaced [Byte] armor tag in wolf with [NBT Compound / JSON Object] body_armor_item.24w06a
+All block positions are now stored as an array of 3 integers instead of a map of X, Y, and Z.
+
+Leash in all leashable entities has been renamed to leash.
+
+PatrolTarget in patrolling mobs has been renamed to patrol_target.1.21.424w44a
+In NBT format for entity type tnt_minecart, added optional field explosion_speed_factor.
+
+The TNTFuse field of minecarts with TNT has been renamed to fuse.1.21.525w02a
+The [NBT Compound / JSON Object] ArmorDropChances, [NBT Compound / JSON Object] HandDropChances, and [NBT Compound / JSON Object] body_armor_drop_chance fields have been merged into a [NBT Compound / JSON Object] drop_chances field.
+
+Drop chances with a default value will no longer be stored, and the [NBT Compound / JSON Object] drop_chances field is removed entirely if all defaults.
+
+[Int Array] last_hurt_by_player, [Int] last_hurt_by_player_memory_time, [Int Array] last_hurt_by_mob, and [Int] ticks_since_last_hurt_by_mob added to living entities.
+
+Area effect clouds have a new field: [Float] potion_duration_scale.25w03a
+The [NBT Compound / JSON Object] ArmorItems, [NBT Compound / JSON Object] HandItems, and [NBT Compound / JSON Object] body_armor_item fields have been merged into an [NBT Compound / JSON Object] equipment field.25w07a
+Pos, Motion, and Rotation values without the correct number of components (3, 3, and 2 respectively) will now be fully discarded, instead of only selecting the specified components.
+
+The [Int] SleepingX, [Int] SleepingY, and [Int] SleepingZ fields have been collected into a single [Int Array] sleeping_pos field25w09a
+The FallFlying field will no longer be preserved if removed.
+
+The Health and Air fields now default to their respective maximum value if not specified.25w10a
+Custom data (previously present only on markers) is now available on all entities.1.21.625w15a
+area_effect_cloud: the Particle field has been renamed to custom_particle, and now always functions as an exact override for the default colored entity_effect particle.25w18a
+Added home_pos and home_radius fields to all mobs.25w19a
+tnt: The entity that primed the TNT is now stored in an optional owner field (UUID of Living entity).
+
+vex: The owner of a vex is now stored in an optional owner field (UUID of Mob).1.21.925w32a
+copper_golem: The weather_state field now expects a string id instead of integer id..pre1
+minecraft:player has received several changes to the respawn object.1.21.1125w41a
+The AngryAt field has been renamed to angry_at.
+
+The AngerTime field has been removed.
+
+An anger_end_time (long) field has been added, containing the time anger ends in game ticks.26.1snap2
+The current_explosion_impact_pos and current_impulse_context_reset_grace_time fields from players have been added to all mobs and the armor stand.
+
+The ignore_fall_damage_from_current_explosion field on players has been removed.26.2snap6
+The HurtByTimestamp field has been removed from the LivingEntity class; ticks_since_last_hurt_by_mob should be used instead.Upcoming Java Edition26.3snap6
+Added invulnerable_time tag which makes a mob temporarily invulnerable for a specific number of ticks.
+References
+
+ MC-279832 – resolved as "Works As Intended".
+
+ MC-81656
+
+ Although blue wither skulls have existed since 12w37a, this field was not present until 23w41a.
+
+Navigation

@@ -1,0 +1,332 @@
+This page covers a development version that has a major issue under certain conditions. 
+The dedicated server for this version has a security vulnerability in the Log4j library that could be used to perform a remote code execution exploit. It can be addressed by appending a certain JVM argument to the server startup command line.
+
+Minecraft 17w15a
+
+Edition
+
+Java Edition
+
+Release date
+
+April 12, 2017
+
+Type
+
+Snapshot
+
+Snapshot for
+
+1.12
+
+Downloads
+
+Client (.json)Server
+
+Protocol version
+
+321
+
+Data version
+
+1125
+
+Resource pack format
+
+3
+
+Minimum Java version
+
+Java SE 8
+
+◄◄   1.11.2
+1.12
+  1.12.1 ►►
+
+◄   17w14a
+
+ 17w15a
+
+  17w16a ►
+
+{
+    "title": "Minecraft 17w15a",
+    "images": [
+        "17w15a.png",
+        "Java Edition 17w15a.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "April 12, 2017",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Snapshot article, displayed as Snapshot)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition 1.12 article, displayed as 1.12)",
+            "label": "Snapshot for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/243f42af3ecff89646d001d781ed42c7c736c74d/client.jar Client] ([https://piston-meta.mojang.com/v1/packages/b629aee8a9e4bb4711ee5583aa512d4eaaf73e2e/17w15a.json .json])<br />[https://piston-data.mojang.com/v1/objects/cc26caa34e1a53326ec374d229db07a0e2a7de17/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "321",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "1125",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "3",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_8_.28LTS.29 Java SE 8]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Java Edition  1.11.2|<span style=\"margin-right:-0.35em\">◄</span>◄   1.11.2]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition 1.12|1.12]]'''</td>\n<td style=\"padding: 0.4em\" >[[Java Edition  1.12.1|  1.12.1 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  17w14a|◄   17w14a]]\n</td>\n<td style=\"padding: 0.4em\">''' 17w15a'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  17w16a|  17w16a ►]]\n</td>\n</tr>\n</table>"
+}
+
+
+17w15a is the fifth snapshot for Java Edition 1.12, released on April 12, 2017, which adds colored beds.
+
+Contents
+
+1 Additions
+
+1.1 Blocks
+1.2 General
+
+2 Changes
+
+2.1 Blocks
+2.2 Mobs
+2.3 General
+
+3 Fixes
+4 Videos
+5 Trivia
+6 References
+7 Navigation
+
+Additions
+Blocks
+ Beds
+
+Added colored beds which can be crafted with colored wool or by dyeing a white bed.
+Now bounce the player like slime blocks, albeit much less.
+Now reduce (but not negate) fall damage when landed on.
+The player can survive a 41 block fall onto a bed.
+Any higher, and the second bounce deal the remaining amount of damage to kill them.
+The player can survive a 45 block fall onto a bed if they don't take further fall damage (e.g. by landing on a platform).
+Now a block entity, and each half can be colored individually using the color tag.
+Now use a 3D item model instead of a 2D item because of the new colors.
+General
+Advancements
+
+Added one advancement ("Adventuring Time"), added descriptions to 30 existing advancements and changed titles of most of them.
+Advancements in this version include:
+MinecraftIconAdvancementIn-game descriptionParentActual requirements (if different)Resource locationRewards
+MinecraftThe heart and story of the game—Have a crafting table in the inventory.story/root—
+Stone AgeMine stone with your new pickaxeMinecraftHave cobblestone in the inventory.story/mine_stone—
+Getting an UpgradeConstruct a better pickaxeStone AgeHave a stone pickaxe in the inventory.story/upgrade_tools—
+Acquire HardwareSmelt an iron ingotGetting an UpgradeHave an iron ingot in the inventory.story/smelt_iron—
+Suit UpProtect yourself with a piece of iron armorAcquire HardwareHave any piece of iron armor in the inventory.story/obtain_armor—
+Not Today, Thank YouDeflect an arrow with a shieldSuit UpBlock incoming damage from a projectile with a shield.story/deflect_arrow—
+Isn't It Iron PickUpgrade your pickaxeAcquire HardwareHave an iron pickaxe in the inventory.story/iron_tools—
+Diamonds!Acquire diamondsIsn't It Iron PickHave a diamond in the inventory.story/mine_diamond—
+Cover Me with DiamondsDiamond armor saves livesDiamonds!Have any piece of diamond armor in the inventory.story/shiny_gear—
+EnchanterEnchant an item at an Enchanting TableDiamonds!—story/enchant_item—
+Hot StuffFill a bucket with lavaAcquire HardwareHave a lava bucket in the inventory.story/lava_bucket—
+Ice Bucket ChallengeForm and mine a block of ObsidianHot StuffHave obsidian in the inventory.story/form_obsidian—
+We Need to Go DeeperBuild, light and enter a Nether PortalIce Bucket ChallengeEnter the nether portal block.story/enter_the_nether—
+Withering HeightsSummon the WitherWe Need to Go Deeper—story/summon_wither—
+Bring Home the BeaconConstruct and place a BeaconWithering HeightsBe near a beacon when it activates.story/create_beacon—
+BeaconatorBring a beacon to full powerBring Home the BeaconBe near a 4-layer beacon when it activates.story/create_full_beacon—
+Into FireRelieve a Blaze of its rodWe Need to Go DeeperHave a blaze rod in the inventory.story/obtain_blaze_rod—
+A Weak BrewBrew up a potion of WeaknessInto FireRetrieve from a brewing stand either a potion of Weakness, a splash potion of Weakness, or a lingering potion of Weakness (neither can be an extended variant).story/brew_weakness_potion—
+Zombie DoctorCure a zombie villager.A Weak BrewThe advancement is granted when the zombie villager converts into a villager.story/cure_zombie_villager—
+Eye SpyFollow an Ender EyeInto FireUse an eye of ender while being within 64 blocks of a stronghold.story/follow_ender_eye—
+The End?Enter the End PortalEye SpyEnter the End portal block.story/enter_the_end—
+Remote GetawayDefeat the dragon and escape the islandThe End?Enter the End gateway block.story/enter_end_gateway—
+Sky's the LimitFind an ElytraRemote GetawayHave an elytra in the inventory.story/elytra—
+
+AdventureIconAdvancementIn-game descriptionParentActual requirements (if different)Resource locationRewards
+AdventureAdventure, exploration and combat.—Kill any entity, or be killed by any entity.adventure/root—
+Sweet DreamsChange your respawn pointAdventureSleep in a bed.adventure/sleep_in_bed—
+Adventuring TimeDiscover every biomeSweet Dreams
+Visit each of these biomes:
+
+birch_forest_hills
+river
+swampland
+desert
+forest_hills
+redwood_taiga_hills
+taiga_cold
+mesa
+forest
+stone_beach
+ice_flats
+taiga_hills
+ice_mountains
+mesa_rock
+savanna
+plains
+frozen_river
+redwood_taiga
+cold_beach
+deep_ocean
+jungle_hills
+jungle_edge
+ocean
+mushroom_island_shore
+extreme_hills
+desert_hills
+jungle
+beaches
+savanna_rock
+taiga_cold_hills
+mesa_clear_rock
+roofed_forest
+taiga
+birch_forest
+mushroom_island
+extreme_hills_with_trees
+
+adventure/adventuring_time—
+What a Deal!Successfully trade with a VillagerAdventure—adventure/trade—
+Monster HunterKill any hostile monsterAdventure
+Kill one of these 22 mobs:
+
+Blaze
+Cave Spider
+Creeper
+Enderman
+Evoker
+Ghast
+Guardian
+Husk
+Magma Cube
+Polar Bear
+Shulker
+Silverfish
+Skeleton
+Slime
+Spider
+Stray
+Vindicator
+Witch
+Wither Skeleton
+Zombie
+Zombie Pigman
+Zombie Villager
+
+adventure/kill_a_mob—
+Monsters HuntedKill one of every hostile monsterMonster HunterKill each of the mobs mentioned above.adventure/kill_all_mobs—
+Take AimShoot something with bow and arrowMonster HunterHit a mob with a shot arrow.adventure/shoot_arrow—
+Sniper duelKill a skeleton with an arrow from more than 50 metersTake AimKill any mob with a shot arrow from at least 50 blocks away.adventure/sniper_duel—
+
+Narrator
+
+Added a toast notification for toggling the narrator.
+Added the option to toggle narrator between: "off", "chat & system", "chat only", and "system messages only".
+Splashes
+
+Added "Don't feed chocolate to parrots!"
+Changes
+Blocks
+Stairs
+
+The rear face and underside of stairs are now considered "solid".
+Allows for torches, fences, iron bars, glass panes, walls, and snow layers to connect to them properly.
+Fences, walls, glass panes, and iron bars
+
+Now connect to stairs, buttons, signs, all types of rails, banners, string, redstone, pressure plates, levers, tripwire hooks, sticky pistons, and structure voids.
+Wool
+
+Removed the recipe to craft white wool using bone meal and white wool.
+Mobs
+Parrots
+
+No longer cycle through parrot colors when dancing.
+General
+Recipe books
+
+The icon in the pop-up notification now quickly cycles through all recipes that were unlocked.
+Fixes
+43 issues fixed
+From released versions before 1.12
+
+MC-2813 – Snow doesn't form / cannot be placed on upside down slabs / stairs
+MC-8345 – Placing torch on backside of stairs impossible
+MC-9176 – Glass panes not correctly rendering with the back of stairs
+MC-10613 – Fence doesn't connect with stairs
+MC-11963 – bed hind legs not rendered
+MC-109663 – Tamed dogs attack tamed cats
+From the 1.12 development versions
+
+MC-114899 – Recipes removed on gamemode 2
+MC-114907 – Parrots in flight tend to spin around in circles rather than fly in a direction
+MC-114950 – Book crafting recipe doesn't exist in the newest snapshot
+MC-114961 – Multiplayer players get kicked on pickup first item for advancement
+MC-114974 – Clicking on crafting recipe in Spectator mode moves items to crafting grid
+MC-114991 – Crafting recipe list shows 1/0 pages when no recipes were unlocked
+MC-115025 – Clicking on recipe or on book to close crafting help additionally clicks in inventory
+MC-115048 – Parrots sitting on shoulders don't drown in water or burn in lava / Parrots shouldn't go diving
+MC-115050 – Statistics page never loads
+MC-115064 – Custom advancements in world folder use the "minecraft" namespace instead of folder name
+MC-115121 – Credits are not shown when leaving End for the first time but after that are always shown
+MC-115148 – F3 + T does not reload advancements but does reload loot tables
+MC-115157 – No advancements on server
+MC-115159 – Repeated key events are not enabled for crafting search
+MC-115182 – Parrots become invisible when on a players shoulder while player swims up.
+MC-115184 – Parrot imitations show up on subtitles as original sound
+MC-115221 – Certain blocks don't render correctly in crafter helper.
+MC-115277 – Your tamed wolf will attack your tamed parrot
+MC-115341 – Bug with the Narrator
+MC-115361 – doLimitedCrafting set to 'true' disables ability to combine used tools
+From the previous development version
+
+MC-115423 – Duplicate bug in "Click and hold for more" menu + text message bug
+MC-115426 – Background doesn't become darker in most GUIs
+MC-115427 – Tool info not showing up in most GUIs
+MC-115436 – Item duplication using recipe book
+MC-115443 – 17w14a doLimitedCrafting(true) returns FATAL ERROR on servers when recipe should unlock
+MC-115444 – "Obtain Armor" and "Shiny Gear" advancement notification at each piece of armor.
+MC-115462 – Can craft "incomplete" recipe using alternate ingredients
+MC-115465 – Items can be dropped if you click while hovering over recipe interface
+MC-115466 – 17w14a doLimitedCrafting(true) Crafting Based duplication
+MC-115469 – Parrots do not appear dancing for other players
+MC-115470 – Parrots go to players' shoulders in spectator mode
+MC-115474 – Taken recipes are still available until player relogs
+MC-115481 – 17w14a STDOUT spam when hurting/killing mobs
+MC-115504 – Recipe book does not correctly render character
+MC-115508 – Parrots on your shoulder look darker if many items in your inventory
+MC-115530 – "Recipes unlocked" message only shows up when reloading the world.
+MC-115726 – Tool and armor duplication glitch with doLimitedCrafting set to true
+Videos
+Video made by slicedlime:
+
+
+
+
+Trivia
+17w15a was previously removed from the launcher for some time, but was added back in September 2018.
+References
+
+ "Important Message: Security vulnerability in Java Edition"     – Minecraft.net, December 10, 2021.
+
+ https://minecraft.net/en-us/article/minecraft-snapshot-17w15a
+
+Navigation

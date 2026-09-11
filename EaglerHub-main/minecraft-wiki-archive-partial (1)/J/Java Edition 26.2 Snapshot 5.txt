@@ -1,0 +1,357 @@
+Minecraft 26.2 Snapshot 5
+
+Edition
+
+Java Edition
+
+Release date
+
+April 28, 2026
+
+Type
+
+Snapshot
+
+Snapshot for
+
+26.2
+
+Downloads
+
+Client (.json)Server
+
+Protocol version
+
+ dec: 1073742135 hex: 40000137
+
+Data version
+
+4889
+
+Resource pack format
+
+86.2
+
+Data pack format
+
+104.0
+
+Minimum Java version
+
+Java SE 25
+
+◄◄   26.1.2
+26.2
+  26.3 ►►
+
+◄   26.2 Snapshot 4
+
+ 26.2 Snapshot 5
+
+  26.2 Snapshot 6 ►
+
+{
+    "title": "Minecraft 26.2 Snapshot 5",
+    "images": [
+        "26.2-snapshot-5.jpg",
+        "Java Edition 26.2 Snapshot 5.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "April 28, 2026",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Snapshot article, displayed as Snapshot)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition 26.2 article, displayed as 26.2)",
+            "label": "Snapshot for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/8187962186f213385952b4f14b4f0235f532a99b/client.jar Client] ([https://piston-meta.mojang.com/v1/packages/291b39292f8ad8ce71a064f06e2f27d9b624ca5d/26.2-snapshot-5.json .json])<br />[https://piston-data.mojang.com/v1/objects/dbcd57afe4cdba19be8c9e658d1e3a176d53a5db/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": " <span style=\"font-size:smaller\"><abbr title=\"decimal\">dec</abbr>: </span>1073742135<br /> <span style=\"font-size:smaller\"><abbr title=\"hexadecimal\">hex</abbr>: </span>40000137",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "4889",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "86.2",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "104.0",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Data pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_25_.28LTS.29 Java SE 25]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Java Edition  26.1.2|<span style=\"margin-right:-0.35em\">◄</span>◄   26.1.2]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition 26.2|26.2]]'''</td>\n<td style=\"padding: 0.4em\" >[[Java Edition  26.3|  26.3 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  26.2 Snapshot 4|◄   26.2 Snapshot 4]]\n</td>\n<td style=\"padding: 0.4em\">''' 26.2 Snapshot 5'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  26.2 Snapshot 6|  26.2 Snapshot 6 ►]]\n</td>\n</tr>\n</table>"
+}
+
+
+26.2 Snapshot 5 (known as 26.2-snapshot-5 in the launcher) is the fifth snapshot for Java Edition 26.2, released on April 28, 2026, which adds geysers and the ability for sulfur cubes to absorb TNT.
+
+Contents
+
+1 Additions
+
+1.1 General
+
+2 Changes
+
+2.1 Blocks
+2.2 Mobs
+2.3 Command format
+2.4 Gameplay
+2.5 General
+
+3 Fixes
+4 Videos
+5 References
+6 Navigation
+
+Additions
+General
+Game Test
+
+Added minecraft:difficulty
+Sets the difficulty of the game test environment.
+Fields:
+difficulty: The difficulty ID to set.
+One of: peaceful, easy, normal, hard
+Particles
+
+Added minecraft:geyser_base
+Spawns as a cloud on the base of an erupting potent sulfur block.
+Format: object with fields:
+water_blocks - positive integer, scales the particle size and its burst impulse.
+burst_impulse_base - float, scales the initial burst impulse.
+Added minecraft:geyser_poof
+Spawns as a cloud on the base of an erupting potent sulfur block.
+Format: object with fields:
+water_blocks - positive integer, scales the particle size and its burst impulse
+burst_impulse_base - float, scales the initial burst impulse.
+Added minecraft:geyser_plume
+Spawns as an upwards stream above an erupting potent sulfur block.
+Format: object with fields:
+water_blocks - positive integer, scales the particle size and its burst impulse.
+Added minecraft:geyser
+An emitter particle that spawns the geyser_base, geyser_poof, and geyser_plume particles above an erupting potent sulfur block.
+Format: object with fields:
+water_blocks - positive integer, scales the particle size and its burst impulse.
+Tags
+
+Block tags
+Added the following tags for blocks which some mobs are immune to.
+These have effect on dismounting, and valid surroundings of spawn placements for some mobs.
+They do not have an effect on pathfinding.
+#fox_immune_to
+#polar_bear_immune_to
+#snow_golem_immune_to
+#stray_immune_to
+#wither_immune_to
+#wither_skeleton_immune_to
+#default_immune_to
+This tag is intentionally left empty.
+Item tags
+Added #sulfur_cube_archetype/explosive tag.
+Changes
+Blocks
+Potent sulfur
+
+When placed above a magma block and under 1–4 water source blocks, it creates a geyser.
+The geyser will erupt at 50 second intervals, shooting a plume of water particles upwards and applying an upward impulse to entities above it for 4–5 seconds.
+Entities directly above the potent sulfur block during an eruption will be launched into the air, but will not take damage from the eruption.
+The height of the plume and how high anything gets launched depends on the number of water blocks above the potent sulfur blocks, with the total height being about 7 blocks above the potent sulfur block for each water block.
+Sulfur spike
+
+Sulfur spikes now have unique sound events.
+Mobs
+General
+
+Tweaked various mobs' hitbox, eye height, and rider positions.
+Known changes:​[more information needed]
+The hitboxes of baby hoglins, baby striders, and baby zoglins have been changed to match Bedrock Edition.
+The rider position of baby hoglins have been changed to prevent the baby piglins' legs from clipping into it.
+The heights of baby zombies, baby zombified piglins, baby zombie villagers, baby husks, gurgles, baby villagers, and baby piglins have been changed from 0.99 blocks to 0.98 blocks, to match Bedrock Edition.
+The rider position of chickens have been adjusted to prevent the rider's legs from clipping into its head.
+Hoglins
+
+Are now considered hostile and despawn on Peaceful difficulty, effectively reverting the change from the previous snapshot allowing them to spawn on Peaceful difficulty.
+Sulfur cube
+
+With a block inside, it is now immune to explosions.
+Added the "Explosive" archetype, with similar properties to "Regular" except for a slightly higher air drag.
+Used when absorbing a TNT block.
+Absorbed TNT can be primed by redstone, fire sources (including a dispenser with a flint and steel) or nearby explosions.
+When primed by fire or redstone, absorbed TNT uses a fuse time of 6 seconds.
+When primed by an explosion, absorbed TNT uses a randomized fuse time between 0.75 and 3 seconds.
+Sulfur cubes with an absorbed, primed TNT block cannot be picked up with a bucket, damaged, or sheared.
+On explosion, no small sulfur cubes are spawned, and the sulfur cube disappears.
+Now have a fuse tag in their entity data.
+For sulfur cubes that do not have the Explosive archetype, or unlit ones with it, this field is set to -1.
+Command format
+General
+
+Team color arguments (used in /team modify [name] color and /waypoint modify [name] color) now accept only lowercase names with underscores.
+I.e., only dark_purple is accepted and not darkpurple or DarkPurple
+Values now match color names in text components.
+Gameplay
+Scoreboard
+
+A player's score will no longer be displayed in the player tab overlay if the player doesn't have the objective.
+General
+Attributes
+
+Renamed minecraft:nameplate_distance to minecraft:name_tag_distance.
+Configured features
+
+minecraft:multiface_growth
+The field block is now mandatory (defaulted to minecraft:glow_lichen).
+Data pack
+
+The pack format version is now 104.0.
+Density functions
+
+Added minecraft:interval_select
+Selects between a number of density functions based on an input density function and a set of threshold values.
+Format: object with fields:
+input - Density Function, the value to be compared with any given thresholds.
+thresholds - non-empty list of floats, the threshold values to compare input with.
+If input < thresholds[i], the result of functions[i] will be selected.
+If the input is greater than the last threshold value, the last function will be selected.
+Must be one fewer thresholds than functions.
+functions - list of at least 2 density functions, the resulting functions to be selected from.
+Must be one more element in functions than in thresholds.
+Removed minecraft:weird_scaled_sampler
+This density function has been removed, with its functionality replaced by interval_select
+When rarity_value_mapper was type_1, equivalent to:
+interval_select with thresholds -0.75, -0.5, 0.5, 0.75
+Selected functions follow: abs(rarity * noise(x/rarity, y/rarity, z/rarity))
+Corresponding rarity values: 0.5, 0.75, 1.0, 2.0, 3.0
+When rarity_value_mapper was type_2, equivalent to:
+interval_select with thresholds -0.5, 0.0, 0.5
+Selected functions follow: abs(rarity * noise(x/rarity, y/rarity, z/rarity))
+Corresponding rarity values: 0.75, 1.0, 1.5, 2.0
+Identifiers
+
+Entries in the minecraft:sulfur_cube_archetype registry have a new field:
+explosion_fuse: optional integer, if present, the sulfur cube of this archetype will explode with this fuse time when ignited.
+Minecraft Server Management Protocol
+
+The version is now 3.0.0.
+The management server now starts before the Minecraft server starts.
+Most notably, this means the heartbeat will be sent while the world is loading and potentially upgrading.
+The rpc.discover and notification/server/status methods are now accessible before the dedicated server spins up.
+The server will return an error when other methods are called during this time.
+Options
+
+Removed Touchscreen Mode.
+Resource pack
+
+The version is now 86.2.
+Sounds
+
+Added sounds for Geyser eruptions:
+block.potent_sulfur.geyser_eruption
+block.potent_sulfur.geyser_eruption_active
+Tags
+
+Damage type tags
+Added #is_explosion and removed player_explosion from #sulfur_cube_with_block_immune_to tag.
+Item tags
+Added #sulfur_cube_archetype/explosive to #sulfur_cube_swallowable tag.
+Textures
+
+Added new particle textures:
+noxious_gas_01.png
+noxious_gas_02.png
+noxious_gas_03.png
+noxious_gas_04.png
+noxious_gas_05.png
+noxious_gas_06.png
+noxious_gas_07.png
+noxious_gas_08.png
+geyser_base_01.png
+geyser_base_02.png
+geyser_base_03.png
+geyser_base_04.png
+geyser_base_05.png
+geyser_base_06.png
+geyser_base_07.png
+geyser_base_08.png
+geyser_plume_01.png
+geyser_plume_02.png
+geyser_plume_03.png
+geyser_plume_04.png
+geyser_plume_05.png
+geyser_plume_06.png
+geyser_plume_07.png
+geyser_plume_08.png
+geyser_poof_01.png
+geyser_poof_02.png
+geyser_poof_03.png
+geyser_poof_04.png
+geyser_poof_05.png
+geyser_poof_06.png
+geyser_poof_07.png
+geyser_poof_08.png
+World generation
+
+Added matching_biomes world generation-type block predicate type which checks if the block position matches one of the specified biomes.
+Format: object with fields:
+biomes - biome ID, list of biome IDs, or hash-prefixed biome tag: the biomes to match.
+tree feature configuration's below_trunk_provider block state provider no longer has a default value.
+Fixes
+16 issues fixed
+From released versions before 26.2
+
+MC-304862 – Activating a dispenser with a hostile mob spawn egg in Peaceful difficulty consumes the egg and plays a sound.
+MC-306622 – The height of chicken jockeys is slightly off.
+MC-306685 – The riding position on baby hoglins is too low.
+MC-307012 – When a scoreboard objective is set to the below_name display mode, all named entities with no score display it with a score of 0.
+MC-307125 – Target selectors with duplicate team arguments are parsed inconsistently depending on argument order.
+MC-307194 – The discount given by fletchers for tipped arrow trades decreases the arrow cost instead of the emerald cost.
+MC-307266 – Zombie villagers change biome type after being cured.
+MC-307513 – Using /deop on multiple players shows the same player in all success messages.
+MC-307689 – The player's arm swings when failing to use a spawn egg in Peaceful difficulty.
+MC-307690 – The error message produced by /difficulty doesn't use the difficulty's translated name.
+From the 26.2 development versions
+
+MC-307283 – Placing sulfur springs using /place does not update the affected blocks.
+MC-307623 – Chunk sections are sometimes invisible until they are updated.
+MC-307710 – Deoxidizing waxed copper blocks now takes priority over scraping off the wax.
+From the previous development version
+
+MC-307702 – Skeletons' AI breaks when picking up any item.
+MC-307706 – The game inconsistently refers to name tags and name plates.
+MC-307754 – Monsters now spawn regardless of the "Spawn Monsters" game rule.
+Videos
+Videos made by slicedlime:
+
+
+
+
+
+
+
+
+References
+
+ "Minecraft 26.2 Snapshot 5"     – Minecraft.net, April 28, 2026.
+
+Navigation

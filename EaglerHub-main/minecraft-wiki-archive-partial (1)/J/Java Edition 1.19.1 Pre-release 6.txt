@@ -1,0 +1,166 @@
+Minecraft 1.19.1 Pre-release 6
+
+Edition
+
+Java Edition
+
+Release date
+
+July 20, 2022
+
+Type
+
+Pre-release
+
+Pre-release for
+
+1.19.1
+
+Downloads
+
+Client (.json)Server
+
+Obfuscation maps
+
+ClientServer
+
+Protocol version
+
+ dec: 1073741923 hex: 40000063
+
+Data version
+
+3114
+
+Resource pack format
+
+9
+
+Data pack format
+
+10
+
+Minimum Java version
+
+Java SE 17
+
+◄◄   1.19
+1.19.1
+  1.19.2 ►►
+
+◄   1.19.1 Pre-release 5
+
+ 1.19.1 Pre-release 6
+
+  1.19.1 Release Candidate 2 ►
+
+{
+    "title": "Minecraft 1.19.1 Pre-release 6",
+    "images": [
+        "1.19.1-pre6.jpg",
+        "Java Edition 1.19.1 Pre-release 6.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "July 20, 2022",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Pre-release article, displayed as Pre-release)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition 1.19.1 article, displayed as 1.19.1)",
+            "label": "Pre-release for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/2f5635cef3238001a27f5f5899f5f1e753424fb8/client.jar Client] ([https://piston-meta.mojang.com/v1/packages/223c5f970cc03a3a299a5bf5b2b4b38610111667/1.19.1-pre6.json .json])<br />[https://piston-data.mojang.com/v1/objects/2cad39169c1a505ffca1049b236a4ddaf62c617d/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/bbc9f66712f71b3556f9a26dad7485295412b276/client.txt Client]<br />[https://piston-data.mojang.com/v1/objects/528d00ab2f716152f7f5e4184c7ff09fc3209ddd/server.txt Server]",
+            "label": "(link to Obfuscation map article, displayed as Obfuscation maps)"
+        },
+        {
+            "field": " <span style=\"font-size:smaller\"><abbr title=\"decimal\">dec</abbr>: </span>1073741923<br /> <span style=\"font-size:smaller\"><abbr title=\"hexadecimal\">hex</abbr>: </span>40000063",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "3114",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "9",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "10",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Data pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_17_.28LTS.29 Java SE 17]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Java Edition  1.19|<span style=\"margin-right:-0.35em\">◄</span>◄   1.19]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition 1.19.1|1.19.1]]'''</td>\n<td style=\"padding: 0.4em\" >[[Java Edition  1.19.2|  1.19.2 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  1.19.1 Pre-release 5|◄   1.19.1 Pre-release 5]]\n</td>\n<td style=\"padding: 0.4em\">''' 1.19.1 Pre-release 6'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  1.19.1 Release Candidate 2|  1.19.1 Release Candidate 2 ►]]\n</td>\n</tr>\n</table>"
+}
+
+1.19.1 Pre-release 6 (known as 1.19.1-pre6 in the launcher) is the sixth and final pre-release for Java Edition 1.19.1, released on July 20, 2022, which makes small tweaks to sculk sensors and sculk catalysts and fixes bugs.
+
+Contents
+
+1 Changes
+
+1.1 Blocks
+1.2 Command format
+1.3 General
+
+2 Fixes
+3 References
+4 Navigation
+
+Changes
+Blocks
+Sculk catalysts
+
+Now drop 5 XP instead of 20 XP.
+Command format
+General
+
+The run_command click event for text components no longer supports any commands that send chat messages.
+/tellraw should be used instead.
+General
+Chat
+
+Colors of the signing indicators for sending a message have been adjusted for improved accessibility.
+The indicator is light blue instead of green when the displayed message is signed.
+The indicator is light yellow instead of orange when chat preview is enabled and a preview is waiting to be signed.
+Fixes
+11 issues fixed
+From released versions before 1.19
+
+MC-148149 – Linux game crash when opening links.
+MC-207077 – Crash on loading pre-1.13 world with noteblock + note NBT in inventory.
+MC-235614 – Reference to unexisting predicate in a datapack causes java.lang.NullPointerException.
+MC-252265 – --server argument causes java.lang.NullPointerException crash on some servers.
+From 1.19
+
+MC-252190 – Player-dropped items creating vibrations depends on you sneaking at the moment the item hits the ground, instead of when you threw the item.
+MC-252258 – Wool block/carpet items generate vibrations unless thrown by crouching players.
+MC-253402 – Game crash when you ⇧ Shift right-click on an item in your hotbar to the chest at the same time as you die.
+MC-254349 – Crash when putting dye into a loom on a modded server.
+From the previous development version
+
+MC-254255 – Unable to text in chat with Chat Preview On send while sleeping.
+MC-254261 – The background opacity box of the chat preview field renders behind the "Leave Bed" button when sleeping in beds.
+MC-254284 – Sending chat packets with invalid message type id crashes the game.
+References
+
+ "Minecraft 1.19.1 Pre-Release 6"     – Minecraft.net, July 20, 2022.
+
+Navigation

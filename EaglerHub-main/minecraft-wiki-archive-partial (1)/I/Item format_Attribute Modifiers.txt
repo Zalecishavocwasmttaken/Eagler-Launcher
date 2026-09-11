@@ -1,0 +1,11 @@
+This page describes content that has been removed and was only present in earlier versions of Java Edition. 
+In Java Edition 1.20.5, this format has been replaced with the data component format.
+
+[NBT List / JSON Array] AttributeModifiers: Contains Attribute Modifiers on this item which modify Attributes of the wearer or holder (if the item is not in the hand or armor slots, it has no effect).
+[NBT Compound / JSON Object]: A single Attribute Modifier.
+[String] AttributeName: The name of the Attribute this Modifier is to act upon.
+[String] Name: The name of the Modifier. Has no known effect.
+[String] Slot: Slot the item must be in for the modifier to take effect. Can be mainhand, offhand, feet, legs, chest, or head.
+[Int] Operation: Modifier Operation. See Attribute Modifiers for info.
+[Double] Amount: Amount of change from the modifier.
+[Int Array] UUID: The modifier's UUID, stored as four ints. Used when equipping and unequipping the item to identify which modifier to add or remove from the entity.

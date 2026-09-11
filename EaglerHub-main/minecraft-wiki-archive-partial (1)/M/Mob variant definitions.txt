@@ -1,0 +1,282 @@
+This feature is exclusive to Java Edition. 
+
+Mob variants are variants of mobs. They define the assets and models used and define the conditions in which this variant spawns.
+Mob sound variants are sound variants distinct from regular variants. They define sounds used by this sound variant.
+
+Contents
+
+1 Definition
+2 JSON Format
+
+2.1 Cat
+2.2 Cat sounds
+2.3 Chicken
+2.4 Chicken sounds
+2.5 Cow
+2.6 Cow sounds
+2.7 Frog
+2.8 Pig
+2.9 Pig sounds
+2.10 Wolf
+2.11 Wolf sounds
+2.12 Zombie Nautilus
+
+3 Spawn condition
+
+3.1 biome
+3.2 structure
+3.3 moon_brightness
+
+4 History
+5 Navigation
+
+Definition
+Mob variants can be defined in data packs, as part of the directory structure below.
+
+ data pack name.zip or  data pack name
+ pack.mcmeta
+ data
+ namespace
+ cat_variant
+ <name>.json
+ cat_sound_variant
+ <name>.json
+ chicken_variant
+ <name>.json
+ chicken_sound_variant
+ <name>.json
+ cow_variant
+ <name>.json
+ cow_sound_variant
+ <name>.json
+ frog_variant
+ <name>.json
+ pig_variant
+ <name>.json
+ pig_sound_variant
+ <name>.json
+ wolf_variant
+ <name>.json
+ wolf_sound_variant
+ <name>.json
+ zombie_nautilus_variant
+ <name>.json
+More directories…
+
+JSON Format
+Cat
+Cat variants are defined using the following format:
+
+[NBT Compound / JSON Object] The root object.
+[String] asset_id: The resource location of the texture to use.
+[String] baby_asset_id: The resource location of the baby texture to use.
+[NBT List / JSON Array] spawn_conditions: The spawn conditions of this variant, see § Spawn condition
+
+Cat sounds
+Cat sound variants are defined using the following format:
+
+[NBT Compound / JSON Object] The root object.
+[NBT Compound / JSON Object] adult_sounds: Sounds to use for adult cats.
+[String][NBT Compound / JSON Object] ambient_sound: One server-side sound event (an [String] ID, or a new [NBT Compound / JSON Object] server-side sound event definition)
+A sound event see Template:Nbt inherit/sound event/template
+[String][NBT Compound / JSON Object] beg_for_food_sound: One server-side sound event (an [String] ID, or a new [NBT Compound / JSON Object] server-side sound event definition)
+A sound event see Template:Nbt inherit/sound event/template
+[String][NBT Compound / JSON Object] death_sound: One server-side sound event (an [String] ID, or a new [NBT Compound / JSON Object] server-side sound event definition)
+A sound event see Template:Nbt inherit/sound event/template
+[String][NBT Compound / JSON Object] eat_sound: One server-side sound event (an [String] ID, or a new [NBT Compound / JSON Object] server-side sound event definition)
+A sound event see Template:Nbt inherit/sound event/template
+[String][NBT Compound / JSON Object] hiss_sound: One server-side sound event (an [String] ID, or a new [NBT Compound / JSON Object] server-side sound event definition)
+A sound event see Template:Nbt inherit/sound event/template
+[String][NBT Compound / JSON Object] hurt_sound: One server-side sound event (an [String] ID, or a new [NBT Compound / JSON Object] server-side sound event definition)
+A sound event see Template:Nbt inherit/sound event/template
+[String][NBT Compound / JSON Object] purr_sound: One server-side sound event (an [String] ID, or a new [NBT Compound / JSON Object] server-side sound event definition)
+A sound event see Template:Nbt inherit/sound event/template
+[String][NBT Compound / JSON Object] purreow_sound: One server-side sound event (an [String] ID, or a new [NBT Compound / JSON Object] server-side sound event definition)
+A sound event see Template:Nbt inherit/sound event/template
+[String][NBT Compound / JSON Object] stray_ambient_sound: One server-side sound event (an [String] ID, or a new [NBT Compound / JSON Object] server-side sound event definition)
+A sound event see Template:Nbt inherit/sound event/template
+[NBT Compound / JSON Object] baby_sounds: Sounds to use for baby cats.
+Same fields as [NBT Compound / JSON Object] adult_sounds
+
+Chicken
+Chicken variants are defined using the following format:
+
+[NBT Compound / JSON Object] The root object.
+[String] asset_id: The resource location of the texture to use.
+[String] baby_asset_id: The resource location of the baby texture to use.
+[String] model: The chicken model to use. Has to be normal or cold.
+[NBT List / JSON Array] spawn_conditions: The spawn conditions of this variant, see § Spawn condition
+
+Chicken sounds
+Chicken sound variants are defined using the following format:
+
+[NBT Compound / JSON Object] The root object.
+[NBT Compound / JSON Object] adult_sounds: Sounds to use for adult chickens.
+[String][NBT Compound / JSON Object] ambient_sound: One server-side sound event (an [String] ID, or a new [NBT Compound / JSON Object] server-side sound event definition)
+A sound event see Template:Nbt inherit/sound event/template
+[String][NBT Compound / JSON Object] death_sound: One server-side sound event (an [String] ID, or a new [NBT Compound / JSON Object] server-side sound event definition)
+A sound event see Template:Nbt inherit/sound event/template
+[String][NBT Compound / JSON Object] hurt_sound: One server-side sound event (an [String] ID, or a new [NBT Compound / JSON Object] server-side sound event definition)
+A sound event see Template:Nbt inherit/sound event/template
+[String][NBT Compound / JSON Object] step_sound: One server-side sound event (an [String] ID, or a new [NBT Compound / JSON Object] server-side sound event definition)
+A sound event see Template:Nbt inherit/sound event/template
+[NBT Compound / JSON Object] baby_sounds: Sounds to use for baby chickens.
+Same fields as [NBT Compound / JSON Object] adult_sounds
+
+Cow
+Cow variants are defined using the following format:
+
+[NBT Compound / JSON Object] The root object.
+[String] asset_id: The resource location of the texture to use.
+[String] baby_asset_id: The resource location of the baby texture to use.
+[String] model: The cow model to use. Has to be normal, cold or warm
+[NBT List / JSON Array] spawn_conditions: The spawn conditions of this variant, see § Spawn condition
+
+Cow sounds
+Cow sound variants are defined using the following format:
+
+[NBT Compound / JSON Object] The root object.
+[String][NBT Compound / JSON Object] ambient_sound: One server-side sound event (an [String] ID, or a new [NBT Compound / JSON Object] server-side sound event definition)
+A sound event see Template:Nbt inherit/sound event/template
+[String][NBT Compound / JSON Object] death_sound: One server-side sound event (an [String] ID, or a new [NBT Compound / JSON Object] server-side sound event definition)
+A sound event see Template:Nbt inherit/sound event/template
+[String][NBT Compound / JSON Object] hurt_sound: One server-side sound event (an [String] ID, or a new [NBT Compound / JSON Object] server-side sound event definition)
+A sound event see Template:Nbt inherit/sound event/template
+[String][NBT Compound / JSON Object] step_sound: One server-side sound event (an [String] ID, or a new [NBT Compound / JSON Object] server-side sound event definition)
+A sound event see Template:Nbt inherit/sound event/template
+
+Frog
+Frog variants are defined using the following format:
+
+[NBT Compound / JSON Object] The root object.
+[String] asset_id: The resource location of the texture to use.
+[NBT List / JSON Array] spawn_conditions: The spawn conditions of this variant, see § Spawn condition
+
+Pig
+Pig variants are defined using the following format:
+
+[NBT Compound / JSON Object] The root object.
+[String] asset_id: The resource location of the texture to use.
+[String] baby_asset_id: The resource location of the baby texture to use.
+[String] model: The pig model to use, has to be normal or cold. Defaults to normal
+[NBT List / JSON Array] spawn_conditions: The spawn conditions of this variant, see § Spawn condition
+
+Pig sounds
+Pig sound variants are defined using the following format:
+
+[NBT Compound / JSON Object] The root object.
+[NBT Compound / JSON Object] adult_sounds: Sounds to use for adult pigs.
+[String][NBT Compound / JSON Object] ambient_sound: One server-side sound event (an [String] ID, or a new [NBT Compound / JSON Object] server-side sound event definition)
+A sound event see Template:Nbt inherit/sound event/template
+[String][NBT Compound / JSON Object] death_sound: One server-side sound event (an [String] ID, or a new [NBT Compound / JSON Object] server-side sound event definition)
+A sound event see Template:Nbt inherit/sound event/template
+[String][NBT Compound / JSON Object] eat_sound: One server-side sound event (an [String] ID, or a new [NBT Compound / JSON Object] server-side sound event definition)
+A sound event see Template:Nbt inherit/sound event/template
+[String][NBT Compound / JSON Object] hurt_sound: One server-side sound event (an [String] ID, or a new [NBT Compound / JSON Object] server-side sound event definition)
+A sound event see Template:Nbt inherit/sound event/template
+[String][NBT Compound / JSON Object] step_sound: One server-side sound event (an [String] ID, or a new [NBT Compound / JSON Object] server-side sound event definition)
+A sound event see Template:Nbt inherit/sound event/template
+[NBT Compound / JSON Object] baby_sounds: Sounds to use for baby pigs.
+Same fields as [NBT Compound / JSON Object] adult_sounds
+
+Wolf
+Wolf variants are defined using the following format:
+
+[NBT Compound / JSON Object] The root object.
+[NBT Compound / JSON Object] assets: The assets to use for this variant:
+[String] angry: The resource location of the texture to use when the wolf is angry.
+[String] wild: The resource location of the texture to use when the wolf is wild.
+[String] tame: The resource location of the texture to use when the wolf is tamed.
+[NBT Compound / JSON Object] baby_assets: The assets to use for the baby of this variant:
+[String] angry: The resource location of the texture to use when the wolf is angry.
+[String] wild: The resource location of the texture to use when the wolf is wild.
+[String] tame: The resource location of the texture to use when the wolf is tamed.
+[NBT List / JSON Array] spawn_conditions: The spawn conditions of this variant, see § Spawn condition
+
+Wolf sounds
+Wolf sound variants are defined using the following format:
+
+[NBT Compound / JSON Object] The root object.
+[NBT Compound / JSON Object] adult_sounds: Sounds to use for adult wolves.
+[String][NBT Compound / JSON Object] ambient_sound: One server-side sound event (an [String] ID, or a new [NBT Compound / JSON Object] server-side sound event definition)
+A sound event see Template:Nbt inherit/sound event/template
+[String][NBT Compound / JSON Object] death_sound: One server-side sound event (an [String] ID, or a new [NBT Compound / JSON Object] server-side sound event definition)
+A sound event see Template:Nbt inherit/sound event/template
+[String][NBT Compound / JSON Object] growl_sound: One server-side sound event (an [String] ID, or a new [NBT Compound / JSON Object] server-side sound event definition)
+A sound event see Template:Nbt inherit/sound event/template
+[String][NBT Compound / JSON Object] hurt_sound: One server-side sound event (an [String] ID, or a new [NBT Compound / JSON Object] server-side sound event definition)
+A sound event see Template:Nbt inherit/sound event/template
+[String][NBT Compound / JSON Object] pant_sound: One server-side sound event (an [String] ID, or a new [NBT Compound / JSON Object] server-side sound event definition)
+A sound event see Template:Nbt inherit/sound event/template
+[String][NBT Compound / JSON Object] whine_sound: One server-side sound event (an [String] ID, or a new [NBT Compound / JSON Object] server-side sound event definition)
+A sound event see Template:Nbt inherit/sound event/template
+[NBT Compound / JSON Object] baby_sounds: Sounds to use for baby wolves.
+Same fields as [NBT Compound / JSON Object] adult_sounds
+
+Zombie Nautilus
+Zombie nautilus variants are defined using the following format:
+
+[NBT Compound / JSON Object] The root object.
+[String] asset_id: The resource location of the texture to use.
+[String] model: The nautilus model to use, has to be normal or warm. Defaults to normal
+[NBT List / JSON Array] spawn_conditions: The spawn conditions of this variant, see § Spawn condition
+
+Spawn condition
+Spawn conditions are used to determine which variant to spawn. Each variant contains a list of conditions with attached priorities. The selection of a variant happens in 3 steps:
+
+Each condition is evaluated. The matching condition with the highest priority determines the priority of the variant. If no condition matches the variant is discarded.
+Of all remaining variants, all except those with the highest priority are discarded.
+Of the remaining variants, a random variant is chosen.
+Spawn conditions are specified using the following format:
+
+[NBT List / JSON Array] spawn_conditions: List of spawn conditions with priority
+[NBT Compound / JSON Object]: A single spawn condition
+[Int] priority: The priority of the variant if this spawn condition matches
+[NBT Compound / JSON Object] condition: Condition to match. Always matches if omitted
+[String] type: The type of the condition, see below for valid options
+Additional fields based on [String] type, see below
+
+biome
+Tests if the spawn position is inside one of the specified biomes.
+
+[NBT Compound / JSON Object] condition
+[String] type: biome
+[String][NBT List / JSON Array] biomes: Any number of biome(s) (an [String] ID, or a [String] tag with #, or an [NBT List / JSON Array] array containing [String] IDs) — The biomes to match
+
+structure
+Tests if the spawn position is inside at least one of the specified structures.
+
+[NBT Compound / JSON Object] condition
+[String] type: structure
+[String][NBT List / JSON Array] structures: Any number of structure(s) (an [String] ID, or a [String] tag with #, or an [NBT List / JSON Array] array containing [String] IDs) — The structures to match
+
+moon_brightness
+Matches the moon brightness at the time of the spawn.
+
+[NBT Compound / JSON Object] condition
+[String] type: moon_brightness
+[Double][NBT Compound / JSON Object] range: The moon brightness values to match — If specified as [Double]: matches a single moon brightness value
+[Double] min: The minimum moon brightness to match
+[Double] max: The maximum moon brightness to match
+
+History
+Java Edition1.20.524w10a
+Added wolf variants; including definitions in data packs.1.21.525w03a
+Added pig variants; including definitions in data packs.25w04a
+Cat and frog variants can now be defined in data packs.
+
+Added unified [NBT Compound / JSON Object] spawn_conditions field, replacing [String][NBT List / JSON Array] biomes field in wolf and pig variants.
+
+Moved wolf variant [String] angry_texture‌, [String] wild_texture‌, and [String] tame_texture‌ field into [NBT Compound / JSON Object] assets and removed _texture suffix.
+
+Renamed pig variant [String] texture field to [String] asset_id.
+25w05a
+Added cow variants; including definitions in data packs.25w06a
+Added chicken variants; including definitions in data packs.25w08a
+Added wolf sound variants; including definitions in data packs.1.21.1125w45a
+Added zombie nautilus variants; including definitions in data packs.26.1snap2
+Wolf sound variants sound events in wolf_sound_variant has been moved into a new field adult_sounds and the field baby_sounds was added.
+
+The textures for baby mobs can now be defined for cow, pig, chicken, wolf, and cat variants.snap7
+Added cat, pig, cow and chicken sounds variants; including definitions in data packs.
+Navigation

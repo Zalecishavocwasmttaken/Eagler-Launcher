@@ -1,0 +1,144 @@
+This article is about the history of the chest.png-atlas file.   For a comprehensive history of block texture changes, see Java Edition history of textures.
+
+
+
+This feature is exclusive to Java Edition. 
+
+chest.png-atlas in Java Edition 1.21.9.
+chest.png-atlas is a procedurally-generated texture atlas used to store textures for all chests.
+
+Contents
+
+1 Format
+2 History
+
+2.1 Versions of the atlas
+
+2.1.1 Mipmapped versions
+
+3 Trivia
+4 References
+5 Navigation
+
+Format
+chest.png-atlas is a fixed-width 512×256-pixel file that store textures for all chests.
+
+History
+Java Edition1.15Pre-release 1
+Added chest.png-atlas, following the splitting of textures-atlas.1.19.322w42a
+As an optimization to resource pack loading, everything in the relevant directory is compiled into this atlas, rather than only those sprites which are used by the game. For this specific atlas, there is no resulting visual change.22w46a
+A customizable atlas json file has been added which can be used to control which graphics are added to this atlas.1.19.4Pre-release 3
+The way in which sprites are arranged on atlases has been changed considerably, resulting in atlas dimensions being generally smaller.
+
+This atlas can now be exported to the screenshots folder using F3 + S.1.21.925w31a
+Mipmapped versions of this atlas are no longer generated.
+Versions of the atlas
+
+Game version
+
+Atlas
+
+Changes
+
+Notes
+
+Main
+
+Development
+
+1.15
+
+Pre-release 1
+
+Introduction
+
+1.19.4
+
+Pre-release 3
+
+Rearranged due to packing optimization
+
+1.20
+
+23w14a
+
+Updated large chest textures
+
+23w13a_or_b
+
+Added Golden Chest
+
+1.21.9
+
+25w31a
+
+Added copper chests
+
+25w35a
+
+1.21.11
+
+25w42a
+
+25w44a
+
+All textures now have an extra pixel of padding in all four directions. This negatively impacts tiling efficiency.
+
+Mipmapped versions
+
+
+
+This section describes content that has been removed from Java Edition. 
+This feature was present in earlier versions of Java Edition, but has since been removed.
+
+Minecraft also originally generated mipmapped versions of this atlas, for unknown reasons. They were not used by the game at all - only blocks placed in the world which use the json model system use mipmapped textures.
+
+Game version
+
+Atlas
+
+Notes
+
+Main
+
+Development
+
+Mipmap level
+
+1
+
+2
+
+3
+
+4
+
+1.15
+
+Pre-release 1
+
+1.19.4
+
+Pre-release 3
+
+1.20
+
+23w14a
+
+*
+
+Level 4 is unchanged.
+
+23w13a_or_b
+
+Trivia
+Were all chest textures split and handled like block textures are with individual 16×16 sprites, the atlas would be half the size.
+References
+
+ MC-241850
+
+ MC-303675
+
+ MC-276568 – resolved as "Fixed".
+
+Navigation

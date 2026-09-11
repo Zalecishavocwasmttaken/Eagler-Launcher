@@ -1,0 +1,452 @@
+For the regular non-ominous variant, see Trial Spawner.
+
+Ominous Trial Spawner
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Renewable
+
+No
+
+Stackable
+
+Yes (64)
+
+Tool
+
+Any tool
+
+Blast resistance
+
+50
+
+Hardness
+
+50
+
+Luminous
+
+Yes, when not inactive
+Waiting for players: 4
+Active: 8
+
+Transparent
+
+Partial
+
+Flammable
+
+No
+
+Catches firefrom lava
+
+No
+
+Map color
+
+ 11 STONE
+
+Note block instrument
+
+Bass Drum
+
+{
+    "title": "Ominous Trial Spawner",
+    "rows": [
+        {
+            "field": "No",
+            "label": "(link to Renewable resource article, displayed as Renewable)"
+        },
+        {
+            "field": "Yes (64)",
+            "label": "Stackable"
+        },
+        {
+            "field": "Any tool",
+            "label": "Tool"
+        },
+        {
+            "field": "50",
+            "label": "(link to Explosion#Blast resistance article, displayed as Blast resistance)"
+        },
+        {
+            "field": "50",
+            "label": "(link to Breaking#Blocks by hardness article, displayed as Hardness)"
+        },
+        {
+            "field": "\n* Yes, when not inactive\n** Waiting for players: 4\n** Active: 8",
+            "label": "(link to Light article, displayed as Luminous)"
+        },
+        {
+            "field": "Partial",
+            "label": "(link to Opacity article, displayed as Transparent)"
+        },
+        {
+            "field": "No",
+            "label": "(link to Fire#Flammable blocks article, displayed as Flammable)"
+        },
+        {
+            "field": "No",
+            "label": "Catches fire<br>from (link to lava article, displayed as lava)"
+        },
+        {
+            "field": "<span style=\"white-space: nowrap;\"><span style=\"display: inline-block; background-color: rgb(112, 112, 112); border: 1px solid #888; border-radius: 0.3em; color: transparent; width: 1em; height: 1em; vertical-align: -0.36em; margin-right: -0.1em\"><br></span> 11 STONE</span>",
+            "label": "(link to Map item format#Color table article, displayed as Map color)"
+        },
+        {
+            "field": "Bass Drum",
+            "label": "(link to Note Block#Instruments article, displayed as Note block instrument)"
+        }
+    ],
+    "invimages": [
+        "Trial Spawner"
+    ],
+    "images": [
+        "Ominous Trial Spawner (active).png",
+        "Ominous Trial Spawner (ejecting).png",
+        "Ominous Trial Spawner (inactive).png"
+    ]
+}
+
+An ominous trial spawner is a trial spawner that has been altered by a Trial Omen effect carried by a player as part of an ominous trial. It spawns more dangerous mob waves, as well as ominous item spawners, but ejects better rewards and is the only source of ominous trial keys.
+
+Contents
+
+1 Obtaining
+
+1.1 Breaking
+1.2 Ominous trial
+
+2 Usage
+
+2.1 Mob spawning
+2.2 Projectile spawning
+2.3 Loot
+2.4 Piston interactivity
+
+3 Sounds
+
+3.1 Generic
+3.2 Unique
+
+4 Data values
+5 Advancements
+6 History
+
+6.1 Java Edition
+6.2 Bedrock Edition
+
+7 Issues
+8 Gallery
+
+8.1 Renders
+8.2 Mojang screenshots
+
+9 Notes
+10 References
+11 Navigation
+
+Obtaining
+Breaking
+No tool can accelerate the breaking process of an ominous trial spawner.
+
+Block
+
+Ominous Trial Spawner
+
+Hardness
+
+50
+
+Breaking time (secs)
+
+Default
+
+75
+
+OptionsHaste0011JEBE
+
+Legend
+ incorrect tool, drops nothing
+ correct tool, drops nothing or something other than the block itself
+ correct tool, drops the block itself
+italicized can be instant mined
+
+Ominous trial spawners drop nothing when destroyed.
+
+Ominous trial
+Trial spawners convert to ominous trial spawners if a player with the Trial Omen effect enters the 14 block detection area and is in the line of sight of the trial spawner. This also happens when the player has the Bad Omen effect, which gets converted into Trial Omen. When a trial spawner becomes ominous, all of its existing mobs are despawned. If the spawner was on cooldown and was not ominous before going on cooldown, the cooldown is skipped when becoming ominous. The ominous trial spawner then immediately becomes active. An inactive ominous trial spawner converts back into a regular trial spawner after cooling down for 30 minutes.
+Ominous trial spawners cannot be obtained as items in Survival or Adventure mode. They are technically block state variants of normal trial spawners and can be obtained or created using commands, such as:
+Java Edition:
+
+/give @s minecraft:trial_spawner[block_state={ominous:"true"}]
+/setblock x y z minecraft:trial_spawner[ominous=true]
+Bedrock Edition:
+
+/setblock x y z trial_spawner ["ominous"=true]
+Usage
+An ominous trial spawner is similar to a normal trial spawner, but spawns more difficult mobs and ejects more powerful loot.
+
+Mob spawning
+See also: Trial Spawner § Mob spawning and Trial Chambers § Trial spawners
+
+Ominous trial spawners converted from trial spawners that generate naturally in trial chambers spawn mobs with (better) weapons and wearing armor. Ominous trial spawners with mobs that are unable to wear equipment, such as spiders or silverfish, spawn double the total mob count over the course of the challenge. These spawners also allow an additional mob to be out all at once during their challenge.
+Each armor set consists of only a chestplate and helmet with each piece having a 50% chance of being missing. All armor is enchanted with Fire Protection IV, Projectile Protection IV, and[verify] Protection IV. In Java Edition, mobs don't drop the armor on death or upon conversion to a drowned. In Bedrock Edition, zombies will drop the armor when converted to drowned, but not on death. The armor is selected from:
+
+Chainmail armor with bolt armor trim in copper (4 in 7)
+Iron armor with flow armor trim in copper (2 in 7)
+Diamond armor with flow armor trim in copper (1 in 7).
+Melee mobs spawn with a weapon selected from:
+
+Iron sword (4 in 7)
+Iron sword with Sharpness I (1 in 7)
+Iron sword with Knockback I (1 in 7)
+Diamond sword (1 in 7).
+Ranged mobs spawn with a bow with:
+
+no enchantment (2 in 4)
+Power I (1 in 4)
+Punch I (1 in 4).
+Ominous trial spawners converted from manually placed trial spawners continue to spawn the same mob as the trial spawner.
+
+Projectile spawning
+When at least one player is within the activation range of an ominous trial spawner, every 8 seconds it spawns ominous item spawners above any player or any mob that was spawned by the ominous trial spawner within 14 blocks. The location where it should spawn is determined by first performing a raycast from the feet of the entity to a random height between 2 and 5 blocks above the entity. If it hits a block, this block is used, otherwise the end of the line is used. Which block can be hit is determined by visual box. The item spawns in the center of the block below it, unless the block has a collision box. The ominous item spawner displays a projectile for 3 to 6 seconds before shooting that projectile downwards.
+Each ominous trial spawner has a set of 2 projectiles it spawns, one of which is a lingering potion. The lingering potion effect is selected randomly from one of the following (all with equal chance):
+
+Wind Charged
+Oozing
+Weaving
+Infested
+Strength
+Speed
+Slow Falling
+The second projectile is randomly selected from one of the following (again, all with equal chance):
+
+Arrow
+Arrow with Poison (0:45)
+Arrow with Slowness IV (0:20)
+Small fireball
+Wind charge
+The potions and projectiles chosen will not change between trials and are based on location and world seed, so it is likely that spawners very close to each other will have the same projectiles.
+
+Loot
+Ominous trial spawners in trial chambers eject different, better, rewards compared to the non-ominous state.
+Like a normal trial spawner, it ejects loot once for each detected player. Instead of trial keys, an ominous trial spawner has a 30% chance to eject ominous trial keys, in which case it drops for all players. The other 70% of the time it drops one of the other items for each player.
+In Java Edition and Bedrock Edition, each trial chamber ominous trial spawner contains 1 item stack,  with the following distribution:
+
+ Item
+  Stack Size
+  Weight
+  Chance
+  Avg.per spawner
+  Avg. # spawnersto defeat
+
+Ominous Trial Key
+130⁄10030.0%0.3003.3
+
+Baked Potato
+2–421⁄10021.0%0.6304.8
+
+Steak
+1–221⁄10021.0%0.3154.8
+
+Golden Carrot
+1–214⁄10014.0%0.2107.1
+
+Potion of Regeneration
+17⁄1007.0%0.07014.3
+
+Potion of Strength
+17⁄1007.0%0.07014.3
+{ "chestNames": [ "trial-chambers-trial-spawner-ominous" ], "gameVersion": "Java", "loot": { "trial-chambers-trial-spawner-ominous": { "poolsJava": [ { "items": { "golden-carrot": [ 1, 2, 14 ], "ominous-trial-key": [ 1, 1, 30 ], "potion-of-regeneration": [ 1, 1, 7 ], "cooked-beef": [ 1, 2, 21 ], "potion-of-strength": [ 1, 1, 7 ], "baked-potato": [ 2, 4, 21 ] }, "rolls": [ 1, 1 ], "totalweight": 100 } ], "poolsBedrockUpcoming": [], "itemDataJava": { "golden-carrot": { "itemname": "golden-carrot", "sizes": [ "1–2" ], "sortsize": [ 1.5 ], "sortweight": [ 14 ], "weights": [ "<sup>14</sup>&frasl;<sub>100</sub>" ], "avgamount": 0.21, "chanceany": 0.14 }, "ominous-trial-key": { "itemname": "ominous-trial-key", "sizes": [ 1 ], "sortsize": [ 1 ], "sortweight": [ 30 ], "weights": [ "<sup>30</sup>&frasl;<sub>100</sub>" ], "avgamount": 0.3, "chanceany": 0.30000000000000004 }, "potion-of-regeneration": { "sortsize": [ 1 ], "weights": [ "<sup>7</sup>&frasl;<sub>100</sub>" ], "chanceany": 0.06999999999999995, "sizes": [ 1 ], "sortweight": [ 7 ], "armor": 0, "material": 0, "avgamount": 0.07, "itemname": "potion-of-regeneration" }, "cooked-beef": { "itemname": "cooked-beef", "sizes": [ "1–2" ], "sortsize": [ 1.5 ], "sortweight": [ 21 ], "weights": [ "<sup>21</sup>&frasl;<sub>100</sub>" ], "avgamount": 0.315, "chanceany": 0.20999999999999996 }, "potion-of-strength": { "sortsize": [ 1 ], "weights": [ "<sup>7</sup>&frasl;<sub>100</sub>" ], "chanceany": 0.06999999999999995, "sizes": [ 1 ], "sortweight": [ 7 ], "armor": 0, "material": 0, "avgamount": 0.07, "itemname": "potion-of-strength" }, "baked-potato": { "itemname": "baked-potato", "sizes": [ "2–4" ], "sortsize": [ 3 ], "sortweight": [ 21 ], "weights": [ "<sup>21</sup>&frasl;<sub>100</sub>" ], "avgamount": 0.63, "chanceany": 0.20999999999999996 } }, "display_name": "trial chamber ominous trial spawner", "superheader": "[[Trial Chambers]]", "poolsJavaUpcoming": [], "structure": "Trial Chambers", "container": "Ominous trial spawner", "itemDataJavaUpcoming": [], "allRollsJavaUpcoming": [], "itemDataBedrock": { "golden-carrot": { "itemname": "golden-carrot", "sizes": [ "1–2" ], "sortsize": [ 1.5 ], "sortweight": [ 14 ], "weights": [ "<sup>14</sup>&frasl;<sub>100</sub>" ], "avgamount": 0.21, "chanceany": 0.14 }, "ominous-trial-key": { "itemname": "ominous-trial-key", "sizes": [ 1 ], "sortsize": [ 1 ], "sortweight": [ 30 ], "weights": [ "<sup>30</sup>&frasl;<sub>100</sub>" ], "avgamount": 0.3, "chanceany": 0.30000000000000004 }, "potion-of-regeneration": { "sortsize": [ 1 ], "weights": [ "<sup>7</sup>&frasl;<sub>100</sub>" ], "chanceany": 0.06999999999999995, "sizes": [ 1 ], "sortweight": [ 7 ], "armor": 0, "material": 0, "avgamount": 0.07, "itemname": "potion-of-regeneration" }, "cooked-beef": { "itemname": "cooked-beef", "sizes": [ "1–2" ], "sortsize": [ 1.5 ], "sortweight": [ 21 ], "weights": [ "<sup>21</sup>&frasl;<sub>100</sub>" ], "avgamount": 0.315, "chanceany": 0.20999999999999996 }, "potion-of-strength": { "sortsize": [ 1 ], "weights": [ "<sup>7</sup>&frasl;<sub>100</sub>" ], "chanceany": 0.06999999999999995, "sizes": [ 1 ], "sortweight": [ 7 ], "armor": 0, "material": 0, "avgamount": 0.07, "itemname": "potion-of-strength" }, "baked-potato": { "itemname": "baked-potato", "sizes": [ "2–4" ], "sortsize": [ 3 ], "sortweight": [ 21 ], "weights": [ "<sup>21</sup>&frasl;<sub>100</sub>" ], "avgamount": 0.63, "chanceany": 0.20999999999999996 } }, "poolsBedrock": [ { "items": { "golden-carrot": [ 1, 2, 14 ], "ominous-trial-key": [ 1, 1, 30 ], "potion-of-regeneration": [ 1, 1, 7 ], "cooked-beef": [ 1, 2, 21 ], "potion-of-strength": [ 1, 1, 7 ], "baked-potato": [ 2, 4, 21 ] }, "rolls": [ 1, 1 ], "totalweight": 100 } ], "allRollsBedrockUpcoming": [], "allRollsBedrock": [ 1 ], "itemDataBedrockUpcoming": [], "chest_type": "ominous trial spawner", "header": "Ominous Spawner", "allRollsJava": [ 1 ], "link": "[[trial chambers]] ominous spawner", "structID": "trial-chambers" } } }
+
+ The size of stacks (or for unstackable items, number) of this item on any given roll.
+
+ The weight of this item relative to other items in the pool.
+
+ The odds of finding any of this item in a single chest.
+
+ The number of items expected per chest, averaged over a large number of chests.
+
+ The average number of chests the player should expect to search to find any of this item.
+
+Ominous trial spawners converted from manually placed trial spawners continue to drop the loot of a normal trial spawner (see Trial Spawner#Loot).
+
+Piston interactivity
+Ominous trial spawner can't be pushed by the piston, and can't be pulled by the sticky piston.
+
+Sounds
+Generic
+Java Edition:
+
+v
+t
+e trial_spawner sound typeSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitchAttenuationdistance​Block brokenBlocksOnce the block has been brokenblock.trial_spawner.breaksubtitles.block.generic.break​0.90.816​Block placedBlocksWhen the block is placedblock.trial_spawner.placesubtitles.block.generic.place​1.00.816​Block breakingBlocksWhile the block is in the process of being brokenblock.trial_spawner.hitsubtitles.block.generic.hit​0.250.516​Something falls on a blockEntity-DependentFalling on the block with fall damageblock.trial_spawner.fallsubtitles.block.generic.fall​0.50.7516​FootstepsEntity-DependentWalking on the blockblock.trial_spawner.stepsubtitles.block.generic.footsteps​0.151.016
+Bedrock Edition:
+
+v
+t
+e trial_spawner sound typeSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitch​ ?BlocksOnce the block has brokentrial_spawner.break​ ?1.00.8​ ?BlocksWhen the block is placedtrial_spawner.place​ ?1.00.8​ ?BlocksWhile the block is in the process of being brokentrial_spawner.hit​ ?0.380.5​ ?BlocksFalling on the block with fall damagetrial_spawner.step​ ?0.41.0​ ?BlocksWalking on the blocktrial_spawner.step​ ?0.151.0​ ?BlocksJumping from the blocktrial_spawner.step​ ?0.121.0​ ?BlocksFalling on the block without fall damagetrial_spawner.step​ ?0.21.0
+Unique
+Java Edition:
+
+SoundsSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitchAttenuationdistance​Ominous cracklingBlocksRandomly while activeblock.trial_spawner.ambient_ominoussubtitles.block.trial_spawner.ambient_ominous​0.75–1.00.5–1.516​Trial Spawner charges upBlocksWhen an ominous trial spawner is approached by a valid playerblock.trial_spawner.detect_playersubtitles.block.trial_spawner.detect_player​1.0Varies16​Trial Spawner spawns a mobBlocksWhen an ominous trial spawner spawns a mobblock.trial_spawner.spawn_mobsubtitles.block.trial_spawner.spawn_mob​1.00.8–1.216​Trial Spawner opensBlocksWhen an ominous trial spawner's shutter opensblock.trial_spawner.open_shuttersubtitles.block.trial_spawner.open_shutter​1.01.016​Trial Spawner closesBlocksWhen an ominous trial spawner's shutter closesblock.trial_spawner.close_shuttersubtitles.block.trial_spawner.close_shutter​1.01.016​Trial Spawner ejects itemsBlocksWhen an ominous trial spawner ejects an itemblock.trial_spawner.eject_itemsubtitles.block.trial_spawner.eject_item​1.00.8–1.216​Ominous item preparesFriendly MobsWhen an ominous trial spawner is about to spawn an ominous item spawnerblock.trial_spawner.about_to_spawn_itemsubtitles.block.trial_spawner.about_to_spawn_item​1.01.016​Ominous item dropsBlocksWhen an ominous item spawner summons an itemblock.trial_spawner.spawn_itemsubtitles.block.trial_spawner.spawn_item​1.00.8–1.216​Ominous item appearsBlocksWhen an ominous item spawner is summonedblock.trial_spawner.spawn_item_beginsubtitles.block.trial_spawner.spawn_item_begin​1.00.8–1.216​Omen engulfs Trial SpawnerFriendly MobsWhen a trial spawner becomes ominousblock.trial_spawner.ominous_activatesubtitles.block.trial_spawner.charge_activate​​subtitles.block.trial_spawner.ominous_activate​Varies0.8–1.216
+ Can be 0.8-1.2 or 0.76-1.14 for each sound
+
+ Plays two sounds of 0.3 and 1.0 simultaneously
+
+Bedrock Edition:
+
+SoundsSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitch​ ?BlocksRandomly while activetrial_spawner.ambient_ominous​ ?0.75–1.00.5–1.5​ ?BlocksWhen an ominous trial spawner is approached by a valid playertrial_spawner.detect_player​ ?1.00.76–1.14​ ?BlocksWhen an ominous trial spawner spawns a mobtrial_spawner.spawn_mob​ ?1.00.8–1.2​ ?BlocksWhen an ominous trial spawner's shutter openstrial_spawner.open_shutter​ ?1.01.0​ ?BlocksWhen an ominous trial spawner's shutter closestrial_spawner.close_shutter​ ?1.01.0​ ?BlocksWhen an ominous trial spawner ejects an itemtrial_spawner.eject_item​ ?1.00.8–1.1​ ?BlocksWhen an ominous trial spawner spawns a mobtrial_spawner.spawn_mob​ ?1.00.8–1.2​ ?BlocksWhen a trial spawner is about to spawn an ominous item spawnerominous_item_spawner.about_to_spawn_item​ ?1.00.8–1.1​ ?BlocksWhen an ominous item spawner summons an itemominous_item_spawner.spawn_item​ ?1.00.8–1.1​ ?BlocksWhen an ominous item spawner is summonedominous_item_spawner.spawn_item_begin​ ?1.00.8–1.1​ ?BlocksWhen a trial spawner becomes ominoustrial_spawner.charge_activate​ ?1.01.0
+Data values
+Main article: Trial Spawner § Data values
+The ominous trial spawner is technically a block state of the trial spawner. Therefore, it has the same data value structure.
+
+Advancements
+IconAdvancementIn-game descriptionActual requirements (if different)How Did We Get Here?Have every effect applied at the same time
+Have all of these 34 status effects applied to the player at the same time:
+
+Absorption
+Bad Omen
+Blindness
+Breath of the Nautilus
+Conduit Power
+Darkness
+Dolphin's Grace
+Fire Resistance
+Glowing
+Haste
+Hero of the Village
+Hunger
+Infested
+Invisibility
+Jump Boost
+Levitation
+Mining Fatigue
+Nausea
+Night Vision
+Oozing
+Poison
+Raid Omen
+Regeneration
+Resistance
+Slow Falling
+Slowness
+Speed
+Strength
+Trial Omen
+Water Breathing
+Weakness
+Weaving
+Wind Charged
+Wither
+
+The source of the effects is irrelevant for the purposes of this advancement. Other status effects may be applied to the player, but are ignored for this advancement.
+
+See also: Tutorial:Advancement guide/How Did We Get Here?
+
+This is a hidden advancement, meaning that it can be viewed by the player only after completing it, regardless of if its child advancement(s), if any, have been completed.
+History
+Java Edition
+Java Edition1.20.5ExperimentUpdate 1.2124w13a
+   Added ominous trial spawners.pre1
+   Updated textures to match trial spawners.1.2124w18a
+Ominous trial spawners are now available without using the "Update 1.21" experimental data pack.
+
+Ominous trial spawners with mobs that are unable to wear equipment now spawn double the total mob count over the course of the challenge.
+
+Bottle o' enchanting is no longer a possible projectile for ominous trial spawners.24w19a
+  Updated active and ejecting textures to be more consistent across all states as well as the trial spawner.pre2
+   Updated bottom texture to match Bedrock Edition.
+Bedrock Edition
+Bedrock Edition1.21.0ExperimentUpdate 1.21Preview 1.21.0.20
+   Added ominous trial spawners.Preview 1.21.0.21
+Ominous trial spawners now show a preview of the item that is about to be ejected.1.21.0Preview 1.21.0.22
+Ominous trial spawners are now available without using the "Update 1.21" experimental toggle.
+
+   Updated textures to match trial spawners.1.21.20Preview 1.21.10.20
+  Updated active and ejecting textures to be more consistent across all states as well as the trial spawner.
+Issues
+Issues relating to "Ominous Trial Spawner" are maintained on the bug tracker. Issues should be reported and viewed there.
+
+Gallery
+Renders
+
+
+
+			A breeze ominous trial spawner.
+
+
+
+			A slime ominous trial spawner.
+
+
+
+			A zombie ominous trial spawner.
+
+
+
+			A baby zombie ominous trial spawner.
+
+
+
+			A husk ominous trial spawner.
+
+
+
+			A skeleton ominous trial spawner.
+
+
+
+			A bogged ominous trial spawner.
+
+
+
+			A stray ominous trial spawner.
+
+
+
+			A spider ominous trial spawner.
+
+
+
+			A cave spider ominous trial spawner.
+
+
+
+			A silverfish ominous trial spawner.
+
+
+Mojang screenshots
+
+
+
+			Noor looking at an Ominous Trial Key.
+
+
+
+			A silverfish next to an ominous trial spawner.
+
+
+Notes
+
+ Specifically, it depends on the value of floor(X/30), floor(Y/20) and floor(Z/30).
+
+References
+
+ MCPE-189946 – Ominous Trial mobs drop equipped armor and weapons on death
+
+ MC-296111 – Tipped arrows from ominous trial spawners use standard potion duration instead of tipped arrow duration
+
+Navigation

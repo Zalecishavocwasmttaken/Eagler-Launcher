@@ -1,0 +1,68 @@
+This feature is exclusive to Java Edition. 
+
+/defaultgamemode
+
+Permission levelrequired
+
+2
+
+Restrictions
+
+None
+
+{
+    "title": "<code>/defaultgamemode</code>",
+    "rows": [
+        {
+            "field": "2",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "None",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+Sets the default game mode (Creative, Survival, etc.) for new players entering a multiplayer server. If in multiplayer and force-gamemode in the server.properties file is true, or if in LAN world, all online players are set to this game mode.
+
+Contents
+
+1 Syntax
+2 Arguments
+3 Result
+4 Output
+5 Examples
+6 See also
+7 History
+8 Navigation
+
+Syntax
+defaultgamemode <gamemode>
+Arguments
+<gamemode>: gamemode
+
+Specifies the default game mode.
+Must be one of the following:survival for Survival modecreative for Creative modeadventure for Adventure modespectator for Spectator modeNote that "hardcore" is not a valid option, as it is technically not a game mode.
+Result
+
+CommandTriggerJava Edition
+
+AnyThe command is incomplete, or any argument is not specified correctly. UnparseableOtherwiseSuccessful
+Output
+
+CommandEditionSituationSuccess Count/execute store success .../execute store result ...
+
+AnyJava EditionIf in multiplayer, and force-gamemode in the server.properties file is true11the number of online players whose game mode is changedJava EditionIf in LAN world11the number of online players whose game mode is changedOtherwise110
+Examples
+To set the default game mode to survival: defaultgamemode survival
+See also
+/gamemode – changes a player's game mode
+History
+Java Edition1.3.112w22a
+Added /defaultgamemode.1.814w05a
+Added spectator to /defaultgamemode.1.19.322w45a
+Now this command accepts a gamemode argument, instead of literal subcommands.
+Navigation

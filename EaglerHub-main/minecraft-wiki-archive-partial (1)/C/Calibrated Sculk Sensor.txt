@@ -1,0 +1,876 @@
+Calibrated Sculk Sensor
+
+Java Edition
+
+Bedrock Edition
+
+Renewable
+
+Yes
+
+Stackable
+
+Yes (64)
+
+Tool
+
+Blast resistance
+
+1.5
+
+Hardness
+
+1.5
+
+Luminous
+
+Yes (1)
+
+Transparent
+
+Yes
+
+Waterloggable
+
+Yes
+
+Flammable
+
+No
+
+Catches firefrom lava
+
+No
+
+Map color
+
+ 23 COLOR_CYAN
+
+Note block instrument
+
+Default (Harp)
+
+{
+    "title": "Calibrated Sculk Sensor",
+    "rows": [
+        {
+            "field": "Yes",
+            "label": "(link to Renewable resource article, displayed as Renewable)"
+        },
+        {
+            "field": "Yes (64)",
+            "label": "Stackable"
+        },
+        {
+            "field": "<span class=\"sprite-file\" style=\"height:32px;width:32px;--vertical-align:middle\">(link to File:SlotSprite Hoe Required.png article, displayed as 32x32px|link=|alt=SlotSprite Hoe Required.png: Sprite image for Hoe Required in Minecraft|class=pixel-image|This block can be broken with any tool, but a hoe is the quickest)</span>",
+            "label": "Tool"
+        },
+        {
+            "field": "1.5",
+            "label": "(link to Explosion#Blast resistance article, displayed as Blast resistance)"
+        },
+        {
+            "field": "1.5",
+            "label": "(link to Breaking#Blocks by hardness article, displayed as Hardness)"
+        },
+        {
+            "field": "Yes (1)",
+            "label": "(link to Light article, displayed as Luminous)"
+        },
+        {
+            "field": "Yes",
+            "label": "(link to Opacity article, displayed as Transparent)"
+        },
+        {
+            "field": "Yes",
+            "label": "(link to Waterlogging article, displayed as Waterloggable)"
+        },
+        {
+            "field": "No",
+            "label": "(link to Fire#Flammable blocks article, displayed as Flammable)"
+        },
+        {
+            "field": "No",
+            "label": "Catches fire<br>from (link to lava article, displayed as lava)"
+        },
+        {
+            "field": "<span style=\"white-space: nowrap;\"><span style=\"display: inline-block; background-color: rgb(76, 127, 153); border: 1px solid #888; border-radius: 0.3em; color: transparent; width: 1em; height: 1em; vertical-align: -0.36em; margin-right: -0.1em\"><br></span> 23 COLOR<wbr/>_CYAN</span>",
+            "label": "(link to Map item format#Color table article, displayed as Map color)"
+        },
+        {
+            "field": "Default (Harp)",
+            "label": "(link to Note Block#Instruments article, displayed as Note block instrument)"
+        }
+    ],
+    "invimages": [
+        "Calibrated Sculk Sensor"
+    ],
+    "images": [
+        "Calibrated Sculk Sensor.gif",
+        "Calibrated Sculk Sensor BE.gif"
+    ]
+}
+
+A calibrated sculk sensor is a craftable type of sculk sensor that functions similarly, but detects vibrations more quickly and from further away. Its amethyst-covered input side can be powered to make the sensor only detect vibrations from specific sources, depending on the signal strength used. Placing an amethyst block next to a sculk sensor allows it to "relay" detected vibrations to other sculk sensors.
+
+Contents
+
+1 Obtaining
+
+1.1 Breaking
+1.2 Crafting
+
+2 Usage
+
+2.1 Filtering
+
+2.1.1 Vibration frequency
+
+2.2 Piston interactivity
+2.3 Vibration resonance
+
+3 Sounds
+
+3.1 Generic
+3.2 Unique
+
+4 Data values
+
+4.1 ID
+4.2 Block states
+4.3 Block data
+
+5 Videos
+6 History
+
+6.1 Mention
+6.2 Java Edition
+6.3 Bedrock Edition
+6.4 Data history
+
+7 Issues
+8 Gallery
+9 References
+10 Navigation
+
+Obtaining
+Breaking
+A calibrated sculk sensor can be broken with any tool, but hoes are the quickest. It drops itself only if mined with any tool enchanted with Silk Touch. If mined with a non-Silk Touch tool, it drops 5 experience instead.
+
+Block
+
+Calibrated Sculk Sensor
+
+Hardness
+
+1.5
+
+Tool
+
+Breaking time (sec)
+
+Default
+
+2.25
+
+Wooden
+
+1.15
+
+Stone
+
+0.6
+
+Copper
+
+0.45
+
+Iron
+
+0.4
+
+Diamond
+
+0.3
+
+Netherite
+
+0.25
+
+Golden
+
+0.2
+
+OptionsEfficiency000Haste0011JEBE
+
+Legend
+ incorrect tool, drops nothing
+ correct tool, drops nothing or something other than the block itself
+ correct tool, drops the block itself
+italicized can be instant mined
+
+ These durations ignore any other influential factors (e.g., Mining Fatigue) and are measured in seconds. For more information, see Breaking § Mining efficiency.
+
+Crafting
+
+Ingredients
+Crafting recipe
+
+Amethyst Shard +Sculk Sensor
+
+Usage
+When a calibrated sculk sensor detects a vibration, it is activated and emits redstone signal in every direction (including top and bottom), except the side with the amethyst stripe. The redstone signal emitted from the bottom will strongly power the block below the sensor, whereas in all other directions (excluding the side with the amethyst stripe) it is as though the sensor itself is the strongly powered block.
+
+An activated calibrated sculk sensor. Only the block below the sensor is strongly powered. All other sides react as if the sensor itself is strongly powered, excluding the side with the amethyst stripe.
+The calibrated sculk sensor is different from the basic sculk sensor in multiple ways:
+
+can detect vibrations within a distance of 16 blocks, instead of 8.
+is activated for 10 game ticks after detecting a vibration instead of 30 game ticks
+can be filtered (see below) to react only to some sounds.
+one side does not emit a redstone signal when activated (the side with the amethyst stripe).
+When a calibrated sculk sensor detects a vibration, it is activated for 10 game ticks, then has a 10 game tick cooldown before it can detect another vibration. This means that a calibrated sculk sensor can detect a vibration once every 1.05 seconds, as opposed to once every 2.05 seconds for a regular sculk sensor. (Plus 0.05 for every block of distance from the vibration past the first.)
+A calibrated sculk sensor can activate a sculk shrieker and cause a warden to spawn.
+
+Filtering
+Main article: Vibration
+When a redstone signal powers a calibrated sculk sensor on its crystalized side, the sensor is filtered to respond only to vibrations that match the strength of that signal. Every vibration in the game has a frequency associated with it, and every vibration frequency directly matches a specific redstone signal strength. For example, a vibration with a frequency of 5 matches the redstone signal with a strength of 5.
+Some events can create multiple vibrations simultaneously. For example, eating most food items creates vibrations of frequency 3 (item interaction) and 8 (entity eats). Hitting the ground and taking fall damage creates vibrations of frequency 2 (hit ground) and 7 (entity damage). Using a redstone signal, the sensor can be filtered to detect either frequency. If no redstone signal is provided, the sensor detects the highest frequency.
+
+Vibration frequency
+
+
+
+This section needs expansion. 
+You can help by expanding it.Instructions: Bedrock Edition values
+
+Each vibration in the game falls under a certain frequency value. This value can be measured with a comparator. With the right contraption utilizing a calibrated sculk sensor or sculk sensor, the player could detect if a certain action has occurred or is occurring  nearby.
+
+Output
+Vibration type
+Game event
+Description
+
+ 1
+
+Step
+
+minecraft:step
+
+Player or entity steps
+
+Swim
+
+minecraft:swim
+
+Player or entity swims, or boat paddles
+
+Flap
+
+minecraft:flap
+
+Entity flaps (bat)
+
+Resonate 1
+
+minecraft:resonate_1
+
+Block of amethyst re-emits a vibration with a frequency value of 1
+
+ 2
+
+Projectile Land
+
+minecraft:projectile_land
+
+Projectile lands (Snowball hits a block)
+
+Hit Ground
+
+minecraft:hit_ground
+
+Player or entity hits ground after a jump or fall
+
+Bounce
+
+minecraft:bounce
+
+Player or entity bounces off a slime block or a bed
+
+Splash
+
+minecraft:splash
+
+Player or entity splashes in water, enters water or enters bubble column
+
+Resonate 2
+
+minecraft:resonate_2
+
+Block of amethyst re-emits a vibration with a frequency value of 2
+
+ 3
+
+Item Interact Finish
+
+minecraft:item_interact_finish
+
+Any interaction using a shield, spyglass, or bone meal
+
+Projectile Shoot
+
+minecraft:projectile_shoot
+
+Projectile is shot (can be an arrow, a firework, etc.)
+
+Instrument Play
+
+minecraft:instrument_play
+
+Goat horn plays
+
+Resonate 3
+
+minecraft:resonate_3
+
+Block of amethyst re-emits a vibration with a frequency value of 3
+
+ 4
+
+Entity Action
+
+minecraft:entity_action
+
+Entity roars (Ravager), entity shakes water off (wolf after swimming), entity holds or stops holding item (Villager, copper golem, fox, allay), sniffer digs, armadillo rolls up or unrolls, or creaking stops or starts moving
+
+Elytra Glide
+
+minecraft:elytra_glide
+
+Player glides
+
+Unequip
+
+minecraft:unequip
+
+Armor gets unequipped from an armor slot or an armor stand
+
+Resonate 4
+
+minecraft:resonate_4
+
+Block of amethyst re-emits a vibration with a frequency value of 4
+
+ 5
+
+Entity Dismount
+
+minecraft:entity_dismount
+
+Player dismounts from a mount or vehicle
+
+Equip
+
+minecraft:equip
+
+Armor gets equipped to an armor slot or an armor stand
+
+Resonate 5
+
+minecraft:resonate_5
+
+Block of amethyst re-emits a vibration with a frequency value of 5
+
+ 6
+
+Entity Mount
+
+minecraft:entity_mount
+
+Player mounts a mount or vehicle
+
+Entity Interact
+
+minecraft:entity_interact
+
+Player interaction with entity (breeding)
+
+Shear
+
+minecraft:shear
+
+A sheep, mooshroom, or bogged gets sheared
+
+Resonate 6
+
+minecraft:resonate_6
+
+Block of amethyst re-emits a vibration with a frequency value of 6
+
+ 7
+
+Entity Damage
+
+minecraft:entity_damage
+
+Entity takes damage
+
+Resonate 7
+
+minecraft:resonate_7
+
+Block of amethyst re-emits a vibration with a frequency value of 7
+
+ 8
+
+Drink
+
+minecraft:drink
+
+Entity drinks (i.e. uses a bottled liquid or milk bucket)
+
+Eat
+
+minecraft:eat
+
+Entity eats.This includes players eating items, sheep attempting to eat grass, and pandas finishing eating bamboo.Not triggered by horses grazing, players feeding other animals, or frogs eating slimes and magma cubes
+
+Resonate 8
+
+minecraft:resonate_8
+
+Block of amethyst re-emits a vibration with a frequency value of 8
+
+ 9
+
+Container Close
+
+minecraft:container_close
+
+Container (chest, barrel, shulker box) closes
+
+Block Close
+
+minecraft:block_close
+
+Door, trapdoor, or fence gate closes
+
+Block Deactivate
+
+minecraft:block_deactivate
+
+Block deactivation (piston retracts, lever is switched off, button or pressure plate turn off)
+
+Block Detach
+
+minecraft:block_detach
+
+Tripwire gets detached from a tripwire hook
+
+Resonate 9
+
+minecraft:resonate_9
+
+Block of amethyst re-emits a vibration with a frequency value of 9
+
+ 10
+
+Container Open
+
+minecraft:container_open
+
+Container (chest, barrel, shulker box) opens
+
+Block Open
+
+minecraft:block_open
+
+Door, trapdoor, or fence gate opens
+
+Block Activate
+
+minecraft:block_activate
+
+Block activationA  piston, button, lever, or pressure plate is powered, or potent sulfur erupts.Not triggered by a crafter, dispenser, dropper, or jukebox
+
+Block Attach
+
+minecraft:block_attach
+
+Tripwire gets attached to a tripwire hook
+
+Prime Fuse
+
+minecraft:prime_fuse
+
+TNT block or creeper is ignited
+
+Note Block Play
+
+minecraft:note_block_play
+
+Note block plays a note
+
+Resonate 10
+
+minecraft:resonate_10
+
+Block of amethyst re-emits a vibration with a frequency value of 10
+
+ 11
+
+Block Change
+
+minecraft:block_change
+
+Block changes state (chiseled bookshelf, lectern, composter, decorated pot, bell ringing, item frame etc.)​[more information needed]
+
+Resonate 11
+
+minecraft:resonate_11
+
+Block of amethyst re-emits a vibration with a frequency value of 11
+
+ 12
+
+Block Destroy
+
+minecraft:block_destroy
+
+Block destructionTriggered by block breaking, removing a block required to support it, or pushing it with a piston (if the block is broken when moved).Not triggered when blocks are destroyed by an explosion.
+
+Fluid Pickup
+
+minecraft:fluid_pickup
+
+Liquid is picked up into a glass bottle or empty bucket (i.e. the bottle or bucket is used, filling it with water, lava, milk, honey, powder snow, or a potion from a cauldron‌[Bedrock Edition  only])
+
+Resonate 12
+
+minecraft:resonate_12
+
+Block of amethyst re-emits a vibration with a frequency value of 12
+
+ 13
+
+Block Place
+
+minecraft:block_place
+
+Block placement
+
+Fluid Place
+
+minecraft:fluid_place
+
+Fluid placement
+
+Resonate 13
+
+minecraft:resonate_13
+
+Block of amethyst re-emits a vibration with a frequency value of 13
+
+ 14
+
+Entity Place
+
+minecraft:entity_place
+
+Entity placementTriggered by vehicle, armor stand, or item frame is placed; or a mob is spawned via spawn egg, mob spawner, creaking heart, or evoker magicNot triggered by random mob spawning or breeding
+
+Lightning Strike
+
+minecraft:lightning_strike
+
+Lightning strikes
+
+Teleport
+
+minecraft:teleport
+
+Endermen, shulker, or player eating a chorus fruit teleports.Not triggered by wolves, cats, or ender pearls.
+
+Resonate 14
+
+minecraft:resonate_14
+
+Block of amethyst re-emits a vibration with a frequency value of 14
+
+ 15
+
+Entity Die
+
+minecraft:entity_die
+
+Entity dies or is broken (vehicle, armor stand, or item frame), firework finishes
+
+Explode
+
+minecraft:explode
+
+TNT, end crystal, bed, respawn anchor, creeper, ghast fireball, wind charge or wither skull explodes
+
+Resonate 15
+
+minecraft:resonate_15
+
+Block of amethyst re-emits a vibration with a frequency value of 15
+
+Piston interactivity
+Calibrated sculk sensors cannot be moved by pistons or sticky pistons.
+
+Vibration resonance
+When a calibrated sculk sensor detects a vibration, any adjacent block of amethyst re-emits a vibration of the same frequency that the calibrated sculk sensor detected, which can be detected by sculk sensors and other calibrated sculk sensors.
+If the calibrated sculk sensor is filtered, the block of amethyst re-emits only the vibrations matching the filtered redstone signal strength.
+
+Sounds
+A calibrated sculk sensor is silent if waterlogged. It can still detect vibration, but does not produce sounds itself.
+
+Generic
+Java Edition:
+
+v
+t
+e sculk_sensor sound typeSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitchAttenuationdistance​Block brokenBlocksOnce the block has brokenblock.sculk_sensor.breaksubtitles.block.generic.break​0.90.9616​Block placedBlocksWhen the block is placedblock.sculk_sensor.placesubtitles.block.generic.place​0.80.9616​Block breakingBlocksWhile the block is in the process of being brokenblock.sculk_sensor.hitsubtitles.block.generic.hit​0.250.516​Something falls on a blockEntity-DependentFalling on the block with fall damageblock.sculk_sensor.fallsubtitles.block.generic.fall​0.50.7516​FootstepsEntity-DependentWalking on the blockblock.sculk_sensor.stepsubtitles.block.generic.footsteps​0.151.016
+Bedrock Edition:
+
+v
+t
+e sculk_sensor sound typeSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitch​Block brokenBlocksOnce the block has brokenbreak.sculk_sensorsubtitles.block.generic.break​0.80.8–1.0​Block placedBlocksWhen the block is placedplace.sculk_sensorsubtitles.block.generic.place​0.80.8–1.0​Block breakingBlocksWhile the block is in the process of being brokenhit.sculk_sensorsubtitles.block.generic.hit​0.350.5​FootstepsPlayersFalling on the block with fall damage or the player flying with elytrafall.sculk_sensorsubtitles.block.generic.footsteps​0.41.0​FootstepsPlayersWalking on the blockstep.sculk_sensorsubtitles.block.generic.footsteps​0.171.0​FootstepsPlayersJumping from the blockjump.sculk_sensorsubtitles.block.generic.footsteps​0.121.0​Something falls on a blockPlayersFalling on the block without fall damageland.sculk_sensorsubtitles.block.generic.fall​0.141.0
+Unique
+Java Edition:
+
+v
+t
+eSoundsSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitchAttenuationdistance​Sculk Sensor clicksBlocksWhen a calibrated sculk sensor detects a vibrationblock.sculk_sensor.clickingsubtitles.block.sculk_sensor.clicking​0.730.8–1.016​Sculk Sensor stops clickingBlocksWhen a calibrated sculk sensor deactivatesblock.sculk_sensor.clicking_stopsubtitles.block.sculk_sensor.clicking_stop​0.620.8–1.016​Amethyst resonatesBlocksWhen an amethyst block re-emits a vibrationblock.amethyst_block.resonatesubtitles.block.amethyst_block.resonate​1.0varies48
+ Picks number from 0, 0, 2, 4, 6, 7, 9, 10, 12, 14, 15, 18, 19, 21, 22, or 24 using the vibration's signal strength, and applies 2n−1212. It uses the same equation that note blocks do.
+
+Bedrock Edition:
+
+v
+t
+eSoundsSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitch​Sculk Sensor clicksBlocksWhen a calibrated sculk sensor detects a vibrationpower.on.sculk_sensorsubtitles.block.sculk_sensor.clicking​0.730.8–1.2​Sculk Sensor stops clickingBlocksWhen a calibrated sculk sensor deactivatespower.off.sculk_sensorsubtitles.block.sculk_sensor.clicking_stop​0.620.8–1.2​Amethyst resonatesBlocksWhen an amethyst block re-emits a vibrationresonate.amethyst_blocksubtitles.block.amethyst_block.resonate​3.0variesNoneNone​NoneUndefined sound eventblock.sculk_sensor.clickingNone​1.00.73NoneNone​NoneUndefined sound eventblock.sculk_sensor.clicking_stopNone​1.00.62
+ Uses the same system as Java Edition.[verify]
+
+ Empty events do not have this parameter set.
+
+Data values
+ID
+Java Edition:
+
+NameIdentifierForm
+Translation key Calibrated Sculk Sensorcalibrated_sculk_sensorBlock & Item
+block.minecraft.calibrated_sculk_sensor
+NameIdentifier
+ Block entitycalibrated_sculk_sensor
+
+Bedrock Edition:
+
+NameIdentifierNumeric ID FormItem IDBlock tags
+Translation key Calibrated Sculk Sensorcalibrated_sculk_sensor835Block & Giveable ItemIdentical(Numeric: -580)minecraft:is_hoe_item_destructible
+tile.calibrated_sculk_sensor.name
+ ID of block's direct item form, which is used in savegame files and addons.
+
+ Available with /give command.
+
+ The block's direct item form has the same ID as the block.
+
+NameSavegame ID
+ Block entityCalibratedSculkSensor
+
+Block states
+See also: Block states
+
+Java Edition:
+
+  Name
+  Default value
+  Allowed values
+  Description
+  facingnortheastnorthsouthwestThe direction the calibrated sculk sensor's amethyst input is facing.The opposite from the direction the player faces while placing the calibrated sculk sensor.
+power00123456789101112131415The calibrated sculk sensor's current power level.
+sculk_sensor_phaseinactiveactivecooldowninactiveWhether or not the calibrated sculk sensor is active.​[more information needed]
+waterloggedfalsefalsetrueWhether or not there's water in the same place as this calibrated sculk sensor.
+Bedrock Edition:
+
+  NameMetadata Bits
+  Default value
+  Allowed valuesValues forMetadata Bits
+  Description
+  minecraft:cardinal_directionNot SupportedsoutheastnorthsouthwestUnsupportedThe direction the calibrated sculk sensor's amethyst input is facing.The opposite from the direction the player faces while placing the calibrated sculk sensor.
+sculk_sensor_phaseNot Supported0012UnsupportedThe calibrated sculk sensor phase.​[more information needed]
+
+Block data
+A calibrated sculk sensor has a block entity associated with it that holds additional data about the block.
+Java Edition:
+
+See also: Block entity format
+
+[NBT Compound / JSON Object]: Block entity data.
+Tags common to all block entities see Template:Nbt inherit/blockentity/template
+[Int] last_vibration_frequency: The frequency of the last vibration.
+[NBT Compound / JSON Object] listener: The vibration event listener for this sculk shrieker, sculk sensor, or calibrated sculk sensor.
+[NBT Compound / JSON Object] event: Exists only if there is an incoming vibration.
+[Float] distance: The distance between this vibration's source and the block.
+[String] game_event: The resource location of the vibration event that caused the current incoming vibration.
+[NBT List / JSON Array] pos: The coordinates of the source of this vibration.
+[Double]: X coordinate.
+[Double]: Y coordinate.
+[Double]: Z coordinate.
+[Int Array] projectile_owner: If the vibration was caused by a projectile, this is the UUID of the entity that launched the projectile. Does not exist if vibration was not caused by a projectile.
+[Int Array] source: The UUID of the entity that caused the vibration. Does not exist if vibration was not caused by an entity.
+[Int] event_delay: How many ticks remain until triggered by the vibration. Set to 0 if there is no incoming vibration
+[NBT Compound / JSON Object] selector: The data of the vibration selector.​[more information needed]
+[Long] tick: The game time when the vibration occurs, or -1 if there is no vibration to choose from.​[more information needed]
+[NBT Compound / JSON Object] event: Candidate game event, with the same structure as the [NBT Compound / JSON Object] event tag above.​[more information needed]
+
+Bedrock Edition:
+
+See Bedrock Edition level format/Block entity format.
+Videos
+
+
+
+
+
+History
+Mention
+October 12, 2020
+Brandon Pearce mentioned adding "habituation" to the sculk sensor.
+Java Edition
+Java Edition1.1720w49a
+  Added unused textures for calibrated sculk sensor to the game files (specifically to the assets/minecraft/textures/block directory).
+
+The top texture is a translucent version of the block of amethyst texture, where the side texture is composed of the sculk sensor's side texture overlaid on the amethyst texture.
+
+ However, the sculk sensor side texture used is actually the pre-release one shown in Minecraft Live 2020.
+
+The amethyst textures are based on those from 20w45a, despite these textures being added after the amethyst block textures were redone twice, implying these textures come from a scrapped functionality of the sculk sensor coupled with amethyst.21w13a
+Removed texture files from the game files.1.2023w12a
+ Added calibrated sculk sensors.23w14a
+Calibrated sculk sensors now detect vibrations up to a 16 block radius instead of 8 blocks.
+
+Calibrated sculk sensors' active cooldown has been reduced from 2 seconds to 1 second.
+
+Calibrated sculk sensors now accept signals into the calibration input side more consistently with other redstone components.
+
+Calibrated sculk sensors can now be activated by sniffer digging.
+
+Calibrated sculk sensors now glow when they trigger, just like a regular sculk sensor.
+
+Default redstone output has been modified to be more reliable for distance calculations.
+
+Calibrated sculk sensors now strongly power the block they are placed on.23w16a
+ The model of the calibrated sculk sensor have been changed. The amethyst is now stretched to match the model of the amethyst cluster.23w17a
+Now lasts 10 game ticks when in "Active" phase instead of 20.
+
+Now lasts 10 game ticks when in "Cooldown" phase instead of 1.23w18a
+Landing or jumping on the edge of wool no longer triggers calibrated sculk sensors.
+
+Walking on the edge of blocks now properly triggers sculk sensors.1.20.223w31a
+Calibrated sculk sensors can now detect totems of undying activating.
+
+Calibrated sculk sensors can now detect the following events:
+Witches drinking a potion.
+Turtles clearing away sand.
+Camels standing up, sitting down, or dashing.23w32a
+Vibrations no longer risk being lost on simulation distance limit.
+
+Unequipping items emits a new unequip vibration of frequency 4.
+
+Chiseled bookshelves emit a block_change vibration of frequency 11 when receiving books from hoppers.
+
+Turtle eggs cracking emit a block_change vibration of frequency 11.
+
+Turtle eggs hatching emit a block_destroy vibration of frequency 12.
+
+Using bone meal emits an item_interact_finish vibration of frequency 3.
+
+Fire being doused by water potion emits a block_destroy vibration of frequency 12.
+
+Evokers evoking vexes or fangs emit an entity_place vibration of frequency 14.
+
+Carrots being eaten by rabbits emit a block_change vibration of frequency 11.
+
+Sweet berries being eaten by fox emit a block_change vibration of frequency 11.
+
+Camels eating cactus emit an eat vibration of frequency 8.1.2124w19a
+Frosted ice being placed by Frost Walker emits a block_place vibration of frequency 13.26.2snap1
+Entities bouncing off of blocks or a collidable entity will emit a vibration frequency of 2.
+Bedrock Edition
+Bedrock Edition1.19.80ExperimentNext Major UpdatePreview 1.19.80.22
+ Added calibrated sculk sensors behind the "Next Major Update" experimental toggle.1.20.0Preview 1.20.0.21
+They are now know to break when someone kills a villager nearby.1.20.10Preview 1.20.10.20
+Calibrated sculk sensors can now detect the following events:
+Placing, rotating, or removing an item in an item frame or a glow item frame.
+Charging a respawn anchor.
+Scraping or applying wax to copper blocks.
+Switching a daylight detector's state
+Adding food to a campfire.
+Adding/removing a music disc to a jukebox.
+Mud turning into clay.
+Harvesting sweet berries.
+Placing an eye of ender in an end portal frame.
+Bees entering or exiting a beehive or a bee nest.
+Interacting with composter.
+Attaching/detaching a lead from a fence or mob.
+Dying a sheep.
+Picking glow berries.
+Farmland turning into dirt.
+Using a spawn egg on a monster spawner.
+Silverfish merging with blocks.
+Using a hoe on rooted dirt.
+Using a shovel to create dirt paths.
+Placing a door.
+Planting seeds in farmland.1.20.30Preview 1.20.30.20
+Calibrated sculk sensors can now detect the following events:
+Throwing an eye of ender.
+Minecarts moving on rails, consistently while empty.
+Collecting fish, axolotls, and tadpoles with buckets.
+Cleaning items in cauldrons.
+Dying leather armor in cauldrons.
+Tipping arrows in cauldrons.
+Using dyes to change cauldrons' water color.
+Non-player actors event when equipping shields in their off-hand slot.Preview 1.20.30.21
+Calibrated sculk sensors can now detect the following events:
+Applying a nametag.
+Evokers summoning vexes or fangs.
+Chickens, frogs, and turtles laying eggs.
+Using bone meal.
+Chiseled bookshelves when books are inserted into them using hoppers.
+Extinguishing fire.
+Mounting or dismounting a vehicle.
+Rabbits eating carrot crops.
+Foxes eating sweet berry bushes.
+Unequipping armor.
+Placing a banner, bamboo sapling, lily pad, or a head.
+Placing frogspawns.
+Placing or adding sea pickles.
+Adding/destroying a turtle egg.
+Turtle eggs cracking.
+Data history
+Bedrock Edition1.20.30Preview 1.20.30.20
+Calibrated sculk sensors now use the minecraft:cardinal_direction block state instead of direction.
+Issues
+Issues relating to "Calibrated Sculk Sensor" are maintained on the bug tracker. Issues should be reported and viewed there.
+
+Gallery
+
+
+
+			One interpretation of how the old texture could have looked
+
+
+
+			Another interpretation
+
+
+References
+
+ MC-208551 – Calibrated Sculk Sensor are unused in-game files – resolved as "Fixed".
+
+ MC-252389 – When landing (or jumping) on wool with your hitbox over the edge, it produces a vibration – resolved as "Fixed".
+
+ MC-207290 – Calibrated sculk sensors don't detect vibrations while walking on the edge of a block – resolved as "Fixed".
+
+Navigation

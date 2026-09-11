@@ -1,0 +1,1395 @@
+This article documents an April Fools' Day joke. 
+This feature was exclusively part of a joke version and is not currently planned for addition to regular Minecraft.
+
+Mine Ingredient
+
+Rarity tier
+
+  Uncommon
+
+Renewable
+
+No
+
+Stackable
+
+Yes (64)
+
+{
+    "title": "Mine Ingredient",
+    "rows": [
+        {
+            "field": "<span style=\"white-space: nowrap;\"><span style=\"display: inline-block; background-color: #ff5; border: 1px solid #888; border-radius: 0.3em; color: transparent; width: 1em; height: 1em; vertical-align: -0.36em; margin-right: -0.1em\"><br></span> </span> Uncommon",
+            "label": "(link to Rarity article, displayed as Rarity tier)"
+        },
+        {
+            "field": "No",
+            "label": "(link to Renewable resource article, displayed as Renewable)"
+        },
+        {
+            "field": "Yes (64)",
+            "label": "Stackable"
+        }
+    ],
+    "invimages": [
+        "Mine Ingredient"
+    ],
+    "images": [
+        "Mine Ingredient.png"
+    ]
+}
+
+The mine ingredient is an item only present in 25w14craftmine that can be used to create a mine and add effects and features to it.
+
+Contents
+
+1 Obtaining
+2 Usage
+3 Types
+
+3.1 World Terrain Type
+3.2 Mine Exit Type
+3.3 Passive Mob Ingredients
+3.4 Hostile Mob Ingredients
+3.5 Block Ingredients
+3.6 Biomes
+3.7 World Types
+3.8 Challenges
+3.9 Special Events
+
+4 Data values
+
+4.1 ID
+
+5 Notes
+6 Navigation
+
+Obtaining
+Mine Ingredients can be obtained in Survival mode by doing certain tasks. Exiting a mine with a Mine Ingredient in the inventory unlocks it in the mine crafter menu.
+If a Mine Ingredient is obtained in the Hub (through commands or using the rooms behind shimmering doors), it can be obtained by right-clicking the Mine Crafter while holding an ingredient.
+The mine crafter interface shows a list of all the ingredients that the player hasn’t unlocked, labeled “Undiscovered,” and every ingredient shows a hint on how to obtain them.
+Specific ingredients can be obtained with this command:
+/give @s minecraft:mine_ingredient[minecraft:world_modifiers={effects : [<mine_ingredient_identifier>], include_description:1b}, minecraft:world_effect_unlock={}]
+where <mine_ingredient_identifier> is the identifier of the desired ingredient.
+
+Usage
+The mine ingredient is used as an ingredient in the mine crafter. Each ingredient added to a mine using the Mine Crafter alters the generation of the mine in the described way.
+It is not possible to add mine ingredients to special event mines.
+
+Types
+World Terrain Type
+
+Icon
+
+Name
+
+Identifier
+
+In-game description
+
+Effect
+
+Requirement description
+
+Actual requirement(s)
+
+Surface World
+
+surface_world
+
+World above the Mines. Like... an aboveworld
+
+Default overworld terrain generator.
+
+N/A
+
+Unlocked by default
+
+Floating Islands
+
+floating_islands_world
+
+How can it be Mine if it's not even solid?
+
+Floating Islands terrain generator.
+
+Win a Mine
+
+Win a Mine
+
+Amplified World
+
+amplified
+
+What... up THERE?
+
+Amplified terrain generator.
+
+Place a block high up in the world
+
+Place any block; the block's location has to be at Y=100 or above
+
+Cave World
+
+cave_world
+
+And they call it a Mine?  A Mine!
+
+Cave World terrain generator. Similar to The Nether.
+
+Break a block deep down in the world
+
+Mine any block; the block's location has to be at Y=-1 or below
+
+Shattered Blocks World
+
+shattered_blocks_world
+
+Shattered world made of big blocks with large gaps
+
+Shattered terrain generator. Similar to floating islands, but some terrain generates in cuboid formations. Includes lava layer.
+
+Win a Special Encounter Mine
+
+Win a Special Encounter Mine
+
+Grid World
+
+grid_world
+
+Linear. Orderly.
+
+Grid terrain generator. Generates one block thick flat world with a grid of holes.
+
+Win a Special Encounter Mine
+
+Win a Special Encounter Mine
+
+Dark Cave World
+
+dark_cave_world
+
+Hello? Who turned off the lights?
+
+Cave World terrain generator. Similar to The Nether. Ambient light is set to 0, significantly impacting vision.
+
+Win a Special Encounter Mine
+
+Win a Special Encounter Mine
+
+Mine Exit Type
+
+Icon
+
+Name
+
+Identifier
+
+In-game description
+
+Effect
+
+Requirement description
+
+Actual requirement(s)
+
+Surface Exits
+
+surface_exits
+
+Mine Exits are found on the surface
+
+Mine Exits are found on the surface
+
+N/A
+
+Unlocked by default
+
+Cave Exits
+
+cave_exits
+
+Mine Exits are found in caves
+
+Mine Exits are found in caves
+
+Unlock Cave Mines or test your luck with Deepslate
+
+Unlock the Cave Mines Mine Ingredient or 1% chance of dropping from breaking deepslate blocks
+
+Rare Surface Exits
+
+rare_surface_exits
+
+Mine Exits are found on the surface, but it might be a trek to get to one
+
+Mine Exits generate more rarely on the surface
+
+Craft an item that helps you locate Mine Exits
+
+Craft an eye of exit, and manually drag it out of the crafting menu
+
+Passive Mob Ingredients
+
+Icon
+
+Name
+
+Identifier
+
+In-game description
+
+Effect
+
+Requirement description
+
+Actual requirement(s) (if different)
+
+Sheep
+
+sheep
+
+Fluffy mine
+
+Sheep spawn in the mine
+
+N/A
+
+Unlocked by default
+
+Cows
+
+cows
+
+Moo
+
+Cows spawn in the mine
+
+N/A
+
+Unlocked by default
+
+Pigs
+
+pigs
+
+Pork-u-pines, but maybe not the pines?
+
+Pigs spawn in the mine
+
+N/A
+
+Unlocked by default
+
+Chickens
+
+chickens
+
+Who came first? Clearly the chicken, in this mine
+
+Chickens spawn in the mine
+
+N/A
+
+Unlocked by default
+
+Frogs
+
+frogs
+
+Heralds of change
+
+Frogs spawn in the mine
+
+N/A
+
+Unlocked by default
+
+Foxes
+
+foxes
+
+What does the fox say?
+
+Foxes spawn in the mine
+
+Berries
+
+Collect sweet berries
+
+Goats
+
+goats
+
+Mischevious  [sic] horned menace of the mountain
+
+Goats spawn in the mine
+
+Go mining in the mountains
+
+10% chance of obtaining when a block is broken above a Y level of 128
+
+Ocelots
+
+ocelots
+
+Kitty!
+
+Ocelots spawn in the mine
+
+Whiskers!
+
+Collect string
+
+Axolotls
+
+axolotls
+
+Anybody got a bucket?
+
+Axolotls spawn in the mine
+Lush Caves generate in the mine
+
+Slippery
+
+Collect a bucket of axolotl
+
+Armadillos
+
+armadillos
+
+Careful, you might scare them
+
+Armadillos spawn in the mine
+
+They like being brushed
+
+Craft a brush, and manually drag it out of the crafting menu
+
+Mooshrooms
+
+mooshrooms
+
+These mushrooms moo
+
+Mooshrooms spawn in the mine
+
+Go Pick mushrooms
+
+10% chance of dropping when breaking a mushroom, either red or brown
+
+Pandas
+
+pandas
+
+Cute and clumsy
+
+Pandas spawn in the mine
+
+Eat some Bamboo
+
+Eat Bamboo
+
+Parrots
+
+parrots
+
+Tssssss Sharp
+
+Parrots spawn in the mine
+
+Eat a cookie, the parrot doesn't want it anyway
+
+Eat a cookie
+
+Rabbits
+
+rabbits
+
+Jumpy meals
+
+Parrots spawn in the mine
+
+Jump... from really high up
+
+Naturally take more than ten points of fall damage
+
+Sniffers
+
+sniffers
+
+Let the gentle giants roam the Mines once more
+
+Sniffers spawn in the mine
+
+They like flowers
+
+5% chance of dropping from breaking flowers, or when cherry leaves block decay
+
+Striders
+
+striders
+
+You better make the mine have some warm cozy lava
+
+Striders spawn in the mine
+
+Prepare to go riding
+
+Collect a saddle
+
+Hostile Mob Ingredients
+
+Icon
+
+Name
+
+Identifier
+
+In-game description
+
+Effect
+
+Requirement description
+
+Actual requirement(s)
+
+Zombies
+
+zombies
+
+Braaaaaiiiinsss
+
+Zombies spawn in the mine
+
+Go on a monster hunt!
+
+5% chance of dropping from killing any hostile mob
+
+Skeletons
+
+skeletons
+
+Feel it in my bones
+
+Skeletons spawn in the mine
+
+A chance while slaying monsters
+
+5% chance of dropping from killing any hostile mob
+
+Spiders
+
+spiders
+
+So many years of bad luck from this one
+
+Spiders spawn in the mine
+
+Slay Slay, slay...
+
+5% chance of dropping from killing any hostile mob
+
+Cave Spiders
+
+cave_spiders
+
+Perilous Poisonous Pests
+
+Cave spiders spawn in the mine
+
+From Spiders
+
+20% chance of dropping from killing spiders or cave spiders
+
+Creepers
+
+creepers
+
+Tssssssssss
+
+Creepers spawn in the mine
+
+I sense a theme, found while slaying monsters
+
+5% chance of dropping from killing any hostile mobs
+
+Slimes
+
+slimes
+
+Get Slimed!
+
+Slimes spawn in the mine
+
+You guessed it - Slay monsters!
+
+5% chance of dropping from killing any hostile mob
+
+Endermen
+
+endermen
+
+Look at me when I'm talking to you! Actually, wait ...
+
+Endermen spawn in the mine
+
+How many monsters do you have to slay!?
+
+5% chance of dropping from killing any hostile mob. The 'Zombies', 'Skeletons', 'Creepers', and 'Spiders' unlocks must be obtained first.
+
+Witches
+
+witches
+
+Double, double toil and trouble
+
+Witches spawn in the mine
+
+You would have never guessed it! Slay monsters to find this one! :D
+
+5% chance of dropping from killing any hostile mob. The 'Zombies', 'Skeletons', 'Creepers', and 'Spiders' unlocks must be obtained first.
+
+Magma Cubes
+
+magma_cubes
+
+Squishy and stompy and hot at the same time
+
+Magma cubes spawn in the mine
+
+Get some magma
+
+Collect magma cream or magma block
+
+Blazes
+
+blazes
+
+They're all the hotness right now
+
+Blazes spawn in the mine
+
+Go mining in a Nether biome
+
+Break one nether quartz ore or nether gold ore
+
+Breezes
+
+breezes
+
+These ones should be a breeze!
+
+Breezes spawn in the mine
+
+Trial spawners might have something to unlock this
+
+Collect a trial key
+
+Pillagers
+
+pillagers
+
+Villager, Illager, Pillager - what's the difference?
+
+Pillagers spawn in the mine
+
+Buy it from a villager. The Lodestone will guide your way!
+
+Turn a villager into a traitor by placing a lodestone by an unemployed villager and then trade with it. Required trade level: Novice
+
+Vindicators
+
+vindicators
+
+Here's Johnny!
+
+Vindicators spawn in the mine
+
+Buy it from a villager. The Lodestone will guide your way!
+
+Turn a villager into a traitor by placing a lodestone by an unemployed villager and then trade with it. Required trade level: Apprentice
+
+Evokers
+
+evokers
+
+Wololo
+
+Evokers spawn in the mine
+
+Buy it from a villager. The Lodestone will guide your way!
+
+Turn a villager into a traitor by placing a lodestone by an unemployed villager and then trade with it. Required trade level: Journeyman
+
+Ravagers
+
+ravagers
+
+Rawr
+
+Ravagers spawn in raids
+
+Buy it from a villager. The Lodestone will guide your way!
+
+Turn a villager into a traitor by placing a lodestone by an unemployed villager and then trade with it. Required trade level: Expert
+
+Illusioners
+
+illusioners
+
+It's not even in the game
+
+Illusioners spawn in the world
+
+Buy it from a villager. The Lodestone will guide your way!
+
+Turn a villager into a traitor by placing a lodestone by an unemployed villager and then trade with it. Required trade level: Master
+
+Guardians
+
+guardians
+
+Protectors of the deep
+
+Guardians spawn in the mine
+
+Slaying creatures of the water will anger the Guardians
+
+Kill an aquatic mob (e.g. dolphins, axolotls, any fish, ...)
+
+Endermites
+
+endermites
+
+Literally bugs in the game
+
+Endermites spawn in the mine
+
+Found in the End Stone
+
+10% chance of dropping from breaking end stone blocks
+
+Shulkers
+
+shulkers
+
+Box Material
+
+Shulkers spawn in the mine
+
+Stomp out bugs from their natural environment
+
+10% chance of dropping when killing endermites
+
+Ghasts
+
+ghasts
+
+No they're not happy
+
+Ghasts spawn in the mine
+
+Probably dried out among fossils
+
+Break one bone block
+
+Zombified Piglins
+
+zombified_piglins
+
+These pigs seem quite easily angered
+
+Zombified piglins spawn in the mine
+
+Somehow related to pigs in the fires of the nether
+
+Kill a pig while it's on fire
+
+Piglins
+
+piglins
+
+Pigs that love gold... and violence
+
+Piglins spawn in the mine
+
+Feed some gold to a pig
+
+Feed a golden Carrot to a pig
+
+
+
+Wither Skeleton
+
+wither_skeletons
+
+Wither, Blister, Burn & Peel
+
+Wither skeletons spawn in the mine
+
+Hidden among the regular Skeletons
+
+10% chance of dropping from killing skeletons
+
+Bees
+
+bees
+
+No, not the Bees! NOT THE BEES!
+
+Hostile bees spawn in the mine
+
+You've killed there brother. Now they're out for revenge.
+
+Kill a bee
+
+Hoglins
+
+hoglins
+
+The whole hog
+
+Hoglins spawn in the mine
+
+Through the death of many pigs
+
+Rare (1%) chance of dropping from pigs
+
+Zoglins
+
+zoglins
+
+So angry
+
+Zoglins spawn in the mine
+
+Kill a zombie on the turf of the Piglins
+
+Kill a zombie on crimson nylium or warped nylium
+
+Block Ingredients
+
+Icon
+
+Name
+
+Identifier
+
+In-game description
+
+Effect
+
+Requirement description
+
+Actual requirement(s)
+
+Base rock type: Stone
+
+base_stone
+
+The mountains are made of Stone
+
+World base material is Stone
+
+N/A
+
+Unlocked by default.
+
+Base rock type: Blackstone
+
+base_blackstone
+
+The mountains are made of Blackstone
+
+World base material is Blackstone
+
+Mine Blackstone
+
+10% chance of dropping from breaking blackstone blocks
+
+Base rock type: Diorite
+
+base_diorite
+
+The mountains are made of Diorite
+
+World base material is Diorite
+
+Mine Diorite
+
+10% chance of dropping from breaking Diorite blocks
+
+Base rock type: Andesite
+
+base_andesite
+
+The mountains are made of Andesite
+
+World base material is Andesite
+
+Mine Andesite
+
+10% chance of dropping from breaking andesite blocks
+
+Base rock type: Granite
+
+base_granite
+
+The mountains are made of Granite
+
+World base material is Granite
+
+Mine Granite
+
+10% chance of dropping from breaking granite blocks
+
+Base rock type: Tuff
+
+base_tuff
+
+The mountains are made of Tuff
+
+World base material is Tuff
+
+Mine Tuff
+
+10% chance of dropping from breaking tuff blocks
+
+Base rock type: Deepslate
+
+base_deepslate
+
+The mountains are made of Deepslate
+
+World base material is Deepslate
+
+Mine Deepslate
+
+10% chance of dropping from breaking deepslate blocks
+
+Base rock type: End Stone
+
+base_end_stone
+
+The mountains are made of End Stone
+
+World base material is End Stone
+
+Mine End Stone
+
+10% chance of dropping from breaking end stone blocks
+
+Biomes
+
+Icon
+
+Name
+
+Identifier
+
+In-game description
+
+Effect
+
+Requirement description
+
+Actual requirement(s)
+
+Plains Biomes
+
+plains
+
+Quite plain
+
+Plains, Meadow and Sunflower Plains generate in the mine
+
+N/A
+
+Unlocked by default
+
+Savanna Biomes
+
+savannas
+
+On the great wide savanna steppes...
+
+Savanna and its variants generate in the mine
+
+N/A
+
+Unlocked by default
+
+Forest Biomes
+
+forests
+
+Now with raised trees
+
+Forest, Flower Forest, Birch Forest, Old Growth Birch Forest, Grove and Cherry Grove generate in the mine
+
+Search among the Leaves
+
+1% chance of obtaining from breaking leaves
+
+Taiga Biomes
+
+taigas
+
+Don't step on the pine cones
+
+Taiga, Old Growth Pine Taiga and Old Growth Spruce Taiga generate in the mine
+
+Found somewhere in the leaves
+
+1% chance of obtaining from breaking leaves
+
+Jungle Biomes
+
+jungles
+
+In the Jungle, the Miney Jungle
+
+Jungle, Sparse Jungle and Bamboo Jungle generate in the mine
+
+Don't leave the leaves alone!
+
+1% chance of obtaining from breaking leaves
+
+Snowy Biomes
+
+snowy
+
+Let it snow, let it snow, let it snow
+
+Snowy Plains generate in the mine
+When paired with another biome ingredient, Snowy Taiga, Frozen Peaks, Frozen River, Snowy Beach, Frozen Ocean, Deep Frozen Ocean, Cold Ocean, and Deep Cold Ocean also generate in the mine
+
+Break cold blocks
+
+5% chance of obtaining from breaking snow and ice
+
+Desert Biome
+
+desert
+
+It's getting hot in here
+
+Deserts generate in the mine
+
+Play in the sand
+
+1% chance of dropping from breaking sand
+
+Badlands Biomes
+
+badlands
+
+Lands took a turn for the bad
+
+Badlands and Dripstone Caves biomes generate in the mine
+
+Play in the mud
+
+5% chance of dropping from breaking terracotta and clay
+
+Swamp Biomes
+
+swamps
+
+Get ready to get your boots wet
+
+Swamp and Lush Caves biomes generate in the mine
+
+Find the source of the smallest creature
+
+Drops when breaking a firefly bush
+
+Dark Forest Biomes
+
+dark_forests
+
+Can't see the forests for all the trees
+
+Dark Forest and Pale Garden biomes generate in the mine
+
+Again!? Search among the leaves!
+
+1% chance of obtaining from breaking leaves
+
+Ice Spikes Biome
+
+ice_spikes
+
+Cool
+
+The Ice Spikes biome generates in the mine
+
+Win a snowy Mine
+
+Win a mine with the Snowy Biomes effect enabled
+
+Mushroom Fields Biome
+
+mushroom_fields
+
+Mushroom islands, except not only islands
+
+Mushroom Fields generate in the mine
+
+Collect mushrooms and you might get lucky
+
+10% chance of obtaining from breaking mushrooms
+
+Barren nether Biomes
+
+nether_barrens
+
+Things are heating up!
+
+Nether Wastes, Basalt Deltas and Soul Sand Valley generate in the mine
+
+The Ice Bucket Challenge
+
+Collect obsidian
+
+Nether Forest Biomes
+
+nether_forests
+
+Can't see the forest for the... fungi?
+
+Crimson Forests and warped forests generate in the mine
+
+Found while slaying endermen
+
+20% chance of dropping from killing Endermen
+
+Deep Dark Biome
+
+deep_dark
+
+The (maybe not so) Deep (and also maybe not entirely) Dark
+
+The Deep Dark biome generates in the mine
+
+Search among blocks in a dark place...
+
+10% chance of dropping from breaking blocks in a low light level
+
+End Biomes
+
+end
+
+How did we End up here?
+
+End biomes generate in the mine
+
+What creatures do you usually kill to get to the end?
+
+50% chance of dropping from killing blazes
+
+World Types
+
+Icon
+
+Name
+
+Identifier
+
+In-game description
+
+Effect
+
+Requirement description
+
+Actual requirement(s)
+
+Dry Land
+
+dry_land
+
+Gronk thirsty. Gronk drink all water
+
+Mine generates no water
+
+Try to get even warmer in the Badlands
+
+Collect a Lava Bucket in a Badlands biome (bugged)
+
+Water World
+
+water_world
+
+Like the hit film from Cavin' Costner
+
+Floods the mine
+
+Win a dry mine
+
+Win a Mine with the Dry Land Mine Effect
+
+Ultrawarm
+
+ultrawarm
+
+It's getting hot in here
+
+Mine behaves like the Nether (E.g. water evaporates, sponges dry, lava flows faster)
+
+Stand in lava... if you dare
+
+Take damage from Lava
+
+Challenges
+
+Icon
+
+Name
+
+Identifier
+
+In-game description
+
+Effect
+
+Requirement description
+
+Actual requirement(s)
+
+XP
+Multiplier
+
+Icy Surfaces
+
+icy
+
+Might be a little slippery...
+
+All blocks act like ice blocks and allow the player to slide across them
+
+Take a boat ride
+
+Place a Boat
+
+x2.0
+
+Bouncy Blocks
+
+bouncy
+
+Release your inner slime
+
+All blocks act like slime blocks and allow the player to bounce on them
+
+Find and kill some slime
+
+Kill Slimes or Magma Cubes
+
+x2.0
+
+One HP
+
+one_hp
+
+There is only one heart.
+
+Set the Player's health to half a heart at the start of mine
+
+Kill something while having only one heart
+
+Kill any mob with half a heart
+
+x4.0
+
+Wednesday Frogs
+
+wednesday_frogs
+
+Heralds of doom
+
+Frogs can eat you
+
+Might be trickier to find than you might think
+
+Kill Frogs
+
+x1.2
+
+(Near) Universal Anger
+
+universal_anger
+
+Every neutral mob is hostile
+
+Every neutral mob attacks Players (unless the difficulty is set to peaceful)
+
+Win a mine with the Bees ingredient
+
+Win a mine with the Bees ingredient
+
+x2.0
+
+Eternal Night
+
+eternal_night
+
+It's dark in here isn't it?
+
+The mine is permanently night
+
+Unlocked after a while, I guess?
+
+Win the Enderman Special Encounter Mine
+
+x5.0
+
+Eternal Rain
+
+eternal_rain
+
+Blimey rainy innit?!
+
+The mine is permanently raining
+
+Win an eternally dark Mine
+
+Win an Eternal Night Mine
+
+x2.0
+
+Eternal Lightning
+
+eternal_lightning
+
+Very, very frightening!
+
+The mine is constantly summoning lightning
+
+Escape a Mine that will just not stop raining.
+
+Win an Eternal Rain Mine
+
+x5.0
+
+Insomniacs
+
+insomniacs
+
+No rest, no respite
+
+Phantoms constantly surround the player
+
+Win a Mine that never sees the light of day
+
+Win an Eternal Night mine
+
+x2.0
+
+No Drops?
+
+no_drops
+
+Who needs it?
+
+Mobs don't drop any items
+
+Found by chance
+
+Impossible to obtain
+
+x5.0
+
+Explosive Traps
+
+explosive_traps
+
+Watch your step
+
+TNT randomly ignites under the Player's foot (unless if they're mid air)
+
+Play a while..
+
+Win a mine after having attempted at least 10 mines
+
+x1.5
+
+Fish Out of Water
+
+fish_out_of_water
+
+Just keep swimming
+
+Makes the player drown when out of water.
+
+Fish
+
+Go fishing with fishing rod
+
+x5.0
+
+Soul Link
+
+soul_link
+
+Every player takes damage if one player is hurt
+
+Any damage taken by a player is shared between all players in a world (bugged)
+
+Win a mine with the "One HP" ingredient
+
+—
+
+x2.0
+
+Special Events
+
+Icon
+
+Name
+
+Identifier
+
+In-game description
+
+Effect
+
+Requirement description
+
+Actual requirement(s)
+
+Warden Boss Fight
+
+warden_boss_fight
+
+Warden wards of the competition
+
+Special Warden Event
+
+Walk on this block and give of a chime, it's a nice crystal but not even worth a dime
+
+Break Amethyst Block or an Amethyst Cluster
+
+Data values
+ID
+NameIdentifierForm
+Translation key Mine Ingredientmine_ingredientItem
+item.minecraft.mine_ingredient
+Notes
+
+ Bugged; should spawn rabbits, but parrots spawn instead.
+
+ Bugged: Icon of Zombified Piglin Spawn Egg is used for wither skeletons
+
+ Water can still be generated in certain features, such as springs
+
+
+To obtain this without commands, the player must visit a special event with random biomes. The Mine Ingredient requires any biome with the #minecraft:is_badlands tag, which includes only three biomes: minecraft:badlands, minecraft:eroded_badlands, and minecraft:wooded_badlands but mines other than special events can only generate with minecraft:levelN/badlands biomes, which are not included in the tag.
+
+ As a reference to itself, it is unobtainable (bugged) due to having no.unlockedByCondition(...), however this ingredient is still counted among the requirements for The Ultimate Miner advancement. The advancement is therefore unobtainable without use of commands.
+
+ This ingredient does not show up in the Mine Crafter in singleplayer. Even though it is not shown, it can still be obtained; when a player unlocks it, a message confirming that remains in the chat. It is also required for The Ultimate Miner advancement, making the advancement unable to be completed in singleplayer without use of commands.
+
+ When the server-side function hurtServer is called on a player and Soul Link is active, it calls all other players' hurtServer functions as well. However, an oversight means that these calls to hurtServer also call all other players' hurtServer functions (and so on to infinity), which quickly causes a stack overflow; this means the server crashes if any player takes damage while Soul Link is active.
+
+Navigation

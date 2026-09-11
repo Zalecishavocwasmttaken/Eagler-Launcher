@@ -1,0 +1,247 @@
+Minecraft 25w21a
+
+Edition
+
+Java Edition
+
+Release date
+
+May 20, 2025
+
+Type
+
+Snapshot
+
+Snapshot for
+
+1.21.6
+
+Downloads
+
+Client (.json)Server
+
+Obfuscation maps
+
+ClientServer
+
+Protocol version
+
+ dec: 1073742075 hex: 400000FB
+
+Data version
+
+4429
+
+Resource pack format
+
+62
+
+Data pack format
+
+78
+
+Minimum Java version
+
+Java SE 21
+
+◄◄   1.21.5
+1.21.6
+  1.21.7 ►►
+
+◄   25w20a
+
+ 25w21a
+
+  1.21.6 Pre-Release 1 ►
+
+{
+    "title": "Minecraft 25w21a",
+    "images": [
+        "25w21a.jpg",
+        "Java Edition 25w21a.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "May 20, 2025",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Snapshot article, displayed as Snapshot)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition 1.21.6 article, displayed as 1.21.6)",
+            "label": "Snapshot for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/cc1841deb726892f1e1be6fd59f870eba4ba5761/client.jar Client] ([https://piston-meta.mojang.com/v1/packages/ec6b54caf3f3d79865d360fdf04b9d0b3eaa6ed2/25w21a.json .json])<br />[https://piston-data.mojang.com/v1/objects/a5f7be5d2f05250abfc49639a26f399b8a8ebb61/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/ea047a77e9fb8fb92ec399ffc6a39ba5f498905a/client.txt Client]<br />[https://piston-data.mojang.com/v1/objects/e2b7179bf376b18ad5cbcd77301f1f610da97480/server.txt Server]",
+            "label": "(link to Obfuscation map article, displayed as Obfuscation maps)"
+        },
+        {
+            "field": " <span style=\"font-size:smaller\"><abbr title=\"decimal\">dec</abbr>: </span>1073742075<br /> <span style=\"font-size:smaller\"><abbr title=\"hexadecimal\">hex</abbr>: </span>400000FB",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "4429",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "62",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "78",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Data pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_21_.28LTS.29 Java SE 21]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Java Edition  1.21.5|<span style=\"margin-right:-0.35em\">◄</span>◄   1.21.5]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition 1.21.6|1.21.6]]'''</td>\n<td style=\"padding: 0.4em\" >[[Java Edition  1.21.7|  1.21.7 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  25w20a|◄   25w20a]]\n</td>\n<td style=\"padding: 0.4em\">''' 25w21a'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  1.21.6 Pre-Release 1|  1.21.6 Pre-Release 1 ►]]\n</td>\n</tr>\n</table>"
+}
+
+25w21a is the seventh and final snapshot for Java Edition 1.21.6, released on May 20, 2025.
+
+Contents
+
+1 Additions
+
+1.1 Gameplay
+
+2 Changes
+
+2.1 Mobs
+2.2 Gameplay
+2.3 General
+
+3 Fixes
+4 Videos
+5 References
+6 Navigation
+
+Additions
+Gameplay
+Sounds
+
+Added entity/leashknot/break for when a lead snaps.
+The following sounds have been added for shearing saddles, horse armor, and carpets from llamas.
+mob/horse/armor_unequip
+mob/horse/saddle_unequip
+mob/llama/unequip
+Changes
+Mobs
+Horse, donkey, and mule
+
+Can now be fed carrots to heal, grow, and improve their temper, with the same effect as apples.
+Gameplay
+Sounds
+
+The following sounds have been renamed:
+entity/leashknot/break1 -> entity/leashknot/unleash1
+entity/leashknot/break2 -> entity/leashknot/unleash2
+entity/leashknot/break3 -> entity/leashknot/unleash3
+entity/leashknot/place1 -> entity/leashknot/leash1
+entity/leashknot/place2 -> entity/leashknot/leash2
+entity/leashknot/place3 -> entity/leashknot/leash3
+General
+Clouds
+
+The pattern of clouds has been changed.
+Are now rendered up to 128 blocks away from player.
+Are now faded, instead of instant appearance/disappearance.
+Data pack
+
+The pack format version is now 78.
+Dialogs
+
+run_command click actions will now correctly close dialogs and book screens even if the command does not require elevated permissions.
+Dialogs should now correctly return to the previous non-dialog screen on close in all cases.
+If a new dialog is received by the client while warning screen is visible, it will not replace it, but when user clicks the "Back" button, the new dialog will be restored instead.
+The sizes of elements in dialogs are now restricted:
+buttons - between 1 and 1024 (inclusive).
+minecraft:plain_message dialog body - between 1 and 1024 (inclusive).
+minecraft:item dialog body
+width of description - between 1 and 1024 (inclusive).
+width - between 1 and 256 (inclusive).
+height - between 1 and 256 (inclusive).
+minecraft:text input control - between 1 and 1024 (inclusive).
+minecraft:single_option input control - between 1 and 1024 (inclusive).
+minecraft:number_range input control - between 1 and 1024 (inclusive).
+minecraft:text input control
+max_length - maximum length of input, positive integer with default of 32.
+multiline - if present, allows users to input multiple lines, optional object with fields:
+max_lines - if present, limits maximum lines, optional positive integer.
+height - height of input, optional integer in range 1 to 512.
+If this field is omitted, but max_lines is present, the height will be chosen to fit the maximum number of lines.
+If this and max_lines are both omitted, it will default to a height that fits 4 lines.
+minecraft:number_range input control
+The steps field has been replaced with a new field:
+step - step size, optional positive float.
+If present, only values of initial + <any integer> * step will be allowed.
+If absent, any value from range the is allowed.
+initial - if not specified, now defaults to the middle of the range.
+minecraft:multi_action_input_form dialog type.
+Added new field columns - positive integer describing number of columns, default: 2.
+Resource pack
+
+The version is now 62.
+Tags
+
+Added carrot to #horse_food item tag.
+Fixes
+21 issues fixed
+From released versions before 1.21
+
+MC-36696 – Pressing the statistics button on the menu screen advances the game by 1 tick.
+MC-112730 – Beacon beam and structure block render twice per frame.
+MC-236464 – Beacon beams emitted from below the player are invisible after reloading chunks.
+MC-239701 – Rendering issue when breaking ice and flying with "Chunk Builder" set to Threaded.
+MC-258336 – Frost Walker causes frequent visual corruption near chunk borders on Threaded and Semi-Blocking Chunk Builder.
+From 1.21.5
+
+MC-296337 – Minecarts cause memory usage increases and crashes.
+MC-297264 – Cat breeds are not seed based anymore.
+From the 1.21.6 development versions
+
+MC-297336 – Experience orbs from thrown bottles o' enchanting are very prone to getting stuck inside blocks when thrown against a corner.
+MC-297615 – Untranslatable error message when trying to join a closed Realm.
+From the previous development version
+
+MC-297803 – The string menu.custom_screen_info.contents misspells "personal" as "pesonal".
+MC-297806 – music.game.swamp.labyrinthine misspells the song's title.
+MC-297808 – music.game.oxygene is missing the grave accent sign.
+MC-297812 – Bold text is rendered differently than in previous versions.
+MC-297813 – Amos Roddy is not listed in the credits.
+MC-297823 – music.game.mice_on_venus is using wrong capitalization.
+MC-297845 – Pressing the Statistics button in Singleplayer does not play the button sound until you resume playing.
+MC-297846 – The music toast flashes in the pause menu when the Music slider is set to zero.
+MC-297875 – Text shadow from underlined text overlaps the text below it in chat messages.
+MC-297888 – Text no longer renders in a consistent order across different fonts.
+MC-297917 – The client stops responding when showing a dialog with an extremely wide button.
+MC-297977 – Dialog columns layout has extra spacing between the grid and the overflow linear layout.
+
+Videos
+Videos made by slicedlime:
+
+
+
+
+
+
+
+
+References
+
+ "Minecraft Snapshot 25w21a"     – Minecraft.net, May 20, 2025.
+
+Navigation

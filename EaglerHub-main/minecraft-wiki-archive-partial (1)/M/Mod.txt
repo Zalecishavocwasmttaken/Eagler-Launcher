@@ -1,0 +1,286 @@
+For other uses, see Mod (disambiguation).
+
+  This article is about unofficial game customization via direct modifications.   For the official modding API in Bedrock Edition, see Add-on.   For the similar mechanism in Java Edition, see Data pack.  For the item in China Edition, see Mod (China Edition).
+
+
+
+The contents of this page are not supported by Mojang Studios or the Minecraft Wiki. 
+
+The Aether, a popular mod released in 2011, adds a custom dimension consisting of new mobs, blocks, and various gameplay features and progression. It was originally created by kingbdogz, now working in Mojang Studios as a game designer.
+A mod (short for modification) is a piece of unofficial code that is injected into the game for the purpose of modifying its behavior. They can be used to enhance the game by means ranging from fixing bugs, adjusting core mechanics, to completely revamping the way the game is played with unique features.
+
+Contents
+
+1 Nomenclature
+2 Overview
+
+2.1 Modding support
+2.2 Integration with data packs
+
+3 Types of mods
+
+3.1 Client-based
+3.2 Server-based
+3.3 Shader pack
+3.4 Mod pack
+
+4 Modded flag
+5 Trivia
+6 Gallery
+
+6.1 Historical screenshots
+
+7 See also
+8 Notes
+9 References
+10 External links
+11 Navigation
+
+Nomenclature
+The term mod is short for modification. Within the Minecraft community, the term is conventionally used in a strict sense to refer to unofficial, community-made code alterations that require third-party mod loaders. Under this definition, "mods" are distinct from officially supported game customization features, such as data packs, resource packs, and add-ons.
+In the broader video game industry, the term "mod" is often used as an umbrella term for any user-created content that alters a game's look or behavior. Because Minecraft is a unique case that supports both unofficial modification and official modification APIs simultaneously, the community generally maintains a practical distinction to avoid confusion between the two methods.
+Despite this distinction, Mojang Studios occasionally uses the terms "mod" and "modding" more broadly in official marketing and documentation to include official features. For example, the official Minecraft.net's Creator homepage refers to the use of add-ons as a way to "mod Minecraft". Similarly, an official promotional material has referred to a data pack and resource pack combination, Phantom Frames, as a "Java mod". This varying usage between the community, the broader gaming industry, and Mojang Studios themselves can occasionally lead to ambiguity regarding what officially constitutes a "mod" in the context of the game.
+Additionally, in Java Edition, the term "modded" can be determined in the game's code as the game running with a custom client brand or an invalidated signature file (likely coming from a modified Java class), see § Modded flag.
+
+Overview
+Mods are user-created content used to alter the base game to create unique experiences that are not usually present from the vanilla experience. They allow players to customize the look and feel of the game, give more options and customization, or expand the game with new progression and mechanics. Mods have control over various aspects of the game, where developers can modify or add custom features, such as physics, graphics, user interface, and various gameplay features (such as entities, items, blocks, world generation, and dimensions, usually through the game's registries).
+There are also utility mods serve to improve the game by adding or improving minor features while being close to vanilla (as not to change the game drastically). Optimization mods modify the game's rendering to improve frame rates and load times, making the game more accessible on lower-end hardware (see also Tutorial:Improving frame rate). Other client side mods may improve stability, such as reducing crashes and micro-stutter, and fixing several bugs that are originally from the base game.
+
+In Java Edition, a mod loader is used to inject modifications into the game. Mod loaders serve as an intermediary between the game's and the mod's code, they provide two main functions for modding: (1) providing system of API and tools to develop new mods and communicate with the game, and (2) managing loading mods simultaneously while keeping them compatible with each other. There are many well-known mod loaders, such as Forge, Fabric, Quilt, and NeoForge. Each mod loader supports different system and API for developing mods. Because of this, mods designed for specific mod loader are not likely interoperable with another mod loader, and vice versa.
+Mods are usually designed for specific release versions of the game. When the game is updated, the mod must also be updated accordingly, otherwise it may no longer work for future versions.
+
+Modding support
+Java Edition is written in Java and runs on JVM, which for technical reasons makes creating mods relatively easy. Modding strongly depends on decompilation to see the game's source code. Because Java compiles to bytecode rather than machine code, it is highly susceptible to decompilation, allowing modders to reverse-engineer the game logic easily. Due to this, a prolific modding scene exists for that edition, which has matured over a decade, and has created several programs and tools for modding, notably mod loaders.
+For older versions, obfuscation maps provided by Mojang and the community which ease the process of reverse-engineering the game. The unobfuscated versions of the game also lets modders directly see the game's source code without obfuscation maps.
+Bedrock Edition is written in C++ and runs as machine code, which makes it technically challenging to mod. Mods for that edition exist, but are much less common and less complex, both due to technical challenges, and other reasons such as low interest from the community, and add-ons, which is supported by Mojang Studios, providing official means of adding content to the game.
+Add-ons is the official modding API in Bedrock Edition, they can add new content and modify existing features and customization in the game. In comparison to Java Edition mods, add-ons may be limited in terms of features and customization, but are far more friendly and less complex for creators. An official modding API was planned for Java Edition, called "Plugin API" (dubbed "Workbench"), but was subsequently abandoned, with no further mentions or developments of it after Java Edition 1.9 (see Mentioned features § Workbench (Plugin API)).
+In Bedrock Edition 1.21.20, Mojang Studios removed debug information (bedrock_server.pdb file) from Bedrock Dedicated Server, making modding more difficult for Bedrock Edition.
+While there are other ways to change the experience of Minecraft, such as resource packs and data packs, the ability to load these is part of the vanilla game and usually not considered modding (see Game customization).
+
+Integration with data packs
+
+
+
+This feature is exclusive to Java Edition. 
+
+Historically, the modification of features such as advancements, enchantments, dimensions, or world generation have required the usage of mods. However, in later versions of the game, the additions and expansions of data packs and resource packs have allowed several of these features to be implemented into the game without any modification of or addition to the game's code. Most modern mod loaders allow data packs and resource packs to be included alongside a mod to provide additional data and resources, such as models or recipes.
+
+Types of mods
+See also: w:Client-server model
+
+ "Fabric" redirects here.  For the in-game block, see Wool.
+Minecraft can be made to look very different with the addition of shader packs and world generation mods.
+Client-based
+
+
+
+This feature is exclusive to Java Edition. 
+
+Client mods are direct modifications of the Minecraft game files. They control and add custom content for mobs, particles, items, and blocks, such as models, sounds, textures, and GUIs, but require the server to implement the game mechanics behind them (see § Server-based). They usually modify the client software, or client.jar file.
+Functional client mods like Sodium and OptiFine modify and enhance client side features of the game, such as graphics fidelity and rendering, while not adding or changing any gameplay features, making them perfectly compatible with vanilla server without any modifications.
+
+Server-based
+Server mods are modifications to the official Minecraft server software, or server.jar/Bedrock Dedicated Server. They control features that are handled exclusively in the server, primarily the game mechanics, such as physics, mob AI, chat, commands, player interactions (e.g. crafting, smelting, opening chests or inventory, block placement and destruction), world generation, and much more. They cannot control client side features, and are limited in terms of custom content. Most mods are installed together on the server and client side, allowing for more freedom and complete game customization.
+Server mods are commonly used to enhance server administration with more functionality and ease of use. They can provide tools to protect against griefing and cheating, implement tiered privileges for commands, automate server backup, monitor server performance, optimize gameplay features, and more. Most server mods are compatible with vanilla client, without requiring the same modifications on their end (see semivanilla). Most multiplayer minigames, such as spleef, capture the flag, sky wars and bed wars, are implemented using server mods.
+Server mods may be referred to as plugins, mainly on Spigot mod loader and its derivatives. Some are implemented as wrappers, which do not modify the server software directly, instead monitoring its output and sending commands to it, typically using the RCON protocol.
+Plugins on Bedrock Dedicated Server exist, but are widely superceded by the official script API.
+
+Shader pack
+This section is about unofficial implementation of shader using game modifications. For official shader implementation in resource packs in Java Edition, see Shader. For official implementation in resource packs in Bedrock Edition, see Vibrant Visuals § Customization and Ray Tracing.
+A shader pack is a client mod used to alter the visuals and looks of Minecraft. They primarily enhance the game's graphics by adding shadows, lightnings, reflections, and other customization. Shader packs are written in OpenGL Shading Language (GLSL), and require a mod designed to load them, such as Iris Shaders or OptiFine. They can be complemented with resource packs, especially ones that include custom material data for use in physically based rendering (PBR). Shader packs and resource packs are often used to heavily customize the game's appearance, allowing players to transform into different styles and settings, like medieval, realistic, cinematic, and cartoonish.
+Modern shader packs can implement path tracing and global illumination (GI) for Minecraft, notable examples include SEUS PTGI and Continuum RT.
+Unofficial shader packs in Bedrock Edition are usually based on RenderDragon, since most of its resources are data-driven and freely accessible, but some packs can enable the HAL rendering and its deprecated resource pack implementation as well.
+
+Mod pack
+
+
+
+This feature is exclusive to Java Edition. 
+
+A mod pack is a collections of mods that have been put together and configured so that they work together. Mod packs are often centered around a general theme like tech, quests, or magic. Mod packs often have either custom launchers or installers that make installing and running the mod pack easy. Some of the most popular mod packs include Feed The Beast, Tekkit, RLCraft, and Hexxit.
+In addition to making it easy to install mod pack clients, certain launchers can also download server mod packs.
+
+Modded flag
+
+
+
+This feature is exclusive to Java Edition. 
+
+If Minecraft crashes, a modified game is flagged in the crash report. This is possible by first checking the client or server brand is vanilla branded, then verifying if the Java class (where the game crashed from) is signed from a signature file, which is stored on the META-INF directory with .SF file extension in the JAR archive. These checks are done on both client.jar and server.jar files.
+The signature file that comes from the vanilla build of the game is named MOJANGCS.SF, and stored on the META-INF directory like any other signature files. The creator of the signature file is listed as Microsoft.
+The crash report text includes one of these lines near the bottom:
+
+Is Modded: Probably not. <environment> jar signature and brand is untouched – the environment (either client or server) brand is unaltered and the signature file is validated.
+Is Modded: Very likely; <environment> jar signature invalidated – the environment (either client or server) is unaltered but the signature file is invalidated.
+Is Modded: Definitely; <environment> brand changed to <custom brand> – the environment (either client or server) brand is changed to a custom brand specified by the mod loader, such as 'forge', 'neoforge', 'quilt', or 'fabric', which are for Forge, NeoForge, Quilt, and Fabric respectively. However, the game does not check the signature file any further.
+A shortened example crash report is given below:
+
+Crash Report
+
+---- Minecraft Crash Report ----
+// Uh... Did I do that?
+
+Time: 1/1/17 12:00 AM
+Description: Manually triggered debug crash
+
+A detailed walkthrough of the error, its code path, and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- System Details --
+Details:
+	Minecraft Version: 1.12
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 1.8.0_131, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 524288000 bytes (500 MB) / 536870912 bytes (512 MB) up to 1073741824 bytes (1024 MB)
+	JVM Flags: 4 total; -XX:HeapDumpPath=MojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump -XX:+DisableExplicitGC
+	IntCache: cache: 0, tcache: 0, allocated: 0, tallocated: 0
+	Launched Version: 1.12
+	LWJGL: 2.9.4
+	OpenGL: AMD Radeon (TM) R9 999 GL version 9.9.99999 Compatibility Profile Context 99.99.999.999, ATI Technologies Inc.
+	GL Caps: Using GL 1.3 multitexturing.
+Using GL 1.3 texture combiners.
+Using framebuffer objects because OpenGL 3.0 is supported and separate blending is supported.
+Shaders are available because OpenGL 2.1 is supported.
+VBOs are available because OpenGL 1.5 is supported.
+
+	Using VBOs: No
+	'''Is Modded: Probably not. client jar signature and brand is untouched'''
+	Type: Client (map_client.txt)
+	Resource Packs:
+	Current Language: English (US)
+	Profiler Position: N/A (disabled)
+	CPU: 9x Intel(R) Core(TM) i9-9999Z CPU @ 9.99GHz
+
+Trivia
+The Aether, a popular mod released in 2011, was referenced in an April Fools 2023 update, where players would be able to build the other portal out of glowstone and water, with striking similarity to the Aether portal. In the mod, players can transport to a Heaven-like dimension using the portal, serving as a counterpart to the Nether's hellish environment accessed through an obsidian and fire portal. In its heyday, the mod was easily one of the most popular and iconic Minecraft mods, leading some players to believe it was actually in vanilla Minecraft.
+A sky dimension similar to the Aether had been planned at some point in Minecraft development, but was ultimately abandoned in favor of The End dimension. It was commonly referred to as "Skylands" dimension by the developers and community.
+While the developer of the Aether mod, Brandon Pearce (also known as kingbdogz), has actually been hired by Mojang Studios, there are currently no plans to add a new sky dimension to Minecraft.
+Gallery
+
+
+
+			The title screen of a modded Java Edition with Forge.
+
+
+
+			The Aether mod adds a custom dimension called "Aether".
+
+
+
+			The Aether dimension is similar to the sky dimension, which was scrapped in Minecraft development.
+
+
+
+			The Twilight Forest mod adds a custom dimension with fantasy-medieval setting.
+
+
+
+			A tamed kangaroo with netherite armor from Alex's Mobs.
+
+
+
+			The Macaw's Bridges mod adds bridges to the game.
+
+
+
+			The Immersive Portals mod adds custom portals that players can transition seamlessly in the game.
+
+
+Historical screenshots
+
+
+
+			An example of a world generator mod (custom Indev map generator)
+
+
+See also
+Add-ons, a feature in Bedrock Edition that allows modders to more easily add content to the game.
+Data packs and resource packs, features in Java Edition which allow the addition of specific content to the game without the use of code modification.
+Tutorial:Programs and editors/Modding showcases tools for installing and making mods.
+Feed The Beast Wiki for looking up information about specific mods.
+MCW:Hey Wiki § Supported wikis for a list of wikis for specific mods.
+Minecraft modding on Wikipedia, which includes extensive history of Minecraft modding, from alpha to release era.
+Video game modding on Wikipedia, which explains general video game modding.
+ModJam, a form of community event where participants create fan-made content for Java Edition within a set period of time. Typically focuses on mod-related content, but maps, resource packs, and mod packs have all been included to various degrees.
+Notes
+
+ The only validation the game does is checking if a signature file exists, regardless from Microsoft or third-party; that means technically, the signature file could be replaced or added by another one resulting in a false positive.
+
+References
+
+ https://www.minecraft.net/en-us/creator
+
+ https://www.minecraft.net/en-us/article/beyond-the-pale-garden
+
+ "Registries"     – NeoForged docs.
+
+ "Intro to Registries"     – Fabric Wiki.
+
+ "Sodium"     – Modrinth.
+
+ "The best Minecraft performance mods"     – Rock Paper Shotgun, April 12, 2021.
+
+ "ModernFix"     – Modrinth.
+
+ "Bug fixes"     – PaperMC Docs, April 19, 2025.
+
+ "Fabric Loader"     – Fabric Wiki.
+
+ "History of Minecraft Mod Loaders: Why Are There So Many?"     by Burn  – Cybrancee, August 9, 2025.
+
+ "Every mod loader for Minecraft"     – Sportskeeda, November 18, 2023.
+
+ "Minecraft's new faster update schedule will probably fill modders with both despair and nostalgia"     by Edwin Evans-Thirlwell  – Rock Paper Shotgun, September 11, 2024.
+
+ "What is decompilation?"     by James Hamilton  – Dr James Hamilton, July 7, 2010.
+
+ "Should you run a Minecraft Java Edition or Bedrock Edition server?"     by Maddy Miller  – madelinemiller.dev, January 28, 2021.
+
+ "Removing obfuscation in Java Edition"     – Minecraft.net.
+
+ "Minecraft: Java Edition vs Bedrock Edition"     by Wesley Copeland  – PC Gamer, February 27, 2024.
+
+ "Did Mojang Just Remove Modding For Minecraft Bedrock?" (§ Minecraft Bedrock 1.21.20 Update)    by Nathan Young  – Apex Hosting, August 15, 2024.
+
+ "Custom Data/Resource pack Resources"     – Fabric Wiki.
+
+ https://www.gamesradar.com/best-minecraft-shaders/
+
+ https://www.rockpapershotgun.com/best-minecraft-shaders
+
+ https://shaders.properties/current/guides/your-first-shaderpack/0_intro/
+
+ https://shaderlabs.org/wiki/Getting_Started
+
+ https://faizul726.github.io/blog/how-to-use-renderdragon-shaders/
+
+ The checks can be seen on ModCheck class (Mojang mapping)
+
+ "Jarsigner - Signing Your JARs" (§ The Signed JAR File)    by Oracle and/or its affiliates  – Dev.java, September 14, 2021.
+
+ The Created-By entry of client.jar/META-INF/MOJANGCS.SF file.
+
+ "Popular Minecraft Mod Gets Update for Modern Versions"     by Bruna Telles  – Game Rant.
+
+ "Minecraft Redditor draws the Aether portal betrayal"     by Akshat Kabra  – Sportskeeda, 2022-06-03.
+
+ "And because PC Gamer made such a big deal of the sky dimension, I guess I'll have to finish it. Consider it confirmed."  – @notch (Markus Persson) on X (formerly Twitter), May 19, 2011
+
+ "It has been rebranded to be The End realm"  – @jeb_ (Jens Bergensten) on X (formerly Twitter), October 12, 2011
+
+ "Probably, yes. :D I love the idea. The Ether mod does it great, try it."  – @notch (Markus Persson) on X (formerly Twitter), November 10, 2011
+
+ "Notch Answers Minecraft 1.8 Questions - Community Questions for Markus (Notch) Persson"  – OmniTechNews on YouTube, September 1, 2011
+
+ "We have no plans to revisit the skylands"  – @Dinnerbone (Nathan Adams) on X (formerly Twitter), July 3, 2012
+
+ "No we don't plan to return the Sky Dimension"  – @jeb_ (Jens Bergensten) on X (formerly Twitter), July 2, 2012
+
+External links
+CurseForge and Modrinth, which are popular repositories for hosting user-created content, mainly Java Edition mods, data packs, and other content.
+Neoforged, Fabric, and QuiltMC, which are popular mod loaders for Java Edition.
+MCPEDL, which is a popular repository for hosting user-created content exclusively for Bedrock Edition, such as add-ons, behavior packs, resource packs, and other content. It is managed by the same company that hosts CurseForge.
+There is also Modbay, a less popular alternative.
+Mods for Minecraft: Java Edition, the official Minecraft Help Center article.
+Navigation

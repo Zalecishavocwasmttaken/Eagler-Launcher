@@ -1,0 +1,1166 @@
+This article is about the options that affect the gameplay.   For the command, see Commands/gamerule.
+
+Game rules are a set of customizable options for a specific in-game world.
+
+Contents
+
+1 Modifying game rules
+2 List of game rules
+
+2.1 Chat
+2.2 Drops
+2.3 Miscellaneous
+2.4 Mobs
+2.5 Player
+2.6 Spawning
+2.7 World Updates
+2.8 Bedrock Edition exclusive
+2.9 Notes
+
+3 Additional behavior
+4 History
+
+4.1 Java Edition
+4.2 Bedrock Edition
+
+5 Issues
+6 Gallery
+
+6.1 Screenshots
+
+7 References
+8 Navigation
+
+Modifying game rules
+The "Edit Game Rules" section of the "Create New World" screen on Java Edition.
+The "Advanced" tab of "Edit World" screen on Bedrock Edition.
+In Java Edition, game rules can be changed using toggle buttons on the "Edit Game Rules" menu built into the "Create World" and "World Options" screens. The game rules are split into categories named "Player", "Mobs", "Spawning", "Drops", "World updates", "Chat", and "Miscellaneous".
+In Bedrock Edition, about half of the game rules can be changed from the "Create New World" screen and the world options in both the "Edit World" screen and the game settings in the pause menu. The remainder can be changed only with commands, or in the "Export" interface in the Bedrock Editor.
+When in-game, game rules can be changed using the /gamerule command, using the syntax /gamerule <rule> [<value>], where <rule> is the name of the game rule and <value> is an allowed value, which depends on the type of the game rule. The types are boolean (where the allowed values are either true, or false) and integer (where any whole number is able to be entered).
+
+List of game rules
+The following is a list of game rules available in-game, their allowed values, and their availability in Java Edition and Bedrock Edition.
+The categorization of game rules is based on Java Edition, except for Bedrock Edition exclusive game rules. The minecraft: prefix has been excluded from this list for the sake of brevity.
+Some game rules can be changed in Bedrock Edition without cheats (either by /gamerule command or the world menus, e.g., World Options and Create New World), thus safely keeping achievements enabled while configuring these game rules.
+
+Chat
+Rules affecting chat output, including command feedback, death messages, and advancements.
+
+Rule name
+
+Description
+
+Default value
+
+Type
+
+Availability in Bedrock Edition
+
+JE: command_block_outputBE: commandblockoutput
+
+Whether command blocks should notify admins when they perform commands.
+
+true
+
+Bool
+
+Cheats only
+
+log_admin_commands
+
+Whether to log admin commands to server log.
+
+true
+
+Bool
+
+Java Edition exclusive
+
+JE: send_command_feedbackBE: sendcommandfeedback
+
+Whether the feedback from commands executed by a player should show up in chat. Also affects the default behavior of whether command blocks store their output text.
+
+true
+
+Bool
+
+Cheats only
+
+show_advancement_messages
+
+Whether advancements should be announced in chat.
+
+true
+
+Bool
+
+Java Edition exclusive
+
+JE: show_death_messagesBE: showdeathmessages
+
+Whether death messages are put into chat when a player dies. Also affects whether a message is sent to the pet's owner when the pet dies.
+
+true
+
+Bool
+
+Without cheats
+
+Drops
+Rules controlling item drops from blocks, entities, and mobs, including drop decay mechanics.
+
+Rule name
+
+Description
+
+Default value
+
+Type
+
+Availability in Bedrock Edition
+
+JE: block_dropsBE: dotiledrops
+
+Whether blocks should have drops.
+
+true
+
+Bool
+
+Without cheats
+
+block_explosion_drop_decay
+
+Whether block loot is dropped by all blocks (false) or randomly (true) depending on how far the block is from the center of a block explosion (e.g. clicking a bed in dimensions other than the Overworld).
+
+true
+
+Bool
+
+Java Edition exclusive
+
+JE: entity_dropsBE: doentitydrops
+
+Whether entities that are not mobs should have drops.
+
+true
+
+Bool
+
+Cheats only
+
+JE: mob_dropsBE: domobloot
+
+Whether mobs should drop items and experience orbs.
+
+true
+
+Bool
+
+Without cheats
+
+mob_explosion_drop_decay
+
+Whether block loot is dropped by all blocks (false) or randomly (true) depending on how far the block is from the center of a mob explosion (e.g. Creeper explosion).
+
+true
+
+Bool
+
+Java Edition exclusive
+
+JE: projectiles_can_break_blocksBE: projectilescanbreakblocks
+
+Whether impact projectiles destroy blocks that are destructible by them, i.e. chorus flowers, pointed dripstone, and decorated pots.
+
+true
+
+Bool
+
+Without cheats
+
+JE: tnt_explosion_drop_decayBE: tntexplosiondropdecay
+
+Whether block loot is dropped by all blocks (false) or randomly (true) depending on how far the block is from the center of a TNT explosion.
+
+false
+
+Bool
+
+Without cheats
+
+Miscellaneous
+A collection of technical or utility rules that do not fit into other specific categories, such as command limits, debug info, and other mechanics.
+
+Rule name
+
+Description
+
+Default value
+
+Type
+
+Availability in Bedrock Edition
+
+JE: command_blocks_workBE: commandblocksenabled
+
+Whether command blocks should be enabled in-game.
+
+true
+
+Bool
+
+Cheats only
+
+global_sound_events
+
+Whether the wither's spawning sound, the ender dragon's death sound and the end portal activation sound are heard by all players regardless of location.
+
+true
+
+Bool
+
+Java Edition exclusive
+
+max_block_modifications
+
+Controls the maximum number of blocks changed when using /clone, /fill, or /fillbiome.
+
+32768
+
+Int
+
+Java Edition exclusive
+
+max_command_forks
+
+The maximum number of forks (contexts) that can be created during one tick. Applies to command blocks and functions.
+
+65536
+
+Int
+
+Java Edition exclusive
+
+JE: max_command_sequence_lengthBE: maxcommandchainlength
+
+The maximum length of a chain of commands that can be executed during one tick from one execution source. Applies to command blocks and functions.
+
+65536
+
+Int
+
+Cheats only
+
+max_minecart_speed‌["Minecart Improvements" Experiment  only]
+
+The maximum speed a minecart may reach.
+
+8
+
+Int
+min:1
+max:1000
+
+Java Edition exclusive
+
+reduced_debug_info
+
+Whether the debug screen shows all or reduced information; and whether the effects of F3 + B (entity hitboxes) and F3 + G (chunk boundaries) are shown.
+
+false
+
+Bool
+
+Java Edition exclusive
+
+JE: tnt_explodesBE: tntexplodes
+
+Whether TNT explodes after activation.
+
+true
+
+Bool
+
+Without cheats
+
+Mobs
+Rules that manage mob behavior, such as mob griefing, anger mechanics, and raids.
+
+Rule name
+
+Description
+
+Default value
+
+Type
+
+Availability in Bedrock Edition
+
+forgive_dead_players
+
+Makes angered neutral mobs within 65 x 21 x 65 blocks centered on the targeted player stop being angry when the player dies.
+
+true
+
+Bool
+
+Java Edition exclusive
+
+max_entity_cramming
+
+The maximum number of pushable entities a mob or player can push, before taking 6HP entity cramming damage per half-second. Setting to 0 disables the rule. Damage affects Survival-mode or Adventure-mode players, and all mobs but bats. Pushable entities include non-Spectator-mode players, any mob except bats, as well as boats and minecarts.
+
+24
+
+Int
+
+Java Edition exclusive
+
+JE: mob_griefingBE: mobgriefing
+
+Whether creepers, zombies, endermen, ghasts, withers, ender dragons, rabbits, sheep, villagers, silverfish, snow golems, ravagers and end crystals‌[BE  only] should be able to change blocks, and whether mobs can pick up items. When mob_griefing is disabled, piglins do not pick up gold ingots, but a player can still barter with them by using the item on the mob. Similarly, villagers do not pick up food items but can still breed until they run out of any food already in their inventory. This also affects the capability of zombie-like creatures like zombified piglins and drowned to pathfind to turtle eggs.
+
+true
+
+Bool
+
+Cheats only
+
+raids
+
+Whether raids are enabled.
+
+true
+
+Bool
+
+Java Edition exclusive
+
+universal_anger
+
+Makes angered neutral mobs attack any nearby player, not just the player that angered them. Works best if forgive_dead_players is disabled.
+
+false
+
+Bool
+
+Java Edition exclusive
+
+Player
+Rules directly impacting player mechanics, such as damage sources, keep inventory, and respawning behavior.
+
+Rule name
+
+Description
+
+Default value
+
+Type
+
+Availability in Bedrock Edition
+
+allow_entering_nether_using_portals
+
+Whether the Nether can be entered by using Nether portals.
+
+true
+
+Bool
+
+Java Edition exclusive
+
+JE: drowning_damageBE: drowningdamage
+
+Whether the player should take damage when drowning.
+
+true
+
+Bool
+
+Cheats only
+
+elytra_movement_check
+
+Whether the server should check player speed when the player is wearing elytra. Often helps with jittering due to lag in multiplayer.
+
+true
+
+Bool
+
+Java Edition exclusive
+
+ender_pearls_vanish_on_death
+
+Controls whether thrown ender pearls vanish when the player dies.
+
+true
+
+Bool
+
+Java Edition exclusive
+
+JE: fall_damageBE: falldamage
+
+Whether the player should take fall damage.
+
+true
+
+Bool
+
+Cheats only
+
+JE: fire_damageBE: firedamage
+
+Whether the player should take damage in fire, lava, campfires, or on magma blocks.
+
+true
+
+Bool
+
+Cheats only
+
+fire_spread_radius_around_player
+
+Controls the maximum distance in blocks that fire can spread around a player. Set to 0 to disable fire spread. Set to -1 for an unlimited distance.
+
+128
+
+Int
+
+Java Edition exclusive
+
+JE: freeze_damageBE: freezedamage
+
+Whether the player should take damage when inside powder snow.
+
+true
+
+Bool
+
+Cheats only
+
+JE: immediate_respawnBE: doimmediaterespawn
+
+Players respawn immediately without showing the death screen.
+
+false
+
+Bool
+
+Without cheats
+
+JE: keep_inventoryBE: keepinventory
+
+Whether the player should keep items and experience in their inventory after death.
+
+false
+
+Bool
+
+Cheats only
+
+JE: limited_craftingBE: dolimitedcrafting
+
+Whether players can craft only those recipes that they have unlocked.
+
+false
+
+Bool
+
+Cheats only
+
+JE: locator_barBE: playerwaypoints
+
+Whether the player's locator bar is enabled, indicating the location of players or entities. Can be set to everyone and off in Bedrock Edition.
+
+true‌[JE  only]everyone‌[BE  only]
+
+Bool‌[JE  only]
+String‌[BE  only]
+
+Without cheats
+
+JE: natural_health_regenerationBE: naturalregeneration
+
+Whether the player can regenerate health naturally if their hunger is full enough (doesn't affect external healing, such as golden apples, the Regeneration effect, etc.).
+
+true
+
+Bool
+
+Without cheats
+
+player_movement_check
+
+Whether the server should check player speed.
+
+true
+
+Bool
+
+Java Edition exclusive
+
+players_nether_portal_creative_delay
+
+Controls the time that a creative player needs to stand in a nether portal before changing dimensions.
+
+0
+
+Int
+
+Java Edition exclusive
+
+players_nether_portal_default_delay
+
+Controls the time that a non-creative player needs to stand in a nether portal before changing dimensions.
+
+80
+
+Int
+
+Java Edition exclusive
+
+JE: players_sleeping_percentageBE: playerssleepingpercentage
+
+What percentage of players in the Overworld must sleep to skip the night. A percentage value of 0 or less allows the night to be skipped by just 1 player, and a percentage value more than 100 prevents players from skipping the night.
+
+100
+
+Int
+
+Without cheats
+
+pvp
+
+Whether players can damage other players.
+
+true
+
+Bool
+
+Without cheats
+
+JE: respawn_radiusBE: spawnradius
+
+The number of blocks outward from the world spawn coordinates that a player spawns in when first joining a server or when dying without a personal spawnpoint. Has no effect on servers where the default game mode is Adventure.
+
+10
+
+Int
+
+Without cheats
+
+spectators_generate_chunks
+
+Whether players in Spectator mode can generate chunks.
+
+true
+
+Bool
+
+Java Edition exclusive
+
+Spawning
+Rules that toggle the natural spawning of various mobs and entities.
+
+Rule name
+
+Description
+
+Default value
+
+Type
+
+Availability in Bedrock Edition
+
+JE: spawn_mobsBE: domobspawning
+
+Whether mobs should spawn naturally, or via global spawning logic, such as for cats, phantoms, patrols, wandering traders, zombie sieges, or creaking hearts. Does not affect player-specific and other special spawning attempts, like commands, monster spawners, raids, spawn eggs, or iron golems.
+
+true
+
+Bool
+
+Cheats only
+
+spawn_monsters
+
+Whether monsters can spawn naturally.
+
+true
+
+Bool
+
+Java Edition exclusive
+
+spawn_patrols
+
+Whether patrols can spawn.
+
+true
+
+Bool
+
+Java Edition exclusive
+
+JE: spawn_phantomsBE: doinsomnia
+
+Whether phantoms can spawn in the nighttime.
+
+true
+
+Bool
+
+Cheats only
+
+spawn_wandering_traders
+
+Whether wandering traders can spawn.
+
+true
+
+Bool
+
+Java Edition exclusive
+
+spawn_wardens
+
+Whether wardens can spawn.
+
+true
+
+Bool
+
+Java Edition exclusive
+
+spawner_blocks_work
+
+Enable or disable monster spawner blocks.
+
+true
+
+Bool
+
+Java Edition exclusive
+
+World Updates
+Rules related to the world environment, including time progression, weather cycles, and fluid dynamics.
+
+Rule name
+
+Description
+
+Default value
+
+Type
+
+Availability in Bedrock Edition
+
+JE: advance_timeBE: dodaylightcycle
+
+Whether the daylight cycle and moon phases progress.
+
+true
+
+Bool
+
+Cheats only
+
+JE: advance_weatherBE: doweathercycle
+
+Whether the weather can change naturally. The /weather command can still change weather.
+
+true
+
+Bool
+
+Cheats only
+
+lava_source_conversion
+
+Whether new sources of lava are allowed to form.
+
+false
+
+Bool
+
+Java Edition exclusive
+
+max_snow_accumulation_height
+
+The maximum number of snow layers that can be accumulated on each block.
+
+1
+
+Int
+
+Java Edition exclusive
+
+JE: random_tick_speedBE: randomtickspeed
+
+How often a random tick occurs (such as plant growth, leaf decay, etc.) per chunk section per game tick. 0 and negative values disables random ticks, higher numbers increase random ticks. Setting to a high integer results in high speeds of decay and growth. Numbers over 4096 make plant growth or leaf decay instantaneous.
+
+3‌[JE  only]1‌[BE  only]
+
+Int
+
+Cheats only
+
+spread_vines
+
+Whether vines can spread to other blocks. Cave vines, weeping vines, and twisting vines are not affected.
+
+true
+
+Bool
+
+Java Edition exclusive
+
+water_source_conversion
+
+Whether new sources of water are allowed to form.
+
+true
+
+Bool
+
+Java Edition exclusive
+
+Bedrock Edition exclusive
+Game rules that are specific to Bedrock Edition and do not have direct equivalents in Java Edition.
+
+Rule name
+
+Description
+
+Default value
+
+Type
+
+Availability in Bedrock Edition
+
+dofiretick
+
+Whether fire should spread and naturally extinguish.
+
+true
+
+Bool
+
+Without cheats
+
+functioncommandlimit
+
+The maximum number of commands that can be executed by /function at once.
+
+10000
+
+Int
+
+Cheats only
+
+recipesunlock
+
+Whether the player needs to collect items to unlock recipes in the recipe book.
+
+true
+
+Bool
+
+Without cheats
+
+respawnblocksexplode
+
+Prevents beds/respawn anchors from exploding in other dimensions.
+
+true
+
+Bool
+
+Without cheats
+
+showbordereffect
+
+Whether the particles of the border block are shown.
+
+true
+
+Bool
+
+Cheats only
+
+showcoordinates
+
+Whether the player's coordinates are displayed on the HUD.
+
+true
+
+Bool
+
+Without cheats
+
+showdaysplayed
+
+Whether the world's in-game day count is displayed on the HUD.
+
+false
+
+Bool
+
+Without cheats
+
+showrecipemessages
+
+Whether the recipe toasts are displayed.
+
+true
+
+Bool
+
+Without cheats
+
+showtags
+
+Hides the "Can place on" and "Can destroy" block lists from item lore, the "Has Custom Properties" text on items that have dynamic properties, as well as item lock indicators.
+
+true
+
+Bool
+
+Without cheats
+
+Notes
+
+ These game rules are available under "Advanced" section of the world menus (e.g., World Options and Create New World).
+
+ These game rules are available under "Cheats" section of the world menus.
+
+ These game rules are available under "Multiplayer" section of the world menus.
+
+Additional behavior
+
+
+
+This section needs expansion. 
+You can help by expanding it.
+
+This section explains more complex behaviors of certain gamerules.
+
+raids
+When false, the Bad Omen effect is not removed from a player when entering a village.
+Stops a raid if set to false while a raid is in progress, but the existing raid mobs do not despawn.
+JE: entity_dropsBE: doentitydrops
+When false, removing items from item frames do not drop them.
+JE: mob_dropsBE: domobloot
+Does not affect drops not related to a mob's death, such as chicken laying eggs, or sheep dropping wool when sheared.
+Does not affect the dropping of wither roses when mobs are killed by the wither.
+JE: spawn_mobsBE: domobspawning
+Affects only natural mob spawning. Mobs from structures,‌[Java Edition  only] monster spawners, and events still spawn when set to false.
+JE: block_dropsBE: dotiledrops
+When false, containers still drop their contents, but not themselves.
+Shulker boxes do not drop anything, causing the items in them to be lost.
+When false, destroying an armor stand does not drop it nor any armor it had equipped.
+When false, item frames still drop themselves and their items.
+When false, infested blocks do not spawn silverfish when broken.
+JE: drowning_damageBE: drowningdamage
+When false, the player still loses air, but does not take damage when the air is depleted.
+JE: fire_damageBE: firedamage
+When false, the player may still be set on fire, but does not take damage when on fire.
+forgive_dead_players
+Every neutral mob that can be aggravated remain aggravated even after the offending player dies, with the exception of piglins when a player does not wear golden armor and iron golems when it is created from a village where the player has a reputation of -100 or lower.
+JE: keep_inventoryBE: keepinventory
+When true, players also retain their experience upon death.
+When true, health and hunger are still reset as normal upon death.
+When true, all effects are still removed upon death.
+When true, items enchanted with Curse of Vanishing do not disappear upon death.
+JE: mob_griefingBE: mobgriefing
+When false, prevents all mobs from modifying the environment in any way. This includes trampling crops and turtle eggs, picking up items, destroying blocks, or moving blocks. Specifically, it prevents:
+Allays from picking up dropped items.
+Blazes from creating fire or lighting campfires.
+Creepers from destroying blocks when they explode, although they still damage entities.
+Dolphins from picking up dropped items.‌[JE  only]
+End crystals from destroying blocks when they explode, although they still damage entities.
+Ender dragons from destroying blocks, causing it to just fly through them instead.
+Endermen from picking up or placing blocks.
+Evoker from turning blue sheep red.‌[JE  only]
+Foxes from picking sweet berries from a sweet berry bush and picking up dropped items.
+Ghast fireballs from exploding blocks and creating fire. They still damage entities.
+Piglins from attempting to barter by picking up dropped items; using the item on them still works.
+Rabbits from eating carrot crops.
+Ravagers from destroying crops and leaves.
+Sheep from turning grass blocks into dirt, but does not prevent the regrowth of wool. They still act as if they are eating the grass and regrow their wool upon doing so, but the grass remains and the grass breaking sound does not play.
+Silverfish from hiding in infested blocks and destroying those blocks when hatching.
+Snow golems from creating snow trails.
+Villagers from farming and picking up items. However, they can still open doors and throw items.
+Withers and their heads from destroying blocks with their explosions. Entities are still damaged, and a wither rose drops as an item.
+Zombies from breaking doors, picking up items, and attacking turtle eggs.
+Prevents cobwebs from spawning when a mob with the Weaving effect dies.
+Has no effect on bees, breezes, frogs, turtles or the player.
+JE: players_sleeping_percentageBE: playerssleepingpercentage
+When set to 0, at least one player is still required to sleep to skip the night.
+When set to a number greater than 100, night is not skipped no matter how many players are sleeping.
+JE: random_tick_speedBE: randomtickspeed
+Does not affect:
+Death of coral blocks, coral, and coral fan.
+Hatching of frogspawn and sniffer eggs.
+max_snow_accumulation_height
+When set to 0, snow layers do not form at all.
+When set to 8 or higher, snow forms up to the level of a full block, but no greater than that.
+JE: tnt_explodesBE: tntexplodes
+When set to false, TNT Minecarts cannot be ignited.
+This includes through Activator Rails, Cramming, and destruction while in motion.
+universal_anger
+Every neutral mob that can be aggravated targets all nearby players whenever they are aggravated.
+Bees attack all nearby players when their beehive is broken, regardless of the setting of this gamerule.
+Bees becoming angry when attacked works as expected.
+History
+Java Edition
+Java Edition1.4.212w32a
+Added /gamerule.
+
+Added the following gamerules:
+doFireTick
+mobGriefing
+keepInventory
+doMobSpawning
+doMobLoot
+doTileDrops
+12w38a
+Added game rule commandBlockOutput.1.6.113w23a
+Added game rule naturalRegeneration.13w24a
+Added game rule doDaylightCycle.1.814w03a
+Added game rule logAdminCommands.14w10a
+Added game rule showDeathMessages.14w17a
+Added game rule randomTickSpeed.14w26a
+Added game rule sendCommandFeedback.14w29a
+Added game rule reducedDebugInfo.
+
+Added the ability to create dummy game rules.1.8.1pre1
+Added game rule doEntityDrops.
+
+Game rule doTileDrops no longer affects entities.1.915w37a
+Added game rule spectatorsGenerateChunks.15w51a
+Added game rule spawnRadius.16w07a
+Added game rule disableElytraMovementCheck.1.1116w38a
+Added game rule doWeatherCycle.
+
+Added game rule maxEntityCramming.1.1217w13a
+Added game rule doLimitedCrafting.17w16b
+Added game rule maxCommandChainLength.17w18a
+Added game rule announceAdvancements.pre1
+Added game rule gameLoopFunction.1.1317w45a
+Removed the ability to create dummy game rules.17w49b
+Removed game rule gameLoopFunction. Its functionality was replaced with and expanded by the minecraft:tick function tag.1.14.3pre3
+Added game rule disableRaids.1.1519w36a
+Added the following gamerules:
+doInsomnia
+doImmediateRespawn
+drowningDamage
+fallDamage
+fireDamage
+1.15.2pre1
+Added the following gamerules:
+doPatrolSpawning
+doTraderSpawning
+1.1620w17a
+Game rules can now be changed upon world creation.pre1
+Added the following gamerules:
+universalAnger
+forgiveDeadPlayers
+1.1720w48a
+Added game rule freezeDamage.20w51a
+Added game rule playersSleepingPercentage.1.1922w16a
+Added game rule doWardenSpawning.1.19.322w44a
+Added the following game rules:
+blockExplosionDropDecay
+mobExplosionDropDecay
+tntExplosionDropDecay
+snowAccumulationHeight
+waterSourceConversion
+lavaSourceConversion
+globalSoundEvents
+1.19.423w03a
+Added game rule commandModificationBlockLimit.23w06a
+Added game rule doVinesSpread.1.20.223w31a
+The randomTickSpeed game rule now affects the formation of snow and ice, as well as the filling of cauldrons with rain.pre1
+Added game rule enderPearlsVanishOnDeath.1.20.323w41a
+Added game rule maxCommandForkCount.23w42a
+Added the following gamerules:
+projectilesCanBreakBlocks
+playersNetherPortalDefaultDelay
+playersNetherPortalCreativeDelay
+1.20.524w03a
+Added game rule spawnChunkRadius.1.2124w21a
+Added game rule entitiesWithPassengersCanUsePortals.pre1
+Removed game rule entitiesWithPassengersCanUsePortals. Entities with passengers can now use portals by default.1.21.2ExperimentMinecart Improvements24w33a
+Added game rule minecartMaxSpeed with a default of 8 and maximum of 1000.1.21.2pre1
+Added game rule disablePlayerMovementCheck.1.21.525w06a
+Added game rule allowFireTicksAwayFromPlayer.25w10a
+Added game rule tntExplodes.1.21.6ExperimentLocator Bar25w15a
+Added game rule useLocatorBar which is enabled by default.1.21.625w17a
+Renamed game rule useLocatorBar to locatorBar.
+The locatorBar game rule is available without experiment.1.21.925w31a
+Removed game rule spawnChunkRadius.25w35a
+Added the following gamerules:
+allowEnteringNetherUsingPortals
+enableCommandBlocks
+spawnMonsters
+pvp
+25w37a
+Renamed game rule enableCommandBlocks to commandBlocksEnabled.
+
+ Added gamerule spawnerBlocksEnabled.1.21.1125w44a
+All game rules have now been moved into a registry.
+
+Because of that, all game rules have been renamed to resource locations in snake case instead of camel case. Many of the rules have been renamed to reflect their names in the "Edit Game Rules" menu of the Create New World screen, some values are also inverted.
+
+List of game rules that have been renamed
+
+announceAdvancements → show_advancement_messages
+commandBlocksEnabled → command_blocks_work
+command_modification_block_limit → max_block_modifications
+disableElytraMovementCheck → elytra_movement_check
+The value is inverted accordingly in places that use the resource location.
+disablePlayerMovementCheck → player_movement_check
+The value is inverted accordingly in places that use the resource location.
+disableRaids → raids
+The value is inverted accordingly in places that use the resource location.
+doDaylightCycle → advance_time
+doEntityDrops → entity_drops
+doImmediateRespawn → immediate_respawn
+doInsomnia → spawn_phantoms
+doLimitedCrafting → limited_crafting
+doMobLoot → mob_drops
+doMobSpawning → spawn_mobs
+doPatrolSpawning → spawn_patrols
+doTileDrops → block_drops
+doTraderSpawning → spawn_wandering_traders
+doVinesSpread → spread_vines
+doWardenSpawning → spawn_wardens
+doWeatherCycle → advance_weather
+maxCommandChainLength → max_command_sequence_length
+maxCommandForkCount → max_command_forks
+naturalRegeneration → natural_health_regeneration
+snowAccumulationHeight → max_snow_accumulation_height
+spawnRadius → respawn_radius
+spawnerBlocksEnabled → spawner_blocks_work
+
+
+Some game rules that did not have a limited value range now do, being a minimum value of 0 or 1 and a maximum value.
+
+List of game rules with added limited value range
+
+max_block_modifications: Minimum 1
+max_command_forks: Minimum 1
+max_command_sequence_length: Minimum 0
+max_entity_cramming: Minimum 0
+max_snow_accumulation_height: Minimum 0, maximum: 8
+players_nether_portal_creative_delay: Minimum 0
+players_nether_portal_default_delay: Minimum 0
+players_sleeping_percentage: Minimum 0
+random_tick_speed: Minimum 0
+respawn_radius: Minimum 0
+
+Added game rule fire_spread_radius_around_player.
+Removed game rules doFireTick and allowFireTicksAwayFromPlayer.
+25w45a
+The limit for the max_entity_cramming game rule has been changed to a minimum of 0.26.1snap3
+The game rules screen is now accessible in-game through a new World Options screen in the pause menu.
+A search bar has been added to the top of the game rules screen, both in-game and in the world creation menu.snap5
+The search bar now also selects game rules based on description and category in addition to namespaced ID and name.
+Bedrock Edition
+Pocket Edition1.0.5alpha 1.0.5.0
+Added /gamerule.
+
+Added the following gamerules:
+drowningdamage
+falldamage
+firedamage
+pvp
+1.1.0alpha 1.1.0.0
+Added the following gamerules:
+dodaylightcycle
+doentitydrops
+dofiretick
+domobspawning
+domobloot
+dotiledrops
+doweathercycle
+keepinventory
+mobgriefing
+Bedrock Edition1.6.0beta 1.6.0.6
+Added game rule doinsomnia.1.7.0beta 1.7.0.2
+Added game rule commandblocksenabled.1.8.0beta 1.8.0.8
+Added game rule randomtickspeed.1.9.0beta 1.9.0.0
+Added the following gamerules:
+showdeathmessages
+immediaterespawn
+beta 1.9.0.2
+Added game rule functioncommandlimit.1.12.0beta 1.12.0.2
+Added the following gamerules:
+spawnradius
+sendcommandblockfeedback
+?
+Added game rule commandblockoutput.
+
+Added game rule maxcommandchainlength.
+
+Added game rule naturalregeneration.
+
+Added game rule sendcommandfeedback.[verify]
+
+Added game rule showcoordinates.
+
+Added game rule tntexplodes.1.14.0
+Added game rule showtags.?
+Removed the ability to create dummy gamerules.1.16.210beta 1.16.210.53
+Added game rule freezedamage.1.17.30beta 1.17.20.20
+Added game rule respawnblocksexplode.?
+Added game rule showbordereffect.1.20.30Preview 1.20.20.21
+Added the following gamerules:
+playerssleepingpercentage
+recipesunlock
+Preview 1.20.30.20
+Added game rule doLimitedcrafting.Preview 1.20.30.22
+The recipesunlock game rule is now set to true by default.1.20.40Preview 1.20.40.22
+The spawnradius game rule is now set to 10 by default to match Java Edition.1.20.50Preview 1.20.50.20
+Added game rule showrecipemessages.Preview 1.20.50.22
+Added game rule projectilescanbreakblocks.1.21.0Preview 1.21.0.20
+Added game rule tntexplosiondropdecay.Preview 1.21.0.23
+Added game rule showdaysplayed.1.21.80ExperimentLocator BarPreview 1.21.80.25
+Added game rule locatorBar.1.21.90Preview 1.21.90.23
+The locatorbar game rule is now available without experiments.26.30Preview 26.30.20
+Replaced the locatorbar game rule with playerwaypoints, which can be set to off and everyone.
+Issues
+Issues relating to "Game rule" or "Gamerule" are maintained on the bug tracker. Issues should be reported and viewed there.
+
+Gallery
+Screenshots
+
+
+
+			The full "Edit Game Rules" menu as of 26.2.
+
+
+References
+
+ MC-154922
+
+ MCPE-73842
+
+ MC-67352 – resolved as "Works As Intended".
+
+ MC-108353 – resolved as "Works As Intended".
+
+ MC-249308
+
+ MC-261250 – resolved as "Invalid".
+
+ "Revamped anger management for neutral mobs in minecraft. Now angered neutral mobs won't attack innocent bystanders, won't forget you just cuz you log out & log in, and won't keep killing you after you die & respawn. Etc. Find anything wonky? Report at bugs.mojang.com"  – @henrikkniberg  on X (formerly Twitter), June 5, 2020
+
+ MC-93320 – Water freezes even if randomTickSpeed is 0 – resolved as "Fixed".
+
+ MC-93820 – Rain filling cauldrons is not affected by randomTickSpeed – resolved as "Fixed".
+
+Navigation

@@ -1,0 +1,89 @@
+/op
+
+Permission levelrequired
+
+3 ‌[JE  only]
+2 ‌[BE  only]
+
+Restrictions
+
+Dedicated server only‌[JE  only]
+
+{
+    "title": "<code>/op</code>",
+    "rows": [
+        {
+            "field": "\n* 3 ‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Java Edition\">(link to Java Edition article, displayed as JE)  only</span></i>]</sup>\n* 2 ‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Bedrock Edition\">(link to Bedrock Edition article, displayed as BE)  only</span></i>]</sup>",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "Dedicated server only‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Java Edition\">(link to Java Edition article, displayed as JE)  only</span></i>]</sup>",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+Grants operator status to the player(s).
+In Java Edition, adds the players into the ops.json file with the default op permission level specified by op-permission-level in the server.properties.
+In Bedrock Edition, changes the player's permission in the "Player Permission" screen to the "Operator" option . In dedicated servers, it is also recorded in permissions.json. The permissions.json file can be reloaded with /permission command.
+
+Contents
+
+1 Syntax
+2 Arguments
+3 Result
+4 Output
+5 History
+
+5.1 Java Edition
+5.2 Bedrock Edition
+
+6 Example
+7 See also
+8 External links
+9 Navigation
+
+Syntax
+Java Edition
+op <targets>
+Bedrock Edition
+op <player: target>
+Arguments
+JE: <targets>: game_profileBE: player: target: CommandSelector<Player>
+
+Specifies the player to be granted op.
+In Java Edition:
+Specifies one or more game profiles (player profiles). Must be a player name (should be a real one if the server is in online mode) or a player-type target selector.
+In Bedrock Edition:
+Must be a player name or a target selector.
+Result
+
+CommandTriggerJava EditionBedrock Edition
+
+AnyThe command is incomplete, or any argument is not specified correctly. Unparseable Unparseable<targets> fails to resolve to one or more player profiles. Failed N/Aplayer: target is a target selector that is not in player type. N/A Failedplayer: target fails to resolve to one or more online players.All the specified players are already an op or higher. FailedOtherwiseSuccessful
+Output
+
+CommandEditionSituationSuccess Count/execute store success .../execute store result ...
+
+AnyJava EditionOn failN/A00On successN/A1the number of players who are newly granted op
+History
+Java Edition
+Java Edition Classic0.0.16a
+Added /op.Java Edition Indev0.31
+Due to Indev's lack of support for servers, commands are no longer usable.Java Edition Alphav1.0.16
+Re-added /op.Java Edition1.3.112w18a
+The message "You are now op!" is no longer displayed to the player being opped.[is this the correct version?]1.1317w45a
+Now allows target selectors besides names.
+Bedrock Edition
+Pocket Edition Alphav0.16.0build 1
+Added /op.
+Example
+Give Steve OP:/op Steve
+See also
+/deop: Revokes operator status from a player.
+
+External links
+"/op Command"     – Microsoft Learn, October 11, 2023.
+Navigation

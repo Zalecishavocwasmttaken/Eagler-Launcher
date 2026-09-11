@@ -1,0 +1,1758 @@
+This article is about the definition of the block states.   For the files that determine block models, see Blockstates definition.
+
+Block states (also known as block properties) are extra pieces of data that further define a block, such as how it appears or behaves.
+In Bedrock Edition, there are also aux values (also known as Metadata) to define a block. Aux values are in the format of binary flags, which basically match the block states one-to-one, and they are accessible in decimal number in commands. However, aux values are intended to be deprecated, and newly added blocks or block states no longer support aux values.
+In Java Edition, there are also fluid states, that further define a fluid as to how it behaves.
+
+Contents
+
+1 List of block states
+
+1.1 age
+1.2 attached
+1.3 attachment
+1.4 axis
+1.5 berries
+1.6 bites
+1.7 bloom
+1.8 bottom
+1.9 can_summon
+1.10 candles
+1.11 charges
+1.12 conditional
+1.13 copper_golem_pose
+1.14 cracked
+1.15 crafting
+1.16 creaking_heart_state
+1.17 delay
+1.18 disarmed
+1.19 distance
+1.20 down
+1.21 drag
+1.22 dusted
+1.23 east
+1.24 eggs
+1.25 enabled
+1.26 extended
+1.27 eye
+1.28 face
+1.29 facing
+1.30 falling
+1.31 flower_amount
+1.32 half
+1.33 hanging
+1.34 has_book
+1.35 has_bottle_0
+1.36 has_bottle_1
+1.37 has_bottle_2
+1.38 has_record
+1.39 hatch
+1.40 hinge
+1.41 honey_level
+1.42 in_wall
+1.43 instrument
+1.44 inverted
+1.45 layers
+1.46 leaves
+1.47 level
+1.48 lit
+1.49 locked
+1.50 mode
+1.51 moisture
+1.52 natural
+1.53 north
+1.54 note
+1.55 occupied
+1.56 ominous
+1.57 open
+1.58 orientation
+1.59 part
+1.60 persistent
+1.61 pickles
+1.62 potent_sulfur_state
+1.63 power
+1.64 powered
+1.65 rotation
+1.66 sculk_sensor_phase
+1.67 segment_amount
+1.68 shape
+1.69 short
+1.70 shrieking
+1.71 side_chain
+1.72 signal_fire
+1.73 slot_0_occupied
+1.74 slot_1_occupied
+1.75 slot_2_occupied
+1.76 slot_3_occupied
+1.77 slot_4_occupied
+1.78 slot_5_occupied
+1.79 snowy
+1.80 south
+1.81 stage
+1.82 thickness
+1.83 tilt
+1.84 tip
+1.85 trial_spawner_state
+1.86 triggered
+1.87 type
+1.88 unstable
+1.89 up
+1.90 vault_state
+1.91 vertical_direction
+1.92 waterlogged
+1.93 west
+
+2 List of fluid states
+
+2.1 falling
+2.2 level
+
+3 History
+4 Notes
+5 References
+6 Navigation
+
+List of block states
+
+
+
+This section is missing information about: merge Bedrock Edition block states into here 
+Please expand the section to include this information. Further details may exist on the talk page.
+
+age
+Tracks the age of plants to handle growth and of fire to handle spread.
+
+State value
+
+Blocks
+
+Integer (0 to 1)
+
+Bamboo
+Torchflower Crop
+Shelf Mushroom​[upcoming: Third Drop 2026]
+
+Integer (0 to 2)
+
+Cocoa
+
+Integer (0 to 3)
+
+Nether Wart
+Beetroots
+Frosted Ice
+Sweet Berry Bush
+
+Integer (0 to 4)
+
+Pitcher Crop
+Mangrove Propagule
+
+Integer (0 to 5)
+
+Chorus Flower
+
+Integer (0 to 7)
+
+Wheat Crops
+Pumpkin Stem
+Melon Stem
+Carrots
+Potatoes
+
+Integer (0 to 15)
+
+Fire
+Cactus
+Sugar Cane
+
+Integer (0 to 25)
+
+Cave Vines
+Kelp
+Twisting Vines
+Weeping Vines
+
+attached
+Whether the tripwire hook is connected to a valid tripwire circuit or not. For hanging signs, whether the sign is hanging from a single point or not.
+
+State value
+
+Blocks
+
+Boolean (true or false)
+
+Tripwire Hook
+Tripwire
+Hanging Sign (any non-wall variant)
+
+attachment
+How this block is attached to the block it is on.
+
+State value
+
+Blocks
+
+floor
+ceiling
+single_wall
+double_wall
+
+Bell
+
+axis
+What axis the block is oriented to.
+
+State value
+
+Blocks
+
+x
+y
+z
+
+Deepslate (including infested variant)
+Froglight (including all different colors)
+Log (including all variants, wood, bamboo, and stripped versions of bamboo, logs, and wood)
+Stem (including all variants, hyphae, and stripped versions of both stems and hyphae)
+Creaking Heart
+Basalt (including polished basalt)
+Bone Block
+Muddy Mangrove Roots
+Copper Chain (including all oxidation levels, as well as waxed and unwaxed variants)
+Iron Chain
+Hay Bale
+Purpur Pillar
+Quartz Pillar
+
+x
+z
+
+Nether Portal
+
+berries
+Whether this block contains any berries.
+
+State value
+
+Blocks
+
+Boolean (true or false)
+
+Cave Vines
+Cave Vines Plant
+
+bites
+The number of bites taken from the cake.
+
+State value
+
+Blocks
+
+Integer (0 to 6)
+
+Cake
+
+bloom
+Whether a sculk catalyst is currently blooming.
+
+State value
+
+Blocks
+
+Boolean (true or false)
+
+Sculk Catalyst
+
+bottom
+Whether this scaffolding is floating, or whether a pale moss carpet is only showing the upper vines.
+On a piece of scaffolding, if bottom is set to true, the model changes to show an otherwise-unseen bottom face.
+On an instance of pale moss carpet, if bottom is set to true, the model changes to show only the "vines" creeping up adjacent blocks.
+
+State value
+
+Blocks
+
+Boolean (true or false)
+
+Pale Moss Carpet
+Scaffolding
+
+can_summon
+Whether this shrieker can summon a warden if triggered. Shriekers placed by the player are set to false, whereas shriekers generated naturally are set to true.
+
+State value
+
+Blocks
+
+Boolean (true or false)
+
+Sculk Shrieker
+
+candles
+How many candles are contained within this block.
+
+State value
+
+Blocks
+
+Integer (1 to 4)
+
+Candle (any)
+
+charges
+Tracks the remaining uses of respawn anchors.
+
+State value
+
+Blocks
+
+Integer (0 to 4)
+
+Respawn Anchor
+
+conditional
+Whether or not the command block is conditional.
+
+State value
+
+Blocks
+
+Boolean (true or false)
+
+Command Block (any variant)
+
+copper_golem_pose
+The pose of a copper golem statue.
+
+State value
+
+Blocks
+
+standing
+sitting
+running
+star
+
+Copper Golem Statue (including all oxidation levels, as well as waxed and unwaxed variants)
+
+cracked
+Whether or not a decorated pot produces shattering sound when broken.
+
+State value
+
+Blocks
+
+Boolean (true or false)
+
+Decorated Pot
+
+crafting
+Whether a crafter is currently crafting.
+
+State value
+
+Blocks
+
+Boolean (true or false)
+
+Crafter
+
+creaking_heart_state
+The current state of a creaking heart. uprooted means the creaking heart is not in the configuration necessary to spawn a Creaking, dormant means it is in the correct configuration, but it is currently not nighttime, and awake means it is in the correct configuration, and it is nighttime.
+Only an awake creaking heart may spawn a Creaking.
+
+State value
+
+Blocks
+
+uprooted
+dormant
+awake
+
+Creaking Heart
+
+delay
+The amount of time between receiving a signal and responding.
+
+State value
+
+Blocks
+
+Integer (1 to 4)
+
+Redstone Repeater
+
+disarmed
+Whether the tripwire is broken using shears or not.
+
+State value
+
+Blocks
+
+Boolean (true or false)
+
+Tripwire
+
+distance
+The distance from a base block.
+
+State value
+
+Blocks
+
+Integer (0 to 7)
+
+Scaffolding
+
+Integer (1 to 7)
+
+Leaves (any)
+
+down
+Determines whether something is below the block.
+
+State value
+
+Blocks
+
+Boolean (true or false)
+
+Brown Mushroom Block
+Chorus Plant
+Glow Lichen
+Mushroom Stem
+Red Mushroom Block
+Resin Clump
+Sculk Vein
+
+drag
+Determines whether the bubble column is a whirlpool or upwards.
+
+State value
+
+Blocks
+
+Boolean (true or false)
+
+Bubble Column
+
+dusted
+The dusting progress of a suspicious block.
+
+State value
+
+Blocks
+
+Integer (0 to 3)
+
+Suspicious Gravel
+Suspicious Sand
+
+east
+Determines whether something is on the east side of the block.
+
+State value
+
+Blocks
+
+Boolean (true or false)
+
+Fence (any, including nether brick)
+Glass Pane (including all stained colors)
+Brown Mushroom Block
+Chorus Plant
+Fire
+Glow Lichen
+Copper Bars (any)
+Iron Bars
+Mushroom Stem
+Red Mushroom Block
+Resin Clump
+Sculk Vein
+Tripwire
+Vines
+
+none
+side
+up
+
+Redstone Dust
+
+low
+none
+tall
+
+Pale Moss Carpet
+Wall (any)
+
+eggs
+The amount of eggs in this block.
+
+State value
+
+Blocks
+
+Integer (1 to 4)
+
+Turtle Egg
+
+enabled
+Whether or not the hopper can collect and transfer items.
+
+State value
+
+Blocks
+
+Boolean (true or false)
+
+Hopper
+
+extended
+Whether or not the piston is extended.
+
+State value
+
+Blocks
+
+Boolean (true or false)
+
+Sticky Piston
+Piston
+
+eye
+Whether the frame contains an eye of ender.
+
+State value
+
+Blocks
+
+Boolean (true or false)
+
+End Portal Frame
+
+face
+What side of a block the attached block is on.
+
+State value
+
+Blocks
+
+floor
+wall
+ceiling
+
+Button (any)
+Grindstone
+Lever
+
+facing
+For most blocks, what direction the block faces.
+For wall-attached bells as well as cocoa, the opposite is true.
+
+State value
+
+Blocks
+
+north
+east
+south
+west
+up
+down
+
+Amethyst Cluster (any stage)
+Command Block (any variant)
+Shulker Box (any color)
+Barrel
+Dispenser
+Dropper
+End Rod
+Lightning Rod
+Moving Piston
+Observer
+Piston
+Piston Head
+Sticky Piston
+
+north
+east
+south
+west
+
+Anvil (any durability)
+Banner (any wall variant)
+Bed (any)
+Coral Wall Fan (any variant, including dead)
+Button (any)
+Door (any)
+Fence Gate (any)
+Glazed Terracotta (any color)
+Mob head (any wall variant)
+Signs (any wall variant)
+Hanging Signs (any wall variant)
+Shelves (any)
+Stairs (any)
+Trapdoor (any, including iron and copper)
+Attached Melon Stem
+Attached Pumpkin Stem
+Bell
+Beehive
+Bee Nest
+Big Dripleaf
+Big Dripleaf Stem
+Blast Furnace
+Campfire
+Carved Pumpkin
+Chest
+Chiseled Bookshelf
+Cocoa
+Copper Chest (any)
+Copper Golem Statue (any)
+Copper Wall Torch
+Decorated Pot
+Dried Ghast
+End Portal Frame
+Ender Chest
+Furnace
+Grindstone
+Jack o'Lantern
+Ladder
+Lectern
+Leaf Litter
+Lever
+Loom
+Pink Petals
+Redstone Comparator
+Redstone Repeater
+Redstone Wall Torch
+Small Dripleaf
+Smoker
+Soul Campfire
+Soul Wall Torch
+Stonecutter
+Trapped Chest
+Tripwire Hook
+Vault
+Wall Torch
+Wildflowers
+
+down
+north
+south
+east
+west
+
+Hopper
+
+falling
+Whether a fluid is falling.
+
+State value
+
+Blocks
+
+Boolean (true or false)
+
+Lava
+Water
+
+flower_amount
+The amount of flowers in a group of pink petals or wildflowers.
+
+State value
+
+Blocks
+
+Integer (1 to 4)
+
+Pink Petals
+Wildflowers
+
+half
+For tall plants and doors, which half of the door or plant occupies the block space. For trapdoors and stairs, what part of the block space they are in.
+
+State value
+
+Blocks
+
+upper
+lower
+
+Door (any)
+Pitcher Plant (including crop variant)
+Large Fern
+Lilac
+Peony
+Rose Bush
+Tall Seagrass
+Tall Grass
+Small Dripleaf
+Sunflower
+
+top
+bottom
+
+Stairs (any)
+Trapdoor (any, including iron and copper)
+
+hanging
+Whether or not the lantern or mangrove propagule hangs on the ceiling.
+
+State value
+
+Blocks
+
+Boolean (true or false)
+
+Lantern
+Mangrove Propagule
+Soul Lantern
+
+has_book
+Whether or not this lectern holds a book.
+
+State value
+
+Blocks
+
+Boolean (true or false)
+
+Lectern
+
+has_bottle_0
+Whether or not a bottle is in slot 1 of the brewing stand.
+
+State value
+
+Blocks
+
+Boolean (true or false)
+
+Brewing Stand
+
+has_bottle_1
+Whether or not a bottle is in slot 2 of the brewing stand.
+
+State value
+
+Blocks
+
+Boolean (true or false)
+
+Brewing Stand
+
+has_bottle_2
+Whether or not a bottle is in slot 3 of the brewing stand.
+
+State value
+
+Blocks
+
+Boolean (true or false)
+
+Brewing Stand
+
+has_record
+True when the jukebox contains a music disc.
+
+State value
+
+Blocks
+
+Boolean (true or false)
+
+Jukebox
+
+hatch
+Determines how close an egg is to hatching; starts at 0 and is randomly incremented.
+
+State value
+
+Blocks
+
+Integer (0 to 2)
+
+Sniffer Egg
+Turtle Egg
+
+hinge
+Identifies the side the hinge is on (when facing the same direction as the door's inside).
+
+State value
+
+Blocks
+
+left
+right
+
+Door (any)
+
+honey_level
+The level of honey inside the beehive and bee nest.
+
+State value
+
+Blocks
+
+Integer (0 to 5)
+
+Beehive
+Bee Nest
+
+in_wall
+If true, the gate is lowered by three pixels, to accommodate attaching more cleanly with walls.
+
+State value
+
+Blocks
+
+Boolean (true or false)
+
+Fence Gate (any)
+
+instrument
+The instrument sound the note block makes when it gets powered or used.
+
+State value
+
+Blocks
+
+harp
+basedrum
+snare
+hat
+bass
+flute
+bell
+guitar
+chime
+xylophone
+iron_xylophone
+cow_bell
+didgeridoo
+bit
+banjo
+pling
+trumpet
+trumpet_exposed
+trumpet_oxidized
+trumpet_weathered
+zombie
+skeleton
+creeper
+dragon
+wither_skeleton
+piglin
+custom_head
+
+Note Block
+
+inverted
+Whether the daylight detector detects light (false) or darkness (true).
+
+State value
+
+Blocks
+
+Boolean (true or false)
+
+Daylight Detector
+
+layers
+How many layers of snow are on top of each other.
+
+State value
+
+Blocks
+
+Integer (1 to 8)
+
+Snow
+
+leaves
+How big the leaves are on this bamboo.
+
+State value
+
+Blocks
+
+none
+small
+large
+
+Bamboo
+
+level
+For cauldrons, composters, and fluids, describes how full the block is. For lights, describes the light level produced.
+
+State value
+
+Blocks
+
+Integer (0 to 3)
+
+Cauldron (water and powder snow)
+
+Integer (0 to 8)
+
+Composter
+
+Integer (0 to 15)
+
+Water
+Lava
+Light
+
+lit
+Whether the block is turned on or off.
+
+State value
+
+Blocks
+
+Boolean (true or false)
+
+Candle (any)
+Candle Cake (any)
+Copper Bulb (any)
+Blast Furnace
+Campfire
+Deepslate Redstone Ore
+Furnace
+Redstone Ore
+Redstone Torch
+Redstone Wall Torch
+Redstone Lamp
+Smoker
+Soul Campfire
+
+locked
+Whether the repeater can change it is powered state (false) or not (true).
+
+State value
+
+Blocks
+
+Boolean (true or false)
+
+Redstone Repeater
+
+mode
+The mode the comparator or structure block is in.
+
+State value
+
+Blocks
+
+compare
+subtract
+
+Redstone Comparator
+
+save
+load
+corner
+data
+
+Structure Block
+
+start
+log
+fail
+accept
+
+Test Block
+
+moisture
+How wet the farmland is.
+
+State value
+
+Blocks
+
+Integer (0 to 7)
+
+Farmland
+
+natural
+If a creaking heart is naturally generated, instead of placed by a player.
+
+State value
+
+Blocks
+
+Boolean (true or false)
+
+Creaking Heart
+
+north
+Determines whether something is on the north side of the block.
+
+State value
+
+Blocks
+
+Boolean (true or false)
+
+Fence (any, including nether brick)
+Glass Pane (including all stained colors)
+Brown Mushroom Block
+Chorus Plant
+Glow Lichen
+Fire
+Copper Bars (any)
+Iron Bars
+Mushroom Stem
+Red Mushroom Block
+Resin Clump
+Sculk Vein
+Tripwire
+Vines
+
+up
+side
+none
+
+Redstone Dust
+
+low
+none
+tall
+
+Pale Moss Carpet
+Wall (any)
+
+note
+The note the note block plays when it gets powered.
+
+State value
+
+Blocks
+
+Integer (0 to 24)
+
+Note Block
+
+occupied
+If there's already a player in this bed.
+
+State value
+
+Blocks
+
+Boolean (true or false)
+
+Bed (any)
+
+ominous
+Whether a trial spawner or vault is ominous.
+
+State value
+
+Blocks
+
+Boolean (true or false)
+
+Trial Spawner
+Vault
+
+open
+Whether the door is open or closed.
+
+State value
+
+Blocks
+
+Boolean (true or false)
+
+Door (any)
+Fence Gate (any)
+Trapdoor (any, including iron and copper)
+Barrel
+
+orientation
+Direction the arrows point, followed by the position of the line face.
+
+State value
+
+Blocks
+
+down_east
+down_north
+down_south
+down_west
+east_up
+north_up
+south_up
+up_east
+up_north
+up_south
+up_west
+west_up
+
+Crafter
+Jigsaw Block
+
+part
+Whether this is the foot or head end of the bed.
+
+State value
+
+Blocks
+
+head
+foot
+
+Bed (any)
+
+persistent
+Whether leaves decay (false) or not (true)
+
+State value
+
+Blocks
+
+Boolean (true or false)
+
+Leaves (any)
+
+pickles
+The amount of pickles in this block.
+
+State value
+
+Blocks
+
+Integer (1 to 4)
+
+Sea Pickle
+
+potent_sulfur_state
+The current state of the potent sulfur block.
+
+State Value
+
+Blocks
+
+dry
+wet
+dormant
+erupting
+continuous
+
+Potent Sulfur
+
+power
+The power level of Redstone emission.
+
+State value
+
+Blocks
+
+Integer (0 to 15)
+
+Calibrated Sculk Sensor
+Daylight Detector
+Heavy Weighted Pressure Plate
+Light Weighted Pressure Plate
+Redstone Dust
+Sculk Sensor
+Target
+
+powered
+Whether the block is powered.
+
+State value
+
+Blocks
+
+Boolean (true or false)
+
+Button (any)
+Copper Bulb (any)
+Door (any)
+Fence Gate (any)
+Mob Head (any)
+Pressure Plate (any non-weighted)
+Trapdoor (any, including iron and copper)
+Shelves (any)
+Activator Rail
+Bell
+Detector Rail
+Lectern
+Lever
+Lightning Rod
+Note Block
+Observer
+Powered Rail
+Redstone Comparator
+Redstone Repeater
+Tripwire
+Tripwire Hook
+
+rotation
+The rotation of standing heads, signs and banners.
+
+State value
+
+Blocks
+
+Integer (0 to 15)
+
+Banner (any non-wall variant)
+Hanging Signs (any non-wall variant)
+Mob head (any non-wall variant)
+Signs (any non-wall variant)
+
+sculk_sensor_phase
+Describes this sculk sensor's phase (whether it's active).
+
+State value
+
+Blocks
+
+inactive
+active
+cooldown
+
+Calibrated Sculk Sensor
+Sculk Sensor
+
+segment_amount
+The amount of leaves in a group of leaf litter.
+
+State value
+
+Blocks
+
+Integer (1 to 4)
+
+Leaf Litter
+
+shape
+The way this block connects to its neighbors.
+
+State value
+
+Blocks
+
+north_south
+east_west
+ascending_east
+ascending_west
+ascending_north
+ascending_south
+
+Powered Rail
+Detector Rail
+Activator Rail
+
+straight
+inner_left
+inner_right
+outer_left
+outer_right
+
+Stairs (any)
+
+north_south
+east_west
+ascending_east
+ascending_west
+ascending_north
+ascending_south
+south_east
+south_west
+north_west
+north_east
+
+Rail
+
+short
+Whether this piston head's arm is 4/16th of a block shorter.
+
+State value
+
+Blocks
+
+Boolean (true or false)
+
+Piston Head
+
+shrieking
+Whether this sculk shrieker is shrieking.
+
+State value
+
+Blocks
+
+Boolean (true or false)
+
+Sculk Shrieker
+
+side_chain
+The current connection of a shelf.
+
+State value
+
+Blocks
+
+unconnected
+right
+center
+left
+
+Shelf (any)
+
+signal_fire
+Whether this campfire has higher smoke or not.
+
+State value
+
+Blocks
+
+Boolean (true or false)
+
+Campfire
+Soul Campfire
+
+slot_0_occupied
+Whether slot 0 is occupied by a book.
+
+State value
+
+Blocks
+
+Boolean (true or false)
+
+Chiseled Bookshelf
+
+slot_1_occupied
+Whether slot 1 is occupied by a book.
+
+State value
+
+Blocks
+
+Boolean (true or false)
+
+Chiseled Bookshelf
+
+slot_2_occupied
+Whether slot 2 is occupied by a book.
+
+State value
+
+Blocks
+
+Boolean (true or false)
+
+Chiseled Bookshelf
+
+slot_3_occupied
+Whether slot 3 is occupied by a book.
+
+State value
+
+Blocks
+
+Boolean (true or false)
+
+Chiseled Bookshelf
+
+slot_4_occupied
+Whether slot 4 is occupied by a book.
+
+State value
+
+Blocks
+
+Boolean (true or false)
+
+Chiseled Bookshelf
+
+slot_5_occupied
+Whether slot 5 is occupied by a book.
+
+State value
+
+Blocks
+
+Boolean (true or false)
+
+Chiseled Bookshelf
+
+snowy
+Whether this block uses the snowy side texture.
+
+State value
+
+Blocks
+
+Boolean (true or false)
+
+Grass Block
+Podzol
+Mycelium
+
+south
+Determines whether something is on the south side of the block.
+
+State value
+
+Blocks
+
+Boolean (true or false)
+
+Fence (any, including nether brick)
+Glass Pane (including all stained colors)
+Brown Mushroom Block
+Chorus Plant
+Fire
+Glow Lichen
+Copper Bars (any)
+Iron Bars
+Mushroom Stem
+Red Mushroom Block
+Resin Clump
+Sculk Vein
+Tripwire
+Vines
+
+none
+side
+up
+
+Redstone Dust
+
+low
+none
+tall
+
+Pale Moss Carpet
+Wall (any)
+
+stage
+Whether this sapling is ready to grow.
+
+State value
+
+Blocks
+
+Integer (0 to 1)
+
+Sapling (any)
+Bamboo
+
+thickness
+The thickness of pointed dripstone or sulfur spikes.
+
+State value
+
+Blocks
+
+tip_merge
+tip
+frustum
+middle
+base
+
+Pointed Dripstone
+Sulfur Spike
+
+tilt
+The tilt stage of a big dripleaf.
+
+State value
+
+Blocks
+
+none
+unstable
+partial
+full
+
+Big Dripleaf
+
+tip
+Whether pale hanging moss is at the bottom.
+
+State value
+
+Blocks
+
+Boolean (true or false)
+
+Pale Hanging Moss
+
+trial_spawner_state
+The current state of a trial spawner.
+
+State value
+
+Blocks
+
+inactive
+waiting_for_players
+active
+waiting_for_reward_ejection
+ejecting_reward
+cooldown
+
+Trial Spawner
+
+triggered
+Whether this block has been activated.
+
+State value
+
+Blocks
+
+Boolean (true or false)
+
+Crafter
+Dispenser
+Dropper
+
+type
+Determines the variant of this block.
+
+State value
+
+Blocks
+
+normal
+sticky
+
+Piston Head
+Moving Piston
+
+single
+left
+right
+
+Chest
+Copper Chest (any)
+Trapped Chest
+
+top
+bottom
+double
+
+Slab (any)
+
+unstable
+Whether the TNT ignites when punched or not.
+
+State value
+
+Blocks
+
+Boolean (true or false)
+
+TNT
+
+up
+Determines whether something is above the block.
+
+State value
+
+Blocks
+
+Boolean (true or false)
+
+Wall (any)
+Brown Mushroom Block
+Chorus Plant
+Fire
+Glow Lichen
+Mushroom Stem
+Red Mushroom Block
+Resin Clump
+Sculk Vein
+Vines
+
+vault_state
+The current state of a vault.
+
+State value
+
+Blocks
+
+inactive
+active
+unlocking
+ejecting
+
+Vault
+
+vertical_direction
+The vertical direction of pointed dripstone or sulfur spikes.
+
+State value
+
+Blocks
+
+up
+down
+
+Pointed Dripstone
+Sulfur Spike
+
+waterlogged
+Whether the block has water in it.
+
+State value
+
+Blocks
+
+Boolean (true or false)
+
+Amethyst Cluster (any stage)
+Candle (any)
+Copper Bars (any)
+Copper Chain (any)
+Copper Chest (any)
+Copper Golem Statue (any)
+Copper Grate (any)
+Copper Lantern (any)
+Coral (all non-block variants, including dead variants)
+Fence (any, including nether brick)
+Glass Pane (including all stained colors)
+Hanging Signs (all variants, including wall signs)
+Leaves (any)
+Shelf (any)
+Signs (all variants, including wall signs)
+Slab (any)
+Stairs (any)
+Trapdoor (any, including iron and copper)
+Wall (any)
+Activator Rail
+Barrier
+Big Dripleaf
+Big Dripleaf Stem
+Campfire
+Calibrated Sculk Sensor
+Chest
+Conduit
+Decorated Pot
+Detector Rail
+Dried Ghast
+Ender Chest
+Glow Lichen
+Hanging Roots
+Heavy Core
+Iron Bars
+Iron Chain
+Ladder
+Lantern
+Light
+Lightning Rod (any)
+Mangrove Propagule
+Mangrove Roots
+Pointed Dripstone
+Powered Rail
+Rail
+Resin Clump
+Scaffolding
+Sculk Sensor
+Sculk Shrieker
+Sculk Vein
+Small Dripleaf
+Sea Pickle
+Soul Campfire
+Soul Lantern
+Sulfur Spike
+Trapped Chest
+
+west
+Determines whether something is on the west side of the block.
+
+State value
+
+Blocks
+
+Boolean (true or false)
+
+Fence (any, including nether brick)
+Glass Pane (including all stained colors)
+Brown Mushroom Block
+Chorus Plant
+Fire
+Glow Lichen
+Iron Bars
+Mushroom Stem
+Red Mushroom Block
+Sculk Vein
+Tripwire
+Vines
+
+none
+side
+up
+
+Redstone Dust
+
+none
+low
+tall
+
+Wall (any)
+
+List of fluid states
+falling
+Whether a fluid is falling.
+
+State value
+
+Fluids
+
+Boolean (true or false)
+
+Flowing Lava
+Flowing Water
+Lava (always false)
+Water (always false)
+
+level
+Determines the height of the fluid, 8 when the fluid is falling.
+
+State value
+
+Fluids
+
+Integer (1 to 8)
+
+Flowing Lava
+Flowing Water
+
+History
+
+
+
+This section is missing information about: the history in Bedrock Edition 
+Please expand the section to include this information. Further details may exist on the talk page.
+
+Java Edition1.814w11a
+Added block states. Only used in the game engine, not saved in world files or used in commands yet.14w26a
+Switched to mostly using block states in the code.1.1116w32a
+Enabled the use of block states in commands.1.1317w47a
+Many block states got added, changed and removed due to the Flattening.
+
+Added the debug stick, which is an item used to edit the block states of blocks.
+
+Fluids are now semi-independent from blocks, so they now have their own fluid states.1.20.223w35a
+Added powered block state for heads.26.1snap11
+The rotation property in default block state of banners and signs has been changed from 0 to 8.Upcoming Java Edition26.3snap7
+The following block state fields have been renamed: Name is now id, Properties is now properties
+The default block state of a block can now be referred to in a compact form directly by the block ID.
+Notes
+
+ Sometimes they're different: A block state may refer to a state of the block type, also known as a block permutation in Bedrock Edition, e.g. a south facing pressed button. While a block property refers to a specific property used to define a block state, e.g. facing property of button block.
+
+References
+
+ MC-193943
+
+Navigation

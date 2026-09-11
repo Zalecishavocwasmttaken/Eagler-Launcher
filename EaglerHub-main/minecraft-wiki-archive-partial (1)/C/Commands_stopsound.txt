@@ -1,0 +1,86 @@
+/stopsound
+
+Permission levelrequired
+
+2 ‌[JE  only]
+1 ‌[BE  only]
+
+Restrictions
+
+Cheat only‌[BE  only]
+
+{
+    "title": "<code>/stopsound</code>",
+    "rows": [
+        {
+            "field": "\n* 2 ‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Java Edition\">(link to Java Edition article, displayed as JE)  only</span></i>]</sup>\n* 1 ‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Bedrock Edition\">(link to Bedrock Edition article, displayed as BE)  only</span></i>]</sup>",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "(link to Cheat article, displayed as Cheat) only‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Bedrock Edition\">(link to Bedrock Edition article, displayed as BE)  only</span></i>]</sup>",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+Stops a given sound.
+
+Contents
+
+1 Syntax
+2 Arguments
+3 Result
+4 Output
+5 History
+
+5.1 Java Edition
+5.2 Bedrock Edition
+
+6 See also
+7 External links
+8 Navigation
+
+Syntax
+Java Edition
+stopsound <targets> [<source>] [<sound>]
+Bedrock Edition
+stopsound <player: target> [sound: string]
+Arguments
+JE: <targets>: entityBE: player: target: CommandSelector<Player>
+
+Specifies the command's target.
+Must be a player name, a target selector or a UUID‌[Java Edition  only].  And the target selector must‌[JE  only]/should‌[BE  only] be of player type. In Bedrock Edition, the target selector should be of player type.
+JE: <source>
+
+Specifies which category in the Music & Sound options the sound falls under. If it is *, stop sound of all category.
+Must be master, music, record, weather, block, hostile, neutral, player, ambient, voice, or *.
+JE: <sound>: resource_locationBE: sound: string: basic_string
+
+Specifies the sound to stop. If no sound is specified, stops all sounds.
+In Bedrock Edition, must be a string. And it must be a single word that has no space or a double-quoted string (When quoted, \ can be used to escape characters). Should be a sound event defined in sound_definitions.json (for example, mob.pig.say).
+In Java Edition, must be a resource location for an unregistered content. Should be a sound event defined in sounds.json (for example, entity.pig.ambient).
+Result
+
+CommandTriggerJava EditionBedrock Edition
+
+AnyThe command is incomplete, or any argument is not specified correctly. Unparseable Unparseableplayer: target is a target selector that is not in player type. N/A Failed<targets> or player: target fails to resolve to one or more online players. FailedOtherwiseSuccessful
+Output
+
+CommandEditionSituationSuccess Count/execute store success .../execute store result ...
+
+AnyJava EditionOn fail000On success11the number of targeted playersBedrock EditionOn fail0N/AN/AOn successthe number of targeted playersN/AN/A
+History
+Java Edition
+Java Edition1.9.3pre2
+Added /stopsound.1.1317w45a
+* can now be used instead of source to stop all sounds with a certain name, across all sources.
+Bedrock Edition
+Pocket Edition1.0.5alpha 1.0.5.0
+Added /stopsound.
+See also
+/playsound – plays a sound
+External links
+"/stopsound Command"     – Microsoft Learn, October 11, 2023.
+Navigation

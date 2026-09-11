@@ -1,0 +1,1587 @@
+This article is about the block that detects block updates.   For the redstone mechanism, see Tutorial:Block update detector.
+
+Observer
+
+Renewable
+
+Yes
+
+Stackable
+
+Yes (64)
+
+Tool
+
+Blast resistance
+
+3
+
+Hardness
+
+3
+
+Luminous
+
+No
+
+Transparent
+
+No
+
+Flammable
+
+No
+
+Catches firefrom lava
+
+No
+
+Map color
+
+ 11 STONE
+
+Note block instrument
+
+Bass Drum
+
+Sulfur cube archetype
+
+Slow Bouncy‌[JE  only]
+
+{
+    "title": "Observer",
+    "rows": [
+        {
+            "field": "Yes",
+            "label": "(link to Renewable resource article, displayed as Renewable)"
+        },
+        {
+            "field": "Yes (64)",
+            "label": "Stackable"
+        },
+        {
+            "field": "<span class=\"sprite-file\" style=\"height:32px;width:32px;--vertical-align:middle\">(link to File:Invicon Wooden Pickaxe.png article, displayed as 32x32px|link=|alt=Invicon Wooden Pickaxe.png: Sprite image for Wooden Pickaxe in Minecraft|class=pixel-image|A wooden pickaxe or better is required to mine this block)</span>",
+            "label": "Tool"
+        },
+        {
+            "field": "3",
+            "label": "(link to Explosion#Blast resistance article, displayed as Blast resistance)"
+        },
+        {
+            "field": "3",
+            "label": "(link to Breaking#Blocks by hardness article, displayed as Hardness)"
+        },
+        {
+            "field": "No",
+            "label": "(link to Light article, displayed as Luminous)"
+        },
+        {
+            "field": "No",
+            "label": "(link to Opacity article, displayed as Transparent)"
+        },
+        {
+            "field": "No",
+            "label": "(link to Fire#Flammable blocks article, displayed as Flammable)"
+        },
+        {
+            "field": "No",
+            "label": "Catches fire<br>from (link to lava article, displayed as lava)"
+        },
+        {
+            "field": "<span style=\"white-space: nowrap;\"><span style=\"display: inline-block; background-color: rgb(112, 112, 112); border: 1px solid #888; border-radius: 0.3em; color: transparent; width: 1em; height: 1em; vertical-align: -0.36em; margin-right: -0.1em\"><br></span> 11 STONE</span>",
+            "label": "(link to Map item format#Color table article, displayed as Map color)"
+        },
+        {
+            "field": "Bass Drum",
+            "label": "(link to Note Block#Instruments article, displayed as Note block instrument)"
+        },
+        {
+            "field": "Slow Bouncy‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Java Edition\">(link to Java Edition article, displayed as JE)  only</span></i>]</sup>",
+            "label": "(link to Sulfur Cube#Archetypes article, displayed as Sulfur cube archetype)"
+        }
+    ],
+    "invimages": [
+        "Observer"
+    ],
+    "images": [
+        "Observer.png",
+        "Observer (back).gif"
+    ]
+}
+
+An observer is a block that emits a quick redstone pulse from its output side whenever its "face" detects that the block, fluid, or air directly in front of it has changed.
+
+Contents
+
+1 Obtaining
+
+1.1 Breaking
+1.2 Crafting
+
+2 Usage
+
+2.1 Behavior
+2.2 Limitations
+
+3 Sounds
+4 Data values
+
+4.1 ID
+4.2 Block states
+
+5 Videos
+6 History
+
+6.1 Development
+6.2 Java Edition
+6.3 Bedrock Edition
+6.4 Legacy Console Edition
+6.5 New Nintendo 3DS Edition
+6.6 Data history
+
+7 Issues
+8 Trivia
+9 Gallery
+
+9.1 Mojang images
+
+10 See also
+11 References
+12 External links
+13 Navigation
+
+Obtaining
+Breaking
+An observer requires a pickaxe to be mined. When mined without a pickaxe, it drops nothing.
+
+Block
+
+Observer
+
+Hardness
+
+3
+
+Tool
+
+Breaking time (sec)
+
+Default
+
+15
+
+Wooden
+
+2.25
+
+Stone
+
+1.15
+
+Copper
+
+0.9
+
+Iron
+
+0.75
+
+Diamond
+
+0.6
+
+Netherite
+
+0.5
+
+Golden
+
+0.4
+
+OptionsEfficiency000Haste0011JEBE
+
+Legend
+ incorrect tool, drops nothing
+ correct tool, drops nothing or something other than the block itself
+ correct tool, drops the block itself
+italicized can be instant mined
+
+ These durations ignore any other influential factors (e.g., Mining Fatigue) and are measured in seconds. For more information, see Breaking § Mining efficiency.
+
+Crafting
+
+Ingredients
+Crafting recipe
+
+Cobblestone +Redstone Dust +Nether Quartz
+
+Usage
+An observer is placed directionally. When placed, the observing face (the side with the "eyes") always faces away from you, detecting most changes in the block directly in front of it. The output side (featuring a red dot) faces toward you and emits a redstone pulse whenever the observing face detects a change. To change the observer's facing direction, position yourself in front of the desired direction before placing it.
+As observers can detect the state of other observers, placing two adjacent observers, each watching the other, can make a fast and compact redstone clock. This is known as an observer clock.
+
+Behavior
+See also: Redstone circuits
+
+In Java Edition, an observer detects shape updates coming from the block it's facing. This can involve changes in block states (like crops growing, for example), or the breaking or placing of a block. This makes observers differ from block update detectors in terms of what they can detect.
+In Bedrock Edition, an observer acts as a block update detector and detects anything that causes a block update.
+When it detects something, the observer emits a redstone pulse of strong power at signal strength 15 for 2 game ticks. The pulse can power redstone dust, a redstone comparator, a redstone repeater, or any mechanism component located at its output side (featuring a red dot).
+In Bedrock Edition, it is aligned to redstone ticks and will detect block updates only on odd game ticks also known as P-ticks.
+Observers also emit a pulse after getting moved by pistons: this enables them to be used in flying machines. In Java Edition, moving an observer while it's not active causes it to output a pulse after its usual delay; however, moving an observer that is currently emitting a redstone signal causes it to turn off instead. In Bedrock Edition, an observer that was moved by a piston always outputs immediately.
+
+Observers preventing the redstone signal from being transmitted in Java Edition
+Observers block light and allow mob spawning on top, do not cut off redstone wire, and cannot conduct redstone power. In Java Edition, they also allow opening chests below and prevent redstone wire placed on it from transmitting a signal downward.
+
+Limitations
+The causes and propagation of block updates are different between Java Edition and Bedrock Edition. As a result, each can detect some kinds of changes that the other cannot. See the table below for a comparison.
+
+Block change
+
+Detected in
+
+Bedrock Edition
+
+Java Edition
+
+ A block or a fluid being placed or broken in any way; either directly by player, enderman, or ravager or through:
+
+Placing/breaking two-block-tall/wide blocks
+Snow golem or snowfall creating snow
+Snow melting
+Dispenser placing carved pumpkin, wither skeleton skull, shulker box, or dyed shulker box
+Creating/removing fluid using player or dispenser
+Placing scaffolding on top/side of another scaffolding
+Entities on fire touching powder snow, causing it to melt
+Block being broken by fluid, (sticky) piston, explosion, or opacity,
+Inconsistent light level
+Flammable blocks getting burned up by fire or lava
+A falling block turning into a falling block entity and vice versa
+Cactus breaking either by placing a solid block next to it, or by placing a fluid on top of it
+Villager planting and destroying crops
+Zombie breaking doors
+Leaves decaying
+Chorus plant break due to their invalid placement
+Using up a damaged anvil, causing the damaged anvil to break
+Fully eating a cake
+Water touching a sponge, causing the area near the sponge to be removed and create a block update to the water
+A wither rose block being planted after wither kills a mob if the block is grass block, dirt, coarse dirt, moss block, mud, soul sand, soul soil‌[JE  only], or netherrack
+Left-clicking the dragon egg, causing it to teleport and create a block update at the starting teleporting point and the teleporting destination of the dragon egg
+Boat and boat with chest breaking a lily pad
+Turtle laying turtle egg(s), trampling an eggs=1 turtle egg or turtle egg(s) hatching into baby turtle(s)
+Damaging a silverfish, causing a nearby infested block to turn into a silverfish and create a block update
+Frog laying frogspawn or frogspawn hatching into tadpole
+Thrown trident breaks pointed dripstone
+Sniffer egg hatching into snifflet
+The spawning of the upper part of the pitcher crop that has the block state age change to 2
+
+Yes
+
+Yes
+
+ Water being inserted to or removed from a block that can be waterlogged.
+
+Yes
+
+Yes
+
+  A water (or lava, if the game rule lavaSourceConversion is set to true‌[JE  only]) source block being created by having 2 water source blocks unite to each other.
+
+Yes
+
+Yes
+
+  Fire being ignited or extinguished in any way; either directly by player or through:
+
+A dispenser
+Fire spreading to flammable blocks next to lava or fire
+Fireball from a dispenser, a ghast, or a blaze
+Lightning
+A bed or a respawn anchor exploding
+Placing an end crystal on bedrock or obsidian in the End
+Being extinguished by fluid, splash water bottle, lingering water bottle, or naturally
+
+Yes
+
+Yes
+
+ A fire is turned into a soul fire (but not vice versa).
+
+Yes
+
+Yes
+
+    Fluid or powder snow being placed in or removed from a cauldron or the level of the water/lava/powder snow cauldron changing in any way, for example using bucket (empty, water, lava, powder snow), glass bottle, water bottle, rain, snowfall, pointed dripstone, burning entity on water/powder snow cauldron.
+
+Yes
+
+Yes
+
+A block being replaced by /setblock, /fill, or /clone commands.
+
+Yes
+
+Partial
+
+ Changing the block state of a block using a debug stick.‌[Java Edition  only]
+
+N/A
+
+No
+
+ A nether portal being created.
+
+Yes
+
+No
+
+ A nether portal being destroyed.
+
+No
+
+Yes
+
+ An end portal being created.
+
+No
+
+Yes
+
+ An end portal being destroyed.
+
+No
+
+N/A
+
+   The creation of an iron golem, a snow golem or a wither.
+
+Yes
+
+Yes
+
+  A (sticky) piston (head) extending or retracting.
+
+Yes
+
+Yes
+
+  A block being pushed or pulled by a (sticky) piston; either directly or stuck to slime block or honey block moved by the piston.
+
+Yes
+
+Yes
+
+ A monster spawner block activating.
+
+No
+
+No
+
+ The mob spawn of a monster spawner being changed using a spawn egg.
+
+No
+
+No
+
+  Activation or deactivation of trial spawner or ominous trial spawner.
+
+Yes
+
+Yes
+
+  Opening and closing of vault or ominous vault.
+
+Yes
+
+Yes
+
+  A (trapped) chest turns into a large (trapped) chest and vice versa.
+
+Yes
+
+Yes
+
+   A chest, a trapped chest, or an ender chest opening or closing.
+
+No
+
+No
+
+  A shulker box opening or closing.
+
+No
+
+Yes
+
+ A barrel opening or closing.
+
+Yes
+
+Yes
+
+    An item being moved in or out of a chest, trapped chest, barrel, or shulker box.
+
+Yes
+
+No
+
+ The inventory of any other container changing.
+
+No
+
+No
+
+ The crack stage of an anvil changing after use.
+
+Yes
+
+Yes
+
+ A snow layer being added into snow by player or by snowfall.
+
+Yes
+
+Yes
+
+ A beacon activating or deactivating.
+
+Yes
+
+No
+
+ A command block producing a success.
+
+No
+
+No
+
+ The unconditional/conditional stage of a command block changing.
+
+Yes
+
+Yes
+
+ The impulse/chain/repeat stage of a command block changing.
+
+Yes
+
+Yes
+
+  A piece of a cake or a cake with candles changing.
+
+Yes
+
+Yes
+
+ A hopper being activated or deactivated. (Turning the hopper on/off)
+
+Yes
+
+Yes
+
+ Dry farmland changing between its six dry-looking hydration stages.
+
+Yes
+
+Yes
+
+ Farmland changing between dry and humid or vice versa.
+
+Yes
+
+Yes
+
+  A dispenser or a dropper activating or deactivating.
+
+Yes
+
+Yes
+
+  A (deepslate) redstone ore block activating or deactivating.
+
+Yes
+
+Yes
+
+    Grass block or mycelium turning to dirt or nylium to netherrack after being spread using bone meal or grass block or mycelium decaying to dirt or nylium into netherrack.
+
+Yes
+
+Yes
+
+ Coarse dirt or rooted dirt converting into dirt through the use of a hoe.
+
+Yes
+
+Yes
+
+ Grass block, dirt, or dirt path converting into farmland through the use of a hoe.
+
+Yes
+
+Yes
+
+ Grass block, podzol, mycelium, dirt, coarse dirt, or rooted dirt converting into dirt path through the use of a shovel.
+
+Yes
+
+Yes
+
+ Farmland or dirt path converting into dirt.
+
+Yes
+
+Yes
+
+ Concrete powder converting into concrete, either through direct contact with water, or entering water as a falling block.
+
+Yes
+
+Yes
+
+ A sea pickle being added into a colony of sea pickles.
+
+Yes
+
+Yes
+
+ A pink petal being added into a group of pink petals.
+
+Yes
+
+Yes
+
+ A turtle egg being added into a cluster of turtle eggs.
+
+Yes
+
+Yes
+
+ A turtle egg being removed from a cluster of turtle eggs by breaking or trampling.
+
+Yes
+
+Yes
+
+ The hatch block state of a turtle egg and a sniffer egg changing.
+
+Yes
+
+Yes
+
+ A stone, cobblestone, deepslate, or any stone brick variant block being turned into an infested block by silverfish.
+
+Yes
+
+Yes
+
+ A double slab being created by adding a slab into another slab.
+
+Yes
+
+Yes
+
+ Ice melting into water or water freezing into ice.
+
+Yes
+
+Yes
+
+ Water freezing into frosted ice through the use of Frost Walker or frosted ice melting into water.
+
+Yes
+
+Yes
+
+ Turn pumpkin into carved pumpkin using shears.
+
+Yes
+
+Yes
+
+   Turn logs/woods/stems/hyphae/block of bamboo into stripped logs/woods/stems/hyphae/block of stripped bamboo using axes.
+
+Yes
+
+Yes
+
+  The stage of a sapling or bamboo changing.
+
+Yes
+
+Yes
+
+                      The age of mangrove propagules, bamboo, wheat, carrots, potatoes, beetroots, melon stem, pumpkin stem, nether wart, cocoa, sweet berry bush, chorus flower, cactus, sugar cane, kelp, weeping vines, twisting vines, cave vines, fire, frosted ice, torchflower crop, or pitcher crop changing.
+
+Yes
+
+Yes
+
+ A torchflower crop turning into a torchflower.
+
+Yes
+
+Yes
+
+  Fluid flowing into the empty space to or draining from a block.
+
+Yes
+
+Yes
+
+    Fluid, light block, or composter level changing.
+
+Yes
+
+Yes
+
+ (Flowing) water turning into stone through contact with lava.
+
+Yes
+
+Yes
+
+ Flowing lava turning into cobblestone through contact with water.
+
+Yes
+
+Yes
+
+ Lava turning into obsidian through contact with water.
+
+Yes
+
+Yes
+
+ (Flowing) lava turning into basalt through contact with soul soil and blue ice.
+
+Yes
+
+Yes
+
+ Water turning into bubble column or vice versa.
+
+Yes
+
+Yes
+
+ Upward bubble column turning into whirlpool bubble column or vice versa.
+
+Yes
+
+Yes
+
+ An eye of ender being inserted into an end portal frame.
+
+Yes
+
+Yes
+
+ Player or villager sleeping/waking up in a bed.
+
+Yes
+
+Yes
+
+   A grass block, a mycelium, or a podzol block becoming snowy or not snowy.
+
+Yes
+
+Yes
+
+  Text in a sign or a hanging sign being edited.
+
+Yes
+
+No
+
+  A dye or glow being applied to a sign or a hanging sign or removed from it.
+
+Yes
+
+No
+
+  Waxing a sign or a hanging sign using a honeycomb.
+
+Yes
+
+No
+
+  The mode of a structure block or a comparator changing.
+
+Yes
+
+Yes
+
+   A grass block, short grass‌[BE  only] or fern‌[BE  only] being grazed by a sheep.
+
+Yes
+
+Yes
+
+ A carrot crop being eaten by a rabbit.
+
+No
+
+Yes
+
+ A button being pressed or returning to inactive state.
+
+Yes
+
+Yes
+
+  A pressure plate or the detector rail activating or returning to inactive state.
+
+Yes
+
+Yes
+
+    The power of a weighted pressure plate, redstone wire, daylight detector, or target changing.
+
+Yes
+
+Yes
+
+ A lever being flicked.
+
+Yes
+
+Yes
+
+  A redstone lamp or a redstone torch lighting up or turning off.
+
+Yes
+
+Yes
+
+ The mode of daylight detector being changed.
+
+Yes
+
+Yes
+
+ A TNT igniting.
+
+Yes
+
+Yes
+
+   Coral/coral block/coral fan converting into dead coral/dead coral block/dead coral fan.
+
+Yes
+
+Yes
+
+ A sponge turning into a wet sponge.
+
+Yes
+
+Yes
+
+ A wet sponge drying into a sponge in the Nether.
+
+Yes
+
+Yes
+
+ A door being opened or closed by a player, a villager, a piglin, a piglin brute, a vindicator‌[JE  only], a wandering trader‌[BE  only], or redstone.
+
+Yes
+
+Yes
+
+ A trapdoor being opened or closed by a player or redstone.
+
+Yes
+
+Yes
+
+ A fence gate being opened or closed by a player or redstone.
+
+Yes
+
+Yes
+
+ The in_wall block state of a fence gate changing.
+
+Yes
+
+Yes
+
+   A furnace, a blast furnace, or a smoker lighting up or turning off.
+
+Yes
+
+Yes
+
+ The distance of leaves from the closest log changing.
+
+No
+
+Yes
+
+ The distance of a scaffolding from the closest supporting block changing.
+
+Yes
+
+Yes
+
+ The bottom block state of a scaffolding changing.
+
+Yes
+
+Yes
+
+ A potion being moved in or out of a brewing stand.
+
+Yes
+
+Yes
+
+ Book and quill or written book being moved in or out of a lectern.
+
+Yes
+
+Yes
+
+ The note of a note block being changed.
+
+No
+
+Yes
+
+ A note block being left-clicked in Survival mode.
+
+No
+
+No
+
+ The instrument block state of a note block changing.
+
+No
+
+Yes
+
+ A music disc being inserted to or removed from a jukebox by player, hopper, or minecart with hopper.
+
+No
+
+Yes
+
+ A redstone repeater locking or unlocking.
+
+No
+
+Yes
+
+ The delay of a redstone repeater being changed.
+
+Yes
+
+Yes
+
+            A redstone repeater, a redstone comparator, an observer, a note block, a lectern, a lightning rod, an activator rail, a powered rail, a sculk sensor, a calibrated sculk sensor, a tripwire, or a tripwire hook activating or deactivating.
+
+Yes
+
+Yes
+
+  A tripwire or a tripwire hook attaching or detaching.
+
+Yes
+
+Yes
+
+ The disarmed‌[JE  only] or disarmed_bit‌[BE  only] block state of a tripwire changing.
+
+N/A
+
+N/A
+
+ Sculk shrieker starting shrieking.
+
+No
+
+Yes
+
+ Sculk shrieker stopping shrieking.
+
+Yes
+
+Yes
+
+ Sculk catalyst blooming or unblooming.
+
+Yes
+
+Yes
+
+  A dragon head or a piglin head activating or deactivating.
+
+Yes
+
+Yes
+
+     A player head, a zombie head, creeper head, a skeleton skull, or a wither skeleton skull getting powered or depowered.
+
+No
+
+Yes
+
+ A conduit activating.
+
+N/A
+
+N/A
+
+ A conduit deactivating.
+
+No
+
+No
+
+ An item frame being placed or an item being added to, rotated in or removed from an item frame.
+
+Yes
+
+No
+
+ Something being teleported by an end gateway.
+
+Yes
+
+No
+
+ An item being inserted to or removed from a flower pot.
+
+Yes
+
+Yes
+
+                   The shape or rotation of walls, fences, iron bars, glass panes, stairs, tripwire, redstone, vines, mushroom blocks, mushroom stem, fire, all type of rails, glow lichen, sculk vein, pointed dripstone, or chorus plant changing.
+
+Yes
+
+Yes
+
+ The top block state of the walls changing.
+
+Yes
+
+Yes
+
+  A melon/pumpkin created from a melon stem/pumpkin stem.
+
+Yes
+
+Yes
+
+  The stem of a melon or pumpkin attaching or detaching.
+
+Yes
+
+Yes
+
+    Kelp/weeping vines/twisting vines/cave vines turning into a kelp/weeping vines/twisting vines/cave vines plant or vice versa.
+
+No
+
+Yes
+
+  The berries block state of the cave vines (plant) changing.
+
+No
+
+Yes
+
+  A campfire being lit or extinguished.
+
+Yes
+
+Yes
+
+  Food being cooked or popping out of a campfire.
+
+Yes
+
+No
+
+  A hay bale being placed or removed below a campfire.
+
+No
+
+Yes
+
+ Glowstone being added into a respawn anchor.
+
+No
+
+Yes
+
+ A respawn anchor being used.
+
+No
+
+Yes
+
+ A lodestone being used.
+
+No
+
+No
+
+         Oxidation level of unwaxed block of copper or cut copper block, slab, stairs, chiseled, copper grate, bulb, door, or trapdoor changing.
+
+Yes
+
+Yes
+
+         block of copper or cut copper block, slab, stairs, chiseled, copper grate, bulb, door, or trapdoor being waxed or unwaxed.
+
+Yes
+
+Yes
+
+ Activation and deactivation of creaking heart.
+
+Yes
+
+Yes
+
+   Grass/fern/seagrass turning into tall grass/large fern/tall seagrass after bone meal is used on it.
+
+Yes
+
+Yes
+
+           Cactus, sugar cane, bamboo, bamboo shoot, vines, weeping vines, twisting vines, kelp, cave vines, pointed dripstone, or chorus flower growing.
+
+No
+
+Yes
+
+  Opening and closing of eyeblossom.
+
+Yes
+
+Yes
+
+ Chorus flower growing or leaving a chorus plant behind and causing a block update to that.
+
+Yes
+
+Yes
+
+ An amethyst cluster growing.
+
+Yes
+
+Yes
+
+ A bamboo shoot turning into bamboo.
+
+Yes
+
+Yes
+
+ The leaves block state of bamboo changing.
+
+Yes
+
+Yes
+
+ Mushroom spreading.
+
+No
+
+Yes
+
+ 1-block-tall flowers spreading after bone meal is used on one.‌[Bedrock Edition  only]
+
+No
+
+N/A
+
+ Glow lichen spreading after bone meal is used on one.
+
+No
+
+Yes
+
+ Moss blocks spreading after bone meal is used on one.
+
+No
+
+Yes
+
+ A big dripleaf increasing or decreasing its tilt.
+
+Yes
+
+Yes
+
+ A big dripleaf turning into a big dripleaf stem.
+
+Yes
+
+Yes
+
+ A big dripleaf growing after bone meal is used on it.
+
+No
+
+Yes
+
+ A small dripleaf turning into a big dripleaf after bone meal is used on it.
+
+Yes
+
+Yes
+
+ Hanging roots being created underneath rooted dirt after bone meal is used on it.
+
+Yes
+
+Yes
+
+ A hanging mangrove propagule being created underneath mangrove leaves after bone meal is used on it.
+
+No
+
+Yes
+
+ The number of sea pickle(s) changing after bone meal is used on a coral block.
+
+Yes
+
+Yes
+
+ A sea pickle being created after bone meal is used on a coral block.‌[Java Edition  only]
+
+N/A
+
+Yes
+
+ Using bone meal on pink petals that do not already have 4 petals.
+
+Yes
+
+Yes
+
+     Vegetation growing on top of or inside grass block, water, moss block, or nylium after bone meal is used on one.
+
+N/A
+
+Yes
+
+ A sapling or a propagule turning into a tree.
+
+Yes
+
+Yes
+
+ A mushroom turning into a huge mushroom after bone meal is used on it.
+
+Yes
+
+Yes
+
+ An azalea turning into an azalea tree after bone meal is used on it.
+
+Yes
+
+Yes
+
+ A Nether fungus turning into a huge fungus after bone meal is used on it.
+
+Yes
+
+Yes
+
+ A grass block turning into dirt when a sapling grows into a tree on that grass block.
+
+Yes
+
+Yes
+
+ A grass block/dirt turning into podzol when a 2×2 spruce sapling grows into a tree on that grass block/dirt.
+
+Yes
+
+Yes
+
+ A grass block/dirt or any other blocks turning into rooted dirt by when an azalea or a flowering azalea grows on that grass block/dirt.
+
+Yes
+
+Yes
+
+ Mud turning into muddy mangrove roots when a mangrove tree grows.
+
+Yes
+
+Yes
+
+ A block that has sculk_replaceable tag turning into sculk by sculk catalyst.
+
+Yes
+
+Yes
+
+ A sculk vein/sculk veins being created by sculk catalyst.
+
+Yes
+
+Yes
+
+ The shape of sculk vein(s) changing by sculk catalyst.
+
+Yes
+
+Yes
+
+  A sculk sensor or a sculk shrieker being created by sculk catalyst.
+
+Yes
+
+Yes
+
+ A bell ringing.
+
+Yes
+
+No
+
+ A bell getting powered by a redstone signal.
+
+Yes
+
+Yes
+
+ A bell getting depowered.
+
+No
+
+Yes
+
+  A bee leaving a bee nest or a beehive.
+
+Yes
+
+Yes
+
+  A bee entering a bee nest or a beehive (thus increasing the honey level).
+
+No
+
+No
+
+  The honey being collected from a bee nest or a beehive using shears or a glass bottle.
+
+Yes
+
+Yes
+
+  A (dyed) candle being added into a (dyed) candle.
+
+Yes
+
+Yes
+
+ A candle being added into a cake.
+
+Yes
+
+Yes
+
+   A candle, dyed candle, or candle cake being lit or extinguished.
+
+Yes
+
+Yes
+
+ Dirt/coarse dirt/rooted dirt turning into mud through the use of a water bottle.
+
+Yes
+
+Yes
+
+ Mud turning into clay through the use of pointed dripstone.
+
+Yes
+
+Yes
+
+ A book being added or removed from a chiseled bookshelf by player, hopper, minecart with hopper, or dropper.
+
+Yes
+
+Yes
+
+  A suspicious sand or suspicious gravel becoming less dusted as the player uses a brush, or more dusted if the player stops using a brush.
+
+Yes
+
+Yes
+
+  A suspicious block turning into sand or gravel.
+
+Yes
+
+Yes
+
+All other block/block state changes.
+
+Yes
+
+Yes
+
+Sounds
+Java Edition:
+
+v
+t
+e stone sound typeSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitchAttenuationdistance​Block brokenBlocksOnce the block has brokenblock.stone.breaksubtitles.block.generic.break​1.00.816​Block placedBlocksWhen the block is placedblock.stone.placesubtitles.block.generic.place​1.00.816​Block breakingBlocksWhile the block is in the process of being brokenblock.stone.hitsubtitles.block.generic.hit​0.250.516​Something falls on a blockEntity-DependentFalling on the block with fall damageblock.stone.fallsubtitles.block.generic.fall​0.50.7516​FootstepsEntity-DependentWalking on the blockblock.stone.stepsubtitles.block.generic.footsteps​0.151.016
+Bedrock Edition:
+
+v
+t
+e metal sound typeSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitch​Block brokenBlocksOnce the block has brokendig.stonesubtitles.block.generic.break​1.01.1–1.2​Block placedBlocksWhen the block is placeduse.stonesubtitles.block.generic.place​1.01.2–1.25​Block breakingBlocksWhile the block is in the process of being brokenhit.stonesubtitles.block.generic.hit​0.30.75​FootstepsPlayersFalling on the block with fall damagefall.stonesubtitles.block.generic.footsteps​0.41.0​FootstepsPlayersWalking on the blockstep.stonesubtitles.block.generic.footsteps​0.351.0​FootstepsBlocksJumping from the blockjump.stonesubtitles.block.generic.footsteps​0.121.0​FootstepsBlocksFalling on the block without fall damageland.stonesubtitles.block.generic.footsteps​0.221.0
+Data values
+ID
+Java Edition:
+
+NameIdentifierForm
+Translation key ObserverobserverBlock & Item
+block.minecraft.observer
+Bedrock Edition:
+
+NameIdentifierNumeric ID FormItem ID
+Translation key Observerobserver251Block & Giveable ItemIdentical
+tile.observer.name
+ ID of block's direct item form, which is used in savegame files and addons.
+
+ Available with /give command.
+
+ The block's direct item form has the same ID as the block.
+
+Block states
+See also: Block states
+
+Java Edition:
+
+  Name
+  Default value
+  Allowed values
+  Description
+  facingsouthdowneastnorthsouthupwestThe direction the observer is observing. The same direction the player faces when placing the block.
+poweredfalsefalsetrueTrue while the observer is observing a change and emitting a pulse.
+Bedrock Edition:
+
+  NameMetadata Bits
+  Default value
+  Allowed valuesValues forMetadata Bits
+  Description
+  minecraft:facing_directionNot SupporteddowndowneastnorthsouthupwestUnsupportedThe direction the observer is observing. The same direction the player faces when placing the block.
+powered_bit0x8falsefalsetrue01True while the observer is observing a change and emitting a pulse.
+Videos
+
+
+
+
+
+History
+Development
+November 24, 2012
+When announcing the upcoming 1.5 Redstone Update, Jeb mentions that changes to redstone logic may break existing BUD functionality, and therefore that block update detection may need to be implemented into the game in a more permanent, intentional form, rather than as a behavioral quirk.May 2, 2016
+Jeb tweeted that Daniel Wustenhoff is working on a BUD block.
+
+ Tommaso Checchi tweeted his "rejected graphics" for the observer block.
+Java Edition
+Java Edition1.1116w39a
+ Added observers.
+
+Note: the "arrow" texture on the top/bottom of observers is pointing the wrong direction (toward the input, rather than the output).
+
+Observers act as a block update detector.
+
+Observers emit pulses that last 2 game ticks and have a signal strength of 1.
+
+Observers can strongly power blocks (like a redstone repeater).
+
+Observers have no delay between detecting a block update and emitting a pulse, meaning they are instant.
+
+Observers are placed with the observing, or input, side facing the player.16w41a
+Observers now emit 4 game tick pulses.
+
+The signal strength of observers has now been changed to 15.
+
+Observers appear to no longer strongly power blocks and to emit weak power instead, like a block of redstone (and this may be the intended behavior for this snapshot). In reality they still emit strong power, but now they only update the block in front of their output side and nothing else, causing buggy behavior.
+
+Observers are now placed with the output facing the player.
+
+A bug where observers would redirect redstone dust from all 4 directions has now been fixed. (They are supposed to redirect dust only from their output side.)16w42a
+The developers have attempted to make observers no longer detect block updates happening to air blocks, in order to make observer behavior more predictable. In the process, they have broken redstone mechanics a bit, so that the block update bug from the previous snapshot now affects redstone repeaters and redstone comparators, too.16w43a
+ The model of observers has now been changed. The rotation of the "arrow" texture has now been fixed so it points in the correct direction.
+
+General redstone mechanics for observers now work as they did before 16w42a, with the exception of the change named below.
+
+Observers now output strong power like in 16w39a, except that they, as well as redstone repeaters and redstone comparators, no longer provide block updates to transparent blocks or air.16w44a
+The observer block update changes relating to redstone from 16w42a and 16w43a have now been fully reverted.
+
+The behavior of observers has now been overhauled/redefined: observers now detect the newly added shape updates instead of neighbor updates. This change has made observer behavior much more predictable, as unexpected/invisible block updates would no longer trigger observers.
+
+Currently, many block state changes do not emit shape updates (for example, changes that are not saved when the world is unloaded, such as the shape of a fence, or whether or not a repeater is locked).
+
+Observers have now been changed to emit a 2-game-tick pulse when activated.
+
+Observers no longer output power instantly.pre1
+ The front and top texture of observers have now been changed.
+
+The redstone output side of observers now blinks red when it outputs power.1.1317w47a
+Shape updates' implementation has been improved and refined, as a result observers can detect many more changes than before (e.g. the changes in the shape of fences and redstone dust.)pre4
+Observers no longer produce a pulse when placed by hand.1.1418w43a
+  The textures of observers has now been changed.1.1620w10a
+Observers can now support ladders and tripwire hooks.20w14a
+Observers now correctly detect fences connecting to a newly grown tree.pre3
+ The back texture of activated observers has been changed.1.1721w13a
+Observers now correctly detect when a grass block changes to dirt if a tree grows on top.26.2snap6
+Sulfur cubes can now absorb observers, giving them the slow bouncy archetype.
+Bedrock Edition
+Pocket Edition Alphav0.15.0build 1
+ Added observer blocks.v0.15.3
+Observers are now placed like a piston and not a log.Bedrock Edition1.2.0beta 1.2.0.2
+ The front and top texture of observers have now been changed.
+
+Observer blocks can now detect many more block changes.
+
+The strength of the redstone pulse outputted by observer blocks has now been increased.
+
+Observers no longer pulse twice when observing a retracting piston.
+
+Opening and closing the command block screen no longer activates an observer block.1.10.0beta 1.10.0.3
+ The textures of observers has now been changed.1.16.0beta 1.15.0.53
+Observers no longer emit a pulse when they are first placed.1.16.100beta 1.16.100.55
+Observers no longer get stuck in an active state when moved by pistons.26.30Preview 26.30.27
+Sulfur cubes can now absorb observers, giving them the slow bouncy archetype.26.40Preview 26.40.26
+Sulfur cubes can no longer absorb observers.
+Legacy Console Edition
+Legacy Console EditionXbox 360Xbox OnePS3PS4PS VitaWii USwitchTU54CU441.521.521.52Patch 241.0.4
+ Added observers.TU57CU491.571.561.56Patch 271.0.7
+Observers now register changes to item frames and flower pots.TU63CU531.671.671.67Patch 321.0.13
+The red light on the back side of the observer is now lit when the observer is activated.   1.90
+ The textures of observers has now been changed.
+New Nintendo 3DS Edition
+New Nintendo 3DS Edition0.1.0
+ Added observers.
+Data history
+Java Edition1.1317w47a
+Prior to The Flattening, this block's numeral ID was 218.Bedrock Edition1.20.10Preview 1.20.10.23
+Now uses the minecraft:facing_direction block state instead of facing_direction.
+Issues
+Issues relating to "Observer" are maintained on the bug tracker. Issues should be reported and viewed there.
+
+Trivia
+The observer was first developed for and added exclusively to Pocket Edition (v0.15.0) before it was later ported to the Java Edition (1.11) and other editions.
+The current observer texture was created because Jeb kept confusing the front with the back. He said it was inspired by the "rejected texture" created by Tommaso Checchi.
+Gallery
+Mojang images
+
+
+
+			Rejected graphics for the observer
+
+
+
+			Development image of an observer from Jeb
+
+
+
+			The first image released of the new observer texture for Java Edition
+
+
+See also
+Tutorial:Block update detector
+Redstone Comparator
+References
+
+ For example, a button attached to a block, when breaking the block, that button breaks and causes block update that can be detected by observer.
+
+ For example, a mushroom are on light level of 13, according to the Minecraft Wiki, at level 13 and above, mushroom uproots unless on mycelium, podzol, or nylium. When the mushroom is updated, that mushroom breaks and causes a block update that can be detected by observer.
+
+ Another example, a wheat crop uproots at level 0 or below. When updating the wheat, that wheat breaks and causes a block update that can be detected by observer.
+
+ While it's not possible to set this up normally (since the observer has to place on the side of the cactus (because the top and the bottom are already occupied by the fluid and the block that supports the cactus (like sand) relatively), which causes the cactus to break), it's possible to reproduce this using the /fill ~ ~ ~ cactus strict command.[verify]
+
+ For example, places 2 chorus plants on top of an end stone, and when a chorus plant is placed on the side of the bottom one, that "bottom" chorus plant breaks and causes block update, which can be detected by the observer.
+
+ Will be detected without the strict argument, will not with the strict argument.
+
+ MC-107664
+
+ MCPE-130935
+
+ In Java Edition removing an end portal frame block won't destroy the portal.
+
+ In Java Edition the game rule max_snow_accumulation_height must be larger than 1.
+
+ When the fluid source block is removed, all of the fluid flowing from the source is removed and causes a block update.
+
+ In Bedrock Edition, the death of a coral fan cannot happen under normal circumstances — it happens the next tick after the coral fan is placed, so the observer has already read the placement or water removal update, and coral fans placed using commands are waterlogged — but if lag is used to make the unwaterlogging and death events happen separately, the observer detects both. For coral, the death also happens too fast for the observer to detect it separate from the placement or water removal, but a non-waterlogged coral can be placed using commands. Coral blocks take multiple seconds to die, and removing water next to the coral block does not activate the observer anyway, so they can be detected under normal circumstances.
+
+ This event cannot normally happen, but if commands are used to place a wet sponge in the Nether, the sponge dries when it receives a random tick.
+
+ The disarmed‌[JE  only] or disarmed_bit‌[BE  only] block state cannot change without also detaching the tripwire, so this event cannot happen in isolation.
+
+ In Bedrock Edition, placing a pumpkin or melon next to a corresponding stem does not cause the stem to attach.
+
+ From nothing to small to medium to large and finally to cluster.
+
+ In Bedrock Edition, using bone meal on a coral block does not create sea pickles, due to MCPE-171383.
+
+ Includes short grass, tall grass, 1-block-tall flowers, seagrass, tall seagrass, coral, (wall) coral fan, moss carpet, azalea, flowering azalea, crimson roots, warped roots, Nether fungus, Nether sprouts, twisting vine, and pink petals.
+
+ Applies to the block under the sapling and the area around the sapling.
+
+ "Hype train! @darngeek is working on a device that acts as a proper BUD block in MC:PE (PC eventually), currently called "Observer""  – @jeb_ (Jens Bergensten) on X (formerly Twitter), May 2, 2016
+
+ "Here's my rejected graphics for the Observer, because @darngeek has no artistic sensibility"  – @_tomcc (Tommaso Checchi) on X (formerly Twitter), May 2, 2016
+
+ MC-107410
+
+ MC-107783
+
+ MCPE-17439
+
+ MC-108696
+
+ MC-107934
+
+ MCPE-17321
+
+ MC-107795
+
+ MC-107730
+
+ MC-108897
+
+ MC-107760
+
+ MC-108697
+
+ MC-107623
+
+ MC-146824
+
+ MC-176644
+
+ "I kept confusing myself which side was front and back, so here's something inspired by the works of @_tomcc http://i.imgur.com/IK2d8m2.png"  – @jeb_ (Jens Bergensten) on X (formerly Twitter), November  7, 2016
+
+ When deactivated, the sculk sensor's and the calibrated sculk sensor's "sculk_sensor_phase" block stage is converted from "active"->"cooldown"->"inactive". This means that a deactivating sculk sensor actually triggers an observer twice in a row.
+
+External links
+"Block of the Week: Observer"     by Duncan Geere  – Minecraft.net, November 10, 2017.
+Navigation
+
+
+
+This article is linked to on an official Minecraft page.

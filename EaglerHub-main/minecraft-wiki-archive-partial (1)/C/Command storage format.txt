@@ -1,0 +1,43 @@
+This feature is exclusive to Java Edition. 
+
+The command_storage.dat files are gzip compressed NBT files located in the data folder in a savegame under their respective <namespace> directory. They store information about the /data command storage in the world. Each namespace in the storage has its own data file.
+
+Contents
+
+1 Usage
+2 Directory structure
+3 NBT structure
+4 History
+5 Navigation
+
+Usage
+The command storage of NBT data is an efficient way for commands to access or save NBT data without an overhead for block entities or entities reading from or writing to the NBT data.
+Each command storage is a general purpose, key-value storage, identified by a resource location to prevent unintentional conflicts.
+/data get, /data modify, and /execute (if|unless) data can read from the storage, while /data merge, /data modify, /data remove, and /execute store can write to the storage.
+The storage can also be accessed by text components.
+
+Directory structure
+
+ world save directory
+ data
+ <namespace>
+ command_storage.dat
+
+Multiple <namespace> directory may be present in the data directory .
+
+NBT structure
+
+[NBT Compound / JSON Object] The root tag.
+[NBT Compound / JSON Object] data: The actual saved data.
+[NBT Compound / JSON Object] contents: Contains all the data storage under the namespace of the command storage.
+[NBT Compound / JSON Object] <path>: The data associated with a particular resource location <namespace>:<path>.
+Custom content as set by the /data or /execute store commands.
+[Int] DataVersion: The data version in which this file is saved.
+
+Multiple [NBT Compound / JSON Object] compound tags of different names may exist under [NBT Compound / JSON Object] contents tag.
+
+History
+Java Edition1.1519w38a
+Added command storage data for the level.26.1snap6
+Change file location to data/<namespace>/command_storage.dat
+Navigation

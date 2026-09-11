@@ -1,0 +1,260 @@
+This page documents all known cases where the texture at (0,0) on the texture atlas was used unintentionally in vanilla Java Edition.
+
+Blocks
+
+From
+
+Until
+
+Change type
+
+Use case
+
+Result
+
+Tickets
+
+Notes
+
+1.0.0(Beta 1.9 Prerelease 3)
+
+1.0.0(Beta 1.9 Prerelease 4)
+
+Fixed
+
+End Portal
+
+N/A
+
+Items
+
+From
+
+Until
+
+Change type
+
+Use case
+
+Result
+
+Tickets
+
+Notes
+
+Minecraft Infdev(20100607)
+
+Minecraft Infdev(20100608)
+
+Fixed
+
+Oak Sign (direct item form)
+
+N/A
+
+Oak signs were made to use the oak planks texture.
+
+Beta 1.7
+
+1.5(13w02a)
+
+Fixed
+
+Moving Piston (direct item form)
+
+N/A
+
+Moving pistons were made to use the piston texture.
+
+1.0.0(Beta 1.9 Prerelease 3)
+
+1.5(13w02a)
+
+Fixed
+
+End Portal (direct item form)
+
+N/A
+
+End portals were made to use the nether portal texture. Model is unstable in Beta 1.9 Prerelease 3.
+
+Particles
+
+
+
+This section is missing information about: Testing in 17w46a and 17w47a reveals that the default position could still be seen using some entity rendered items. Things to test the validity and range for:
+Chest, trapped chest, ender chest
+Zombie head, creeper head, player head, dragon head, skeleton skull, wither skeleton skull
+Shield
+Conduit
+All shulker boxes
+All beds
+All banners
+Tridents
+Also see what's up with MC-138797 
+Please expand the section to include this information. Further details may exist on the talk page.
+
+Block and item particles (breaking, broken, sprinting on, falling on, iron golem walking on, eating, ...)
+For version 13w02a to 13w17a, the default position coincides with the missing texture. Only cases where the missing texture is used due to it being in the default position (verifiable through use of a texture pack with a block texture larger than 64x64) are listed here; cases where the missing texture was used due to a texture actually being missing are listed here.
+
+From
+
+Until
+
+Change type
+
+Use case
+
+Result
+
+Tickets
+
+Notes
+
+Minecraft Infdev(20100607)
+
+Minecraft Infdev(20100608)
+
+Fixed
+
+Oak Sign
+
+N/A
+
+Oak signs were made to use the oak planks texture.
+
+[needs testing]
+
+1.5(13w02a)
+
+Fixed(withregression)
+
+Moving Piston
+
+Moving pistons were made to use the piston texture.
+
+1.0.0(Beta 1.9 Prerelease 3)
+
+1.5(13w02a)
+
+Fixed(withregression)
+
+End Portal
+
+End portals were made to use the nether portal texture.
+
+1.5(13w02a)
+
+1.5(13w02b)
+
+Fixed
+
+Fire
+
+As fire has no breaking particles, this can only be seen when sprinting on it, or an iron golem walking on it.
+
+1.5(13w02a)
+
+1.5(13w04a)
+
+Fixed
+
+Redstone Wire
+
+MC-6779
+
+1.5(13w02a)
+
+1.5(13w04a)
+
+Fixed
+
+Oak Door
+
+MC-6779
+
+1.5(13w02a)
+
+1.5(13w04a)
+
+Fixed
+
+Iron Door
+
+MC-6779
+
+1.5(13w02a)
+
+1.5(13w04a)
+
+Fixed
+
+Head
+
+MC-6779
+
+1.5(13w03a)
+
+1.7.2(13w41a)
+
+Feature removed
+
+Locked chest
+
+MC-17132​[more information needed]
+
+Unobservable in 13w02a and 13w02b due to the block causing crashes.
+
+1.8(14w05a)
+
+1.8(14w25a)
+
+Fixed
+
+Moving Piston
+
+MC-47105
+
+Particles default to the missing texture since 14w25a.
+
+1.8(14w05a)
+
+1.8(14w25a)
+
+Fixed
+
+End Portal
+
+Particles default to the missing texture since 14w25a.
+
+1.8(14w05a)
+
+1.8(14w25a)
+
+Fixed
+
+Barrier
+
+MC-46427
+
+Particles default to the missing texture since 14w25a.
+
+1.8(14w06a)
+
+1.8(14w06b)
+
+Fixed
+
+Oak Sign
+
+MC-47482
+
+1.8(14w06a)
+
+1.8(14w06b)
+
+Fixed
+
+Head
+
+MC-47538

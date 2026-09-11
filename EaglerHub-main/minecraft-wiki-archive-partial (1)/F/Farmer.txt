@@ -1,0 +1,278 @@
+Farmer
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Workstation
+
+Composter
+
+Buys
+
+Wheat
+Potato
+Carrot
+Beetroot
+Pumpkin
+Melon
+
+Sells
+
+Bread
+Pumpkin Pie
+Apple
+Cookie
+Suspicious Stew
+Cake
+Golden Carrot
+Glistering Melon
+
+{
+    "title": "Farmer",
+    "rows": [
+        {
+            "field": "<span class=\"nowrap\"><span class=\"sprite-file\" style=\"\">(link to File:BlockSprite composter.png article, displayed as 16x16px|link=Composter|alt=|class=pixel-image|)</span>(link to Composter article, displayed as <span class=\"sprite-text\">Composter</span>)</span>",
+            "label": "(link to Workstation article, displayed as Workstation)"
+        },
+        {
+            "field": "(values exceeds 1000 characters...)",
+            "label": "Buys"
+        },
+        {
+            "field": "(values exceeds 1000 characters...)",
+            "label": "Sells"
+        }
+    ],
+    "invimages": [],
+    "images": [
+        "Plains Farmer.png",
+        "Desert Farmer.png",
+        "Savanna Farmer.png",
+        "Taiga Farmer.png",
+        "Snowy Farmer.png",
+        "Jungle Farmer.png",
+        "Swamp Farmer.png"
+    ]
+}
+
+A farmer is a villager that trades crops and natural foods, such as bread and golden carrots. Farmers wear a straw hat and have a small bag roped around their waist.
+
+Contents
+
+1 Spawning
+
+1.1 Natural generation
+
+2 Drops
+3 Behavior
+
+3.1 Farming
+
+4 Trading
+5 Sounds
+
+5.1 Java Edition
+5.2 Bedrock Edition
+
+6 Data values
+7 History
+
+7.1 Java Edition
+7.2 Bedrock Edition
+
+8 Issues
+9 Gallery
+
+9.1 Renders
+9.2 Screenshots
+9.3 In other media
+
+10 Navigation
+
+Spawning
+An unemployed villager turns into a farmer when an unclaimed composter is nearby.
+
+Natural generation
+The workstation of farmers, the composter, generates in farms in villages.
+
+Drops
+In Java Edition, a farmer can drop various items by throwing them as a gift towards a nearby player with the Hero of the Village effect. The gift is randomly selected from the following list:
+
+Bread
+Cookie
+Pumpkin Pie
+Behavior
+Farming
+Farmer villager harvesting and replanting carrots.
+In Java Edition, during the "work" portion of their schedule, farmers tend nearby crops.
+
+Farmers sometimes move to random farmland blocks they detect within ±4 on the X and Z axes and ±2 on the Y axis, rather than going to their job site.
+If there are fully-grown crop blocks or air above farmland within ±1 of the farmer on each axis, the farmer spends 10 seconds tending them (not counting time spent walking to the next block), one per second. The block is harvested if necessary and (re-)planted if the farmer has any plantable crop, crop seed, or flower seed items.
+If /gamerule mobGriefing is false, farmers cannot farm.
+Harvesting is done regardless of the farmer's current inventory, even if they lack space to pick up the results.
+Planting takes the item from the first eligible inventory slot, independently of any previously harvested crop type.
+If there is at least one non-fully-grown crop block within ±1 of the farmer on each axis, the farmer has bone meal, and it has been at least 8 seconds since the farmer last did some fertilization, then the farmer fertilizes up to four crop blocks (one every two seconds).
+When the farmer works at their composter, it can perform all of the following tasks in this order in the same work session. The composter always plays the composting sound as the workstation sound, even if nothing is actually put into the composter.
+If the farmer has at most 36 bread and enough wheat, it crafts up to 3 bread from the available wheat. Any bread that does not fit into the farmer's inventory is dropped as item entity.
+If possible, the farmer extracts a bone meal item to empty the composter. The item drops as usual and may be picked up separately later.
+If wheat seeds or beetroot seeds are available, the farmer composts excess seeds. Up to 20 total seeds are composted in one work session, but at least 10 of each type of seed are retained. Inventory slots are checked in reverse order. (Sniffer seeds are never composted.)
+In Bedrock Edition, farmers tend crops within the village boundary. Farmers far enough outside the boundary of any village also tend nearby crops. Farmland to be tended is found by seeking for certain blocks up to 9 blocks away from the farmer in the X and Z coordinates and up to 1 away in the Y coordinate (a 19×19×3 volume total).
+
+If a farmer does not have enough food in one stack in its inventory (15 bread, 60 carrots, 60 potatoes, 60 beetroots, or 45 wheat) and finds fully-grown wheat, carrots, potatoes, or beetroot, the farmer moves to the crop block and harvests it.
+If a farmer has any seeds, carrots, potatoes, or beetroot seeds in its inventory and finds an air block above farmland, the farmer moves to it and plants a crop. They always plant from the first eligible slot in their inventory.
+Farmers pick up and use bone meal. They also fill their composter with seeds.
+Farmers start farming only if a crop is planted on farmland previously.
+Farmers continue to plant on the farmland even if all crops are destroyed.
+For both editions:
+
+Farmers cannot turn dirt, grass blocks, or dirt paths into farmland, nor they pick up any hoes to till the blocks.
+If a hoe is placed into a farmer's mainhand or offhand via commands, they still cannot till any blocks.
+Trading
+Main article: Trading
+FarmerLevelJava EditionBedrock EditionVillager wantsPlayer receivesTrades instockVillagerexperiencePricemultiplierProbabilityProbabilitySlot Novice40%25%120 × WheatEmerald1620.0540%25%26 × PotatoEmerald1620.0540%25%22 × CarrotEmerald1620.0540%25%15 × BeetrootEmerald1620.0540%100%2Emerald6 × Bread1610.05 Apprentice67%100%36 × PumpkinEmerald12100.0567%50%4Emerald4 × Pumpkin Pie1250.0567%50%Emerald4 × Apple1650.05 Journeyman100%100%54 × MelonEmerald12200.05100%100%63 × Emerald18 × Cookie12100.05 Expert100%100%7EmeraldSuspicious Stew12150.05100%100%8EmeraldCake12150.05 Master100%50%93 × Emerald3 × Golden Carrot12300.05100%50%4 × Emerald3 × Glistering Melon Slice12300.05
+ In Java Edition, one of Blindness (00:06), Jump Boost (00:08), Night Vision (00:05), Poison (00:14), Saturation (00:00.350), or Weakness (00:07) is selected when the trade is unlocked. In Bedrock Edition it is always Night Vision (00:05).
+
+Sounds
+Java Edition
+SoundsSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitchAttenuationdistance​Farmer worksFriendly MobsRandomly while a  farmer is workingentity.villager.work_farmersubtitles.entity.villager.work_farmer​1.00.8–1.216
+Bedrock Edition
+SoundsSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitch​Composter filledBlocksRandomly while a  farmer is workingblock.composter.fillsubtitles.block.composter.fill​1.30.8
+Data values
+Main article: Villager § Data values
+Farmers have the data value minecraft:farmer in Java Edition.
+
+History
+
+
+
+This section needs expansion. 
+You can help by expanding it.Instructions: missing most of BE and all LCE history. Maybe add on to JE history
+
+Java Edition
+Java Edition1.0.0Beta 1.9 Prerelease
+ Added villagers, including farmers.1.3.112w21a
+With the introduction of villager trading, farmers can now be traded with.1.814w02a
+Added the "Fisherman", "Fletcher", and "Shepherd" careers for farmers.1.1418w50a
+ The textures of farmers have been changed.
+
+Farmers, like other villagers, now have career levels.
+
+The fisherman, fletcher, and shepherd careers have been split from farmers and are now their own professions.1.14.3pre1
+Farmers now spend more time farming when they are working.
+Farmers now always give away food even if other villagers do not need it.1.2023w14a
+Farmers now can pick up torchflower seeds.23w16a
+Farmers can now plant torchflower seeds and pitcher pods.
+Bedrock Edition
+Pocket Edition Alphav0.9.0build 1
+ Added villagers, including farmers.v0.12.1build 1
+Farmer villagers now harvest fully grown crops.Pocket Edition1.0.4alpha 1.0.4.0
+With the introduction of villager trading, farmers can now be traded with.Bedrock Edition1.20.10Preview 1.20.10.20
+Farmers can now pick up and plant torchflower seeds and pitcher pods.
+Issues
+Issues relating to "Farmer" are maintained on the bug tracker. Issues should be reported and viewed there.
+
+Gallery
+Renders
+
+
+
+			Lying plains farmer
+
+
+
+			Lying desert farmer
+
+
+
+			Lying savannah farmer
+
+
+
+			Lying taiga farmer
+
+
+
+			Lying snowy farmer
+
+
+
+			Lying jungle farmer
+
+
+
+			Lying swamp farmer
+
+
+Screenshots
+
+
+
+			A farmer at a farm
+
+
+
+			A farmer working near a crafter contraption
+
+
+
+			Makena trading with two farmers
+
+
+
+			Three farmers
+
+
+
+			A cleric and farmer speaking while a third villager hurries by in the background.
+
+
+In other media
+
+
+
+			Villager artwork, including a savanna farmer
+
+
+
+			A farmer watching Steve, Noor, and Alex riding pigs
+
+
+
+			LEGO jungle farmer
+
+
+
+			Lego snowy farmer
+
+
+
+			Artwork of the Farmer's Market Expansion of the board game Minecraft: Builders & Biomes.
+
+
+Navigation

@@ -1,0 +1,221 @@
+Minecraft 26.2 Snapshot 8
+
+Edition
+
+Java Edition
+
+Release date
+
+May 19, 2026
+
+Type
+
+Snapshot
+
+Snapshot for
+
+26.2
+
+Downloads
+
+Client (.json)Server
+
+Protocol version
+
+ dec: 1073742138 hex: 4000013A
+
+Data version
+
+4893
+
+Resource pack format
+
+87.0
+
+Data pack format
+
+106.0
+
+Minimum Java version
+
+Java SE 25
+
+◄◄   26.1.2
+26.2
+  26.3 ►►
+
+◄   26.2 Snapshot 7
+
+ 26.2 Snapshot 8
+
+  26.2 Pre-Release 1 ►
+
+{
+    "title": "Minecraft 26.2 Snapshot 8",
+    "images": [
+        "26.2-snapshot-8.jpg",
+        "Java Edition 26.2 Snapshot 8.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "May 19, 2026",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Snapshot article, displayed as Snapshot)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition 26.2 article, displayed as 26.2)",
+            "label": "Snapshot for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/0bcaab1cb9c287ee8003f1c5e84fc11d05ff5ce0/client.jar Client] ([https://piston-meta.mojang.com/v1/packages/025fe805f5cd551ba502766eebe54025593196ba/26.2-snapshot-8.json .json])<br />[https://piston-data.mojang.com/v1/objects/63a80c132f2270af2f43161db596fce69e3e5339/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": " <span style=\"font-size:smaller\"><abbr title=\"decimal\">dec</abbr>: </span>1073742138<br /> <span style=\"font-size:smaller\"><abbr title=\"hexadecimal\">hex</abbr>: </span>4000013A",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "4893",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "87.0",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "106.0",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Data pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_25_.28LTS.29 Java SE 25]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Java Edition  26.1.2|<span style=\"margin-right:-0.35em\">◄</span>◄   26.1.2]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition 26.2|26.2]]'''</td>\n<td style=\"padding: 0.4em\" >[[Java Edition  26.3|  26.3 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  26.2 Snapshot 7|◄   26.2 Snapshot 7]]\n</td>\n<td style=\"padding: 0.4em\">''' 26.2 Snapshot 8'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  26.2 Pre-Release 1|  26.2 Pre-Release 1 ►]]\n</td>\n</tr>\n</table>"
+}
+
+26.2 Snapshot 8 (known as 26.2-snapshot-8 in the launcher) is the eighth and final snapshot for Java Edition 26.2, released on May 19, 2026, which makes small tweaks to existing features and makes OpenGL the default rendering backend again.
+
+Contents
+
+1 Additions
+
+1.1 Command format
+1.2 Gameplay
+
+2 Changes
+
+2.1 Blocks
+2.2 Mobs
+2.3 World generation
+2.4 Command format
+2.5 General
+
+3 Fixes
+4 Videos
+5 References
+6 Navigation
+
+Additions
+Command format
+/unpublish
+
+Unpublishes a player's integrated server if there is one present.
+Gameplay
+Death messages
+
+Added "<entity> died because not just the floor is lava".
+Appears when dying to a sulfur cube with the Hot archetype.
+Changes
+Blocks
+Beds
+
+Now bounce up entities falling onto them with 75% of the impact velocity instead of 66% to match Bedrock Edition.
+Mobs
+Sulfur cube
+
+Sulfur cubes containing a block inside are now immune to damage from magma blocks, as well as from other sulfur cubes that contain a magma block.
+World generation
+Sulfur caves
+
+If exposed to the surface, the biome will generate with all the features of the underground sulfur caves biome instead of just grass blocks.
+Command format
+/publish
+
+The /publish command now takes an additional Boolean as its first argument to specify whether the server should be opened to online multiplayer or just local multiplayer.
+Default: true (online multiplayer)
+General
+Damage type
+
+Added a new minecraft:sulfur_cube_hot damage type.
+Data pack
+
+The pack format version is now 106.0.
+Options
+
+"Graphics API" Video Setting
+"Vulkan" is now marked as "Experimental".
+Can still be used if wanted, it works well on most common systems but may reduce performance or cause instability on some other systems.
+"Default" option will now use OpenGL behind the scenes.
+The setting will be reset to "Default" for all players.
+Tags
+
+Added sulfur_cube_hot to #burn_from_stepping, #bypasses_shield, #is_fire, #no_knockback, and #panic_environmental_causes damage type tags.
+Added hot_floor, and sulfur_cube_hot to #sulfur_cube_with_block_immune_to damage type tag.
+Textures
+
+UI Sprites
+Added friends/background_dark which is a darker variant of the friends/background panel sprite, used as the background for confirmation dialogs in the Friends UI.
+Fixes
+22 issues fixed
+From released versions before 26.2
+
+MC-306673 – The color of sleeping baby snow foxes' eyes is inconsistent with their adult variant.
+MC-306738 – Blocks sometimes remain visible after breaking.
+MC-306750 – The texture of snifflets contains unused pixels.
+MC-306962 – The "Take Screenshot" key bind doesn't work when set to a mouse button.
+MC-307212 – The texture of the back of gurgles' right arm has a line of miscolored pixels.
+MC-307833 – The world freezes when villagers with specific trade sets level up.
+From the 26.2 development versions
+
+MC-307363 – Baby hoglins' mane no longer appears on both sides of the body texture.
+MC-307911 – The death message for dying to a sulfur cube with an absorbed magma block is "discovered the floor was lava".
+From the previous development version
+
+MC-308035 – Standing signs next to blocks now have an extra dark looking face.
+MC-308047 – Friends service forbidden (403) — user may lack an active profile.
+MC-308048 – The "options.inGameNotification" string is improperly capitalized.
+MC-308058 – Sulfur cubes touching cacti spam the hurting sound.
+MC-308061 – Games published with /publish are shown as offline in the multiplayer options screen.
+MC-308073 – Text in the friends list warning screen can extend outside the window when reducing the resolution.
+MC-308102 – Non-friends can join a friends-only world if they are using the same network.
+MC-308103 – The sign editing screen no longer distinguishes between standing signs and wall signs.
+MC-308104 – The side faces of wall signs do not get culled against blocks.
+MC-308114 – The name of the debug property that simulates friend-only chat repeats the word "DEBUG_".
+MC-308145 – Cannot see own chat messages when chat is restricted to friends only by Xbox options.
+MC-308163 – Entities pushed upward by geysers take fall damage proportional to the time they have been hovering for when landing.
+MC-308168 – The skin preview in the skin reporting screen can no longer be rotated vertically.
+MC-308181 – When the Villager Trade Rebalance experiment is on, the "Bounce" music disc does not generate.
+Videos
+Videos made by slicedlime:
+
+
+
+
+
+
+
+
+References
+
+ "Minecraft 26.2 Snapshot 8"     – Minecraft.net, May 19, 2026.
+
+Navigation

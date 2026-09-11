@@ -1,0 +1,87 @@
+This feature is exclusive to Java Edition. 
+
+/rotate
+
+Permission levelrequired
+
+2
+
+Restrictions
+
+None
+
+{
+    "title": "<code>/rotate</code>",
+    "rows": [
+        {
+            "field": "2",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "None",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+Changes the rotation of an entity.
+
+Contents
+
+1 Syntax
+2 Arguments
+3 Result
+4 Output
+5 History
+6 References
+7 Navigation
+
+Syntax
+rotate <target> <rotation>
+Change the entity's rotation to the specified rotation.
+rotate <target> facing <facingLocation>
+Rotates the entity to face a specified block position.
+rotate <target> facing entity <facingEntity> [<facingAnchor>]
+Rotates the entity to face another entity.
+Arguments
+<target>: entity
+
+Specifies the entity to rotate.
+Must be a player name, a target selector or a UUID.  And the target selector must be in single type.
+<rotation>: rotation
+
+Specifies the rotation.
+Must be a rotation consisting of two double number elements, including yaw and pitch, measured in degrees.For the horizontal rotation (yaw), -180.0 for due north, -90.0 for due east, 0.0 for due south, 90.0 for due west, to 179.9 for just west of due north, before wrapping back around to -180.0.For the vertical rotation (pitch), -90.0 for straight up to 90.0 for straight down.Tilde notation can be used to specify a rotation relative to the execution rotation.
+<facingLocation>: vec3
+
+Specifies the coordinates to make the target entity face towards.
+Must be three-dimensional coordinates with double-precision floating-point number elements. Accepts tilde and caret notations.
+<facingEntity>: entity
+
+Specifies the entity to make the target entity face towards.
+Must be a player name, a target selector or a UUID.  And the target selector must be in single type.
+<facingAnchor>: entity_anchor
+
+Specifies whether to face towards the entity'eyes or feet. If not specified, defaults to feet.
+Must be either eyes or feet.
+Result
+
+CommandTriggerJava Edition
+
+AnyThe command is incomplete, or any argument is not specified correctly. Unparseable<target> or <facingEntity> fails to resolve to a single entity (named player must be online). FailedOtherwiseSuccessful
+Output
+
+CommandEditionSituationSuccess Count/execute store success .../execute store result ...
+
+AnyJava EditionOn fail000On success111
+History
+Java Edition1.21.224w40a
+Added /rotate.pre1
+/rotate now requires a permission level of 2 instead of 0.
+References
+
+ MC-277141 – /rotate command is not restricted to permission level 2 – resolved as "Fixed".
+
+Navigation

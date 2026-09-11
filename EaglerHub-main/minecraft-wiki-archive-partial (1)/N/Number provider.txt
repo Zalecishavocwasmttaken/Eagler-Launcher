@@ -1,0 +1,528 @@
+For a similar data structure used in enchantments, see Enchantment definition § Level-based value.
+
+
+
+This feature is exclusive to Java Edition. 
+
+
+
+This article needs to be updated. 
+Please update this article to reflect recent updates or newly available information. The talk page may contain suggestions.Reason: Java Edition 26.3 Snapshot 9
+
+
+
+This article is a work in progress. 
+Please help expand and improve it. The talk page may contain suggestions.Note: Add history, better specify the uses, talk about how it depends on the loot context and how each use defines the context.
+
+
+A number provider is a data structure used to provide a number, which can be simply a constant, a random number within a certain distribution, a number under a certain condition, etc. Number providers are used in loot tables, predicates, item modifiers, villager trade, trade sets, and in data components​[upcoming: JE 26.3] (compostable, cooking_fuel, and brewing_fuel).
+
+Contents
+
+1 JSON definition
+2 Use
+
+2.1 Vanila registries
+
+3 Format
+
+3.1 Number providers types
+
+3.1.1 Constant
+3.1.2 Uniform
+3.1.3 Binomial
+3.1.4 Score
+3.1.5 Storage
+3.1.6 Enchantment level
+3.1.7 Sum
+3.1.8 Environment attribute
+3.1.9 Number dispatcher
+3.1.10 Conditional
+3.1.11 Weighted list
+
+4 History
+5 Navigation
+
+JSON definition
+
+
+
+This section describes content that is currently in development for Java Edition. 
+This content has appeared in  development versions for Java Edition 26.3, but the full update adding it has not been released yet.
+
+
+Number providers can be defined in data packs, as part of the directory structure below.
+
+ data pack name.zip or  data pack name
+ pack.mcmeta
+ data
+ namespace
+ number_provider
+ <name>.json
+More directories…
+
+Use
+Number providers are used in loot tables, predicates, item modifiers, villager trade, and trade sets.
+‌in Java Edition 26.3​[upcoming], number provider registry can be used in the components compostable, brewing and cooking_fuel. In this case, only number providers and constants are accepted, not inline definitions.
+
+Vanila registries
+
+
+
+This section describes content that is currently in development for Java Edition. 
+This content has appeared in  development versions for Java Edition 26.3, but the full update adding it has not been released yet.
+
+
+There are registry number providers used in vanilla data pack.
+ compostable: Number providers used in the default component compostable:
+
+   always_add_one.json
+
+1.0
+
+   low.json
+
+{
+  "type": "minecraft:number_dispatcher",
+  "cases": [
+    {
+      "condition": {
+        "block": "minecraft:composter",
+        "condition": "minecraft:block_state_property",
+        "properties": {
+          "level": "0"
+        }
+      },
+      "number_provider": 1.0
+    }
+  ],
+  "default": {
+    "type": "minecraft:weighted_list",
+    "distribution": [
+      {
+        "data": 1.0,
+        "weight": 30
+      },
+      {
+        "data": 0.0,
+        "weight": 70
+      }
+    ]
+  }
+}
+
+   low_medium.json
+
+{
+  "type": "minecraft:number_dispatcher",
+  "cases": [
+    {
+      "condition": {
+        "block": "minecraft:composter",
+        "condition": "minecraft:block_state_property",
+        "properties": {
+          "level": "0"
+        }
+      },
+      "number_provider": 1.0
+    }
+  ],
+  "default": {
+    "type": "minecraft:weighted_list",
+    "distribution": [
+      {
+        "data": 1.0,
+        "weight": 50
+      },
+      {
+        "data": 0.0,
+        "weight": 50
+      }
+    ]
+  }
+}
+
+   medium.json
+
+{
+  "type": "minecraft:number_dispatcher",
+  "cases": [
+    {
+      "condition": {
+        "block": "minecraft:composter",
+        "condition": "minecraft:block_state_property",
+        "properties": {
+          "level": "0"
+        }
+      },
+      "number_provider": 1.0
+    }
+  ],
+  "default": {
+    "type": "minecraft:weighted_list",
+    "distribution": [
+      {
+        "data": 1.0,
+        "weight": 65
+      },
+      {
+        "data": 0.0,
+        "weight": 35
+      }
+    ]
+  }
+}
+
+   medium_high.json
+
+{
+  "type": "minecraft:number_dispatcher",
+  "cases": [
+    {
+      "condition": {
+        "block": "minecraft:composter",
+        "condition": "minecraft:block_state_property",
+        "properties": {
+          "level": "0"
+        }
+      },
+      "number_provider": 1.0
+    }
+  ],
+  "default": {
+    "type": "minecraft:weighted_list",
+    "distribution": [
+      {
+        "data": 1.0,
+        "weight": 85
+      },
+      {
+        "data": 0.0,
+        "weight": 15
+      }
+    ]
+  }
+}
+
+ cooking:  Number providers used in the default component cooking_fuel.burn_time, except speed_default:
+
+   speed_default.json: Used in the default components cooking_fuel.speed_multiplier
+
+{
+  "type": "minecraft:conditional",
+  "condition": "minecraft:block/fast_cooking",
+  "on_false": 1.0,
+  "on_true": 2.0
+}
+
+   time_bamboo.json
+
+{
+  "type": "minecraft:conditional",
+  "condition": "minecraft:block/fast_cooking",
+  "on_false": 50.0,
+  "on_true": 25.0
+}
+
+   time_blaze.json
+
+{
+  "type": "minecraft:conditional",
+  "condition": "minecraft:block/fast_cooking",
+  "on_false": 2400.0,
+  "on_true": 1200.0
+}
+
+   boats.json
+
+{
+  "type": "minecraft:conditional",
+  "condition": "minecraft:block/fast_cooking",
+  "on_false": 1200.0,
+  "on_true": 600.0
+}
+
+   coal.json
+
+{
+  "type": "minecraft:conditional",
+  "condition": "minecraft:block/fast_cooking",
+  "on_false": 1600.0,
+  "on_true": 8000.0
+}
+
+   time_coal_block.json
+
+{
+  "type": "minecraft:conditional",
+  "condition": "minecraft:block/fast_cooking",
+  "on_false": 16000.0,
+  "on_true": 8000
+}
+
+   time_dried_kelp_block.json
+
+{
+  "type": "minecraft:conditional",
+  "condition": "minecraft:block/fast_cooking",
+  "on_false": 4001.0,
+  "on_true": 2000.5
+}
+
+   time_dry_plants.json
+
+{
+  "type": "minecraft:conditional",
+  "condition": "minecraft:block/fast_cooking",
+  "on_false": 100.0,
+  "on_true": 50.0
+}
+
+   time_hanging_signs.json
+
+{
+  "type": "minecraft:conditional",
+  "condition": "minecraft:block/fast_cooking",
+  "on_false": 800.0,
+  "on_true": 400.0
+}
+
+   time_lava_bucket.json
+
+{
+  "type": "minecraft:conditional",
+  "condition": "minecraft:block/fast_cooking",
+  "on_false": 20000.0,
+  "on_true": 10000.0
+}
+
+   time_roots.json
+
+{
+  "type": "minecraft:conditional",
+  "condition": "minecraft:block/fast_cooking",
+  "on_false": 300.0,
+  "on_true": 150.0
+}
+
+   time_wood_blocks.json
+
+{
+  "type": "minecraft:conditional",
+  "condition": "minecraft:block/fast_cooking",
+  "on_false": 300.0,
+  "on_true": 150.0
+}
+
+   time_wood_items_extra_small.json
+
+{
+  "type": "minecraft:conditional",
+  "condition": "minecraft:block/fast_cooking",
+  "on_false": 100.0,
+  "on_true": 50.0
+}
+
+   time_wood_items_large.json
+
+{
+  "type": "minecraft:conditional",
+  "condition": "minecraft:block/fast_cooking",
+  "on_false": 200.0,
+  "on_true": 100.0
+}
+
+   time_wood_items_small.json
+
+{
+  "type": "minecraft:conditional",
+  "condition": "minecraft:block/fast_cooking",
+  "on_false": 300.0,
+  "on_true": 150.0
+}
+
+   time_wood_slabs.json
+
+{
+  "type": "minecraft:conditional",
+  "condition": "minecraft:block/fast_cooking",
+  "on_false": 150.0,
+  "on_true": 75.0
+}
+
+   time_wool.json
+
+{
+  "type": "minecraft:conditional",
+  "condition": "minecraft:block/fast_cooking",
+  "on_false": 100.0,
+  "on_true": 50.0
+}
+
+   time_wool_carpets.json
+
+{
+  "type": "minecraft:conditional",
+  "condition": "minecraft:block/fast_cooking",
+  "on_false": 67.0,
+  "on_true": 33.5
+}
+
+   time_wool_slabs.json
+
+{
+  "type": "minecraft:conditional",
+  "condition": "minecraft:block/fast_cooking",
+  "on_false": 50.0,
+  "on_true": 25.0
+}
+
+ brewing:
+
+   speed_default.json: Used in the default component brewing_fuel.speed_multiplier
+
+1.0
+
+   uses_default.json: Used in the default component brewing_fuel.uses
+
+20.0
+
+See Composter § Composting for a list of items that use such number providers in the component compostable by default.
+
+Format
+A a number provider can be an [Int] or [Float]. They can either be defined as a constant value or as an object.
+
+[Float]: Constant number provider.
+
+Or:
+
+[NBT Compound / JSON Object]: The root tag. Shorthand for a uniform distribution​[until: JE 26.3].
+[Float][NBT Compound / JSON Object] min: Number provider. The minimum value.
+[Float][NBT Compound / JSON Object] max: Number provider. The maximum value.
+
+Or:
+
+[String]: Namespaced ID pointing to an element of number provider registry. See § Vanila registries.​[upcoming: JE 26.3]
+
+Or:
+
+[NBT Compound / JSON Object]: The root tag.
+[String] type: The number provider type as a resource location. It can be binomial, constant, enchantment_level, environment_attribute, score, storage, sum, uniform,conditional​[upcoming: JE 26.3], number_dispatcher​[upcoming: JE 26.3], and weighted_list​[upcoming: JE 26.3].
+Extra fields of the number provider, described below.
+
+Number providers types
+Each type of number provider specifies the rules by which the number will be provided. To do this, they use associated extra contents, which function differently for each type.
+The type values can omit or include the namespace minecraft, for example using the type uniform or minecraft:uniform has the same effect.
+Number provider types can not be customized via data packs.
+Each type has two ways to get a number: an integer or a float.
+By default, the integer is the float converted to the nearest integer (floor(x+0.5)). Numbers less than or equal to -2,147,483,648.0 are returned as -2,147,483,648, numbers greater than or equal to 2,147,483,648.0 are returned as 2,147,483,647. However, in many types, there is a specific method for gat a integers.
+
+Constant
+A constant value.  Note that the value provided must be a float. If the number provider requires an integer, it will be converted later.
+
+[NBT Compound / JSON Object]
+[String] type: constant
+[Float] value: The exact value.
+
+Uniform
+A random number following a uniform distribution between two values. The values are inclusive, meaning the provided number can be either min or max, except if the provided number is a float, in which case it must be strictly less than max. If max ≤ min, the provided number is min.
+
+[NBT Compound / JSON Object]
+[String] type: uniform
+[String][Float][NBT Compound / JSON Object] min: Number provider. The minimum value (min).
+[String][Float][NBT Compound / JSON Object] max: Number provider. The maximum value (max).
+
+Binomial
+A random number following a binomial distribution. The returned float has the same value as the int.
+
+[NBT Compound / JSON Object]
+[String] type: binomial
+[String][Float][NBT Compound / JSON Object] n: Number provider. The amount of trials.
+[String][Float][NBT Compound / JSON Object] p: Number provider. The probability of success on an individual trial.
+
+Score
+To query and use a scoreboard value. Return 0.0 if the scoreboard cannot be calculated.
+
+[NBT Compound / JSON Object]
+[String] type: score
+[NBT Compound / JSON Object] target: To choose which player name or entity UUID to query.
+[String] type: Set to fixed to manually specify a player name or UUID. Set to context to use an entity from loot context.
+[String] name: Included only if [String] type is set to fixed. Specifies the name of the player, or the entity's UUID (in hypenated hexadecimal format) whose score to query.
+[String] target: Included only if [String] type is set to context. Specifies an entity from loot context to query the score of. Can be this, attacker, direct_attacker, attacking_player, target_entity, or interacting_entity.
+[String] score: The scoreboard objective to query on the selected player name or UUID.
+[Float] scale: (Optional. Default 1.0) Scale to multiply the score before returning it.
+
+Storage
+A value in command storage.
+
+[NBT Compound / JSON Object]
+[String] type: storage
+[String] storage: The resource location of the storage.
+[String] path: The nbt path to the field in storage.
+
+Enchantment level
+A value dependent on the level of the loot context enchantment.
+
+[NBT Compound / JSON Object]
+[String] type: enchantment_level
+[String] amount: Level-based value calculating the value based on the enchantment.
+
+Sum
+The sum of multiple value providers
+
+[NBT Compound / JSON Object]
+[String] type: sum
+[NBT List / JSON Array] summands: List of number providers to sum.
+
+Environment attribute
+Fetches and provides the value of an environment attribute (that can be represented as a number).
+This provider requires a context with an origin position set as long as the environment attribute can vary positionally.
+
+[NBT Compound / JSON Object]
+[String] type: environment_attribute
+[String] attribute: An environment attribute ID to fetch.
+
+Number dispatcher
+Returns the first case which fulfills its condition or the default if none do.
+
+[NBT Compound / JSON Object]
+[String] type: number_dispatcher​[upcoming: JE 26.3]
+[NBT List / JSON Array] cases: A list of cases in the order that the dispatcher will try to execute them.
+[NBT Compound / JSON Object]: A single case:
+[NBT Compound / JSON Object] condition: A predicate to be tested in this case.
+[String][Float][NBT Compound / JSON Object] number_provider: A number provider, which is executed if the [NBT Compound / JSON Object] condition is fulfilled.
+[String][Float][NBT Compound / JSON Object] default: (Optional. Default 0.0) A number provider, which runs if none of the conditions in [NBT List / JSON Array] cases is fulfilled.
+
+Conditional
+Returns the value from [String][Float][NBT Compound / JSON Object] on_true if its [NBT Compound / JSON Object] conditions or [String][Float][NBT Compound / JSON Object] on_false if not.
+
+[NBT Compound / JSON Object]
+[String] type: conditional​[upcoming: JE 26.3]
+[NBT Compound / JSON Object] conditions: A predicate to test which value will be returned.
+[String][Float][NBT Compound / JSON Object] on_true: A number provider, which runs if the [NBT Compound / JSON Object] conditions is fulfilled.
+[String][Float][NBT Compound / JSON Object] on_false: (Optional. Default 0.0) A number provider,  which runs if the [NBT Compound / JSON Object] conditions is not fulfilled.
+
+Weighted list
+Returns a value from a distribution of weighted number providers.
+
+[NBT Compound / JSON Object]
+[String] type: weighted_list​[upcoming: JE 26.3]
+[NBT List / JSON Array] distribution: Returns a value from a distribution of weighted number providers.
+[NBT Compound / JSON Object]: A single weighted number provider:
+[String][Float][NBT Compound / JSON Object] data: A number provider, which is executed if the weighted number provider is chosen.
+[Int] weight: A positive integer. Determines how often this weighted number provider is chosen out of all data in the distribution. Weighted number provider with higher weights are used more often. The chance of an weighted number provider being chosen is [this weighted number provider's weight ÷ total weight of all weighted number provider in the distribution].
+
+History
+
+
+
+This section is missing information about: everything before 26.3, which I don't think is a lot 
+Please expand the section to include this information. Further details may exist on the talk page.
+
+Java Edition?
+Added number providers.Upcoming Java Edition26.3snap4
+The type field always needs to be specified explicitly when using an inline number provider (it was previously defaulting to minecraft:uniform).
+Added vanilla number providers: minecraft:cooking/time_bamboo, minecraft:cooking/time_blaze_rod, minecraft:cooking/time_boats, minecraft:cooking/time_coal, minecraft:cooking/time_coal_block, minecraft:cooking/time_dried_kelp_block, minecraft:cooking/time_dry_plants, minecraft:cooking/time_hanging_signs, minecraft:cooking/time_lava_bucket, minecraft:cooking/time_roots, minecraft:cooking/time_wood_blocks, minecraft:cooking/time_wood_items_extra_small, minecraft:cooking/time_wood_items_large, minecraft:cooking/time_wood_items_small, minecraft:cooking/time_wood_slabs, minecraft:cooking/time_wool, minecraft:cooking/time_wool_carpets, minecraft:cooking/time_wool_slabs, minecraft:cooking/speed_default, minecraft:brewing/speed_default, minecraft:brewing/uses_default.snap9
+Changed minecraft:sum: The summands field was renamed to operands and now accepts an inline value, a single namespaced ID, a list of namespaced IDs, a list of inline values, or a hash-prefixed tag ID of a minecraft:number_provider type. Now requires at least one operand. When used in integer mode, integer mode is used for intermediate steps as well.
+Added minecraft:product, minecraft:minimum, minecraft:maximum and minecraft:average.
+Navigation

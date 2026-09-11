@@ -1,0 +1,230 @@
+This page covers a  version that has a major issue under certain conditions. 
+Drowned cause a ticking entity crash. Attempting to rejoin the world causes a crash loop, causing a hardlock.
+
+Minecraft 18w14a
+
+Edition
+
+Java Edition
+
+Release date
+
+April 4, 2018
+
+Type
+
+Snapshot
+
+Snapshot for
+
+1.13
+
+Downloads
+
+Client (.json)Server
+
+Protocol version
+
+369
+
+Data version
+
+1479
+
+Resource pack format
+
+4
+
+Data pack format
+
+4
+
+Minimum Java version
+
+Java SE 8
+
+◄◄   1.12.2
+1.13
+  1.13.1 ►►
+
+◄   18w11a
+
+ 18w14a
+
+  18w14b ►
+
+{
+    "title": "Minecraft 18w14a",
+    "images": [
+        "18w14a.jpg",
+        "Java Edition 18w14a.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "April 4, 2018",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Snapshot article, displayed as Snapshot)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition 1.13 article, displayed as 1.13)",
+            "label": "Snapshot for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/73885c6bf4fdcca8ab1ca22b56f69c9945725770/client.jar Client] ([https://piston-meta.mojang.com/v1/packages/ddb3a3037ebefd9c7921482ce7b71470157b2bae/18w14a.json .json])<br />[https://piston-data.mojang.com/v1/objects/50b4ca8fe7853ae6757a163a80e67cb8437fb082/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "369",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "1479",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "4",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "4",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Data pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_8_.28LTS.29 Java SE 8]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Java Edition  1.12.2|<span style=\"margin-right:-0.35em\">◄</span>◄   1.12.2]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition 1.13|1.13]]'''</td>\n<td style=\"padding: 0.4em\" >[[Java Edition  1.13.1|  1.13.1 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  18w11a|◄   18w11a]]\n</td>\n<td style=\"padding: 0.4em\">''' 18w14a'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  18w14b|  18w14b ►]]\n</td>\n</tr>\n</table>"
+}
+
+18w14a is the twenty-ninth snapshot for Java Edition 1.13, released on April 4, 2018, which added phantom membrane and the Slow Falling effect.
+
+Contents
+
+1 Additions
+
+1.1 Items
+1.2 Gameplay
+1.3 General
+
+2 Changes
+
+2.1 Blocks
+2.2 Items
+2.3 Mobs
+2.4 World generation
+2.5 Gameplay
+2.6 General
+
+3 Fixes
+4 Videos
+5 References
+6 Navigation
+
+Additions
+Items
+ Phantom membranes
+
+Dropped by phantoms.
+Used to repair elytra.
+Can be used to brew potions of Slow Falling.
+ Potion of Slow Falling
+
+Brewed with phantom membrane.
+Gives the player the Slow Falling status effect for 1 minute and 30 seconds.
+Can be extended to 4 minutes by brewing with redstone.
+Brewing it with gunpowder or dragon's breath creates a splash or lingering potion, respectively.
+ Arrow of Slow Falling
+
+Effects the shot mob with the Slow Falling status effect.
+Gameplay
+Effects
+
+ Slow Falling
+It causes the player to descend at a much slower rate, and not take any damage when hitting the ground.
+This allows the player to jump further than normal.
+If the player is sprinting while under the Slow Falling effect, they are able to jump across a gap of over 5.5 blocks, compared to 4 with normal sprinting.
+Crops don't get destroyed if the player lands on them with the Slow Falling effect.
+Higher levels do not change the rate of descent.
+Advancements
+
+Added 4 new advancements:
+Fishy Business: 'Catch a fish'
+Tactical fishing: 'Catch a fish... without a fishing rod!'
+A Throwaway Joke: 'Throw a trident at something'
+Very Very Frightening: 'Strike a Villager with lightning'
+Added three new advancement triggers:
+minecraft:fishing_rod_hooked triggers when a player reels in an item or entity;
+minecraft:channeled_lightning triggers when a player uses the Channeling enchantment to strike a mob;
+minecraft:filled_bucket triggers when a player fills a bucket.
+General
+Debug screen
+
+F3 + C
+Now gives a warning before forcing a debug crash.
+Changes
+Blocks
+Kelp
+
+Changed texture.
+Items
+Elytra
+
+Now requires phantom membrane to be repaired instead of leather.
+Mobs
+Phantoms
+
+Now drop phantom membrane instead of leather.
+World generation
+Kelp
+
+Cannot generate anymore in warm oceans.
+Seagrass
+
+Can now generate in rivers and swamps.
+Gameplay
+Enchantments
+
+Riptide
+No longer compatible with Loyalty or Channeling.
+If the player is not in water and it is not raining, the player is no longer able to throw tridents enchanted with Riptide, but they still deal melee damage.
+Riptide doesn't throw the trident but instead launches the player forward.
+Players now display a spinning animation when dashing.
+General
+Optimizations
+
+Optimized cloud rendering.
+Fixes
+9 issues fixed
+From the 1.13 development versions
+
+MC-124114 – Parrots are not visible on the shoulders
+MC-125222 – Kelp can sometimes generate with two tops
+MC-125311 – Kelp (non-top block), tall sea grass, and bubble columns are missing the translation strings
+MC-125371 – Kelp (top) isn't an "X" like texture
+MC-125617 – Kelp can be placed on transparent and non-full blocks
+MC-125657 – Kelp top texture is always pointing right
+MC-126633 – Falling block over Kelp or Seagrass drop as items
+From the previous development version
+
+MC-127297 – Holding down F3+C spams "Copied location to clipboard"
+MC-127338 – F3+C (copy coordinates) uses @p instead of @s
+Videos
+Video made by slicedlime:
+
+
+
+
+References
+
+ "Minecraft Snapshot 18w14a"     – Minecraft.net, April 4, 2018.
+
+Navigation

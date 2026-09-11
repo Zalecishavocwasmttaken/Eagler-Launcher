@@ -1,0 +1,164 @@
+This article is about the HUD element.   For the command, see Commands/bossbar.
+
+The bossbar of the wither.
+The bossbar of the ender dragon.
+The bossbar of a raid in Java Edition. It is divided into several parts and the remaining number of raiders is visible.
+A bossbar is a bar at the top of the screen that can track health of a boss mob or the total health of raid mobs. The bossbar disappears when the ender dragon or wither is slain or a raid is over.
+
+Contents
+
+1 Creation
+
+1.1 Manual
+1.2 Natural
+
+1.2.1 Boss mobs
+1.2.2 Raids
+
+2 Components
+
+2.1 Color
+2.2 Style
+2.3 ID system
+
+3 Removal
+
+3.1 Manual
+3.2 Natural
+
+4 History
+
+4.1 Java Edition
+4.2 Bedrock Edition
+4.3 Legacy Console Edition
+
+5 Issues
+6 Gallery
+7 References
+8 Navigation
+
+Creation
+Manual
+Main article: Commands/bossbar
+
+
+
+This feature is exclusive to Java Edition. 
+
+In Java Edition, a bossbar can be created manually using the /bossbar command.
+
+Natural
+Boss mobs
+A bossbar appears in the top center of the screen when near a wither or ender dragon. For the ender dragon's bossbar to appear, the player must be within a Euclidean distance of 192 blocks from the coordinates (0.0, 192, 0.0) in the End dimension.[JE only], For the wither's bossbar to appear, the player must be loading the chunk the wither is in and be within 24 chunks and 3.5 blocks of a chunk the wither is in. For the bossbar to update after taking damage, a mob has to have the NBT-Tag NoAI set to 0b.
+
+Raids
+When a player is within a 93 block radius of the center of a raid, a raid bossbar appears, showing the total health of all raid mobs present during the current wave.
+
+Components
+Color
+The color of a bossbar depends on which boss mob or event is active:
+
+the ender dragon has a pink bossbar,
+the wither has a light purple bossbar in Java Edition, or a dark purple bossbar in Bedrock Edition,
+the raid bossbar is colored red.
+Style
+A bossbar has a style attribute. It can be either "progress", "notched_6", "notched_10", "notched_12" or "notched_20". The value "progress" creates a clean bar, while the other ones create a notched bar with 6, 10, 12 or 20 segments.
+The ender dragon and wither own a "progress" bossbar. The bossbar shown during a raid uses the "notched_10" style in Java Edition, and the "progress" style in Bedrock Edition.
+
+ID system
+A bossbar has an ID, which can be used to do certain actions with one bossbar. An ID is not shown on the bossbar[verify].
+
+Removal
+
+
+
+This section needs expansion. 
+You can help by expanding it.
+
+Manual
+A bossbar can be disabled by using /bossbar remove <id>.
+
+Natural
+A bossbar for the ender dragon or wither can be removed by killing it. A bossbar for a raid can be removed by completing the raid, which is to kill all the raiders involved in this raid.
+
+History
+Java Edition
+Java Edition1.0.0Beta 1.9 Prerelease 6
+Added bossbars.
+
+The only color is pink.
+
+Ender dragons use bossbars.
+
+"Boss health" was displayed over the bossbar.1.4.212w34a
+Withers use bossbars.12w34b
+Added boss names above the wither.[verify]1.513w05b
+Ender dragons now properly display their names above their bossbar.1.915w31a
+Withers now have a purple bossbar.
+
+Multiple bossbars can now show without overlapping.
+
+Bossbars are no longer briefly visible after respawning or opening a new world.
+
+Bossbars are now visible even when the boss is not being looked at.
+
+Bossbars now have a smooth animation when the bar fills up or empties.16w02a
+Ender dragons created using /summon no longer show a health bar.1.1116w32a
+Ender dragons with custom names now show their name above their bossbar.1.11.116w50a
+Withers with custom names now show their name above their bossbar.1.1318w02a
+Unnamed ender dragons now show "entity.EnderDragon.name" above their bossbar, rather than "Ender Dragon".18w03a
+Ender dragons now show "Ender Dragon" again.18w05a
+Added the /bossbar command, which can create a custom bossbar.1.1418w47a
+Raids use bossbars.18w49a
+The raid bossbar now slowly fills up when a raid is triggered or when a wave is cleared.19w13b
+Notched bossbars now display correctly when more than one is active.1.1620w17a
+Bossbars with scores now update correctly when reloading the world.1.1922w11a
+Notched bossbars now display correctly when more than one is active.​[more information needed]
+Bedrock Edition
+Pocket Edition Alphav0.16.0build 1
+Added bossbars.
+The Wither is the only mob to currently have a bossbar.Pocket Edition1.0.0
+Ender dragons added with their respective bossbars.
+Legacy Console Edition
+Legacy Console EditionXbox 360Xbox OnePS3PS4PS VitaWii USwitchTU9CU11.001.001.00Patch 11.0.1
+Added bossbars.
+The only color is pink.
+Ender dragons use bossbars.TU19CU71.121.121.12
+Withers use bossbars.TU54CU441.521.521.52Patch 241.0.4
+Multiple bossbars can now show without overlapping.
+Bossbars are now visible even when the boss is not being looked at.[is this the correct version?]
+Bossbars now have a smooth animation when the bar fills up or empties.   1.91
+Raids use bossbars. Unlike in Java edition, the color is pink instead of red and the bossbar is not divided into several parts
+Issues
+Issues relating to "Bossbar" are maintained on the bug tracker. Issues should be reported and viewed there.
+
+Gallery
+
+
+
+			First image of multiple bossbars.
+
+
+References
+
+ MC-84243 – resolved as "Works As Intended".
+
+ MC-7700
+
+ MC-4474
+
+ MC-68062
+
+ MC-83571
+
+ MC-110234
+
+ MC-124113
+
+ MC-146070
+
+ MC-135738
+
+ MC-165036
+
+Navigation

@@ -1,0 +1,76 @@
+This article is about the command in Bedrock Edition.   For the renamed command in Java Edition, see Commands/loot.   For other uses, see Drop (disambiguation).
+
+
+
+This page describes content that has been removed from Minecraft. 
+This feature was present in earlier versions of Minecraft, but has since been removed.
+
+
+
+This feature is exclusive to Bedrock Edition and Minecraft Education. 
+
+/drop
+
+Visibility
+
+Hidden
+
+Permission levelrequired
+
+0
+
+Restrictions
+
+None
+
+{
+    "title": "<code>/drop</code>",
+    "rows": [
+        {
+            "field": "Hidden",
+            "label": "Visibility"
+        },
+        {
+            "field": "0",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "None",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+Lets the player's agent drop specified inventory slot numbered items in the specified quantity in the specified direction.
+
+Contents
+
+1 Syntax
+2 Arguments
+3 Result
+4 Navigation
+
+Syntax
+drop <slotNum: int> <quantity: int> <direction: string>
+Arguments
+slotNum: int
+
+Specifies the slot number of block to be placed, slots are numbered from 1 to 27.
+quantity: int
+
+Specifies the number of items to be dropes. Must be from 1 to 64.
+direction: string
+
+Specifies the direction of Agent to drop the item.
+Must be one of:
+forward
+back
+left
+right
+Result
+Fails if the arguments are not specified correctly or the specified slot was empty.
+On success, returns if items in the specified inventory slot was droped.
+
+Navigation

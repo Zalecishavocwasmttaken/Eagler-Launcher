@@ -1,0 +1,246 @@
+This page covers a development version that has a major issue under certain conditions. 
+The dedicated server for this version has a security vulnerability in the Log4j library that could be used to perform a remote code execution exploit. It can be addressed by appending a certain JVM argument to the server startup command line.
+
+Minecraft 16w38a
+
+Edition
+
+Java Edition
+
+Release date
+
+September 20, 2016
+
+Type
+
+Snapshot
+
+Snapshot for
+
+1.11
+
+Downloads
+
+Client (.json)Server
+
+Protocol version
+
+306
+
+Data version
+
+807
+
+Resource pack format
+
+3
+
+Minimum Java version
+
+Java SE 6
+
+◄◄   1.10.2
+1.11
+  1.11.1 ►►
+
+◄   16w36a
+
+ 16w38a
+
+  16w39a ►
+
+{
+    "title": "Minecraft 16w38a",
+    "images": [
+        "16w38a.png",
+        "Java Edition 16w38a.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "September 20, 2016",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Snapshot article, displayed as Snapshot)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition 1.11 article, displayed as 1.11)",
+            "label": "Snapshot for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/e249ff8eded25695b921ccef066bc8a5db154a6d/client.jar Client] ([https://piston-meta.mojang.com/v1/packages/fbd5d83a14b4d6e8f7029d3c08dd6985d09c4f40/16w38a.json .json])<br />[https://piston-data.mojang.com/v1/objects/95ffd7c33ad9f978d4a23762978923b96fc0aa7e/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "306",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "807",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "3",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_6 Java SE 6]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Java Edition  1.10.2|<span style=\"margin-right:-0.35em\">◄</span>◄   1.10.2]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition 1.11|1.11]]'''</td>\n<td style=\"padding: 0.4em\" >[[Java Edition  1.11.1|  1.11.1 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  16w36a|◄   16w36a]]\n</td>\n<td style=\"padding: 0.4em\">''' 16w38a'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  16w39a|  16w39a ►]]\n</td>\n</tr>\n</table>"
+}
+
+16w38a is the sixth snapshot for Java Edition 1.11, released on September 20, 2016.
+
+Contents
+
+1 Additions
+
+1.1 Gameplay
+
+2 Changes
+
+2.1 Blocks
+2.2 Command format
+2.3 Gameplay
+2.4 General
+2.5 Items
+2.6 Mobs
+
+3 Fixes
+4 Videos
+5 Trivia
+6 Notes
+7 References
+8 Navigation
+
+Additions
+Gameplay
+Gamerules
+
+doWeatherCycle
+Determines whether the weather changes.
+Defaults to true.
+maxEntityCramming
+Defaults to 24.
+If one entity tries to push more than 24 other entities, it starts to suffocate. (Note that pushing entities like minecarts also count towards this, although minecarts don't suffocate, mobs or players who push one, do suffocate)
+The death message is (playername) suffocated in a wall.
+Setting to 0 disables the rule.
+Affects mobs and players only.
+Changes
+Blocks
+ Cobblestone Walls and Mossy Cobblestone Walls
+
+Are now in the "Decoration Blocks" tab in the Creative inventory rather than the "Building Blocks" tab.
+ Farmland
+
+Using pick block gives the player farmland itself instead of dirt.
+Command format
+Target selectors
+
+Invalid selectors (such as @e[Type=creeper] instead of @e[type=creeper], @e[asdf] or @e[foo=nonexistent]) now generate an error instead of being silently ignored.
+Removed implicit target selectors (such as @e[167,28,454]).
+Gameplay
+Chat
+
+Messages can now be 256 characters long instead of 100.
+Fishing
+
+Ink sacs are now caught in stacks of 10 with a weight of 1, rather than in stacks of 1 with a weight of 10.
+General
+Sounds
+
+Walking underwater no longer produces a step sound for the block the player is walking on.
+Items
+ Potions
+
+Potions that have missing or invalid potion-effect tags now default to the uncraftable potion, which now has no glint, and is now magenta in color.
+This also applies to lingering potions, splash potions and tipped arrows.
+Due to the water bottle without tags being changed to uncraftable potion, the brewing icon is also changed to uncraftable potion in the Creative inventory.
+ Elytra
+
+Visible when equipped on skeletons, zombies and armor stands.
+Mobs
+ Guardians and Elder Guardians
+
+Their common drop of raw fish will now be cooked fish if they die while on fire.
+Their rare drops from player kills, which match fishing loot and are sometimes fish, are unaffected.
+ Rabbits
+
+Their raw rabbit drop is now affected by the Looting enchantment.
+ Skeleton Horses and Zombie Horses
+
+Their bone and rotten flesh drops (respectively) now yield 0–2, and are now affected by Looting.
+Fixes
+39 issues fixed
+From released versions before 1.11
+
+MC-3841 – Attacking an unsaddled pig while holding a saddle saddles the pig.
+MC-8673 – Players killed by Wither Skeletons are shown to have been killed by a Skeleton
+MC-36927 – Durability of golden swords occasionally dropped by zombie pigmen is not random (always 25).
+MC-46456 – Written books given by command crashes when copied in crafting table if Author is missing
+MC-61997 – Squids spawn in lava.
+MC-66946 – 2-block tall hitbox on small armor stands.
+MC-67406 – Small armor stands display items differently than normal ones.
+MC-70424 – Baby zombie pigmen's sword is slightly tilted forward.
+MC-80551 – You can place redstone, doors, rails etc. onto 7⁄8 layers of snow.
+MC-86130 – Shields change their base color when damaged & repaired / Crafting different in colors results in damage.
+MC-87159 – Dragon breaks blocks in far-off locations.
+MC-88533 – Marker armorstands cannot properly be tested for with target argument "r=0".
+MC-89921 – Elytra not rendered on entities/mobs.
+MC-91383 – Horses (now only skeleton horses and zombie horses) drop different amount of loot than before.
+MC-92772 – Saddled pigs don't drop saddle with doMobLoot=false.
+MC-92776 – Ink sacs are fished in stacks of 1 instead of 10.
+MC-93435 – Cobblestone walls are listed in the "Building Blocks" tab.
+MC-93609 – Player is floating above the saddle of a mule.
+MC-93824 – Feeding golden carrot to breed horse works if InLove is greater than 0.
+MC-94476 – Killing rabbits with Looting does not give more raw rabbit.
+MC-94947 – Chicken "stepping" sound still works when the chicken is swimming.
+MC-95450 – Villager loot table missing.
+MC-95469 –  Middle Mouse Button / pick block on farmland gives dirt.
+MC-96499 – Boats collide with any entity (arrows, paintings, etc.) even if Marker:1b is on (armor stand).
+MC-98146 – Marker armor stand does not render in some cases.
+MC-98260 – Water bottles have inconsistent NBT tag depending on how you obtain them.
+MC-99602 – Impossible to detect water bottles filled from the ocean in player's inventory.
+MC-100950 – Boats can travel / remain on the fog of lingering potion / dragon's breath.
+MC-101615 – Silverfish do more damage to players on easy difficulty than on normal difficulty.
+MC-101642 – Iron golem / VillagerGolem is holding red flower client side 400 ticks too long.
+MC-103339 – Mushroom cows do not path to mycelium, but grass. Causes unintended spawning requirements.
+MC-103726 – Marker armor stands are not saved with structures.
+MC-105071 – Random green/gray dot in anvil GUI.
+MC-106747 – Wither bosses break structure blocks / structure voids.
+MC-106842 – Target selector stops parsing its arguments if an entry is not <argument>=<value>.
+MC-107054 – lit_furnace item model but no item.
+MC-107055 – 2 models for old wooden slab's item
+From the 1.11 development versions
+
+MC-106485 – Banner applied to a shield doesn't change the shield correctly.
+From the previous development version
+
+MC-106896 – Crash when using backspace after deleting all the characters in the name of anything with a custom name.
+Videos
+Video made by slicedlime:
+
+
+
+
+Trivia
+16w38a was previously removed from the launcher for some time, but was added back in September 2018.
+Notes
+
+ It is not known if this was intended or not, but it was later re-added in 23w18a.
+
+References
+
+ "Important Message: Security vulnerability in Java Edition"     – Minecraft.net, December 10, 2021.
+
+ "Minecraft Snapshot 16w38a"  (archived)   by LadyAgnes  – Mojang.com, September 20, 2016.
+
+Navigation

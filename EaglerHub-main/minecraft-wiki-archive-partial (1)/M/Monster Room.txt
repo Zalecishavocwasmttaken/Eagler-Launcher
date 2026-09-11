@@ -1,0 +1,446 @@
+For other uses, see Dungeon.
+
+Monster Room
+
+Biomes
+
+All biomes in the Overworld
+
+Mobs
+
+Zombie (from monster spawner)
+Skeleton (from monster spawner)
+Spider (from monster spawner)
+
+Generates inexisting chunks  
+
+No
+
+Consists of
+
+ Cobblestone
+ Mossy cobblestone
+ Monster spawner
+ Loot chest
+
+{
+    "title": "Monster Room",
+    "rows": [
+        {
+            "field": "All biomes in the Overworld",
+            "label": "(link to Biome article, displayed as Biomes)"
+        },
+        {
+            "field": "(values exceeds 1000 characters...)",
+            "label": "(link to Mob article, displayed as Mobs)"
+        },
+        {
+            "field": "No",
+            "label": "Generates in<br>existing chunks  "
+        },
+        {
+            "field": "(values exceeds 1000 characters...)",
+            "label": "Consists of"
+        }
+    ],
+    "invimages": [],
+    "images": [
+        "Monster Room (Dungeon).png"
+    ]
+}
+
+
+
+ There is a related tutorial page for this topic! 
+See Tutorial:Defeating a monster room.
+
+A monster room, commonly known as a dungeon, is a structure-like feature found underground in the Overworld. It consists of a room with cobblestone walls and a floor made of cobblestone mixed with mossy cobblestone. A monster spawner that produces either zombies, skeletons, or spiders is found in the middle.
+
+Contents
+
+1 Generation
+2 Construction
+3 Loot
+4 Data values
+
+4.1 ID
+4.2 Config
+
+5 History
+
+5.1 Java Edition
+5.2 Bedrock Edition
+5.3 Legacy Console Edition
+5.4 New Nintendo 3DS Edition
+
+6 Issues
+7 Gallery
+
+7.1 Screenshots
+7.2 Historical screenshots
+7.3 Mojang screenshots
+
+7.3.1 In other media
+
+8 Notes
+9 References
+10 External links
+11 Navigation
+
+Generation
+Monster rooms generate uncommonly in the Overworld in any biome and always nearby carver caves, canyons, mineshafts, and strongholds. Each chunk has fourteen attempts to generate monster rooms underground within y-coordinates 0 to 320 or -58 to -1, each altitude range with different uniformity. For the higher altitude Y levels 0 to 320, up to 10 monster rooms can generate, while up to 4 monster rooms can generate in lower altitude Y levels -58 to -1. It is possible, though unlikely, for multiple attempts to succeed. In Bedrock Edition, monster rooms can generate as underground structures above sea level.
+Monster rooms are a feature instead of a structure, so they generate regardless of whether the "Generate structures" world creation option has been toggled off for said world. They also cannot be searched by the /locate command, but they are very common and can be found without much difficulty in Spectator mode.
+For each attempt, a location (the position for monster spawner) and size (an open area with a width and length of 7 or 9 and a height of 6) is chosen. The attempt succeeds if the following conditions are met:
+
+Blocks in the floor area (including under the walls) of the potential monster room must be solid.
+Blocks in the ceiling area (including over the walls) of the potential monster room must be solid. The ceiling blocks may be gravity-affected such as gravel or sand, which fall if disturbed by the player.
+The walls of the potential monster room must have 1–5 openings (2-high air blocks) at floor level. Monster rooms are always connected to a carver cave or other hollow structure, although it is possible for the monster room itself to overwrite most of a tiny cave.
+If the location passes, air and cobblestone are placed, then 3 attempts are made to generate each of two chests. To generate a chest, the chosen block must be empty and must have a solid block on exactly one of its four sides. The monster spawner is placed at the center of the monster room.
+The monster spawner has a 50% chance of producing zombies, a 25% chance of producing skeletons, and a 25% chance of producing spiders. A zombie monster spawner in Bedrock Edition also has the same chance (5%) of producing zombie villagers as in natural generation.
+Cobblestone has a 75% chance to be mossy when it is on the floor of the monster room.
+The command /place feature minecraft:monster_room ~ ~ ~ can be used to generate a monster room only when the player is under the specific location where the monster room could be found naturally.
+On certain Bedrock Edition platforms,​[more information needed] it may not be possible to generate monster rooms using this command.[verify]
+
+An interactive widget is being loaded. If this does not work for you, please reload the page or check if JavaScript is working or enabled.
+Construction
+Main article: Monster Room/Structure
+Monster rooms are small rooms made of cobblestone and mossy cobblestone that contain a monster spawner and up to 2 chests. Finding a monster room without a chest is unlikely but possible. Additionally, there is a rare chance of a monster room being found without a monster spawner. Occasionally, a monster room generates with its chests in such a way as to create a double chest. Monster rooms generate with either a zombie (50% chance), skeleton (25% chance), or spider (25% chance) monster spawner. The monster spawner is always in the center of the monster room, with chests located around the walls of the room (large chests can connect with the short side against the wall). Each block of the floor has a 25% chance of being cobblestone and a 75% chance of being mossy cobblestone.
+Because the horizontal range for spawning mobs is 4 blocks from the monster spawner, it is possible for mobs to be spawned outside the walls of a 5×5 monster room that is surrounded by air outside the walls.
+
+Loot
+An example of monster room chest loot in Java Edition.
+See also: Chest loot
+
+In Java Edition and Bedrock Edition, each monster room chest contains  items drawn from 3 pools,  with the following distribution:
+
+ Item
+  Stack Size
+  Weight
+  Chance
+  Avg.per chest
+  Avg. # cheststo search
+
+1–3×
+1–4×
+3×
+1–3×
+1–4×
+3×
+
+Bone
+——1–8——10⁄4057.8%3.3751.7
+
+Gunpowder
+——1–8——10⁄4057.8%3.3751.7
+
+Rotten Flesh
+——1–8——10⁄4057.8%3.3751.7
+
+String
+——1–8——10⁄4057.8%3.3751.7
+
+Wheat
+—1–4——20⁄125—34.1%1.0002.9
+
+Bread
+—1——20⁄125—34.1%0.4002.9
+
+Coal
+—1–4——15⁄125—26.6%0.7503.8
+
+Redstone Dust
+—1–4——15⁄125—26.6%0.7503.8
+
+Leather
+1–5——20⁄144——25.3%0.8334.0
+
+Name Tag
+1——20⁄144——25.3%0.2784.0
+
+Copper Horse Armor
+1——15⁄144——19.4%0.2085.1
+
+Music Disc (13)
+1——15⁄144——19.4%0.2085.1
+
+Music Disc (cat)
+1——15⁄144——19.4%0.2085.1
+
+Iron Horse Armor
+1——15⁄144——19.4%0.2085.1
+
+Golden Apple
+1——15⁄144——19.4%0.2085.1
+
+Beetroot Seeds
+—2–4——10⁄125—18.5%0.6005.4
+
+Melon Seeds
+—2–4——10⁄125—18.5%0.6005.4
+
+Pumpkin Seeds
+—2–4——10⁄125—18.5%0.6005.4
+
+Iron Ingot
+—1–4——10⁄125—18.5%0.5005.4
+
+Bucket
+—1——10⁄125—18.5%0.2005.4
+
+Enchanted Book
+1——10⁄144——13.3%0.1397.5
+
+Golden Horse Armor
+1——10⁄144——13.3%0.1397.5
+
+Gold Ingot
+—1–4——5⁄125—9.6%0.25010.4
+
+Diamond Horse Armor
+1——5⁄144——6.8%0.06914.7
+
+Music Disc (otherside)
+1——2⁄144——2.8%0.02836.3
+
+Enchanted Golden Apple
+1——2⁄144——2.8%0.02836.3
+{ "chestNames": [ "monster room" ], "gameVersion": "Java", "loot": { "monster room": { "poolsJava": [ { "items": { "copper-horse-armor": [ 1, 1, 15 ], "name-tag": [ 1, 1, 20 ], "disc-otherside": [ 1, 1, 2 ], "golden-apple": [ 1, 1, 15 ], "leather": [ 1, 5, 20 ], "enchanted-book-rnd": [ 1, 1, 10 ], "iron-horse-armor": [ 1, 1, 15 ], "diamond-horse-armor": [ 1, 1, 5 ], "enchanted-golden-apple": [ 1, 1, 2 ], "golden-horse-armor": [ 1, 1, 10 ], "disc-cat": [ 1, 1, 15 ], "disc-13": [ 1, 1, 15 ] }, "rolls": [ 1, 3 ], "totalweight": 144 }, { "items": { "wheat": [ 1, 4, 20 ], "melon-seeds": [ 2, 4, 10 ], "gold-ingot": [ 1, 4, 5 ], "bucket": [ 1, 1, 10 ], "beetroot-seeds": [ 2, 4, 10 ], "pumpkin-seeds": [ 2, 4, 10 ], "redstone": [ 1, 4, 15 ], "iron-ingot": [ 1, 4, 10 ], "coal": [ 1, 4, 15 ], "bread": [ 1, 1, 20 ] }, "rolls": [ 1, 4 ], "totalweight": 125 }, { "items": { "rotten-flesh": [ 1, 8, 10 ], "string": [ 1, 8, 10 ], "gunpowder": [ 1, 8, 10 ], "bone": [ 1, 8, 10 ] }, "rolls": [ 3, 3 ], "totalweight": 40 } ], "poolsBedrockUpcoming": [], "itemDataJava": { "wheat": { "itemname": "wheat", "sizes": [ "—", "1–4", "—" ], "sortsize": [ 0, 2.5, 0 ], "sortweight": [ 0, 20, 0 ], "weights": [ "—", "<sup>20</sup>&frasl;<sub>125</sub>", "—" ], "avgamount": 1, "chanceany": 0.34095616000000006 }, "melon-seeds": { "sortsize": [ 0, 3, 0 ], "weights": [ "—", "<sup>10</sup>&frasl;<sub>125</sub>", "—" ], "chanceany": 0.1846297600000001, "sizes": [ "—", "2–4", "—" ], "sortweight": [ 0, 10, 0 ], "armor": 0, "material": 0, "avgamount": 0.6, "itemname": "melon-seeds" }, "diamond-horse-armor": { "itemname": "diamond-horse-armor", "sizes": [ 1, "—", "—" ], "sortsize": [ 1, 0, 0 ], "sortweight": [ 5, 0, 0 ], "weights": [ "<sup>5</sup>&frasl;<sub>144</sub>", "—", "—" ], "avgamount": 0.06944444444444445, "chanceany": 0.0678508882387403 }, "rotten-flesh": { "sortsize": [ 0, 0, 4.5 ], "weights": [ "—", "—", "<sup>10</sup>&frasl;<sub>40</sub>" ], "chanceany": 0.578125, "sizes": [ "—", "—", "1–8" ], "sortweight": [ 0, 0, 10 ], "armor": 0, "material": 0, "avgamount": 3.375, "itemname": "rotten-flesh" }, "disc-otherside": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>2</sup>&frasl;<sub>144</sub>", "—", "—" ], "chanceany": 0.027521469192958392, "sizes": [ 1, "—", "—" ], "sortweight": [ 2, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.027777777777777776, "itemname": "disc-otherside" }, "gold-ingot": { "itemname": "gold-ingot", "sizes": [ "—", "1–4", "—" ], "sortsize": [ 0, 2.5, 0 ], "sortweight": [ 0, 5, 0 ], "weights": [ "—", "<sup>5</sup>&frasl;<sub>125</sub>", "—" ], "avgamount": 0.25, "chanceany": 0.09607936000000006 }, "iron-horse-armor": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>15</sup>&frasl;<sub>144</sub>", "—", "—" ], "chanceany": 0.19424250096450613, "sizes": [ 1, "—", "—" ], "sortweight": [ 15, 0, 0 ], "armor": 0, "material": 2, "avgamount": 0.20833333333333334, "itemname": "iron-horse-armor" }, "bone": { "sortsize": [ 0, 0, 4.5 ], "weights": [ "—", "—", "<sup>10</sup>&frasl;<sub>40</sub>" ], "chanceany": 0.578125, "sizes": [ "—", "—", "1–8" ], "sortweight": [ 0, 0, 10 ], "armor": 0, "material": 0, "avgamount": 3.375, "itemname": "bone" }, "enchanted-golden-apple": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>2</sup>&frasl;<sub>144</sub>", "—", "—" ], "chanceany": 0.027521469192958392, "sizes": [ 1, "—", "—" ], "sortweight": [ 2, 0, 0 ], "armor": 0, "material": 3, "avgamount": 0.027777777777777776, "itemname": "enchanted-golden-apple" }, "pumpkin-seeds": { "sortsize": [ 0, 3, 0 ], "weights": [ "—", "<sup>10</sup>&frasl;<sub>125</sub>", "—" ], "chanceany": 0.1846297600000001, "sizes": [ "—", "2–4", "—" ], "sortweight": [ 0, 10, 0 ], "armor": 0, "material": 0, "avgamount": 0.6, "itemname": "pumpkin-seeds" }, "gunpowder": { "sortsize": [ 0, 0, 4.5 ], "weights": [ "—", "—", "<sup>10</sup>&frasl;<sub>40</sub>" ], "chanceany": 0.578125, "sizes": [ "—", "—", "1–8" ], "sortweight": [ 0, 0, 10 ], "armor": 0, "material": 0, "avgamount": 3.375, "itemname": "gunpowder" }, "string": { "sortsize": [ 0, 0, 4.5 ], "weights": [ "—", "—", "<sup>10</sup>&frasl;<sub>40</sub>" ], "chanceany": 0.578125, "sizes": [ "—", "—", "1–8" ], "sortweight": [ 0, 0, 10 ], "armor": 0, "material": 0, "avgamount": 3.375, "itemname": "string" }, "copper-horse-armor": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>15</sup>&frasl;<sub>144</sub>", "—", "—" ], "chanceany": 0.19424250096450613, "sizes": [ 1, "—", "—" ], "sortweight": [ 15, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.20833333333333334, "itemname": "copper-horse-armor" }, "bread": { "itemname": "bread", "sizes": [ "—", 1, "—" ], "sortsize": [ 0, 1, 0 ], "sortweight": [ 0, 20, 0 ], "weights": [ "—", "<sup>20</sup>&frasl;<sub>125</sub>", "—" ], "avgamount": 0.4, "chanceany": 0.34095616000000006 }, "enchanted-book-rnd": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>10</sup>&frasl;<sub>144</sub>", "—", "—" ], "chanceany": 0.132570480395519, "sizes": [ 1, "—", "—" ], "sortweight": [ 10, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.1388888888888889, "itemname": "enchanted-book-rnd" }, "coal": { "sortsize": [ 0, 2.5, 0 ], "weights": [ "—", "<sup>15</sup>&frasl;<sub>125</sub>", "—" ], "chanceany": 0.26610816000000004, "sizes": [ "—", "1–4", "—" ], "sortweight": [ 0, 15, 0 ], "armor": 0, "material": 0, "avgamount": 0.75, "itemname": "coal" }, "golden-apple": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>15</sup>&frasl;<sub>144</sub>", "—", "—" ], "chanceany": 0.19424250096450613, "sizes": [ 1, "—", "—" ], "sortweight": [ 15, 0, 0 ], "armor": 0, "material": 3, "avgamount": 0.20833333333333334, "itemname": "golden-apple" }, "iron-ingot": { "itemname": "iron-ingot", "sizes": [ "—", "1–4", "—" ], "sortsize": [ 0, 2.5, 0 ], "sortweight": [ 0, 10, 0 ], "weights": [ "—", "<sup>10</sup>&frasl;<sub>125</sub>", "—" ], "avgamount": 0.5, "chanceany": 0.1846297600000001 }, "leather": { "itemname": "leather", "sizes": [ "1–5", "—", "—" ], "sortsize": [ 3, 0, 0 ], "sortweight": [ 20, 0, 0 ], "weights": [ "<sup>20</sup>&frasl;<sub>144</sub>", "—", "—" ], "avgamount": 0.8333333333333334, "chanceany": 0.25295067443987196 }, "bucket": { "itemname": "bucket", "sizes": [ "—", 1, "—" ], "sortsize": [ 0, 1, 0 ], "sortweight": [ 0, 10, 0 ], "weights": [ "—", "<sup>10</sup>&frasl;<sub>125</sub>", "—" ], "avgamount": 0.2, "chanceany": 0.1846297600000001 }, "name-tag": { "itemname": "name-tag", "sizes": [ 1, "—", "—" ], "sortsize": [ 1, 0, 0 ], "sortweight": [ 20, 0, 0 ], "weights": [ "<sup>20</sup>&frasl;<sub>144</sub>", "—", "—" ], "avgamount": 0.2777777777777778, "chanceany": 0.25295067443987196 }, "beetroot-seeds": { "sortsize": [ 0, 3, 0 ], "weights": [ "—", "<sup>10</sup>&frasl;<sub>125</sub>", "—" ], "chanceany": 0.1846297600000001, "sizes": [ "—", "2–4", "—" ], "sortweight": [ 0, 10, 0 ], "armor": 0, "material": 0, "avgamount": 0.6, "itemname": "beetroot-seeds" }, "redstone": { "sortsize": [ 0, 2.5, 0 ], "weights": [ "—", "<sup>15</sup>&frasl;<sub>125</sub>", "—" ], "chanceany": 0.26610816000000004, "sizes": [ "—", "1–4", "—" ], "sortweight": [ 0, 15, 0 ], "armor": 0, "material": 0, "avgamount": 0.75, "itemname": "redstone" }, "golden-horse-armor": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>10</sup>&frasl;<sub>144</sub>", "—", "—" ], "chanceany": 0.132570480395519, "sizes": [ 1, "—", "—" ], "sortweight": [ 10, 0, 0 ], "armor": 0, "material": 3, "avgamount": 0.1388888888888889, "itemname": "golden-horse-armor" }, "disc-cat": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>15</sup>&frasl;<sub>144</sub>", "—", "—" ], "chanceany": 0.19424250096450613, "sizes": [ 1, "—", "—" ], "sortweight": [ 15, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.20833333333333334, "itemname": "disc-cat" }, "disc-13": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>15</sup>&frasl;<sub>144</sub>", "—", "—" ], "chanceany": 0.19424250096450613, "sizes": [ 1, "—", "—" ], "sortweight": [ 15, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.20833333333333334, "itemname": "disc-13" } }, "structID": "Monster Room", "poolsJavaUpcoming": [], "structure": "Monster Room", "container": "", "itemDataJavaUpcoming": [], "allRollsJavaUpcoming": [], "itemDataBedrock": { "wheat": { "itemname": "wheat", "sizes": [ "—", "1–4", "—" ], "sortsize": [ 0, 2.5, 0 ], "sortweight": [ 0, 20, 0 ], "weights": [ "—", "<sup>20</sup>&frasl;<sub>125</sub>", "—" ], "avgamount": 1, "chanceany": 0.34095616000000006 }, "melon-seeds": { "sortsize": [ 0, 3, 0 ], "weights": [ "—", "<sup>10</sup>&frasl;<sub>125</sub>", "—" ], "chanceany": 0.1846297600000001, "sizes": [ "—", "2–4", "—" ], "sortweight": [ 0, 10, 0 ], "armor": 0, "material": 0, "avgamount": 0.6, "itemname": "melon-seeds" }, "diamond-horse-armor": { "itemname": "diamond-horse-armor", "sizes": [ 1, "—", "—" ], "sortsize": [ 1, 0, 0 ], "sortweight": [ 5, 0, 0 ], "weights": [ "<sup>5</sup>&frasl;<sub>144</sub>", "—", "—" ], "avgamount": 0.06944444444444445, "chanceany": 0.0678508882387403 }, "rotten-flesh": { "sortsize": [ 0, 0, 4.5 ], "weights": [ "—", "—", "<sup>10</sup>&frasl;<sub>40</sub>" ], "chanceany": 0.578125, "sizes": [ "—", "—", "1–8" ], "sortweight": [ 0, 0, 10 ], "armor": 0, "material": 0, "avgamount": 3.375, "itemname": "rotten-flesh" }, "disc-otherside": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>2</sup>&frasl;<sub>144</sub>", "—", "—" ], "chanceany": 0.027521469192958392, "sizes": [ 1, "—", "—" ], "sortweight": [ 2, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.027777777777777776, "itemname": "disc-otherside" }, "gold-ingot": { "itemname": "gold-ingot", "sizes": [ "—", "1–4", "—" ], "sortsize": [ 0, 2.5, 0 ], "sortweight": [ 0, 5, 0 ], "weights": [ "—", "<sup>5</sup>&frasl;<sub>125</sub>", "—" ], "avgamount": 0.25, "chanceany": 0.09607936000000006 }, "iron-horse-armor": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>15</sup>&frasl;<sub>144</sub>", "—", "—" ], "chanceany": 0.19424250096450613, "sizes": [ 1, "—", "—" ], "sortweight": [ 15, 0, 0 ], "armor": 0, "material": 2, "avgamount": 0.20833333333333334, "itemname": "iron-horse-armor" }, "bone": { "sortsize": [ 0, 0, 4.5 ], "weights": [ "—", "—", "<sup>10</sup>&frasl;<sub>40</sub>" ], "chanceany": 0.578125, "sizes": [ "—", "—", "1–8" ], "sortweight": [ 0, 0, 10 ], "armor": 0, "material": 0, "avgamount": 3.375, "itemname": "bone" }, "enchanted-golden-apple": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>2</sup>&frasl;<sub>144</sub>", "—", "—" ], "chanceany": 0.027521469192958392, "sizes": [ 1, "—", "—" ], "sortweight": [ 2, 0, 0 ], "armor": 0, "material": 3, "avgamount": 0.027777777777777776, "itemname": "enchanted-golden-apple" }, "pumpkin-seeds": { "sortsize": [ 0, 3, 0 ], "weights": [ "—", "<sup>10</sup>&frasl;<sub>125</sub>", "—" ], "chanceany": 0.1846297600000001, "sizes": [ "—", "2–4", "—" ], "sortweight": [ 0, 10, 0 ], "armor": 0, "material": 0, "avgamount": 0.6, "itemname": "pumpkin-seeds" }, "gunpowder": { "sortsize": [ 0, 0, 4.5 ], "weights": [ "—", "—", "<sup>10</sup>&frasl;<sub>40</sub>" ], "chanceany": 0.578125, "sizes": [ "—", "—", "1–8" ], "sortweight": [ 0, 0, 10 ], "armor": 0, "material": 0, "avgamount": 3.375, "itemname": "gunpowder" }, "string": { "sortsize": [ 0, 0, 4.5 ], "weights": [ "—", "—", "<sup>10</sup>&frasl;<sub>40</sub>" ], "chanceany": 0.578125, "sizes": [ "—", "—", "1–8" ], "sortweight": [ 0, 0, 10 ], "armor": 0, "material": 0, "avgamount": 3.375, "itemname": "string" }, "copper-horse-armor": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>15</sup>&frasl;<sub>144</sub>", "—", "—" ], "chanceany": 0.19424250096450613, "sizes": [ 1, "—", "—" ], "sortweight": [ 15, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.20833333333333334, "itemname": "copper-horse-armor" }, "bread": { "itemname": "bread", "sizes": [ "—", 1, "—" ], "sortsize": [ 0, 1, 0 ], "sortweight": [ 0, 20, 0 ], "weights": [ "—", "<sup>20</sup>&frasl;<sub>125</sub>", "—" ], "avgamount": 0.4, "chanceany": 0.34095616000000006 }, "enchanted-book-rnd": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>10</sup>&frasl;<sub>144</sub>", "—", "—" ], "chanceany": 0.132570480395519, "sizes": [ 1, "—", "—" ], "sortweight": [ 10, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.1388888888888889, "itemname": "enchanted-book-rnd" }, "coal": { "sortsize": [ 0, 2.5, 0 ], "weights": [ "—", "<sup>15</sup>&frasl;<sub>125</sub>", "—" ], "chanceany": 0.26610816000000004, "sizes": [ "—", "1–4", "—" ], "sortweight": [ 0, 15, 0 ], "armor": 0, "material": 0, "avgamount": 0.75, "itemname": "coal" }, "golden-apple": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>15</sup>&frasl;<sub>144</sub>", "—", "—" ], "chanceany": 0.19424250096450613, "sizes": [ 1, "—", "—" ], "sortweight": [ 15, 0, 0 ], "armor": 0, "material": 3, "avgamount": 0.20833333333333334, "itemname": "golden-apple" }, "iron-ingot": { "itemname": "iron-ingot", "sizes": [ "—", "1–4", "—" ], "sortsize": [ 0, 2.5, 0 ], "sortweight": [ 0, 10, 0 ], "weights": [ "—", "<sup>10</sup>&frasl;<sub>125</sub>", "—" ], "avgamount": 0.5, "chanceany": 0.1846297600000001 }, "leather": { "itemname": "leather", "sizes": [ "1–5", "—", "—" ], "sortsize": [ 3, 0, 0 ], "sortweight": [ 20, 0, 0 ], "weights": [ "<sup>20</sup>&frasl;<sub>144</sub>", "—", "—" ], "avgamount": 0.8333333333333334, "chanceany": 0.25295067443987196 }, "bucket": { "itemname": "bucket", "sizes": [ "—", 1, "—" ], "sortsize": [ 0, 1, 0 ], "sortweight": [ 0, 10, 0 ], "weights": [ "—", "<sup>10</sup>&frasl;<sub>125</sub>", "—" ], "avgamount": 0.2, "chanceany": 0.1846297600000001 }, "name-tag": { "itemname": "name-tag", "sizes": [ 1, "—", "—" ], "sortsize": [ 1, 0, 0 ], "sortweight": [ 20, 0, 0 ], "weights": [ "<sup>20</sup>&frasl;<sub>144</sub>", "—", "—" ], "avgamount": 0.2777777777777778, "chanceany": 0.25295067443987196 }, "beetroot-seeds": { "sortsize": [ 0, 3, 0 ], "weights": [ "—", "<sup>10</sup>&frasl;<sub>125</sub>", "—" ], "chanceany": 0.1846297600000001, "sizes": [ "—", "2–4", "—" ], "sortweight": [ 0, 10, 0 ], "armor": 0, "material": 0, "avgamount": 0.6, "itemname": "beetroot-seeds" }, "redstone": { "sortsize": [ 0, 2.5, 0 ], "weights": [ "—", "<sup>15</sup>&frasl;<sub>125</sub>", "—" ], "chanceany": 0.26610816000000004, "sizes": [ "—", "1–4", "—" ], "sortweight": [ 0, 15, 0 ], "armor": 0, "material": 0, "avgamount": 0.75, "itemname": "redstone" }, "golden-horse-armor": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>10</sup>&frasl;<sub>144</sub>", "—", "—" ], "chanceany": 0.132570480395519, "sizes": [ 1, "—", "—" ], "sortweight": [ 10, 0, 0 ], "armor": 0, "material": 3, "avgamount": 0.1388888888888889, "itemname": "golden-horse-armor" }, "disc-cat": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>15</sup>&frasl;<sub>144</sub>", "—", "—" ], "chanceany": 0.19424250096450613, "sizes": [ 1, "—", "—" ], "sortweight": [ 15, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.20833333333333334, "itemname": "disc-cat" }, "disc-13": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>15</sup>&frasl;<sub>144</sub>", "—", "—" ], "chanceany": 0.19424250096450613, "sizes": [ 1, "—", "—" ], "sortweight": [ 15, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.20833333333333334, "itemname": "disc-13" } }, "poolsBedrock": [ { "items": { "copper-horse-armor": [ 1, 1, 15 ], "name-tag": [ 1, 1, 20 ], "disc-otherside": [ 1, 1, 2 ], "golden-apple": [ 1, 1, 15 ], "leather": [ 1, 5, 20 ], "enchanted-book-rnd": [ 1, 1, 10 ], "iron-horse-armor": [ 1, 1, 15 ], "diamond-horse-armor": [ 1, 1, 5 ], "enchanted-golden-apple": [ 1, 1, 2 ], "golden-horse-armor": [ 1, 1, 10 ], "disc-cat": [ 1, 1, 15 ], "disc-13": [ 1, 1, 15 ] }, "rolls": [ 1, 3 ], "totalweight": 144 }, { "items": { "wheat": [ 1, 4, 20 ], "melon-seeds": [ 2, 4, 10 ], "gold-ingot": [ 1, 4, 5 ], "bucket": [ 1, 1, 10 ], "beetroot-seeds": [ 2, 4, 10 ], "pumpkin-seeds": [ 2, 4, 10 ], "redstone": [ 1, 4, 15 ], "iron-ingot": [ 1, 4, 10 ], "coal": [ 1, 4, 15 ], "bread": [ 1, 1, 20 ] }, "rolls": [ 1, 4 ], "totalweight": 125 }, { "items": { "rotten-flesh": [ 1, 8, 10 ], "string": [ 1, 8, 10 ], "gunpowder": [ 1, 8, 10 ], "bone": [ 1, 8, 10 ] }, "rolls": [ 3, 3 ], "totalweight": 40 } ], "allRollsBedrockUpcoming": [], "allRollsBedrock": [ "1–3", "1–4", 3 ], "itemDataBedrockUpcoming": [], "header": "[[Monster Room]]", "allRollsJava": [ "1–3", "1–4", 3 ], "link": "[[monster room]]" } } }
+
+ The size of stacks (or for unstackable items, number) of this item on any given roll.
+
+ The weight of this item relative to other items in the pool.
+
+ The odds of finding any of this item in a single chest.
+
+ The number of items expected per chest, averaged over a large number of chests.
+
+ The average number of chests the player should expect to search to find any of this item.
+
+ All enchantments are equally probable, including treasure enchantments (except Soul Speed, Swift Sneak, and Wind Burst), and any level of the enchantment is equally probable.
+
+Data values
+ID
+Java Edition:
+
+Feature typeIdentifier
+ [No displayed name]monster_room
+
+Configured featureIdentifier
+ [No displayed name]monster_room
+
+Bedrock Edition:
+
+FeatureIdentifier
+ [No displayed name][No ID]
+
+Config
+Main article: Configured feature
+Java Edition:
+
+[NBT Compound / JSON Object] config: Empty
+
+An example
+
+{
+  "type": "minecraft:monster_room",
+  "config": {}
+}
+
+History
+Java Edition
+Java Edition Infdev20100625-1917
+ Added monster rooms. The chests may contain sulphur, string, wheat, bread, iron ingots, buckets, saddles and rarely golden apples.Java Edition Alphav1.0.1_01
+Added redstone dust to monster room chests.[is this the correct version?]v1.0.14
+Added the newly introduced 13 and cat music discs to monster room chests.Java Edition Beta1.4
+Added cocoa beans to monster room chests.Java Edition1.4.612w49a
+Added enchanted books to monster room chests.1.6.113w16b
+Added name tags to monster room chests.13w18a
+Added horse armor to monster room chests and removed cocoa beans. Probabilities have now also been adjusted.1.7.213w36a
+Changes in carver cave generation now make monster rooms considerably rarer.1.814w30a
+The chances of music discs in monster room chests have been reduced.1.915w44a
+Added bones, coal, rotten flesh, enchanted golden apples, melon seeds, pumpkin seeds and beetroot seeds to monster room chests.
+
+The average yield of music discs in monster room chests has been increased.
+
+The average yield of enchanted books, gunpowder and string in monster room chests have been doubled.
+
+The average yield of normal golden apples in monster room chests has been substantially increased.
+
+The average yield of iron horse armor in monster room chests has been decreased.
+
+The average yields of name tags, saddles, wheat and bread in monster room chests have been nearly halved.
+
+The average yields of iron ingots and buckets in monster room chests have been substantially decreased.1.1620w22a
+As a result of a world generation bug fix, monster room positions have been shifted.1.17?
+Monster room generation has changed – it appears they are again capable of generating in open-air areas such as cliffsides like they were prior to 1.7.2.1.1821w40a
+Monster rooms now generate more frequently, especially below Y=0.21w42a
+The "otherside" music disc can now be found in monster room chests.1.18.222w03a
+Monster rooms can now be placed using /placefeature.1.1922w18a
+Due to the removal of /placefeature command, monster rooms are now placed using /place.1.19.423w05a
+Removed mentioning of monster rooms from the Create New World screen. Before this snapshot, a contradiction existed in Java Edition that even though the "Generate Structures" world creation option listed "dungeons" as an example structures that were supposed to generate only when the option was turned "ON", monster rooms generated even if the option was set to "OFF".1.21.625w20a
+Removed saddles from loot tables, replaced with 1–5 leather.1.21.925w31a
+Copper horse armor now generates in monster room chests.
+Bedrock Edition
+Pocket Edition Alphav0.9.0build 1
+Added dungeons.v0.15.0build 1
+Added name tags, enchanted books and horse armor to dungeon chests.Bedrock Edition1.2.0beta 1.2.0.2
+Added music discs to dungeon chests.1.17.0?
+The probability of dungeons had been changed to less common to match Java Edition.1.18.0beta 1.18.0.21
+Dungeons now generate more frequently, especially below Y=0.
+Legacy Console Edition
+Legacy Console EditionXbox 360Xbox OnePS3PS4PS VitaWii USwitchTU1CU11.001.001.00Patch 11.0.1
+Added dungeons.
+New Nintendo 3DS Edition
+New Nintendo 3DS Edition0.1.0
+Added dungeons.
+Issues
+Issues relating to "Monster Room" or "Dungeon" are maintained on the bug tracker. Issues should be reported and viewed there.
+
+Gallery
+Screenshots
+
+
+
+			A gravel ore feature fallen into a monster room.
+
+
+
+			A spider monster room.
+
+
+
+			A zombie monster room.
+
+
+
+			A monster room next to a cave.
+
+
+
+			Skeleton monster spawner in badlands mineshaft.
+
+
+
+			A caved-in surface monster room.
+
+
+
+			Monster rooms can rarely be found open to the surface.
+
+
+
+			A zombie monster room at ground level.
+
+
+
+			A double monster room, the wall of the first acting as the entrance of the second.
+
+
+
+			A monster room intersecting with a stronghold
+
+
+
+			A monster room in the upper room of a desert pyramid.
+
+
+
+			A monster room partially replacing the basement section of an igloo.
+
+
+
+			A monster room intersecting with a mineshaft at bedrock level.
+
+
+
+			A monster room with no chests.
+
+
+
+			A monster room covered with sculk vein.
+
+
+
+			A zombie monster room intersecting with an ancient city.
+
+
+
+			A partial monster room in a dripstone cave.
+
+
+
+			A monster room generated within a trail ruin.
+
+
+
+			A monster room intersected with a trial chamber.
+
+
+Historical screenshots
+
+
+
+			A rare instance of a monster room generating in midair.
+
+
+
+			A monster room found underneath water.
+
+
+
+			A surface monster room in the PC Gamer Demo.
+
+
+
+			A triple monster room.
+
+
+Mojang screenshots
+
+
+
+			A monster room full of skeletons without bows.
+
+
+
+			A monster room with a torch.
+
+
+
+			A monster room with zombies.
+
+
+
+			A spider standing in a monster room.
+
+
+
+			A baby zombie in a monster room.
+
+
+
+			A close-up of a mob spawner, flanked by two spiders.
+
+
+In other media
+
+
+
+			 A Lego Minecraft monster room
+
+
+Notes
+
+ This name is still used to describe it in official media.
+
+References
+
+ MC-77787 – Dungeons still generate when generate structures option is turned off – resolved as "Won't Fix".
+
+ MC-107829 – resolved as "Works As Intended".
+
+ "It seems that the underground is no longer swiss cheese anymore."     by TheMasterCaver  – Minecraft Forum, October 26, 2013. "Dungeons require an air space underground in order to generate, so fewer caves = fewer chances of a dungeon generating"
+
+External links
+"Building Blocks: Monster Room"     by Duncan Geere  – Minecraft.net, February 26, 2026.
+Navigation

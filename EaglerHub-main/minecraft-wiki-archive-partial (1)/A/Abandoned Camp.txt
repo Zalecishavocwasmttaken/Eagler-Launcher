@@ -1,0 +1,5177 @@
+This article describes content that is currently in development. 
+This content has appeared in  development versions for Third Drop 2026, but the full update adding it has not been released yet.
+
+Abandoned Camp
+
+
+
+
+
+
+
+
+
+
+Biomes
+
+Bamboo Jungle
+Birch Forest
+Cherry Grove
+Dappled Forest
+Flower Forest
+Forest
+Meadow
+Old Growth Birch Forest
+Old Growth Pine Taiga
+Old Growth Spruce Taiga
+Pale Garden
+Savanna
+Snowy Taiga
+Sparse Jungle
+Swamp
+Taiga
+Windswept Forest
+Wooded Badlands
+
+Consists of
+
+See § Structure
+See § Blocks
+
+{
+    "title": "Abandoned Camp",
+    "rows": [
+        {
+            "field": "(values exceeds 1000 characters...)",
+            "label": "(link to Biome article, displayed as Biomes)"
+        },
+        {
+            "field": "\n* See (link to #Structure article, displayed as <span style=\"white-space: nowrap;\">§ Structure</span>) \n* See (link to #Blocks article, displayed as <span style=\"white-space: nowrap;\">§ Blocks</span>)",
+            "label": "Consists of"
+        }
+    ],
+    "invimages": [],
+    "images": [
+        "Abandoned Camp.png",
+        "Abandoned Camp Cutout.png"
+    ]
+}
+
+An abandoned camp is a small structure consisting of a wool tent with chests, copper chests, and barrels that generates in various Overworld surface biomes. Its appearance can be varied, such as being covered in leaves or featuring a crop farm nearby. The loot inside the chests can have explorer maps for various structures such as abandoned camps, ancient cities, and trial chambers.
+
+Contents
+
+1 Description
+2 Generation
+3 Structure
+
+3.1 File structure
+3.2 Blocks
+3.3 Components
+
+3.3.1 Tent
+3.3.2 Campsite
+
+3.3.2.1 Default
+3.3.2.2 Biome-specific
+
+4 Loot
+
+4.1 Barrels
+4.2 Common chests
+4.3 Secret chests
+
+5 Data values
+
+5.1 ID
+
+6 History
+
+6.1 Announcement
+6.2 Java Edition
+6.3 Bedrock Edition
+
+7 Issues
+8 Trivia
+9 Gallery
+
+9.1 Screenshots
+9.2 Mojang screenshots
+9.3 Development screenshots
+
+10 Notes
+11 References
+12 Navigation
+
+Description
+The locations of copper chests not visible from the surface
+Abandoned camps can generate in eighteen surface biomes in the Overworld featuring tents made of white wool stairs with an array of chests, barrels, straw beds, cushions, and other utility blocks inside. Rarely, an oxidized copper chest can be found with more valuable loot than the standard containers, often being hidden under other blocks.
+The floor of the tent and surrounding ground is comprised of dirt, gravel and path blocks, and nearby the tent is an unlit campfire along with a chest or a barrel. Cobwebs and leaves sometimes replace the wool stairs that make up the tent, giving it an abandoned appearance. Other features can sometimes generate around the tent, such as a tree or small crop farm. The fences supporting the tent are different depending on the biome. For example, a tent that generated in a pale garden would have pale oak fences.
+
+Generation
+Abandoned camps generate in the following biomes:
+
+Bamboo Jungle
+Birch Forest
+Cherry Grove
+Dappled Forest
+Flower Forest
+Forest
+Meadow
+Old Growth Birch Forest
+Old Growth Pine Taiga
+Old Growth Spruce Taiga
+Pale Garden
+Savanna
+Snowy Taiga
+Sparse Jungle
+Swamp
+Taiga
+Windswept Forest
+Wooded Badlands
+The generation of abandoned camps follows a grid of 34×34 chunk regions centered on the world origin. Each region contains a single generation attempt at a random location within the region; if the selected location is not within a valid biome, the camp does not generate.
+Provided non-valid biomes do not cancel their generation, abandoned camps are spaced a minimum of 8 chunks and a maximum of 60 chunks apart. The average distance between two neighboring camps is therefore 34.5 chunks.
+
+An interactive widget is being loaded. If this does not work for you, please reload the page or check if JavaScript is working or enabled.
+Structure
+An abandoned camp consists of a tent and a campsite generated in front of it. The tent variant is determined by the biome in which the camp generates, as there are ten variants of the tent per biome, making each tent variation have a weight of 1⁄10 (10%). The campsite variant is selected from a pool of 45 default variants and 4 additional biome-specific variants corresponding to the biome in which the camp generates, with each variant having an equal probability of being chosen, with a chance for one to be selected is 1⁄45 (0.02%) for each variant.
+As a result, a total of 8,820 unique abandoned camp configurations are possible.
+
+File structure
+All abandoned camps structures found below are located in the folder client.jar/data/minecraft/structure/abandoned_camp in Java Edition and data/behavior_packs/experimental_y_2026_drop_3/structures/abandoned_camp in Bedrock Edition.
+
+List
+
+abandoned_camps
+camp
+bamboo_jungle
+campsite_bamboo_jungle_1.nbt
+campsite_bamboo_jungle_2.nbt
+campsite_bamboo_jungle_3.nbt
+birch_forest
+campsite_birch_forest_1.nbt
+campsite_birch_forest_2.nbt
+campsite_birch_forest_3.nbt
+cherry_grove
+campsite_cherry_grove_1.nbt
+campsite_cherry_grove_2.nbt
+campsite_cherry_grove_3.nbt
+dappled_forest
+campsite_dappled_forest_1.nbt
+campsite_dappled_forest_2.nbt
+campsite_dappled_forest_3.nbt
+default
+campsite_default_barrel_1.nbt
+campsite_default_barrel_2.nbt
+campsite_default_barrel_3.nbt
+campsite_default_barrel_4.nbt
+campsite_default_barrel_5.nbt
+campsite_default_barrel_6.nbt
+campsite_default_barrel_7.nbt
+campsite_default_barrel_8.nbt
+campsite_default_barrel_9.nbt
+campsite_default_barrel_10.nbt
+campsite_default_barrel_11.nbt
+campsite_default_barrel_12.nbt
+campsite_default_barrel_13.nbt
+campsite_default_barrel_14.nbt
+campsite_default_barrel_15.nbt
+campsite_default_chest_1.nbt
+campsite_default_chest_2.nbt
+campsite_default_chest_3.nbt
+campsite_default_chest_4.nbt
+campsite_default_chest_5.nbt
+campsite_default_chest_6.nbt
+campsite_default_chest_7.nbt
+campsite_default_chest_8.nbt
+campsite_default_chest_9.nbt
+campsite_default_chest_10.nbt
+campsite_default_chest_11.nbt
+campsite_default_chest_12.nbt
+campsite_default_chest_13.nbt
+campsite_default_chest_14.nbt
+campsite_default_chest_15.nbt
+campsite_default_special_1.nbt
+campsite_default_special_2.nbt
+campsite_default_special_3.nbt
+campsite_default_special_4.nbt
+campsite_default_special_5.nbt
+campsite_default_special_6.nbt
+campsite_default_special_7.nbt
+campsite_default_special_8.nbt
+campsite_default_special_9.nbt
+campsite_default_special_10.nbt
+campsite_default_special_11.nbt
+campsite_default_special_12.nbt
+campsite_default_special_13.nbt
+campsite_default_special_14.nbt
+campsite_default_special_15.nbt
+flower_forest
+campsite_flower_forest_1.nbt
+campsite_flower_forest_2.nbt
+campsite_flower_forest_3.nbt
+forest
+campsite_forest_1.nbt
+campsite_forest_2.nbt
+campsite_forest_3.nbt
+meadow
+campsite_meadow_1.nbt
+campsite_meadow_2.nbt
+campsite_meadow_3.nbt
+old_growth_birch_forest
+campsite_old_growth_birch_forest_1.nbt
+campsite_old_growth_birch_forest_2.nbt
+campsite_old_growth_birch_forest_3.nbt
+old_growth_pine_taiga
+campsite_old_growth_pine_taiga_1.nbt
+campsite_old_growth_pine_taiga_2.nbt
+campsite_old_growth_pine_taiga_3.nbt
+old_growth_spruce_taiga
+campsite_old_growth_spruce_taiga_1.nbt
+campsite_old_growth_spruce_taiga_2.nbt
+campsite_old_growth_spruce_taiga_3.nbt
+pale_garden
+campsite_pale_garden_1.nbt
+campsite_pale_garden_2.nbt
+campsite_pale_garden_3.nbt
+savanna
+campsite_savanna_1.nbt
+campsite_savanna_2.nbt
+campsite_savanna_3.nbt
+snowy_taiga
+campsite_snowy_taiga_1.nbt
+campsite_snowy_taiga_2.nbt
+campsite_snowy_taiga_3.nbt
+sparse_jungle
+campsite_sparse_jungle_1.nbt
+campsite_sparse_jungle_2.nbt
+campsite_sparse_jungle_3.nbt
+swamp
+campsite_swamp_1.nbt
+campsite_swamp_2.nbt
+campsite_swamp_3.nbt
+taiga
+campsite_taiga_1.nbt
+campsite_taiga_2.nbt
+campsite_taiga_3.nbt
+windswept_forest
+campsite_windswept_forest_1.nbt
+campsite_windswept_forest_2.nbt
+campsite_windswept_forest_3.nbt
+wooded_badlands
+campsite_wooded_badlands_1.nbt
+campsite_wooded_badlands_2.nbt
+campsite_wooded_badlands_3.nbt
+tent
+bamboo_jungle
+tent_bamboo_jungle_1
+tent_bamboo_jungle_2
+tent_bamboo_jungle_3
+tent_bamboo_jungle_4
+tent_bamboo_jungle_5
+tent_bamboo_jungle_6
+tent_bamboo_jungle_7
+tent_bamboo_jungle_8
+tent_bamboo_jungle_9
+tent_bamboo_jungle_10
+birch_forest
+tent_birch_forest_1
+tent_birch_forest_2
+tent_birch_forest_3
+tent_birch_forest_4
+tent_birch_forest_5
+tent_birch_forest_6
+tent_birch_forest_7
+tent_birch_forest_8
+tent_birch_forest_9
+tent_birch_forest_10
+cherry_grove
+tent_cherry_grove_1
+tent_cherry_grove_2
+tent_cherry_grove_3
+tent_cherry_grove_4
+tent_cherry_grove_5
+tent_cherry_grove_6
+tent_cherry_grove_7
+tent_cherry_grove_8
+tent_cherry_grove_9
+tent_cherry_grove_10
+dappled_forest
+tent_dappled_forest_1
+tent_dappled_forest_2
+tent_dappled_forest_3
+tent_dappled_forest_4
+tent_dappled_forest_5
+tent_dappled_forest_6
+tent_dappled_forest_7
+tent_dappled_forest_8
+tent_dappled_forest_9
+tent_dappled_forest_10
+flower_forest
+tent_flower_forest_1
+tent_flower_forest_2
+tent_flower_forest_3
+tent_flower_forest_4
+tent_flower_forest_5
+tent_flower_forest_6
+tent_flower_forest_7
+tent_flower_forest_8
+tent_flower_forest_9
+tent_flower_forest_10
+forest
+tent_forest_1
+tent_forest_2
+tent_forest_3
+tent_forest_4
+tent_forest_5
+tent_forest_6
+tent_forest_7
+tent_forest_8
+tent_forest_9
+tent_forest_10
+meadow
+tent_meadow_1
+tent_meadow_2
+tent_meadow_3
+tent_meadow_4
+tent_meadow_5
+tent_meadow_6
+tent_meadow_7
+tent_meadow_8
+tent_meadow_9
+tent_meadow_10
+old_growth_birch_forest
+tent_old_growth_birch_forest_1
+tent_old_growth_birch_forest_2
+tent_old_growth_birch_forest_3
+tent_old_growth_birch_forest_4
+tent_old_growth_birch_forest_5
+tent_old_growth_birch_forest_6
+tent_old_growth_birch_forest_7
+tent_old_growth_birch_forest_8
+tent_old_growth_birch_forest_9
+tent_old_growth_birch_forest_10
+old_growth_pine_taiga
+tent_old_growth_pine_taiga_1
+tent_old_growth_pine_taiga_2
+tent_old_growth_pine_taiga_3
+tent_old_growth_pine_taiga_4
+tent_old_growth_pine_taiga_5
+tent_old_growth_pine_taiga_6
+tent_old_growth_pine_taiga_7
+tent_old_growth_pine_taiga_8
+tent_old_growth_pine_taiga_9
+tent_old_growth_pine_taiga_10
+old_growth_spruce_taiga
+tent_old_growth_spruce_taiga_1
+tent_old_growth_spruce_taiga_2
+tent_old_growth_spruce_taiga_3
+tent_old_growth_spruce_taiga_4
+tent_old_growth_spruce_taiga_5
+tent_old_growth_spruce_taiga_6
+tent_old_growth_spruce_taiga_7
+tent_old_growth_spruce_taiga_8
+tent_old_growth_spruce_taiga_9
+tent_old_growth_spruce_taiga_10
+pale_garden
+tent_pale_garden_1
+tent_pale_garden_2
+tent_pale_garden_3
+tent_pale_garden_4
+tent_pale_garden_5
+tent_pale_garden_6
+tent_pale_garden_7
+tent_pale_garden_8
+tent_pale_garden_9
+tent_pale_garden_10
+savanna
+tent_savanna_1
+tent_savanna_2
+tent_savanna_3
+tent_savanna_4
+tent_savanna_5
+tent_savanna_6
+tent_savanna_7
+tent_savanna_8
+tent_savanna_9
+tent_savanna_10
+snowy_taiga
+tent_snowy_taiga_1
+tent_snowy_taiga_2
+tent_snowy_taiga_3
+tent_snowy_taiga_4
+tent_snowy_taiga_5
+tent_snowy_taiga_6
+tent_snowy_taiga_7
+tent_snowy_taiga_8
+tent_snowy_taiga_9
+tent_snowy_taiga_10
+sparse_jungle
+tent_sparse_jungle_1
+tent_sparse_jungle_2
+tent_sparse_jungle_3
+tent_sparse_jungle_4
+tent_sparse_jungle_5
+tent_sparse_jungle_6
+tent_sparse_jungle_7
+tent_sparse_jungle_8
+tent_sparse_jungle_9
+tent_sparse_jungle_10
+swamp
+tent_swamp_1
+tent_swamp_2
+tent_swamp_3
+tent_swamp_4
+tent_swamp_5
+tent_swamp_6
+tent_swamp_7
+tent_swamp_8
+tent_swamp_9
+tent_swamp_10
+taiga
+tent_taiga_1
+tent_taiga_2
+tent_taiga_3
+tent_taiga_4
+tent_taiga_5
+tent_taiga_6
+tent_taiga_7
+tent_taiga_8
+tent_taiga_9
+tent_taiga_10
+windswept_forest
+tent_windswept_forest_1
+tent_windswept_forest_2
+tent_windswept_forest_3
+tent_windswept_forest_4
+tent_windswept_forest_5
+tent_windswept_forest_6
+tent_windswept_forest_7
+tent_windswept_forest_8
+tent_windswept_forest_9
+tent_windswept_forest_10
+wooded_badlands
+tent_wooded_badlands_1
+tent_wooded_badlands_2
+tent_wooded_badlands_3
+tent_wooded_badlands_4
+tent_wooded_badlands_5
+tent_wooded_badlands_6
+tent_wooded_badlands_7
+tent_wooded_badlands_8
+tent_wooded_badlands_9
+tent_wooded_badlands_10
+
+Blocks
+This is a list of blocks and cushions that can generate as a part of an abandoned camp:
+Acacia Fence
+Acacia Leaves
+Acacia Log
+Allium
+Azure Bluet
+Bamboo Fence
+Bamboo
+Barrel
+Birch Fence
+Birch Leaves
+Birch Log
+Birch Stairs
+Black Cushion
+Block of Resin
+Blue Cushion
+Blue Orchid
+Brown Cushion
+Brown Mushroom Block
+Brown Mushroom
+Bush
+Cactus Flower
+Cactus
+Campfire (unlit)
+Carrots
+Cauldron
+Cherry Fence
+Cherry Leaves
+Cherry Log
+Cherry Sapling
+Chest
+Clay
+Closed Eyeblossom
+Coal Ore
+Coarse Dirt
+Cobblestone
+Cobweb
+Cocoa
+Cornflower
+Crafting Table
+Creaking Heart
+Cyan Cushion
+Dandelion
+Dead Bush
+Dirt Path
+Dirt
+Fern
+Firefly Bush
+Gold Ore
+Grass Block
+Gravel
+Gray Cushion
+Green Cushion
+Hay Bale
+Iron Ore
+Jungle Fence
+Jungle Leaves
+Jungle Log
+Jungle Sapling
+Large Fern
+Leaf Litter
+Light Blue Cushion
+Light Gray Cushion
+Lilac
+Lily of the Valley
+Lily Pad
+Lime Cushion
+Magenta Cushion
+Melon
+Mossy Cobblestone
+Mushroom Stem
+Mycelium
+Oak Fence
+Oak Leaves
+Oak Log
+Oak Planks
+Oak Sapling
+Oak Stairs
+Orange Cushion
+Orange Poplar Leaves
+Orange Tulip
+Oxeye Daisy
+Oxidized Copper Chest
+Oxidized Copper Golem Statue
+Oxidized Copper Lantern
+Pale Hanging Moss
+Pale Moss Block
+Pale Moss Carpet
+Pale Oak Fence
+Pale Oak Leaves
+Pale Oak Log
+Peony
+Pink Cushion
+Pink Petals
+Pink Tulip
+Podzol
+Poplar Fence
+Poplar Log
+Poppy
+Potatoes
+Powder Snow
+Pumpkin
+Purple Cushion
+Red Cushion
+Red Mushroom Block
+Red Mushroom
+Red Poplar Leaves
+Red Sand
+Red Sandstone
+Red Tulip
+Rose Bush
+Sand
+Seagrass
+Short Dry Grass
+Short Grass
+Snow Block
+Snow
+Spruce Fence
+Spruce Leaves
+Spruce Log
+Spruce Planks
+Stone
+Straw Bed
+Stripped Spruce Log
+Sugar Cane
+Sweet Berry Bush
+Tall Dry Grass
+Tall Grass
+Terracotta
+Vines
+Water
+Wheat
+White Cushion
+White Terracotta
+White Tulip
+White Wool Stairs
+Wildflowers
+Yellow Cushion
+Yellow Poplar Leaves
+Components
+Tent
+
+Name
+
+Blocks
+
+Image
+
+Bamboo Jungle
+
+tent_bamboo_jungle_1
+
+8 Bamboo Fence
+1 Barrel
+1 Cauldron
+33 Dirt
+28 Dirt Path
+1 Oxidized Copper Golem Statue
+3 Podzol
+10 Short Grass
+1 Straw Bed
+59 White Wool Stairs
+
+tent_bamboo_jungle_2
+
+3 Barrel
+8 Bamboo Fence
+1 Crafting Table
+33 Dirt
+19 Dirt Path
+12 Podzol
+6 Short Grass
+2 Straw Bed
+45 White Wool Stairs
+
+tent_bamboo_jungle_3
+
+8 Bamboo Fence
+1 Barrel
+35 Dirt
+13 Dirt Path
+1 Jungle Log
+3 Melon
+10 Oak Leaves
+3 Short Grass
+1 Straw Bed
+41 White Wool Stairs
+
+tent_bamboo_jungle_4
+
+7 Bamboo Fence
+2 Barrel
+21 Cobweb
+34 Dirt
+30 Dirt Path
+1 Oxidized Copper Lantern
+3 Straw Bed
+57 White Wool Stairs
+
+tent_bamboo_jungle_5
+
+8 Bamboo Fence
+1 Chest
+1 Crafting Table
+30 Dirt
+34 Dirt Path
+2 Straw Bed
+60 White Wool Stairs
+
+tent_bamboo_jungle_6
+
+8 Bamboo Fence
+2 Chest
+1 Crafting Table
+35 Dirt
+29 Dirt Path
+1 Melon
+6 Short Grass
+2 Straw Bed
+57 White Wool Stairs
+
+tent_bamboo_jungle_7
+
+8 Bamboo Fence
+1 Barrel
+1 Chest
+1 Coarse Dirt
+18 Dirt
+12 Dirt Path
+26 Grass Block
+7 Gravel
+1 Jungle Log
+2 Melon
+20 Oak Leaves
+8 Short Grass
+1 Straw Bed
+42 White Wool Stairs
+
+tent_bamboo_jungle_8
+
+8 Bamboo Fence
+1 Chest
+1 Crafting Table
+24 Dirt
+24 Dirt Path
+1 Oxidized Copper Lantern
+1 Straw Bed
+43 White Wool Stairs
+
+tent_bamboo_jungle_9
+
+8 Bamboo Fence
+1 Cauldron
+1 Chest
+4 Coarse Dirt
+10 Cobweb
+37 Dirt
+23 Dirt Path
+3 Short Grass
+1 Straw Bed
+60 White Wool Stairs
+
+tent_bamboo_jungle_10
+
+8 Bamboo Fence
+2 Barrel
+17 Cobweb
+1 Crafting Table
+33 Dirt
+31 Dirt Path
+6 Short Grass
+1 Straw Bed
+4 Vines
+58 White Wool Stairs
+
+Birch Forest
+
+tent_birch_forest_1
+
+8 Birch Fence
+1 Chest
+29 Dirt
+35 Dirt Path
+3 Straw Bed
+38 White Wool Stairs
+
+tent_birch_forest_2
+
+7 Birch Fence
+21 Birch Leaves
+5 Birch Log
+1 Chest
+16 Dirt
+12 Dirt Path
+27 Grass Block
+9 Gravel
+1 Straw Bed
+20 White Wool Stairs
+
+tent_birch_forest_3
+
+1 Barrel
+8 Birch Fence
+3 Bush
+13 Cobweb
+25 Dirt
+23 Dirt Path
+2 Straw Bed
+41 White Wool Stairs
+
+tent_birch_forest_4
+
+8 Birch Fence
+1 Chest
+18 Cobweb
+34 Dirt
+30 Dirt Path
+3 Straw Bed
+59 White Wool Stairs
+
+tent_birch_forest_5
+
+8 Birch Fence
+1 Chest
+1 Crafting Table
+38 Dirt
+26 Dirt Path
+2 Straw Bed
+56 White Wool Stairs
+27 Wildflowers
+
+tent_birch_forest_6
+
+1 Barrel
+7 Birch Fence
+4 Bush
+32 Dirt
+32 Dirt Path
+3 Lilac
+2 Peony
+1 Straw Bed
+53 White Wool Stairs
+
+tent_birch_forest_7
+
+1 Barrel
+7 Birch Fence
+3 Birch Log
+4 Bush
+13 Dirt
+15 Dirt Path
+36 Grass Block
+2 Rose Bush
+1 Straw Bed
+32 White Wool Stairs
+
+tent_birch_forest_8
+
+1 Barrel
+7 Birch Fence
+3 Bush
+14 Dirt
+15 Dirt Path
+19 Grass Block
+4 Lily of the Valley
+2 Straw Bed
+34 White Wool Stairs
+
+tent_birch_forest_9
+
+8 Birch Fence
+4 Bush
+1 Chest
+2 Coarse Dirt
+17 Cobweb
+34 Dirt
+28 Dirt Path
+1 Straw Bed
+55 White Wool Stairs
+
+tent_birch_forest_10
+
+2 Barrel
+8 Birch Fence
+4 Bush
+1 Crafting Table
+32 Dirt
+32 Dirt Path
+3 Peony
+2 Straw Bed
+58 White Wool Stairs
+
+Cherry Grove
+
+tent_cherry_grove_1
+
+8 Cherry Fence
+1 Chest
+1 Crafting Table
+32 Dirt
+32 Dirt Path
+7 Pink Petals
+3 Short Grass
+2 Straw Bed
+1 Tall Grass
+44 White Wool Stairs
+
+tent_cherry_grove_2
+
+7 Cherry Fence
+13 Cherry Leaves
+11 Cherry Log
+1 Chest
+1 Crafting Table
+40 Dirt
+9 Dirt Path
+8 Grass Block
+7 Gravel
+11 Pink Petals
+2 Short Grass
+1 Straw Bed
+2 Tall Grass
+26 White Wool Stairs
+
+tent_cherry_grove_3
+
+1 Barrel
+6 Cherry Fence
+33 Dirt
+15 Dirt Path
+12 Pink Petals
+3 Short Grass
+2 Straw Bed
+3 Tall Grass
+33 White Wool Stairs
+
+tent_cherry_grove_4
+
+8 Cherry Fence
+1 Chest
+41 Dirt
+23 Dirt Path
+1 Oxidized Copper Golem Statue
+20 Pink Petals
+5 Short Grass
+3 Straw Bed
+1 Tall Grass
+52 White Wool Stairs
+
+tent_cherry_grove_5
+
+8 Cherry Fence
+1 Chest
+1 Crafting Table
+34 Dirt
+30 Dirt Path
+6 Short Grass
+1 Straw Bed
+3 Tall Grass
+57 White Wool Stairs
+
+tent_cherry_grove_6
+
+8 Cherry Fence
+3 Chest
+1 Coarse Dirt
+37 Dirt
+26 Dirt Path
+20 Pink Petals
+4 Short Grass
+2 Straw Bed
+3 Tall Grass
+46 White Wool Stairs
+
+tent_cherry_grove_7
+
+8 Cherry Fence
+1 Chest
+15 Dirt
+20 Dirt Path
+22 Grass Block
+7 Gravel
+1 Oxidized Copper Lantern
+14 Short Grass
+1 Straw Bed
+5 Tall Grass
+44 White Wool Stairs
+
+tent_cherry_grove_8
+
+8 Cherry Fence
+1 Chest
+1 Coarse Dirt
+1 Crafting Table
+29 Dirt
+18 Dirt Path
+9 Short Grass
+2 Straw Bed
+2 Tall Grass
+36 White Wool Stairs
+
+tent_cherry_grove_9
+
+1 Cauldron
+6 Cherry Fence
+2 Chest
+4 Coarse Dirt
+1 Crafting Table
+35 Dirt
+25 Dirt Path
+10 Short Grass
+2 Straw Bed
+4 Tall Grass
+45 White Wool Stairs
+
+tent_cherry_grove_10
+
+2 Barrel
+7 Cherry Fence
+1 Cherry Sapling
+1 Crafting Table
+32 Dirt
+32 Dirt Path
+5 Short Grass
+1 Straw Bed
+2 Tall Grass
+53 White Wool Stairs
+
+Dappled Forest
+
+tent_dappled_forest_1
+
+1 Barrel
+1 Cauldron
+23 Dirt
+34 Dirt Path
+7 Grass Block
+8 Poplar Fence
+2 Straw Bed
+35 White Wool Stairs
+
+tent_dappled_forest_2
+
+3 Barrel
+1 Crafting Table
+18 Dirt
+22 Dirt Path
+24 Grass Block
+7 Poplar Fence
+2 Straw Bed
+32 White Wool Stairs
+
+tent_dappled_forest_3
+
+1 Barrel
+15 Dirt
+19 Dirt Path
+14 Grass Block
+8 Poplar Fence
+1 Straw Bed
+40 White Wool Stairs
+
+tent_dappled_forest_4
+
+2 Barrel
+26 Dirt
+38 Dirt Path
+1 Oxidized Copper Lantern
+8 Poplar Fence
+2 Straw Bed
+46 White Wool Stairs
+
+tent_dappled_forest_5
+
+1 Chest
+39 Dirt
+25 Dirt Path
+8 Poplar Fence
+5 Poplar Log
+21 Red Poplar Leaves
+1 Straw Bed
+29 White Wool Stairs
+
+tent_dappled_forest_6
+
+1 Barrel
+1 Chest
+1 Crafting Table
+37 Dirt
+27 Dirt Path
+8 Poplar Fence
+3 Straw Bed
+52 White Wool Stairs
+
+tent_dappled_forest_7
+
+1 Chest
+37 Dirt
+27 Dirt Path
+7 Poplar Fence
+1 Straw Bed
+36 White Wool Stairs
+
+tent_dappled_forest_8
+
+1 Chest
+19 Cobweb
+21 Dirt
+27 Dirt Path
+1 Oxidized Copper Lantern
+8 Poplar Fence
+1 Straw Bed
+41 White Wool Stairs
+
+tent_dappled_forest_9
+
+1 Chest
+2 Coarse Dirt
+18 Cobweb
+26 Dirt
+36 Dirt Path
+8 Poplar Fence
+1 Straw Bed
+56 White Wool Stairs
+
+tent_dappled_forest_10
+
+2 Barrel
+16 Cobweb
+27 Dirt
+37 Dirt Path
+8 Poplar Fence
+3 Straw Bed
+57 White Wool Stairs
+
+Flower Forest
+
+tent_flower_forest_1
+
+1 Barrel
+31 Dirt
+33 Dirt Path
+8 Oak Fence
+1 Straw Bed
+22 White Wool Stairs
+
+tent_flower_forest_2
+
+5 Bush
+1 Chest
+1 Coarse Dirt
+15 Dirt
+23 Dirt Path
+25 Grass Block
+8 Oak Fence
+4 Rose Bush
+1 Straw Bed
+40 White Wool Stairs
+
+tent_flower_forest_3
+
+2 Bush
+1 Chest
+26 Dirt
+22 Dirt Path
+3 Lilac
+8 Oak Fence
+2 Straw Bed
+20 White Wool Stairs
+
+tent_flower_forest_4
+
+1 Chest
+4 Coarse Dirt
+35 Dirt
+25 Dirt Path
+8 Oak Fence
+5 Oak Log
+14 Oak Leaves
+1 Oxidized Copper Lantern
+1 Straw Bed
+37 White Wool Stairs
+
+tent_flower_forest_5
+
+1 Chest
+4 Coarse Dirt
+1 Crafting Table
+28 Dirt
+32 Dirt Path
+6 Oak Fence
+2 Orange Tulip
+2 Pink Tulip
+2 Straw Bed
+1 White Tulip
+48 White Wool Stairs
+
+tent_flower_forest_6
+
+8 Birch Fence
+1 Chest
+31 Dirt
+33 Dirt Path
+2 Straw Bed
+42 White Wool Stairs
+
+tent_flower_forest_7
+
+2 Barrel
+8 Birch Fence
+30 Birch Leaves
+6 Birch Log
+1 Grass Block
+6 Gravel
+45 Dirt
+12 Dirt Path
+1 Lily of the Valley
+26 White Wool Stairs
+
+tent_flower_forest_8
+
+8 Birch Fence
+1 Chest
+31 Dirt
+17 Dirt Path
+2 Straw Bed
+36 White Wool Stairs
+
+tent_flower_forest_9
+
+8 Birch Fence
+1 Cauldron
+1 Chest
+2 Coarse Dirt
+31 Dirt
+31 Dirt Path
+3 Pink Tulip
+3 Red Tulip
+1 Straw Bed
+52 White Wool Stairs
+
+tent_flower_forest_10
+
+2 Barrel
+6 Birch Fence
+1 Crafting Table
+34 Dirt
+30 Dirt Path
+2 Orange Tulip
+1 Pink Tulip
+1 Red Tulip
+2 Straw Bed
+2 White Tulip
+51 White Wool Stairs
+
+Forest
+
+tent_forest_1
+
+1 Barrel
+33 Dirt
+31 Dirt Path
+8 Oak Fence
+2 Straw Bed
+21 White Wool Stairs
+
+tent_forest_2
+
+5 Bush
+1 Chest
+1 Coarse Dirt
+16 Dirt
+22 Dirt Path
+25 Grass Block
+8 Oak Fence
+4 Rose Bush
+1 Straw Bed
+40 White Wool Stairs
+
+tent_forest_3
+
+2 Bush
+1 Chest
+25 Dirt
+23 Dirt Path
+3 Lilac
+8 Oak Fence
+1 Straw Bed
+20 White Wool Stairs
+
+tent_forest_4
+
+3 Barrel
+3 Bush
+36 Dirt
+28 Dirt Path
+8 Oak Fence
+1 Oxidized Copper Lantern
+3 Peony
+2 Straw Bed
+55 White Wool Stairs
+
+tent_forest_5
+
+1 Chest
+35 Dirt
+29 Dirt Path
+8 Oak Fence
+9 Oak Leaves
+5 Oak Log
+1 Straw Bed
+44 White Wool Stairs
+
+tent_forest_6
+
+8 Birch Fence
+1 Chest
+32 Dirt
+32 Dirt Path
+3 Straw Bed
+42 White Wool Stairs
+
+tent_forest_7
+
+2 Barrel
+8 Birch Fence
+28 Birch Leaves
+6 Birch Log
+20 Dirt
+12 Dirt Path
+26 Grass Block
+6 Gravel
+2 Lily of the Valley
+1 Straw Bed
+26 White Wool Stairs
+
+tent_forest_8
+
+8 Birch Fence
+1 Chest
+13 Dirt
+17 Dirt Path
+18 Grass Block
+2 Straw Bed
+36 White Wool Stairs
+
+tent_forest_9
+
+8 Birch Fence
+5 Bush
+1 Chest
+2 Coarse Dirt
+34 Dirt
+28 Dirt Path
+2 Straw Bed
+51 White Wool Stairs
+
+tent_forest_10
+
+1 Barrel
+7 Birch Fence
+15 Dirt
+33 Dirt Path
+16 Grass Block
+3 Rose Bush
+1 Straw Bed
+47 White Wool Stairs
+
+Meadow
+
+tent_meadow_1
+
+1 Chest
+36 Dirt
+28 Dirt Path
+8 Oak Fence
+1 Oxidized Copper Lantern
+1 Straw Bed
+2 Tall Grass
+47 White Wool Stairs
+24 Wildflowers
+
+tent_meadow_2
+
+4 Barrel
+6 Dandelion
+19 Dirt
+19 Dirt Path
+24 Grass Block
+2 Gravel
+6 Oak Fence
+2 Straw Bed
+7 Tall Grass
+38 White Wool Stairs
+
+tent_meadow_3
+
+1 Chest
+4 Cornflower
+27 Dirt
+21 Dirt Path
+8 Oak Fence
+1 Straw Bed
+4 Tall Grass
+38 White Wool Stairs
+
+tent_meadow_4
+
+5 Allium
+2 Barrel
+33 Dirt
+31 Dirt Path
+6 Oak Fence
+1 Oxidized Copper Lantern
+3 Straw Bed
+3 Tall Grass
+49 White Wool Stairs
+
+tent_meadow_5
+
+1 Barrel
+32 Dirt
+32 Dirt Path
+8 Oak Fence
+1 Oxidized Copper Lantern
+2 Straw Bed
+42 White Wool Stairs
+
+tent_meadow_6
+
+1 Barrel
+8 Birch Fence
+19 Dirt
+26 Dirt Path
+19 Grass Block
+1 Straw Bed
+2 Tall Grass
+41 White Wool Stairs
+
+tent_meadow_7
+
+5 Birch Fence
+1 Chest
+12 Dirt
+20 Dirt Path
+30 Grass Block
+2 Gravel
+5 Oxeye Daisy
+2 Straw Bed
+4 Tall Grass
+31 White Wool Stairs
+
+tent_meadow_8
+
+1 Barrel
+6 Birch Fence
+29 Dirt
+19 Dirt Path
+5 Poppy
+1 Straw Bed
+4 Tall Grass
+41 White Wool Stairs
+
+tent_meadow_9
+
+5 Azure Bluet
+1 Barrel
+8 Birch Fence
+1 Coarse Dirt
+32 Dirt
+31 Dirt Path
+2 Straw Bed
+5 Tall Grass
+49 White Wool Stairs
+
+tent_meadow_10
+
+8 Birch Fence
+1 Chest
+36 Dirt
+28 Dirt Path
+1 Straw Bed
+5 Tall Grass
+25 White Wool Stairs
+
+Old Growth Birch Forest
+
+tent_old_growth_birch_forest_1
+
+8 Birch Fence
+4 Bush
+1 Chest
+25 Dirt
+27 Dirt Path
+12 Grass Block
+3 Peony
+3 Straw Bed
+54 White Wool Stairs
+
+tent_old_growth_birch_forest_2
+
+7 Birch Fence
+1 Chest
+17 Dirt
+17 Dirt Path
+28 Grass Block
+2 Gravel
+2 Straw Bed
+36 White Wool Stairs
+17 Wildflowers
+
+tent_old_growth_birch_forest_3
+
+7 Birch Fence
+3 Bush
+1 Chest
+9 Dirt
+13 Dirt Path
+26 Grass Block
+2 Rose Bush
+1 Straw Bed
+34 White Wool Stairs
+
+tent_old_growth_birch_forest_4
+
+6 Birch Fence
+4 Bush
+1 Chest
+38 Dirt
+26 Dirt Path
+2 Straw Bed
+26 White Wool Stairs
+
+tent_old_growth_birch_forest_5
+
+7 Birch Fence
+3 Birch Log
+1 Brown Mushroom
+1 Chest
+14 Cobweb
+34 Dirt
+30 Dirt Path
+2 Red Mushroom
+1 Straw Bed
+52 White Wool Stairs
+
+tent_old_growth_birch_forest_6
+
+1 Barrel
+7 Birch Fence
+4 Bush
+15 Dirt
+25 Dirt Path
+24 Grass Block
+2 Lilac
+3 Peony
+1 Straw Bed
+44 White Wool Stairs
+
+tent_old_growth_birch_forest_7
+
+1 Barrel
+6 Birch Fence
+7 Birch Log
+3 Bush
+30 Dirt
+16 Dirt Path
+14 Grass Block
+4 Gravel
+2 Lilac
+1 Peony
+2 Straw Bed
+24 White Wool Stairs
+11 Wildflowers
+
+tent_old_growth_birch_forest_8
+
+1 Barrel
+7 Birch Fence
+4 Bush
+13 Dirt
+19 Dirt Path
+16 Grass Block
+1 Oxidized Copper Lantern
+4 Rose Bush
+2 Straw Bed
+33 White Wool Stairs
+
+tent_old_growth_birch_forest_9
+
+1 Barrel
+7 Birch Fence
+5 Bush
+27 Dirt
+24 Dirt Path
+13 Grass Block
+5 Lily of the Valley
+4 Straw Bed
+52 White Wool Stairs
+
+tent_old_growth_birch_forest_10
+
+1 Barrel
+8 Birch Fence
+3 Bush
+37 Dirt
+27 Dirt Path
+3 Lilac
+1 Straw Bed
+36 White Wool Stairs
+
+Old Growth Pine Taiga
+
+tent_old_growth_pine_taiga_1
+
+1 Barrel
+28 Dirt
+36 Dirt Path
+8 Spruce Fence
+1 Straw Bed
+31 White Wool Stairs
+
+tent_old_growth_pine_taiga_2
+
+2 Barrel
+1 Coarse Dirt
+22 Dirt
+22 Dirt Path
+15 Grass Block
+4 Gravel
+19 Mossy Cobblestone
+6 Spruce Fence
+2 Straw Bed
+39 White Wool Stairs
+
+tent_old_growth_pine_taiga_3
+
+1 Barrel
+4 Coarse Dirt
+26 Dirt
+18 Dirt Path
+4 Fern
+2 Large Fern
+7 Spruce Fence
+1 Straw Bed
+3 Sweet Berry Bush
+38 White Wool Stairs
+
+tent_old_growth_pine_taiga_4
+
+2 Barrel
+1 Brown Mushroom
+15 Cobweb
+32 Dirt
+32 Dirt Path
+1 Red Mushroom
+6 Spruce Fence
+4 Spruce Log
+2 Straw Bed
+45 White Wool Stairs
+
+tent_old_growth_pine_taiga_5
+
+1 Chest
+2 Coarse Dirt
+1 Crafting Table
+31 Dirt
+22 Dirt Path
+3 Fern
+3 Large Fern
+9 Mossy Cobblestone
+7 Spruce Fence
+1 Straw Bed
+41 White Wool Stairs
+
+tent_old_growth_pine_taiga_6
+
+5 Brown Mushroom
+1 Chest
+11 Cobweb
+29 Dirt
+23 Dirt Path
+1 Fern
+1 Large Fern
+6 Mossy Cobblestone
+6 Podzol
+5 Red Mushroom
+8 Spruce Fence
+2 Sweet Berry Bush
+55 White Wool Stairs
+
+tent_old_growth_pine_taiga_7
+
+1 Barrel
+1 Chest
+1 Coarse Dirt
+11 Cobweb
+30 Dirt
+19 Dirt Path
+2 Fern
+6 Gravel
+1 Large Fern
+8 Mossy Cobblestone
+8 Spruce Fence
+1 Straw Bed
+1 Sweet Berry Bush
+42 White Wool Stairs
+
+tent_old_growth_pine_taiga_8
+
+1 Chest
+1 Coarse Dirt
+9 Cobweb
+23 Dirt
+17 Dirt Path
+2 Fern
+1 Large Fern
+7 Podzol
+8 Spruce Fence
+2 Straw Bed
+5 Sweet Berry Bush
+42 White Wool Stairs
+
+tent_old_growth_pine_taiga_9
+
+1 Cauldron
+1 Chest
+4 Coarse Dirt
+8 Cobweb
+37 Dirt
+23 Dirt Path
+2 Fern
+2 Large Fern
+8 Spruce Fence
+4 Straw Bed
+57 White Wool Stairs
+
+tent_old_growth_pine_taiga_10
+
+1 Chest
+35 Dirt
+29 Dirt Path
+1 Large Fern
+8 Spruce Fence
+1 Straw Bed
+11 Sweet Berry Bush
+53 White Wool Stairs
+
+Old Growth Spruce Taiga
+
+tent_old_growth_spruce_taiga_1
+
+1 Barrel
+31 Dirt
+33 Dirt Path
+3 Spruce Fence
+4 Straw Bed
+20 White Wool Stairs
+
+tent_old_growth_spruce_taiga_2
+
+1 Barrel
+3 Dead Bush
+21 Dirt
+22 Dirt Path
+14 Grass Block
+7 Gravel
+2 Large Fern
+19 Mossy Cobblestone
+6 Spruce Fence
+1 Straw Bed
+39 White Wool Stairs
+
+tent_old_growth_spruce_taiga_3
+
+1 Barrel
+4 Brown Mushroom
+13 Cobweb
+18 Dirt
+16 Dirt Path
+6 Mossy Cobblestone
+8 Podzol
+4 Red Mushroom
+8 Spruce Fence
+1 Straw Bed
+42 White Wool Stairs
+
+tent_old_growth_spruce_taiga_4
+
+2 Barrel
+40 Dirt
+24 Dirt Path
+1 Oxidized Copper Lantern
+6 Spruce Fence
+14 Spruce Leaves
+6 Spruce Log
+35 White Wool Stairs
+
+tent_old_growth_spruce_taiga_5
+
+1 Chest
+8 Cobweb
+1 Crafting Table
+4 Dead Bush
+18 Dirt
+31 Dirt Path
+11 Grass Block
+4 Mossy Cobblestone
+6 Spruce Fence
+2 Straw Bed
+50 White Wool Stairs
+
+tent_old_growth_spruce_taiga_6
+
+1 Chest
+31 Dirt
+28 Dirt Path
+2 Fern
+3 Large Fern
+5 Mossy Cobblestone
+6 Spruce Fence
+2 Straw Bed
+46 White Wool Stairs
+
+tent_old_growth_spruce_taiga_7
+
+1 Barrel
+1 Brown Mushroom
+1 Chest
+13 Cobweb
+17 Dirt
+17 Dirt Path
+4 Fern
+23 Grass Block
+7 Gravel
+3 Large Fern
+2 Red Mushroom
+8 Spruce Fence
+1 Straw Bed
+42 White Wool Stairs
+
+tent_old_growth_spruce_taiga_8
+
+1 Chest
+14 Cobweb
+26 Dirt
+22 Dirt Path
+2 Fern
+8 Spruce Fence
+2 Straw Bed
+38 White Wool Stairs
+
+tent_old_growth_spruce_taiga_9
+
+1 Barrel
+1 Cauldron
+2 Coarse Dirt
+30 Dirt
+19 Dirt Path
+2 Fern
+2 Large Fern
+5 Mossy Cobblestone
+8 Podzol
+7 Spruce Fence
+2 Straw Bed
+4 Sweet Berry Bush
+49 White Wool Stairs
+
+tent_old_growth_spruce_taiga_10
+
+2 Barrel
+12 Cobweb
+1 Crafting Table
+4 Dead Bush
+32 Dirt
+29 Dirt Path
+3 Mossy Cobblestone
+6 Spruce Fence
+1 Straw Bed
+51 White Wool Stairs
+
+Pale Garden
+
+tent_pale_garden_1
+
+1 Chest
+23 Dirt
+30 Dirt Path
+11 Grass Block
+8 Pale Oak Fence
+3 Straw Bed
+28 White Wool Stairs
+
+tent_pale_garden_2
+
+1 Barrel
+16 Dirt
+18 Dirt Path
+17 Grass Block
+10 Pale Hanging Moss
+13 Pale Moss Block
+10 Pale Moss Carpet
+8 Pale Oak Fence
+2 Straw Bed
+3 Tall Grass
+43 White Wool Stairs
+
+tent_pale_garden_3
+
+1 Barrel
+14 Dirt
+26 Dirt Path
+2 Grass Block
+3 Pale Hanging Moss
+6 Pale Moss Block
+5 Pale Moss Carpet
+7 Pale Oak Fence
+1 Straw Bed
+2 Tall Grass
+38 White Wool Stairs
+
+tent_pale_garden_4
+
+2 Barrel
+24 Dirt
+21 Dirt Path
+19 Grass Block
+1 Oxidized Copper Lantern
+2 Pale Hanging Moss
+6 Pale Moss Carpet
+8 Pale Oak Fence
+20 Pale Oak Leaves
+5 Pale Oak Log
+31 White Wool Stairs
+
+tent_pale_garden_5
+
+1 Chest
+2 Closed Eyeblossom
+19 Dirt
+32 Dirt Path
+4 Grass Block
+9 Pale Moss Block
+5 Pale Moss Carpet
+7 Pale Oak Fence
+3 Straw Bed
+4 Tall Grass
+48 White Wool Stairs
+
+tent_pale_garden_6
+
+1 Chest
+3 Closed Eyeblossom
+20 Dirt
+25 Dirt Path
+12 Grass Block
+11 Pale Hanging Moss
+7 Pale Moss Block
+4 Pale Moss Carpet
+8 Pale Oak Fence
+2 Straw Bed
+3 Tall Grass
+48 White Wool Stairs
+
+tent_pale_garden_7
+
+1 Barrel
+11 Cobweb
+16 Dirt
+20 Dirt Path
+20 Grass Block
+8 Pale Hanging Moss
+8 Pale Moss Block
+7 Pale Oak Fence
+2 Straw Bed
+3 Tall Grass
+41 White Wool Stairs
+
+tent_pale_garden_8
+
+1 Chest
+4 Cobweb
+13 Dirt
+20 Dirt Path
+7 Grass Block
+7 Pale Hanging Moss
+8 Pale Moss Block
+8 Pale Oak Fence
+2 Straw Bed
+3 Tall Grass
+43 White Wool Stairs
+
+tent_pale_garden_9
+
+1 Chest
+1 Coarse Dirt
+8 Cobweb
+1 Crafting Table
+18 Dirt
+27 Dirt Path
+5 Grass Block
+8 Pale Hanging Moss
+13 Pale Moss Block
+8 Pale Oak Fence
+1 Straw Bed
+56 White Wool Stairs
+
+tent_pale_garden_10
+
+2 Barrel
+22 Cobweb
+1 Crafting Table
+25 Dirt
+38 Dirt Path
+1 Grass Block
+13 Pale Hanging Moss
+14 Pale Moss Carpet
+8 Pale Oak Fence
+2 Straw Bed
+55 White Wool Stairs
+
+Savanna
+
+tent_savanna_1
+
+8 Acacia Fence
+1 Chest
+35 Dirt
+29 Dirt Path
+1 Oxidized Copper Lantern
+3 Short Grass
+3 Straw Bed
+2 Tall Grass
+40 White Wool Stairs
+
+tent_savanna_2
+
+7 Acacia Fence
+1 Chest
+1 Crafting Table
+3 Dandelion
+16 Dirt
+21 Dirt Path
+27 Grass Block
+7 Short Grass
+2 Straw Bed
+3 Tall Grass
+35 White Wool Stairs
+
+tent_savanna_3
+
+8 Acacia Fence
+1 Chest
+1 Dandelion
+26 Dirt
+22 Dirt Path
+3 Short Grass
+2 Straw Bed
+2 Tall Grass
+38 White Wool Stairs
+
+tent_savanna_4
+
+8 Acacia Fence
+1 Chest
+39 Dirt
+25 Dirt Path
+5 Short Grass
+3 Straw Bed
+3 Tall Grass
+54 White Wool Stairs
+
+tent_savanna_5
+
+7 Acacia Fence
+1 Chest
+21 Dirt
+28 Dirt Path
+15 Grass Block
+2 Poppy
+3 Short Grass
+3 Straw Bed
+3 Tall Grass
+45 White Wool Stairs
+
+tent_savanna_6
+
+8 Acacia Fence
+1 Barrel
+32 Dirt
+32 Dirt Path
+3 Poppy
+1 Straw Bed
+2 Tall Grass
+49 White Wool Stairs
+
+tent_savanna_7
+
+6 Acacia Fence
+21 Acacia Leaves
+5 Acacia Log
+1 Barrel
+18 Dirt
+7 Dirt Path
+39 Grass Block
+21 White Wool Stairs
+
+tent_savanna_8
+
+8 Acacia Fence
+1 Barrel
+34 Dirt
+14 Dirt Path
+1 Oxidized Copper Lantern
+4 Short Grass
+2 Straw Bed
+4 Tall Grass
+43 White Wool Stairs
+
+tent_savanna_9
+
+8 Acacia Fence
+1 Barrel
+2 Coarse Dirt
+42 Dirt
+20 Dirt Path
+8 Short Grass
+1 Straw Bed
+5 Tall Grass
+51 White Wool Stairs
+
+tent_savanna_10
+
+8 Acacia Fence
+1 Barrel
+31 Dirt
+33 Dirt Path
+2 Poppy
+4 Straw Bed
+1 Tall Grass
+34 White Wool Stairs
+
+Snowy Taiga
+
+tent_snowy_taiga_1
+
+1 Cauldron
+1 Chest
+47 Dirt
+17 Dirt Path
+1 Oxidized Copper Golem Statue
+88 Snow
+3 Snow Block
+8 Spruce Fence
+1 Straw Bed
+41 White Wool Stairs
+
+tent_snowy_taiga_2
+
+3 Barrel
+26 Dirt
+17 Dirt Path
+11 Grass Block
+10 Gravel
+41 Snow
+2 Snow Block
+8 Spruce Fence
+2 Straw Bed
+41 White Wool Stairs
+
+tent_snowy_taiga_3
+
+1 Barrel
+27 Dirt
+21 Dirt Path
+18 Snow
+1 Snow Block
+8 Spruce Fence
+2 Straw Bed
+39 White Wool Stairs
+
+tent_snowy_taiga_4
+
+1 Chest
+41 Dirt
+23 Dirt Path
+2 Fern
+1 Large Fern
+1 Oxidized Copper Lantern
+1 Snow
+2 Snow Block
+8 Spruce Fence
+2 Straw Bed
+51 White Wool Stairs
+
+tent_snowy_taiga_5
+
+1 Barrel
+48 Dirt
+16 Dirt Path
+67 Snow
+12 Snow Block
+8 Spruce Fence
+1 Straw Bed
+46 White Wool Stairs
+
+tent_snowy_taiga_6
+
+1 Barrel
+51 Dirt
+13 Dirt Path
+64 Snow
+2 Snow Block
+4 Spruce Fence
+22 Spruce Leaves
+7 Spruce Log
+1 Straw Bed
+33 White Wool Stairs
+
+tent_snowy_taiga_7
+
+1 Barrel
+31 Dirt
+9 Dirt Path
+17 Grass Block
+7 Gravel
+68 Snow
+6 Spruce Fence
+10 Spruce Leaves
+7 Spruce Log
+1 Straw Bed
+28 White Wool Stairs
+
+tent_snowy_taiga_8
+
+1 Barrel
+38 Dirt
+10 Dirt Path
+1 Oxidized Copper Lantern
+48 Snow
+1 Snow Block
+8 Spruce Fence
+2 Straw Bed
+40 White Wool Stairs
+
+tent_snowy_taiga_9
+
+1 Barrel
+1 Cauldron
+2 Coarse Dirt
+38 Dirt
+24 Dirt Path
+23 Snow
+2 Snow Block
+8 Spruce Fence
+54 Spruce Leaves
+6 Spruce Log
+3 Straw Bed
+34 White Wool Stairs
+
+tent_snowy_taiga_10
+
+1 Chest
+43 Dirt
+21 Dirt Path
+50 Snow
+1 Snow Block
+8 Spruce Fence
+13 Spruce Leaves
+8 Spruce Log
+2 Straw Bed
+40 White Wool Stairs
+
+Sparse Jungle
+
+tent_sparse_jungle_1
+
+1 Barrel
+7 Cobweb
+41 Dirt
+22 Dirt Path
+8 Jungle Fence
+1 Jungle Log
+17 Oak Leaves
+1 Oxidized Copper Golem Statue
+4 Short Grass
+1 Straw Bed
+57 White Wool Stairs
+
+tent_sparse_jungle_2
+
+2 Barrel
+1 Crafting Table
+47 Dirt
+17 Dirt Path
+8 Jungle Fence
+13 Short Grass
+2 Straw Bed
+5 Vines
+30 White Wool Stairs
+
+tent_sparse_jungle_3
+
+1 Barrel
+28 Dirt
+20 Dirt Path
+8 Jungle Fence
+6 Short Grass
+2 Straw Bed
+4 Vines
+42 White Wool Stairs
+
+tent_sparse_jungle_4
+
+2 Barrel
+37 Dirt
+27 Dirt Path
+8 Jungle Fence
+11 Jungle Leaves
+5 Jungle Log
+1 Oxidized Copper Lantern
+3 Straw Bed
+6 Vines
+49 White Wool Stairs
+
+tent_sparse_jungle_5
+
+1 Chest
+3 Cocoa
+1 Crafting Table
+32 Dirt
+32 Dirt Path
+8 Jungle Fence
+56 Jungle Leaves
+11 Jungle Log
+7 Short Grass
+1 Straw Bed
+28 Vines
+47 White Wool Stairs
+
+
+
+tent_sparse_jungle_6
+
+3 Chest
+1 Crafting Table
+13 Cobweb
+30 Dirt
+34 Dirt Path
+8 Jungle Fence
+2 Straw Bed
+12 Vines
+51 White Wool Stairs
+
+tent_sparse_jungle_7
+
+1 Barrel
+1 Chest
+18 Dirt
+15 Dirt Path
+24 Grass Block
+7 Gravel
+8 Jungle Fence
+1 Jungle Sapling
+8 Short Grass
+1 Straw Bed
+4 Vines
+44 White Wool Stairs
+
+tent_sparse_jungle_8
+
+1 Chest
+26 Dirt
+22 Dirt Path
+8 Jungle Fence
+1 Oxidized Copper Lantern
+1 Straw Bed
+10 Vines
+41 White Wool Stairs
+
+tent_sparse_jungle_9
+
+1 Cauldron
+2 Chest
+2 Coarse Dirt
+1 Crafting Table
+31 Dirt
+31 Dirt Path
+8 Jungle Fence
+6 Short Grass
+2 Straw Bed
+19 Vines
+54 White Wool Stairs
+
+tent_sparse_jungle_10
+
+2 Barrel
+8 Cobweb
+1 Crafting Table
+36 Dirt
+28 Dirt Path
+8 Jungle Fence
+1 Straw Bed
+21 Vines
+52 White Wool Stairs
+
+Swamp
+
+tent_swamp_1
+
+1 Barrel
+1 Blue Orchid
+27 Dirt
+25 Dirt Path
+1 Firefly Bush
+8 Oak Fence
+1 Straw Bed
+12 Water
+51 White Wool Stairs
+
+tent_swamp_2
+
+1 Barrel
+17 Dirt
+14 Dirt Path
+18 Grass Block
+1 Lily Pad
+8 Oak Fence
+1 Straw Bed
+6 Sugar Cane
+15 Water
+40 White Wool Stairs
+
+tent_swamp_3
+
+1 Barrel
+3 Blue Orchid
+33 Dirt
+15 Dirt Path
+8 Oak Fence
+2 Straw Bed
+8 Vines
+42 White Wool Stairs
+
+tent_swamp_4
+
+1 Barrel
+4 Blue Orchid
+32 Dirt
+32 Dirt Path
+8 Oak Fence
+92 Oak Leaves
+7 Oak Log
+2 Straw Bed
+46 Vines
+39 White Wool Stairs
+
+
+
+tent_swamp_5
+
+1 Barrel
+31 Dirt
+27 Dirt Path
+2 Firefly Bush
+6 Oak Fence
+5 Oak Log
+1 Straw Bed
+14 Vines
+6 Water
+49 White Wool Stairs
+
+tent_swamp_6
+
+1 Chest
+34 Dirt
+30 Dirt Path
+6 Mushroom Stem
+8 Oak Fence
+45 Red Mushroom Block
+3 Straw Bed
+43 White Wool Stairs
+
+tent_swamp_7
+
+1 Barrel
+1 Chest
+8 Cobweb
+21 Dirt
+26 Dirt Path
+10 Grass Block
+7 Gravel
+8 Oak Fence
+1 Straw Bed
+9 Vines
+44 White Wool Stairs
+
+tent_swamp_8
+
+1 Chest
+27 Cobweb
+33 Dirt
+10 Dirt Path
+8 Oak Fence
+1 Oxidized Copper Golem Statue
+1 Straw Bed
+5 Water
+40 White Wool Stairs
+
+tent_swamp_9
+
+5 Brown Mushroom
+1 Chest
+2 Coarse Dirt
+14 Cobweb
+38 Dirt
+24 Dirt Path
+8 Oak Fence
+4 Oak Log
+5 Red Mushroom
+2 Straw Bed
+56 White Wool Stairs
+
+tent_swamp_10
+
+2 Blue Orchid
+1 Chest
+26 Dirt
+25 Dirt Path
+2 Firefly Bush
+8 Oak Fence
+1 Straw Bed
+12 Vines
+13 Water
+45 White Wool Stairs
+
+Taiga
+
+tent_taiga_1
+
+1 Chest
+36 Dirt
+28 Dirt Path
+6 Spruce Fence
+7 Spruce Leaves
+7 Spruce Log
+2 Straw Bed
+37 White Wool Stairs
+
+tent_taiga_2
+
+1 Barrel
+20 Dirt
+24 Dirt Path
+10 Grass Block
+10 Gravel
+8 Spruce Fence
+2 Straw Bed
+33 White Wool Stairs
+
+tent_taiga_3
+
+1 Chest
+18 Dirt
+19 Dirt Path
+2 Fern
+11 Grass Block
+1 Large Fern
+7 Spruce Fence
+1 Straw Bed
+4 Sweet Berry Bush
+37 White Wool Stairs
+
+tent_taiga_4
+
+1 Barrel
+33 Dirt
+31 Dirt Path
+2 Fern
+2 Large Fern
+7 Spruce Fence
+1 Straw Bed
+3 Sweet Berry Bush
+50 White Wool Stairs
+
+tent_taiga_5
+
+1 Chest
+34 Dirt
+30 Dirt Path
+3 Fern
+1 Large Fern
+8 Spruce Fence
+3 Straw Bed
+4 Sweet Berry Bush
+48 White Wool Stairs
+
+tent_taiga_6
+
+1 Chest
+35 Dirt
+29 Dirt Path
+3 Fern
+4 Large Fern
+8 Spruce Fence
+1 Straw Bed
+3 Sweet Berry Bush
+32 White Wool Stairs
+
+tent_taiga_7
+
+1 Chest
+22 Dirt
+25 Dirt Path
+10 Grass Block
+7 Gravel
+6 Spruce Fence
+2 Straw Bed
+3 Sweet Berry Bush
+36 White Wool Stairs
+
+tent_taiga_8
+
+1 Barrel
+22 Dirt
+26 Dirt Path
+5 Spruce Fence
+1 Straw Bed
+20 White Wool Stairs
+
+tent_taiga_9
+
+1 Barrel
+2 Coarse Dirt
+31 Dirt
+31 Dirt Path
+6 Fern
+3 Large Fern
+8 Spruce Fence
+2 Straw Bed
+2 Sweet Berry Bush
+52 White Wool Stairs
+
+tent_taiga_10
+
+2 Barrel
+32 Dirt
+32 Dirt Path
+4 Fern
+2 Large Fern
+8 Spruce Fence
+1 Straw Bed
+5 Sweet Berry Bush
+52 White Wool Stairs
+
+Windswept Forest
+
+tent_windswept_forest_1
+
+1 Barrel
+27 Dirt
+37 Dirt Path
+8 Oak Fence
+1 Straw Bed
+43 White Wool Stairs
+
+tent_windswept_forest_2
+
+2 Barrel
+2 Bush
+12 Dirt
+19 Dirt Path
+33 Grass Block
+8 Oak Fence
+1 Straw Bed
+33 White Wool Stairs
+
+tent_windswept_forest_3
+
+2 Bush
+1 Chest
+26 Dirt
+22 Dirt Path
+8 Oak Fence
+2 Straw Bed
+38 White Wool Stairs
+
+tent_windswept_forest_4
+
+1 Barrel
+2 Bush
+36 Dirt
+28 Dirt Path
+8 Oak Fence
+6 Oak Leaves
+4 Oak Log
+2 Straw Bed
+52 White Wool Stairs
+
+tent_windswept_forest_5
+
+1 Bush
+1 Chest
+29 Dirt
+35 Dirt Path
+8 Oak Fence
+1 Oak Sapling
+2 Straw Bed
+45 White Wool Stairs
+
+tent_windswept_forest_6
+
+1 Barrel
+35 Dirt
+29 Dirt Path
+8 Spruce Fence
+2 Straw Bed
+37 White Wool Stairs
+
+tent_windswept_forest_7
+
+1 Barrel
+5 Bush
+15 Dirt
+21 Dirt Path
+26 Grass Block
+2 Gravel
+8 Spruce Fence
+1 Straw Bed
+41 White Wool Stairs
+
+tent_windswept_forest_8
+
+3 Bush
+1 Chest
+26 Dirt
+22 Dirt Path
+1 Oxidized Copper Lantern
+8 Spruce Fence
+1 Straw Bed
+30 White Wool Stairs
+
+tent_windswept_forest_9
+
+1 Barrel
+1 Coarse Dirt
+47 Dirt
+16 Dirt Path
+6 Spruce Fence
+23 Spruce Leaves
+5 Spruce Log
+2 Straw Bed
+32 White Wool Stairs
+
+tent_windswept_forest_10
+
+2 Barrel
+3 Bush
+1 Crafting Table
+34 Dirt
+30 Dirt Path
+8 Spruce Fence
+3 Straw Bed
+51 White Wool Stairs
+
+Wooded Badlands
+
+tent_wooded_badlands_1
+
+4 Barrel
+32 Dirt
+32 Dirt Path
+6 Oak Fence
+4 Straw Bed
+35 White Wool Stairs
+
+tent_wooded_badlands_2
+
+1 Barrel
+31 Dirt
+15 Dirt Path
+8 Oak Fence
+18 Red Sand
+3 Short Dry Grass
+1 Straw Bed
+4 Tall Dry Grass
+48 White Wool Stairs
+
+tent_wooded_badlands_3
+
+1 Barrel
+12 Cobweb
+27 Dirt
+21 Dirt Path
+8 Oak Fence
+3 Short Dry Grass
+2 Straw Bed
+1 Tall Dry Grass
+40 White Wool Stairs
+
+tent_wooded_badlands_4
+
+2 Barrel
+4 Coarse Dirt
+21 Cobweb
+34 Dirt
+30 Dirt Path
+8 Oak Fence
+1 Oxidized Copper Lantern
+2 Short Dry Grass
+2 Straw Bed
+3 Tall Dry Grass
+51 White Wool Stairs
+
+tent_wooded_badlands_5
+
+1 Barrel
+24 Dirt
+25 Dirt Path
+8 Oak Fence
+25 Red Sand
+1 Straw Bed
+4 Tall Dry Grass
+53 White Wool Stairs
+
+tent_wooded_badlands_6
+
+5 Cactus
+2 Cactus Flower
+1 Chest
+10 Cobweb
+41 Dirt
+20 Dirt Path
+8 Oak Fence
+3 Red Sand
+1 Straw Bed
+48 White Wool Stairs
+
+tent_wooded_badlands_7
+
+1 Chest
+2 Dead Bush
+35 Dirt
+19 Dirt Path
+8 Oak Fence
+31 Red Sand
+1 Straw Bed
+36 White Wool Stairs
+
+tent_wooded_badlands_8
+
+1 Chest
+1 Coarse Dirt
+17 Cobweb
+1 Crafting Table
+1 Dead Bush
+31 Dirt
+16 Dirt Path
+8 Oak Fence
+2 Straw Bed
+2 Tall Dry Grass
+42 White Wool Stairs
+
+tent_wooded_badlands_9
+
+1 Cauldron
+2 Chest
+2 Coarse Dirt
+3 Cobweb
+1 Crafting Table
+27 Dirt
+30 Dirt Path
+8 Oak Fence
+15 Red Sand
+2 Straw Bed
+3 Tall Dry Grass
+58 White Wool Stairs
+
+tent_wooded_badlands_10
+
+2 Barrel
+4 Coarse Dirt
+8 Cobweb
+1 Crafting Table
+2 Dead Bush
+31 Dirt
+29 Dirt Path
+8 Oak Fence
+1 Straw Bed
+3 Tall Dry Grass
+58 White Wool Stairs
+
+Campsite
+Default
+
+
+
+This section needs to be updated. 
+Please update this section to reflect recent updates or newly available information. The talk page may contain suggestions.Reason: Cushion placement has been changed in Java Edition 26.3 Snapshot 6 and Bedrock Edition Preview 26.50.22.
+
+
+
+Name
+
+Blocks
+
+Image
+
+Chest
+
+campsite_default_chest_1
+
+1 Campfire
+1 Chest
+21 Dirt Path
+2 Grass Block
+1 Red Cushion
+
+campsite_default_chest_2
+
+1 Blue Cushion
+1 Campfire
+1 Chest
+1 Dirt
+21 Dirt Path
+1 Grass Block
+
+campsite_default_chest_3
+
+1 Campfire
+1 Chest
+1 Coarse Dirt
+21 Dirt Path
+2 Grass Block
+3 Gravel
+1 Purple Cushion
+
+campsite_default_chest_4
+
+1 Campfire
+1 Chest
+13 Dirt Path
+2 Grass Block
+1 Magenta Cushion
+
+campsite_default_chest_5
+
+1 Campfire
+1 Chest
+10 Dirt Path
+2 Grass Block
+1 Pink Cushion
+
+campsite_default_chest_6
+
+1 Campfire
+1 Chest
+2 Cyan Cushion
+27 Dirt
+24 Dirt Path
+1 Gravel
+1 Oxidized Copper Chest
+
+campsite_default_chest_7
+
+1 Campfire
+1 Chest
+1 Dirt
+21 Dirt Path
+2 Green Cushion
+1 Oxidized Copper Chest
+
+campsite_default_chest_8
+
+1 Campfire
+1 Chest
+24 Dirt Path
+2 Lime Cushion
+1 Oxidized Copper Chest
+
+campsite_default_chest_9
+
+1 Campfire
+1 Chest
+22 Dirt Path
+5 Gravel
+1 Oxidized Copper Chest
+2 Yellow Cushion
+
+campsite_default_chest_10
+
+1 Campfire
+1 Chest
+1 Dirt
+14 Dirt Path
+2 Orange Cushion
+1 Oxidized Copper Chest
+
+campsite_default_chest_11
+
+1 Campfire
+1 Chest
+2 Dirt
+13 Dirt Path
+3 White Cushion
+
+campsite_default_chest_12
+
+1 Campfire
+1 Chest
+28 Dirt Path
+2 Gravel
+3 Light Gray Cushion
+
+campsite_default_chest_13
+
+1 Campfire
+1 Chest
+1 Dirt
+18 Dirt Path
+3 Gray Cushion
+
+campsite_default_chest_14
+
+3 Brown Cushion
+1 Campfire
+1 Chest
+2 Dirt
+21 Dirt Path
+
+campsite_default_chest_15
+
+1 Campfire
+1 Chest
+1 Dirt
+11 Dirt Path
+3 Light Blue Cushion
+
+Barrel
+
+campsite_default_barrel_1
+
+1 Barrel
+1 Campfire
+2 Dirt
+15 Dirt Path
+5 Gravel
+1 Red Cushion
+
+campsite_default_barrel_2
+
+1 Barrel
+1 Brown Cushion
+1 Campfire
+2 Dirt
+17 Dirt Path
+4 Gravel
+
+campsite_default_barrel_3
+
+1 Barrel
+1 Campfire
+3 Dirt
+18 Dirt Path
+1 Gray Cushion
+
+campsite_default_barrel_4
+
+1 Barrel
+1 Campfire
+2 Dirt
+19 Dirt Path
+8 Gravel
+1 Light Gray Cushion
+
+campsite_default_barrel_5
+
+1 Barrel
+1 Campfire
+3 Dirt
+18 Dirt Path
+1 White Cushion
+
+campsite_default_barrel_6
+
+1 Barrel
+1 Campfire
+2 Dirt
+17 Dirt Path
+2 Green Cushion
+
+campsite_default_barrel_7
+
+1 Barrel
+1 Campfire
+1 Dirt
+10 Dirt Path
+12 Gravel
+2 Lime Cushion
+
+campsite_default_barrel_8
+
+1 Barrel
+1 Campfire
+2 Dirt
+25 Dirt Path
+2 Yellow Cushion
+
+campsite_default_barrel_9
+
+1 Barrel
+1 Campfire
+2 Dirt
+15 Dirt Path
+3 Gravel
+2 Orange Cushion
+
+campsite_default_barrel_10
+
+1 Barrel
+1 Campfire
+2 Cyan Cushion
+2 Dirt
+20 Dirt Path
+
+campsite_default_barrel_11
+
+1 Barrel
+1 Campfire
+22 Dirt Path
+1 Grass Block
+1 Gravel
+1 Oxidized Copper Chest
+3 Pink Cushion
+
+campsite_default_barrel_12
+
+1 Barrel
+1 Campfire
+26 Dirt
+20 Dirt Path
+3 Gravel
+3 Magenta Cushion
+1 Oxidized Copper Chest
+
+campsite_default_barrel_13
+
+1 Barrel
+1 Campfire
+1 Dirt
+14 Dirt Path
+1 Oxidized Copper Chest
+3 Purple Cushion
+
+campsite_default_barrel_14
+
+1 Barrel
+3 Blue Cushion
+1 Campfire
+26 Dirt
+22 Dirt Path
+2 Grass Block
+4 Gravel
+1 Oxidized Copper Chest
+
+campsite_default_barrel_15
+
+1 Barrel
+1 Campfire
+25 Dirt
+18 Dirt Path
+3 Gravel
+3 Light Blue Cushion
+1 Oxidized Copper Chest
+
+Special
+
+campsite_default_special_1
+
+1 Campfire
+1 Chest
+11 Dirt Path
+1 Grass Block
+1 Oxidized Copper Chest
+1 Oxidized Copper Lantern
+1 Red Cushion
+15 Stone
+
+campsite_default_special_2
+
+1 Blue Cushion
+1 Campfire
+1 Chest
+1 Coarse Dirt
+12 Cobweb
+44 Dirt
+14 Dirt Path
+3 Grass Block
+18 Gravel
+1 Oxidized Copper Golem Statue
+38 Stone
+
+campsite_default_special_3
+
+1 Brown Cushion
+1 Campfire
+1 Chest
+8 Cobweb
+6 Dirt
+9 Dirt Path
+2 Grass Block
+6 Stone
+
+campsite_default_special_4
+
+1 Barrel
+1 Campfire
+4 Dirt
+15 Dirt Path
+4 Hay Bale
+1 Oak Fence
+1 Orange Cushion
+1 Oxidized Copper Chest
+
+campsite_default_special_5
+
+1 Barrel
+1 Campfire
+19 Cobblestone
+25 Dirt
+9 Dirt Path
+9 Gravel
+1 Green Cushion
+1 Mossy Cobblestone
+3 Seagrass
+15 Water
+
+campsite_default_special_6
+
+1 Barrel
+1 Campfire
+13 Cobblestone
+34 Dirt
+11 Dirt Path
+5 Gravel
+2 Light Gray Cushion
+17 Mossy Cobblestone
+1 Oxidized Copper Chest
+3 Seagrass
+17 Water
+
+campsite_default_special_7
+
+1 Barrel
+1 Campfire
+12 Cobblestone
+35 Dirt
+7 Dirt Path
+2 Grass Block
+14 Mossy Cobblestone
+1 Seagrass
+16 Water
+2 White Cushion
+
+campsite_default_special_8
+
+1 Barrel
+2 Black Cushion
+1 Campfire
+19 Dirt Path
+1 Grass Block
+1 Oxidized Copper Chest
+
+campsite_default_special_9
+
+1 Campfire
+1 Chest
+11 Cobweb
+39 Dirt
+8 Dirt Path
+16 Gravel
+2 Lime Cushion
+6 Oak Fence
+3 Oak Planks
+1 Oxidized Copper Chest
+42 Stone
+
+campsite_default_special_10
+
+1 Campfire
+2 Chest
+12 Cobweb
+66 Dirt
+8 Dirt Path
+19 Gravel
+6 Oak Fence
+3 Oak Planks
+1 Oxidized Copper Chest
+29 Stone
+2 Yellow Cushion
+
+campsite_default_special_11
+
+1 Campfire
+1 Chest
+5 Cobblestone Wall
+10 Cobweb
+8 Dirt Path
+7 Farmland
+21 Grass Block
+3 Light Blue Cushion
+9 Mossy Cobblestone Wall
+7 Wheat
+
+campsite_default_special_12
+
+1 Barrel
+1 Campfire
+7 Carrots
+5 Cobweb
+1 Dirt
+15 Dirt Path
+7 Farmland
+2 Grass Block
+3 Gray Cushion
+
+campsite_default_special_13
+
+1 Campfire
+1 Chest
+6 Cobblestone Wall
+2 Cobweb
+3 Dirt
+14 Dirt Path
+14 Grass Block
+1 Gravel
+3 Magenta Cushion
+7 Mossy Cobblestone Wall
+1 Oxidized Copper Chest
+3 Pumpkin
+
+campsite_default_special_14
+
+1 Barrel
+1 Campfire
+4 Cobblestone Wall
+6 Cobweb
+1 Dirt
+11 Dirt Path
+5 Farmland
+21 Grass Block
+1 Gravel
+9 Mossy Cobblestone Wall
+3 Pink Cushion
+5 Potatoes
+
+campsite_default_special_15
+
+1 Barrel
+1 Chest
+14 Cobweb
+67 Dirt
+8 Dirt Path
+17 Gravel
+5 Oak Fence
+3 Oak Planks
+1 Oxidized Copper Lantern
+3 Purple Cushion
+20 Stone
+
+Biome-specific
+
+Name
+
+Blocks
+
+Image
+
+Bamboo Jungle
+
+campsite_bamboo_jungle_1
+
+1 Bamboo Fence
+1 Campfire
+1 Chest
+4 Coarse Dirt
+3 Cobweb
+1 Dirt
+24 Dirt Path
+36 Grass Block
+1 Melon
+1 Orange Cushion
+25 Podzol
+17 Short Grass
+7 Tall Grass
+1 Yellow Cushion
+
+campsite_bamboo_jungle_2
+
+1 Bamboo Fence
+1 Barrel
+2 Brown Cushion
+1 Campfire
+5 Cobweb
+1 Dirt
+19 Dirt Path
+33 Grass Block
+23 Podzol
+1 Red Cushion
+19 Short Grass
+6 Tall Grass
+
+campsite_bamboo_jungle_3
+
+1 Bamboo Fence
+1 Black Cushion
+1 Campfire
+1 Chest
+24 Dirt
+19 Dirt Path
+23 Grass Block
+2 Jungle Log
+5 Melon
+1 Oxidized Copper Chest
+5 Podzol
+12 Short Grass
+22 Stone
+7 Tall Grass
+4 Vines
+
+campsite_bamboo_jungle_4
+
+1 Barrel
+1 Brown Cushion
+1 Campfire
+27 Cobweb
+29 Dirt
+16 Dirt Path
+1 Oxidized Copper Chest
+1 Yellow Cushion
+
+Birch Forest
+
+campsite_birch_forest_1
+
+1 Azure Bluet
+10 Bush
+1 Campfire
+1 Chest
+3 Dandelion
+14 Dirt
+22 Dirt Path
+39 Grass Block
+1 Poppy
+1 Red Cushion
+4 Rose Bush
+12 Short Grass
+3 Tall Grass
+
+campsite_birch_forest_2
+
+2 Azure Bluet
+1 Campfire
+1 Chest
+7 Cobblestone
+3 Dandelion
+1 Dirt
+14 Dirt Path
+27 Grass Block
+5 Sand
+16 Short Grass
+3 Tall Grass
+9 Water
+2 Yellow Cushion
+
+campsite_birch_forest_3
+
+2 Barrel
+1 Black Cushion
+1 Campfire
+1 Chest
+11 Cobweb
+15 Dirt
+8 Dirt Path
+49 Grass Block
+6 Gravel
+13 Short Grass
+5 Tall Grass
+1 White Cushion
+
+campsite_birch_forest_4
+
+1 Barrel
+1 Birch Stairs
+1 Campfire
+50 Dirt
+21 Dirt Path
+14 Grass Block
+1 Oxidized Copper Chest
+2 Red Cushion
+5 Short Grass
+20 Stone
+7 Tall Grass
+
+Cherry Grove
+
+campsite_cherry_grove_1
+
+1 Campfire
+1 Cherry Fence
+1 Chest
+6 Dirt
+37 Dirt Path
+28 Grass Block
+2 Pink Cushion
+41 Pink Petals
+
+campsite_cherry_grove_2
+
+1 Barrel
+1 Campfire
+1 Cherry Fence
+10 Cherry Leaves
+5 Cherry Log
+9 Dirt
+16 Dirt Path
+22 Grass Block
+1 Magenta Cushion
+16 Pink Petals
+
+campsite_cherry_grove_3
+
+1 Campfire
+3 Cherry Log
+1 Chest
+4 Cobweb
+6 Dirt
+20 Dirt Path
+40 Grass Block
+1 Oxidized Copper Chest
+1 Pink Cushion
+1 Poppy
+25 Short Grass
+6 Tall Grass
+1 White Cushion
+
+campsite_cherry_grove_4
+
+3 Barrel
+1 Campfire
+7 Cobblestone
+59 Dirt
+21 Dirt Path
+67 Grass Block
+9 Gravel
+1 Magenta Cushion
+14 Mossy Cobblestone
+1 Oxidized Copper Chest
+1 Pink Cushion
+5 Seagrass
+16 Water
+
+Dappled Forest
+
+campsite_dappled_forest_1
+
+1 Campfire
+1 Chest
+22 Dirt
+17 Dirt Path
+13 Grass Block
+3 Leaf Litter
+1 Orange Cushion
+4 Poplar Log
+7 Stone
+1 Yellow Cushion
+
+campsite_dappled_forest_2
+
+1 Barrel
+1 Campfire
+19 Dirt
+20 Dirt Path
+12 Grass Block
+21 Leaf Litter
+4 Poplar Log
+1 Red Cushion
+1 Yellow Cushion
+
+campsite_dappled_forest_3
+
+1 Barrel
+1 Campfire
+16 Dirt
+15 Dirt Path
+8 Grass Block
+1 Leaf Litter
+1 Oxidized Copper Chest
+1 Orange Cushion
+7 Poplar Log
+1 Red Cushion
+
+campsite_dappled_forest_4
+
+1 Campfire
+1 Chest
+53 Dirt
+22 Dirt Path
+48 Grass Block
+1 Orange Cushion
+1 Oxidized Copper Chest
+1 Red Cushion
+1 Yellow Cushion
+
+Flower Forest
+
+campsite_flower_forest_1
+
+1 Campfire
+1 Chest
+2 Dandelion
+3 Dirt
+30 Dirt Path
+26 Grass Block
+5 Lilac
+2 Lily of the Valley
+1 Oxeye Daisy
+2 Peony
+2 Red Cushion
+3 Rose Bush
+7 Short Grass
+
+campsite_flower_forest_2
+
+6 Allium
+7 Azure Bluet
+1 Blue Cushion
+1 Campfire
+1 Chest
+6 Cobweb
+4 Cornflower
+44 Dirt
+14 Dirt Path
+25 Grass Block
+1 Gravel
+1 Oxidized Copper Chest
+1 Purple Cushion
+
+campsite_flower_forest_3
+
+1 Barrel
+1 Campfire
+1 Chest
+10 Dirt
+14 Dirt Path
+22 Grass Block
+1 Orange Cushion
+4 Orange Tulip
+5 Pink Tulip
+5 Red Tulip
+1 White Cushion
+3 White Tulip
+
+campsite_flower_forest_4
+
+1 Barrel
+1 Campfire
+57 Dirt
+10 Dirt Path
+37 Grass Block
+1 Gravel
+1 Oxidized Copper Chest
+3 Red Cushion
+16 Rose Bush
+
+Forest
+
+campsite_forest_1
+
+1 Barrel
+3 Birch Log
+1 Blue Cushion
+3 Bush
+1 Campfire
+44 Dirt
+16 Dirt Path
+2 Firefly Bush
+53 Grass Block
+13 Gravel
+13 Sand
+2 Seagrass
+11 Water
+
+campsite_forest_2
+
+5 Birch Log
+1 Blue Cushion
+5 Bush
+1 Campfire
+1 Chest
+12 Dirt
+21 Dirt Path
+10 Grass Block
+1 Light Gray Cushion
+4 Oak Log
+4 Short Grass
+
+campsite_forest_3
+
+1 Blue Cushion
+1 Campfire
+1 Chest
+4 Cobweb
+14 Dirt
+25 Dirt Path
+9 Grass Block
+1 Light Gray Cushion
+5 Oak Log
+1 Oxidized Copper Chest
+1 White Cushion
+
+campsite_forest_4
+
+4 Birch Log
+1 Blue Cushion
+2 Bush
+1 Campfire
+1 Chest
+1 Cobblestone
+4 Cobweb
+7 Dirt
+18 Dirt Path
+15 Grass Block
+19 Gravel
+10 Iron Ore
+2 Leaf Litter
+8 Oak Fence
+6 Oak Planks
+1 Oxidized Copper Chest
+171 Stone
+
+Meadow
+
+campsite_meadow_1
+
+1 Azure Bluet
+1 Campfire
+1 Chest
+1 Cyan Cushion
+2 Dandelion
+5 Dirt
+28 Dirt Path
+38 Grass Block
+1 Oak Fence
+1 Oxidized Copper Golem Statue
+15 Short Grass
+14 Tall Grass
+
+campsite_meadow_2
+
+4 Allium
+1 Campfire
+1 Chest
+1 Cyan Cushion
+8 Dandelion
+15 Dirt
+17 Dirt Path
+32 Grass Block
+2 Gravel
+3 Oak Log
+4 Poppy
+31 Wildflowers
+1 Yellow Cushion
+
+campsite_meadow_3
+
+1 Barrel
+1 Brown Cushion
+1 Campfire
+24 Dirt
+21 Dirt Path
+41 Grass Block
+13 Gravel
+1 Oxidized Copper Chest
+1 Red Cushion
+34 Stone
+
+campsite_meadow_4
+
+1 Barrel
+1 Campfire
+2 Dandelion
+46 Dirt
+15 Dirt Path
+22 Grass Block
+2 Oak Stairs
+1 Oxidized Copper Chest
+2 Poppy
+2 Red Cushion
+27 Stone
+32 Wildflowers
+
+Old Growth Birch Forest
+
+campsite_old_growth_birch_forest_1
+
+6 Bush
+1 Campfire
+1 Chest
+16 Dirt
+21 Dirt Path
+30 Grass Block
+5 Stone
+2 White Cushion
+32 Wildflowers
+1 Yellow Cushion
+
+campsite_old_growth_birch_forest_2
+
+2 Barrel
+5 Bush
+1 Campfire
+10 Cobweb
+2 Dandelion
+33 Dirt
+19 Dirt Path
+47 Grass Block
+1 Gravel
+1 Oxidized Copper Chest
+21 Short Grass
+6 Tall Grass
+2 Yellow Cushion
+
+campsite_old_growth_birch_forest_3
+
+1 Campfire
+1 Chest
+8 Cobblestone
+2 Dandelion
+58 Dirt
+17 Dirt Path
+2 Firefly Bush
+52 Grass Block
+1 Lime Cushion
+5 Mossy Cobblestone
+18 Sand
+12 Short Grass
+7 Tall Grass
+14 Water
+1 Yellow Cushion
+
+campsite_old_growth_birch_forest_4
+
+2 Barrel
+1 Campfire
+1 Chest
+11 Dirt
+31 Dirt Path
+30 Grass Block
+1 Oxidized Copper Chest
+44 Stone
+3 White Cushion
+59 Wildflowers
+3 Yellow Cushion
+
+Old Growth Pine Taiga
+
+campsite_old_growth_pine_taiga_1
+
+1 Barrel
+1 Brown Cushion
+1 Campfire
+9 Cobblestone
+19 Dirt
+25 Dirt Path
+1 Grass Block
+10 Gravel
+1 Green Cushion
+15 Mossy Cobblestone
+3 Podzol
+1 Spruce Fence
+14 Stone
+
+campsite_old_growth_pine_taiga_2
+
+1 Campfire
+1 Chest
+9 Cobblestone
+61 Dirt
+25 Dirt Path
+57 Grass Block
+1 Gravel
+1 Green Cushion
+14 Mossy Cobblestone
+1 Oxidized Copper Chest
+1 Spruce Fence
+
+campsite_old_growth_pine_taiga_3
+
+1 Brown Cushion
+1 Campfire
+1 Chest
+5 Cobblestone
+24 Dirt
+15 Dirt Path
+6 Grass Block
+14 Gravel
+17 Mossy Cobblestone
+1 Spruce Fence
+40 Stone
+
+campsite_old_growth_pine_taiga_4
+
+1 Campfire
+1 Chest
+1 Dirt
+16 Dirt Path
+2 Grass Block
+2 Green Cushion
+52 Mossy Cobblestone
+1 Oxidized Copper Chest
+3 Podzol
+
+Old Growth Spruce Taiga
+
+campsite_old_growth_spruce_taiga_1
+
+1 Barrel
+2 Brown Cushion
+1 Campfire
+5 Cobblestone
+8 Dirt
+36 Dirt Path
+3 Fern
+7 Grass Block
+2 Large Fern
+6 Mossy Cobblestone
+27 Podzol
+5 Stripped Spruce Log
+
+campsite_old_growth_spruce_taiga_2
+
+1 Barrel
+1 Brown Cushion
+1 Campfire
+1 Cobblestone
+7 Dirt
+18 Dirt Path
+4 Fern
+34 Grass Block
+8 Mossy Cobblestone
+41 Podzol
+
+campsite_old_growth_spruce_taiga_3
+
+1 Campfire
+1 Chest
+5 Cobblestone
+11 Dirt
+13 Dirt Path
+7 Grass Block
+1 Gray Cushion
+8 Mossy Cobblestone
+5 Short Grass
+
+campsite_old_growth_spruce_taiga_4
+
+1 Barrel
+2 Brown Cushion
+1 Campfire
+3 Dirt
+13 Dirt Path
+52 Mossy Cobblestone
+1 Oxidized Copper Chest
+3 Podzol
+
+Pale Garden
+
+campsite_pale_garden_1
+
+1 Barrel
+1 Campfire
+65 Dirt
+14 Dirt Path
+39 Grass Block
+4 Pale Hanging Moss
+22 Pale Moss Block
+10 Pale Moss Carpet
+6 Tall Grass
+1 White Cushion
+
+campsite_pale_garden_2
+
+1 Campfire
+1 Chest
+7 Closed Eyeblossom
+60 Dirt
+20 Dirt Path
+33 Grass Block
+Light Gray Cushion
+1 Oxidized Copper Chest
+29 Pale Moss Block
+11 Pale Moss Carpet
+
+campsite_pale_garden_3
+
+3 Barrel
+3 Block of Resin
+1 Campfire
+1 Chest
+1 Creaking Heart
+27 Dirt
+12 Dirt Path
+16 Grass Block
+1 Gray Cushion
+37 Pale Hanging Moss
+13 Pale Moss Block
+15 Pale Moss Carpet
+109 Pale Oak Leaves
+31 Pale Oak Log
+3 Tall Grass
+
+
+
+campsite_pale_garden_4
+
+1 Campfire
+1 Chest
+1 Closed Eyeblossom
+97 Dirt
+8 Dirt Path
+36 Grass Block
+1 Oxidized Copper Chest
+4 Pale Hanging Moss
+32 Pale Moss Block
+15 Pale Moss Carpet
+9 Tall Grass
+1 White Cushion
+
+Savanna
+
+campsite_savanna_1
+
+1 Acacia Fence
+4 Acacia Log
+1 Barrel
+1 Brown Cushion
+1 Campfire
+17 Dirt
+16 Dirt Path
+12 Grass Block
+1 Oxidized Copper Golem Statue
+3 Tall Grass
+
+campsite_savanna_2
+
+1 Acacia Fence
+9 Acacia Leaves
+1 Acacia Log
+1 Barrel
+1 Brown Cushion
+1 Campfire
+26 Dirt
+13 Dirt Path
+16 Grass Block
+1 Light Gray Cushion
+1 Oxidized Copper Chest
+15 Stone
+1 Tall Grass
+
+campsite_savanna_3
+
+1 Campfire
+1 Chest
+10 Cobweb
+2 Dirt
+15 Dirt Path
+10 Grass Block
+2 Gravel
+1 Light Gray Cushion
+
+campsite_savanna_4
+
+1 Barrel
+1 Brown Cushion
+1 Campfire
+38 Dirt
+21 Dirt Path
+47 Grass Block
+1 Light Gray Cushion
+1 Oxidized Copper Chest
+68 Stone
+
+Snowy Taiga
+
+campsite_snowy_taiga_1
+
+1 Campfire
+1 Chest
+15 Dirt
+22 Dirt Path
+2 Fern
+25 Grass Block
+1 Gray Cushion
+2 Large Fern
+1 Light Gray Cushion
+1 Oxidized Copper Chest
+54 Snow
+1 Snow Block
+
+campsite_snowy_taiga_2
+
+1 Campfire
+1 Chest
+12 Dirt
+14 Dirt Path
+8 Grass Block
+7 Gravel
+1 Green Cushion
+2 Light Gray Cushion
+1 Oxidized Copper Golem Statue
+32 Snow
+5 Snow Block
+4 Spruce Log
+
+campsite_snowy_taiga_3
+
+1 Barrel
+1 Brown Cushion
+1 Campfire
+12 Dirt
+13 Dirt Path
+39 Grass Block
+47 Snow
+11 Sweet Berry Bush
+
+campsite_snowy_taiga_4
+
+1 Barrel
+1 Campfire
+25 Dirt
+6 Dirt Path
+15 Grass Block
+1 Green Cushion
+3 Large Fern
+3 Powder Snow
+50 Snow
+46 Snow Block
+
+Sparse Jungle
+
+campsite_sparse_jungle_1
+
+1 Campfire
+1 Chest
+3 Cocoa
+20 Dirt Path
+1 Grass Block
+1 Gray Cushion
+1 Jungle Fence
+168 Jungle Leaves
+33 Jungle Log
+1 Light Gray Cushion
+36 Vines
+
+
+
+campsite_sparse_jungle_2
+
+2 Barrel
+1 Campfire
+2 Cobweb
+2 Cocoa
+9 Dirt
+13 Dirt Path
+23 Grass Block
+1 Jungle Fence
+108 Jungle Leaves
+21 Jungle Log
+1 Oxidized Copper Chest
+1 Red Cushion
+1 Stone
+35 Vines
+
+
+
+campsite_sparse_jungle_3
+
+1 Black Cushion
+1 Brown Cushion
+1 Campfire
+1 Chest
+10 Cobweb
+5 Cocoa
+9 Dirt
+23 Dirt Path
+3 Grass Block
+1 Jungle Fence
+115 Jungle Leaves
+18 Jungle Log
+1 Light Gray Cushion
+11 Stone
+
+
+
+campsite_sparse_jungle_4
+
+3 Barrel
+1 Campfire
+26 Dirt
+19 Dirt Path
+19 Grass Block
+6 Gravel
+1 Oxidized Copper Chest
+1 Red Cushion
+18 Stone
+23 Vines
+
+Swamp
+
+campsite_swamp_1
+
+1 Campfire
+1 Chest
+23 Clay
+5 Cobweb
+61 Dirt
+18 Dirt Path
+3 Firefly Bush
+80 Grass Block
+1 Gray Cushion
+1 Light Gray Cushion
+3 Lily Pad
+93 Oak Leaves
+5 Oak Log
+5 Seagrass
+9 Short Grass
+35 Vines
+10 Water
+
+
+
+campsite_swamp_2
+
+1 Barrel
+1 Brown Mushroom
+21 Brown Mushroom Block
+1 Campfire
+20 Clay
+10 Cobweb
+58 Dirt
+16 Dirt Path
+60 Grass Block
+1 Green Cushion
+4 Lily Pad
+10 Mushroom Stem
+1 Mycelium
+1 Oxidized Copper Chest
+45 Red Mushroom Block
+7 Seagrass
+5 Short Grass
+14 Water
+
+campsite_swamp_3
+
+1 Barrel
+2 Black Cushion
+6 Blue Orchid
+1 Campfire
+1 Chest
+27 Clay
+64 Dirt
+12 Dirt Path
+72 Grass Block
+4 Lily Pad
+93 Oak Leaves
+5 Oak Log
+9 Seagrass
+4 Short Grass
+39 Vines
+15 Water
+
+
+
+campsite_swamp_4
+
+1 Barrel
+1 Campfire
+51 Clay
+24 Dirt
+12 Dirt Path
+3 Firefly Bush
+78 Grass Block
+1 Green Cushion
+1 Light Gray Cushion
+2 Lily Pad
+1 Oak Fence
+10 Oak Log
+1 Oxidized Copper Chest
+4 Seagrass
+15 Spruce Planks
+18 Water
+
+Taiga
+
+campsite_taiga_1
+
+1 Campfire
+1 Chest
+13 Dirt
+15 Dirt Path
+3 Fern
+17 Grass Block
+1 Gray Cushion
+1 Green Cushion
+5 Large Fern
+
+campsite_taiga_2
+
+1 Barrel
+1 Brown Cushion
+1 Campfire
+10 Dirt
+14 Dirt Path
+11 Grass Block
+1 Short Grass
+5 Spruce Log
+9 Sweet Berry Bush
+
+campsite_taiga_3
+
+1 Barrel
+1 Campfire
+6 Cobblestone
+7 Cobweb
+16 Dirt
+12 Dirt Path
+13 Grass Block
+1 Green Cushion
+3 Mossy Cobblestone
+2 Short Grass
+10 Water
+
+campsite_taiga_4
+
+1 Brown Cushion
+1 Campfire
+1 Chest
+2 Cobblestone
+16 Dirt
+9 Dirt Path
+1 Grass Block
+1 Green Cushion
+9 Mossy Cobblestone
+1 Oxidized Copper Chest
+39 Stone
+13 Water
+
+Windswept Forest
+
+campsite_windswept_forest_1
+
+1 Barrel
+8 Bush
+1 Campfire
+1 Cyan Cushion
+19 Dirt
+19 Dirt Path
+9 Grass Block
+7 Gravel
+2 Light Blue Cushion
+29 Stone
+
+campsite_windswept_forest_2
+
+1 Black Cushion
+4 Bush
+1 Campfire
+1 Chest
+8 Coal Ore
+1 Cyan Cushion
+7 Dirt
+15 Dirt Path
+6 Grass Block
+5 Gravel
+3 Spruce Log
+
+campsite_windswept_forest_3
+
+1 Barrel
+6 Bush
+1 Campfire
+16 Dirt
+28 Dirt Path
+7 Grass Block
+10 Gravel
+1 Gray Cushion
+4 Iron Ore
+1 Light Gray Cushion
+1 Oxidized Copper Chest
+23 Stone
+
+campsite_windswept_forest_4
+
+1 Campfire
+1 Chest
+6 Coal Ore
+1 Cyan Cushion
+18 Dirt
+19 Dirt Path
+9 Gravel
+1 Light Gray Cushion
+1 Oxidized Copper Chest
+32 Stone
+
+Wooded Badlands
+
+campsite_wooded_badlands_1
+
+2 Barrel
+5 Cactus
+2 Cactus Flower
+1 Campfire
+9 Dirt
+15 Dirt Path
+3 Orange Cushion
+21 Red Sand
+24 Red Sandstone
+2 Short Dry Grass
+1 Tall Dry Grass
+44 Terracotta
+11 White Terracotta
+
+campsite_wooded_badlands_2
+
+1 Brown Cushion
+8 Cactus
+3 Cactus Flower
+1 Campfire
+1 Chest
+2 Dirt
+15 Dirt Path
+4 Oak Fence
+42 Red Sand
+59 Red Sandstone
+3 Short Dry Grass
+3 Tall Dry Grass
+
+campsite_wooded_badlands_3
+
+1 Barrel
+2 Brown Cushion
+2 Cactus
+1 Cactus Flower
+1 Campfire
+2 Cobweb
+3 Dead Bush
+37 Dirt
+11 Dirt Path
+2 Gold Ore
+2 Orange Cushion
+1 Oxidized Copper Chest
+28 Red Sand
+44 Red Sandstone
+4 Short Dry Grass
+1 Tall Dry Grass
+7 Terracotta
+
+campsite_wooded_badlands_4
+
+1 Barrel
+1 Campfire
+8 Dirt
+8 Dirt Path
+1 Orange Cushion
+1 Oxidized Copper Chest
+65 Red Sand
+40 Red Sandstone
+11 Tall Dry Grass
+
+Loot
+
+
+
+This section needs to be updated. 
+Please update this section to reflect recent updates or newly available information. The talk page may contain suggestions.Reason: Update Bedrock Edition loot table
+
+Barrels
+In Java Edition 26.3, each abandoned camp barrel chest contains  items drawn from 2 pools,  with the following distribution:
+
+ Item
+  Stack Size
+  Weight
+  Chance
+  Avg.per barrel
+  Avg. # barrelsto open
+
+4–8×
+1×
+4–8×
+1×
+
+Bone
+2–4—1⁄14—35.5%1.2862.8
+
+Coal
+2–4—1⁄14—35.5%1.2862.8
+
+Straw Bed
+2–4—1⁄14—35.5%1.2862.8
+
+Rabbit Hide
+1–4—1⁄14—35.5%1.0712.8
+
+Wheat
+1–4—1⁄14—35.5%1.0712.8
+
+Arrow
+1–3—1⁄14—35.5%0.8572.8
+
+Bread
+1–3—1⁄14—35.5%0.8572.8
+
+Glass Bottle
+1–3—1⁄14—35.5%0.8572.8
+
+White Candle
+1–3—1⁄14—35.5%0.8572.8
+
+Leather
+1–3—1⁄14—35.5%0.8572.8
+
+Bowl
+1–2—1⁄14—35.5%0.6432.8
+
+String
+1–2—1⁄14—35.5%0.6432.8
+
+White Cushion
+1–2—1⁄14—35.5%0.6432.8
+
+Cobweb
+1—1⁄14—35.5%0.4292.8
+
+Bundle
+—1—1⁄333.3%0.3333.0
+
+Fishing Rod
+—1—1⁄333.3%0.3333.0
+
+Wooden Axe
+—1—1⁄333.3%0.3333.0
+{ "chestNames": [ "abandoned-camp-barrel" ], "gameVersion": "JavaUpcoming", "loot": { "abandoned-camp-barrel": { "poolsJava": [], "poolsBedrockUpcoming": [ { "items": { "wheat": [ 1, 4, 1 ], "string": [ 1, 2, 1 ], "arrow": [ 1, 3, 1 ], "wooden-axe": [ 1, 1, 1 ], "bundle": [ 1, 1, 1 ], "bowl": [ 1, 2, 1 ], "coal": [ 2, 4, 1 ], "leather": [ 1, 3, 1 ], "fishing-rod": [ 1, 1, 1 ], "rabbit-hide": [ 1, 4, 1 ], "bone": [ 2, 4, 1 ], "glass-bottle": [ 1, 3, 1 ], "bread": [ 1, 3, 1 ], "cobweb": [ 1, 1, 1 ], "white-candle": [ 1, 3, 1 ] }, "rolls": [ 4, 8 ], "totalweight": 15 } ], "itemDataJava": [], "structID": "abandoned-camp", "poolsJavaUpcoming": [ { "items": { "wheat": [ 1, 4, 1 ], "string": [ 1, 2, 1 ], "straw-bed": [ 2, 4, 1 ], "arrow": [ 1, 3, 1 ], "white-cushion": [ 1, 2, 1 ], "bowl": [ 1, 2, 1 ], "leather": [ 1, 3, 1 ], "coal": [ 2, 4, 1 ], "rabbit-hide": [ 1, 4, 1 ], "bone": [ 2, 4, 1 ], "glass-bottle": [ 1, 3, 1 ], "bread": [ 1, 3, 1 ], "cobweb": [ 1, 1, 1 ], "white-candle": [ 1, 3, 1 ] }, "rolls": [ 4, 8 ], "totalweight": 14 }, { "items": { "wooden-axe": [ 1, 1, 1 ], "bundle": [ 1, 1, 1 ], "fishing-rod": [ 1, 1, 1 ] }, "rolls": [ 1, 1 ], "totalweight": 3 } ], "structure": "Abandoned Camp", "container": "Barrel", "itemDataJavaUpcoming": { "wheat": { "sortsize": [ 2.5, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>14</sub>", "—" ], "chanceany": 0.35542388369628897, "sizes": [ "1–4", "—" ], "sortweight": [ 1, 0 ], "armor": 0, "material": 0, "avgamount": 1.0714285714285714, "itemname": "wheat" }, "string": { "sortsize": [ 1.5, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>14</sub>", "—" ], "chanceany": 0.35542388369628897, "sizes": [ "1–2", "—" ], "sortweight": [ 1, 0 ], "armor": 0, "material": 0, "avgamount": 0.6428571428571429, "itemname": "string" }, "straw-bed": { "sortsize": [ 3, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>14</sub>", "—" ], "chanceany": 0.35542388369628897, "sizes": [ "2–4", "—" ], "sortweight": [ 1, 0 ], "armor": 0, "material": 0, "avgamount": 1.2857142857142858, "itemname": "straw-bed" }, "arrow": { "sortsize": [ 2, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>14</sub>", "—" ], "chanceany": 0.35542388369628897, "sizes": [ "1–3", "—" ], "sortweight": [ 1, 0 ], "armor": 0, "material": 0, "avgamount": 0.8571428571428571, "itemname": "arrow" }, "white-cushion": { "sortsize": [ 1.5, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>14</sub>", "—" ], "chanceany": 0.35542388369628897, "sizes": [ "1–2", "—" ], "sortweight": [ 1, 0 ], "armor": 0, "material": 0, "avgamount": 0.6428571428571429, "itemname": "white-cushion" }, "coal": { "sortsize": [ 3, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>14</sub>", "—" ], "chanceany": 0.35542388369628897, "sizes": [ "2–4", "—" ], "sortweight": [ 1, 0 ], "armor": 0, "material": 0, "avgamount": 1.2857142857142858, "itemname": "coal" }, "wooden-axe": { "sortsize": [ 0, 1 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>3</sub>" ], "chanceany": 0.33333333333333337, "sizes": [ "—", 1 ], "sortweight": [ 0, 1 ], "armor": 0, "material": 0, "avgamount": 0.3333333333333333, "itemname": "wooden-axe" }, "fishing-rod": { "sortsize": [ 0, 1 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>3</sub>" ], "chanceany": 0.33333333333333337, "sizes": [ "—", 1 ], "sortweight": [ 0, 1 ], "armor": 0, "material": 0, "avgamount": 0.3333333333333333, "itemname": "fishing-rod" }, "bone": { "sortsize": [ 3, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>14</sub>", "—" ], "chanceany": 0.35542388369628897, "sizes": [ "2–4", "—" ], "sortweight": [ 1, 0 ], "armor": 0, "material": 0, "avgamount": 1.2857142857142858, "itemname": "bone" }, "bread": { "sortsize": [ 2, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>14</sub>", "—" ], "chanceany": 0.35542388369628897, "sizes": [ "1–3", "—" ], "sortweight": [ 1, 0 ], "armor": 0, "material": 0, "avgamount": 0.8571428571428571, "itemname": "bread" }, "white-candle": { "sortsize": [ 2, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>14</sub>", "—" ], "chanceany": 0.35542388369628897, "sizes": [ "1–3", "—" ], "sortweight": [ 1, 0 ], "armor": 0, "material": 0, "avgamount": 0.8571428571428571, "itemname": "white-candle" }, "bundle": { "sortsize": [ 0, 1 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>3</sub>" ], "chanceany": 0.33333333333333337, "sizes": [ "—", 1 ], "sortweight": [ 0, 1 ], "armor": 0, "material": 0, "avgamount": 0.3333333333333333, "itemname": "bundle" }, "rabbit-hide": { "sortsize": [ 2.5, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>14</sub>", "—" ], "chanceany": 0.35542388369628897, "sizes": [ "1–4", "—" ], "sortweight": [ 1, 0 ], "armor": 0, "material": 0, "avgamount": 1.0714285714285714, "itemname": "rabbit-hide" }, "leather": { "sortsize": [ 2, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>14</sub>", "—" ], "chanceany": 0.35542388369628897, "sizes": [ "1–3", "—" ], "sortweight": [ 1, 0 ], "armor": 0, "material": 1, "avgamount": 0.8571428571428571, "itemname": "leather" }, "glass-bottle": { "sortsize": [ 2, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>14</sub>", "—" ], "chanceany": 0.35542388369628897, "sizes": [ "1–3", "—" ], "sortweight": [ 1, 0 ], "armor": 0, "material": 0, "avgamount": 0.8571428571428571, "itemname": "glass-bottle" }, "cobweb": { "itemname": "cobweb", "sizes": [ 1, "—" ], "sortsize": [ 1, 0 ], "sortweight": [ 1, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>14</sub>", "—" ], "avgamount": 0.42857142857142855, "chanceany": 0.35542388369628897 }, "bowl": { "sortsize": [ 1.5, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>14</sub>", "—" ], "chanceany": 0.35542388369628897, "sizes": [ "1–2", "—" ], "sortweight": [ 1, 0 ], "armor": 0, "material": 0, "avgamount": 0.6428571428571429, "itemname": "bowl" } }, "allRollsJavaUpcoming": [ "4–8", 1 ], "itemDataBedrock": [], "poolsBedrock": [], "allRollsBedrockUpcoming": [ "4–8" ], "allRollsBedrock": [], "itemDataBedrockUpcoming": { "wheat": { "sortsize": [ 2.5 ], "weights": [ "<sup>1</sup>&frasl;<sub>15</sub>" ], "chanceany": 0.3358200203334857, "sizes": [ "1–4" ], "sortweight": [ 1 ], "armor": 0, "material": 0, "avgamount": 1, "itemname": "wheat" }, "string": { "sortsize": [ 1.5 ], "weights": [ "<sup>1</sup>&frasl;<sub>15</sub>" ], "chanceany": 0.3358200203334857, "sizes": [ "1–2" ], "sortweight": [ 1 ], "armor": 0, "material": 0, "avgamount": 0.6, "itemname": "string" }, "arrow": { "sortsize": [ 2 ], "weights": [ "<sup>1</sup>&frasl;<sub>15</sub>" ], "chanceany": 0.3358200203334857, "sizes": [ "1–3" ], "sortweight": [ 1 ], "armor": 0, "material": 0, "avgamount": 0.8, "itemname": "arrow" }, "coal": { "sortsize": [ 3 ], "weights": [ "<sup>1</sup>&frasl;<sub>15</sub>" ], "chanceany": 0.3358200203334857, "sizes": [ "2–4" ], "sortweight": [ 1 ], "armor": 0, "material": 0, "avgamount": 1.2, "itemname": "coal" }, "bundle": { "sortsize": [ 1 ], "weights": [ "<sup>1</sup>&frasl;<sub>15</sub>" ], "chanceany": 0.3358200203334857, "sizes": [ 1 ], "sortweight": [ 1 ], "armor": 0, "material": 0, "avgamount": 0.4, "itemname": "bundle" }, "bowl": { "sortsize": [ 1.5 ], "weights": [ "<sup>1</sup>&frasl;<sub>15</sub>" ], "chanceany": 0.3358200203334857, "sizes": [ "1–2" ], "sortweight": [ 1 ], "armor": 0, "material": 0, "avgamount": 0.6, "itemname": "bowl" }, "wooden-axe": { "sortsize": [ 1 ], "weights": [ "<sup>1</sup>&frasl;<sub>15</sub>" ], "chanceany": 0.3358200203334857, "sizes": [ 1 ], "sortweight": [ 1 ], "armor": 0, "material": 0, "avgamount": 0.4, "itemname": "wooden-axe" }, "leather": { "sortsize": [ 2 ], "weights": [ "<sup>1</sup>&frasl;<sub>15</sub>" ], "chanceany": 0.3358200203334857, "sizes": [ "1–3" ], "sortweight": [ 1 ], "armor": 0, "material": 1, "avgamount": 0.8, "itemname": "leather" }, "fishing-rod": { "sortsize": [ 1 ], "weights": [ "<sup>1</sup>&frasl;<sub>15</sub>" ], "chanceany": 0.3358200203334857, "sizes": [ 1 ], "sortweight": [ 1 ], "armor": 0, "material": 0, "avgamount": 0.4, "itemname": "fishing-rod" }, "rabbit-hide": { "sortsize": [ 2.5 ], "weights": [ "<sup>1</sup>&frasl;<sub>15</sub>" ], "chanceany": 0.3358200203334857, "sizes": [ "1–4" ], "sortweight": [ 1 ], "armor": 0, "material": 0, "avgamount": 1, "itemname": "rabbit-hide" }, "bone": { "sortsize": [ 3 ], "weights": [ "<sup>1</sup>&frasl;<sub>15</sub>" ], "chanceany": 0.3358200203334857, "sizes": [ "2–4" ], "sortweight": [ 1 ], "armor": 0, "material": 0, "avgamount": 1.2, "itemname": "bone" }, "glass-bottle": { "sortsize": [ 2 ], "weights": [ "<sup>1</sup>&frasl;<sub>15</sub>" ], "chanceany": 0.3358200203334857, "sizes": [ "1–3" ], "sortweight": [ 1 ], "armor": 0, "material": 0, "avgamount": 0.8, "itemname": "glass-bottle" }, "bread": { "sortsize": [ 2 ], "weights": [ "<sup>1</sup>&frasl;<sub>15</sub>" ], "chanceany": 0.3358200203334857, "sizes": [ "1–3" ], "sortweight": [ 1 ], "armor": 0, "material": 0, "avgamount": 0.8, "itemname": "bread" }, "cobweb": { "sortsize": [ 1 ], "weights": [ "<sup>1</sup>&frasl;<sub>15</sub>" ], "chanceany": 0.3358200203334857, "sizes": [ 1 ], "sortweight": [ 1 ], "armor": 0, "material": 0, "avgamount": 0.4, "itemname": "cobweb" }, "white-candle": { "sortsize": [ 2 ], "weights": [ "<sup>1</sup>&frasl;<sub>15</sub>" ], "chanceany": 0.3358200203334857, "sizes": [ "1–3" ], "sortweight": [ 1 ], "armor": 0, "material": 0, "avgamount": 0.8, "itemname": "white-candle" } }, "header": "[[Abandoned Camp]]", "allRollsJava": [], "link": "[[abandoned camp]] barrel" } } }
+In Bedrock Edition 26.50, each abandoned camp barrel chest contains 4–8 item stacks,  with the following distribution:
+
+ Item
+  Stack Size
+  Weight
+  Chance
+  Avg.per barrel
+  Avg. # barrelsto open
+
+Bone
+2–41⁄1533.6%1.2003.0
+
+Coal
+2–41⁄1533.6%1.2003.0
+
+Rabbit Hide
+1–41⁄1533.6%1.0003.0
+
+Wheat
+1–41⁄1533.6%1.0003.0
+
+Arrow
+1–31⁄1533.6%0.8003.0
+
+Bread
+1–31⁄1533.6%0.8003.0
+
+Glass Bottle
+1–31⁄1533.6%0.8003.0
+
+White Candle
+1–31⁄1533.6%0.8003.0
+
+Leather
+1–31⁄1533.6%0.8003.0
+
+Bowl
+1–21⁄1533.6%0.6003.0
+
+String
+1–21⁄1533.6%0.6003.0
+
+Bundle
+11⁄1533.6%0.4003.0
+
+Cobweb
+11⁄1533.6%0.4003.0
+
+Fishing Rod
+11⁄1533.6%0.4003.0
+
+Wooden Axe
+11⁄1533.6%0.4003.0
+{ "chestNames": [ "abandoned-camp-barrel" ], "gameVersion": "BedrockUpcoming", "loot": { "abandoned-camp-barrel": { "poolsJava": [], "poolsBedrockUpcoming": [ { "items": { "wheat": [ 1, 4, 1 ], "string": [ 1, 2, 1 ], "arrow": [ 1, 3, 1 ], "wooden-axe": [ 1, 1, 1 ], "bundle": [ 1, 1, 1 ], "bowl": [ 1, 2, 1 ], "coal": [ 2, 4, 1 ], "leather": [ 1, 3, 1 ], "fishing-rod": [ 1, 1, 1 ], "rabbit-hide": [ 1, 4, 1 ], "bone": [ 2, 4, 1 ], "glass-bottle": [ 1, 3, 1 ], "bread": [ 1, 3, 1 ], "cobweb": [ 1, 1, 1 ], "white-candle": [ 1, 3, 1 ] }, "rolls": [ 4, 8 ], "totalweight": 15 } ], "itemDataJava": [], "structID": "abandoned-camp", "poolsJavaUpcoming": [ { "items": { "wheat": [ 1, 4, 1 ], "string": [ 1, 2, 1 ], "straw-bed": [ 2, 4, 1 ], "arrow": [ 1, 3, 1 ], "white-cushion": [ 1, 2, 1 ], "bowl": [ 1, 2, 1 ], "leather": [ 1, 3, 1 ], "coal": [ 2, 4, 1 ], "rabbit-hide": [ 1, 4, 1 ], "bone": [ 2, 4, 1 ], "glass-bottle": [ 1, 3, 1 ], "bread": [ 1, 3, 1 ], "cobweb": [ 1, 1, 1 ], "white-candle": [ 1, 3, 1 ] }, "rolls": [ 4, 8 ], "totalweight": 14 }, { "items": { "wooden-axe": [ 1, 1, 1 ], "bundle": [ 1, 1, 1 ], "fishing-rod": [ 1, 1, 1 ] }, "rolls": [ 1, 1 ], "totalweight": 3 } ], "structure": "Abandoned Camp", "container": "Barrel", "itemDataJavaUpcoming": { "wheat": { "sortsize": [ 2.5, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>14</sub>", "—" ], "chanceany": 0.35542388369628897, "sizes": [ "1–4", "—" ], "sortweight": [ 1, 0 ], "armor": 0, "material": 0, "avgamount": 1.0714285714285714, "itemname": "wheat" }, "string": { "sortsize": [ 1.5, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>14</sub>", "—" ], "chanceany": 0.35542388369628897, "sizes": [ "1–2", "—" ], "sortweight": [ 1, 0 ], "armor": 0, "material": 0, "avgamount": 0.6428571428571429, "itemname": "string" }, "straw-bed": { "sortsize": [ 3, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>14</sub>", "—" ], "chanceany": 0.35542388369628897, "sizes": [ "2–4", "—" ], "sortweight": [ 1, 0 ], "armor": 0, "material": 0, "avgamount": 1.2857142857142858, "itemname": "straw-bed" }, "arrow": { "sortsize": [ 2, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>14</sub>", "—" ], "chanceany": 0.35542388369628897, "sizes": [ "1–3", "—" ], "sortweight": [ 1, 0 ], "armor": 0, "material": 0, "avgamount": 0.8571428571428571, "itemname": "arrow" }, "white-cushion": { "sortsize": [ 1.5, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>14</sub>", "—" ], "chanceany": 0.35542388369628897, "sizes": [ "1–2", "—" ], "sortweight": [ 1, 0 ], "armor": 0, "material": 0, "avgamount": 0.6428571428571429, "itemname": "white-cushion" }, "coal": { "sortsize": [ 3, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>14</sub>", "—" ], "chanceany": 0.35542388369628897, "sizes": [ "2–4", "—" ], "sortweight": [ 1, 0 ], "armor": 0, "material": 0, "avgamount": 1.2857142857142858, "itemname": "coal" }, "wooden-axe": { "sortsize": [ 0, 1 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>3</sub>" ], "chanceany": 0.33333333333333337, "sizes": [ "—", 1 ], "sortweight": [ 0, 1 ], "armor": 0, "material": 0, "avgamount": 0.3333333333333333, "itemname": "wooden-axe" }, "fishing-rod": { "sortsize": [ 0, 1 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>3</sub>" ], "chanceany": 0.33333333333333337, "sizes": [ "—", 1 ], "sortweight": [ 0, 1 ], "armor": 0, "material": 0, "avgamount": 0.3333333333333333, "itemname": "fishing-rod" }, "bone": { "sortsize": [ 3, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>14</sub>", "—" ], "chanceany": 0.35542388369628897, "sizes": [ "2–4", "—" ], "sortweight": [ 1, 0 ], "armor": 0, "material": 0, "avgamount": 1.2857142857142858, "itemname": "bone" }, "bread": { "sortsize": [ 2, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>14</sub>", "—" ], "chanceany": 0.35542388369628897, "sizes": [ "1–3", "—" ], "sortweight": [ 1, 0 ], "armor": 0, "material": 0, "avgamount": 0.8571428571428571, "itemname": "bread" }, "white-candle": { "sortsize": [ 2, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>14</sub>", "—" ], "chanceany": 0.35542388369628897, "sizes": [ "1–3", "—" ], "sortweight": [ 1, 0 ], "armor": 0, "material": 0, "avgamount": 0.8571428571428571, "itemname": "white-candle" }, "bundle": { "sortsize": [ 0, 1 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>3</sub>" ], "chanceany": 0.33333333333333337, "sizes": [ "—", 1 ], "sortweight": [ 0, 1 ], "armor": 0, "material": 0, "avgamount": 0.3333333333333333, "itemname": "bundle" }, "rabbit-hide": { "sortsize": [ 2.5, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>14</sub>", "—" ], "chanceany": 0.35542388369628897, "sizes": [ "1–4", "—" ], "sortweight": [ 1, 0 ], "armor": 0, "material": 0, "avgamount": 1.0714285714285714, "itemname": "rabbit-hide" }, "leather": { "sortsize": [ 2, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>14</sub>", "—" ], "chanceany": 0.35542388369628897, "sizes": [ "1–3", "—" ], "sortweight": [ 1, 0 ], "armor": 0, "material": 1, "avgamount": 0.8571428571428571, "itemname": "leather" }, "glass-bottle": { "sortsize": [ 2, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>14</sub>", "—" ], "chanceany": 0.35542388369628897, "sizes": [ "1–3", "—" ], "sortweight": [ 1, 0 ], "armor": 0, "material": 0, "avgamount": 0.8571428571428571, "itemname": "glass-bottle" }, "cobweb": { "itemname": "cobweb", "sizes": [ 1, "—" ], "sortsize": [ 1, 0 ], "sortweight": [ 1, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>14</sub>", "—" ], "avgamount": 0.42857142857142855, "chanceany": 0.35542388369628897 }, "bowl": { "sortsize": [ 1.5, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>14</sub>", "—" ], "chanceany": 0.35542388369628897, "sizes": [ "1–2", "—" ], "sortweight": [ 1, 0 ], "armor": 0, "material": 0, "avgamount": 0.6428571428571429, "itemname": "bowl" } }, "allRollsJavaUpcoming": [ "4–8", 1 ], "itemDataBedrock": [], "poolsBedrock": [], "allRollsBedrockUpcoming": [ "4–8" ], "allRollsBedrock": [], "itemDataBedrockUpcoming": { "wheat": { "sortsize": [ 2.5 ], "weights": [ "<sup>1</sup>&frasl;<sub>15</sub>" ], "chanceany": 0.3358200203334857, "sizes": [ "1–4" ], "sortweight": [ 1 ], "armor": 0, "material": 0, "avgamount": 1, "itemname": "wheat" }, "string": { "sortsize": [ 1.5 ], "weights": [ "<sup>1</sup>&frasl;<sub>15</sub>" ], "chanceany": 0.3358200203334857, "sizes": [ "1–2" ], "sortweight": [ 1 ], "armor": 0, "material": 0, "avgamount": 0.6, "itemname": "string" }, "arrow": { "sortsize": [ 2 ], "weights": [ "<sup>1</sup>&frasl;<sub>15</sub>" ], "chanceany": 0.3358200203334857, "sizes": [ "1–3" ], "sortweight": [ 1 ], "armor": 0, "material": 0, "avgamount": 0.8, "itemname": "arrow" }, "coal": { "sortsize": [ 3 ], "weights": [ "<sup>1</sup>&frasl;<sub>15</sub>" ], "chanceany": 0.3358200203334857, "sizes": [ "2–4" ], "sortweight": [ 1 ], "armor": 0, "material": 0, "avgamount": 1.2, "itemname": "coal" }, "bundle": { "sortsize": [ 1 ], "weights": [ "<sup>1</sup>&frasl;<sub>15</sub>" ], "chanceany": 0.3358200203334857, "sizes": [ 1 ], "sortweight": [ 1 ], "armor": 0, "material": 0, "avgamount": 0.4, "itemname": "bundle" }, "bowl": { "sortsize": [ 1.5 ], "weights": [ "<sup>1</sup>&frasl;<sub>15</sub>" ], "chanceany": 0.3358200203334857, "sizes": [ "1–2" ], "sortweight": [ 1 ], "armor": 0, "material": 0, "avgamount": 0.6, "itemname": "bowl" }, "wooden-axe": { "sortsize": [ 1 ], "weights": [ "<sup>1</sup>&frasl;<sub>15</sub>" ], "chanceany": 0.3358200203334857, "sizes": [ 1 ], "sortweight": [ 1 ], "armor": 0, "material": 0, "avgamount": 0.4, "itemname": "wooden-axe" }, "leather": { "sortsize": [ 2 ], "weights": [ "<sup>1</sup>&frasl;<sub>15</sub>" ], "chanceany": 0.3358200203334857, "sizes": [ "1–3" ], "sortweight": [ 1 ], "armor": 0, "material": 1, "avgamount": 0.8, "itemname": "leather" }, "fishing-rod": { "sortsize": [ 1 ], "weights": [ "<sup>1</sup>&frasl;<sub>15</sub>" ], "chanceany": 0.3358200203334857, "sizes": [ 1 ], "sortweight": [ 1 ], "armor": 0, "material": 0, "avgamount": 0.4, "itemname": "fishing-rod" }, "rabbit-hide": { "sortsize": [ 2.5 ], "weights": [ "<sup>1</sup>&frasl;<sub>15</sub>" ], "chanceany": 0.3358200203334857, "sizes": [ "1–4" ], "sortweight": [ 1 ], "armor": 0, "material": 0, "avgamount": 1, "itemname": "rabbit-hide" }, "bone": { "sortsize": [ 3 ], "weights": [ "<sup>1</sup>&frasl;<sub>15</sub>" ], "chanceany": 0.3358200203334857, "sizes": [ "2–4" ], "sortweight": [ 1 ], "armor": 0, "material": 0, "avgamount": 1.2, "itemname": "bone" }, "glass-bottle": { "sortsize": [ 2 ], "weights": [ "<sup>1</sup>&frasl;<sub>15</sub>" ], "chanceany": 0.3358200203334857, "sizes": [ "1–3" ], "sortweight": [ 1 ], "armor": 0, "material": 0, "avgamount": 0.8, "itemname": "glass-bottle" }, "bread": { "sortsize": [ 2 ], "weights": [ "<sup>1</sup>&frasl;<sub>15</sub>" ], "chanceany": 0.3358200203334857, "sizes": [ "1–3" ], "sortweight": [ 1 ], "armor": 0, "material": 0, "avgamount": 0.8, "itemname": "bread" }, "cobweb": { "sortsize": [ 1 ], "weights": [ "<sup>1</sup>&frasl;<sub>15</sub>" ], "chanceany": 0.3358200203334857, "sizes": [ 1 ], "sortweight": [ 1 ], "armor": 0, "material": 0, "avgamount": 0.4, "itemname": "cobweb" }, "white-candle": { "sortsize": [ 2 ], "weights": [ "<sup>1</sup>&frasl;<sub>15</sub>" ], "chanceany": 0.3358200203334857, "sizes": [ "1–3" ], "sortweight": [ 1 ], "armor": 0, "material": 0, "avgamount": 0.8, "itemname": "white-candle" } }, "header": "[[Abandoned Camp]]", "allRollsJava": [], "link": "[[abandoned camp]] barrel" } } }
+
+ The size of stacks (or for unstackable items, number) of this item on any given roll.
+
+ The weight of this item relative to other items in the pool.
+
+ The odds of finding any of this item in a single chest.
+
+ The number of items expected per chest, averaged over a large number of chests.
+
+ The average number of chests the player should expect to search to find any of this item.
+
+Common chests
+In Java Edition 26.3, each abandoned camp common chest chest contains  items drawn from 3 pools,  with the following distribution:
+
+ Item
+  Stack Size
+  Weight
+  Chance
+  Avg.per chest
+  Avg. # cheststo search
+
+4–6×
+2×
+1×
+4–6×
+2×
+1×
+
+Arrow
+4——1⁄16——27.5%1.2503.6
+
+Bone
+2–4——1⁄16——27.5%0.9383.6
+
+Gunpowder
+2–4——1⁄16——27.5%0.9383.6
+
+Glass Bottle
+1–4——1⁄16——27.5%0.7813.6
+
+Rabbit Hide
+1–4——1⁄16——27.5%0.7813.6
+
+Leather
+1–4——1⁄16——27.5%0.7813.6
+
+Lead
+1–3——1⁄16——27.5%0.6253.6
+
+White Candle
+1–3——1⁄16——27.5%0.6253.6
+
+Empty Map
+1–2——1⁄16——27.5%0.4693.6
+
+Bundle
+1——1⁄16——27.5%0.3123.6
+
+Cobweb
+1——1⁄16——27.5%0.3123.6
+
+Compass
+1——1⁄16——27.5%0.3123.6
+
+Empty Map
+1——1⁄16——27.5%0.3123.6
+
+Fishing Rod
+1——1⁄16——27.5%0.3123.6
+
+Flint and Steel
+1——1⁄16——27.5%0.3123.6
+
+Saddle
+1——1⁄16——27.5%0.3123.6
+
+Bow
+—1——1⁄10—19.0%0.2005.3
+
+Bucket
+—1——1⁄10—19.0%0.2005.3
+
+Copper Axe
+—1——1⁄10—19.0%0.2005.3
+
+Copper Spear
+—1——1⁄10—19.0%0.2005.3
+
+Copper Sword
+—1——1⁄10—19.0%0.2005.3
+
+Shears
+—1——1⁄10—19.0%0.2005.3
+
+Spyglass
+—1——1⁄10—19.0%0.2005.3
+
+Copper Chestplate
+—1——1⁄10—19.0%0.2005.3
+
+Copper Leggings
+—1——1⁄10—19.0%0.2005.3
+
+Copper Boots
+—1——1⁄10—19.0%0.2005.3
+
+Bamboo Camp Map
+——1——1⁄812.5%0.1258.0
+
+Birch Forest Camp Map
+——1——1⁄812.5%0.1258.0
+
+Cherry Grove Camp Map
+——1——1⁄812.5%0.1258.0
+
+Dappled Forest Camp Map
+——1——1⁄812.5%0.1258.0
+
+Flower Forest Camp Map
+——1——1⁄812.5%0.1258.0
+
+Pale Garden Camp Map
+——1——1⁄812.5%0.1258.0
+
+Swamp Camp Map
+——1——1⁄812.5%0.1258.0
+
+Windswept Forest Camp Map
+——1——1⁄812.5%0.1258.0
+{ "chestNames": [ "abandoned-camp-common-chest" ], "gameVersion": "JavaUpcoming", "loot": { "abandoned-camp-common-chest": { "poolsJava": [], "poolsBedrockUpcoming": [ { "items": { "firework-rocket": [ 2, 4, 1 ], "empty-map": [ 1, 1, 1 ], "saddle": [ 1, 1, 1 ], "arrow": [ 4, 4, 1 ], "fishing-rod": [ 1, 1, 1 ], "bundle": [ 1, 1, 1 ], "rabbit-hide": [ 1, 4, 1 ], "lead": [ 1, 3, 1 ], "leather": [ 1, 4, 1 ], "empty-map-2": [ 1, 2, 1 ], "flint-and-steel": [ 1, 1, 1 ], "bone": [ 2, 4, 1 ], "glass-bottle": [ 1, 4, 1 ], "compass": [ 1, 1, 1 ], "cobweb": [ 1, 1, 1 ], "white-candle": [ 1, 3, 1 ] }, "rolls": [ 4, 6 ], "totalweight": 16 }, { "items": { "copper-leggings": [ 1, 1, 1 ], "copper-chestplate": [ 1, 1, 1 ], "shears": [ 1, 1, 1 ], "bucket": [ 1, 1, 1 ], "copper-spear": [ 1, 1, 1 ], "copper-sword": [ 1, 1, 1 ], "copper-axe": [ 1, 1, 1 ], "spyglass": [ 1, 1, 1 ], "bow": [ 1, 1, 1 ], "copper-boots": [ 1, 1, 1 ] }, "rolls": [ 2, 2 ], "totalweight": 10 } ], "itemDataJava": [], "structID": "abandoned-camp", "poolsJavaUpcoming": [ { "items": { "empty-map": [ 1, 1, 1 ], "gunpowder": [ 2, 4, 1 ], "saddle": [ 1, 1, 1 ], "arrow": [ 4, 4, 1 ], "flint-and-steel": [ 1, 1, 1 ], "bundle": [ 1, 1, 1 ], "rabbit-hide": [ 1, 4, 1 ], "lead": [ 1, 3, 1 ], "leather": [ 1, 4, 1 ], "empty-map-2": [ 1, 2, 1 ], "fishing-rod": [ 1, 1, 1 ], "bone": [ 2, 4, 1 ], "glass-bottle": [ 1, 4, 1 ], "compass": [ 1, 1, 1 ], "cobweb": [ 1, 1, 1 ], "white-candle": [ 1, 3, 1 ] }, "rolls": [ 4, 6 ], "totalweight": 16 }, { "items": { "copper-leggings": [ 1, 1, 1 ], "copper-chestplate": [ 1, 1, 1 ], "shears": [ 1, 1, 1 ], "bucket": [ 1, 1, 1 ], "copper-spear": [ 1, 1, 1 ], "copper-sword": [ 1, 1, 1 ], "copper-axe": [ 1, 1, 1 ], "spyglass": [ 1, 1, 1 ], "bow": [ 1, 1, 1 ], "copper-boots": [ 1, 1, 1 ] }, "rolls": [ 2, 2 ], "totalweight": 10 }, { "items": { "flower-forest-camp-map": [ 1, 1, 1 ], "windswept-forest-camp-map": [ 1, 1, 1 ], "dappled-forest-camp-map": [ 1, 1, 1 ], "pale-garden-camp-map": [ 1, 1, 1 ], "cherry-grove-camp-map": [ 1, 1, 1 ], "swamp-camp-map": [ 1, 1, 1 ], "bamboo-camp-map": [ 1, 1, 1 ], "birch-forest-camp-map": [ 1, 1, 1 ] }, "rolls": [ 1, 1 ], "totalweight": 8 } ], "structure": "Abandoned Camp", "container": "Common chest", "itemDataJavaUpcoming": { "flower-forest-camp-map": { "sortsize": [ 0, 0, 1 ], "weights": [ "—", "—", "<sup>1</sup>&frasl;<sub>8</sub>" ], "chanceany": 0.125, "sizes": [ "—", "—", 1 ], "sortweight": [ 0, 0, 1 ], "armor": 0, "material": 0, "avgamount": 0.125, "itemname": "flower-forest-camp-map" }, "arrow": { "itemname": "arrow", "sizes": [ 4, "—", "—" ], "sortsize": [ 4, 0, 0 ], "sortweight": [ 1, 0, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>16</sub>", "—", "—" ], "avgamount": 1.25, "chanceany": 0.2747977375984192 }, "copper-leggings": { "sortsize": [ 0, 1, 0 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>10</sub>", "—" ], "chanceany": 0.18999999999999995, "sizes": [ "—", 1, "—" ], "sortweight": [ 0, 1, 0 ], "armor": 3, "material": 0, "avgamount": 0.2, "itemname": "copper-leggings" }, "copper-spear": { "sortsize": [ 0, 1, 0 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>10</sub>", "—" ], "chanceany": 0.18999999999999995, "sizes": [ "—", 1, "—" ], "sortweight": [ 0, 1, 0 ], "armor": 0, "material": 0, "avgamount": 0.2, "itemname": "copper-spear" }, "flint-and-steel": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>16</sub>", "—", "—" ], "chanceany": 0.2747977375984192, "sizes": [ 1, "—", "—" ], "sortweight": [ 1, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.3125, "itemname": "flint-and-steel" }, "white-candle": { "sortsize": [ 2, 0, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>16</sub>", "—", "—" ], "chanceany": 0.2747977375984192, "sizes": [ "1–3", "—", "—" ], "sortweight": [ 1, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.625, "itemname": "white-candle" }, "windswept-forest-camp-map": { "sortsize": [ 0, 0, 1 ], "weights": [ "—", "—", "<sup>1</sup>&frasl;<sub>8</sub>" ], "chanceany": 0.125, "sizes": [ "—", "—", 1 ], "sortweight": [ 0, 0, 1 ], "armor": 0, "material": 0, "avgamount": 0.125, "itemname": "windswept-forest-camp-map" }, "empty-map": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>16</sub>", "—", "—" ], "chanceany": 0.2747977375984192, "sizes": [ 1, "—", "—" ], "sortweight": [ 1, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.3125, "itemname": "empty-map" }, "copper-sword": { "sortsize": [ 0, 1, 0 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>10</sub>", "—" ], "chanceany": 0.18999999999999995, "sizes": [ "—", 1, "—" ], "sortweight": [ 0, 1, 0 ], "armor": 0, "material": 0, "avgamount": 0.2, "itemname": "copper-sword" }, "rabbit-hide": { "sortsize": [ 2.5, 0, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>16</sub>", "—", "—" ], "chanceany": 0.2747977375984192, "sizes": [ "1–4", "—", "—" ], "sortweight": [ 1, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.78125, "itemname": "rabbit-hide" }, "leather": { "sortsize": [ 2.5, 0, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>16</sub>", "—", "—" ], "chanceany": 0.2747977375984192, "sizes": [ "1–4", "—", "—" ], "sortweight": [ 1, 0, 0 ], "armor": 0, "material": 1, "avgamount": 0.78125, "itemname": "leather" }, "bucket": { "sortsize": [ 0, 1, 0 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>10</sub>", "—" ], "chanceany": 0.18999999999999995, "sizes": [ "—", 1, "—" ], "sortweight": [ 0, 1, 0 ], "armor": 0, "material": 0, "avgamount": 0.2, "itemname": "bucket" }, "glass-bottle": { "sortsize": [ 2.5, 0, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>16</sub>", "—", "—" ], "chanceany": 0.2747977375984192, "sizes": [ "1–4", "—", "—" ], "sortweight": [ 1, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.78125, "itemname": "glass-bottle" }, "cobweb": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>16</sub>", "—", "—" ], "chanceany": 0.2747977375984192, "sizes": [ 1, "—", "—" ], "sortweight": [ 1, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.3125, "itemname": "cobweb" }, "birch-forest-camp-map": { "sortsize": [ 0, 0, 1 ], "weights": [ "—", "—", "<sup>1</sup>&frasl;<sub>8</sub>" ], "chanceany": 0.125, "sizes": [ "—", "—", 1 ], "sortweight": [ 0, 0, 1 ], "armor": 0, "material": 0, "avgamount": 0.125, "itemname": "birch-forest-camp-map" }, "dappled-forest-camp-map": { "sortsize": [ 0, 0, 1 ], "weights": [ "—", "—", "<sup>1</sup>&frasl;<sub>8</sub>" ], "chanceany": 0.125, "sizes": [ "—", "—", 1 ], "sortweight": [ 0, 0, 1 ], "armor": 0, "material": 0, "avgamount": 0.125, "itemname": "dappled-forest-camp-map" }, "swamp-camp-map": { "sortsize": [ 0, 0, 1 ], "weights": [ "—", "—", "<sup>1</sup>&frasl;<sub>8</sub>" ], "chanceany": 0.125, "sizes": [ "—", "—", 1 ], "sortweight": [ 0, 0, 1 ], "armor": 0, "material": 0, "avgamount": 0.125, "itemname": "swamp-camp-map" }, "copper-chestplate": { "sortsize": [ 0, 1, 0 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>10</sub>", "—" ], "chanceany": 0.18999999999999995, "sizes": [ "—", 1, "—" ], "sortweight": [ 0, 1, 0 ], "armor": 2, "material": 0, "avgamount": 0.2, "itemname": "copper-chestplate" }, "bamboo-camp-map": { "sortsize": [ 0, 0, 1 ], "weights": [ "—", "—", "<sup>1</sup>&frasl;<sub>8</sub>" ], "chanceany": 0.125, "sizes": [ "—", "—", 1 ], "sortweight": [ 0, 0, 1 ], "armor": 0, "material": 0, "avgamount": 0.125, "itemname": "bamboo-camp-map" }, "empty-map-2": { "itemname": "empty-map-2", "sizes": [ "1–2", "—", "—" ], "sortsize": [ 1.5, 0, 0 ], "sortweight": [ 1, 0, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>16</sub>", "—", "—" ], "avgamount": 0.46875, "chanceany": 0.2747977375984192 }, "bone": { "sortsize": [ 3, 0, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>16</sub>", "—", "—" ], "chanceany": 0.2747977375984192, "sizes": [ "2–4", "—", "—" ], "sortweight": [ 1, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.9375, "itemname": "bone" }, "copper-axe": { "sortsize": [ 0, 1, 0 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>10</sub>", "—" ], "chanceany": 0.18999999999999995, "sizes": [ "—", 1, "—" ], "sortweight": [ 0, 1, 0 ], "armor": 0, "material": 0, "avgamount": 0.2, "itemname": "copper-axe" }, "compass": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>16</sub>", "—", "—" ], "chanceany": 0.2747977375984192, "sizes": [ 1, "—", "—" ], "sortweight": [ 1, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.3125, "itemname": "compass" }, "bow": { "sortsize": [ 0, 1, 0 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>10</sub>", "—" ], "chanceany": 0.18999999999999995, "sizes": [ "—", 1, "—" ], "sortweight": [ 0, 1, 0 ], "armor": 0, "material": 0, "avgamount": 0.2, "itemname": "bow" }, "shears": { "sortsize": [ 0, 1, 0 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>10</sub>", "—" ], "chanceany": 0.18999999999999995, "sizes": [ "—", 1, "—" ], "sortweight": [ 0, 1, 0 ], "armor": 0, "material": 0, "avgamount": 0.2, "itemname": "shears" }, "saddle": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>16</sub>", "—", "—" ], "chanceany": 0.2747977375984192, "sizes": [ 1, "—", "—" ], "sortweight": [ 1, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.3125, "itemname": "saddle" }, "pale-garden-camp-map": { "sortsize": [ 0, 0, 1 ], "weights": [ "—", "—", "<sup>1</sup>&frasl;<sub>8</sub>" ], "chanceany": 0.125, "sizes": [ "—", "—", 1 ], "sortweight": [ 0, 0, 1 ], "armor": 0, "material": 0, "avgamount": 0.125, "itemname": "pale-garden-camp-map" }, "lead": { "sortsize": [ 2, 0, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>16</sub>", "—", "—" ], "chanceany": 0.2747977375984192, "sizes": [ "1–3", "—", "—" ], "sortweight": [ 1, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.625, "itemname": "lead" }, "gunpowder": { "sortsize": [ 3, 0, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>16</sub>", "—", "—" ], "chanceany": 0.2747977375984192, "sizes": [ "2–4", "—", "—" ], "sortweight": [ 1, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.9375, "itemname": "gunpowder" }, "cherry-grove-camp-map": { "sortsize": [ 0, 0, 1 ], "weights": [ "—", "—", "<sup>1</sup>&frasl;<sub>8</sub>" ], "chanceany": 0.125, "sizes": [ "—", "—", 1 ], "sortweight": [ 0, 0, 1 ], "armor": 0, "material": 0, "avgamount": 0.125, "itemname": "cherry-grove-camp-map" }, "fishing-rod": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>16</sub>", "—", "—" ], "chanceany": 0.2747977375984192, "sizes": [ 1, "—", "—" ], "sortweight": [ 1, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.3125, "itemname": "fishing-rod" }, "spyglass": { "sortsize": [ 0, 1, 0 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>10</sub>", "—" ], "chanceany": 0.18999999999999995, "sizes": [ "—", 1, "—" ], "sortweight": [ 0, 1, 0 ], "armor": 0, "material": 0, "avgamount": 0.2, "itemname": "spyglass" }, "bundle": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>16</sub>", "—", "—" ], "chanceany": 0.2747977375984192, "sizes": [ 1, "—", "—" ], "sortweight": [ 1, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.3125, "itemname": "bundle" }, "copper-boots": { "sortsize": [ 0, 1, 0 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>10</sub>", "—" ], "chanceany": 0.18999999999999995, "sizes": [ "—", 1, "—" ], "sortweight": [ 0, 1, 0 ], "armor": 4, "material": 0, "avgamount": 0.2, "itemname": "copper-boots" } }, "allRollsJavaUpcoming": [ "4–6", 2, 1 ], "itemDataBedrock": [], "poolsBedrock": [], "allRollsBedrockUpcoming": [ "4–6", 2 ], "allRollsBedrock": [], "itemDataBedrockUpcoming": { "firework-rocket": { "sortsize": [ 3, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>16</sub>", "—" ], "chanceany": 0.2747977375984192, "sizes": [ "2–4", "—" ], "sortweight": [ 1, 0 ], "armor": 0, "material": 0, "avgamount": 0.9375, "itemname": "firework-rocket" }, "arrow": { "itemname": "arrow", "sizes": [ 4, "—" ], "sortsize": [ 4, 0 ], "sortweight": [ 1, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>16</sub>", "—" ], "avgamount": 1.25, "chanceany": 0.2747977375984192 }, "copper-leggings": { "sortsize": [ 0, 1 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>10</sub>" ], "chanceany": 0.18999999999999995, "sizes": [ "—", 1 ], "sortweight": [ 0, 1 ], "armor": 3, "material": 0, "avgamount": 0.2, "itemname": "copper-leggings" }, "copper-chestplate": { "sortsize": [ 0, 1 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>10</sub>" ], "chanceany": 0.18999999999999995, "sizes": [ "—", 1 ], "sortweight": [ 0, 1 ], "armor": 2, "material": 0, "avgamount": 0.2, "itemname": "copper-chestplate" }, "empty-map-2": { "itemname": "empty-map-2", "sizes": [ "1–2", "—" ], "sortsize": [ 1.5, 0 ], "sortweight": [ 1, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>16</sub>", "—" ], "avgamount": 0.46875, "chanceany": 0.2747977375984192 }, "bone": { "sortsize": [ 3, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>16</sub>", "—" ], "chanceany": 0.2747977375984192, "sizes": [ "2–4", "—" ], "sortweight": [ 1, 0 ], "armor": 0, "material": 0, "avgamount": 0.9375, "itemname": "bone" }, "copper-spear": { "sortsize": [ 0, 1 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>10</sub>" ], "chanceany": 0.18999999999999995, "sizes": [ "—", 1 ], "sortweight": [ 0, 1 ], "armor": 0, "material": 0, "avgamount": 0.2, "itemname": "copper-spear" }, "compass": { "sortsize": [ 1, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>16</sub>", "—" ], "chanceany": 0.2747977375984192, "sizes": [ 1, "—" ], "sortweight": [ 1, 0 ], "armor": 0, "material": 0, "avgamount": 0.3125, "itemname": "compass" }, "flint-and-steel": { "sortsize": [ 1, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>16</sub>", "—" ], "chanceany": 0.2747977375984192, "sizes": [ 1, "—" ], "sortweight": [ 1, 0 ], "armor": 0, "material": 0, "avgamount": 0.3125, "itemname": "flint-and-steel" }, "white-candle": { "sortsize": [ 2, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>16</sub>", "—" ], "chanceany": 0.2747977375984192, "sizes": [ "1–3", "—" ], "sortweight": [ 1, 0 ], "armor": 0, "material": 0, "avgamount": 0.625, "itemname": "white-candle" }, "fishing-rod": { "sortsize": [ 1, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>16</sub>", "—" ], "chanceany": 0.2747977375984192, "sizes": [ 1, "—" ], "sortweight": [ 1, 0 ], "armor": 0, "material": 0, "avgamount": 0.3125, "itemname": "fishing-rod" }, "bow": { "sortsize": [ 0, 1 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>10</sub>" ], "chanceany": 0.18999999999999995, "sizes": [ "—", 1 ], "sortweight": [ 0, 1 ], "armor": 0, "material": 0, "avgamount": 0.2, "itemname": "bow" }, "saddle": { "sortsize": [ 1, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>16</sub>", "—" ], "chanceany": 0.2747977375984192, "sizes": [ 1, "—" ], "sortweight": [ 1, 0 ], "armor": 0, "material": 0, "avgamount": 0.3125, "itemname": "saddle" }, "empty-map": { "sortsize": [ 1, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>16</sub>", "—" ], "chanceany": 0.2747977375984192, "sizes": [ 1, "—" ], "sortweight": [ 1, 0 ], "armor": 0, "material": 0, "avgamount": 0.3125, "itemname": "empty-map" }, "shears": { "sortsize": [ 0, 1 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>10</sub>" ], "chanceany": 0.18999999999999995, "sizes": [ "—", 1 ], "sortweight": [ 0, 1 ], "armor": 0, "material": 0, "avgamount": 0.2, "itemname": "shears" }, "bundle": { "sortsize": [ 1, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>16</sub>", "—" ], "chanceany": 0.2747977375984192, "sizes": [ 1, "—" ], "sortweight": [ 1, 0 ], "armor": 0, "material": 0, "avgamount": 0.3125, "itemname": "bundle" }, "rabbit-hide": { "sortsize": [ 2.5, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>16</sub>", "—" ], "chanceany": 0.2747977375984192, "sizes": [ "1–4", "—" ], "sortweight": [ 1, 0 ], "armor": 0, "material": 0, "avgamount": 0.78125, "itemname": "rabbit-hide" }, "lead": { "sortsize": [ 2, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>16</sub>", "—" ], "chanceany": 0.2747977375984192, "sizes": [ "1–3", "—" ], "sortweight": [ 1, 0 ], "armor": 0, "material": 0, "avgamount": 0.625, "itemname": "lead" }, "leather": { "sortsize": [ 2.5, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>16</sub>", "—" ], "chanceany": 0.2747977375984192, "sizes": [ "1–4", "—" ], "sortweight": [ 1, 0 ], "armor": 0, "material": 1, "avgamount": 0.78125, "itemname": "leather" }, "bucket": { "sortsize": [ 0, 1 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>10</sub>" ], "chanceany": 0.18999999999999995, "sizes": [ "—", 1 ], "sortweight": [ 0, 1 ], "armor": 0, "material": 0, "avgamount": 0.2, "itemname": "bucket" }, "copper-axe": { "sortsize": [ 0, 1 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>10</sub>" ], "chanceany": 0.18999999999999995, "sizes": [ "—", 1 ], "sortweight": [ 0, 1 ], "armor": 0, "material": 0, "avgamount": 0.2, "itemname": "copper-axe" }, "copper-sword": { "sortsize": [ 0, 1 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>10</sub>" ], "chanceany": 0.18999999999999995, "sizes": [ "—", 1 ], "sortweight": [ 0, 1 ], "armor": 0, "material": 0, "avgamount": 0.2, "itemname": "copper-sword" }, "glass-bottle": { "sortsize": [ 2.5, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>16</sub>", "—" ], "chanceany": 0.2747977375984192, "sizes": [ "1–4", "—" ], "sortweight": [ 1, 0 ], "armor": 0, "material": 0, "avgamount": 0.78125, "itemname": "glass-bottle" }, "spyglass": { "sortsize": [ 0, 1 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>10</sub>" ], "chanceany": 0.18999999999999995, "sizes": [ "—", 1 ], "sortweight": [ 0, 1 ], "armor": 0, "material": 0, "avgamount": 0.2, "itemname": "spyglass" }, "cobweb": { "sortsize": [ 1, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>16</sub>", "—" ], "chanceany": 0.2747977375984192, "sizes": [ 1, "—" ], "sortweight": [ 1, 0 ], "armor": 0, "material": 0, "avgamount": 0.3125, "itemname": "cobweb" }, "copper-boots": { "sortsize": [ 0, 1 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>10</sub>" ], "chanceany": 0.18999999999999995, "sizes": [ "—", 1 ], "sortweight": [ 0, 1 ], "armor": 4, "material": 0, "avgamount": 0.2, "itemname": "copper-boots" } }, "header": "[[Abandoned Camp]]", "allRollsJava": [], "link": "[[abandoned camp]] common chest" } } }
+In Bedrock Edition 26.50, each abandoned camp common chest chest contains  items drawn from 2 pools,  with the following distribution:
+
+ Item
+  Stack Size
+  Weight
+  Chance
+  Avg.per chest
+  Avg. # cheststo search
+
+4–6×
+2×
+4–6×
+2×
+
+Arrow
+4—1⁄16—27.5%1.2503.6
+
+Bone
+2–4—1⁄16—27.5%0.9383.6
+
+Firework Rocket
+2–4—1⁄16—27.5%0.9383.6
+
+Glass Bottle
+1–4—1⁄16—27.5%0.7813.6
+
+Rabbit Hide
+1–4—1⁄16—27.5%0.7813.6
+
+Leather
+1–4—1⁄16—27.5%0.7813.6
+
+Lead
+1–3—1⁄16—27.5%0.6253.6
+
+White Candle
+1–3—1⁄16—27.5%0.6253.6
+
+Empty Map
+1–2—1⁄16—27.5%0.4693.6
+
+Bundle
+1—1⁄16—27.5%0.3123.6
+
+Cobweb
+1—1⁄16—27.5%0.3123.6
+
+Compass
+1—1⁄16—27.5%0.3123.6
+
+Empty Map
+1—1⁄16—27.5%0.3123.6
+
+Fishing Rod
+1—1⁄16—27.5%0.3123.6
+
+Flint and Steel
+1—1⁄16—27.5%0.3123.6
+
+Saddle
+1—1⁄16—27.5%0.3123.6
+
+Bow
+—1—1⁄1019.0%0.2005.3
+
+Bucket
+—1—1⁄1019.0%0.2005.3
+
+Copper Axe
+—1—1⁄1019.0%0.2005.3
+
+Copper Spear
+—1—1⁄1019.0%0.2005.3
+
+Copper Sword
+—1—1⁄1019.0%0.2005.3
+
+Shears
+—1—1⁄1019.0%0.2005.3
+
+Spyglass
+—1—1⁄1019.0%0.2005.3
+
+Copper Chestplate
+—1—1⁄1019.0%0.2005.3
+
+Copper Leggings
+—1—1⁄1019.0%0.2005.3
+
+Copper Boots
+—1—1⁄1019.0%0.2005.3
+{ "chestNames": [ "abandoned-camp-common-chest" ], "gameVersion": "BedrockUpcoming", "loot": { "abandoned-camp-common-chest": { "poolsJava": [], "poolsBedrockUpcoming": [ { "items": { "firework-rocket": [ 2, 4, 1 ], "empty-map": [ 1, 1, 1 ], "saddle": [ 1, 1, 1 ], "arrow": [ 4, 4, 1 ], "fishing-rod": [ 1, 1, 1 ], "bundle": [ 1, 1, 1 ], "rabbit-hide": [ 1, 4, 1 ], "lead": [ 1, 3, 1 ], "leather": [ 1, 4, 1 ], "empty-map-2": [ 1, 2, 1 ], "flint-and-steel": [ 1, 1, 1 ], "bone": [ 2, 4, 1 ], "glass-bottle": [ 1, 4, 1 ], "compass": [ 1, 1, 1 ], "cobweb": [ 1, 1, 1 ], "white-candle": [ 1, 3, 1 ] }, "rolls": [ 4, 6 ], "totalweight": 16 }, { "items": { "copper-leggings": [ 1, 1, 1 ], "copper-chestplate": [ 1, 1, 1 ], "shears": [ 1, 1, 1 ], "bucket": [ 1, 1, 1 ], "copper-spear": [ 1, 1, 1 ], "copper-sword": [ 1, 1, 1 ], "copper-axe": [ 1, 1, 1 ], "spyglass": [ 1, 1, 1 ], "bow": [ 1, 1, 1 ], "copper-boots": [ 1, 1, 1 ] }, "rolls": [ 2, 2 ], "totalweight": 10 } ], "itemDataJava": [], "structID": "abandoned-camp", "poolsJavaUpcoming": [ { "items": { "empty-map": [ 1, 1, 1 ], "gunpowder": [ 2, 4, 1 ], "saddle": [ 1, 1, 1 ], "arrow": [ 4, 4, 1 ], "flint-and-steel": [ 1, 1, 1 ], "bundle": [ 1, 1, 1 ], "rabbit-hide": [ 1, 4, 1 ], "lead": [ 1, 3, 1 ], "leather": [ 1, 4, 1 ], "empty-map-2": [ 1, 2, 1 ], "fishing-rod": [ 1, 1, 1 ], "bone": [ 2, 4, 1 ], "glass-bottle": [ 1, 4, 1 ], "compass": [ 1, 1, 1 ], "cobweb": [ 1, 1, 1 ], "white-candle": [ 1, 3, 1 ] }, "rolls": [ 4, 6 ], "totalweight": 16 }, { "items": { "copper-leggings": [ 1, 1, 1 ], "copper-chestplate": [ 1, 1, 1 ], "shears": [ 1, 1, 1 ], "bucket": [ 1, 1, 1 ], "copper-spear": [ 1, 1, 1 ], "copper-sword": [ 1, 1, 1 ], "copper-axe": [ 1, 1, 1 ], "spyglass": [ 1, 1, 1 ], "bow": [ 1, 1, 1 ], "copper-boots": [ 1, 1, 1 ] }, "rolls": [ 2, 2 ], "totalweight": 10 }, { "items": { "flower-forest-camp-map": [ 1, 1, 1 ], "windswept-forest-camp-map": [ 1, 1, 1 ], "dappled-forest-camp-map": [ 1, 1, 1 ], "pale-garden-camp-map": [ 1, 1, 1 ], "cherry-grove-camp-map": [ 1, 1, 1 ], "swamp-camp-map": [ 1, 1, 1 ], "bamboo-camp-map": [ 1, 1, 1 ], "birch-forest-camp-map": [ 1, 1, 1 ] }, "rolls": [ 1, 1 ], "totalweight": 8 } ], "structure": "Abandoned Camp", "container": "Common chest", "itemDataJavaUpcoming": { "flower-forest-camp-map": { "sortsize": [ 0, 0, 1 ], "weights": [ "—", "—", "<sup>1</sup>&frasl;<sub>8</sub>" ], "chanceany": 0.125, "sizes": [ "—", "—", 1 ], "sortweight": [ 0, 0, 1 ], "armor": 0, "material": 0, "avgamount": 0.125, "itemname": "flower-forest-camp-map" }, "arrow": { "itemname": "arrow", "sizes": [ 4, "—", "—" ], "sortsize": [ 4, 0, 0 ], "sortweight": [ 1, 0, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>16</sub>", "—", "—" ], "avgamount": 1.25, "chanceany": 0.2747977375984192 }, "copper-leggings": { "sortsize": [ 0, 1, 0 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>10</sub>", "—" ], "chanceany": 0.18999999999999995, "sizes": [ "—", 1, "—" ], "sortweight": [ 0, 1, 0 ], "armor": 3, "material": 0, "avgamount": 0.2, "itemname": "copper-leggings" }, "copper-spear": { "sortsize": [ 0, 1, 0 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>10</sub>", "—" ], "chanceany": 0.18999999999999995, "sizes": [ "—", 1, "—" ], "sortweight": [ 0, 1, 0 ], "armor": 0, "material": 0, "avgamount": 0.2, "itemname": "copper-spear" }, "flint-and-steel": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>16</sub>", "—", "—" ], "chanceany": 0.2747977375984192, "sizes": [ 1, "—", "—" ], "sortweight": [ 1, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.3125, "itemname": "flint-and-steel" }, "white-candle": { "sortsize": [ 2, 0, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>16</sub>", "—", "—" ], "chanceany": 0.2747977375984192, "sizes": [ "1–3", "—", "—" ], "sortweight": [ 1, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.625, "itemname": "white-candle" }, "windswept-forest-camp-map": { "sortsize": [ 0, 0, 1 ], "weights": [ "—", "—", "<sup>1</sup>&frasl;<sub>8</sub>" ], "chanceany": 0.125, "sizes": [ "—", "—", 1 ], "sortweight": [ 0, 0, 1 ], "armor": 0, "material": 0, "avgamount": 0.125, "itemname": "windswept-forest-camp-map" }, "empty-map": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>16</sub>", "—", "—" ], "chanceany": 0.2747977375984192, "sizes": [ 1, "—", "—" ], "sortweight": [ 1, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.3125, "itemname": "empty-map" }, "copper-sword": { "sortsize": [ 0, 1, 0 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>10</sub>", "—" ], "chanceany": 0.18999999999999995, "sizes": [ "—", 1, "—" ], "sortweight": [ 0, 1, 0 ], "armor": 0, "material": 0, "avgamount": 0.2, "itemname": "copper-sword" }, "rabbit-hide": { "sortsize": [ 2.5, 0, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>16</sub>", "—", "—" ], "chanceany": 0.2747977375984192, "sizes": [ "1–4", "—", "—" ], "sortweight": [ 1, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.78125, "itemname": "rabbit-hide" }, "leather": { "sortsize": [ 2.5, 0, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>16</sub>", "—", "—" ], "chanceany": 0.2747977375984192, "sizes": [ "1–4", "—", "—" ], "sortweight": [ 1, 0, 0 ], "armor": 0, "material": 1, "avgamount": 0.78125, "itemname": "leather" }, "bucket": { "sortsize": [ 0, 1, 0 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>10</sub>", "—" ], "chanceany": 0.18999999999999995, "sizes": [ "—", 1, "—" ], "sortweight": [ 0, 1, 0 ], "armor": 0, "material": 0, "avgamount": 0.2, "itemname": "bucket" }, "glass-bottle": { "sortsize": [ 2.5, 0, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>16</sub>", "—", "—" ], "chanceany": 0.2747977375984192, "sizes": [ "1–4", "—", "—" ], "sortweight": [ 1, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.78125, "itemname": "glass-bottle" }, "cobweb": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>16</sub>", "—", "—" ], "chanceany": 0.2747977375984192, "sizes": [ 1, "—", "—" ], "sortweight": [ 1, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.3125, "itemname": "cobweb" }, "birch-forest-camp-map": { "sortsize": [ 0, 0, 1 ], "weights": [ "—", "—", "<sup>1</sup>&frasl;<sub>8</sub>" ], "chanceany": 0.125, "sizes": [ "—", "—", 1 ], "sortweight": [ 0, 0, 1 ], "armor": 0, "material": 0, "avgamount": 0.125, "itemname": "birch-forest-camp-map" }, "dappled-forest-camp-map": { "sortsize": [ 0, 0, 1 ], "weights": [ "—", "—", "<sup>1</sup>&frasl;<sub>8</sub>" ], "chanceany": 0.125, "sizes": [ "—", "—", 1 ], "sortweight": [ 0, 0, 1 ], "armor": 0, "material": 0, "avgamount": 0.125, "itemname": "dappled-forest-camp-map" }, "swamp-camp-map": { "sortsize": [ 0, 0, 1 ], "weights": [ "—", "—", "<sup>1</sup>&frasl;<sub>8</sub>" ], "chanceany": 0.125, "sizes": [ "—", "—", 1 ], "sortweight": [ 0, 0, 1 ], "armor": 0, "material": 0, "avgamount": 0.125, "itemname": "swamp-camp-map" }, "copper-chestplate": { "sortsize": [ 0, 1, 0 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>10</sub>", "—" ], "chanceany": 0.18999999999999995, "sizes": [ "—", 1, "—" ], "sortweight": [ 0, 1, 0 ], "armor": 2, "material": 0, "avgamount": 0.2, "itemname": "copper-chestplate" }, "bamboo-camp-map": { "sortsize": [ 0, 0, 1 ], "weights": [ "—", "—", "<sup>1</sup>&frasl;<sub>8</sub>" ], "chanceany": 0.125, "sizes": [ "—", "—", 1 ], "sortweight": [ 0, 0, 1 ], "armor": 0, "material": 0, "avgamount": 0.125, "itemname": "bamboo-camp-map" }, "empty-map-2": { "itemname": "empty-map-2", "sizes": [ "1–2", "—", "—" ], "sortsize": [ 1.5, 0, 0 ], "sortweight": [ 1, 0, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>16</sub>", "—", "—" ], "avgamount": 0.46875, "chanceany": 0.2747977375984192 }, "bone": { "sortsize": [ 3, 0, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>16</sub>", "—", "—" ], "chanceany": 0.2747977375984192, "sizes": [ "2–4", "—", "—" ], "sortweight": [ 1, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.9375, "itemname": "bone" }, "copper-axe": { "sortsize": [ 0, 1, 0 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>10</sub>", "—" ], "chanceany": 0.18999999999999995, "sizes": [ "—", 1, "—" ], "sortweight": [ 0, 1, 0 ], "armor": 0, "material": 0, "avgamount": 0.2, "itemname": "copper-axe" }, "compass": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>16</sub>", "—", "—" ], "chanceany": 0.2747977375984192, "sizes": [ 1, "—", "—" ], "sortweight": [ 1, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.3125, "itemname": "compass" }, "bow": { "sortsize": [ 0, 1, 0 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>10</sub>", "—" ], "chanceany": 0.18999999999999995, "sizes": [ "—", 1, "—" ], "sortweight": [ 0, 1, 0 ], "armor": 0, "material": 0, "avgamount": 0.2, "itemname": "bow" }, "shears": { "sortsize": [ 0, 1, 0 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>10</sub>", "—" ], "chanceany": 0.18999999999999995, "sizes": [ "—", 1, "—" ], "sortweight": [ 0, 1, 0 ], "armor": 0, "material": 0, "avgamount": 0.2, "itemname": "shears" }, "saddle": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>16</sub>", "—", "—" ], "chanceany": 0.2747977375984192, "sizes": [ 1, "—", "—" ], "sortweight": [ 1, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.3125, "itemname": "saddle" }, "pale-garden-camp-map": { "sortsize": [ 0, 0, 1 ], "weights": [ "—", "—", "<sup>1</sup>&frasl;<sub>8</sub>" ], "chanceany": 0.125, "sizes": [ "—", "—", 1 ], "sortweight": [ 0, 0, 1 ], "armor": 0, "material": 0, "avgamount": 0.125, "itemname": "pale-garden-camp-map" }, "lead": { "sortsize": [ 2, 0, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>16</sub>", "—", "—" ], "chanceany": 0.2747977375984192, "sizes": [ "1–3", "—", "—" ], "sortweight": [ 1, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.625, "itemname": "lead" }, "gunpowder": { "sortsize": [ 3, 0, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>16</sub>", "—", "—" ], "chanceany": 0.2747977375984192, "sizes": [ "2–4", "—", "—" ], "sortweight": [ 1, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.9375, "itemname": "gunpowder" }, "cherry-grove-camp-map": { "sortsize": [ 0, 0, 1 ], "weights": [ "—", "—", "<sup>1</sup>&frasl;<sub>8</sub>" ], "chanceany": 0.125, "sizes": [ "—", "—", 1 ], "sortweight": [ 0, 0, 1 ], "armor": 0, "material": 0, "avgamount": 0.125, "itemname": "cherry-grove-camp-map" }, "fishing-rod": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>16</sub>", "—", "—" ], "chanceany": 0.2747977375984192, "sizes": [ 1, "—", "—" ], "sortweight": [ 1, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.3125, "itemname": "fishing-rod" }, "spyglass": { "sortsize": [ 0, 1, 0 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>10</sub>", "—" ], "chanceany": 0.18999999999999995, "sizes": [ "—", 1, "—" ], "sortweight": [ 0, 1, 0 ], "armor": 0, "material": 0, "avgamount": 0.2, "itemname": "spyglass" }, "bundle": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>16</sub>", "—", "—" ], "chanceany": 0.2747977375984192, "sizes": [ 1, "—", "—" ], "sortweight": [ 1, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.3125, "itemname": "bundle" }, "copper-boots": { "sortsize": [ 0, 1, 0 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>10</sub>", "—" ], "chanceany": 0.18999999999999995, "sizes": [ "—", 1, "—" ], "sortweight": [ 0, 1, 0 ], "armor": 4, "material": 0, "avgamount": 0.2, "itemname": "copper-boots" } }, "allRollsJavaUpcoming": [ "4–6", 2, 1 ], "itemDataBedrock": [], "poolsBedrock": [], "allRollsBedrockUpcoming": [ "4–6", 2 ], "allRollsBedrock": [], "itemDataBedrockUpcoming": { "firework-rocket": { "sortsize": [ 3, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>16</sub>", "—" ], "chanceany": 0.2747977375984192, "sizes": [ "2–4", "—" ], "sortweight": [ 1, 0 ], "armor": 0, "material": 0, "avgamount": 0.9375, "itemname": "firework-rocket" }, "arrow": { "itemname": "arrow", "sizes": [ 4, "—" ], "sortsize": [ 4, 0 ], "sortweight": [ 1, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>16</sub>", "—" ], "avgamount": 1.25, "chanceany": 0.2747977375984192 }, "copper-leggings": { "sortsize": [ 0, 1 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>10</sub>" ], "chanceany": 0.18999999999999995, "sizes": [ "—", 1 ], "sortweight": [ 0, 1 ], "armor": 3, "material": 0, "avgamount": 0.2, "itemname": "copper-leggings" }, "copper-chestplate": { "sortsize": [ 0, 1 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>10</sub>" ], "chanceany": 0.18999999999999995, "sizes": [ "—", 1 ], "sortweight": [ 0, 1 ], "armor": 2, "material": 0, "avgamount": 0.2, "itemname": "copper-chestplate" }, "empty-map-2": { "itemname": "empty-map-2", "sizes": [ "1–2", "—" ], "sortsize": [ 1.5, 0 ], "sortweight": [ 1, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>16</sub>", "—" ], "avgamount": 0.46875, "chanceany": 0.2747977375984192 }, "bone": { "sortsize": [ 3, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>16</sub>", "—" ], "chanceany": 0.2747977375984192, "sizes": [ "2–4", "—" ], "sortweight": [ 1, 0 ], "armor": 0, "material": 0, "avgamount": 0.9375, "itemname": "bone" }, "copper-spear": { "sortsize": [ 0, 1 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>10</sub>" ], "chanceany": 0.18999999999999995, "sizes": [ "—", 1 ], "sortweight": [ 0, 1 ], "armor": 0, "material": 0, "avgamount": 0.2, "itemname": "copper-spear" }, "compass": { "sortsize": [ 1, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>16</sub>", "—" ], "chanceany": 0.2747977375984192, "sizes": [ 1, "—" ], "sortweight": [ 1, 0 ], "armor": 0, "material": 0, "avgamount": 0.3125, "itemname": "compass" }, "flint-and-steel": { "sortsize": [ 1, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>16</sub>", "—" ], "chanceany": 0.2747977375984192, "sizes": [ 1, "—" ], "sortweight": [ 1, 0 ], "armor": 0, "material": 0, "avgamount": 0.3125, "itemname": "flint-and-steel" }, "white-candle": { "sortsize": [ 2, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>16</sub>", "—" ], "chanceany": 0.2747977375984192, "sizes": [ "1–3", "—" ], "sortweight": [ 1, 0 ], "armor": 0, "material": 0, "avgamount": 0.625, "itemname": "white-candle" }, "fishing-rod": { "sortsize": [ 1, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>16</sub>", "—" ], "chanceany": 0.2747977375984192, "sizes": [ 1, "—" ], "sortweight": [ 1, 0 ], "armor": 0, "material": 0, "avgamount": 0.3125, "itemname": "fishing-rod" }, "bow": { "sortsize": [ 0, 1 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>10</sub>" ], "chanceany": 0.18999999999999995, "sizes": [ "—", 1 ], "sortweight": [ 0, 1 ], "armor": 0, "material": 0, "avgamount": 0.2, "itemname": "bow" }, "saddle": { "sortsize": [ 1, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>16</sub>", "—" ], "chanceany": 0.2747977375984192, "sizes": [ 1, "—" ], "sortweight": [ 1, 0 ], "armor": 0, "material": 0, "avgamount": 0.3125, "itemname": "saddle" }, "empty-map": { "sortsize": [ 1, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>16</sub>", "—" ], "chanceany": 0.2747977375984192, "sizes": [ 1, "—" ], "sortweight": [ 1, 0 ], "armor": 0, "material": 0, "avgamount": 0.3125, "itemname": "empty-map" }, "shears": { "sortsize": [ 0, 1 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>10</sub>" ], "chanceany": 0.18999999999999995, "sizes": [ "—", 1 ], "sortweight": [ 0, 1 ], "armor": 0, "material": 0, "avgamount": 0.2, "itemname": "shears" }, "bundle": { "sortsize": [ 1, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>16</sub>", "—" ], "chanceany": 0.2747977375984192, "sizes": [ 1, "—" ], "sortweight": [ 1, 0 ], "armor": 0, "material": 0, "avgamount": 0.3125, "itemname": "bundle" }, "rabbit-hide": { "sortsize": [ 2.5, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>16</sub>", "—" ], "chanceany": 0.2747977375984192, "sizes": [ "1–4", "—" ], "sortweight": [ 1, 0 ], "armor": 0, "material": 0, "avgamount": 0.78125, "itemname": "rabbit-hide" }, "lead": { "sortsize": [ 2, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>16</sub>", "—" ], "chanceany": 0.2747977375984192, "sizes": [ "1–3", "—" ], "sortweight": [ 1, 0 ], "armor": 0, "material": 0, "avgamount": 0.625, "itemname": "lead" }, "leather": { "sortsize": [ 2.5, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>16</sub>", "—" ], "chanceany": 0.2747977375984192, "sizes": [ "1–4", "—" ], "sortweight": [ 1, 0 ], "armor": 0, "material": 1, "avgamount": 0.78125, "itemname": "leather" }, "bucket": { "sortsize": [ 0, 1 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>10</sub>" ], "chanceany": 0.18999999999999995, "sizes": [ "—", 1 ], "sortweight": [ 0, 1 ], "armor": 0, "material": 0, "avgamount": 0.2, "itemname": "bucket" }, "copper-axe": { "sortsize": [ 0, 1 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>10</sub>" ], "chanceany": 0.18999999999999995, "sizes": [ "—", 1 ], "sortweight": [ 0, 1 ], "armor": 0, "material": 0, "avgamount": 0.2, "itemname": "copper-axe" }, "copper-sword": { "sortsize": [ 0, 1 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>10</sub>" ], "chanceany": 0.18999999999999995, "sizes": [ "—", 1 ], "sortweight": [ 0, 1 ], "armor": 0, "material": 0, "avgamount": 0.2, "itemname": "copper-sword" }, "glass-bottle": { "sortsize": [ 2.5, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>16</sub>", "—" ], "chanceany": 0.2747977375984192, "sizes": [ "1–4", "—" ], "sortweight": [ 1, 0 ], "armor": 0, "material": 0, "avgamount": 0.78125, "itemname": "glass-bottle" }, "spyglass": { "sortsize": [ 0, 1 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>10</sub>" ], "chanceany": 0.18999999999999995, "sizes": [ "—", 1 ], "sortweight": [ 0, 1 ], "armor": 0, "material": 0, "avgamount": 0.2, "itemname": "spyglass" }, "cobweb": { "sortsize": [ 1, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>16</sub>", "—" ], "chanceany": 0.2747977375984192, "sizes": [ 1, "—" ], "sortweight": [ 1, 0 ], "armor": 0, "material": 0, "avgamount": 0.3125, "itemname": "cobweb" }, "copper-boots": { "sortsize": [ 0, 1 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>10</sub>" ], "chanceany": 0.18999999999999995, "sizes": [ "—", 1 ], "sortweight": [ 0, 1 ], "armor": 4, "material": 0, "avgamount": 0.2, "itemname": "copper-boots" } }, "header": "[[Abandoned Camp]]", "allRollsJava": [], "link": "[[abandoned camp]] common chest" } } }
+
+ The size of stacks (or for unstackable items, number) of this item on any given roll.
+
+ The weight of this item relative to other items in the pool.
+
+ The odds of finding any of this item in a single chest.
+
+ The number of items expected per chest, averaged over a large number of chests.
+
+ The average number of chests the player should expect to search to find any of this item.
+
+Secret chests
+In Java Edition 26.3, each abandoned camp secret chest chest contains  items drawn from 4 pools,  with the following distribution:
+
+ Item
+  Stack Size
+  Weight
+  Chance
+  Avg.per chest
+  Avg. # cheststo search
+
+2×
+4–6×
+0–1×
+1×
+2×
+4–6×
+0–1×
+1×
+
+Copper Ingot
+—1–2———1⁄4——75.6%1.8751.3
+
+Gold Ingot
+—1–2———1⁄4——75.6%1.8751.3
+
+Empty Map
+—1———1⁄4——75.6%1.2501.3
+
+Iron Ingot
+—1———1⁄4——75.6%1.2501.3
+
+Potion of Healing
+1———1⁄5———36.0%0.4002.8
+
+Potion of Leaping
+1———1⁄5———36.0%0.4002.8
+
+Potion of Night Vision
+1———1⁄5———36.0%0.4002.8
+
+Potion of Swiftness
+1———1⁄5———36.0%0.4002.8
+
+Diamond
+1———1⁄5———36.0%0.4002.8
+
+Buried Ancient City Map
+———1———1⁄714.3%0.1437.0
+
+Buried Mineshaft Map
+———1———1⁄714.3%0.1437.0
+
+Desert Pyramid Map
+———1———1⁄714.3%0.1437.0
+
+Jungle Explorer Map
+———1———1⁄714.3%0.1437.0
+
+Trial Explorer Map
+———1———1⁄714.3%0.1437.0
+
+Warm Ocean Ruins Map
+———1———1⁄714.3%0.1437.0
+
+Woodland Explorer Map
+———1———1⁄714.3%0.1437.0
+
+Iron Axe
+——1———1⁄4—12.5%0.1258.0
+
+Iron Spear
+——1———1⁄4—12.5%0.1258.0
+
+Iron Leggings
+——1———1⁄4—12.5%0.1258.0
+
+Iron Boots
+——1———1⁄4—12.5%0.1258.0
+{ "chestNames": [ "abandoned-camp-secret-chest" ], "gameVersion": "JavaUpcoming", "loot": { "abandoned-camp-secret-chest": { "poolsJava": [], "poolsBedrockUpcoming": [ { "items": { "diamond": [ 1, 1, 1 ], "potion-of-leaping": [ 1, 1, 1 ], "potion-of-swiftness": [ 1, 1, 1 ], "potion-of-healing": [ 1, 1, 1 ], "potion-of-night-vision": [ 1, 1, 1 ] }, "rolls": [ 2, 2 ], "totalweight": 5 }, { "items": { "iron-ingot": [ 1, 1, 1 ], "copper-ingot": [ 1, 2, 1 ], "gold-ingot": [ 1, 2, 1 ], "empty-map": [ 1, 1, 1 ] }, "rolls": [ 4, 6 ], "totalweight": 4 }, { "items": { "iron-axe": [ 1, 1, 1 ], "iron-boots": [ 1, 1, 1 ], "iron-spear": [ 1, 1, 1 ], "iron-leggings": [ 1, 1, 1 ] }, "rolls": [ 0, 1 ], "totalweight": 4 } ], "itemDataJava": [], "structID": "abandoned-camp", "poolsJavaUpcoming": [ { "items": { "diamond": [ 1, 1, 1 ], "potion-of-leaping": [ 1, 1, 1 ], "potion-of-swiftness": [ 1, 1, 1 ], "potion-of-healing": [ 1, 1, 1 ], "potion-of-night-vision": [ 1, 1, 1 ] }, "rolls": [ 2, 2 ], "totalweight": 5 }, { "items": { "iron-ingot": [ 1, 1, 1 ], "copper-ingot": [ 1, 2, 1 ], "gold-ingot": [ 1, 2, 1 ], "empty-map": [ 1, 1, 1 ] }, "rolls": [ 4, 6 ], "totalweight": 4 }, { "items": { "iron-axe": [ 1, 1, 1 ], "iron-boots": [ 1, 1, 1 ], "iron-spear": [ 1, 1, 1 ], "iron-leggings": [ 1, 1, 1 ] }, "rolls": [ 0, 1 ], "totalweight": 4 }, { "items": { "woodland-explorer-map": [ 1, 1, 1 ], "trial-explorer-map": [ 1, 1, 1 ], "buried-ancient-city-map": [ 1, 1, 1 ], "jungle-explorer-map": [ 1, 1, 1 ], "buried-mineshaft-map": [ 1, 1, 1 ], "desert-pyramid-map": [ 1, 1, 1 ], "warm-ocean-ruins-map": [ 1, 1, 1 ] }, "rolls": [ 1, 1 ], "totalweight": 7 } ], "structure": "Abandoned Camp", "container": "Secret chest", "itemDataJavaUpcoming": { "potion-of-leaping": { "sortsize": [ 1, 0, 0, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>5</sub>", "—", "—", "—" ], "chanceany": 0.36, "sizes": [ 1, "—", "—", "—" ], "sortweight": [ 1, 0, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.4, "itemname": "potion-of-leaping" }, "gold-ingot": { "sortsize": [ 0, 1.5, 0, 0 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>4</sub>", "—", "—" ], "chanceany": 0.756103515625, "sizes": [ "—", "1–2", "—", "—" ], "sortweight": [ 0, 1, 0, 0 ], "armor": 0, "material": 3, "avgamount": 1.875, "itemname": "gold-ingot" }, "iron-boots": { "sortsize": [ 0, 0, 1, 0 ], "weights": [ "—", "—", "<sup>1</sup>&frasl;<sub>4</sub>", "—" ], "chanceany": 0.125, "sizes": [ "—", "—", 1, "—" ], "sortweight": [ 0, 0, 1, 0 ], "armor": 4, "material": 2, "avgamount": 0.125, "itemname": "iron-boots" }, "iron-leggings": { "sortsize": [ 0, 0, 1, 0 ], "weights": [ "—", "—", "<sup>1</sup>&frasl;<sub>4</sub>", "—" ], "chanceany": 0.125, "sizes": [ "—", "—", 1, "—" ], "sortweight": [ 0, 0, 1, 0 ], "armor": 3, "material": 2, "avgamount": 0.125, "itemname": "iron-leggings" }, "jungle-explorer-map": { "sortsize": [ 0, 0, 0, 1 ], "weights": [ "—", "—", "—", "<sup>1</sup>&frasl;<sub>7</sub>" ], "chanceany": 0.1428571428571429, "sizes": [ "—", "—", "—", 1 ], "sortweight": [ 0, 0, 0, 1 ], "armor": 0, "material": 0, "avgamount": 0.14285714285714285, "itemname": "jungle-explorer-map" }, "iron-ingot": { "sortsize": [ 0, 1, 0, 0 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>4</sub>", "—", "—" ], "chanceany": 0.756103515625, "sizes": [ "—", 1, "—", "—" ], "sortweight": [ 0, 1, 0, 0 ], "armor": 0, "material": 2, "avgamount": 1.25, "itemname": "iron-ingot" }, "diamond": { "sortsize": [ 1, 0, 0, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>5</sub>", "—", "—", "—" ], "chanceany": 0.36, "sizes": [ 1, "—", "—", "—" ], "sortweight": [ 1, 0, 0, 0 ], "armor": 0, "material": 4, "avgamount": 0.4, "itemname": "diamond" }, "trial-explorer-map": { "sortsize": [ 0, 0, 0, 1 ], "weights": [ "—", "—", "—", "<sup>1</sup>&frasl;<sub>7</sub>" ], "chanceany": 0.1428571428571429, "sizes": [ "—", "—", "—", 1 ], "sortweight": [ 0, 0, 0, 1 ], "armor": 0, "material": 0, "avgamount": 0.14285714285714285, "itemname": "trial-explorer-map" }, "iron-spear": { "sortsize": [ 0, 0, 1, 0 ], "weights": [ "—", "—", "<sup>1</sup>&frasl;<sub>4</sub>", "—" ], "chanceany": 0.125, "sizes": [ "—", "—", 1, "—" ], "sortweight": [ 0, 0, 1, 0 ], "armor": 0, "material": 2, "avgamount": 0.125, "itemname": "iron-spear" }, "woodland-explorer-map": { "sortsize": [ 0, 0, 0, 1 ], "weights": [ "—", "—", "—", "<sup>1</sup>&frasl;<sub>7</sub>" ], "chanceany": 0.1428571428571429, "sizes": [ "—", "—", "—", 1 ], "sortweight": [ 0, 0, 0, 1 ], "armor": 0, "material": 0, "avgamount": 0.14285714285714285, "itemname": "woodland-explorer-map" }, "buried-mineshaft-map": { "sortsize": [ 0, 0, 0, 1 ], "weights": [ "—", "—", "—", "<sup>1</sup>&frasl;<sub>7</sub>" ], "chanceany": 0.1428571428571429, "sizes": [ "—", "—", "—", 1 ], "sortweight": [ 0, 0, 0, 1 ], "armor": 0, "material": 0, "avgamount": 0.14285714285714285, "itemname": "buried-mineshaft-map" }, "potion-of-healing": { "sortsize": [ 1, 0, 0, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>5</sub>", "—", "—", "—" ], "chanceany": 0.36, "sizes": [ 1, "—", "—", "—" ], "sortweight": [ 1, 0, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.4, "itemname": "potion-of-healing" }, "iron-axe": { "sortsize": [ 0, 0, 1, 0 ], "weights": [ "—", "—", "<sup>1</sup>&frasl;<sub>4</sub>", "—" ], "chanceany": 0.125, "sizes": [ "—", "—", 1, "—" ], "sortweight": [ 0, 0, 1, 0 ], "armor": 0, "material": 2, "avgamount": 0.125, "itemname": "iron-axe" }, "copper-ingot": { "sortsize": [ 0, 1.5, 0, 0 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>4</sub>", "—", "—" ], "chanceany": 0.756103515625, "sizes": [ "—", "1–2", "—", "—" ], "sortweight": [ 0, 1, 0, 0 ], "armor": 0, "material": 0, "avgamount": 1.875, "itemname": "copper-ingot" }, "potion-of-night-vision": { "sortsize": [ 1, 0, 0, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>5</sub>", "—", "—", "—" ], "chanceany": 0.36, "sizes": [ 1, "—", "—", "—" ], "sortweight": [ 1, 0, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.4, "itemname": "potion-of-night-vision" }, "buried-ancient-city-map": { "sortsize": [ 0, 0, 0, 1 ], "weights": [ "—", "—", "—", "<sup>1</sup>&frasl;<sub>7</sub>" ], "chanceany": 0.1428571428571429, "sizes": [ "—", "—", "—", 1 ], "sortweight": [ 0, 0, 0, 1 ], "armor": 0, "material": 0, "avgamount": 0.14285714285714285, "itemname": "buried-ancient-city-map" }, "desert-pyramid-map": { "sortsize": [ 0, 0, 0, 1 ], "weights": [ "—", "—", "—", "<sup>1</sup>&frasl;<sub>7</sub>" ], "chanceany": 0.1428571428571429, "sizes": [ "—", "—", "—", 1 ], "sortweight": [ 0, 0, 0, 1 ], "armor": 0, "material": 0, "avgamount": 0.14285714285714285, "itemname": "desert-pyramid-map" }, "empty-map": { "sortsize": [ 0, 1, 0, 0 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>4</sub>", "—", "—" ], "chanceany": 0.756103515625, "sizes": [ "—", 1, "—", "—" ], "sortweight": [ 0, 1, 0, 0 ], "armor": 0, "material": 0, "avgamount": 1.25, "itemname": "empty-map" }, "potion-of-swiftness": { "sortsize": [ 1, 0, 0, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>5</sub>", "—", "—", "—" ], "chanceany": 0.36, "sizes": [ 1, "—", "—", "—" ], "sortweight": [ 1, 0, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.4, "itemname": "potion-of-swiftness" }, "warm-ocean-ruins-map": { "sortsize": [ 0, 0, 0, 1 ], "weights": [ "—", "—", "—", "<sup>1</sup>&frasl;<sub>7</sub>" ], "chanceany": 0.1428571428571429, "sizes": [ "—", "—", "—", 1 ], "sortweight": [ 0, 0, 0, 1 ], "armor": 0, "material": 0, "avgamount": 0.14285714285714285, "itemname": "warm-ocean-ruins-map" } }, "allRollsJavaUpcoming": [ 2, "4–6", "0–1", 1 ], "itemDataBedrock": [], "poolsBedrock": [], "allRollsBedrockUpcoming": [ 2, "4–6", "0–1" ], "allRollsBedrock": [], "itemDataBedrockUpcoming": { "diamond": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>5</sub>", "—", "—" ], "chanceany": 0.36, "sizes": [ 1, "—", "—" ], "sortweight": [ 1, 0, 0 ], "armor": 0, "material": 4, "avgamount": 0.4, "itemname": "diamond" }, "potion-of-leaping": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>5</sub>", "—", "—" ], "chanceany": 0.36, "sizes": [ 1, "—", "—" ], "sortweight": [ 1, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.4, "itemname": "potion-of-leaping" }, "empty-map": { "sortsize": [ 0, 1, 0 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>4</sub>", "—" ], "chanceany": 0.756103515625, "sizes": [ "—", 1, "—" ], "sortweight": [ 0, 1, 0 ], "armor": 0, "material": 0, "avgamount": 1.25, "itemname": "empty-map" }, "potion-of-swiftness": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>5</sub>", "—", "—" ], "chanceany": 0.36, "sizes": [ 1, "—", "—" ], "sortweight": [ 1, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.4, "itemname": "potion-of-swiftness" }, "potion-of-healing": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>5</sub>", "—", "—" ], "chanceany": 0.36, "sizes": [ 1, "—", "—" ], "sortweight": [ 1, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.4, "itemname": "potion-of-healing" }, "iron-axe": { "sortsize": [ 0, 0, 1 ], "weights": [ "—", "—", "<sup>1</sup>&frasl;<sub>4</sub>" ], "chanceany": 0.125, "sizes": [ "—", "—", 1 ], "sortweight": [ 0, 0, 1 ], "armor": 0, "material": 2, "avgamount": 0.125, "itemname": "iron-axe" }, "copper-ingot": { "sortsize": [ 0, 1.5, 0 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>4</sub>", "—" ], "chanceany": 0.756103515625, "sizes": [ "—", "1–2", "—" ], "sortweight": [ 0, 1, 0 ], "armor": 0, "material": 0, "avgamount": 1.875, "itemname": "copper-ingot" }, "potion-of-night-vision": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>5</sub>", "—", "—" ], "chanceany": 0.36, "sizes": [ 1, "—", "—" ], "sortweight": [ 1, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.4, "itemname": "potion-of-night-vision" }, "iron-leggings": { "sortsize": [ 0, 0, 1 ], "weights": [ "—", "—", "<sup>1</sup>&frasl;<sub>4</sub>" ], "chanceany": 0.125, "sizes": [ "—", "—", 1 ], "sortweight": [ 0, 0, 1 ], "armor": 3, "material": 2, "avgamount": 0.125, "itemname": "iron-leggings" }, "iron-spear": { "sortsize": [ 0, 0, 1 ], "weights": [ "—", "—", "<sup>1</sup>&frasl;<sub>4</sub>" ], "chanceany": 0.125, "sizes": [ "—", "—", 1 ], "sortweight": [ 0, 0, 1 ], "armor": 0, "material": 2, "avgamount": 0.125, "itemname": "iron-spear" }, "iron-ingot": { "sortsize": [ 0, 1, 0 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>4</sub>", "—" ], "chanceany": 0.756103515625, "sizes": [ "—", 1, "—" ], "sortweight": [ 0, 1, 0 ], "armor": 0, "material": 2, "avgamount": 1.25, "itemname": "iron-ingot" }, "iron-boots": { "sortsize": [ 0, 0, 1 ], "weights": [ "—", "—", "<sup>1</sup>&frasl;<sub>4</sub>" ], "chanceany": 0.125, "sizes": [ "—", "—", 1 ], "sortweight": [ 0, 0, 1 ], "armor": 4, "material": 2, "avgamount": 0.125, "itemname": "iron-boots" }, "gold-ingot": { "sortsize": [ 0, 1.5, 0 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>4</sub>", "—" ], "chanceany": 0.756103515625, "sizes": [ "—", "1–2", "—" ], "sortweight": [ 0, 1, 0 ], "armor": 0, "material": 3, "avgamount": 1.875, "itemname": "gold-ingot" } }, "header": "[[Abandoned Camp]]", "allRollsJava": [], "link": "[[abandoned camp]] secret chest" } } }
+In Bedrock Edition 26.50, each abandoned camp secret chest chest contains  items drawn from 3 pools,  with the following distribution:
+
+ Item
+  Stack Size
+  Weight
+  Chance
+  Avg.per chest
+  Avg. # cheststo search
+
+2×
+4–6×
+0–1×
+2×
+4–6×
+0–1×
+
+Copper Ingot
+—1–2——1⁄4—75.6%1.8751.3
+
+Gold Ingot
+—1–2——1⁄4—75.6%1.8751.3
+
+Empty Map
+—1——1⁄4—75.6%1.2501.3
+
+Iron Ingot
+—1——1⁄4—75.6%1.2501.3
+
+Potion of Healing
+1——1⁄5——36.0%0.4002.8
+
+Potion of Leaping
+1——1⁄5——36.0%0.4002.8
+
+Potion of Night Vision
+1——1⁄5——36.0%0.4002.8
+
+Potion of Swiftness
+1——1⁄5——36.0%0.4002.8
+
+Diamond
+1——1⁄5——36.0%0.4002.8
+
+Iron Axe
+——1——1⁄412.5%0.1258.0
+
+Iron Spear
+——1——1⁄412.5%0.1258.0
+
+Iron Leggings
+——1——1⁄412.5%0.1258.0
+
+Iron Boots
+——1——1⁄412.5%0.1258.0
+{ "chestNames": [ "abandoned-camp-secret-chest" ], "gameVersion": "BedrockUpcoming", "loot": { "abandoned-camp-secret-chest": { "poolsJava": [], "poolsBedrockUpcoming": [ { "items": { "diamond": [ 1, 1, 1 ], "potion-of-leaping": [ 1, 1, 1 ], "potion-of-swiftness": [ 1, 1, 1 ], "potion-of-healing": [ 1, 1, 1 ], "potion-of-night-vision": [ 1, 1, 1 ] }, "rolls": [ 2, 2 ], "totalweight": 5 }, { "items": { "iron-ingot": [ 1, 1, 1 ], "copper-ingot": [ 1, 2, 1 ], "gold-ingot": [ 1, 2, 1 ], "empty-map": [ 1, 1, 1 ] }, "rolls": [ 4, 6 ], "totalweight": 4 }, { "items": { "iron-axe": [ 1, 1, 1 ], "iron-boots": [ 1, 1, 1 ], "iron-spear": [ 1, 1, 1 ], "iron-leggings": [ 1, 1, 1 ] }, "rolls": [ 0, 1 ], "totalweight": 4 } ], "itemDataJava": [], "structID": "abandoned-camp", "poolsJavaUpcoming": [ { "items": { "diamond": [ 1, 1, 1 ], "potion-of-leaping": [ 1, 1, 1 ], "potion-of-swiftness": [ 1, 1, 1 ], "potion-of-healing": [ 1, 1, 1 ], "potion-of-night-vision": [ 1, 1, 1 ] }, "rolls": [ 2, 2 ], "totalweight": 5 }, { "items": { "iron-ingot": [ 1, 1, 1 ], "copper-ingot": [ 1, 2, 1 ], "gold-ingot": [ 1, 2, 1 ], "empty-map": [ 1, 1, 1 ] }, "rolls": [ 4, 6 ], "totalweight": 4 }, { "items": { "iron-axe": [ 1, 1, 1 ], "iron-boots": [ 1, 1, 1 ], "iron-spear": [ 1, 1, 1 ], "iron-leggings": [ 1, 1, 1 ] }, "rolls": [ 0, 1 ], "totalweight": 4 }, { "items": { "woodland-explorer-map": [ 1, 1, 1 ], "trial-explorer-map": [ 1, 1, 1 ], "buried-ancient-city-map": [ 1, 1, 1 ], "jungle-explorer-map": [ 1, 1, 1 ], "buried-mineshaft-map": [ 1, 1, 1 ], "desert-pyramid-map": [ 1, 1, 1 ], "warm-ocean-ruins-map": [ 1, 1, 1 ] }, "rolls": [ 1, 1 ], "totalweight": 7 } ], "structure": "Abandoned Camp", "container": "Secret chest", "itemDataJavaUpcoming": { "potion-of-leaping": { "sortsize": [ 1, 0, 0, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>5</sub>", "—", "—", "—" ], "chanceany": 0.36, "sizes": [ 1, "—", "—", "—" ], "sortweight": [ 1, 0, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.4, "itemname": "potion-of-leaping" }, "gold-ingot": { "sortsize": [ 0, 1.5, 0, 0 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>4</sub>", "—", "—" ], "chanceany": 0.756103515625, "sizes": [ "—", "1–2", "—", "—" ], "sortweight": [ 0, 1, 0, 0 ], "armor": 0, "material": 3, "avgamount": 1.875, "itemname": "gold-ingot" }, "iron-boots": { "sortsize": [ 0, 0, 1, 0 ], "weights": [ "—", "—", "<sup>1</sup>&frasl;<sub>4</sub>", "—" ], "chanceany": 0.125, "sizes": [ "—", "—", 1, "—" ], "sortweight": [ 0, 0, 1, 0 ], "armor": 4, "material": 2, "avgamount": 0.125, "itemname": "iron-boots" }, "iron-leggings": { "sortsize": [ 0, 0, 1, 0 ], "weights": [ "—", "—", "<sup>1</sup>&frasl;<sub>4</sub>", "—" ], "chanceany": 0.125, "sizes": [ "—", "—", 1, "—" ], "sortweight": [ 0, 0, 1, 0 ], "armor": 3, "material": 2, "avgamount": 0.125, "itemname": "iron-leggings" }, "jungle-explorer-map": { "sortsize": [ 0, 0, 0, 1 ], "weights": [ "—", "—", "—", "<sup>1</sup>&frasl;<sub>7</sub>" ], "chanceany": 0.1428571428571429, "sizes": [ "—", "—", "—", 1 ], "sortweight": [ 0, 0, 0, 1 ], "armor": 0, "material": 0, "avgamount": 0.14285714285714285, "itemname": "jungle-explorer-map" }, "iron-ingot": { "sortsize": [ 0, 1, 0, 0 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>4</sub>", "—", "—" ], "chanceany": 0.756103515625, "sizes": [ "—", 1, "—", "—" ], "sortweight": [ 0, 1, 0, 0 ], "armor": 0, "material": 2, "avgamount": 1.25, "itemname": "iron-ingot" }, "diamond": { "sortsize": [ 1, 0, 0, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>5</sub>", "—", "—", "—" ], "chanceany": 0.36, "sizes": [ 1, "—", "—", "—" ], "sortweight": [ 1, 0, 0, 0 ], "armor": 0, "material": 4, "avgamount": 0.4, "itemname": "diamond" }, "trial-explorer-map": { "sortsize": [ 0, 0, 0, 1 ], "weights": [ "—", "—", "—", "<sup>1</sup>&frasl;<sub>7</sub>" ], "chanceany": 0.1428571428571429, "sizes": [ "—", "—", "—", 1 ], "sortweight": [ 0, 0, 0, 1 ], "armor": 0, "material": 0, "avgamount": 0.14285714285714285, "itemname": "trial-explorer-map" }, "iron-spear": { "sortsize": [ 0, 0, 1, 0 ], "weights": [ "—", "—", "<sup>1</sup>&frasl;<sub>4</sub>", "—" ], "chanceany": 0.125, "sizes": [ "—", "—", 1, "—" ], "sortweight": [ 0, 0, 1, 0 ], "armor": 0, "material": 2, "avgamount": 0.125, "itemname": "iron-spear" }, "woodland-explorer-map": { "sortsize": [ 0, 0, 0, 1 ], "weights": [ "—", "—", "—", "<sup>1</sup>&frasl;<sub>7</sub>" ], "chanceany": 0.1428571428571429, "sizes": [ "—", "—", "—", 1 ], "sortweight": [ 0, 0, 0, 1 ], "armor": 0, "material": 0, "avgamount": 0.14285714285714285, "itemname": "woodland-explorer-map" }, "buried-mineshaft-map": { "sortsize": [ 0, 0, 0, 1 ], "weights": [ "—", "—", "—", "<sup>1</sup>&frasl;<sub>7</sub>" ], "chanceany": 0.1428571428571429, "sizes": [ "—", "—", "—", 1 ], "sortweight": [ 0, 0, 0, 1 ], "armor": 0, "material": 0, "avgamount": 0.14285714285714285, "itemname": "buried-mineshaft-map" }, "potion-of-healing": { "sortsize": [ 1, 0, 0, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>5</sub>", "—", "—", "—" ], "chanceany": 0.36, "sizes": [ 1, "—", "—", "—" ], "sortweight": [ 1, 0, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.4, "itemname": "potion-of-healing" }, "iron-axe": { "sortsize": [ 0, 0, 1, 0 ], "weights": [ "—", "—", "<sup>1</sup>&frasl;<sub>4</sub>", "—" ], "chanceany": 0.125, "sizes": [ "—", "—", 1, "—" ], "sortweight": [ 0, 0, 1, 0 ], "armor": 0, "material": 2, "avgamount": 0.125, "itemname": "iron-axe" }, "copper-ingot": { "sortsize": [ 0, 1.5, 0, 0 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>4</sub>", "—", "—" ], "chanceany": 0.756103515625, "sizes": [ "—", "1–2", "—", "—" ], "sortweight": [ 0, 1, 0, 0 ], "armor": 0, "material": 0, "avgamount": 1.875, "itemname": "copper-ingot" }, "potion-of-night-vision": { "sortsize": [ 1, 0, 0, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>5</sub>", "—", "—", "—" ], "chanceany": 0.36, "sizes": [ 1, "—", "—", "—" ], "sortweight": [ 1, 0, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.4, "itemname": "potion-of-night-vision" }, "buried-ancient-city-map": { "sortsize": [ 0, 0, 0, 1 ], "weights": [ "—", "—", "—", "<sup>1</sup>&frasl;<sub>7</sub>" ], "chanceany": 0.1428571428571429, "sizes": [ "—", "—", "—", 1 ], "sortweight": [ 0, 0, 0, 1 ], "armor": 0, "material": 0, "avgamount": 0.14285714285714285, "itemname": "buried-ancient-city-map" }, "desert-pyramid-map": { "sortsize": [ 0, 0, 0, 1 ], "weights": [ "—", "—", "—", "<sup>1</sup>&frasl;<sub>7</sub>" ], "chanceany": 0.1428571428571429, "sizes": [ "—", "—", "—", 1 ], "sortweight": [ 0, 0, 0, 1 ], "armor": 0, "material": 0, "avgamount": 0.14285714285714285, "itemname": "desert-pyramid-map" }, "empty-map": { "sortsize": [ 0, 1, 0, 0 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>4</sub>", "—", "—" ], "chanceany": 0.756103515625, "sizes": [ "—", 1, "—", "—" ], "sortweight": [ 0, 1, 0, 0 ], "armor": 0, "material": 0, "avgamount": 1.25, "itemname": "empty-map" }, "potion-of-swiftness": { "sortsize": [ 1, 0, 0, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>5</sub>", "—", "—", "—" ], "chanceany": 0.36, "sizes": [ 1, "—", "—", "—" ], "sortweight": [ 1, 0, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.4, "itemname": "potion-of-swiftness" }, "warm-ocean-ruins-map": { "sortsize": [ 0, 0, 0, 1 ], "weights": [ "—", "—", "—", "<sup>1</sup>&frasl;<sub>7</sub>" ], "chanceany": 0.1428571428571429, "sizes": [ "—", "—", "—", 1 ], "sortweight": [ 0, 0, 0, 1 ], "armor": 0, "material": 0, "avgamount": 0.14285714285714285, "itemname": "warm-ocean-ruins-map" } }, "allRollsJavaUpcoming": [ 2, "4–6", "0–1", 1 ], "itemDataBedrock": [], "poolsBedrock": [], "allRollsBedrockUpcoming": [ 2, "4–6", "0–1" ], "allRollsBedrock": [], "itemDataBedrockUpcoming": { "diamond": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>5</sub>", "—", "—" ], "chanceany": 0.36, "sizes": [ 1, "—", "—" ], "sortweight": [ 1, 0, 0 ], "armor": 0, "material": 4, "avgamount": 0.4, "itemname": "diamond" }, "potion-of-leaping": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>5</sub>", "—", "—" ], "chanceany": 0.36, "sizes": [ 1, "—", "—" ], "sortweight": [ 1, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.4, "itemname": "potion-of-leaping" }, "empty-map": { "sortsize": [ 0, 1, 0 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>4</sub>", "—" ], "chanceany": 0.756103515625, "sizes": [ "—", 1, "—" ], "sortweight": [ 0, 1, 0 ], "armor": 0, "material": 0, "avgamount": 1.25, "itemname": "empty-map" }, "potion-of-swiftness": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>5</sub>", "—", "—" ], "chanceany": 0.36, "sizes": [ 1, "—", "—" ], "sortweight": [ 1, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.4, "itemname": "potion-of-swiftness" }, "potion-of-healing": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>5</sub>", "—", "—" ], "chanceany": 0.36, "sizes": [ 1, "—", "—" ], "sortweight": [ 1, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.4, "itemname": "potion-of-healing" }, "iron-axe": { "sortsize": [ 0, 0, 1 ], "weights": [ "—", "—", "<sup>1</sup>&frasl;<sub>4</sub>" ], "chanceany": 0.125, "sizes": [ "—", "—", 1 ], "sortweight": [ 0, 0, 1 ], "armor": 0, "material": 2, "avgamount": 0.125, "itemname": "iron-axe" }, "copper-ingot": { "sortsize": [ 0, 1.5, 0 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>4</sub>", "—" ], "chanceany": 0.756103515625, "sizes": [ "—", "1–2", "—" ], "sortweight": [ 0, 1, 0 ], "armor": 0, "material": 0, "avgamount": 1.875, "itemname": "copper-ingot" }, "potion-of-night-vision": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>5</sub>", "—", "—" ], "chanceany": 0.36, "sizes": [ 1, "—", "—" ], "sortweight": [ 1, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.4, "itemname": "potion-of-night-vision" }, "iron-leggings": { "sortsize": [ 0, 0, 1 ], "weights": [ "—", "—", "<sup>1</sup>&frasl;<sub>4</sub>" ], "chanceany": 0.125, "sizes": [ "—", "—", 1 ], "sortweight": [ 0, 0, 1 ], "armor": 3, "material": 2, "avgamount": 0.125, "itemname": "iron-leggings" }, "iron-spear": { "sortsize": [ 0, 0, 1 ], "weights": [ "—", "—", "<sup>1</sup>&frasl;<sub>4</sub>" ], "chanceany": 0.125, "sizes": [ "—", "—", 1 ], "sortweight": [ 0, 0, 1 ], "armor": 0, "material": 2, "avgamount": 0.125, "itemname": "iron-spear" }, "iron-ingot": { "sortsize": [ 0, 1, 0 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>4</sub>", "—" ], "chanceany": 0.756103515625, "sizes": [ "—", 1, "—" ], "sortweight": [ 0, 1, 0 ], "armor": 0, "material": 2, "avgamount": 1.25, "itemname": "iron-ingot" }, "iron-boots": { "sortsize": [ 0, 0, 1 ], "weights": [ "—", "—", "<sup>1</sup>&frasl;<sub>4</sub>" ], "chanceany": 0.125, "sizes": [ "—", "—", 1 ], "sortweight": [ 0, 0, 1 ], "armor": 4, "material": 2, "avgamount": 0.125, "itemname": "iron-boots" }, "gold-ingot": { "sortsize": [ 0, 1.5, 0 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>4</sub>", "—" ], "chanceany": 0.756103515625, "sizes": [ "—", "1–2", "—" ], "sortweight": [ 0, 1, 0 ], "armor": 0, "material": 3, "avgamount": 1.875, "itemname": "gold-ingot" } }, "header": "[[Abandoned Camp]]", "allRollsJava": [], "link": "[[abandoned camp]] secret chest" } } }
+
+ The size of stacks (or for unstackable items, number) of this item on any given roll.
+
+ The weight of this item relative to other items in the pool.
+
+ The odds of finding any of this item in a single chest.
+
+ The number of items expected per chest, averaged over a large number of chests.
+
+ The average number of chests the player should expect to search to find any of this item.
+
+In Bedrock Edition, campsite_default_special_8 always generate with the following items:
+
+7 Oxidized Copper Chain
+7 Copper Ingot
+2 Iron Ingot
+1 Gold Ingot
+1 Iron Leggings
+Data values
+ID
+Bedrock Edition:
+
+NameIdentifier
+ [No displayed name]abandoned_camp_bamboo_jungle
+
+ [No displayed name]abandoned_camp_birch_forest
+
+ [No displayed name]abandoned_camp_birch_forest_mutated
+
+ [No displayed name]abandoned_camp_cherry_grove
+
+ [No displayed name]abandoned_camp_cold_taiga
+
+ [No displayed name]abandoned_camp_dappled_forest
+
+ [No displayed name]abandoned_camp_extreme_hills_plus_trees
+
+ [No displayed name]abandoned_camp_flower_forest
+
+ [No displayed name]abandoned_camp_forest
+
+ [No displayed name]abandoned_camp_jungle_edge
+
+ [No displayed name]abandoned_camp_meadow
+
+ [No displayed name]abandoned_camp_mega_jungle
+
+ [No displayed name]abandoned_camp_mesa_plateau_stone
+
+ [No displayed name]abandoned_camp_pale_garden
+
+ [No displayed name]abandoned_camp_redwood_taiga_mutated
+
+ [No displayed name]abandoned_camp_savanna
+
+ [No displayed name]abandoned_camp_swampland
+
+ [No displayed name]abandoned_camp_taiga
+
+History
+Announcement
+May 30, 2026
+Abandoned camps are announced at Minecraft Live – May 2026.
+An Instagram post revealed that cauldrons and oxidized copper golem statues can spawn in abandoned camps.
+Some blocks that were not shown in Minecraft Live that can spawn in abandoned camps but were shown off to content creators in a private play session include cherry leaves, mossy cobblestone walls, potatoes, stone, and wheat.May 31, 2026
+Some details about abandoned camps were revealed that weren't showcased at Minecraft Live. An abandoned camp's appearance can be varied, such as being covered in leaves or featuring a crop farm nearby.
+Java Edition
+Upcoming Java Edition26.3snap1
+ Added abandoned camps.snap3
+Straw beds and cushions now generate as part of abandoned camps.
+
+Redesigned some tents and campsites (see /Structure history).
+
+Most trees in abandoned camps are now procedurally generated.snap6
+Added a new campsite variant for each biome.
+
+Some minor tweaks to abandoned camp structures have been done.snap7
+Updated loot table for the abandoned camp barrel.
+Replaced firework rocket with gunpowder in chest loot table.
+Added explorer maps to loot tables.snap8
+They now generate slightly further from each other, with a spacing of 37 chunks instead of 34.
+Bedrock Edition
+Bedrock Edition26.40ExperimentDrop 3 of 2026Preview 26.40.27
+ Added abandoned camps.Preview 26.40.30
+Straw beds now generate in abandoned camps.
+
+Redesigned some tents and campsites (see /Structure history).
+
+Most trees in abandoned camps are now procedurally generated.
+
+Cushions currently do not generate in abandoned camps.Upcoming Bedrock Edition26.50ExperimentDrop 3 of 2026Preview 26.50.20
+Cushions now generate in abandoned camps.26.50Preview 26.50.22
+All features from the "Drop 3 of 2026" experiment have been fully implemented.
+Issues
+Issues relating to "Abandoned Camp" are maintained on the bug tracker. Issues should be reported and viewed there.
+
+Trivia
+The "Drop 3 of 2026" experiment in Bedrock Edition referred to the abandoned camps as "the wandering trader's hidden stashes" in Bedrock Edition Preview 26.40.27.
+This was changed to "the abandoned camps" in Bedrock Edition Preview 26.40.30.
+Gallery
+Screenshots
+
+
+
+			Bamboo jungle
+
+
+
+			Birch forest
+
+
+
+			Cherry grove
+
+
+
+			Dappled forest
+
+
+
+			Flower forest
+
+
+
+			Forest
+
+
+
+			Meadow
+
+
+
+			Old growth birch forest
+
+
+
+			Old growth pine taiga
+
+
+
+			Old growth spruce taiga
+
+
+
+			Pale garden
+
+
+
+			Savanna
+
+
+
+			Snowy taiga
+
+
+
+			Sparse jungle
+
+
+
+			Swamp
+
+
+
+			Taiga
+
+
+
+			Windswept forest
+
+
+
+			Wooded badlands
+
+
+
+			An abandoned camp next to the camp structure of a pillager outpost
+
+
+
+			An abandoned camp right next to a swamp hut
+
+
+
+			Abandoned camp in a village
+
+
+Mojang screenshots
+
+
+
+			An abandoned camp in a jungle.
+
+
+
+			A house built in an abandoned camp in a forest.
+
+
+Development screenshots
+
+
+
+			An abandoned camp as revealed in Minecraft Live
+
+
+
+			An abandoned camp in a cherry grove
+
+
+
+			An abandoned camp on the edge of a dappled forest
+
+
+
+			Minecraft YouTube post of the abandoned camp
+
+
+
+			An oxidized copper golem statue and cauldron in an abandoned camp
+
+
+Notes
+
+ Buried chests that are partially visible from the surface, such as those that can be seen through leaves, are omitted.
+
+ Trees and bamboo are procedurally generated after the structure piece is placed. They are included in some renders to represent the final in-game appearance.
+
+ Unlike most other structure pieces, the tree in this one is part of the structure itself and does not generate procedurally after the structure piece is placed.
+
+References
+
+ MCPE-240052 –  Oxidized Copper Chain generates in Abandoned Camp secret chest instead of diamonds and potions
+
+ "A new wilderness adventure awaits! [...]" – @minecraft on Instagram, May 30, 2026
+
+ "✅ TODO Sobre el BOSQUE OTOÑO!!🍁 DAPPLED TREE, WOOL SLABS, CAMP"  – Bobicraft on YouTube, May 30, 2026 @ 6m27s
+
+Navigation

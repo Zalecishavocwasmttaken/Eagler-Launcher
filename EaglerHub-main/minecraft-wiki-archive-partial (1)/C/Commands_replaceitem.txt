@@ -1,0 +1,130 @@
+For other uses, see Item (disambiguation).
+
+
+
+This feature is exclusive to Bedrock Edition and Minecraft Education. 
+
+
+
+This page describes content that has been removed and was only present in earlier versions of Java Edition. 
+This command was superseded by the /item command in Java Edition 1.17.
+
+/replaceitem
+
+Permission levelrequired
+
+1
+
+Restrictions
+
+Cheat only
+
+{
+    "title": "<code>/replaceitem</code>",
+    "rows": [
+        {
+            "field": "1",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "(link to Cheat article, displayed as Cheat) only<br>",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+Replaces the items in a specified slot of either a block's (chest, furnaces, etc.) or entity's (players or mobs) inventory, with a specified item.
+
+Contents
+
+1 Syntax
+2 Arguments
+3 Result
+4 Output
+5 Examples
+6 History
+
+6.1 Java Edition
+6.2 Bedrock Edition
+
+7 See also
+8 External links
+9 Navigation
+
+Syntax
+replaceitem block <position: x y z> slot.container <slotId: int> <itemName: Item> [amount: int] [data: int] [components: json]
+replaceitem entity <target: target> <slotType: EntityEquipmentSlot> <slotId: int> <itemName: Item> [amount: int] [data: int] [components: json]
+replaceitem block <position: x y z> slot.container <slotId: int> <oldItemHandling: ReplaceMode> <itemName: Item> [amount: int] [data: int] [components: json]
+replaceitem entity <target: target> <slotType: EntityEquipmentSlot> <slotId: int> <oldItemHandling: ReplaceMode> <itemName: Item> [amount: int] [data: int] [components: json]
+Arguments
+position: x y z: CommandPosition
+
+Specifies the position of the block to be modified.
+Must be a three-dimensional coordinates composed of <X>, <Y> and <Z>, each of which must be a single-precision floating-point number or tilde and caret notation.
+target: target: CommandSelector<Actor>
+
+Specifies one or more entities to modify.
+Must be a player name or a target selector.
+slotType: EntityEquipmentSlot: enum, slot.container and <slotId: int>: int
+
+Specifies the inventory slot to be modified. Valid values depend on whether a block or an entity is being modified. See Slot for details. Note that you can target a player's ender chest by using slot.enderchest.
+slotId: int must be a [Int]32-bit integer number (from -2147483648 (-231) to 2147483647 (231-1) ). And it must be between -2147483648 and 2147483647 (inclusive).
+itemName: Item: enum
+
+Specifies the item to be placed in the block or entity's inventory slot.
+amount: int: int
+
+Specifies the number of items to be placed in the block or entity's inventory slot.
+Must be a [Int]32-bit integer number (from -2147483648 (-231) to 2147483647 (231-1) ). And it should be between 1 and 64 (inclusive).
+data: int: int
+
+Specifies the item data for the item(s) to be placed in the block or entity's inventory slot. Values which are invalid for the specified item id defaults to 0. If not specified, defaults to 0.
+Must be a [Int]32-bit integer number (from -2147483648 (-231) to 2147483647 (231-1) ). It must be between -2147483648 and 2147483647 (inclusive).
+components: json: Json::Value
+
+Specifies the item components. Like data tags but supports only minecraft:can_place_on, minecraft:can_destroy, minecraft:item_lock, and minecraft:keep_on_death functions (see Commands/give#Examples)
+It must be a JSON [NBT Compound / JSON Object]Object.
+oldItemHandling: ReplaceMode: enum
+
+Must be one of:
+destroy - Directly replaces items ignoring the original items in the specified slot.
+keep - Does not replace items if an item occupies that slot.
+Result
+
+CommandTriggerBedrock Edition
+
+AnyThe command is incomplete, or any argument is not specified correctly. Unparseableamount: int is lower than 1 or higher than 64. Failed/replaceitem block ...The specified block is not a container.The specified block does not have the specified slot./replaceitem entity ...<targets> or target: target fails to resolve to one or more entities (named players must be online).All selected entities meet one or more of the following conditions:
+It doesn't have the specified slot (for example, zombies don't have horse.armor).
+Specified item cannot be place into the specified slot of its (for example, place a stone into armor.chest of a player)./replaceitem ... keepAn item occupies the specified slot in keep mode.AnyOtherwiseSuccessful
+Output
+
+CommandEditionSituationSuccess Count
+
+AnyBedrock EditionOn fail0/replaceitem block ...On success1/replaceitem entity ...On successthe number of entities whose items are successfully replaced
+Examples
+To replace the items in the bottom-right slot of a single chest two block above with four spruce saplings:
+replaceitem block ~ ~2 ~ slot.container 26 sapling 4 1
+To replace the items in the rightmost hotbar slot of the nearest player with four spruce saplings:
+replaceitem entity @p slot.hotbar 8 sapling 4 1
+To clear the first slot of every player's ender chest:
+replaceitem entity @a slot.enderchest 0 air
+History
+Java Edition
+Java Edition1.814w26a
+Added /replaceitem.1.1418w43a
+/replaceitem can now be used on item frames.1.1720w46a
+Removed /replaceitem. Replaced with /item replace.
+Bedrock Edition
+Pocket Edition1.0.5alpha 1.0.5.0
+Added /replaceitem.1.1.0alpha 1.1.0.0
+CanPlaceOn and CanDestroy functions are now supported for /replaceitem.Bedrock Edition1.16.0beta 1.16.0.55
+ Added new overload for /replaceitem with an option for destroy or keep.
+See also
+/item — the Java Edition equivalent
+/give — give items to players without specifying specific inventory slots or overwriting other items
+/setfixedinvslot (outdated) — can replace a slot of a mob's inventory
+External links
+"/replaceitem Command"     – Microsoft Learn, October 11, 2023.
+Navigation

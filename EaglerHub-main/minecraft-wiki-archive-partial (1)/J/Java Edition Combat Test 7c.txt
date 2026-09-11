@@ -1,0 +1,190 @@
+This page covers a development version that has a major issue under certain conditions. 
+The dedicated server for this version has a security vulnerability in the Log4j library that could be used to perform a remote code execution exploit. It can be addressed by appending a certain JVM argument to the server startup command line.
+
+Minecraft Combat Test 7c
+
+Edition
+
+Java Edition
+
+Release date
+
+August 14, 2020
+
+Type
+
+Snapshot
+
+Snapshot for
+
+Combat Tests
+
+Downloads
+
+Client (.json)Server
+
+Obfuscation maps
+
+ClientServer
+
+Protocol version
+
+802
+
+Data version
+
+2704
+
+Resource pack format
+
+6
+
+Data pack format
+
+6
+
+Minimum Java version
+
+Java SE 8
+
+Combat Tests
+
+◄   Combat Test 6
+
+ Combat Test 7c
+
+  Combat Test 8b ►
+
+{
+    "title": "Minecraft Combat Test 7c",
+    "images": [
+        "Java Edition Combat Test 7c.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "August 14, 2020",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Snapshot article, displayed as Snapshot)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition Combat Tests article, displayed as Combat Tests)",
+            "label": "Snapshot for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/14991d31f1002e5cbd97e62310cba614666f876b/client.jar Client] ([https://piston-data.mojang.com/experiments/combat/2557b99d95588505e988886220779087d7d6b1e9/1_16_combat-3.zip .json])<br />[https://piston-data.mojang.com/v1/objects/53c43fdae7d2ed01bbb31a82d99e31b9348e2a4b/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/907af4fb6a7d676921f9bcb7aa80f8749bf03592/client.txt Client]<br />[https://piston-data.mojang.com/v1/objects/7f1369734e3e5585d44b211812274f2ad7ac160d/server.txt Server]",
+            "label": "(link to Obfuscation map article, displayed as Obfuscation maps)"
+        },
+        {
+            "field": "802",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "2704",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "6",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "6",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Data pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_8_.28LTS.29 Java SE 8]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0\" ></td>\n<td style=\"padding: 0.4em\">'''[[Java Edition Combat Tests|Combat Tests]]'''</td>\n<td style=\"padding: 0\" ></td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  Combat Test 6|◄   Combat Test 6]]\n</td>\n<td style=\"padding: 0.4em\">''' Combat Test 7c'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  Combat Test 8b|  Combat Test 8b ►]]\n</td>\n</tr>\n</table>"
+}
+
+Combat Test 7c is the seventh experimental version of a future combat revision. Although it is a development version for a future release, this combat experiment is a fork of 1.16.2. This version was released only on Reddit, so it does not appear in the launcher or in any Minecraft.net blog post.
+Two private testing versions of Combat Test 7c were developed: Combat Test 7 and Combat Test 7b, given to testers on August 12 and August 13, 2020, respectively.
+
+Contents
+
+1 Changes
+
+1.1 Items
+1.2 Gameplay
+
+2 Fixes
+3 Videos
+4 Trivia
+5 Notes
+6 References
+7 Navigation
+
+Changes
+Items
+Axes
+
+Made weapon enchantments available to axes if they are applied from a book in an anvil.
+Bows
+
+Removed bow inaccuracy for holding too long.
+Potions
+
+Can now stack to 16.
+This does not apply to splash potions and lingering potions.
+Gameplay
+Combat
+
+Returned the "200% time" attacks ("charged" attacks below) and the +1 reach bonus.
+Missed attacks do not count as charged and are still fast.
+Players cannot get the reach bonus while crouching.
+Added a hard-coded single tick to the attack rate when auto-attacking, instead of being 20% slower.
+Returned sweeping to only work for charged attacks and when having the Sweeping enchantment.
+Returned base reach to 2.5 blocks.
+Eating
+
+Removed the eating interruption for getting hit.
+HUD
+
+Returned the attack indicator.
+Shields
+
+Now add a 50% knockback resistance when active.
+Are now always instant.
+Protect against 100% explosion damage.
+Fixes
+From the previous development version
+
+Netherite weapons have updated stats.
+Using shields while crouching is now no longer desynchronized when attacking air.
+Players in spectator mode can no longer sweep in the air.
+Knockback attribute no longer have a random chance to completely prevent knockback.
+Fixed player speed bug for crouching vs using shield.
+Videos
+Video made by slicedlime:
+
+
+
+
+Trivia
+Combat Tests 7 and 7b were secret development snapshots tested by selected members of the community ("@CodingCookey and his friends" according to jeb_'s reddit post). There are no official post about these combat tests.
+Notes
+
+ Unzip this file in the .minecraft/versions folder.
+
+References
+
+ "Important Message: Security vulnerability in Java Edition"     – Minecraft.net, December 10, 2021.
+
+  "Combat test snapshot version 7c" – u/jeb_ on Reddit, August 14, 2020
+
+ "What's new in Minecraft Combat Test Snapshot 7c ?"  – slicedlime on YouTube, August 14, 2020
+
+Navigation

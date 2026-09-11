@@ -1,0 +1,209 @@
+Minecart with Command Block
+
+Java Edition
+
+Bedrock Edition
+
+Rarity tier
+
+ Epic ‌[JE  only]Common ‌[BE  only]
+
+Renewable
+
+No
+
+Stackable
+
+No
+
+Size
+
+Height: 0.7 blocksWidth: 0.98 blocks
+
+Drops
+
+Minecart (1)
+
+Health points
+
+6HP
+
+{
+    "title": "Minecart with Command Block",
+    "rows": [
+        {
+            "field": "Epic ‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Java Edition\">(link to Java Edition article, displayed as JE)  only</span></i>]</sup><br>Common ‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Bedrock Edition\">(link to Bedrock Edition article, displayed as BE)  only</span></i>]</sup>",
+            "label": "(link to Rarity article, displayed as Rarity tier)"
+        },
+        {
+            "field": "No",
+            "label": "(link to Renewable resource article, displayed as Renewable)"
+        },
+        {
+            "field": "No",
+            "label": "Stackable"
+        },
+        {
+            "field": "Height: 0.7 blocks<br>Width: 0.98 blocks",
+            "label": "Size"
+        },
+        {
+            "field": "\n*   <span class=\"nowrap\"><span class=\"sprite-file\" style=\"\">(link to File:ItemSprite minecart.png article, displayed as 16x16px|link=Minecart|alt=|class=pixel-image|)</span>(link to Minecart article, displayed as <span class=\"sprite-text\">Minecart</span>)</span> (1)",
+            "label": "(link to Drops#Common drops article, displayed as Drops)"
+        },
+        {
+            "field": "6<span class=\"hidden-alt-text\">HP</span><span class=\"nowrap mc-hearts\"><span class=\"iconbar pixel-image nowrap\" style=\"--icon-offset:-1px;\" title=\"3  hearts\">(link to File:Heart (icon).png article, displayed as 9px|link=|alt=❤️)(link to File:Heart (icon).png article, displayed as 9px|link=|alt=❤️)(link to File:Heart (icon).png article, displayed as 9px|link=|alt=❤️)</span></span>",
+            "label": "(link to Health article, displayed as Health points)"
+        }
+    ],
+    "invimages": [
+        "Minecart with Command Block"
+    ],
+    "images": [
+        "Minecart with Command Block.gif",
+        "Minecart with Command Block BE.gif"
+    ]
+}
+
+A minecart with command block is an impulse‌[JE  only] or repeating‌[BE & edu  only] command block inside a minecart.
+
+Contents
+
+1 Obtaining
+2 Usage
+3 Sounds
+4 Data values
+
+4.1 ID
+4.2 Entity data
+
+5 History
+
+5.1 Java Edition
+5.2 Bedrock Edition
+5.3 Legacy Console Edition
+5.4 Data history
+
+5.4.1 Java Edition
+5.4.2 Bedrock Edition
+
+6 Issues
+7 Gallery
+
+7.1 Screenshots
+7.2 Textures
+
+8 References
+9 Navigation
+
+Obtaining
+The minecart with command block is obtainable only using the command /give @s command_block_minecart, as it does not appear in the creative inventory‌[Bedrock Edition  only] and has no crafting recipe. It can also be summoned using the command /summon command_block_minecart. It can be broken like any other form of minecart, but doing so will only drop a minecart, losing the command block.
+Unlike most minecart types, command block minecarts cannot be crafted with a minecart and a command block.
+
+Usage
+Main article: Command Block
+The minecart with command block combines the functionalities of both minecarts and command blocks. Although the minecart visually contains an impulse command block in Java Edition, it functions more similarly to a repeating command block, executing the command once every four game ticks (unlike a repeating command block that repeats every 1 game tick) when on an active activator rail. When it passes over a detector rail with a comparator connected next to it, it outputs the command block's success count value.
+The command is executed at the coordinates of the minecart, which can of course move, allowing for command execution relative to an entity without the /execute command.
+
+Sounds
+Java Edition:
+Minecarts with command blocks use the Friendly Creatures sound category for entity-dependent sound events.
+
+SoundsSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitchAttenuationdistance​Minecart rollsFriendly Mobs While a minecart with command block is movingentity.minecart.ridingsubtitles.entity.minecart.riding​0.0–0.35 0.0–1.0 16
+ MC-42132
+
+ Relates linearly with horizontal velocity (max 0.5)
+
+ Will increase by 0.0025 per tick if the minecart's horizontal velocity is more than 0.01
+
+Bedrock Edition:
+
+SoundsSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitch​ ?Friendly MobsWhile a minecart with command block is movingminecart.base​ ???
+Data values
+ID
+Java Edition:
+
+ItemIdentifierForm
+Translation key Minecart with Command Blockcommand_block_minecartItem
+item.minecraft.command_block_minecart
+EntityIdentifier
+Translation key Minecart with Command Blockcommand_block_minecart
+entity.minecraft.command_block_minecart
+Bedrock Edition:
+
+ItemIdentifierNumeric ID Form
+Translation key Minecart with Command Blockcommand_block_minecart563Item
+item.command_block_minecart.name
+EntityIdentifierNumeric ID
+FamilyTranslation key Minecart with Command Blockcommand_block_minecart100
+inanimateminecartentity.command_block_minecart.name
+Entity data
+Minecarts with command blocks have entity data associated with them that contain various properties of the entity.
+Java Edition:
+
+Main article: Entity format
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all minecarts see Template:Nbt inherit/vehicle/template
+[String] Command: The command entered into the minecart.
+[String] LastOutput: The last line of output generated by the minecart. Still stored even if the gamerule commandBlockOutput is false. Appears in the GUI of the minecart when right-clicked, and includes a timestamp of when the output was produced.
+[Int] SuccessCount: Represents the strength of the analog signal output by redstone comparators attached to this minecart. Only updated when the minecart is activated with an activator rail.
+[Boolean] TrackOutput: 1 or 0 (true/false) - Determines whether the LastOutput is stored. Can be toggled in the GUI by clicking a button near the "Previous Output" textbox. Caption on the button indicates current state: "O" if true,"X" if false.
+
+Bedrock Edition:
+
+See Bedrock Edition level format/Entity format.
+History
+Java Edition
+Java Edition1.7.213w39a
+  Added minecart with command block.1.915w34a
+ The texture of the command block in the minecart has been removed[verify] due to the new texture and types for the command block.15w35a
+ The texture of the command block has been changed.1.1418w43a
+  The textures of the minecart with command block has been changed.1.1721w20a
+The rarity of minecarts with command block has been changed from "Common" to "Epic".1.19.322w44a
+Minecart with command block is now available in the creative inventory, but only if cheats are enabled.22w45a
+Moved the minecart with command block behind the Operator Utilities tab in the creative inventory. The tab is only available if cheats are enabled and the "Operator Items Tab" option in the controls menu is turned on.
+Bedrock Edition
+Pocket Edition1.0.5alpha 1.0.5.0
+  Added minecart with command block. The minecart has a repeating command block in it, instead of an impulse command block.Bedrock Edition1.10.0beta 1.10.0.3
+  The texture of the minecart with command block has been changed. The item texture has also been changed to match Java Edition's.
+Legacy Console Edition
+Legacy Console EditionXbox 360Xbox OnePS3PS4PS VitaWii USwitchTU31CU191.221.221.22Patch 31.0.1
+Added minecart with command blocks. They are only obtainable through inventory editors.[is this the correct version?]
+Data history
+Java Edition
+Java Edition1.1116w32a
+The entity ID has been changed from MinecartCommandBlock to commandblock_minecart.1.1317w47a
+Prior to The Flattening, this item's numeral ID was 422, and the entity's numeral ID was 40.pre5
+The entity ID has been changed to command_block_minecart.
+Bedrock Edition
+Pocket Edition1.1.0alpha 1.1.0.0
+The entity ID has been changed from minecartcommandblock to command_block_minecart.
+Issues
+Issues relating to "Minecart with Command Block" are maintained on the bug tracker. Issues should be reported and viewed there.
+
+Gallery
+Screenshots
+
+
+
+			A minecart with command block in 1.16.4.
+
+
+
+			A minecart command block testing the block in the red area with air.
+
+
+Textures
+
+
+
+			Bedrock Edition minecart with command block item icon from Texture Update Beta pack
+
+
+References
+
+ MCPE-42990
+
+Navigation

@@ -1,0 +1,241 @@
+This article is about the command that kicks and bans players from a server.   For the command that only kicks players, see Commands/kick.
+
+ "Blocked" redirects here.  For the game mechanic that prevents an attack from taking effect, see Blocking.
+
+
+
+This feature is exclusive to Java Edition. 
+
+These commands add a single or multiple players into the server's ban list (or blacklist) by their game profile or IP address. A ban list is a list of players or IP addresses that are not allowed to connect to the server; this list supersede any whitelisting in place.
+To remove players from the ban list, operator may use /pardon or manually removing it from the banned-players.json.
+
+Contents
+
+1 ban
+
+1.1 Syntax
+1.2 Arguments
+1.3 Result
+1.4 Output
+
+2 ban-ip
+
+2.1 Syntax
+2.2 Arguments
+2.3 Result
+2.4 Output
+
+3 banlist
+
+3.1 Syntax
+3.2 Result
+3.3 Output
+
+4 banip
+
+4.1 Syntax
+
+5 History
+6 See also
+7 References
+8 Navigation
+
+ban
+
+/ban
+
+Permission levelrequired
+
+3
+
+Restrictions
+
+Dedicated server
+
+{
+    "title": "<code>/ban</code>",
+    "rows": [
+        {
+            "field": "3",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "Dedicated server<br>",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+Adds the player profile(s) into the server blacklist, which prevents anyone from connecting to the server with uuids of these profiles.
+
+Syntax
+ban <targets> [<reason>]
+Arguments
+<targets>: game_profile
+
+Specifies the player profile(s) to be added to the blacklist.
+Specifies one or more game profiles (player profiles). Must be a player name (should be a real one if the server is in online mode) or a player-type target selector.
+<reason>: message
+
+Message to display to the banned player, to other operators, and in the server logs.  If unspecified, defaults to Banned by an operator.
+It is a greedy phrase string argument (taking the rest of the command as the string argument). Can include spaces as well as target selectors. The game replaces entity selectors in the message with the list of selected entities' names, which is formatted as "name1 and name2" for two entities, or "name1, name2, ... and namen" for n entities.
+Result
+
+CommandTriggerJava Edition
+
+AnyThe command is incomplete, or any argument is not specified correctly. UnparseableThe target selector fails to resolve to one or more online players. FailedDoes not add any new player profile to blacklist.OtherwiseSuccessful
+Output
+
+CommandEditionSituationSuccess Count/execute store success .../execute store result ...
+
+AnyJava EditionOn failN/A00On successN/A1the number of new player names added to blacklist.
+ban-ip
+
+/ban-ip
+
+Permission levelrequired
+
+3
+
+Restrictions
+
+Dedicated server
+
+{
+    "title": "<code>/ban-ip</code>",
+    "rows": [
+        {
+            "field": "3",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "Dedicated server<br>",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+Adds an IP address to the blacklist. Adds the narrowly-specified address or address of the named online player into the server blacklist, preventing anyone from connecting to the server from that address.
+
+Syntax
+ban-ip <target> [<reason>]
+Arguments
+<targets>: string
+
+Specifies the IP address to be added to the blacklist. Can also be a name of an online player, which represents the IP of that player.
+Must be a string. And it must be in a single word (Allowed characters include: -, +, ., _, A-Z, a-z, and 0-9).
+Since this, it is impossible to ban an IPv6 address in this way.
+<reason>: message
+
+Message to display to the banned player, to other operators, and in the server logs. If unspecified, defaults to Banned by an operator.
+It is a greedy phrase string argument (taking the rest of the command as the string argument). Can include spaces as well as target selectors. The game replaces entity selectors in the message with the list of selected entities' names, which is formatted as "name1 and name2" for two entities, or "name1, name2, ... and namen" for n entities.
+Result
+
+CommandTriggerJava Edition
+
+AnyThe command is incomplete, or any argument is not specified correctly. Unparseabletargets is not a valid IP, nor a name of an online player. FailedDoes not add any new IP address to blacklist.OtherwiseSuccessful
+Output
+
+CommandEditionSituationSuccess Count/execute store success .../execute store result ...
+
+AnyJava EditionOn failN/A00On successN/A1the number of online players that connecting with the specified IP
+banlist
+
+/banlist
+
+Permission levelrequired
+
+3
+
+Restrictions
+
+Dedicated server
+
+{
+    "title": "<code>/banlist</code>",
+    "rows": [
+        {
+            "field": "3",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "Dedicated server<br>",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+Displays the server's blacklist.
+
+Syntax
+banlist [ips|players]
+Result
+
+CommandTriggerJava Edition
+
+AnyThe command is incomplete. UnparseableOtherwiseSuccessful
+Output
+
+CommandEditionSituationSuccess Count/execute store success .../execute store result ...
+
+AnyJava EditionOn successN/A1the number of entries in the specified list.
+banip
+
+
+
+This section describes content that has been removed from Java Edition. 
+This feature was present in earlier versions of Java Edition, but has since been removed.
+
+/banip
+
+Permission levelrequired
+
+Unknown
+
+Restrictions
+
+None
+
+{
+    "title": "<code>/banip</code>",
+    "rows": [
+        {
+            "field": "Unknown",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "None",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+Bans a player by IP number. Cannot be undone in-game; banned-ip.txt must manually be changed.
+The Classic equivalent of /ban-ip.
+
+Syntax
+banip (<address>|<name>) [<reason>]
+History
+Java Edition Classic0.0.16a
+Added /ban and /banip.Java Edition Indev0.31
+Due to Indev's lack of support for servers, commands are no longer usable.Java Edition Alphav1.0.16
+/banip has been renamed to /ban-ip.
+
+/ban and /ban-ip are now usable again.
+
+Added /banlist.
+See also
+Commands/whitelist
+References
+
+ MC-97885 – /ban-ip doesn't work with IPv6 addresses
+
+Navigation

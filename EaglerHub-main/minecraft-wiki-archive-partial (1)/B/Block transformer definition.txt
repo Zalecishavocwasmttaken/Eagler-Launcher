@@ -1,0 +1,133 @@
+This feature is exclusive to Java Edition. 
+
+
+
+This article describes content that is currently in development for Java Edition. 
+This content has appeared in  development versions for Java Edition 26.3, but the full update adding it has not been released yet.
+
+
+A block transformer contains rules for transforming blocks into another blocks. They are used by the block_transformer component to allow an item to transform blocks on use.
+
+Contents
+
+1 Definition
+2 JSON Format
+3 Vanilla usage
+4 History
+5 Navigation
+
+Definition
+Block transformers can be defined in data packs, as part of the directory structure below.
+
+ data pack name.zip or  data pack name
+ pack.mcmeta
+ data
+ namespace
+ block_transformer
+ <name>.json
+More directories…
+
+JSON Format
+Block transformers are defined using the following format:
+
+[NBT Compound / JSON Object] The root object.
+[NBT List / JSON Array] minecraft:block_transformer: The game iterates through this list until it finds an element whose block state provider returns a result.
+[NBT Compound / JSON Object]: A single object in the list.
+[NBT Compound / JSON Object] block_state_provider: A block state provider which provides the state for the transformed block. Only block state providers used in world generation are allowed.
+Block state provider see Template:Nbt inherit/block state provider/template
+[String][NBT Compound / JSON Object] sound: Optional. One server-side sound event (an [String] ID, or a new [NBT Compound / JSON Object] server-side sound event definition) to play upon successful transformation. Defaults to none.
+A sound event see Template:Nbt inherit/sound event/template
+[String] particle: Optional. The particle to use for the interaction. Can be one of none, scrape, wax_on, or wax_off. Defaults to none.
+[NBT List / JSON Array] disallowed_faces: Optional. Interacting with one of the specified faces will not transform the block.
+[String]: An element in the list. Can be one of up, down, north, south, east, or west.
+[String] loot: Optional. The loot table to use for dropping items upon successful transformation. If not present, no loot is dropped.
+[String] drop_strategy: Optional. Where in the block space the dropped loot should spawn. Can be either from_middle (loot spawns at the center of the block space) or clicked_face (loot spawns at the center of the face interacted with). Defaults to from_middle.
+[Boolean] update_from_neighbors: Optional. Whether the transformed block should attempt to update its state based on neighboring blocks after transformation. Defaults to true.
+[String] transform_type: Optional. Configures how nearby blocks should be affected by the transformation. Can be either single_block (only the targeted block is affected) or copper_chest (if input and output blocks are both copper chests of any weathering state, waxed or unwaxed, this transformation will affect both sides of a double chest).
+[Boolean] consume_on_use: Optional. Whether or not the item should be consumed upon successful transformation, if it is stackable and the player is in survival or adventure mode. Defaults to true.
+[Int] item_damage_per_use: Optional. How much durability the item loses upon successful transformation, if it is not stackable and the player is in survival or adventure mode. Defaults to 1.
+
+Vanilla usage
+Vanilla uses block transformers for tools that strip, scrape, unwax, till or flatten blocks. item_damage_per_use is always set to 1.
+
+Item
+Blocks affected
+Result
+Sound
+Particle
+Additional properties
+
+Axe
+
+Wood, hyphae, logs, stems, and block of bamboo
+
+Converts to the matching stripped variant
+
+item.axe.strip
+
+None
+
+Any unwaxed oxidized state of copper blocks: block of copper, cut copper, chiseled copper, cut copper slab, cut copper stairs, copper trapdoor, copper bars, copper grate, copper bulb, copper lantern, copper golem statue, lightning rod, copper chain, copper chest, and copper door
+
+Reduces the oxidation stage by one (oxidized → weathered → exposed → unoxidized)
+
+item.axe.scrape
+
+scrape
+
+update_from_neighbors: false for doors and cheststransform_type: copper_chest for chests
+
+Waxed variant of any block listed above (all oxidation stages, including unoxidized)
+
+Converts to the matching unwaxed variant
+
+item.axe.wax_off
+
+wax_off
+
+Hoe
+
+Blocks in #turns_into_farmland tag with air directly above
+
+Farmland
+
+item.hoe.till
+
+None
+
+disallowed_faces contains down
+
+Coarse Dirt with air directly above
+
+Dirt
+
+item.hoe.till
+
+None
+
+Rooted Dirt
+
+Dirt
+
+item.hoe.till
+
+None
+
+loot: minecraft:till/rooted_dirtdrop_strategy: clicked_face
+
+Shovel
+
+Blocks in #turns_into_dirt_path tag with air directly above
+
+Dirt Path
+
+item.shovel.flatten
+
+None
+
+disallowed_faces contains down
+
+History
+Upcoming Java Edition26.3snap10
+Added minecraft:block_transformer registry containing rules for transforming blocks into another blocks.
+Navigation

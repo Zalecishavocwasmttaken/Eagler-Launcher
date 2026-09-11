@@ -1,0 +1,116 @@
+This feature is exclusive to Java Edition. 
+
+/return
+
+Permission levelrequired
+
+2
+
+Restrictions
+
+None
+
+{
+    "title": "<code>/return</code>",
+    "rows": [
+        {
+            "field": "2",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "None",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+A command that can be embedded inside a function to control its execution.
+It ends function execution and sets the successfulness and the return value of the function, which is returned to the /function command as its output values, or the /execute if function ... command to test.
+It can also end a forking /execute command that has multiple branches at the first branch.
+
+Contents
+
+1 Usage
+2 Syntax
+3 Arguments
+4 Result
+5 Output
+6 History
+7 References
+8 Navigation
+
+Usage
+By placing this command in a function, the function can be stopped at a certain line, and the return value and the successfulness of the function are set.
+
+If the function is called by a /function command, the return value and successfulness are returned to the /function command as its output values, and then can be stored using /execute store.
+If the function is called by a /execute if function command, the return value is checked whether it is not 0.
+Like other commands, following a /execute (if|unless) ... run or a forking /execute command that may terminate, this command can be restricted to only execute under certain conditions. With this, under different conditions a function can end at different lines, thus achieving more complex behaviors. For example, the following function simulates an if-else statement:
+
+# if (@s[tag=test1]) then return function("test1")
+execute if entity @s[tag=test1] run return run function test1
+# else if (@s[type=player]) then return function("test2")
+execute if entity @s[type=player] run return run function test2
+# else return function("test3")
+return run function test3
+
+Following a forking /execute command that has multiple branches, the /execute command also ends after the first execution of the /return command. So, only the first branch is executed. This can be used to ensure a command is executed only once. For example: /execute as @e[type=zombie,sort=nearest] at @s if block ~ ~-1 ~ grass_block run return run tp @s Steve teleports the nearest one zombie that is on a grass block to Steve, if such a zombie exists. Note this command in a function also ends the function.
+Followed by a forking /execute command that has multiple branches, the /execute command also ends after the first branch execution.
+The only difference between return run execute ... run <command> and execute ... run return run <command> is that in the first instance, the /return command always executes, and it returns a failure and a 0 value when the /execute command terminates; While the /return command in the second instance does not execute when the /execute command terminates.
+Followed by a /function command that calls multiple functions in a tag, the whole /function command also ends after the first execution of the /return command in any of the functions. See also the /function article.
+The /return command sets the return value and the successfulness of a function if it is executed in the function. They are returned to the /function or the /execute if function ... command that is calling the function. However, the /return command itself also has its output values. Following a /execute store ... run command, its success value and result value of the /return command can be stored while it ends the /execute command and the function. Directly executed in a command block, the success count of the /return command is recorded by the command block.
+
+Syntax
+return <value>
+
+Ends the function to which it belongs with a success, and sets the return value of the function to the specified integer value.
+return fail
+
+Ends the function with a failure and a return value of 0.
+return run <command>
+
+Executes the command specified in <command>, ends the function to which it belongs, and sets the successfulness and return value of the function to the success value and result value of that command. If the command is a forking /execute, only the first branch is executed.
+Arguments
+<value>: integer
+
+An integer value to use as the return value of the function.
+Must be a [Int]32-bit integer number (from -2147483648 (-231) to 2147483647 (231-1) ).
+<command>
+
+A command to execute.
+Result
+
+CommandTriggerJava Edition
+
+AnyThe command is incomplete, or any argument is not specified correctly. Unparseable/return failAlways. Failed/return run <command>the <command> fails (If the command is an /execute command, the first branch fails)the <command> is /execute, and the /execute command terminatesthe <command> is /function, and the /function command is voidthe <command> is /execute ... run function, and the /function command in the first branch of /execute command is voidAnyOtherwiseSuccessful
+Output
+
+CommandEditionSituationSuccess Count/execute store success .../execute store result ...
+
+/return <value>Java EditionOn success11the value of <value>./return failOn fail000/return run <command>On fail000On success11the result value of <command>. (If the command is /execute, the result value of the first branch)
+Above are the outputs of the /return command itself. And the successfulness and the return value of the function are also set if the /return command is executed in a function. The successfulness of the function equals to the success value of the /return command. The return value of the function equals to the result value of the /return command.
+
+History
+Java Edition1.2023w16a
+Added return.1.20.223w31a
+Added a new subcommand run.1.20.2 Pre-release 1
+Temporarily removed syntax /return run.1.20.323w41a
+Reintroduced subcommand run.23w44a
+If /function <function tag> runs multiple functions in combination with /return run, execution stops after first /return in any of the functions.
+
+A single call to the /function command always returns when run with /return run. For example, /return run execute [split context] run function <some function with conditional return> always returns after processing the first context.
+
+Added subcommand fail.
+
+/return run now always returns. If there are no valid results from returned command, function containing /return run fails.
+
+/return run now propagates success value together with results value (previously it always set success to 1).
+
+/return run now also allows storing values, which means /execute store ... run return run some_command both stores value and returns it outside function.1.20.523w51a
+Fixed a bug that /return run function <function> does not return under some conditions.
+References
+
+ MC-267194 – resolved as "fixed".
+
+Navigation

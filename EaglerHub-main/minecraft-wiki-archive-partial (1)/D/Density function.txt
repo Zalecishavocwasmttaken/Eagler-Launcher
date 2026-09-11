@@ -1,0 +1,653 @@
+This feature is exclusive to Java Edition. 
+
+Density functions make up mathematical expressions to obtain a number from a position, stored as JSON files within a data pack in the path data/<namespace>/worldgen/density_function. They are referenced from the noise router in noise settings.
+
+Contents
+
+1 JSON format
+2 Marker functions
+
+2.1 cache_2d
+2.2 cache_all_in_cell
+2.3 cache_once
+2.4 flat_cache
+2.5 interpolated
+
+3 Noise sampling functions
+
+3.1 noise
+3.2 old_blended_noise
+3.3 shift
+3.4 shift_a
+3.5 shift_b
+3.6 shifted_noise
+
+4 Mathematical density functions
+
+4.1 abs
+4.2 add
+4.3 ceil
+4.4 clamp
+4.5 constant
+4.6 cube
+4.7 div
+4.8 floor
+4.9 invert
+4.10 log
+4.11 mul
+4.12 min
+4.13 max
+4.14 negate
+4.15 pow
+4.16 round
+4.17 sub
+4.18 sign
+4.19 sqrt
+4.20 square
+4.21 truncate
+
+5 Mapped density functions
+
+5.1 gradient
+5.2 lerp
+5.3 squeeze
+5.4 spline
+5.5 y_clamped_gradient
+
+6 Conditional density functions
+
+6.1 half_negative
+6.2 interval_select
+6.3 quarter_negative
+6.4 range_choice
+
+7 Other density functions
+
+7.1 beardifier
+7.2 blend_alpha
+7.3 blend_density
+7.4 blend_offset
+7.5 distance_to_point
+7.6 end_islands
+7.7 find_top_surface
+7.8 ore_vein
+7.9 slice
+
+8 Removed density functions
+
+8.1 slide
+8.2 The legacy "spline"
+8.3 terrain_shaper_spline
+8.4 weird_scaled_sampler
+
+9 History
+10 Issues
+11 References
+12 External links
+13 Navigation
+
+JSON format
+A density function can be a constant number or an object.
+
+[NBT Compound / JSON Object]: Root object.
+[String] type: The ID of the density function type.
+Other additional fields depend on the value of [String] type, described below.
+
+If the [String] type is constant, a shorthand format is:
+
+[Double]: A constant number. Value between −1000000.0 and 1000000.0 (both inclusive).
+
+Marker functions
+cache_2d
+​[until: JE 26.3]
+Only computes the input density once per horizontal position.
+
+[NBT Compound / JSON Object]: Root object.
+[String] type: The ID of the density function type (in this case, cache_2d).
+[String][Double][NBT Compound / JSON Object] argument: One density function (an [String] ID, or a new [Double][NBT Compound / JSON Object] density function definition) — The input to be cached.
+
+cache_all_in_cell
+​[until: JE 26.3]
+Used by the game onto final_density and should not be referenced in data packs.
+
+[NBT Compound / JSON Object]: Root object.
+[String] type: The ID of the density function type (in this case, cache_all_in_cell).
+[String][Double][NBT Compound / JSON Object] argument: One density function (an [String] ID, or a new [Double][NBT Compound / JSON Object] density function definition) — The input to be cached.
+
+cache_once
+Renamed to cache.​[upcoming: JE 26.3] If this density function is referenced twice, it is only computed once per block position.
+
+[NBT Compound / JSON Object]: Root object.
+[String] type: The ID of the density function type (in this case, cache_once​[until: JE 26.3] / cache​[upcoming: JE 26.3]).
+[String][Double][NBT Compound / JSON Object] argument​[until: JE 26.3] / [Double] input​[upcoming: JE 26.3]: One density function (an [String] ID, or a new [Double][NBT Compound / JSON Object] density function definition) — The input to be cached.
+
+flat_cache
+​[until: JE 26.3]
+Calculate the value per 4×4 column (Value at each block in one column is the same). And it is calculated only once per column, at Y=0. Used often in combination with interpolated.
+
+[NBT Compound / JSON Object]: Root object.
+[String] type: The ID of the density function type (in this case, flat_cache).
+[String][Double][NBT Compound / JSON Object] argument: One density function (an [String] ID, or a new [Double][NBT Compound / JSON Object] density function definition) — The input to be cached.
+
+interpolated
+Interpolates at each block in one cell based on the input density function value of some cells around. The size of each cell is size_horizontal * 4 and size_vertical * 4. Used often in combination with flat_cache.
+
+[NBT Compound / JSON Object]: Root object.
+[String] type: The ID of the density function type (in this case, interpolated).
+[String][Double][NBT Compound / JSON Object] argument​[until: JE 26.3] / [Double] input​[upcoming: JE 26.3]: One density function (an [String] ID, or a new [Double][NBT Compound / JSON Object] density function definition) — The input to be interpolated.
+[Int] cell_size_xz​[upcoming: JE 26.3]: Size in blocks of the interpolation grid cells on the X and Z axes. The number must not be negative.
+[Int] cell_size_y​[upcoming: JE 26.3]: Size in blocks of the interpolation grid cells on the Y axis. The number must not be negative.
+
+Noise sampling functions
+These density functions are used to sample noises.
+
+noise
+Samples a noise.
+
+[NBT Compound / JSON Object]: Root object.
+[String] type: The ID of the density function type (in this case, noise).
+[String] noise: One noise (an [String] ID) — The noise to sample.
+[Double] xz_scale: Scales the X and Z before sampling.
+[Double] y_scale: Scales the Y before sampling.
+[Double] shift_x​[upcoming: JE 26.3]: Optional; A domain warp to apply on X. If not specified, no warping will be applied (equivalent to 0).
+[Double] shift_y​[upcoming: JE 26.3]: Optional; A domain warp to apply on Y. If not specified, no warping will be applied (equivalent to 0).
+[Double] shift_z​[upcoming: JE 26.3]: Optional; A domain warp to apply on Z. If not specified, no warping will be applied (equivalent to 0).
+
+old_blended_noise
+Samples a legacy noise. ​[more information needed]
+
+[NBT Compound / JSON Object]: Root object.
+[String] type: The ID of the density function type (in this case, old_blended_noise).
+[Double] xz_scale: Value between 0.001 and 1000.0 (both inclusive).
+[Double] y_scale: Value between 0.001 and 1000.0 (both inclusive).
+[Double] xz_factor: Value between 0.001 and 1000.0 (both inclusive).
+[Double] y_factor: Value between 0.001 and 1000.0 (both inclusive).
+[Double] smear_scale_multiplier: Value between 1.0 and 8.0 (both inclusive).
+
+shift
+Samples a noise at (x/4, y/4, z/4), then multiplies it by 4.
+
+[NBT Compound / JSON Object]: Root object.
+[String] type: The ID of the density function type (in this case, shift).
+[String] argument​[until: JE 26.3] / [String] noise​[upcoming: JE 26.3]: One noise (an [String] ID) — The noise to sample.
+
+shift_a
+Samples a noise at (x/4, 0, z/4), then multiplies it by 4.
+
+[NBT Compound / JSON Object]: Root object.
+[String] type: The ID of the density function type (in this case, shift_a).
+[String] argument​[until: JE 26.3] / [String] noise​[upcoming: JE 26.3]: One noise (an [String] ID) — The noise to sample.
+
+shift_b
+Samples a noise at (z/4, x/4, 0), then multiplies it by 4.
+
+[NBT Compound / JSON Object]: Root object.
+[String] type: The ID of the density function type (in this case, shift_b).
+[String] argument​[until: JE 26.3] / [String] noise​[upcoming: JE 26.3]: One noise (an [String] ID) — The noise to sample.
+
+shifted_noise
+​[until: JE 26.3]
+Similar to noise, but first shifts the input coordinates.
+
+[NBT Compound / JSON Object]: Root object.
+[String] type: The ID of the density function type (in this case, shifted_noise).
+[String] noise: One noise (an [String] ID) — The noise to sample.
+[Double] xz_scale: Scales the X and Z before sampling.
+[Double] y_scale: Scales the Y before sampling.
+[String][Double][NBT Compound / JSON Object] shift_x: One density function (an [String] ID, or a new [Double][NBT Compound / JSON Object] density function definition) — offset of the position in the X direction.
+[String][Double][NBT Compound / JSON Object] shift_y: One density function (an [String] ID, or a new [Double][NBT Compound / JSON Object] density function definition) — offset of the position in the Y direction.
+[String][Double][NBT Compound / JSON Object] shift_z: One density function (an [String] ID, or a new [Double][NBT Compound / JSON Object] density function definition) — offset of the position in the Z direction.
+
+Mathematical density functions
+These density functions are used to perform mathematical operations.
+
+abs
+Calculates the absolute value of the input density function.
+
+[NBT Compound / JSON Object]: Root object.
+[String] type: The ID of the density function type (in this case, abs).
+[String][Double][NBT Compound / JSON Object] argument​[until: JE 26.3] / [Double] input​[upcoming: JE 26.3]: One density function (an [String] ID, or a new [Double][NBT Compound / JSON Object] density function definition) — The input of the calculation.
+
+add
+Adds two density functions together.
+
+[NBT Compound / JSON Object]: Root object.
+[String] type: The ID of the density function type (in this case, add).
+[String][Double][NBT Compound / JSON Object] argument1​[until: JE 26.3] / [Double] left​[upcoming: JE 26.3]: One density function (an [String] ID, or a new [Double][NBT Compound / JSON Object] density function definition) — The first input of the calculation.
+[String][Double][NBT Compound / JSON Object] argument2​[until: JE 26.3] / [Double] right​[upcoming: JE 26.3]: One density function (an [String] ID, or a new [Double][NBT Compound / JSON Object] density function definition) — The second input of the calculation.
+
+ceil
+Rounds the input value to positive infinity.​[upcoming: JE 26.3]
+
+[NBT Compound / JSON Object]: Root object.
+[String] type: The ID of the density function type (in this case, ceil).
+[String][Double][NBT Compound / JSON Object] input: Density Function to round.
+[String][Double][NBT Compound / JSON Object] multiple: The output will be rounded to an integer multiple of the value returned by this Density Function. If not specified, defaults to a constant 1.
+
+clamp
+Clamps the input between two values.
+
+[NBT Compound / JSON Object]: Root object.
+[String] type: The ID of the density function type (in this case, clamp).
+[String][Double][NBT Compound / JSON Object] input: One density function — The input to clamp.
+[Double] min: The lower bound. Value between −1000000.0 and 1000000.0 (both inclusive).
+[Double] max: The upper bound. Value between −1000000.0 and 1000000.0 (both inclusive).
+
+constant
+A constant value.
+
+[NBT Compound / JSON Object]: Root object.
+[String] type: The ID of the density function type (in this case, constant).
+[Double] argument​[until: JE 26.3] / [Double] value​[upcoming: JE 26.3]: A constant value. Value between −1000000.0 and 1000000.0 (both inclusive).
+
+cube
+Cubes the input (x^3).
+
+[NBT Compound / JSON Object]: Root object.
+[String] type: The ID of the density function type (in this case, cube).
+[String][Double][NBT Compound / JSON Object] argument​[until: JE 26.3] / [Double] input​[upcoming: JE 26.3]: One density function (an [String] ID, or a new [Double][NBT Compound / JSON Object] density function definition) — The input of the calculation.
+
+div
+Performs division between two arguments.​[upcoming: JE 26.3]
+
+[NBT Compound / JSON Object]: Root object.
+[String] type: The ID of the density function type (in this case, div).
+[String][Double][NBT Compound / JSON Object] left — The left-hand side of the operation.
+[String][Double][NBT Compound / JSON Object] right — The right-hand side of the operation.
+
+floor
+Rounds the input value to negative infinity.​[upcoming: JE 26.3]
+
+[NBT Compound / JSON Object]: Root object.
+[String] type: The ID of the density function type (in this case, floor).
+[String][Double][NBT Compound / JSON Object] input: Density Function to round.
+[String][Double][NBT Compound / JSON Object] multiple: The output will be rounded to an integer multiple of the value returned by this Density Function. If not specified, defaults to a constant 1.
+
+invert
+Renamed to reciprocal.​[upcoming: JE 26.3]
+Inverts the input (1/x).
+
+[NBT Compound / JSON Object]: Root object.
+[String] type: The ID of the density function type (in this case, invert​[until: JE 26.3] / reciprocal​[upcoming: JE 26.3]).
+[String][Double][NBT Compound / JSON Object] argument: One density function (an [String] ID, or a new [Double][NBT Compound / JSON Object] density function definition) — The input of the calculation.
+
+log
+Computes the natural logarithm of the given input.​[upcoming: JE 26.3]
+
+[NBT Compound / JSON Object]: Root object.
+[String] type: The ID of the density function type (in this case, log).
+[String][Double][NBT Compound / JSON Object] input: Density Function for which to compute the natural logarithm.
+
+mul
+Multiplies two inputs.
+
+[NBT Compound / JSON Object]: Root object.
+[String] type: The ID of the density function type (in this case, mul).
+[String][Double][NBT Compound / JSON Object] argument1​[until: JE 26.3] / [Double] left​[upcoming: JE 26.3]: One density function (an [String] ID, or a new [Double][NBT Compound / JSON Object] density function definition) — The first input of the calculation.
+[String][Double][NBT Compound / JSON Object] argument2​[until: JE 26.3] / [Double] right​[upcoming: JE 26.3]: One density function (an [String] ID, or a new [Double][NBT Compound / JSON Object] density function definition) — The second input of the calculation.
+
+min
+Returns the minimum of two inputs.
+
+[NBT Compound / JSON Object]: Root object.
+[String] type: The ID of the density function type (in this case, min).
+[String][Double][NBT Compound / JSON Object] argument1​[until: JE 26.3] / [Double] left​[upcoming: JE 26.3]: One density function (an [String] ID, or a new [Double][NBT Compound / JSON Object] density function definition) — The first input of the calculation.
+[String][Double][NBT Compound / JSON Object] argument2​[until: JE 26.3] / [Double] right​[upcoming: JE 26.3]: One density function (an [String] ID, or a new [Double][NBT Compound / JSON Object] density function definition) — The second input of the calculation.
+
+max
+Returns the maximum of two inputs.
+
+[NBT Compound / JSON Object]: Root object.
+[String] type: The ID of the density function type (in this case, max).
+[String][Double][NBT Compound / JSON Object] argument1​[until: JE 26.3] / [Double] left​[upcoming: JE 26.3]: One density function (an [String] ID, or a new [Double][NBT Compound / JSON Object] density function definition) — The first input of the calculation.
+[String][Double][NBT Compound / JSON Object] argument2​[until: JE 26.3] / [Double] right​[upcoming: JE 26.3]: One density function (an [String] ID, or a new [Double][NBT Compound / JSON Object] density function definition) — The second input of the calculation.
+
+negate
+Negates the input.​[upcoming: JE 26.3]
+
+[NBT Compound / JSON Object]: Root object.
+[String] type: The ID of the density function type (in this case, negate).
+[String][Double][NBT Compound / JSON Object] input: Density Function to negate.
+
+pow
+Raises the given base value to an exponent.​[upcoming: JE 26.3]
+
+[NBT Compound / JSON Object]: Root object.
+[String] type: The ID of the density function type (in this case, pow).
+[String][Double][NBT Compound / JSON Object] base: the base value (Density Function).
+[String][Double][NBT Compound / JSON Object] exponent: the exponent (Density Function).
+
+round
+Rounds the input value to to the nearest integer (ties round up).​[upcoming: JE 26.3]
+
+[NBT Compound / JSON Object]: Root object.
+[String] type: The ID of the density function type (in this case, round).
+[String][Double][NBT Compound / JSON Object] input: Density Function to round.
+[String][Double][NBT Compound / JSON Object] multiple: The output will be rounded to an integer multiple of the value returned by this Density Function. If not specified, defaults to a constant 1.
+
+sub
+Performs subtraction between two arguments.​[upcoming: JE 26.3]
+
+[NBT Compound / JSON Object]: Root object.
+[String] type: The ID of the density function type (in this case, sub).
+[String][Double][NBT Compound / JSON Object] left — The left-hand side of the operation.
+[String][Double][NBT Compound / JSON Object] right — The right-hand side of the operation.
+
+sign
+Computes the sign of the given input.  If positive, it returns as 1. If the input is 0, it returns 0. If negative, it returns as -1.​[upcoming: JE 26.3]
+
+[NBT Compound / JSON Object]: Root object.
+[String] type: The ID of the density function type (in this case, sign).
+[String][Double][NBT Compound / JSON Object] input: Density Function for which to compute the sign.
+
+sqrt
+Computes the square root of the given input.​[upcoming: JE 26.3]
+
+[NBT Compound / JSON Object]: Root object.
+[String] type: The ID of the density function type (in this case, sqrt).
+[String][Double][NBT Compound / JSON Object] input: Density Function for which to compute the square root.
+
+square
+Squares the input. (x^2)
+
+[NBT Compound / JSON Object]: Root object.
+[String] type: The ID of the density function type (in this case, square).
+[String][Double][NBT Compound / JSON Object] argument​[until: JE 26.3] / [Double] input​[upcoming: JE 26.3]: One density function (an [String] ID, or a new [Double][NBT Compound / JSON Object] density function definition) — The input of the calculation.
+
+truncate
+Rounds the input value to 0.​[upcoming: JE 26.3]
+
+[NBT Compound / JSON Object]: Root object.
+[String] type: The ID of the density function type (in this case, truncate).
+[String][Double][NBT Compound / JSON Object] input: Density Function to round.
+[String][Double][NBT Compound / JSON Object] multiple: The output will be rounded to an integer multiple of the value returned by this Density Function. If not specified, defaults to a constant 1.
+
+Mapped density functions
+These density functions map a set of values onto another set of values.
+
+gradient
+Demonstration of the different tiling options for the gradient density function​[upcoming: JE 26.3], using both an input range of -100 to 100 and an output range of -1 to 1.
+Clamps the given coordinate and maps the gradient to a range.​[upcoming: JE 26.3]
+
+[NBT Compound / JSON Object]: Root object.
+[String] type: The ID of the density function type (in this case, gradient).
+[String] axis: x, y. or z: The axis over which to define the gradient .
+[String] tiling: How the density function handles values outside the specified coordinate range. 3 options:
+clamp_to_edge: outside the gradient boundaries, the value at the nearest boundary will be used.
+repeat: The gradient will be repeated outside its boundaries.
+mirrored_repeat: The gradient will be repeated as such that odd repetitions are mirrored, ensuring continuity between repetitions.
+[Int] from_coordinate​[upcoming: JE 26.3]: The coordinate at which the gradient starts.
+[Int] to_coordinate: The coordinate at which the gradient ends. It must not equal from_coordinate.
+[Float] from_value: The value at which the gradient starts.
+[Float] to_value: The value at which the gradient ends.
+
+lerp
+Performs (unclamped) linear interpolation between two arguments based on an alpha.​[upcoming: JE 26.3] The returned value is: first*(1-alpha) + second*alpha
+
+[NBT Compound / JSON Object]: Root object.
+[String] type: The ID of the density function type (in this case, lerp).
+[String][Double][NBT Compound / JSON Object] alpha: Density function representing the interpolation factor (e.g. 0 = first, 1 = second). Any value outside of [0; 1] will extrapolate.
+[String][Double][NBT Compound / JSON Object] first: Density Function to use at alpha=0.
+[String][Double][NBT Compound / JSON Object] second: Density Function to use at alpha=1.
+
+squeeze
+First clamps the input between −1 and 1, then transforms it using x/2 - x*x*x/24.
+
+[NBT Compound / JSON Object]: Root object.
+[String] type: The ID of the density function type (in this case, squeeze).
+[String][Double][NBT Compound / JSON Object] argument​[until: JE 26.3] / [Double] input​[upcoming: JE 26.3]: One density function (an [String] ID, or a new [Double][NBT Compound / JSON Object] density function definition) — The input of the calculation.
+
+spline
+Computes a cubic spline.
+
+[NBT Compound / JSON Object]: Root object.
+[String] type: The ID of the density function type (in this case, spline).
+[Float][NBT Compound / JSON Object] spline: The spline. Can be either a number or an object.
+[String][Double][NBT Compound / JSON Object] coordinate: One density function (an [String] ID, or a new [Double][NBT Compound / JSON Object] density function definition) — Input determining the location on the spline.
+[NBT List / JSON Array] points: (Cannot be empty) List of points of the cubic spline.
+[NBT Compound / JSON Object]: A point of the cubic spline.
+[Float] location: The location of this point.
+[Float][NBT Compound / JSON Object] value: The value of this point. Can be either a number or a spline object.
+[Float] derivative: The slope at this point.
+
+y_clamped_gradient
+Replaced with gradient.​[upcoming: JE 26.3]
+Clamps the Y coordinate between from_y and to_y and then linearly maps it to a range.​[until: JE 26.3]
+
+[NBT Compound / JSON Object]: Root object.
+[String] type: The ID of the density function type (in this case, y_clamped_gradient).
+[Int] from_y: The value to be mapped to from_value. Value between −4064 and 4062 (both inclusive).
+[Int] to_y: The value to be mapped to to_value. Value between −4064 and 4062 (both inclusive).
+[Double] from_value: The value to map from_y to. Value between −1000000.0 and 1000000.0 (both inclusive).
+[Double] to_value: The value to map to_y to. Value between −1000000.0 and 1000000.0 (both inclusive).
+
+Conditional density functions
+These density functions are used to apply "if-then" logic.
+
+half_negative
+If the input is negative, returns half of the input. Otherwise returns the input. (x < 0 ? x/2 : x)
+
+[NBT Compound / JSON Object]: Root object.
+[String] type: The ID of the density function type (in this case, half_negative).
+[String][Double][NBT Compound / JSON Object] argument​[until: JE 26.3] / [Double] input​[upcoming: JE 26.3]: One density function (an [String] ID, or a new [Double][NBT Compound / JSON Object] density function definition) — The input of the calculation.
+
+interval_select
+Selects between a number of density functions based on an input density function and a set of threshold values.
+
+[NBT Compound / JSON Object]: Root object.
+[String] type: The ID of the density function type (in this case, interval_select).
+[String][Double][NBT Compound / JSON Object] input: Density Function to be compared with any given thresholds.
+[NBT List / JSON Array] thresholds: (List of Floats) The threshold values to compare input with.
+If the input value is less than the threshold values, the result of functions[i] will be selected.
+If the input value is greater than the last threshold value, the last function will be selected.
+There must be one fewer thresholds than functions.
+[NBT List / JSON Array] functions: The resulting functions (at least two) to be selected from.
+There must be one more element in functions than thresholds.
+
+quarter_negative
+If the input is negative, returns a quarter of the input. Otherwise returns the input. (x < 0 ? x/4 : x)
+
+[NBT Compound / JSON Object]: Root object.
+[String] type: The ID of the density function type (in this case, quarter_negative).
+[String][Double][NBT Compound / JSON Object] argument​[until: JE 26.3] / [Double] input​[upcoming: JE 26.3]: One density function (an [String] ID, or a new [Double][NBT Compound / JSON Object] density function definition) — The input of the calculation.
+
+range_choice
+Computes the input value, and depending on that result returns one of two other density functions. Basically an if-then-else statement.
+
+[NBT Compound / JSON Object]: Root object.
+[String] type: The ID of the density function type (in this case, range_choice).
+[String][Double][NBT Compound / JSON Object] input: One density function (an [String] ID, or a new [Double][NBT Compound / JSON Object] density function definition) — The value to compare
+[Double] min_inclusive: The lower bound of the range. Value between −1000000.0 and 1000000.0 (both inclusive).
+[Double] max_exclusive: The upper bound of the range. Value between −1000000.0 and 1000000.0 (both inclusive).
+[String][Double][NBT Compound / JSON Object] when_in_range:  One density function (an [String] ID, or a new [Double][NBT Compound / JSON Object] density function definition) — Used when the input is inside the range.
+[String][Double][NBT Compound / JSON Object] when_out_of_range:  One density function (an [String] ID, or a new [Double][NBT Compound / JSON Object] density function definition) — Used when the input is outside the range.
+
+Other density functions
+beardifier
+Adds beards for structures (see the terrain_adaptation field in structures). Its value is added to the final_density in noise setting by the game. Should not be referenced in data packs.
+
+[NBT Compound / JSON Object]: Root object.
+[String] type: The ID of the density function type (in this case, beardifier).
+
+blend_alpha
+Used in vanilla for smooth transition to chunks generated in old versions.​[more information needed]
+
+[NBT Compound / JSON Object]: Root object.
+[String] type: The ID of the density function type (in this case, blend_alpha).
+
+blend_density
+Used in vanilla for smooth transition to chunks generated in old versions.​[more information needed]
+
+[NBT Compound / JSON Object]: Root object.
+[String] type: The ID of the density function type (in this case, blend_density).
+[String][Double][NBT Compound / JSON Object] argument​[until: JE 26.3] / [Double] input​[upcoming: JE 26.3]: One density function (an [String] ID, or a new [Double][NBT Compound / JSON Object] density function definition) — The desired density of new chunks.
+
+blend_offset
+Used in vanilla for smooth transition to chunks generated in old versions.​[more information needed]
+
+[NBT Compound / JSON Object]: Root object.
+[String] type: The ID of the density function type (in this case, blend_offset).
+
+distance_to_point
+Demonstration of the different metric options for the distance_to_point density function​[upcoming: JE 26.3], using the distance from the point (0, 0).
+Computes the distance to a fixed point using the specified distance function.​[upcoming: JE 26.3]
+
+[NBT Compound / JSON Object]: Root object.
+[String] type: The ID of the density function type (in this case, distance_to_point).
+[Int Array] point: [x, y, z]; the point to compute distance to
+[String] metric:
+[String] euclidean: (i.e. sqrt(dx^2 + dy^2 + dz^2))
+[String] euclidean_squared: (i.e. dx^2 + dy^2 + dz^2)
+[String] manhattan: (i.e. abs(dx) + abs(dy) + abs(dz))
+[String] chebyshev: (i.e. max(abs(dx), abs(dy), abs(dz)))
+
+end_islands
+Renamed to end_outer_islands.​[upcoming: JE 26.3]
+Samples at current position using a noise algorithm used for end islands. Its minimum value is −0.84375 and its maximum value is 0.5625.
+
+[NBT Compound / JSON Object]: Root object.
+[String] type: The ID of the density function type (in this case, end_islands​[until: JE 26.3] / end_outer_islands​[upcoming: JE 26.3]).
+
+find_top_surface
+Scans through a column of an input density and returns the topmost y-level that is above 0. If no such position exists within the bounds, the [Int] lower_bound is returned.
+
+[NBT Compound / JSON Object]: Root object.
+[String] type: The ID of the density function type (in this case, find_top_surface).
+[String][Double][NBT Compound / JSON Object] density: One density function (an [String] ID, or a new [Double][NBT Compound / JSON Object] density function definition) — The density function to scan.
+[String][Double][NBT Compound / JSON Object] upper_bound: One density function (an [String] ID, or a new [Double][NBT Compound / JSON Object] density function definition) — The y-level to start the scan at. Usually a 2D density function.
+[Int] lower_bound: The y-level to stop the scan.
+[Int] cell_height: The resolution of the scan. E.g. if set to 4, then only every 4th block is checked.
+
+ore_vein
+​[upcoming: JE 26.3]
+
+[NBT Compound / JSON Object]: Root object.
+[String] type: The ID of the density function type (in this case, ore_vein).
+[String] ore_block: The ore block to place.
+[String] raw_ore_block: The raw ore block to place.
+[String] filler_block: The filler block to place.
+[Float] raw_ore_chance: The probability for a raw ore block to be placed instead of an ore block. Value between 0 and 1 (inclusive).
+[Int] density: The probability for the ore vein to replace a block. If the value is 0 or lower, no block will be replaced.
+[Int] richness: The probability for an ore block or a raw ore block to be placed, as opposed to filler_block. If the value is 0 or lower, all blocks will be the filler block. If the value is 1 or greater, no blocks will be the filler block.
+[Int] filler_gap: Overrides richness; if the value is positive, filler_block will always be placed.
+slice
+Removes a dimension from the input domain by taking a "slice" along an axis with a specific coordinate (e.g. with the axis equaling y and the coordinate of 0, a slice will be taken along the XZ plane, with all values sampled at y=0).​[upcoming: JE 26.3]
+
+[NBT Compound / JSON Object]: Root object.
+[String] type: The ID of the density function type (in this case, slice).
+[String] axis: x, y, or z; the axis to remove.
+[Int] coordinate: The fixed coordinate to be passed to the input function.
+[String][Double][NBT Compound / JSON Object] input: The input function.
+
+Removed density functions
+
+
+
+This section describes content that has been removed from Minecraft. 
+This feature was present in earlier versions of Minecraft, but has since been removed.
+
+slide
+Removed in 22w12a
+
+[NBT Compound / JSON Object]: Root object.
+[String] type: The ID of the density function type (in this case, slide).
+[String][Double][NBT Compound / JSON Object] argument: One density function (an [String] ID, or a new [Double][NBT Compound / JSON Object] density function definition)
+
+The legacy "spline"
+Removed in 22w11a
+
+[NBT Compound / JSON Object]: Root object.
+[String] type: The ID of the density function type (in this case, spline).
+[Float][NBT Compound / JSON Object] spline: The spline. Can be either a number or an object.
+[String][Double][NBT Compound / JSON Object] coordinate: One density function (an [String] ID, or a new [Double][NBT Compound / JSON Object] density function definition) — Input determining the location on the spline.
+[NBT List / JSON Array] points: (Cannot be empty) List of points of the cubic spline.
+[Float] location: The location of this point.
+[Float][NBT Compound / JSON Object] value: The value of this point. Can be either a number or a spline object.
+[Float] derivative: The slope at this point.
+[Double] min_value: The min value of the output. Value between −1000000.0 and 1000000.0 (both inclusive).
+[Double] max_value: The max value of the output. Value between −1000000.0 and 1000000.0 (both inclusive).
+
+terrain_shaper_spline
+Removed in 22w11a
+Calculate the spline from the noise settings.
+
+[NBT Compound / JSON Object]: Root object.
+[String] type: The ID of the density function type (in this case, terrain_shaper_spline).
+[String] spline: Can be offset, factor, orjaggedness.
+[Double] min_value: The min value of the output. Value between −1000000.0 and 1000000.0 (both inclusive).
+[Double] max_value: The max value of the output. Value between −1000000.0 and 1000000.0 (both inclusive).
+[String][Double][NBT Compound / JSON Object] continentalness: One density function (an [String] ID, or a new [Double][NBT Compound / JSON Object] density function definition)
+[String][Double][NBT Compound / JSON Object] erosion: One density function (an [String] ID, or a new [Double][NBT Compound / JSON Object] density function definition)
+[String][Double][NBT Compound / JSON Object] weirdness: One density function (an [String] ID, or a new [Double][NBT Compound / JSON Object] density function definition)
+
+weird_scaled_sampler
+Removed in 26.2-snap5
+According to the input value, scales and enhances (or weakens) some regions of the specified noise, and then returns the absolute value.
+
+[NBT Compound / JSON Object]: Root object.
+[String] type: The ID of the density function type (in this case, weird_scaled_sampler).
+[String] rarity_value_mapper: Can be type_1（The minimum scale is 0.75, and the maximum is 2.0）or type_2（The minimum scale is 0.5, and the maximum is 3.0.)
+[String] noise: One noise (an [String] ID) — The noise to sample.
+[String][Double][NBT Compound / JSON Object] input: The input density function. Can be an ID of a density function, or a density function in the form of a JSON object or a constant number.
+
+History
+Java Edition1.18.2pre1
+Added density functions: abs, add, beardifier, blend_alpha, blend_density, blend_offset, cache_2d, cache_all_in_cell, cache_once, clamp, constant, cube, end_islands, flat_cache, half_negative, interpolated, max, min, mul, noise, old_blended_noise, quarter_negative, range_choice, shift, shift_a, shift_b, shifted_noise, slide, square, squeeze, terrain_shaper_spline, weird_scaled_sampler, and y_clamped_gradient. pre2
+Added density function spline. 1.1922w11a
+Removed density function terrain_shaper_spline.
+Removed min_value and max_value fields in spline. 22w12a
+Removed density function slide. Instead a combination of add, mul, and y_clamped_gradient is used to achieve the same result.
+
+Added fields to old_blended_noise density function: xz_scale, y_scale, xz_factor, y_factor, and smear_scale_multiplier.1.21.925w31a
+Added density functions minecraft:find_top_surface and minecraft:invert.26.2snap1
+Density function minecraft:clamp can now take a density function ID as an input.snap5
+Added density function minecraft:interval_select.
+Removed density function minecraft:weird_scale_sampler. Its functionality has been replaced with interval_select.Upcoming Java Edition26.3snap4
+Added the following density functions:
+ceil
+div
+floor
+negate
+lerp
+round
+sub
+truncate
+
+invert has been renamed to reciprocal.
+
+Numerous argument fields in density functions have been renamed.snap6
+Added the following density functions:
+distance_to_point
+log
+pow
+sign
+slice
+sqrt
+
+end_islands has been renamed to end_outer_islands.
+
+y_clamped_gradient has been replaced with gradient.
+snap7
+Density functions are no longer evaluated with double-precision floating point values, but instead with single-precision.snap10
+Added the ore_vein density function.
+
+cache_once has been renamed to cache.
+
+Added the shift_x, shift_y, and shift_z fields to the noise density function.
+
+Added the cell_size_xz and cell_size_y fields to the interpolated density function.
+
+Removed the following density functions:
+cache_2d
+cache_all_in_cell
+flat_cache
+shifted_noise
+
+Issues
+Issues relating to "Density function" are maintained on the bug tracker. Issues should be reported and viewed there.
+
+References
+
+External links
+Density Function Generator on misode.github.io
+Navigation

@@ -1,0 +1,101 @@
+[NBT List / JSON Array][String] minecraft:entity_type: Any number of entity type(s) (an [String] ID, or a [String] tag with #, or an [NBT List / JSON Array] array containing [String] IDs) — Test this entity's type.
+[NBT Compound / JSON Object] minecraft:components: Matches exact item component values. Each key in this object corresponds to a component to test, with its value as the desired data to compare. For example, can be used to avoid NBT serialisation when checking for mob variants or the exact text component match of a custom name.
+See data component format.
+[NBT Compound / JSON Object] minecraft:distance: To test the distance to the entity this predicate is invoked upon. Passes if the calculated distance is between the entered [Float] min and [Float] max values.
+[Float][NBT Compound / JSON Object] absolute: Test the distance between the two points in 3D space.
+[Float][NBT Compound / JSON Object] horizontal: Test the distance between the two points, ignoring the Y value.
+[Float][NBT Compound / JSON Object] x: Test the absolute difference between the X-coordinates of the two points.
+[Float][NBT Compound / JSON Object] y: Test the absolute difference between the Y-coordinates of the two points.
+[Float][NBT Compound / JSON Object] z: Test the absolute difference between the Z-coordinates of the two points.
+[NBT Compound / JSON Object] minecraft:effects: For testing the active status effects on the entity. Hidden effects are ignored.
+[NBT Compound / JSON Object] <minecraft:effect_name>: A status effect that must be present.
+[Int][NBT Compound / JSON Object] amplifier: Test the effect's amplifier. Level I is represented by 0. Use an object with [Int] min and [Int] max to test for a range of values (inclusive).
+[Int][NBT Compound / JSON Object] duration: Test if the effect's remaining time (in ticks) is between two numbers, inclusive. Use an object with [Int] min and [Int] max to test for a range of values (inclusive).
+[Boolean] ambient: Test whether the effect is from a beacon.
+[Boolean] visible: Test if the effect has visible particles.
+[NBT Compound / JSON Object] minecraft:entity_tags: For testing the Scoreboard § Tags of an entity (i.e. ones set with the /tag command).
+[NBT List / JSON Array] any_of: Optional list of [String] Strings; Tests if the entity has at least one of the listed tags.
+[NBT List / JSON Array] all_of: Optional list of [String] Strings; Tests if the entity has all of the listed tags.
+[NBT List / JSON Array] none_of: Optional list of [String] Strings; Tests if the entity has none of the listed tags.
+[NBT Compound / JSON Object] minecraft:equipment: For testing the items that this entity holds in its equipment slots.
+[NBT Compound / JSON Object] <equipment slot>: Test the item in the entity's equipment slot. Valid keys are mainhand, offhand, head, chest, legs, feet, or body.
+item predicate see Template:Nbt inherit/conditions/item/template
+[NBT Compound / JSON Object] minecraft:flags: To test flags of the entity.
+[Boolean] is_baby: Test whether the entity is a baby variant (true) or an adult variant (false). Passes no matter what if this entity does not have baby and adult variants.
+[Boolean] is_on_fire: Test whether the entity has caught fire (true) or is not on fire (false). Does not pass if the entity has only been taking damage from a fire block for less than one second.
+[Boolean] is_sneaking: Test whether the entity is sneaking (true) or not sneaking (false).
+[Boolean] is_sprinting: Test whether the entity is sprinting (true) or not sprinting (false). Due to client-server desyncing bugs, it is possible for the player to be sprinting client-side while the server thinks that they have stopped, causing this flag to be false erroneously.
+[Boolean] is_swimming: Test whether the entity is swimming (true) or not swimming (false).
+[Boolean] is_on_ground: Test whether the entity is on the ground (true) or not on the ground (false). Teleporting an entity registers them as on the ground for one tick, even if they are teleported into the air.
+[Boolean] is_flying: Test whether the entity is either gliding with elytra or flying with creative mode (true) or is not (false).
+[Boolean] is_fall_flying: Test whether the entity is gliding with an elytra (true) or is not (false).
+[NBT Compound / JSON Object] minecraft:location: Test properties of this entity's location.
+location predicate see Template:Nbt inherit/conditions/location/template
+[String][NBT Compound / JSON Object] minecraft:nbt: Test for a partial NBT data match with this entity. This is always the last test to be performed by the predicate, as it is the slowest check. Can either be specified as an NBT (compound) object, or as a string containing the SNBT representation of the NBT compound, meaning the outer braces ({ }) must be included within the string. Additional care is required if the SNBT contains quotation marks (" ") as they must be escaped with a backslash before each (\"). If specified as an object rather than a string in a JSON file, the data type of any number value is implicitly checked for as the smallest data type that that number fits into, causing the test to fail for any other type and requiring the string format instead to specify the data type explicitly.
+[NBT Compound / JSON Object] minecraft:passenger: Test the entities directly riding this entity. At least one passenger must pass this condition for the predicate to pass.
+entity predicate see Template:Nbt inherit/conditions/entity/template
+[NBT Compound / JSON Object] minecraft:slots: Test for items in specific inventory slots.
+[NBT Compound / JSON Object] <slot range>: Slot or range of slots to test. At least one item matching the condition must exist in this range for the predicate to pass.
+item predicate see Template:Nbt inherit/conditions/item/template
+[NBT Compound / JSON Object] minecraft:stepping_on: Test properties of the block the entity is standing on, using a location predicate. The block may not be directly under the player's feet if they are crouching off of the side of the block.
+location predicate see Template:Nbt inherit/conditions/location/template
+[NBT Compound / JSON Object] minecraft:movement_affected_by: Test properties of the block 0.5 blocks below the block the entity is standing on, using a location predicate.
+location predicate see Template:Nbt inherit/conditions/location/template
+[String] minecraft:team: Passes if the team of this entity matches this string.
+[NBT Compound / JSON Object] minecraft:targeted_entity: Test properties of the entity which this mob's AI is targeting for attacks.
+entity predicate see Template:Nbt inherit/conditions/entity/template
+[NBT Compound / JSON Object] minecraft:vehicle: Test properties of the vehicle entity that this entity is mounted on.
+entity predicate see Template:Nbt inherit/conditions/entity/template
+[NBT Compound / JSON Object] minecraft:movement: Test the movement of the entity. For all fields, use an object with [Double] min and [Double] max to test for a range of values (inclusive).
+[Double][NBT Compound / JSON Object] x: Test the velocity along the x-axis in blocks per second.
+[Double][NBT Compound / JSON Object] y: Test the velocity along the y-axis in blocks per second.
+[Double][NBT Compound / JSON Object] z: Test the velocity along the z-axis in blocks per second.
+[Double][NBT Compound / JSON Object] speed: Test the overall movement speed in blocks per second.
+[Double][NBT Compound / JSON Object] horizontal_speed: Test the horizontal movement speed in blocks per second. This tests the combined magnitude of the x and z velocities added together.
+[Double][NBT Compound / JSON Object] vertical_speed: Test the vertical movement speed in blocks per second. This tests the absolute value of the y velocity.
+[Double][NBT Compound / JSON Object] fall_distance: Test the fall distance of the entity in blocks.
+[Int] minecraft:periodic_tick: Tests that the age of the entity is divisible by the given positive integer. If the entity is loaded but not simulated, this check may be stuck as either passing or failing every tick until the entity gets close enough to a player again, so it should not be used for important delays.
+[NBT Compound / JSON Object] minecraft:predicates: Matches data component predicates. For example, it can be used to check if an entity has any custom name, if a shulker has any color, or perform a partial check on the potion contents of an area effect cloud.
+See data component predicate.
+[NBT Compound / JSON Object] minecraft:type_specific: To test entity properties that can only be applied to certain entity types or groups of entity types.
+[String] type: Dictates which type-specific properties to test for.The possible values for [String] type and associated extra contents:
+minecraft:fishing_hook: Test properties unique to fishing bobber entities. Fails if the entity is not a fishing bobber.
+[Boolean] in_open_water: Whether the fishing bobber was in open water.
+minecraft:lightning: Test properties unique to lightning bolt entities. Fails if the entity is not a lightning bolt.
+[Int][NBT Compound / JSON Object] blocks_set_on_fire: Tests the number of blocks set on fire by this lightning bolt. Use an object with [Int] min and [Int] max to test for a range of values (inclusive).
+[NBT Compound / JSON Object] entity_struck: Test the properties of entities struck by this lightning bolt. Passes if at least one of the struck entities matches the entered conditions.
+entity predicate see Template:Nbt inherit/conditions/entity/template
+minecraft:player: Tests properties unique to players. Fails if the entity is not a player.
+[NBT Compound / JSON Object] looking_at: Test properties of the entity that this player is looking at, as long as it is visible and within a radius of 100 blocks. Visibility is defined through the line from the player's eyes to the entity's eyes, rather than the direction that the player is looking in.
+entity predicate see Template:Nbt inherit/conditions/entity/template
+[NBT Compound / JSON Object] advancements: To test the player's advancements.
+[Boolean] <advancement id>: Test whether an advancement is granted or not granted. Key is an advancement ID, value is true or false to test for granted/not granted respectively.
+[NBT Compound / JSON Object] <advancement id>: Test whether specific criteria of an advancement are marked as complete.
+[Boolean] <criterion id>: Key is one of the criteria of the advancement, value is true or false to test for completed/not completed respectively.
+[NBT List / JSON Array] gamemode: Test the game modes of this player. Any values in this list will match. Valid values are survival, creative, adventure and spectator.
+[Int][NBT Compound / JSON Object] level: Tests if experience level of this player. Use an object with [Int] min and [Int] max to test for a range of values (inclusive).
+[NBT Compound / JSON Object] recipes: To test if recipes are known or unknown to this player.
+[Boolean] <recipe id>: Key is the recipe ID; value is true or false to test for known/unknown respectively.
+[NBT List / JSON Array] stats: To test this player's statistics.
+[NBT Compound / JSON Object] A statistic to test.
+[String] type: The statistic type. Valid values are minecraft:custom, minecraft:crafted, minecraft:used, minecraft:broken, minecraft:mined, minecraft:killed, minecraft:picked_up, minecraft:dropped and minecraft:killed_by.
+[String] stat: The statistic ID to test.
+[Int][NBT Compound / JSON Object] value: Tests the value of the statistic. Use an object with [Int] min and [Int] max to test for a range of values (inclusive).
+[NBT Compound / JSON Object] input: Test the inputs of this player.
+[Boolean] forward: Tests whether the player is inputting Walk Forward.
+[Boolean] backward: Tests whether the player is inputting Walk Backward.
+[Boolean] left: Tests whether the player is inputting Strafe Left.
+[Boolean] right: Tests whether the player is inputting Strafe Right.
+[Boolean] jump: Tests whether the player is inputting Jump.
+[Boolean] sneak: Tests whether the player is inputting Sneak.
+[Boolean] sprint: Tests whether the player is inputting Sprint.
+[NBT Compound / JSON Object] food: Tests the food level and saturation of the player.
+[Int][NBT Compound / JSON Object] level: Tests the food level of the player. Use an object with [Int] min and [Int] max to test for a range of values (inclusive).
+[Float][NBT Compound / JSON Object] saturation: Tests the saturation of the player. Use an object with [Float] min and [Float] max to test for a range of values (inclusive).
+minecraft:raider Test properties unique to raiders. Fails if the entity is not a raider.
+[Boolean] is_captain: Tests whether the raider is a captain.
+[Boolean] has_raid: Tests whether the raider is part of a raid.
+minecraft:sheep Test properties unique to sheep. Fails if the entity is not a sheep.
+[Boolean] sheared: Tests whether the sheep has been sheared (true) or still has wool (false).
+minecraft:cube_mob Test properties unique to slime, magma cube, and sulfur cube entities. Fails if the entity is not a slime, magma cube, or sulfur cube.
+[Int][NBT Compound / JSON Object] size: Tests the size of the slime, magma cube, or sulfur cube, starting with 1 as the smallest size (always 1 more than the Size NBT tag). Use an object with [Int] min and [Int] max to test for a range of values (inclusive).

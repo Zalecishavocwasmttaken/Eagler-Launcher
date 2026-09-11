@@ -1,0 +1,98 @@
+This feature is exclusive to Java Edition. 
+
+Chat types are JSON files located in data packs that allow limited control of chat message styling.
+
+Contents
+
+1 JSON format
+2 List of chat types
+3 History
+4 External links
+5 Navigation
+
+JSON format
+Chat types are stored as JSON files at the path data/<namespace>/chat_type/<name>.json.
+
+[NBT Compound / JSON Object] The root object.
+[NBT Compound / JSON Object] chat: Configuration on how the message should be displayed in chat.
+[String] translation_key: The language translation key to use. Can also be plain text with %s insertions.
+[NBT List / JSON Array] parameters: The parameters to insert. The length of this list should correspond with the amount of insertions in the translation value.
+[String]: A parameter. Allowed values: sender, target, and content.
+[NBT Compound / JSON Object] style: (Optional) Text component styles to apply to the whole chat message. Styles on individual parameters are only possible with legacy formatting codes.
+[NBT Compound / JSON Object] narration: Configuration on how the message should be read by the narrator.
+The same format as chat.
+
+List of chat types
+
+Chat type
+
+Source
+
+Default chat format
+
+Default narration
+
+chat
+
+A message sent by a player
+
+<%sender> %content
+
+%sender says %content
+
+emote_command
+
+A message sent using the /me command
+
+* %sender %content
+
+msg_command_incoming
+
+A received private message from a player
+
+%sender whispers to you: %content
+
+%sender says %content
+
+msg_command_outgoing
+
+The private message sent to another player
+
+You whisper to %target: %content
+
+say_command
+
+The message from a /say command
+
+[%sender] %content
+
+team_msg_command_incoming
+
+A received team message from a player
+
+%target <%sender> %content
+
+team_msg_command_outgoing
+
+The team message sent to another player
+
+-> %target <%sender> %content
+
+History
+Java Edition1.1922w18a
+Added chat types to data packs.1.19.122w24a
+The [NBT Compound / JSON Object] style field is now optional.Pre-release 2
+Flattened the decoration field, fields are placed directly into [NBT Compound / JSON Object] chat and [NBT Compound / JSON Object] narration.
+
+Removed the priority field in [NBT Compound / JSON Object] narration.
+
+Removed the overlay field. Chat types can no longer be used to show text on the action bar.
+
+Removed the system, game_info, and tellraw_command builtin chat types.Pre-release 3
+msg_command has been split into msg_command_outgoing and msg_command_incoming.
+
+Renamed the team_name parameter to target. This is now also used in msg_command_outgoing.Pre-release 5
+team_msg_command has been split into team_msg_command_incoming and team_msg_command_outgoing.
+External links
+Chat type Generator on misode.github.io
+Navigation

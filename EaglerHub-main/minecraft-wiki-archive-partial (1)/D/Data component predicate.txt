@@ -1,0 +1,308 @@
+This feature is exclusive to Java Edition. 
+
+Data component predicates (historically known as item sub-predicates) are used to check conditions about data components. They are used in minecraft:item_predicate argument type, item modifiers, loot predicates, advancement criteria, and entity and block predicates. They return a pass or fail result to the invoker, who acts differently based on this result.
+
+Contents
+
+1 List of data component predicate types
+2 Formats
+
+2.1 attribute_modifiers
+2.2 bundle_contents
+2.3 container
+2.4 custom_data
+2.5 damage
+2.6 enchantments
+2.7 firework_explosion
+2.8 fireworks
+2.9 jukebox_playable
+2.10 potion_contents
+2.11 stored_enchantments
+2.12 trim
+2.13 writable_book_content
+2.14 written_book_content
+
+3 History
+4 Navigation
+
+List of data component predicate types
+
+ID
+Data type and format
+Data components to check
+
+attribute_modifiers
+[NBT Compound / JSON Object] Object, see below
+attribute_modifiers
+
+bundle_contents
+[NBT Compound / JSON Object] Object, see below
+bundle_contents
+
+container
+[NBT Compound / JSON Object] Object, see below
+container
+
+custom_data
+[String] String or [NBT Compound / JSON Object] Object, see below
+custom_data
+
+damage
+[NBT Compound / JSON Object] Object, see below
+damage and max_damage
+
+enchantments
+[NBT List / JSON Array] Array, see below
+enchantments
+
+firework_explosion
+[NBT Compound / JSON Object] Object, see below
+firework_explosion
+
+fireworks
+[NBT Compound / JSON Object] Object, see below
+fireworks
+
+jukebox_playable
+[NBT Compound / JSON Object] Object，see below
+jukebox_playable
+
+potion_contents
+[String] String or [NBT List / JSON Array] Array, see below
+potion_contents
+
+stored_enchantments
+[NBT List / JSON Array] Array, see below
+stored_enchantments
+
+trim
+[NBT Compound / JSON Object] Object, see below
+trim
+
+writable_book_content
+[NBT Compound / JSON Object] Object, see below
+writable_book_content
+
+written_book_content
+[NBT Compound / JSON Object] Object, see below
+written_book_content
+
+Formats
+attribute_modifiers
+Checks modifiers in the attribute_modifiers data component.
+
+[NBT Compound / JSON Object] minecraft:attribute_modifiers
+[NBT Compound / JSON Object] modifiers: (Optional) A collection predicate of attribute modifier.
+
+[NBT List / JSON Array] contains: (Optional. Can be empty) Checks if there is any attribute modifier passing a test. To succeed, each test must be passed by at least one attribute modifier, but one attribute modifier does not have to pass all the tests.
+[NBT Compound / JSON Object]: A test.
+Predicate of attribute modifier see Template:Nbt inherit/attribute_modifier/template
+[Int] size: (Optional) Checks the total number of attribute modifiers. Matches an exact [Int]value, or checks if the value is between a range.
+[NBT Compound / JSON Object] size: (Optional) Another format.
+[Int] max: (Optional) The maximum value.
+[Int] min: (Optional) The minimum value.
+[NBT List / JSON Array] count: (Optional. Can be empty) Checks the number of attribute modifiers that pass a test.
+[NBT Compound / JSON Object]: A test and required number.
+[NBT Compound / JSON Object] test: A test.
+Predicate of attribute modifier see Template:Nbt inherit/attribute_modifier/template
+[Int] count: Matches an exact [Int]value, or checks if the value is between a range.
+[NBT Compound / JSON Object] count: Another format.
+[Int] max: The maximum value.
+[Int] min: The minimum value.
+
+bundle_contents
+Checks item stacks in the bundle_contents data component.
+
+[NBT Compound / JSON Object] minecraft:bundle_contents
+[NBT Compound / JSON Object] items: (Optional) A collection predicate of item stack.
+
+[NBT List / JSON Array] contains: (Optional. Can be empty) Checks if there is any item stack passing a test. To succeed, each test must be passed by at least one item stack, but one item stack does not have to pass all the tests.
+[NBT Compound / JSON Object]: A test.
+item predicate see Template:Nbt inherit/conditions/item/template
+[Int] size: (Optional) Checks the total number of item stacks. Matches an exact [Int]value, or checks if the value is between a range.
+[NBT Compound / JSON Object] size: (Optional) Another format.
+[Int] max: (Optional) The maximum value.
+[Int] min: (Optional) The minimum value.
+[NBT List / JSON Array] count: (Optional. Can be empty) Checks the number of item stacks that pass a test.
+[NBT Compound / JSON Object]: A test and required number.
+[NBT Compound / JSON Object] test: A test.
+item predicate see Template:Nbt inherit/conditions/item/template
+[Int] count: Matches an exact [Int]value, or checks if the value is between a range.
+[NBT Compound / JSON Object] count: Another format.
+[Int] max: The maximum value.
+[Int] min: The minimum value.
+
+container
+Checks item stacks in the container data component.
+
+[NBT Compound / JSON Object] minecraft:container
+[NBT Compound / JSON Object] items: (Optional) A collection predicate of item stack.
+
+[NBT List / JSON Array] contains: (Optional. Can be empty) Checks if there is any item stack passing a test. To succeed, each test must be passed by at least one item stack, but one item stack does not have to pass all the tests.
+[NBT Compound / JSON Object]: A test.
+item predicate see Template:Nbt inherit/conditions/item/template
+[Int] size: (Optional) Checks the total number of item stacks. Matches an exact [Int]value, or checks if the value is between a range.
+[NBT Compound / JSON Object] size: (Optional) Another format.
+[Int] max: (Optional) The maximum value.
+[Int] min: (Optional) The minimum value.
+[NBT List / JSON Array] count: (Optional. Can be empty) Checks the number of item stacks that pass a test.
+[NBT Compound / JSON Object]: A test and required number.
+[NBT Compound / JSON Object] test: A test.
+item predicate see Template:Nbt inherit/conditions/item/template
+[Int] count: Matches an exact [Int]value, or checks if the value is between a range.
+[NBT Compound / JSON Object] count: Another format.
+[Int] max: The maximum value.
+[Int] min: The minimum value.
+
+custom_data
+Checks custom_data data component. See NBT format § Testing NBT tags and NBT format § Conversion from JSON.
+Either as a JSON object or an NBT compound tag, or a string. If a string, it is resolved into an NBT compound tag.
+
+[String][NBT Compound / JSON Object] minecraft:custom_data
+
+damage
+Checks remaining durability or damage value. Damage value is from the damage data component; remaining durability is the value max_damage data component minus damage value.
+
+[NBT Compound / JSON Object] minecraft:damage
+[Int] damage: (Optional) Checks damage value. Matches an exact [Int]value, or checks if the value is between a range.
+[NBT Compound / JSON Object] damage: (Optional) Another format.
+[Int] max: (Optional) The maximum value.
+[Int] min: (Optional) The minimum value.
+[Int] durability: (Optional) Checks remaining durability. Matches an exact [Int]value, or checks if the value is between a range.
+[NBT Compound / JSON Object] durability: (Optional) Another format.
+[Int] max: (Optional) The maximum value.
+[Int] min: (Optional) The minimum value.
+
+enchantments
+Checks enchantments on the item (enchantments in the enchantments data component).
+
+[NBT List / JSON Array] minecraft:enchantments: Array of conditions. The sub-predicate succeeds when all the conditions succeed.
+[NBT Compound / JSON Object]: A condition.
+[String][NBT List / JSON Array] enchantments: (Optional) Any number of enchantment(s) (an [String] ID, or a [String] tag with #, or an [NBT List / JSON Array] array containing [String] IDs). If more than one enchantment is specified, succeeds when any one of them is present.
+[Int] levels: (Optional) Checks the level of the specified enchantment. Matches an exact [Int]value, or checks if the value is between a range. If more than one enchantment is specified, succeeds when any one of them matches the level. If [String][NBT List / JSON Array] enchantment is not specified, succeeds when any one of enchantments on the item matches the level.
+[NBT Compound / JSON Object] levels: (Optional) Another format.
+[Int] max: (Optional) The maximum value.
+[Int] min: (Optional) The minimum value.
+
+firework_explosion
+Checks the firework_explosion data component.
+
+[NBT Compound / JSON Object] minecraft:firework_explosion
+Predicate of firework explosion effect see Template:Nbt inherit/firework predicate/template
+
+fireworks
+Checks explosion effects in the fireworks data component.
+
+[NBT Compound / JSON Object] minecraft:fireworks
+[NBT Compound / JSON Object] explosions: (Optional) A collection predicate of explosion effect.
+
+[NBT List / JSON Array] contains: (Optional. Can be empty) Checks if there is any explosion effect passing a test. To succeed, each test must be passed by at least one explosion effect, but one explosion effect does not have to pass all the tests.
+[NBT Compound / JSON Object]: A test.
+Predicate of firework explosion effect see Template:Nbt inherit/firework predicate/template
+[Int] size: (Optional) Checks the total number of explosion effects. Matches an exact [Int]value, or checks if the value is between a range.
+[NBT Compound / JSON Object] size: (Optional) Another format.
+[Int] max: (Optional) The maximum value.
+[Int] min: (Optional) The minimum value.
+[NBT List / JSON Array] count: (Optional. Can be empty) Checks the number of explosion effects that pass a test.
+[NBT Compound / JSON Object]: A test and required number.
+[NBT Compound / JSON Object] test: A test.
+Predicate of firework explosion effect see Template:Nbt inherit/firework predicate/template
+[Int] count: Matches an exact [Int]value, or checks if the value is between a range.
+[NBT Compound / JSON Object] count: Another format.
+[Int] max: The maximum value.
+[Int] min: The minimum value.
+[Int] flight_duration: (Optional) Checks the flight duration of this firework rocket, i.e. the number of gunpowders used to craft it. Matches an exact [Int]value, or checks if the value is between a range.
+[NBT Compound / JSON Object] flight_duration: (Optional) Another format.
+[Int] max: (Optional) The maximum value.
+[Int] min: (Optional) The minimum value.
+
+jukebox_playable
+Checks jukebox song in the jukebox_playable data component.
+
+[NBT Compound / JSON Object] minecraft:jukebox_playable
+[String][NBT List / JSON Array] song: (Optional) Any number of jukebox song(s) (an [String] ID, or a [String] tag with #, or an [NBT List / JSON Array] array containing [String] IDs). If more than one jukebox song is specified, succeeds when any one of them matches the testing song.
+
+potion_contents
+Checks [String] potion field in the potion_contents data component. Fails if there is no [String] potion field in the component.
+
+[String][NBT List / JSON Array] minecraft:potion_contents: Any number of potion type(s) (an [String] ID, or a [String] tag with #, or an [NBT List / JSON Array] array containing [String] IDs). If more than one potion type is specified, succeeds when any one of them matches the testing [String] potion field.
+
+stored_enchantments
+Checks enchantments on an enchanted book (enchantments in the stored_enchantments data component).
+
+[NBT List / JSON Array] minecraft:stored_enchantments: Array of conditions. The sub-predicate successes when all the conditions succeed.
+[NBT Compound / JSON Object]: A condition.
+[String][NBT List / JSON Array] enchantments: (Optional) Any number of enchantment(s) (an [String] ID, or a [String] tag with #, or an [NBT List / JSON Array] array containing [String] IDs). If more than one enchantment is specified, succeeds when any one of them is present.
+[Int] levels: (Optional) Checks the level of the specified enchantment. Matches an exact [Int]value, or checks if the value is between a range. If more than one enchantment is specified, succeeds when any one of them matches the level. If [String][NBT List / JSON Array] enchantment is not specified, succeeds when any one of enchantments on the item matches the level.
+[NBT Compound / JSON Object] levels: (Optional) Another format.
+[Int] max: (Optional) The maximum value.
+[Int] min: (Optional) The minimum value.
+
+trim
+Checks the trim data component.
+
+[NBT Compound / JSON Object] minecraft:trim
+[NBT List / JSON Array][String] material: (Optional) Any number of trim material(s) (an [String] ID, or a [String] tag with #, or an [NBT List / JSON Array] array containing [String] IDs) If more than one trim material is specified, succeeds when any one of them matches the testing trim material.
+[NBT List / JSON Array][String] pattern: (Optional) Any number of trim pattern(s) (an [String] ID, or a [String] tag with #, or an [NBT List / JSON Array] array containing [String] IDs) If more than one trim pattern is specified, succeeds when any one of them matches the testing trim pattern.
+
+writable_book_content
+Checks pages in the writable_book_content data component. Raw texts are checked instead of filtered texts.
+
+[NBT Compound / JSON Object] minecraft:writable_book_content
+[NBT Compound / JSON Object] pages: (Optional) A collection predicate of page.
+
+[NBT List / JSON Array] contains: (Optional. Can be empty) Checks if there is any page passing a test. To succeed, each test must be passed by at least one page, but one page does not have to pass all the tests.
+[String]: A test. Matches the full string of a page.
+[Int] size: (Optional) Checks the total number of pages. Matches an exact [Int]value, or checks if the value is between a range.
+[NBT Compound / JSON Object] size: (Optional) Another format.
+[Int] max: (Optional) The maximum value.
+[Int] min: (Optional) The minimum value.
+[NBT List / JSON Array] count: (Optional. Can be empty) Checks the number of pages that pass a test.
+[NBT Compound / JSON Object]: A test and required number.
+[String] test: A test. Matches the full string of a page.
+[Int] count: Matches an exact [Int]value, or checks if the value is between a range.
+[NBT Compound / JSON Object] count: Another format.
+[Int] max: The maximum value.
+[Int] min: The minimum value.
+
+written_book_content
+Checks written_book_content data component.
+
+[NBT Compound / JSON Object] minecraft:written_book_content
+[NBT Compound / JSON Object] pages: (Optional) A collection predicate of page. Checks the raw texts of pages instead of filtered texts.
+
+[NBT List / JSON Array] contains: (Optional. Can be empty) Checks if there is any page passing a test. To succeed, each test must be passed by at least one page, but one page does not have to pass all the tests.
+[Undefined]: A test. A text component. Matches the full text of a page.
+[Int] size: (Optional) Checks the total number of pages. Matches an exact [Int]value, or checks if the value is between a range.
+[NBT Compound / JSON Object] size: (Optional) Another format.
+[Int] max: (Optional) The maximum value.
+[Int] min: (Optional) The minimum value.
+[NBT List / JSON Array] count: (Optional. Can be empty) Checks the number of pages that pass a test.
+[NBT Compound / JSON Object]: A test and required number.
+[Undefined] test: A test. A text component. Matches the full text of a page.
+[Int] count: Matches an exact [Int]value, or checks if the value is between a range.
+[NBT Compound / JSON Object] count: Another format.
+[Int] max: The maximum value.
+[Int] min: The minimum value.
+[String] author: (Optional) Matches the full string of author.
+[String] title: (Optional) Matches the full string of title. Checks raw title instead of filtered title.
+[Int] generation: (Optional) Checks the number of times this written book has been copied. 0 = original, 1 = copy of original, 2 = copy of copy, 3 = tattered. Matches an exact [Int]value, or checks if the value is between a range.
+[NBT Compound / JSON Object] generation: (Optional) Another format.
+[Int] max: (Optional) The maximum value.
+[Int] min: (Optional) The minimum value.
+[Boolean] resolved: (Optional) Checks whether the JSON text components have already been resolved (the [Boolean] resolved field in the data component is true).
+
+History
+Java Edition1.20.524w11a
+Added item sub-predicates.24w12a
+Item sub-predicates can now be used in the minecraft:item_predicate argument type.
+
+custom_data now can be defined as a JSON object or NBT compound tag. Before, it could only be defined as an SNBT string.pre1
+Added 8 new item sub-predicate types: container, bundle_contents, firework_explosion, fireworks, writable_book_content, written_book_content, attribute_modifiers, and trim.1.2124w18a
+In enchantments and stored_enchantments, enchantment field is replaced by enchantments, and now can specify multiple enchantments.24w21a
+Added a new item sub-predicate type jukebox_playable.
+
+In attribute_modifiers, name, and uuid fields are replaced by id.1.21.525w04a
+Renamed item sub-predicates to "data component predicates."25w10a
+Data component predicates are now usable from block and entity predicates.
+Navigation

@@ -1,0 +1,187 @@
+This page covers a development version that has a major issue under certain conditions. 
+The dedicated server for this version has a security vulnerability in the Log4j library that could be used to perform a remote code execution exploit. It can be addressed by appending a certain JVM argument to the server startup command line.
+
+Minecraft 1.10-pre2
+
+Edition
+
+Java Edition
+
+Release date
+
+June 7, 2016
+
+Type
+
+Pre-release
+
+Pre-release for
+
+1.10
+
+Downloads
+
+Client (.json)Server
+
+Protocol version
+
+205
+
+Data version
+
+507
+
+Resource pack format
+
+2
+
+Minimum Java version
+
+Java SE 6
+
+◄◄   1.9.4
+1.10
+  1.10.1 ►►
+
+◄   1.10-pre1
+
+ 1.10-pre2
+
+{
+    "title": "Minecraft 1.10-pre2",
+    "images": [
+        "1.10-pre2.png",
+        "Java Edition 1.10-pre2.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "June 7, 2016",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Pre-release article, displayed as Pre-release)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition 1.10 article, displayed as 1.10)",
+            "label": "Pre-release for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/c08e980eb1d79405c9213717df4cd11e509b0761/client.jar Client] ([https://piston-meta.mojang.com/v1/packages/bd196d2494f334adcefd78089b0d371a22bee56b/1.10-pre2.json .json])<br />[https://piston-data.mojang.com/v1/objects/aa4ec0004eb20a70ef7426816cae992d73718038/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "205",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "507",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "2",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_6 Java SE 6]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Java Edition  1.9.4|<span style=\"margin-right:-0.35em\">◄</span>◄   1.9.4]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition 1.10|1.10]]'''</td>\n<td style=\"padding: 0.4em\" rowspan=\"2\">[[Java Edition  1.10.1|  1.10.1 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  1.10-pre1|◄   1.10-pre1]]\n</td>\n<td style=\"padding: 0.4em\">''' 1.10-pre2'''</td>\n</tr>\n</table>"
+}
+
+1.10-pre2 is the second and final pre-release for Java Edition 1.10, released on June 7, 2016, which adds new sounds and fixes bugs.
+
+Contents
+
+1 Additions
+
+1.1 Command format
+
+2 Changes
+
+2.1 Blocks
+2.2 Items
+
+3 Fixes
+4 Videos
+5 Trivia
+6 References
+7 Navigation
+
+Additions
+Command format
+Sound events
+
+Added sound assets for existing events:
+block.enchantment_table.use
+entity.husk.ambient
+entity.husk.death
+entity.husk.hurt
+entity.husk.step
+entity.polar_bear.baby_ambient
+entity.polar_bear.ambient
+entity.polar_bear.death
+entity.polar_bear.hurt
+entity.polar_bear.step
+entity.polar_bear.warning
+entity.stray.ambient
+entity.stray.death
+entity.stray.hurt
+entity.stray.step
+Added new ambient sounds:
+ambient/cave/cave15
+ambient/cave/cave16
+Changes
+Blocks
+End stone bricks
+
+Are craftable again, albeit giving 1 instead of 4.
+Items
+Spawn eggs
+
+Removed all spawn eggs added in 16w20a except for the polar bear spawn egg.
+Fixes
+16 issues fixed
+From released versions before 1.10
+
+MC-78688 – Invulnerable mobs still act like they are taking damage in fire.
+MC-89141 – Shulker spawn instant position is crooked (not aligned to block grid).
+MC-94576 – Player head in inventory causes buggy rendering of certain inventory slots, potion effect display, and attack cooldown.
+MC-94896 – Tab completion works incorrectly when text is already selected.
+MC-95554 – Tab-complete does not work correctly for /playsound.
+MC-98224 – JSON signs with scoreboard objectives erase their block data upon chunk load.
+From the 1.10 development versions
+
+MC-102139 – Polar bears eat wheat and give off hearts but do not breed.
+MC-102152 – Auto jump directional bug.
+MC-102177 – The end stone bricks crafting recipe is missing.
+MC-102360 – Auto jump does not include jump boost.
+MC-102364 – Auto jump starts flying in Creative mode.
+MC-102709 – Mobs cannot receive shields in mainhand with /replaceitem.
+MC-102835 – Hostile mobs can spawn on magma blocks.
+From the previous development version
+
+MC-102891 – /teleport (not /tp) has a wrong tab-auto-completion.
+MC-102894 – Item frame and painting hitboxes are offset and dark.
+MC-103014 – Mob do not know how to bypass the magma block wall.
+Videos
+Video made by slicedlime:
+
+
+
+
+Trivia
+1.10-pre2 was previously removed from the launcher for some time, but was added back in September 2018.
+References
+
+ "Important Message: Security vulnerability in Java Edition"     – Minecraft.net, December 10, 2021.
+
+ https://web.archive.org/web/20160609065808/https://www.mojang.com/2016/06/minecraft-110-pre-release-2/
+
+Navigation

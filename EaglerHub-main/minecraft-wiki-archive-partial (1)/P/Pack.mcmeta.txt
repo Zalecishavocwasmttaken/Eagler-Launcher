@@ -1,0 +1,88 @@
+This feature is exclusive to Java Edition. 
+
+The pack.mcmeta file is used to define metadata of a resource pack or data pack. The presence of this file identifies a directory or ZIP archive file as a resource pack or data pack.
+
+Contents
+
+1 Format
+2 History
+3 External links
+4 Navigation
+
+Format
+The pack.mcmeta file is defined using the following JSON format:
+
+*: Because the file has to be backwards compatible with older versions of the game, these deprecated fields have to be added when the pack also supports old versions (data pack format < 82; resource pack format < 65).
+†: These fields must be absent if the pack does not support old versions, but must be present if the pack does support old versions.
+
+[NBT Compound / JSON Object] The root object.
+[NBT Compound / JSON Object] pack: Holds the pack information.
+[String][NBT List / JSON Array][NBT Compound / JSON Object] description: A text component that appears when hovering over the pack's name in the list given by the /datapack list command, or when viewing the pack in the Create World screen.
+[Int] pack_format*: (optional) The main format of this pack.
+[Int][Int Array] min_format: Specifies the minimum version supported. Can be a single integer or a list of two integers, where the first one is pack (major) version, second one a minor version. Specifying a single integer is interpreted as that major version, for example value 82 or [82] is equivalent to [82, 0].
+[Int][Int Array] max_format: Specifies the maximum version supported, analogous as min_format. Specifying a single integer is interpreted as any minor version.
+[Int][Int Array][NBT Compound / JSON Object] supported_formats*†: The major versions this pack supports. Has to match the major versions specified in [Int][Int Array] min_format and [Int][Int Array] max_format. Examples: 42, [42, 45], { "min_inclusive": 42, "max_inclusive": 45 }.
+[NBT Compound / JSON Object] features: (optional) Section for selecting experimental features.
+[NBT List / JSON Array] enabled: List of enabled feature flags.
+[String]: Resource location of a feature flag.
+[NBT Compound / JSON Object] filter: (optional) Section for filtering out files from packs applied below this one. Any file that matches one of the patterns inside [NBT List / JSON Array] block is treated as if it was not present in the pack at all.
+[NBT List / JSON Array] block: List of patterns.
+[NBT Compound / JSON Object]: A pattern.
+[String] namespace: A regular expression for the namespace of files to be filtered out. If unspecified, it applies to every namespace.
+[String] path: A regular expression for the paths of files to be filtered out. If unspecified, it applies to every file.
+[NBT Compound / JSON Object] overlays: (optional) Section for specifying the overlays, which are sub-packs applied over the "normal" contents of a pack. Their directories have their own assets and data directories, and are placed in the pack's root directory.
+[NBT List / JSON Array] entries: List of overlays. The order is important, as the first in the list is applied first.
+[NBT Compound / JSON Object]: An overlay.
+[String] directory: The directory to overlay for the respective versions (allowed characters: a-z, 0-9, _, -, and .). In this directory, pack.mcmeta and pack.png are ignored.
+[Int][Int Array] min_format: Specifies the minimum version to apply this overlay on. See min_format in the pack section above.
+[Int][Int Array] max_format: Specifies the maximum version to apply this overlay on. See max_format in the pack section above.
+[Int][Int Array][NBT Compound / JSON Object] formats*†: The major formats to apply this overlay on. Must be present in all overlays if at least one of them requires it for backwards compability and has to match the major versions specified in [Int][Int Array] min_format and [Int][Int Array] max_format. Examples: 42, [42, 45], { "min_inclusive": 42, "max_inclusive": 45 }.
+[NBT Compound / JSON Object] language: (optional) Only present in resource packs — Contains additional languages to add to the language menu.
+[NBT Compound / JSON Object] Language code for a language, corresponding to a .json file with the same name in the directory assets/<namespace>/lang.
+[String] name: The full name of the language
+[String] region: The country or region name
+[Boolean] bidirectional: If true, the language reads right to left.
+
+History
+Java Edition1.7.413w47a
+The description value of pack.mcmeta can now be raw JSON text format.1.1922w11a
+Added optional field filter - specifies file filters.
+This section has a mandatory field block, which is a list of patterns (regular expressions) for namespaces and paths.
+If any of the files in packs added before one with filter section matches any pattern inside block, it is filtered out (i.e. treated as if not present in the first place).
+filter section does not apply to a pack containing it, only to packs loaded before it.
+Both namespace and path can be omitted: if they are, the game works as if they had been specified as a ".*". The missing field matches every value. When they are included, these fields contain a regular expression pattern.1.19.322w46a
+Added support to include non-ASCII characters (encoded as UTF-8) directly instead of using escape sequences.1.20.223w31a
+Added optional field supported_formats - specifies a range for pack formats that the pack supports.
+pack_format field is still required and its format remains unchanged, to allow older game versions to read pack data.
+If supported_formats is present, it must contain the value declared in pack_format.
+
+Added optional field overlays - specifies sub-packs that are applied over the "normal" contents of a pack.
+It contains an entries field, containing a list of overlays.
+Every overlay entry has two fields:
+formats - range of supported formats.
+directory - overlay directory (allowed characters: a-z, A-Z, 0-9, _, -, and .).1.21.925w31a
+The supported_formats field has been removed.
+If the pack declares support for a pack version with the previous format (data pack < 82, resource pack < 65), it is still required.
+Otherwise, it is not allowed and must be removed.
+
+The pack_format field is now optional.
+If the pack declares support for a pack version with the previous format (data pack < 82, resource pack < 65), it is still required.
+
+Added required field min_format - specifies the minimum version supported.
+A full version is specified as a list of two integers, e.g [74, 1]
+Specifying a single integer is interpreted as that major version, e.g. 74 is the same thing as [74, 0].
+Specifying a list of a single integer is interpreted the same as specifying that integer alone.
+
+Added required field max_format - specifies the maximum version supported.
+A full version is specified as a list of two integers, e.g [74, 1]
+Specifying a single integer is interpreted as any minor version, i.e. the minor version is 0x7fffffff.
+Specifying a list of a single integer is interpreted the same as specifying that integer alone.
+
+For overlays entries:
+The formats field has been removed.
+If the pack includes any overlay range that includes a pack version with the previous format (data pack < 82, resource pack < 65), it is still required for all overlay definitions.
+Otherwise, it is not allowed and must be removed.
+Added required field min_format and max_format with the same formats the fields above with the same name for the pack section.
+External links
+Pack.mcmeta Generator on misode.github.io
+Navigation

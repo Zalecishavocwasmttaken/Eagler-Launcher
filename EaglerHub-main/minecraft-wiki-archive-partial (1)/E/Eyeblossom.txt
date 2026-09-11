@@ -1,0 +1,426 @@
+Eyeblossom
+
+Closed
+
+Open
+
+Renewable
+
+Yes
+
+Stackable
+
+Yes (64)
+
+Tool
+
+Any tool
+
+Blast resistance
+
+0
+
+Hardness
+
+0
+
+Luminous
+
+No
+
+Transparent
+
+Yes
+
+Flammable
+
+JE: Yes (60)BE: Yes (30)
+
+Catches firefrom lava
+
+No
+
+Map color
+
+  6 METAL
+  15 COLOR_ORANGE
+
+Note block instrument
+
+Default (Harp)
+
+{
+    "title": "Eyeblossom",
+    "rows": [
+        {
+            "field": "Yes",
+            "label": "(link to Renewable resource article, displayed as Renewable)"
+        },
+        {
+            "field": "Yes (64)",
+            "label": "Stackable"
+        },
+        {
+            "field": "Any tool",
+            "label": "Tool"
+        },
+        {
+            "field": "0",
+            "label": "(link to Explosion#Blast resistance article, displayed as Blast resistance)"
+        },
+        {
+            "field": "0",
+            "label": "(link to Breaking#Blocks by hardness article, displayed as Hardness)"
+        },
+        {
+            "field": "No",
+            "label": "(link to Light article, displayed as Luminous)"
+        },
+        {
+            "field": "Yes",
+            "label": "(link to Opacity article, displayed as Transparent)"
+        },
+        {
+            "field": "'''(link to Java Edition article, displayed as JE):''' Yes (60)<br>'''(link to Bedrock Edition article, displayed as BE):''' Yes (30)",
+            "label": "(link to Fire#Flammable blocks article, displayed as Flammable)"
+        },
+        {
+            "field": "No",
+            "label": "Catches fire<br>from (link to lava article, displayed as lava)"
+        },
+        {
+            "field": "(values exceeds 1000 characters...)",
+            "label": "(link to Map item format#Color table article, displayed as Map color)"
+        },
+        {
+            "field": "Default (Harp)",
+            "label": "(link to Note Block#Instruments article, displayed as Note block instrument)"
+        }
+    ],
+    "invimages": [
+        "Closed Eyeblossom",
+        "Open Eyeblossom.png"
+    ],
+    "images": [
+        "Closed Eyeblossom.png",
+        "Open Eyeblossom.png"
+    ]
+}
+
+An eyeblossom is a unique flower found in the pale garden biome. It changes state depending on the daylight cycle, closing during the day and opening at night. Its "eye", visible only when the flower is open, glows in the dark but does not emit light in its surroundings.
+
+Contents
+
+1 Obtaining
+
+1.1 Breaking
+1.2 Natural generation
+1.3 Trading
+1.4 Mob loot
+1.5 Post-generation
+
+2 Usage
+
+2.1 Opening and closing
+2.2 Crafting ingredient
+2.3 Suspicious stew
+2.4 Bees
+2.5 Bee nests
+2.6 Composting
+2.7 Ambient sounds
+
+3 Sounds
+
+3.1 Generic
+3.2 Unique
+
+4 Data values
+
+4.1 ID
+
+5 History
+
+5.1 Java Edition
+5.2 Bedrock Edition
+
+6 Issues
+7 Gallery
+
+7.1 Screenshots
+7.2 Development images
+7.3 Mojang screenshots
+7.4 In other media
+
+8 References
+9 Navigation
+
+Obtaining
+Breaking
+An eyeblossom can be broken instantly with any item or by hand, dropping itself in its current state.
+An eyeblossom also breaks if water or lava runs over its location, if a piston extends or pushes a block into its location, or if a block under the plant is moved or destroyed.
+
+Block
+
+Eyeblossom
+
+Hardness
+
+0
+
+Breaking time (secs)
+
+Default
+
+0.05
+
+Legend
+ incorrect tool, drops nothing
+ correct tool, drops nothing or something other than the block itself
+ correct tool, drops the block itself
+italicized can be instant mined
+
+Natural generation
+Eyeblossoms generate naturally on grass blocks or pale moss blocks in the pale garden biome, as well as variants of abandoned camps in said biome. ​[upcoming: Third Drop 2026]
+
+Trading
+Wandering traders may sell an open eyeblossom for 1 emerald. Wandering traders do not sell closed eyeblossoms.
+
+VillagerProbabilityVillager wantsPlayer receivesTrades instockVillagerexperiencePricemultiplierJEBEWandering TraderOrdinary7%7%EmeraldOpen Eyeblossom7——
+Mob loot
+In Bedrock Edition, wandering traders have a chance of 25% (increased by 1% per level of Looting) to drop 1 open eyeblossom when killed while showing the item as trade offer, if the player holds an emerald.
+
+Post-generation
+When bone meal is applied to a grass block in a pale garden biome, eyeblossoms have a chance of generating on the targeted block and adjacent grass blocks in a 15×5×15 area in Java Edition, or a 7×5×7 area in Bedrock Edition. In Java Edition, eyeblossoms generate closed or open depending on the time of day, while in Bedrock Edition they always generate closed, even during the night.
+In Bedrock Edition, when bone meal is applied to an eyeblossom in any biome, more eyeblossoms appear on top of nearby grass blocks. The flowers can appear up to 3 blocks away from the original, forming a 7×7 square. These eyeblossoms are either open or closed depending on the state of the original eyeblossom.
+
+Usage
+Like other flowers, eyeblossoms can be used as decoration and planted on grass blocks, dirt, coarse dirt, rooted dirt, farmland, podzol, mycelium, moss blocks, pale moss blocks, mud, or muddy mangrove roots.
+Eyeblossoms can be placed in flower pots.
+The eye section remains at maximum brightness regardless of the surrounding light level. This affects placed and potted open eyeblossoms, however the item form of open eyeblossoms still appears at the surrounding brightness level.
+
+Opening and closing
+A field of eyeblossoms opening at night
+Eyeblossoms close during the day and open at night, emitting particles when they do so. Eyeblossoms communicate with other nearby eyeblossoms, telling them to open or close. Eyeblossoms never change their state when placed in the Nether or the End.
+When an eyeblossom receives a random tick, it checks if it has the correct state for the time of day. If the eyeblossom should change states from open to closed, or closed to open, it does so and checks for other eyeblossoms within a 7×5×7 block area centered on the eyeblossom (i.e. 3 blocks horizontally, and 2 blocks vertically). If other eyeblossoms are found, they receive a scheduled tick to perform the same process of checking their state and looking for nearby eyeblossoms.
+Potted eyeblossoms can change state, but do so only upon receiving a random tick; they cannot communicate with other eyeblossoms, whether potted or not.
+Eyeblossoms are detected by observers and sculk sensors when they open or close.
+In Java Edition this behavior can be controlled by the environment attribute gameplay/eyeblossom_open.
+
+Crafting ingredient
+
+Name
+Ingredients
+Crafting recipe
+Notes
+
+Gray Dye
+
+Closed Eyeblossom
+
+Orange Dye
+
+Open Eyeblossom
+
+Suspicious Stew
+
+Red Mushroom +Brown Mushroom +Bowl +Open Eyeblossom or Closed Eyeblossom
+
+​[until: Third Drop 2026]
+
+Suspicious Stew
+
+Any Mushroom +Bowl +Closed Eyeblossom or Open Eyeblossom
+
+​[upcoming: Third Drop 2026]
+
+Suspicious stew
+Main article: Suspicious Stew
+Suspicious stew that is created using an open eyeblossom imparts the Blindness effect for 11 seconds in Java Edition or 7 seconds in Bedrock Edition. Suspicious stew created with a closed eyeblossom imparts the Nausea effect for 7 seconds. Suspicious stew can be crafted using an eyeblossom or produced by feeding an eyeblossom to a brown mooshroom and then milking it with a bowl.
+
+Name
+Ingredients
+Crafting recipe
+Notes
+
+Suspicious Stew
+
+Red Mushroom +Brown Mushroom +Bowl +Open Eyeblossom
+
+Gives the Blindness effect.
+
+Suspicious Stew
+
+Red Mushroom +Brown Mushroom +Bowl +Closed Eyeblossom
+
+Gives the Nausea effect.
+
+Bees
+When a bee touches an open eyeblossom on any difficulty other than Peaceful, it is inflicted with the Poison effect for 1.25 seconds (25 game ticks). Despite this, bees can still pollinate open eyeblossoms as they do with other flowers.
+Open eyeblossoms can be used to lead bees, but cannot be used to breed them or grow baby bees. Feeding a bee an open eyeblossom inflicts it with the Poison effect for 1.25 seconds (25 game ticks), without angering the bee.
+Bees do not interact with closed eyeblossoms. They are not attracted by closed eyeblossoms, do not get poisoned if they touch one, and cannot be fed one.
+
+Bee nests
+Oak, birch, and cherry trees grown from saplings planted within 2 blocks of an eyeblossom have a 5% chance to grow with a bee nest and 2-3 bees in it.
+
+Composting
+Placing an eyeblossom into a composter has a 65% chance of raising the compost level by 1.
+
+Ambient sounds
+An open eyeblossom emits subtle eerie sounds when it is planted on a pale moss block.
+
+Sounds
+Generic
+Java Edition:
+
+v
+t
+e grass sound typeSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitchAttenuationdistance​Block brokenBlocksOnce the block has brokenblock.grass.breaksubtitles.block.generic.break​1.00.816​Block placedBlocksWhen the block is placedblock.grass.placesubtitles.block.generic.place​1.00.816​Block breakingBlocksWhile the block is in the process of being brokenblock.grass.hitsubtitles.block.generic.hit​0.250.516​Something falls on a blockEntity-DependentFalling on the block with fall damageblock.grass.fallsubtitles.block.generic.fall​0.50.7516​FootstepsEntity-DependentWalking on the blockblock.grass.stepsubtitles.block.generic.footsteps​0.151.016
+Bedrock Edition:
+
+v
+t
+e grass sound typeSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitch​Block brokenBlocksOnce the block has brokendig.grasssubtitles.block.generic.break​0.70.8–1.0​Block placedBlocksWhen the block is placedplace.grasssubtitles.block.generic.place​0.80.8–1.0​Block breakingBlocksWhile the block is in the process of being brokenhit.grasssubtitles.block.generic.hit​0.30.5​FootstepsPlayersFalling on the block with fall damagefall.grasssubtitles.block.generic.footsteps​0.41.0​FootstepsPlayersWalking on the blockstep.grasssubtitles.block.generic.footsteps​0.31.0​Shovel flattensBlocksWhen a shovel creates a dirt pathuse.grasssubtitles.item.shovel.flatten​1.00.8​FootstepsBlocksJumping from the blockjump.grasssubtitles.block.generic.footsteps​0.111.0​FootstepsBlocksFalling on the block without fall damageland.grasssubtitles.block.generic.footsteps​0.211.0
+Unique
+Java Edition:
+
+SoundsSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitchAttenuationdistance​Eyeblossom closesBlocksWhen an eyeblossom closes due to communication with another eyeblossomblock.eyeblossom.closesubtitles.block.eyeblossom.close​1.01.016​Eyeblossom opensBlocksWhen an eyeblossom opens due to communication with another eyeblossomblock.eyeblossom.opensubtitles.block.eyeblossom.open​1.01.016​Eyeblossom closesBlocksWhen an eyeblossom closes due to the time of dayblock.eyeblossom.close_longsubtitles.block.eyeblossom.close​1.01.016​Eyeblossom opensBlocksWhen an eyeblossom opens due to the time of dayblock.eyeblossom.open_longsubtitles.block.eyeblossom.open​1.01.016​Eerie noiseBlocksRandomly when opened and placed on a pale moss blockblock.eyeblossom.idlesubtitles.block.eyeblossom.idle​1.01.016
+ MC-277969 – Eyeblossom idle sounds use the wrong subtitles – resolved as "Works As Intended".
+
+Bedrock Edition:
+
+SoundsSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitch​ ?BlocksWhen an eyeblossom closes due to communication with another eyeblossomblock.eyeblossom.close​ ?1.01.0​ ?BlocksWhen an eyeblossom opens due to communication with another eyeblossomblock.eyeblossom.open​ ?1.01.0​ ?BlocksWhen an eyeblossom closes due to the time of dayblock.eyeblossom.close_long​ ?1.01.0​ ?BlocksWhen an eyeblossom opens due to the time of dayblock.eyeblossom.open_long​ ?1.01.0​ ?BlocksRandomly when opened and placed on a pale moss blockblock.eyeblossom.ambient​ ?1.01.0
+Data values
+ID
+Java Edition:
+
+NameIdentifierFormBlock tagsItem tags
+Translation key Closed Eyeblossomclosed_eyeblossomBlock & Itemflowerssmall_flowersflowerssmall_flowers
+block.minecraft.closed_eyeblossom
+ Open Eyeblossomopen_eyeblossomBlock & Itemflowerssmall_flowersflowerssmall_flowers
+block.minecraft.open_eyeblossom
+Bedrock Edition:
+
+NameIdentifierNumeric ID FormItem ID
+Translation key Closed Eyeblossomclosed_eyeblossom1274Block & Giveable ItemIdentical(Numeric: -1019)
+tile.closed_eyeblossom.name
+ Open Eyeblossomopen_eyeblossom1273Block & Giveable ItemIdentical(Numeric: -1018)
+tile.open_eyeblossom.name
+ ID of block's direct item form, which is used in savegame files and addons.
+
+ Available with /give command.
+
+ The block's direct item form has the same ID as the block.
+
+History
+Java Edition
+Java Edition1.21.424w44a
+  Added eyeblossoms.24w45a
+Eyeblossoms are now found at the end of the flowers in the Creative inventory.
+Bees are no longer attracted by and can no longer interact with closed eyeblossoms.24w46a
+Bees no longer get poisoned when they touch a closed eyeblossom.1.21.525w02a
+The transition between the states of eyeblossoms is now based on the fixed day time.
+Bedrock Edition
+Bedrock Edition1.21.50Preview 1.21.50.25
+  Added eyeblossoms.Preview 1.21.50.26
+Eyeblossoms now play sounds when opening and closing.
+
+Open eyeblossoms now emit ambient sounds when placed on a pale moss block.
+
+Eyeblossoms placed in world and in flower pots now emit a particle when opening/closing.
+
+Open and closed eyeblossoms can now be used on mooshrooms to obtain their respective suspicious stews when milking.Preview 1.21.50.28
+Bees no longer interact with or pollinate closed eyeblossoms.
+
+Feeding bees open eyeblossoms now applies the Poison effect.1.21.60Preview 1.21.60.21
+ Eyeblossoms no longer appear mirrored when viewed from certain angles.
+
+Open and closed eyeblossoms now increase the probability of a nearby sapling to grow into a tree with a bee nest.Preview 1.21.60.23
+Eyeblossoms no longer generate inside pale oak tree trunks.Preview 1.21.60.25
+They now open when the moon starts rising, and close when the moon has completely set.
+Issues
+Issues relating to "Eyeblossom" are maintained on the bug tracker. Issues should be reported and viewed there.
+
+Gallery
+Screenshots
+
+
+
+			Three eyeblossoms generated in a pale garden
+
+
+
+			A patch of closed eyeblossoms at day time
+
+
+
+			A patch of opened eyeblossoms at night time
+
+
+Development images
+
+
+
+			An early iteration of an opened eyeblossom with particles
+
+
+
+			Early iterations of closed eyeblossoms in a pale garden
+
+
+Mojang screenshots
+
+
+
+			Several eyeblossoms surrounding blocks
+
+
+
+			Eyeblossoms glowing, resembling the eyes of creakings
+
+
+
+			Eyeblossoms closed during the day
+
+
+
+			Eyeblossoms even encourage nearby eyeblossoms to bloom, too – and they give off an orange glow.
+
+
+
+			Eyeblossoms blooming
+
+
+
+			Particles above open eyeblossoms
+
+
+
+			Potted eyeblossoms in a resin house
+
+
+In other media
+
+
+
+			Open eyeblossoms in the key art for The Garden Awakens
+
+
+
+			Efe and Kai noticing blooming eyeblossoms
+
+
+
+			Alex picking up an eyeblossom, in A year in blocks
+
+
+
+			An armadillo looking at an eyeblossom
+
+
+References
+
+ MC-277937 – Eyeblossom is not emissive in item form – resolved as "Works As Intended".
+
+ MCPE-40646 – Cross models are displayed wrongly from east and west sides – resolved as "Fixed".
+
+Navigation

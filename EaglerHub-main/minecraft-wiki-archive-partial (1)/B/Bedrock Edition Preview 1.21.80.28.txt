@@ -1,0 +1,209 @@
+Preview 1.21.80.28
+
+Edition
+
+Bedrock Edition
+
+Release date
+
+April 15, 2025
+
+Server version
+
+1.21.80.28
+
+Build version
+
+32541688
+
+Internal version
+
+Windows, Xbox: 1.21.8028.0Android: 1.21.80.28
+
+Version code
+
+Android:
+952108028 (armeabi-v7a, 34)
+962108028 (x86, 34)
+972108028 (arm64-v8a, 34)
+982108028 (x86_64, 34)
+
+Type
+
+Preview
+
+Preview for
+
+1.21.80
+
+Downloads
+
+ ServerWindowsLinux
+
+Protocol version
+
+800
+
+◄◄   1.21.73
+1.21.80
+  1.21.81 ►►
+
+◄   Preview 1.21.80.27
+
+ Preview 1.21.80.28
+
+{
+    "title": "Preview 1.21.80.28",
+    "images": [
+        "Bedrock 1.21.80.28.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Bedrock Edition article, displayed as Bedrock Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "April 15, 2025",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Bedrock Dedicated Server 1.21.80.28 article, displayed as 1.21.80.28)",
+            "label": "Server version"
+        },
+        {
+            "field": "32541688",
+            "label": "Build version"
+        },
+        {
+            "field": "'''Windows, Xbox''': 1.21.8028.0<br>'''Android''': 1.21.80.28",
+            "label": "Internal version"
+        },
+        {
+            "field": "'''Android''':<br />\n952108028 (armeabi-v7a, 34)<br />\n962108028 (x86, 34)<br />\n972108028 (arm64-v8a, 34)<br />\n982108028 (x86_64, 34)",
+            "label": "Version code"
+        },
+        {
+            "field": "Preview",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Bedrock Edition 1.21.80 article, displayed as 1.21.80)",
+            "label": "Preview for"
+        },
+        {
+            "field": "'''Server'''<br>[https://www.minecraft.net/bedrockdedicatedserver/bin-win-preview/bedrock-server-1.21.80.28.zip Windows]<br>[https://www.minecraft.net/bedrockdedicatedserver/bin-linux-preview/bedrock-server-1.21.80.28.zip Linux]",
+            "label": "Downloads"
+        },
+        {
+            "field": "800",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Bedrock Edition  1.21.73|<span style=\"margin-right:-0.35em\">◄</span>◄   1.21.73]]</td>\n<td style=\"padding: 0.4em\">'''[[Bedrock Edition 1.21.80|1.21.80]]'''</td>\n<td style=\"padding: 0.4em\" rowspan=\"2\">[[Bedrock Edition  1.21.81|  1.21.81 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Bedrock Edition  Preview 1.21.80.27|◄   Preview 1.21.80.27]]\n</td>\n<td style=\"padding: 0.4em\">''' Preview 1.21.80.28'''</td>\n</tr>\n</table>"
+}
+
+Beta 1.21.80.28 (ChromeOS, Android) or Preview 1.21.80.28 (Windows, iOS, iPadOS, Xbox, PlayStation) is the sixth and final beta/Preview version for Bedrock Edition 1.21.80, released on April 15, 2025, which fixes bugs.
+
+Contents
+
+1 Changes
+
+1.1 General
+1.2 World generation
+
+2 Experimental
+
+2.1 Changes
+
+2.1.1 General
+
+3 Fixes
+4 References
+5 Navigation
+
+Changes
+General
+Realms
+
+The new "Advanced" tab in the Realms settings.
+Realms server hosting region preference selection:
+Added a new "Advanced" tab to the Realms settings screen.
+In the advanced tab, Realm owners can select which datacenter region they would like to host their Realm in.
+Options include a list of regions, or allowing the Realms service to automatically select the best region for the Realm owner or the first player to join the Realm in a given session.
+Note that this selection is a preference only and due to server capacity, your Realm may be hosted in a different region than selected.
+In that case, the next closest region to your preference will be selected.
+Added a message during joining a Realm to indicate which server region your Realm is assigned to for that session.
+More information will be shared about Realms server hosting with the next full release.
+World generation
+Structures
+
+Data-driven Jigsaw Structures have been put back behind the experimental toggle.
+Experimental
+These additions and changes are accessible by enabling the "Vibrant Visuals" experimental toggle.
+
+Changes
+General
+Graphical
+
+Updated the format of lighting/global.json to include support for controlling the new End light flash in Vibrant Visuals. The directional_lights section now has two groups: orbital, which contains the lighting information around the sun and moon, and flash, which contains information about the End light flash. The flash section supports an illuminance field which controls the max illuminance of the End light flash, and a color field, which controls the color of the flash. Example JSON with this new format follows:
+{
+  "format_version": "1.21.80",
+  "minecraft:lighting_settings": {
+    "description": {
+      "identifier": "minecraft:default_lighting"
+    },
+    "directional_lights": {
+      "orbital": {
+        "sun": {
+          "illuminance": {
+            "0.0": 1.0,
+          },
+          "color": {
+            "0.0": [ 255, 255, 0 ]
+          }
+        },
+        "moon": {
+          "illuminance": {
+            "0.0": 1.0,
+          },
+          "color": {
+            "0.0": [ 0, 0, 255 ]
+          }
+        },
+        "orbital_offset_degrees": 5.0
+      },
+      "flash": {
+        "illuminance": 1.0,
+        "color": [ 255, 0, 255 ]
+      }
+    },
+    "emissive": {
+      "desaturation": 0.2
+    },
+    "ambient": {
+      "color": "#FFFFFF",
+      "illuminance": 0.4
+    },
+    "sky": {
+      "intensity": 0.8
+    }
+  }
+}
+
+Fixes
+5 issues fixed
+From the previous development version
+
+MCPE-199218 – Dried Ghast can generate in worlds without experimental toggle, showing Incorrect Texture
+Other
+
+Empty open Bundle icon now renders correctly when Bundles are tapped with Touch Controls.
+Fixed bugs causing marketplace addon content to sometimes not load in a world.
+Fixed a crash caused by buffer overrun in the data driven renderer when multiple values wrote to overlay color.
+Fixed null pointer de-referencing crash in chunk rendering.
+References
+
+ "Minecraft Beta & Preview - 1.21.80.28"     – Minecraft Feedback, April 15, 2025.
+
+Navigation

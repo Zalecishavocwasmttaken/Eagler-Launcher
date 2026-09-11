@@ -1,0 +1,1031 @@
+See also: Parity issue list
+
+  This article is about features only in the current Java Edition version.   For the removed features, see Java Edition removed features.   For the features exclusive to Bedrock Edition, see Bedrock Edition exclusive features.
+
+
+
+This article needs cleanup to comply with the style guide. [discuss]
+Please help improve this page. The talk page may contain suggestions.Reason: Fix capitalization, and also add all exclusive features, similar to the Bedrock Edition article.
+
+This is a list of Java Edition exclusive features. Some of these exclusive features may eventually be added to Bedrock Edition to bring parity.
+
+Contents
+
+1 General
+2 Gameplay
+3 Blocks
+4 Items
+5 Entities
+6 World generation
+7 Commands
+8 Command format
+9 Splashes
+10 Navigation
+
+General
+Minecraft Launcher
+
+Supports launching previous versions of Java Edition, including versions dating back to 2009.
+Not all versions of Java Edition are available in the Launcher. Additionally, all versions prior to Alpha v1.1.2_01 do not have working sound, as the sound assets for these versions have been removed from the Minecraft servers.
+Supports loading custom/modified versions of Minecraft, such as OptiFine, Forge, and Fabric.
+Particles
+
+The types of particles and their technical names are displayed below. Particle names in italics are shown when using the "Minimal" particles setting.
+
+Particle name
+
+Block/entity/event
+
+Image
+
+ sweep_attack
+
+Perform a sweep attack with a sword.
+
+ damage_indicator
+
+When an entity is damaged significantly.
+
+Recipes
+
+To save space, some recipes in the recipe book are grouped together and can be selected by pressing the right button on the mouse.
+Statistics
+
+A game feature that allows players to track how many times they have completed certain tasks.
+Creative inventory
+There are 72 items, and 34 more in the Operator Utilities tab, for a total of 106 Java Edition Creative inventory exclusives including operator utilities. The items are as follows:
+
+Luck effect tipped arrow, potion, splash potion, and lingering potion
+Four no-effect tipped arrows: arrow of splashing, awkward tipped arrow, thick tipped arrow, and mundane tipped arrow
+Spectral arrow
+Minecart with furnace
+Sweeping Edge enchanted books, all three levels.
+Firework star, no color.
+Firework rocket, all three flight durations.
+Painting, 46 individual pre-defined paintings, plus four additional in operator utilities.
+All 34 items in the Operator Utilities tab if "Operator Items Tab" is enabled.
+Gameplay
+Advancements
+
+Uses the advancement system instead of the achievement system.
+Can be used to gain experience.
+Breaking
+
+The range of breaking blocks is 5 blocks in Creative mode, and 4.5 blocks otherwise.
+Brewing
+
+The potion of Luck cannot be brewed, and can be obtained only by commands such as /give @p minecraft:potion{Potion:"minecraft:luck"} 1, or through the creative inventory.
+Chat
+
+Is uncensored by default, though a profanity filter exists for Realms.
+Default font uses much more updated version of Mojangles, with implementation of more characters and even certain emojis.
+There are also more and different font styles such as Illageralt and they are more up-to-date
+Combat
+
+The "attack strength" combat mechanic.
+A meter shows up after switching items or attacking.
+Damage done depends on the fullness of the meter, with a quadratic reduction (attack does 20%–100% of normal damage as the meter fills).
+Fills at different rates depending on the new attack speed attribute (see table on the changes to gameplay section for a complete list).
+The Haste effect causes the meter to fill faster.
+Can be displayed next to the hotbar (left or right based on the player's main hand), under the crosshair or turned off.
+Looks like the icon for the old Strength effect icon on the side of the hotbar, or like a dagger under the crosshair.
+This is controlled in video settings.
+A cooldown animation is displayed of the tool slowly being lifted up, when either first switching to it or after attacking.
+Sounds are played when attacked strongly and weakly, as well as sprint-knockback attacks and sweeping attacks.
+Actions can be performed as fast as the player can click. This includes eggs, spawn eggs, etc.
+Damage
+
+When the player is in third person while suffocating, the view automatically switches to first person.
+The player takes damage from falling into the void, even in Creative mode.
+Debug screen
+
+By default, can be opened with the F3 key.
+Shows the chunk cache, the memory usage, various parameters, the player's map coordinates and a graph that measures the game's current frame rate.
+Enchanting
+
+The player can enchant any item with any enchantment in Creative mode with enchanted books, allowing any applied effects to exhibit themselves.
+Sweeping Edge enchantment.
+Increases sweeping attack damage.
+Health
+
+For players, a "You Died!" screen (or "Game Over!" in Hardcore mode) instantly appears upon death. It also displays the player's score.
+Death messages are broadcast to everyone upon the death of a player, and to the pet's owner on the death of a pet (wolf, cat, or parrot).
+Death message: "<Player> fell from a high place", caused by a fall greater than 5 blocks.
+Spectator mode
+
+Can be entered by using F3 + N, or F3 + F4, if commands are enabled.
+Players in Spectator mode can teleport to other players using the hotbar.
+Players in Spectator mode can click other entities to spectate them, or spectate via /spectate.
+Status effect
+
+Summary of effects:
+
+ID
+
+Name
+
+Effect
+
+24
+
+Glowing
+
+Outlines entities (can be seen through blocks). Can be applied to any hostile mob that is in the village when a player or a villager rings the bell.
+
+26
+
+Luck
+
+Increases chances of high-quality loot. Cannot be obtained without cheats or creative mode.
+
+27
+
+Bad Luck
+
+Reduces chances of high-quality loot. Cannot be obtained without cheats.
+
+28
+
+Dolphin's Grace
+
+Dolphin's Grace is a status effect that increases the player's swimming speed when a dolphin is nearby. This speed boost is applied without an effect in Bedrock Edition.
+
+Blocks
+Ancient Debris
+
+Can replace basalt and blackstone when generating.
+Anvil
+
+Renaming a bucket of fish, axolotl, or tadpole renames the mob inside as well.
+Incompatible enchantments are allowed in Creative mode.
+Banner
+
+Pressing the use control on a banner while holding a map places a marker of the banner's position on the selected map.
+Bell
+
+Give Glowing effect to raid mobs when rung.
+Ring after receiving a redstone signal.
+Buttons
+
+Can be placed in any direction if placed on the top or bottom of a block.
+Do not catch on fire.
+Carpet
+
+Carpet can be used as a fuel in furnaces, smelting 0.335 items per carpet.
+Chest
+
+Bonus chests always contain the same items.
+The top three rows for a large chest correspond to the western or northern half and the bottom three to the southern or eastern half.
+Holding ⇧ Shift and double-clicking while holding an item moves all items of the type clicked on in or out of the chest, to the extent that space is available for them.
+A chest can be "locked" by setting its Lock tag using the /data command. If a chest's Lock tag is not blank, the chest cannot be opened except by players holding an item with the same name as the Lock tag's text. For example, to lock a chest at (0,64,0) so that only players holding an item named "Player's Key" can open the chest, use /data merge block 0 64 0 {Lock:"Player's Key"}.
+Cobweb
+
+Paintings can be placed on their sides.
+Jumping vibrates the player, similar to jumping in a 2-block-high space.
+Primed TNT can pass through cobwebs without slowing down if shot through fast enough.
+Dispenser and Dropper
+
+Support quasi-connectivity.
+Farmland
+
+Transparency: Partial (blocks light)
+Mobs smaller than 0.512 cubic block cannot destroy farmland. This includes parrots, rabbits, chickens, bats, ocelots, wolves, cave spiders, endermites, silverfish, baby mobs, small slimes, and small magma cubes.
+Piston and Sticky Piston
+
+Cannot push or pull block entities.
+Sticky pistons drop blocks when a single redstone tick pulse occurs, rather than retracting them.
+Redstone wire runs next to pistons instead of curving into them.
+Support quasi-connectivity.
+Wool
+
+Can be used as fuel in furnaces, smelting 0.5 items per wool block.
+Items
+Bone Meal
+
+Has a 5% chance of being dropped by any kind of fish.
+Debug Stick
+
+Can be used to change block states.
+Dyes
+
+Leather armor, leather horse armor, and wolf armor can be dyed by combining them with dyes in a crafting grid.
+Fish
+
+Tropical fish and pufferfish can be fed to ocelots and cats, like raw cod and salmon.
+Knowledge Book
+
+A utility item that reveals crafting recipes to the player when used.
+Lingering Potion
+
+What makes it a lingering potion as opposed to a splash potion is that their Potion tag stores a minecraft:lingering_potion item.
+Spawn Egg
+
+Each spawn egg has a different ID.
+Entities
+General
+
+All zombies and skeleton varians, and zombified piglins have a chance to wear carved pumpkins or jack o'lanterns on October 31.
+Zombies, zombie villagers, and zombified piglins have a chance to spawn other zombies as reinforcements on Hard difficulty.
+Newly generated chunks have a chance to generate an initial set of mobs.
+Armor Stands
+
+If arms are visible, shields are always placed in the off-hand.
+Can be placed by dispensers.
+Hitting an armor stand wearing armor enchanted with Thorns deals damage.
+Stand on top of powder snow when wearing leather boots.
+Have 20 health points.
+Arrows
+
+Get visually stuck in players.
+Have a unique sound when an arrow shot by a player hits another player.
+Axolotls
+
+Regeneration effect given to players is limited to 2 minutes.
+Bats
+
+Collision box does not interact with the player or redstone components‌.
+Bees
+
+Stinger is visible on the player after successfull attack.
+Blazes
+
+Sink in water and lava.
+Boats
+
+Sink when submerged.
+Mobs riding a boat don't despawn.
+Falling boats stop on top of other entities.
+Breezes
+
+Their eyebrows and surrounding wind are unaffected by Invisibility.‌
+Float upwards in water and lava faster than other mobs.
+Camel‌s
+
+Spawn in any light level.
+Cats
+
+All cats spawned within the swamp hut always spawn as black.
+Each cat has 70% chance of giving a gift when they cannot reach a player.
+Hiss at phantoms that are currently pursuing a player.‌
+Chickens
+
+Drop 10XP experiance orbs if they were part of a chicken jockey.
+Cods
+
+Can drop bone meal.
+Creepers
+
+The detection range is reduced to half of their normal range (8 blocks) when the player is wearing a creeper head.
+Can be ignited with fire charge.
+An explosion of a creeper with status effect creates an area effect cloud.
+Display
+
+Are used to display blocks, items, or‌ text.
+Dolphins
+
+Grant the Dolphin's Grace effect.
+Are lured by dropped items.
+Elder Guardians
+
+Drop any fish variant.
+Drop 0-1 cooked cod or cooked salmon if killed by fire.
+Ender Dragon
+
+Drop only 500XP experience points when re-summoned.
+Endermen
+
+Staring an aggravated enderman in the eyes causes it to stop moving as long as the player maintains eye contact.
+Start shaking when provoked.
+Arrows bounce off endermen that are unable to teleport.
+Arrows pass through endermen that are riding something, as such are unable to move.​[until: JE 26.3]
+Continue to chase the player regardless of the distance or dimension of the targeted player.
+Endermites
+
+Become hostile toward any mob that attacks them.
+Evokers
+
+Are given three seconds of the Glowing effect if a bell is rung.
+Fish
+
+Drop bone meal instead of bones.
+Ghasts
+
+Only target players.
+Do not retaliate when attacked by other mobs.
+Giants
+
+A giant-sized zombie.
+Have no AI, do not fight back when hit.
+Can be summoned via commands only.
+Glow Squids
+
+Can swim against a current.
+Goats
+
+Two screaming goats always produce a screaming baby.
+Two normal goats have a 2% chance of producing a screaming baby.
+Guardians
+
+Drop any fish variant.
+Drop 0-1 cooked cod or cooked salmon if killed by fire.
+Do not attack players under the Invisibility effect that wear one or no piece of armor.
+Hoglins
+
+An adult knock their target upward.
+Retaliate when attacked by a goat.‌
+Illusioners
+
+An unused illager hostile mob.
+Attack using a bow and casting spells, such as creating clones of itself.
+Can be summoned via commands only.
+Interaction
+
+Record the UUID of the last player that left-clicked and right-clicked them.
+Items
+
+Can be reeled by fishing rods.
+Manequins
+
+Function like a player avatar.
+Markers
+
+Entities intended for use in data packs and map-making.
+Minecarts
+
+Can be merged by pushing them into each other.
+They do not lose speed while traveling on straight rails.
+Minecart with Furnace
+
+Can be powered with coal or charcoal.
+Can be used to move other minecarts.
+Minecart with Monster Spawner
+
+Behaves the same way as normal monster spawners.
+Parrots
+
+Can imitate piglins, hoglins and piglin brutes.
+Piglins
+
+Retaliate to being rammed by a goat.
+Piglin Brutes‌
+
+Their axe may be enchanted.
+Rabbits
+
+Can spawn in old growth spruce taiga and old growth pine taiga.
+Have a hostile variant, The Killer Bunny, that can only be spawned using commands.
+Ravagers
+
+Attacked ravager alerts other ravagers in the area to target the attacker.
+Can spawn with vindicator riding them.
+Shulkers
+
+There is a chance for a new shulker to spawn when a shulker is hit with a shulker bullet.
+Silverfish
+
+Can also spawn on stone types they can enter at any light level.
+Skeleton, Stray, and Bogged
+
+They use different AI, and strafe side to side when shooting arrows instead of standing still.
+Their bow is animated like the player's, with the arrow visibly being drawn back before shooting.
+Their detection range is reduced to half of their normal range (8 blocks) when the player is wearing a skeleton skull.
+Holding tipped arrows in their offhand causes them to shoot that type of arrow; these arrows are not consumed.
+Skeleton Horses
+
+Can be equipped with a saddle.
+Snow Golems
+
+Take damage when are in contact with water in savannas.
+Leave a trail of snow in any biome.
+Spiders
+
+Occasionally spawn with status effects in Hard difficulty.
+If a spider tries to go through the world border, it starts climbing the world border instead.‌
+Squid
+
+Can swim against a current.
+Striders
+
+Are slightly faster than in Bedrock Edition.
+Villagers
+
+A dispenser can be used to equip armor on a villager.
+Throw a gift toward a nearby player with the Hero of the Village effect.
+If a villager have at least 24 food items, it gives the extra amount to a villager with 4 or fewer.
+Display water particles on random occasions as if sweating during a raid..
+Clicking use on an unemployed or nitwit causes it to grunt and bobble their head.
+Wandering Trader
+
+Wandering traders spawned with a spawn egg via commands do not spawn with trader llamas.
+Withers
+
+Regenerate health.
+Have a "wither armor" effect if itheir health drops below half, which makes it immune to damage from arrows and thrown tridents.
+Wolves
+
+Sit after being tamed.
+Zoglins
+
+Adult zoglins attack once every two seconds.
+Zombies
+
+Up to 20 zombies may spawn in a village at midnight.
+Prioritize players.
+Raise their arms up higher when pursuing a player.
+Zombie Villagers
+
+Zombie villager spawned in igloo basement is always a cleric.
+Zombified Piglins
+
+Non-hostile zombified piglins do not prevent a nearby player from sleeping in a bed.
+World generation
+General
+
+Solid terrain, structures and biomes can generate all the way to 30 million blocks in a vanilla game, or 2,147 million blocks if the hardcoded 30-million-block limit is removed by modifying the game.
+Single Biome world type
+
+Is exclusively obtainable.
+Consists of only a single biome.
+Large Biomes world type
+
+A world type that has its biome scale set to 6.
+Debug mode world type
+
+Used to test block states, block models, and textures.
+Biomes
+
+Badlands and eroded badlands
+Red sandstone can generate in regular badlands and eroded badlands.
+Igloo
+
+If the player smelts a number of items in the igloo furnace, the light generated melts the igloo window, turning the ice into a water source block.
+If generates with a villager, it's always a villager without profession.
+Strongholds
+
+They generate in rings with the strongholds evenly spaced around the circle until the total of 128 is reached.
+Superflat world type
+
+Also allows the player to access the End, which generates as in a normal world, by finding a stronghold or by creating an end portal in Creative mode.
+Structures such as villages can generate in superflat worlds.
+World boundary
+
+By default, a customizable world border appears to prevent players passing through.
+Commands
+/advancement
+
+Gives, removes, or checks player advancements.
+/attribute
+
+Adds, removes or sets an entity attribute.
+/ban
+
+Adds player to banlist.
+/ban-ip
+
+Adds IP address to banlist.
+/banlist
+
+Displays banlist.
+/bossbar
+
+Creates, modifies and lists bossbars.
+/data
+
+Modifies the data tag of a block or entity.
+/datapack
+
+Manages and lists datapacks, creates empty datapack directory.
+/debug
+
+Starts or stops a debugging session.
+/defaultgamemode
+
+Sets the default game mode.
+/dialog
+
+Manages dialog screens.
+/experience
+
+An alias for /xp.
+/fetchprofile
+
+Fetches the profile of a target player.
+/fillbiome
+
+Fills a selected area with a specific biome.
+/forceload
+
+Force chunks to load constantly or not.
+/item
+
+Manipulate items in inventories.
+/jfr
+
+Starts or stops a JFR profiling.
+/pardon
+
+Removes entries from the banlist.
+/perf
+
+Captures information and metrics about the game.
+/posteffect​[upcoming: JE 26.3]
+
+Allows adding or removing post effects to players.
+/publish
+
+Opens singleplayer world to the local network.
+/random
+
+Generates a random integer.
+/return
+
+Controls the execution of a function.
+/rotate
+
+Changes the rotation of an entity.
+/seed
+
+Displays the world seed.
+/setidletimeout
+
+Sets the time before idle players are kicked.
+/spectate
+
+Causes a player in spectator mode to spectate another entity.
+/team
+
+Controls teams.
+/teammsg
+
+Sends message to all players in a team.
+/test
+
+Manage and execute GameTests.
+/tick
+
+Controls the tick rate of the game.
+/trigger
+
+Sets a trigger to be activated.
+/unpublish
+
+Unpublishes an integrated server.
+/version
+
+Presents the server's game version.
+/waypoint
+
+Manages waypoints.
+/worldborder
+
+Manages the world border.
+Command format
+Data Tag
+
+Data tags are used in commands to specify complex data for players, entities, and some blocks.
+Target selector
+
+Most selector arguments were renamed and remade, and some behave differently. Others, like distance and level, support a range (1 is exactly one, 1.. is one or more, ..1 is one or less, and 1..10 is between one and ten, inclusive).
+Splashes
+
+Splash text
+
+Explanation
+
+Moderately attractive!
+
+Prior to 1.16 Pre-release 3, this splash read "Sexy!"
+
+It's finished!
+
+Prior to Minecraft 1.0.0 RC1, this read "When it's finished!".
+
+Kind of dragon free!
+
+It may be a possible reference to a quote from Wurm Online, wherein Notch states that "we will never add dragons". Dragons were eventually added, however. The same thing happened in Minecraft with the addition of the ender dragon in Beta 1.9 Prerelease 4. Before RC1, this splash read "Absolutely dragon free!".
+
+Uses LWJGL!
+
+Minecraft uses LWJGL.
+
+Singleplayer!
+
+Minecraft was, at the time this splash was created, a one-player game.
+
+Keyboard compatible!
+
+Minecraft is playable with a keyboard. This splash text still appears in versions that do not contain keyboard support, such as Legacy Console Edition. This issue was fixed in the New Nintendo 3DS Edition only, as the splash text was replaced with “Touch Compatible!” Which, this version, indeed, is touch compatible.
+
+Not on steam!
+
+Steam is an online service used to distribute many games. Both versions of Minecraft for PC, Minecraft: Java Edition and the Bedrock-based Minecraft for Windows, are not sold via Steam, but only on Xbox Store and the Minecraft website. However, three spin-offs (Minecraft: Story Mode, Minecraft Dungeons, Minecraft Legends) released on Steam.
+
+Now with difficulty!
+
+Difficulty may be set to Peaceful, Easy, Normal, or Hard.
+
+Ceci n'est pas une title screen!
+
+"Ceci n'est pas une" is French for "This is not a"; the phrase refers to The Treachery of Images (La trahison des images), a painting by the Belgian René Magritte, which depicts a pipe with the sentence "Ceci n'est pas une pipe." ("This is not a pipe.") written beneath it. The all-French version of this splash would be "Ceci n'est pas un écran d'accueil !"
+
+Now on OpenGL 3.3 core profile!
+
+Another technology used by Java Edition. This splash has been changed multiple times over time, previously being "Now on OpenGL 3.2 core profile!" in versions prior to 1.21.9 (Java Edition 25w37a), "OpenGL 2.1 (if supported!)" in versions prior to 1.17 (21w10a), "Open GL 1.2!" in versions prior to 1.8 (14w06a) and "OpenGL 1.1!" in versions prior to 1.0 RC1.
+
+Age of Wonders is better!
+
+Age of Wonders is a PC turn-based strategy game. It is often to be compared with "Civilization", which is also a turn-based strategy game.
+
+Not as cool as Spock!
+
+Spock is a popular Star Trek character. Prior to 1.8.5, this splash read "Cooler than Spock!". Leonard Nimoy, who played Spock, died on February 27, 2015, one week after the release of 1.8.3 and 84 days before the text was changed.
+
+Seecret Friday update!
+
+Before Minecraft went Beta, updates were released weekly, every Friday. Notch called these updates "Seecret Friday updates".
+
+Reference implementation!
+
+Refers to Reference implementation.
+
+BTAF used to be good!
+
+Bob the Angry Flower is a comic strip that has been running since 1992.
+
+I miss ADOM!
+
+Ancient Domains of Mystery is an old, but popular and unique rogue-like game, featuring a world made completely of ASCII characters for graphics, dungeons (random and infinite), and monsters, but also many (optional) storylines that help hold all the features together to stop it from becoming boring.
+
+SWM forever!
+
+SWM stands for "Single White Male".
+
+Woo, facepunch!
+
+Facepunch was a game forum. It has since shut down, but this splash is still in the game. Facepunch is also the developer of Garry's Mod, another sandbox game (which also happens to have a "Minecraftify" texturizing option).
+
+Woo, somethingawful!
+
+SomethingAwful is an internet site.
+
+Woo, tigsource!
+
+TIGSource is an indie game development forum where Notch originally posted Minecraft.
+
+Woo, worldofminecraft!
+
+World of Minecraft is yet another popular Minecraft forum.
+
+Woo, reddit!
+
+Reddit is a popular online news and entertainment site driven by user-submitted content.
+
+Woo, 2pp!
+
+A reference to 2 Player Productions, the company behind Minecraft: The Story of Mojang.
+
+Now supports åäö!
+
+These characters are not part of the standard 26-character Latin alphabet, but are used in the Swedish alphabet (many Scandinavian languages use such extended versions of the Latin alphabet). Minecraft now supports these characters in in-game input fields.
+
+MAP11 has two names!
+
+Reference to the level MAP11 in the game Doom II: Hell on Earth, which is called both "Circle of Death" and "O' of Destruction!" in-game.
+
+Jag känner en bot!
+
+Swedish for "I know a bot". Refers to the first line of the song "Boten Anna" by the Swedish dance artist, Basshunter.
+
+This text is hard to read if you play the game at the default resolution, but at 1080p it's fine!
+
+The splash text scales to fit, making this particular splash difficult to read at lower resolutions.
+
+Slow acting portals!
+
+Portals to the Nether (but not the End) take a few seconds to activate, although in Creative mode, they are instant. In addition, it is satire on many claims about cleaning products i.e. "Fast acting stain remover" or "Fast acting solvent".
+
+Try the Nether!
+
+A reference to the Nether, which was added in this version.
+
+Finally with ladders!
+
+Ladders were added to the game in Infdev.
+
+Turing complete!
+
+Turing completeness is a term used in computer science for machines and programming languages that are able to perform all operations of a Turing machine. The redstone mechanism is one of them.
+
+Ryan also has amazing hair!
+
+Referring to former Mojang employee Ryan Holtz having long, brown hair.
+
+Kinda like Lemmings!
+
+Lemmings is a game which also features mining, digging and blowing things up.
+
+This message will never appear on the splash screen, isn't that weird?
+
+As its text implies, the splash is never displayed.
+
+DungeonQuest is unfair!
+
+Dungeonquest is a board game whose gameplay relies on the players creating the playing board by randomly selecting tiles and placing them on a grid.
+
+Check out the far lands!
+
+The Far Lands were the "limit" of the infinite map, until Notch accidentally fixed them in Beta 1.8. Ironically, this splash was added to the game after the Far Lands were fixed.
+
+Also try VVVVVV!
+
+VVVVVV is a 2D puzzle-platformer game based on gravity manipulation. Both it and Minecraft were included in the Humble Indie Bundle 3.
+
+Also try Super Meat Boy!
+
+Super Meat Boy is a 2D platformer game based on difficult levels.
+
+Also try Terraria!
+
+Terraria is a 2D action-adventure, open-world sandbox / platformer game with a similar premise to Minecraft. Terraria features title messages similar to splashes; one of the messages reads "Terraria: Also try Minecraft!".
+
+Also try Mount And Blade!
+
+Mount&Blade is a medieval-themed RPG for Microsoft Windows.
+
+Also try Project Zomboid!
+
+Project Zomboid is a zombie apocalypse-themed game.
+
+Also try World of Goo!
+
+World of Goo is a 2D physics-based puzzle game.
+
+Also try Limbo!
+
+Limbo is a 2D puzzle-platformer game based on avoiding ingenious traps.
+
+Also try Pixeljunk Shooter!
+
+PixelJunk Shooter is a 2D shooter that is available on the PlayStation 3 and PC.
+
+Also try Braid!
+
+Braid is a 2D puzzle-platformer game based on time manipulation.
+
+Made by Jeb!
+
+Jeb became the lead Minecraft developer once Notch stepped down from developing it in 2011. This splash was added by Notch.
+
+Has an ending!
+
+A reference to the End.
+
+Finally complete!
+
+A reference to the fact that Minecraft has finally left Beta. While it may have been "officially released", it is (in reality) far from "complete" and continually being developed.
+
+Déjà vu!
+
+Déjà vu is the experience of feeling sure that one has already witnessed or experienced a current situation.
+
+Déjà vu!
+
+Déjà vu is the experience of feeling sure that one has already witnessed or experienced a current situation.
+
+Doesn't use the U-word!
+
+From the streets of Södermalm!
+
+Södermalm is the district in Stockholm where Mojang Studios' offices are located.
+
+日本ハロー！
+
+Japanese for "Hello, Japan!". Along with the 5 splashes below, was added in 1.1, which added support for multiple languages.
+
+한국 안녕하세요!
+
+Korean for "Hello, Korea!".
+
+Γεια σου Ελλάδα!
+
+Greek for "Hello, Greece!".
+
+FUNKY LOL
+
+(Obfuscated) This splash is stored as "§kFUNKY LOL" in splashes.txt; as with the "Colormatic" splash, the "§k" is a formatting code, but instead of changing the color of the following text, the code obfuscates the text, replacing it with random, rapidly-changing characters.
+
+Java 16 + 1 + 4 * 2 = 25!
+
+Support for Java 5 was dropped in Minecraft 1.6.1. Before 1.7.2, this splash read "Almost java 6!". Before 1.12, this splash read "Now Java 6!". Before 1.17, this splash read "Now Java 8!". Before 1.18, this splash read "Now Java 16!". Before 1.20.5, this splash read "Java 16 + 1 = 17!". Before 26.1, this splash read "Java 16 + 1 + 4 = 21!". This splash is one of three splashes that were changed more than once, and the only one that has been changed seven times.
+
+Now contains 32 random daily cats!
+
+A reference to a Twitter user who sent pictures of cats to Mojang every day until stained glass was added to Minecraft. There are 32 stained glass blocks.
+
+pls rt
+
+Shortened form of "please retweet", in relation to Twitter.
+
+Do you want to join my server?
+
+Relates to people in the community asking others to join their multiplayer servers.
+
+Put a little fence around it!
+
+Refers to the "Catbug" episode of the YouTube series Bravest Warriors.
+
+Throw a blanket over it!
+
+Refers to the "Catbug" episode of the YouTube series Bravest Warriors.
+
+One day, somewhere in the future, my work will be quoted!
+
+Now with additional stuff!
+
+Since the release of Minecraft, there have been many updates through subsequent updates that have added new features to the game.
+
+Extra things!
+
+Likely references the massive amount of stuff added in 1.8.
+
+Now With Multiplayer!
+
+Rise from your grave!
+
+Refers to the arcade game Altered Beast.
+
+Blue warrior shot the food!
+
+Refers to a line in the arcade game Gauntlet.
+
+Run, coward! I hunger!
+
+Refers to the arcade game Sinistar, which includes the lines "Beware, I live!", "I hunger, coward!", "Run! Run! Run!", "Beware, coward!", "I hunger!", and "Run, coward!".
+
+Flavor with no seasoning!
+
+Line from the song "Just Don't Give" by Eminem.
+
+Strange, but not a stranger!
+
+Line from the song "Burning Down the House" by the band Talking Heads.
+
+Tougher than diamonds, rich like cream!
+
+Line from the song "The Power of Love" by Huey Lewis and the News, which was specifically written for film Back to the Future.
+
+It swings, it jives!
+
+Line from the song "Crazy Little Thing Called Love" by the band Queen.
+
+Cruising streets for gold!
+
+Line from the song "Americano" by "The Brian Setzer Orchestra".
+
+Make me a table, a funky table!
+
+Line from the song "Funkhauser" by Hard 'n Phirm.
+
+/give @a hugs 64
+
+A reference to the command /give. If minecraft:hugs were an item, this would give all players 64 hugs.
+
+Any computer is a laptop if you're brave enough!
+
+Do it all, everything!
+
+Where there is not light, there can spider!
+
+One of Ryan Holtz's "personal memes". According to a forum post on Mame World, the phrase was "said by a mutual friend, drunk beyond belief, who had never played Minecraft."
+
+GNU Terry Pratchett
+
+Refers to the internet tribute for Terry Pratchett, where the text "X-Clacks-Overhead: GNU Terry Pratchett" is added to the headers of websites.
+
+More Digital!
+
+doot doot
+
+"doot-doot, thank mr skeltal" is a phrase related to the "skull trumpet" meme. The splash was added at the time skeleton horses were added to the game.
+
+Falling with style!
+
+Said to Sheriff Woody by Buzz Lightyear in the 1995 film Toy Story, "This isn't flying, this is falling with style!". Added soon after elytra were added to the game.
+
+There's no stopping the Trollmaso
+
+From an October 6, 2015, tweet by Jens Bergensten: "I didn't want a hypetrain but there's no stopping "Trollmaso", right? =) Yes, new dramatic feature, likely out in the next snapshot." "Trollmaso" refers to the Twitter account @trollmasso, active since August 2015, whose name "Trollmasso ChiChi" was a play on former Pocket Edition developer Tommaso Checchi. Jeb was referring to elytra in that tweet.
+
+Rule #1: it's never my fault
+
+Searge posted this on Twitter, in regards to the lava texture being blood-red in 16w21a.
+
+Boats FTW
+
+Javalicious edition
+
+Referring to Java Edition. Also a portmanteau of "Java Edition" and "Delicious".
+
+Should not be played while driving
+
+The August 8, 2016 update to the game Pokémon GO included a new warning to players traveling above a certain speed: "You're going too fast! Pokémon GO should not be played while driving." Additionally, Minecraft or any other mobile game should never be played while driving or operating machinery.
+
+The true meaning of covfefe
+
+Reference to a tweet by U.S. President Donald Trump whose misspelling ("Despite the constant negative press Covfefe") went viral[39] during the week of the release of 1.12.
+
+An illusion! What are you hiding?
+
+Reference to a World of Warcraft meme. It is also a reference to the 17w16a blog post on minecraft.net for the illusioner addition, saying "An Illusioner! What are you hiding?".
+
+Something's not quite right...
+
+Reference to a World of Warcraft meme.
+
+All rumors are true!
+
+Reference to a tweet by Michael Stoyke teasing the 18w20a snapshot.
+
+Awesome game design right there!
+
+A reference to the video "Random Changes and Bad Game Design" by the YouTuber _MethodZz_, where he repeatedly uses this phrase while demonstrating several bugs in Java Edition 1.14.
+
+Ph1lza had a good run!
+
+Refers to the YouTuber and Twitch streamer Ph1lza (Phil Watson). He is best known for losing his breaking hardcore world after surviving for over five years (2014 to 2019).
+
+Ping the human!
+
+May be a reference to the act of "pinging" or mentioning someone on Discord, playing the notification sound. May also be a reference to Finn the Human, a protagonist of the animated series Adventure Time.
+
+In case it isn't obvious, foxes aren't players.
+
+Reference to the Mojira bug tracker ticket MC-166292, in which foxes are referred to as players upon teleporting after eating chorus fruit.
+
+Buzzy Bees!
+
+Name of the Java Edition 1.15 update.
+
+Minecraft Java Edition presents: Disgusting Bugs
+
+Pun on the word "Bugs"; referring to both software bugs, and actual living bugs. It is also a reference to the 1.15 Pre-Release article.
+
+Wash your hands!
+
+Washing hands with soap and water for at least 20 seconds is one of the most effective ways to kill harmful bacteria and viruses. Related to the COVID-19 pandemic.
+
+Soap and water!Washing hands with soap and water for at least 20 seconds is one of the most effective ways to kill harmful bacteria and viruses. Related to the COVID-19 pandemic.
+
+Support local businesses!
+
+Continued patronage is essential in order for most small businesses to remain open during challenging times. Related to the COVID-19 pandemic.
+
+Stay home and play games!
+
+Related to the COVID-19 pandemic. Despite the datedness of the phrase, along with concerns regarding video game disorder that caused the phrase "Minors welcome" to be removed, the splash is still in the game.
+
+Stay safe!
+
+Related to the COVID-19 pandemic.
+
+Stay strong!
+
+Related to the COVID-19 pandemic.
+
+Cough or sneeze into your elbow!
+
+Coughing or sneezing into your elbow helps to mitigate the spread of germs. Related to the COVID-19 pandemic.
+
+Don’t touch your face!
+
+Avoiding contact with your face can help mitigate the spread of germs. Related to the COVID-19 pandemic.
+
+Support elderly relatives and friends!
+
+Related to the COVID-19 pandemic.
+
+Prepare, but don’t hoard!
+
+It is recommended to purchase necessities before and during a crisis, but as a courtesy, leaving enough for others is strongly encouraged. Related to the COVID-19 pandemic.
+
+Gamers unite – separately in your own homes!
+
+Playing multiplayer games separately helps maintain social distancing. Related to the COVID-19 pandemic. Despite the datedness of the phrase, the phrase is still in the game, though most likely due to the game's focus on Multiplayer.
+
+Save the world – stay inside!
+
+Related to the COVID-19 pandemic. Despite the datedness of the phrase, the phrase is still in the game, most likely because most platforms that Java Edition is available on are not portable.
+
+Shop for your elders!
+
+Shopping in place of those with compromised or weak immune systems, especially relatives over 60, helps to keep them safe from disease. Related to the COVID-19 pandemic.
+
+Hang out with your friends online!
+
+Spending time with friends online rather than in person helps promote social distancing. Related to the COVID-19 pandemic.
+
+Made with lave!
+
+Refers to a misspelling of "lava" in 22w44a.
+
+Navigation

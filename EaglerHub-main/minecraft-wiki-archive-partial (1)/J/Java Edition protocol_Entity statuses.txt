@@ -1,0 +1,899 @@
+This article lists entity status codes, by entity.  These are used in the Entity Event packet.
+
+Contents
+
+1 Status table
+2 Entity statuses
+
+2.1 Entity
+2.2 Projectile
+2.3 Snowball
+2.4 Egg
+2.5 Fishing Hook
+2.6 Abstract Arrow
+2.7 Arrow
+2.8 Firework Rocket
+2.9 Living Entity
+2.10 Player
+2.11 Armor Stand
+2.12 Mob
+2.13 Water Animal
+2.14 Squid
+2.15 Dolphin
+2.16 Creature
+2.17 Ageable
+2.18 Animal
+2.19 Abstract Horse
+2.20 Ocelot
+2.21 Rabbit
+2.22 Sheep
+2.23 Fox
+2.24 Goat
+2.25 Tameable Animal
+2.26 Wolf
+2.27 Villager
+2.28 Golem
+2.29 Iron Golem
+2.30 Evoker Fangs
+2.31 Monster
+2.32 Witch
+2.33 Ravager
+2.34 Zombie
+2.35 Zombie Villager
+2.36 Guardian
+2.37 Minecart
+2.38 Minecart TNT
+2.39 Minecart Spawner
+2.40 Hoglin
+2.41 Zoglin
+2.42 Allay
+2.43 Warden
+2.44 Sniffer
+
+Status table
+The following table links to the appropriate entity for each status.
+
+Status code
+
+Entity(/ies)
+
+0
+
+Arrow
+
+1
+
+Minecart Spawner, Rabbit
+
+2
+
+Living Entity
+
+3
+
+Egg, Living Entity, Snowball
+
+4
+
+Evoker Fangs, Hoglin, Iron Golem, Ravager, Warden, Zoglin
+
+5
+
+None
+
+6
+
+Abstract Horse, Tameable Animal
+
+7
+
+Abstract Horse, Tameable Animal
+
+8
+
+Wolf
+
+9
+
+Player
+
+10
+
+Sheep
+
+11
+
+Iron Golem
+
+12
+
+Villager
+
+13
+
+Villager
+
+14
+
+Villager
+
+15
+
+Witch
+
+16
+
+Zombie Villager
+
+17
+
+Firework Rocket
+
+18
+
+Allay, Animal
+
+19
+
+Squid
+
+20
+
+Mob
+
+21
+
+Guardian
+
+22
+
+Player
+
+23
+
+Player
+
+24
+
+Player
+
+25
+
+Player
+
+26
+
+Player
+
+27
+
+Player
+
+28
+
+Player
+
+29
+
+Living Entity
+
+30
+
+Living Entity
+
+31
+
+Fishing Hook
+
+32
+
+Armor Stand
+
+33
+
+None
+
+34
+
+Iron Golem
+
+35
+
+Living Entity
+
+36
+
+None
+
+37
+
+None
+
+38
+
+Dolphin
+
+39
+
+Ravager
+
+40
+
+Ocelot
+
+41
+
+Ocelot
+
+42
+
+Villager
+
+43
+
+Player
+
+44
+
+None
+
+45
+
+Fox
+
+46
+
+Living Entity
+
+47
+
+Living Entity
+
+48
+
+Living Entity
+
+49
+
+Living Entity
+
+50
+
+Living Entity
+
+51
+
+Living Entity
+
+52
+
+Living Entity
+
+53
+
+Entity
+
+54
+
+Living Entity
+
+55
+
+Living Entity
+
+56
+
+Wolf
+
+57
+
+None
+
+58
+
+Goat
+
+59
+
+Goat
+
+60
+
+Living Entity
+
+61
+
+Warden
+
+62
+
+Warden
+
+63
+
+Sniffer
+
+70
+
+Minecart TNT
+
+Entity statuses
+Entity
+
+Status
+
+Description
+
+53
+
+Spawns honey block slide particles at the entities feet
+
+Projectile
+Extends Entity.
+No additional statuses.
+
+Snowball
+Extends Projectile.
+
+Status
+
+Description
+
+3
+
+Displays 8 snowballpoof particles at the snowball's location
+
+Egg
+Extends Projectile.
+
+Status
+
+Description
+
+3
+
+Displays 8 iconcrack particles with the egg as a parameter at the egg's location
+
+Fishing Hook
+Extends Entity.
+
+Status
+
+Description
+
+31
+
+If the caught entity is the connected player, then cause them to be pulled toward the caster of the fishing rod.
+
+Abstract Arrow
+Extends Entity.
+Abstract base class for Arrow (which is used for regular arrows as well as tipped ones) and Spectral Arrow.
+
+Arrow
+Extends Arrow.
+
+Status
+
+Description
+
+0
+
+Spawns tipped arrow particle effects, if the color is not -1.
+
+Firework Rocket
+Extends Entity.
+
+Status
+
+Description
+
+17
+
+Triggers the firework explosion effect (based on the firework info metadata)
+
+Living Entity
+Extends Entity.
+
+Status
+
+Description
+
+2
+
+Plays the spear charge attack animation
+
+3
+
+Plays the death sound and death animation
+
+29
+
+Plays the shield block sound
+
+30
+
+Plays the shield break sound
+
+35
+
+Plays totem of undying animation and sound
+
+46
+
+Spawns portal particles when teleporting due to consumption of a chorus fruit or being an endermen
+
+47
+
+Plays the equipment break sound (unless silent) and spawns break particles for the item in the main hand
+
+48
+
+Plays the equipment break sound (unless silent) and spawns break particles for the item in the off hand
+
+49
+
+Plays the equipment break sound (unless silent) and spawns break particles for the item in the head slot
+
+50
+
+Plays the equipment break sound (unless silent) and spawns break particles for the item in the chest slot
+
+51
+
+Plays the equipment break sound (unless silent) and spawns break particles for the item in the legs slot
+
+52
+
+Plays the equipment break sound (unless silent) and spawns break particles for the item in the feet slot
+
+54
+
+Spawns honey block fall particles at the entities feet
+
+55
+
+Swaps the hand items of the entity
+
+60
+
+Spawns death smoke particles
+
+Player
+Extends Living Entity.
+
+Status
+
+Description
+
+9
+
+Marks item use as finished (finished eating, finished drinking, etc)
+This status is not required if you want more control on the server side, this basically finishes the interaction on the client side to decrease the food quantity, arrow quantity, ...
+But you can trigger these changes manually through other packets or prevent those changes on the client.
+Examples:
+
+Create an 'Infinity Bow' without the first arrow in your inventory constantly changing in quantity.
+Create a custom food that is infinite, and prevent the stack quantity from decreasing.
+...
+Note: This works together with the 'Hand data' so this will have to be updated accordingly to 'finish' the interaction manually.
+
+22
+
+Enables reduced debug screen information
+
+23
+
+Disables reduced debug screen information
+
+24
+
+Set op permission level to 0
+
+25
+
+Set op permission level to 1
+
+26
+
+Set op permission level to 2
+
+27
+
+Set op permission level to 3
+
+28
+
+Set op permission level to 4
+
+43
+
+Spawn cloud particles at the player. Sent to a player whose Bad Omen effect is removed to either start a raid or increase its difficulty.
+
+Armor Stand
+Extends Living Entity.
+
+Status
+
+Description
+
+32
+
+Plays the hit sound, and resets a hit cooldown.
+
+Mob
+Extends Living Entity.
+
+Status
+
+Description
+
+20
+
+Spawn explosion particle. Used when:
+A silverfish enters a block
+A silverfish exits a block
+A mob spawner (or minecart mob spawner) spawns an entity (only with entities that support this status)
+
+Water Animal
+Extends Mob.
+No additional statuses.
+
+Squid
+Extends Water Animal
+
+Status
+
+Description
+
+19
+
+Resets the squid's rotation to 0 radians.  Occurs whenever the server calculates that the squid has rotated more than 2 pi radians.
+
+Dolphin
+Extends Water Animal
+
+Status
+
+Description
+
+38
+
+Causes several "happy villager" particles to appear; used when the dolphin has been fed and is locating a structure
+
+Creature
+Extends Mob.
+No additional statuses.
+
+Ageable
+Extends Creature.
+No additional statuses.
+
+Animal
+Extends Ageable.
+
+Status
+
+Description
+
+18
+
+Spawn "love mode" heart particles
+
+Abstract Horse
+Extends Animal.
+
+Status
+
+Description
+
+6
+
+Spawn smoke particles (taming failed)
+
+7
+
+Spawn heart particles (taming succeeded)
+
+Ocelot
+
+
+
+This is for Ocelot not Cat
+
+Extends Animal.
+
+Status
+
+Description
+
+40
+
+Spawn smoke particles (taming failed)
+
+41
+
+Spawn heart particles (taming succeeded)
+
+Rabbit
+Extends Animal.
+
+Status
+
+Description
+
+1
+
+Causes the rabbit to use its rotated jumping animation, and displays jumping particles.
+
+Sheep
+Extends Animal.
+
+Status
+
+Description
+
+10
+
+Causes the sheep to play the eating grass animation for the next 40 ticks
+
+Fox
+Extends Animal.
+
+Status
+
+Description
+
+45
+
+Spawns particles based on the item on the fox's mouth (technically its main hand) to indicate them chewing on it
+
+Goat
+Extends Animal.
+
+Status
+
+Description
+
+58
+
+Lower head for ramming
+
+59
+
+Stop lowering head
+
+Tameable Animal
+Extends Animal.
+
+Status
+
+Description
+
+6
+
+Spawn smoke particles (taming failed)
+
+7
+
+Spawn heart particles (taming succeeded)
+
+Wolf
+Extends Tameable Animal.
+
+Status
+
+Description
+
+8
+
+Play wolf shaking water animation
+
+56
+
+Stop wolf shaking water animation
+
+Villager
+Extends Ageable.
+
+Status
+
+Description
+
+12
+
+Spawn villager mating heart particles
+
+13
+
+Spawn villager angry particles
+
+14
+
+Spawn villager happy particles
+
+42
+
+Spawn "splash" particles. Triggered with 1% chance each tick while a raid is active.
+
+Golem
+Extends Creature.
+No additional statuses.
+
+Iron Golem
+Extends Golem.
+
+Status
+
+Description
+
+4
+
+Plays attack animation and attack sound
+
+11
+
+Causes golem to hold out a rose poppy for 400 ticks (20 seconds)
+
+34
+
+Puts away golem's poppy
+
+Evoker Fangs
+Extends Entity.
+
+Status
+
+Description
+
+4
+
+Starts the attack animation, and plays the entity.evocation_fangs.attack sound.
+
+Monster
+Extends Creature.
+No additional statuses.
+
+Witch
+Extends Monster.
+
+Status
+
+Description
+
+15
+
+Spawns between 10 and 45 witchMagic particles.  This status has a .075% chance of happening each tick.
+
+Ravager
+Extends Monster.
+
+Status
+
+Description
+
+4
+
+Starts the attack animation.
+
+39
+
+Marks the ravager as stunned for the next 40 ticks.
+
+Zombie
+Extends Monster.
+
+Zombie Villager
+Extends Zombie.
+
+Status
+
+Description
+
+16
+
+Plays the entity.zombie_villager.cure sound effect (unless the entity is silent)
+
+Guardian
+Extends Monster.
+
+Status
+
+Description
+
+21
+
+Plays the guardian attack sound effect from this entity.
+
+Minecart
+Extends Entity.
+No additional statuses.
+
+Minecart TNT
+Extends Minecart.
+
+Status
+
+Description
+
+70
+
+Causes the TNT to ignite. Does not play a sound; the sound must be played separately.
+
+Minecart Spawner
+Extends Minecart.
+
+Status
+
+Description
+
+1
+
+Resets the delay of the spawner to 200 ticks (the default minimum value).
+
+Hoglin
+Extends Animal.
+
+Status
+
+Description
+
+4
+
+Plays the attack animation for 10 ticks and plays the attack sound.
+
+Zoglin
+Extends Monster.
+
+Status
+
+Description
+
+4
+
+Plays the attack animation for 10 ticks and plays the attack sound.
+
+Allay
+Extends Creature.
+
+Status
+
+Description
+
+18
+
+Spawns heart particles, used upon Allay duplication.
+
+Warden
+Extends Monster.
+
+Status
+
+Description
+
+4
+
+Stops the roar animation and performs the attack animation.
+
+61
+
+Performs tendril shaking animation for 10 ticks.
+
+62
+
+Performs the sonic boom attack animation (Charge and release). Beam and sound are not included.
+
+Sniffer
+Extends Animal.
+
+Status
+
+Description
+
+63
+
+Plays the digging sound. Only works if the Sniffer has a target, and is in a digging or searching state.
+
+
+
+This article is licensed under a Creative Commons Attribution-ShareAlike 3.0 license. 
+This article has been imported from wiki.vg or is a derivative of such a page. Thus, the wiki's usual license does not apply.Derivative works must be licensed using the same or a compatible license.

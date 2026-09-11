@@ -1,0 +1,71 @@
+This article is missing information about: updateStrategy option 
+Please expand the article to include this information. Further details may exist on the talk page.
+
+launcher_settings.json is a JSON file located in  .minecraft, which stores global configuration parameters of the Minecraft Launcher.
+
+Contents
+
+1 JSON format
+2 Gallery
+3 Notes
+4 Navigation
+
+JSON format
+launcher_settings.json uses JSON structures to save and retrieve settings across launcher sessions. The keys and their data types are outlined below.
+
+[NBT Compound / JSON Object] The root object
+[Int] version: The active schema version of the configuration file. Currently 17.
+[Int] formatVersion: Internal schema format version identifier of the settings model. Defaults to 0.
+[Long] deviceId: A unique 64-bit integer identifier randomly generated to uniquely identify the client machine installation.
+[String] locale: The interface language tag (such as en-US). Defaults to the operating system's locale.
+[String] channel: The release channel used for receiving launcher updates. Can be "release", "beta" or any custom defined channel in customChannels. Defaults to "release".
+[NBT List / JSON Array] customChannels: A list of strings representing custom distribution update channels. Defaults to an empty list [].
+[String] productLibraryDir: Custom path for installing and managing game files.
+[Boolean] useArm64JreIfSupported: Forces the launcher to use the native 64-bit ARM Java Runtime Environment, on supported ARM64 hardware. Defaults to false.
+[Boolean] useMagnifiedMode: Increases all texts size. Defaults to false.
+[Boolean] quickPlayEnabled: Toggles support for quick play. Defaults to true.
+Optional properties:
+[String] updateStrategy: ​[more information needed]. Can be "STABLE_VERSIONS", "SNAPSHOTS" or "CONTROLLED_EXPERIMENT".
+[String] minecraftServicesEnvironment: Target API backend environment for Minecraft Services. Can be any string or "staging"/"stage".
+[String] mojangApiEnvironment: Target API backend environment for the in-game Mojang API. Can be any string or "staging"/"stage".
+[String] franchiseServicesEnvironment: Target API backend environment for the franchise services. Can be any string or "staging"/"stage".
+[String] dynamicResourceServicesEnvironment: Endpoint for CDN asset delivery. Can be "prod" or "testing".
+[NBT Compound / JSON Object] dungeonsSettings: Settings for the updater specific to Minecraft Dungeons.
+[String] channelId: The release channel identifier.
+[String] customBuildType: The release channel used for receiving updates. Can be an empty string or "beta".
+[Boolean] debugGPU: Opens a dedicated debugging window showing GPU driver capabilities and hardware acceleration statistics for troubleshooting.
+[Boolean] disableGPU: Disables hardware graphics acceleration in the launcher.
+[Boolean] autoPlayVideoDisabled: Prevents embedded videos from automatically playing inside game tabs.
+[NBT Compound / JSON Object] treatmentTagOverride: Overrides treatment tags and A/B feature flag experiments.
+[NBT List / JSON Array] onTags: A list of tags to explicitly force on.
+[NBT List / JSON Array] offTags: A list of tags to explicitly force off.
+[Boolean] logVerboseTelemetry: Enables high-verbosity diagnostic telemetry reporting.
+[Boolean] logPerformance: Enables recording of performance metrics in logs.
+[Boolean] forceNoEntitlements: Internal debug flag to simulate an account with no owned game licenses.
+[String] shutDownTimestampUnified: UNIX timestamp recording the exact date and time of the last shutdown of the unified Minecraft Launcher.
+[String] shutDownTimestampGamecore: UNIX timestamp recording the exact date and time of the last shutdown of the launcher.
+[String] sendAdditionalHeader: Custom HTTP header injected into network requests sent to backend services.
+[String] additionalCEFOptions: Custom command-line arguments and flags passed directly to the Chromium Embedded Framework (CEF) runtime on launch. Accepts a string or an array of argument strings.
+
+Gallery
+
+
+
+			Hidden channel selector revealed in the launcher settings when customChannels is populated
+
+
+
+			Environment override tags appended to the launcher version
+
+
+Notes
+
+ Redirects critical backend services to internal staging servers, causing network and authentication failures without valid developer credentials.
+
+ Configuring this appends identifier tags directly to the launcher's displayed version: mse (Minecraft Services), mae (Mojang API), fse (Franchise Services), cse (Dynamic Resource Services), and noent (forceNoEntitlements active).
+
+ Only respected by installations from the unified launcher of Minecraft Dungeons.
+
+ Setting this to "beta" allows downloading the official closed beta build of Minecraft Dungeons from April 3, 2020.
+
+Navigation

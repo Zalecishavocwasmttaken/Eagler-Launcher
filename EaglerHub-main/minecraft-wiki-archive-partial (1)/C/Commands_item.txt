@@ -1,0 +1,210 @@
+For the Bedrock Edition equivalent, see Commands/replaceitem.
+
+
+
+This feature is exclusive to Java Edition. 
+
+
+
+This article needs to be updated. 
+Please update this article to reflect recent updates or newly available information. The talk page may contain suggestions.Reason: Result with slot_source error in Java 26.3
+
+/item
+
+Permission levelrequired
+
+2
+
+Restrictions
+
+None
+
+{
+    "title": "<code>/item</code>",
+    "rows": [
+        {
+            "field": "2",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "None",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+Manipulate or copy items in the inventories of blocks (chests, furnaces, etc.) or entities (players or mobs).
+
+Contents
+
+1 Syntax
+2 Arguments
+3 Result
+4 Output
+5 Examples
+6 History
+7 See also
+8 Navigation
+
+Syntax
+item modify (block <pos>|entity <targets>) <slot> <modifier>
+Modifies the items in the specified slot with the specified item modifier.
+item replace (block <pos>|entity <targets>) <slot> with <item> [<count>]
+Replaces the items in the specified slot with the specified items.
+item replace (block <pos>|entity <targets>) <slot> from (block <sourcePos>|entity <sourceTarget>) <sourceSlot> [<modifier>]
+Copies the source items to the target slot and optionally modifies it with the modifier.
+item override (block <pos>|entity <targets>) <slots> with <item> [<count>]
+item override (block <pos>|entity <targets>) <slots> from (block <sourcePos>|entity <sourceTarget>) <sourceSlots> [<modifier>]
+Similar to item replace, but can fill items across multiple slots. When there are more target slots than source slots, the extra target slots are cleared. See § Arguments and Slot for more details.​[upcoming: JE 26.3]
+item fill (block <pos>|entity <targets>) <slots> with <item> [<count>]
+item fill (block <pos>|entity <targets>) <slots> from (block <sourcePos>|entity <sourceTarget>) <sourceSlots> [<modifier>]
+Similar to item override, but instead of clearing extra target slots, items from the source slots are repeated to fill all target slots.​[upcoming: JE 26.3]
+Syntax displayed in various ways
+
+Simplified tree:
+
+item ...
+... modify <TARGET> <slot> <modifier>
+... replace <TARGET> <slot>
+... with <item> [<count>]
+... from <SOURCE> <sourceSlot> [<modifier>]
+... override <TARGET> <slots>
+... fill <TARGET> <slots>
+... with <item> [<count>]
+... from <SOURCE> <sourceSlots> [<modifier>]
+where substituted arguments are:
+<TARGET> = (block <pos>|entity <targets>)
+<SOURCE> = (block <sourcePos>|entity <sourceTarget>)
+
+Minimised:
+
+item (modify (block <pos>|entity <targets>) <slot> <modifier>|replace (block <pos>|entity <targets>) <slot> (with <item> [<count>]|from (block <sourcePos>|entity <sourceTarget>) <sourceSlot> [<modifier>])|(override|fill) (block <pos>|entity <targets>) <slots> (with <item> [<count>]|from (block <sourcePos>|entity <sourceTarget>) <sourceSlots> [<modifier>]))
+
+Maximised:
+
+item modify block <pos> <slot> <modifier>
+item modify entity <targets> <slot> <modifier>
+item replace block <pos> <slot> with <item> [<count>]
+item replace block <pos> <slot> from block <sourcePos> <sourceSlot> [<modifier>]
+item replace block <pos> <slot> from entity <sourceTarget> <sourceSlot> [<modifier>]
+item replace entity <targets> <slot> with <item> [<count>]
+item replace entity <targets> <slot> from block <sourcePos> <sourceSlot> [<modifier>]
+item replace entity <targets> <slot> from entity <sourceTarget> <sourceSlot> [<modifier>]
+item override block <pos> <slot> with <item> [<count>]
+item override block <pos> <slot> from block <sourcePos> <sourceSlots> [<modifier>]
+item override block <pos> <slot> from entity <sourceTarget> <sourceSlots> [<modifier>]
+item override entity <targets> <slot> with <item> [<count>]
+item override entity <targets> <slot> from block <sourcePos> <sourceSlots> [<modifier>]
+item override entity <targets> <slot> from entity <sourceTarget> <sourceSlots> [<modifier>]
+item fill block <pos> <slots> with <item> [<count>]
+item fill block <pos> <slots> from block <sourcePos> <sourceSlots> [<modifier>]
+item fill block <pos> <slots> from entity <sourceTarget> <sourceSlots> [<modifier>]
+item fill entity <targets> <slots> with <item> [<count>]
+item fill entity <targets> <slots> from block <sourcePos> <sourceSlots> [<modifier>]
+item fill entity <targets> <slots> from entity <sourceTarget> <sourceSlots> [<modifier>]
+
+Arguments
+<pos>: block_pos
+
+Specifies the position of the block to be modified.
+Must be a block position composed of <X>, <Y> and <Z>, each of which must be an integer or a tilde and caret notation.
+<targets>: entity
+
+Specifies one or more entities to modify.
+Must be a player name, a target selector or a UUID.
+<slot>: item_slot
+
+Specifies the inventory slot to be modified. Valid values depend on whether a block or an entity is being modified.
+Must be a string notation that refer to a single slot in the inventory, which consists of "slot type" and optional "slot number", in the format of <slot_type> or <slot_type>.<slot_number>. See Slot for details.
+<slots>: item_slots​[until: JE 26.3]
+<slots>: slot_source​[upcoming: JE 26.3]
+
+Similar to <slot>, but can contain multiple slots.
+Must be a string notation that refer to certain slot(s) in the inventory, which consists of "slot type" and optional "slot number", in the format of <slot_type> or <slot_type>.<slot_number>. Wildcard (*) is accepted. See Slot for details.​[until: JE 26.3]
+Specifies a slot source with a resource location or in SNBT format. Must be a valid slot source definition in SNBT format, or a resource location of an existing slot source (an entry in minecraft:slot_source registry). For NBT tag, if it is a string tag, the tag is also parsed into a resource location and resolved into an existing slot source; otherwise, the tag is parsed as a new slot source definition.​[upcoming: JE 26.3]
+<modifier>: loot_modifier
+
+Specifies the item modifier to apply on the chosen item.
+Specifies a item modifier with a resource location or in SNBT format. Must be a valid item modifier definition in SNBT format, or a resource location of an existing item modifier (an entry in minecraft:item_modifier registry). For NBT tag, if it is a string tag, the tag is also parsed into a resource location and resolved into an existing item modifier; otherwise, the tag is parsed as a new item modifier definition.
+<item>: item_stack
+
+Specifies the item to be placed in the block or entity's inventory slot.
+It must be in the format of item_id[data_components], in which [data_components] can be omitted when they are not needed. See minecraft:item_stack for details.
+<count>: integer
+
+Specifies the number of items to be placed in the block or entity's inventory slot.
+Must be a [Int]32-bit integer number (from -2147483648 (-231) to 2147483647 (231-1) ). And it must be between 1 and 99 (inclusive).
+<sourcePos>: block_pos
+
+Specifies the position of the block to copy items from.
+Must be a block position composed of <X>, <Y> and <Z>, each of which must be an integer or a tilde and caret notation.
+<sourceTarget>: entity
+
+Specifies an entity to copy items from.
+Must be a player name, a target selector or a UUID.  And the target selector must be in single type.​[until: JE 26.3]
+<sourceSlot>: item_slot
+
+Specifies the inventory slot to copy the items from. Valid values depend on whether the source is block or an entity.
+Must be a string notation that refer to a single slot in the inventory, which consists of "slot type" and optional "slot number", in the format of <slot_type> or <slot_type>.<slot_number>. See Slot for details.
+<sourceSlots>: slot_source​[upcoming: JE 26.3]
+
+Similar to <sourceSlot>, but can contain multiple slots.
+Specifies a slot source with a resource location or in SNBT format. Must be a valid slot source definition in SNBT format, or a resource location of an existing slot source (an entry in minecraft:slot_source registry). For NBT tag, if it is a string tag, the tag is also parsed into a resource location and resolved into an existing slot source; otherwise, the tag is parsed as a new slot source definition.​[upcoming: JE 26.3]
+Result
+
+CommandTriggerJava Edition
+
+AnyThe command is incomplete, or any argument is not specified correctly. Unparseable/item modify .../item ... from ...<modifier> doesn't meet any of the following conditions:
+If it is a resource location, it should be the resource location of an existing item modifier.
+If it is a string NBT tag, it should be able to be parsed into a resource location, and the resource location should be of an existing item modifier.
+If it is a non-string NBT tag, it should be able to be decoded as an item modifier. Failed/item modify block .../item replace block ...<pos> is unloaded or out of the world.The block at the <pos> is not a container.The block at the <pos> does not have the specified slot./item modify entity .../item replace entity ...<targets> fails to resolve to one or more entities (named player must be online).All selected entities meet one or more of the following conditions:
+It doesn't have the specified slot (for example, zombies have no horse.armor).
+Specified item cannot be placed into the specified slot of its (for example, to place a stone into armor.chest of a player)./... with <item> <count><count> exceeds the stack limit of the specified item./... from block ...<sourcePos> is unloaded or out of the world.The block at <sourcePos> is not a container.The block at <sourcePos> does not have the specified slot./... from entity ...<sourceTarget> fails to resolve to a single entity (named player must be online).The <sourceTarget> doesn't have the specified slot (for example, zombies have no horse.armor).AnyOtherwiseSuccessful
+Output
+
+CommandEditionSituationSuccess Count/execute store success .../execute store result ...
+
+AnyJava EditionOn fail000/item (modify|replace) block ...On success111/item (modify|replace) entity ...On success11the number of entities whose items are successfully replaced
+Examples
+To replace the items in the bottom-right slot of a single chest two block above with four spruce saplings:
+/item replace block ~ ~2 ~ container.26 with minecraft:spruce_sapling 4
+To replace the items in the rightmost hotbar slot of the nearest player with four spruce saplings:
+/item replace entity @p hotbar.8 with minecraft:spruce_sapling 4
+To replace the item in the offhand of the selected player with the item in their main hand:
+/item replace entity @s weapon.offhand from entity @s weapon.mainhand
+To put a brown banner on a player's head
+/item replace entity @s armor.head with minecraft:brown_banner
+To increase the count of the item in your main hand:
+/item modify entity @s weapon.mainhand example:increase_count
+file in a data pack: data/example/item_modifier/increase_count.json{
+  "function": "minecraft:set_count",
+  "count": 1,
+  "add": true
+}
+
+To increase the count of the item in your main hand without external files:
+item modify entity @s weapon.mainhand {"function":"minecraft:set_count","count":1,"add":true}
+To put the item in your hand, on your head:
+/item replace entity @s armor.head from entity @s weapon.mainhand
+History
+Java EditionNovember 8, 2017
+A command called /modifyitem was mentioned in snapshot's Java Edition 17w45a update log at minecraft.net. At first it was planned to replace /enchant.February 9, 2018
+In Java Edition 18w06a's update logs, Dinnerbone states that the team has shelved the /modifyitem idea, but that it may be considered in the future.1.1720w46a
+Added /item, replacing /replaceitem and reusing the idea of /modifyitem through one of its arguments, modify, which in fact contains a similar functionality to /enchant, as they use item modifiers capable of changing the specified item's enchantments.21w19a
+Syntax of /item has been changed.1.19Pre-release 1
+Replacing the off-hand slot using /item no longer produces a vibration.1.20.223w31a
+Can now replace items in jukeboxes.
+
+Can now remove items in chiseled bookshelves.Upcoming Java Edition26.3snapshot1
+Now takes a slot source as argument in place of anywhere a slot was previously used.
+The entity argument in the from entity item source can now be a selector targeting multiple entities.
+Added new fill and override sub-commands, each with syntax identical to /item replace.
+See also
+/data — can also replace items in a container's or mob's inventory, or modify the drop chances of armor and weapons
+/give — give items to players without specifying specific inventory slots or overwriting other items
+/replaceitem — The Bedrock Edition equivalent
+Navigation
+
+ MC-250022

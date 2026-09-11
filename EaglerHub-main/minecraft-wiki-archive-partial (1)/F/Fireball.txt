@@ -1,0 +1,182 @@
+This article is about the large explosive fireball fired by ghasts.   For the smaller variant, see Small Fireball.   For similar uses, see Fireball (disambiguation).
+
+Fireball
+
+Hitbox size
+
+In Java Edition:
+Height: 1 blockWidth: 1 block
+In Bedrock Edition:
+Height: 0.31 blocksWidth: 0.31 blocks
+
+{
+    "title": "Fireball",
+    "rows": [
+        {
+            "field": "'''In (link to Java Edition article, displayed as ''Java Edition''):'''<br>\nHeight: 1 block<br>Width: 1 block<br>\n'''In (link to Bedrock Edition article, displayed as ''Bedrock Edition''):'''<br>\nHeight: 0.31 blocks<br>Width: 0.31 blocks",
+            "label": "(link to Hitbox article, displayed as Hitbox size)"
+        }
+    ],
+    "invimages": [],
+    "images": [
+        "Fire Charge.png"
+    ]
+}
+
+A fireball is a large, explosive, fire-starting projectile fired by ghasts as their only attack. It can be deflected with a melee attack or another projectile.
+
+Contents
+
+1 Behavior
+2 Sounds
+3 Data values
+
+3.1 ID
+3.2 Entity data
+
+4 Achievements
+5 Advancements
+6 History
+
+6.1 Java Edition
+6.2 Bedrock Edition
+6.3 Legacy Console Edition
+6.4 New Nintendo 3DS Edition
+6.5 Data history
+
+6.5.1 Java Edition
+6.5.2 Bedrock Edition
+
+7 Issues
+8 Trivia
+9 Gallery
+
+9.1 In other media
+
+10 References
+11 Navigation
+
+Behavior
+Fireballs have a straight trajectory unaffected by gravity and a theoretically infinite range. Fireballs can be deflected if hit by a player using a projectile or melee attack, sending them in the direction of the player's head.
+Fireballs create an explosion upon impact with an entity or block, setting fire to nearby blocks. Fireballs shot by ghasts have an explosive force of 1. The minimum blast resistance required to absorb all blast force of a fireball is 4.034. However, blocks with resistance as low as 3.5 survive if hit from the sides or from the top.
+At close range, fireballs deal massive damage; a direct hit deals 6HP projectile damage and up to 8.5HP × 4.25, 15HP × 7.5, or 22.5HP × 11.25 explosion damage from the blast depending on difficulty, entities other than player treat all difficulties as normal. If an entity has the Fire Resistance effect or is naturally resistant to fire, a fireball does not deal projectile damage to them, although the explosion still can inflict damage. Fireballs rebounded by the player deal 1000HP × 500 damage to a ghast upon direct hit, killing them. Because ghasts are fire resistant, fireballs only damage ghasts when rebounded by the player or if the explosion is within range to damage them. Because fireball explosions only affect entities whose feet are within 2 blocks of the explosion, they are incapable of damaging ghasts except when hitting them from below or within their hitbox.
+When two fireballs collide, one is deflected while the other explodes upon impact.
+
+Sounds
+Java Edition:
+Fireballs use the Friendly Creatures sound category for entity-dependent sound events.
+
+SoundsSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitchAttenuationdistance​ExplosionBlocksWhen a fireball impacts somethingentity.generic.explodesubtitles.entity.generic.explode​4.00.56–0.8416​Ghast shootsHostile MobsWhen a ghast shoots a fireballentity.ghast.shootsubtitles.entity.ghast.shoot​10.00.8–1.216 [verify]
+Bedrock Edition:
+
+SoundsSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitch​ ?BlocksWhen a fireball impacts somethingrandom.explode​ ?4.01.0​ ?Hostile MobsWhen a ghast shoots a fireballmob.ghast.fireball​ ?0.70.8–1.2
+Data values
+ID
+Java Edition:
+
+NameIdentifier
+ Fireballfireball
+
+Bedrock Edition:
+
+NameIdentifier
+ Fireballfireball
+
+Entity data
+Java Edition:
+
+Main article: Entity format
+Fireballs have entity data associated with them that contains various properties.
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all projectiles see Template:Nbt inherit/projectile/template
+Tags common to all hurting projectiles see Template:Nbt inherit/hurting projectile/template
+[Byte] ExplosionPower: The power and size of the explosion created by the fireball upon impact. Default value 1.
+[NBT Compound / JSON Object] Item: The item to render as, may be absent.
+A single item stack see Template:Nbt inherit/itemnoslot/template
+
+Bedrock Edition:
+
+See Bedrock Edition level format/Entity format.
+Achievements
+IconAchievementIn-game descriptionActual requirements (if different)Gamerscore earnedTrophy type (PS)PS4OtherReturn to SenderDestroy a Ghast with a fireball.Kill a ghast using a ghast fireball.30Silver
+Advancements
+IconAdvancementIn-game descriptionActual requirements (if different)Return to SenderDestroy a Ghast with a fireballKill a ghast by deflecting any ghast fireball into it.
+History
+
+
+
+This section would benefit from the addition of more sounds. 
+Please remove this notice once you have added  suitable sounds to the section.The specific instructions are: Initial explosion sound before it was updated
+
+ For info relating to the ghast, including its shooting behavior, see Ghast § History.
+
+Java Edition
+Java Edition Alphav1.2.0preview
+ Added fireballs. At the time, they used the snowball texture.Java Edition1.0.0Beta 1.9 Prerelease
+ Fireballs now have a unique texture, which would later also be used by fire charges.Beta 1.9 Prerelease 5
+Killing ghasts by directly hitting them with a fireball grants the player the achievement "Return to Sender".1.513w02a
+The texture of fireballs has been changed from  to . This is likely due to the diamond helmet's position in stitched_items.png being the position where the fire charge was in items.png. The texture is offset by 6 pixels in-game.13w02b
+The accidental texture change of the fireball has been reverted from  to .1.6.113w24a
+The texture of the fireball has been changed from  to .13w24b
+The accidental texture change of the fireball has been reverted from  to .?
+Fireballs are no longer 2D and now have some thickness.1.1418w43a
+ The texture of the fireball has been changed.18w50a
+The fireball now has an optional Item NBT tag that can specify a different item stack to render.1.21.224w34a
+Fired fireballs no longer go through the world border if hit.Upcoming Java Edition26.3snap8
+Fixed a bug causing shulker bullets to always push fireballs south whenever the two collided.
+Bedrock Edition
+Pocket Edition Alphav0.11.0build 1
+ Added fireballs.
+
+As ghasts are currently unobtainable in-game without editing, their fireballs are also unobservable.v0.12.1build 1
+As ghasts now spawn in the Nether and have accessible spawn eggs, their fireballs can also be encountered.Bedrock Edition1.10.0beta 1.10.0.3
+ The texture of the fireball has been changed.
+Legacy Console Edition
+Legacy Console EditionXbox 360Xbox OnePS3PS4PS VitaWii USwitchTU1CU11.001.001.00Patch 11.0.1
+Added fireballs.
+
+ At the time, fireballs used the snowball texture, which was additionally lit on fire.[verify]TU7
+ Fireballs now have a unique texture, which would later be used by fire charges.   1.90
+ The texture of the fireball has been changed.
+New Nintendo 3DS Edition
+New Nintendo 3DS Edition0.1.0
+ Added fireballs.
+Data history
+Java Edition
+Java Edition1.1116w32a
+The projectile entity ID of the fireball has been changed from Fireball to fireball.16w40a
+The NBT tags xTile, yTile, zTile, inTile and inGround have been removed from the fireball's entity data.1.1317w47a
+Numeric IDs for entities were presumably deprecated in this version.​[more information needed]1.1620w10a
+The NBT tags life and direction have been removed from the fireball.1.17pre2
+The data type of the ExplosionPower tag has been changed from Int to Byte.
+Bedrock Edition
+Pocket Edition1.1.0alpha 1.1.0.0
+The entity ID for the fireball has been changed from largefireball to fireball.
+Issues
+Issues relating to "Fireball" are maintained on the bug tracker. Issues should be reported and viewed there.
+
+Trivia
+If a player hits a fireball using an item with the Looting enchantment, any mob killed by that fireball has its drops affected by the enchantment as though the mob was killed by directly using the item.
+Gallery
+In other media
+
+
+
+			A fireball as it appears in Minecraft Dungeons.
+
+
+
+			A fireball as it appears in A Minecraft Movie
+
+
+References
+
+ MC-6758
+
+ MC-17827
+
+ MC-260780 – Shulker bullets always push fireballs south – resolved as "Fixed".
+
+Navigation

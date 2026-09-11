@@ -1,0 +1,308 @@
+This feature is exclusive to Java Edition. 
+
+A loot context is a set of parameters available to loot tables, predicates, item modifiers, number providers, and slot sources.
+When evaluating these data types in different situations, different parameters will be available. For example, a loot table that runs when the player mines a block would get a tool parameter if the player used an item to do it, but a loot table that populates a treasure chest would never get a tool parameter. Loot contexts are identifiers describing which parameters are available in specific situations. If one is set as the [String] type of a loot table, it can be used to check whether the loot table depends on parameters that will never be available in its intended use case, allowing the game to report a problem when the data pack is loaded.
+
+Contents
+
+1 Loot context types and uses
+
+1.1 Used for loot tables
+1.2 Not used in loot tables
+
+2 Navigation
+
+Loot context types and uses
+Used for loot tables
+These loot context types are used for evaluating loot tables, and other data types when they appear inside of loot tables.
+
+Loot context type
+
+When it is used
+
+Loot context parameters that are supplied
+
+Loot context parameters that may be supplied
+
+minecraft:empty
+
+Used only by the hardcoded empty loot table. Supplies no loot context parameters.
+Specifying "type":"empty" means no context parameters can be used in this loot table.
+
+None
+None
+
+minecraft:chest
+
+Opening of a container with loot table (can be barrel, chest, trapped chest, hopper, minecart with chest, boat with chest, minecart with hopper, dispenser, dropper, shulker box, dyed shulker box, and decorated pot).
+The command /loot … loot <loot_table>.
+
+Origin: The center of the chest.
+
+this entity: The entity that opened the chest.
+
+minecraft:fishing
+
+Fishing.
+The command /loot … fish <loot_table>.
+
+Origin: The position of the fishing bobber.
+Tool: The fishing rod item that the player cast
+
+this entity: The fishing bobber.
+
+minecraft:entity
+
+Loot from a living entity's death.
+The command /loot … kill <target>.
+
+this entity: The entity that died.
+Origin: The location of the entity's death.
+Damage source: The source of the damage that caused the entity to die.
+
+attacker entity: The entity that was the source of the final damage to the victim entity.
+direct_attacker entity: The entity that directly contacted the victim entity to kill them.
+attacking_player entity: The player that most recently damaged the victim entity.
+
+minecraft:equipment
+
+Used when equipping mobs spawned from a Monster Spawner, Minecart with Monster Spawner or Trial Spawner.
+
+Origin: The position of the entity being spawned.
+this entity: The entity being spawned.
+
+minecraft:archaeology
+
+Using a brush on suspicious sand or suspicious gravel that has a loot table.
+
+Origin: The center of the suspicious block.
+this entity: The entity that used the brush on the suspicious block.
+Tool: The tool used for brushing.
+
+minecraft:vault
+
+Display of items inside of a vault.
+Opening of a vault.
+
+Origin: The center of the vault.
+
+this entity: The entity that opened the vault. Not present for item display inside vaults.
+Tool: The item used as a key.
+
+minecraft:gift
+
+Gift from a cat, villager or sniffer.
+Item laid by a chicken.
+
+Origin: The cat, villager or sniffer's location.
+this entity: The cat, villager or sniffer that gave the gift. / The chicken that laid the item.
+
+minecraft:barter 
+
+Bartering with piglins.
+
+this entity: The piglin bartered with.
+
+minecraft:advancement_reward
+
+Loot table set as an advancement's reward.
+
+this entity: The player that gained the advancement.
+Origin: The player's location when they gained the advancement.
+
+minecraft:generic
+
+Not used. Supplies all loot context parameters.
+Specifying "type":"generic" or omitting it means no checking for context parameters in this loot table when loading the data pack.
+
+N/A
+N/A
+
+minecraft:block
+
+Loot from mining a block.
+Loot from a block being exploded.
+The command /loot … mine <pos>.
+
+Block state: The block that was broken.
+Origin: The center of the broken block.
+Tool: The tool used to mine the block.
+
+this entity: The player that mined the block, or the entity that caused the explosion.
+Block entity: Any block entity data of the block that was broken, if it was a block entity.
+Explosion radius: The radius of the explosion that broke the block, if broken via an explosion.
+
+minecraft:shearing
+
+Shearing a bogged, sheep, mooshroom or snow golem.
+
+Origin: The position of the entity being sheared.
+this entity: The entity being sheared.
+Tool: The tool used for the interaction.
+
+minecraft:entity_interact
+
+Using a brush on an armadillo.
+
+target_entity: The entity being interacted with.
+Tool: The tool used for the interaction.
+
+interacting_entity: The player or entity that interacted.
+
+minecraft:block_interact
+
+Harvesting a beehive, cave vines, or sweet berry bush
+Carving a pumpkin.
+Tilling rooted dirt.​[upcoming: JE 26.3]
+
+Block state: The block that was interacted with.
+Origin: The center of the block that was interacted with.​[upcoming: JE 26.3]
+
+Block entity: Any block entity data of the block that was interacted with, if it is a block entity.
+interacting_entity: The player or entity that interacted.
+Tool: The tool used for the interaction.
+
+Not used in loot tables
+These loot contexts are not used to evaluate loot tables. Instead, they are used for other invocations of predicates, item modifiers, slot sources​[upcoming: JE 26.3], and number providers​[upcoming: JE 26.3].
+
+Loot context type
+
+When it is used
+
+Loot context parameters that are supplied
+
+Loot context parameters that may be supplied
+
+minecraft:command
+
+Used to evaluate predicates and item modifiers by commands such as /item modify or /execute (if|unless) predicate.
+
+Origin: The position where the command is run.
+
+this entity: The entity that is @s when the command is run.
+
+minecraft:command_compute_default​[upcoming: JE 26.3]
+
+Used to evaluate number providers by /compute default.
+
+Origin: The position where the command is run.
+
+this entity: The entity that is @s when the command is run.
+
+minecraft:command_compute_entity​[upcoming: JE 26.3]
+
+Used to evaluate number providers by /compute entity.
+
+Origin: The position where the command is run.
+target_entity: The entity passed to /compute entity.
+
+this entity: The entity that is @s when the command is run.
+
+minecraft:command_compute_position​[upcoming: JE 26.3]
+
+Used to evaluate number providers by /compute block.
+
+Origin: The position where the command is run.
+Block state: The current state of the block at the position passed to /compute block.
+
+this entity: The entity that is @s when the command is run.
+Block entity: The block entity of the block passed to /compute block, if it was a block entity.
+
+minecraft:command_slot_source​[upcoming: JE 26.3]
+
+Used to evaluate slot sources by commands such as /item or /execute (if|unless) item.
+
+Origin: The position where the command is run.
+Container: The container or inventory being evaluated.
+
+this entity: The entity that is @s when the command is run.
+
+minecraft:selector
+
+Used by the predicate target selector argument.
+
+Origin: The position of the entity being checked.
+this entity: The entity being checked.
+
+minecraft:advancement_entity
+
+Used when an advancement invokes a predicate on an entity.
+
+this entity: The entity being checked.
+Origin: The position of the player who triggers this advancement criterion.
+
+minecraft:advancement_location
+
+Used when an advancement invokes a predicate on the location of a block where an item was used on.
+
+this entity: The player to gain the advancement.
+Origin: The center of the block that was interacted with.
+Tool: The item used to interact with the block.
+Block state: The block that was interacted with.
+
+Block entity: ​[upcoming: JE 26.3] Any block entity data of the block at the location, if it was a block entity.
+
+minecraft:block_use
+
+Used when an advancement invokes a predicate on default_block_use trigger.
+
+this entity: The player to gain the advancement.
+Origin: The center of the block that was interacted with.
+Block state: The block that was interacted with.
+
+minecraft:container_process​[upcoming: JE 26.3]
+
+Used by smelting blocks and brewing stands to evaluate cooking_fuel and brewing_fuel respectively.
+
+Origin: The center of the workstation block.
+Block state: The state of the workstation block.
+Block entity: The block entity data of the workstation block.
+Container: The inventory of the workstation block.
+
+minecraft:enchanted_damage
+
+Used by enchantments invoking predicates, see Custom enchantment § Effect components
+
+this entity: The attacked entity.
+Enchantment level: The level of the enchantment currently evaluated
+Origin: Position of the event ​[more information needed]
+Damage source: The damage source of the attack that caused the enchantment to trigger
+
+attacker entity: The attacking entity.
+direct_attacker entity: The projectile entity used in the attack.
+
+minecraft:enchanted_item
+
+Tool: The item enchanted with the evaluated enchantment.
+Enchantment level: The level of the enchantment currently evaluated
+
+minecraft:enchanted_location
+
+this entity: The attacked entity.
+Enchantment level: The level of the enchantment currently evaluated
+Origin: Position of the event ​[more information needed]
+Enchantment active status: Whether the enchantment was already active before the current evaluation
+
+minecraft:enchanted_entity
+
+this entity: The attacked entity.
+Enchantment level: The level of the enchantment currently evaluated
+Origin: Position of the event ​[more information needed]
+
+minecraft:hit_block
+
+this entity: The entity that hit the block.
+Enchantment level: The level of the enchantment currently evaluated
+Origin: Center of the block that was hit
+Block state: The block that was hit
+
+minecraft:villager_trade
+
+Used for evaluating villager trades.
+
+Origin: The position of the villager or wandering trader
+this entity: The villager or wandering trader.
+
+Additional cost component allowed: Unit context. When present, causes the item modifier enchant_with_levels to generate the component additional_trade_cost on the item.
+
+Navigation

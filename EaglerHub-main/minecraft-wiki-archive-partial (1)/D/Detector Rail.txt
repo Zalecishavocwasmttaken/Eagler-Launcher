@@ -1,0 +1,446 @@
+Detector Rail
+
+Renewable
+
+Yes
+
+Stackable
+
+Yes (64)
+
+Tool
+
+Blast resistance
+
+0.7
+
+Hardness
+
+0.7
+
+Luminous
+
+No
+
+Transparent
+
+Yes
+
+Waterloggable
+
+Yes
+
+Flammable
+
+No
+
+Catches firefrom lava
+
+No
+
+Map color
+
+ 0 NONE
+
+Note block instrument
+
+Default (Harp)
+
+{
+    "title": "Detector Rail",
+    "rows": [
+        {
+            "field": "Yes",
+            "label": "(link to Renewable resource article, displayed as Renewable)"
+        },
+        {
+            "field": "Yes (64)",
+            "label": "Stackable"
+        },
+        {
+            "field": "<span class=\"sprite-file\" style=\"height:32px;width:32px;--vertical-align:middle\">(link to File:SlotSprite Pickaxe Required.png article, displayed as 32x32px|link=|alt=SlotSprite Pickaxe Required.png: Sprite image for Pickaxe Required in Minecraft|class=pixel-image|This block can be broken with any tool, but a pickaxe is the quickest)</span>",
+            "label": "Tool"
+        },
+        {
+            "field": "0.7",
+            "label": "(link to Explosion#Blast resistance article, displayed as Blast resistance)"
+        },
+        {
+            "field": "0.7",
+            "label": "(link to Breaking#Blocks by hardness article, displayed as Hardness)"
+        },
+        {
+            "field": "No",
+            "label": "(link to Light article, displayed as Luminous)"
+        },
+        {
+            "field": "Yes",
+            "label": "(link to Opacity article, displayed as Transparent)"
+        },
+        {
+            "field": "Yes",
+            "label": "(link to Waterlogging article, displayed as Waterloggable)"
+        },
+        {
+            "field": "No",
+            "label": "(link to Fire#Flammable blocks article, displayed as Flammable)"
+        },
+        {
+            "field": "No",
+            "label": "Catches fire<br>from (link to lava article, displayed as lava)"
+        },
+        {
+            "field": "<span style=\"white-space: nowrap;\"><span style=\"display: inline-block; background-color: rgb(); border: 1px solid #888; border-radius: 0.3em; color: transparent; width: 1em; height: 1em; vertical-align: -0.36em; margin-right: -0.1em\"><br></span> 0 NONE</span>",
+            "label": "(link to Map item format#Color table article, displayed as Map color)"
+        },
+        {
+            "field": "Default (Harp)",
+            "label": "(link to Note Block#Instruments article, displayed as Note block instrument)"
+        }
+    ],
+    "invimages": [
+        "Detector Rail"
+    ],
+    "images": [
+        "Detector Rail.png",
+        "Powered Detector Rail.png"
+    ]
+}
+
+The detector rail is a type of rail that produces a redstone signal while a minecart is on it.
+
+Contents
+
+1 Obtaining
+
+1.1 Breaking
+1.2 Generated loot
+1.3 Crafting
+
+2 Usage
+
+2.1 Rail
+2.2 Redstone component
+2.3 Mob interaction
+2.4 Piston interactivity
+
+3 Sounds
+4 Data values
+
+4.1 ID
+4.2 Block states
+
+5 Videos
+6 History
+
+6.1 Java Edition
+6.2 Bedrock Edition
+6.3 Legacy Console Edition
+6.4 New Nintendo 3DS Edition
+6.5 Data history
+
+7 Issues
+8 Gallery
+
+8.1 Screenshots
+
+9 See also
+10 References
+11 Navigation
+
+Obtaining
+Breaking
+The suitable tool to break detector rail is pickaxe.
+
+Block
+
+Detector Rail
+
+Hardness
+
+0.7
+
+Tool
+
+Breaking time (sec)
+
+Default
+
+1.05
+
+Wooden
+
+0.55
+
+Stone
+
+0.3
+
+Copper
+
+0.25
+
+Iron
+
+0.2
+
+Diamond
+
+0.15
+
+Netherite
+
+0.15
+
+Golden
+
+0.1
+
+OptionsEfficiency000Haste0011JEBE
+
+Legend
+ incorrect tool, drops nothing
+ correct tool, drops nothing or something other than the block itself
+ correct tool, drops the block itself
+italicized can be instant mined
+
+ These durations ignore any other influential factors (e.g., Mining Fatigue) and are measured in seconds. For more information, see Breaking § Mining efficiency.
+
+Detector rail drops itself when it's destroyed.
+
+Generated loot
+
+Item
+
+Structure
+
+Container
+
+Quantity
+
+Chance
+
+Java Edition and Bedrock Edition
+
+Detector Rail
+
+Mineshaft
+
+Chest not located in a sulfur cave
+
+1–4
+
+27.1%{ "item": "Detector Rail", "stacksize": "1–4", "chance": 0.271, "structure": "Mineshaft", "container": "Chest not located in a sulfur cave" }
+
+Mineshaft
+
+Chest located in a sulfur cave
+
+1–4
+
+23%{ "item": "Detector Rail", "stacksize": "1–4", "chance": 0.22974537037037035, "structure": "Mineshaft", "container": "Chest located in a [[sulfur cave]]" }
+
+Crafting
+
+Ingredients
+Crafting recipe
+
+Iron Ingot +Stone Pressure Plate +Redstone Dust
+
+6
+
+Usage
+To place a detector rail, use a detector rail item while pointing at a surface facing the space the detector rail should occupy.
+A detector rail can be placed on top of any block whose top face has a rim around the edge, such as any full block, hopper, top slab, upside-down stairs, or top trapdoor. A full list of compatible blocks can be found here.
+If a detector rail is updated while on an opened top trapdoor, the rail breaks and drops as an item. Placing a minecart on a detector rail on top of a closed and unpowered trapdoor opens the trapdoor and updates the rail, causing the detector rail to break. If the top trapdoor is powered and closed when the minecart is placed, the trapdoor does not open so the rail does not break. The minecart on the detector rail then powers the trapdoor, meaning the external power source can be removed without causing the trapdoor to change state and break the rail.
+When placed, a detector rail configures itself to line up with any adjacent rails (including activator rails, powered rails, and other detector rails), as well as adjacent rails one block up. If there are two adjacent rails on non-opposite sides, or three or more adjacent rails, a detector rail lines up in the east-west direction. If there are no adjacent rails, a detector rail lines up in the north-south direction (but if a rail is later placed to the east or west, the detector rail re-orients itself in the east-west direction even if it is already connected to another rail to the north or south). If a rail it would line up with is one block up, a detector rail slants upward toward it (with multiple options to slant upward to, a detector rail "prefers", in order: west, east, south, and north). Other configurations can be created by placing and removing various rails.
+Mobs avoid walking across a detector rail (or other rails), but can be pushed onto them.
+
+Rail
+Main article: Rail
+Detector rails (and other rails) act as "roads" for minecarts. A minecart that enters a detector rail's space from either end of the detector rail continues to move, losing only a little velocity (which can then be increased again with powered rails). A minecart that enters a detector rail's space from the side turns east or south (depending on the detector rail's orientation), or in the downward direction for a slanted detector rail.
+
+Redstone component
+Example for signal strength of a full minecart (right) and a half-full one (left)
+See also: Redstone circuits
+
+A detector rail becomes powered when any part of any minecart's bounding box comes into contact with it. Every 20th game tick after the rail first becomes powered, it checks whether any minecart is still present and depowers if there are none in contact at that time. This means that the duration of the signal is always a multiple of 20 game ticks (10 redstone ticks). While powered, a detector rail:
+
+sets adjacent redstone dust to power level 15
+activates adjacent redstone repeaters facing away from the detector rail
+activates adjacent redstone comparators facing away from the detector rail to a level corresponding to the fullness of the minecart if it is a minecart with chest or a minecart with hopper
+strongly powers the block supporting the detector rail if that block is conductive
+activates any adjacent mechanism components, including above or below, such as pistons, redstone lamps, powered rails, hoppers, etc.
+Comparators give a signal for a minecart with chest or a minecart with hopper
+If the minecart on the detector rail is a minecart with chest or minecart with hopper, an adjacent redstone comparator facing away from the detector rail outputs a power level proportional to the container's fullness, possibly power level 0. For any other type of minecart (including a regular minecart with a mob riding it) the comparator's output is zero. If multiple minecarts are on the detector rail, the comparator reads only the minecart that was placed first.
+A comparator can read the contents of a minecart with hopper or with chest on a detector rail through a solid opaque block, as it can with other container blocks.
+
+Mob interaction
+Like other types of rails, mobs avoid walking on detector rails, with the exception of spiders, cave spiders, and wardens.
+
+Piston interactivity
+Detector rail can be pushed by the piston, and can be pulled by the sticky piston. However, detector rail breaks and drops as an item when it is unsupported because of being moved.
+
+Sounds
+Java Edition:
+
+v
+t
+e metal sound typeSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitchAttenuationdistance​Block brokenBlocksOnce the block has brokenblock.metal.breaksubtitles.block.generic.break​1.01.216​Block placedBlocksWhen the block is placedblock.metal.placesubtitles.block.generic.place​1.01.216​Block breakingBlocksWhile the block is in the process of being brokenblock.metal.hitsubtitles.block.generic.hit​0.250.7516​Something falls on a blockEntity-DependentFalling on the block with fall damageblock.metal.fallsubtitles.block.generic.fall​0.51.2516​FootstepsEntity-DependentWalking on the blockblock.metal.stepsubtitles.block.generic.footsteps​0.151.516
+Bedrock Edition:
+
+v
+t
+e metal sound typeSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitch​Block brokenBlocksOnce the block has brokendig.stonesubtitles.block.generic.break​1.01.1–1.2​Block placedBlocksWhen the block is placeduse.stonesubtitles.block.generic.place​1.01.2–1.25​Block breakingBlocksWhile the block is in the process of being brokenhit.stonesubtitles.block.generic.hit​0.30.75​FootstepsPlayersFalling on the block with fall damagefall.stonesubtitles.block.generic.footsteps​0.41.0​FootstepsPlayersWalking on the blockstep.stonesubtitles.block.generic.footsteps​0.351.0​FootstepsBlocksJumping from the blockjump.stonesubtitles.block.generic.footsteps​0.121.0​FootstepsBlocksFalling on the block without fall damageland.stonesubtitles.block.generic.footsteps​0.221.0
+Data values
+ID
+Java Edition:
+
+NameIdentifierFormBlock tagsItem tags
+Translation key Detector Raildetector_railBlock & Itemprevent_mob_spawning_insiderailsrails
+block.minecraft.detector_rail
+Bedrock Edition:
+
+NameIdentifierNumeric ID FormItem ID
+Translation key Detector Raildetector_rail28Block & Giveable ItemIdentical
+tile.detector_rail.name
+ ID of block's direct item form, which is used in savegame files and addons.
+
+ Available with /give command.
+
+ The block's direct item form has the same ID as the block.
+
+Block states
+See also: Block states
+
+Java Edition:
+
+  Name
+  Default value
+  Allowed values
+  Description
+  poweredfalsefalsetrueTrue if rail is activated.
+shapenorth_south
+east_westnorth_southSpecifies the rail's orientation.
+ascending_eastascending_northascending_southascending_westA rail that ascends toward the direction noted.For example, an ascending_west rail is a straight rail that goes upward from the east toward the west.
+waterloggedfalsefalsetrueWhether or not there's water in the same place as this rail.
+Bedrock Edition:
+
+  NameMetadata Bits
+  Default value
+  Allowed valuesValues forMetadata Bits
+  Description
+  rail_data_bit0x8falsefalsetrue01True if rail is activated.
+rail_direction0x10x20x40
+00 flat track going north-south11 flat track going east-west22 sloped track ascending to the east33 sloped track ascending to the west44 sloped track ascending to the north55 sloped track ascending to the south6789UnsupportedUnused
+Videos
+
+
+
+
+
+History
+Java Edition
+Java Edition Beta1.5
+     Added detector rails.Java Edition1.0.0Beta 1.9 Prerelease 6
+Detector rails are now broken faster using a pickaxe.1.3.112w21a
+Detector rails are now renewable, due to redstone dust being obtainable from trading.1.513w10a
+     A distinct texture for active detector rails has now been added.1.814w04a
+  If a detector rail is set to render as the block inside of a minecart via commands or map editing, it now appears as this (previously it would be entirely invisible).14w28a
+Sloped detector rails no longer decrease their hitbox to 2 pixels of a block when activated.1.915w38a
+All sloped rail types' hitbox heights have been decreased from 10 pixels of a block to about 2.5 pixels of a block.15w44a
+Detector rails can now be found in chest minecarts in mineshafts.15w46a
+Mobs no longer spawn on detector rails.1.1016w21a
+All sloped rail types' hitbox heights have been increased from about 2.5 pixels of a  block to a full block.1.1116w32b
+All sloped rail types' hitbox heights have now been decreased from a full block to a half block.1.1418w43a
+          The textures of detector rails have now been changed.19w12b
+Detector rails can now be placed on glass, ice, glowstone and sea lanterns.1.1720w45a
+All rail types can now be waterlogged.
+Bedrock Edition
+Pocket Edition Alphav0.13.0build 1
+  Added detector rails.v0.14.0build 1
+Detector rails can now be found inside minecarts with chests in mineshafts.Bedrock Edition1.7.0beta 1.7.0.2
+Rails are once again broken by flowing water. Previously it flowed through the rails.1.10.0beta 1.10.0.3
+  The textures of detector rails have now been changed.
+Legacy Console Edition
+Legacy Console EditionXbox 360Xbox OnePS3PS4PS VitaWii USwitchTU1CU11.001.001.00Patch 11.0.1
+ [verify] Added detector rails.TU46CU361.381.381.38Patch 15
+All sloped rail types' hitbox heights have been increased from 10 pixels of a block to a full block.TU54CU441.521.521.52Patch 241.0.4
+All sloped rail types' hitbox heights have now been decreased from a full block to a half block.TU69 1.761.761.76Patch 38
+All types of rails can now be waterlogged and are no longer destroyed by flowing water. Instead it flows right through them.  1.90
+  The textures of detector rails have now been changed.
+New Nintendo 3DS Edition
+New Nintendo 3DS Edition0.1.0
+  Added detector rails.
+Data history
+Java Edition1.814w10a
+Detector rails with numerical metadata variants 6, 7, 14 and 15, which are inaccessible through normal gameplay or even commands and as such require the use of external editors to exist, now have no model . Their appearances prior to this point were unknown.14w25a
+Detector rails are now defined via block states rather than by numerical metadata. Prior to this version, the numerical metadata variants of the detector rail were as follows:
+
+
+   DV
+   Description
+
+
+0
+Unpowered north-south
+
+1
+Unpowered east-west
+
+2
+Unpowered ascending east
+
+3
+Unpowered ascending west
+
+4
+Unpowered ascending north
+
+5
+Unpowered ascending south
+
+6-7
+Inaccessible - behavior unknown
+
+8
+Powered north-south
+
+9
+Powered east-west
+
+10
+Powered ascending east
+
+11
+Powered ascending west
+
+12
+Powered ascending north
+
+13
+Powered ascending south
+
+14-15
+Inaccessible - behavior unknown
+14w26a
+Detector rails with metadata values 6, 7, 14 and 15 have now been completely removed from the game.1.1317w47a
+Prior to The Flattening, this block's numeral ID was 28.
+Issues
+Issues relating to "Detector Rail" are maintained on the bug tracker. Issues should be reported and viewed there.
+
+Gallery
+Screenshots
+
+
+
+			Image from Notch’s twitter teasing detector rails
+
+
+See also
+Rail
+Activator Rail
+Powered Rail
+References
+
+Navigation

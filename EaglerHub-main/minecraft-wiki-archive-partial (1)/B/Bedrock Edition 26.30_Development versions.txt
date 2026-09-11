@@ -1,0 +1,1243 @@
+Contents
+
+1 Preview 26.30.20
+
+1.1 Additions
+
+1.1.1 Blocks
+
+1.2 Changes
+
+1.2.1 Blocks
+1.2.2 Mobs
+1.2.3 World generation
+1.2.4 General
+1.2.5 Technical
+
+1.3 Experimental
+
+1.3.1 Changes
+
+1.3.1.1 Technical
+
+1.4 Fixes
+
+2 Preview 26.30.25
+
+2.1 Changes
+
+2.1.1 Blocks
+2.1.2 Mobs
+2.1.3 World generation
+2.1.4 General
+2.1.5 Technical
+
+2.2 Experimental
+
+2.2.1 Changes
+
+2.2.1.1 Technical
+
+2.3 Fixes
+
+3 Preview 26.30.27
+
+3.1 Changes
+
+3.1.1 Blocks
+3.1.2 Mobs
+3.1.3 World generation
+3.1.4 General
+3.1.5 Technical
+
+3.2 Experimental
+
+3.2.1 Changes
+
+3.2.1.1 Technical
+
+3.3 Fixes
+
+4 Preview 26.30.28
+
+4.1 Additions
+
+4.1.1 Command format
+4.1.2 Items
+4.1.3 Gameplay
+
+4.2 Changes
+
+4.2.1 Blocks
+4.2.2 Mobs
+4.2.3 General
+4.2.4 Technical
+
+4.3 Experimental
+
+4.3.1 Changes
+
+4.3.1.1 Technical
+
+4.4 Fixes
+
+5 Preview 26.30.29
+
+5.1 Additions
+
+5.1.1 General
+
+5.2 Changes
+
+5.2.1 Blocks
+5.2.2 Mobs
+5.2.3 World generation
+5.2.4 General
+5.2.5 Technical
+
+5.3 Experimental
+
+5.3.1 Changes
+
+5.3.1.1 Technical
+
+5.4 Fixes
+
+6 Preview 26.30.31
+
+6.1 Fixes
+
+7 Preview 26.30.32
+
+7.1 Changes
+
+7.1.1 Blocks
+7.1.2 Mobs
+7.1.3 World generation
+7.1.4 Technical
+
+7.2 Fixes
+
+8 Notes and references
+9 Navigation
+
+This is a list of Bedrock Edition 26.30 development versions.
+
+ Preview 26.30.20
+Preview 26.30.20 (Windows, iOS, iPadOS, Xbox, PlayStation) or beta 26.30.21 (ChromeOS, Android) is the first beta/Preview for Bedrock Edition 26.30, released on April 21, 2026, which moves features from Chaos Cubed out of experimental, adds some new features, and fixes bugs.
+This version does not have a release for Bedrock Dedicated Server.
+
+Additions
+Blocks
+ Sulfur spike
+
+Generates naturally on sulfur blocks inside the sulfur caves biome.
+Forms a stalactite if placed on the ceiling or a stalagmite if placed on the floor.
+Can be combined to form longer stalactites and stalagmites.
+Stalactites and stalagmites merge if the tips are next to each other, unless placed while crouching.
+Stalagmites will break if not attached to a support block.
+Stalactites fall down if not attached to something above.
+Being hit by a falling stalactite deals damage.
+Thrown tridents break sulfur spikes.
+4 sulfur spikes can be crafted into a sulfur block.
+Changes
+Blocks
+Sulfur and cinnabar
+
+Sulfur and cinnabar blocks and variants now have unique jump and land sounds.
+Specific subtitles now play for sulfur cubes, sulfur blocks and variants, and cinnabar blocks and variants.
+Mobs
+Bogged and parched
+
+Now shoot arrows every 2.5 seconds on Hard difficulty.
+Skeleton and stray
+
+Now shoot arrows with difficulty-based attack intervals instead of distance-scaled intervals. They don't match Java Edition currently.
+Sulfur cube
+
+Updated the texture of the sulfur cube.
+Reduced their health from 9HP to 8HP.
+No longer become unpushable once a block is removed from it.
+Added sounds for absorbing blocks, ejecting blocks, and landing.
+Are now knocked back based on the tap location when using a touch device input.
+Each ball archetype now has their own unique hit and push sound.
+World generation
+Sulfur caves
+
+Granite and tuff are now dispersed between sulfur and cinnabar.
+General
+Creative inventory
+
+Sulfur, polished sulfur, sulfur bricks, cinnabar, polished cinnabar, and cinnabar brick walls are now found in the walls category.
+Potent sulfur is now placed before sulfur bricks.
+Sulfur blocks are now shown after cinnabar blocks.
+Experiments
+
+Removed the "Drop 2 of 2026" experimental toggle and implemented all features into vanilla gameplay.
+Graphical
+
+Texture streaming is now enabled by default on supported platforms.
+Streamed textures are no longer completely invisible after being off-screen for a while.
+Snow golem heads no longer render as completely black with Vibrant Visuals enabled.
+Added boss fog in the End dimension while the ender dragon is alive.
+Realms
+
+The "No Members Found" modal no longer briefly shows up before loading members in Realms Stories and Realms Hub.
+Updated the looks of the Welcome to Realms screen.
+UI
+
+Text fields can now be navigated using the ↹ Tab key, which enters editing mode with all text selected. Pressing ↹ Tab while editing moves to the next field.
+The full storage indicator now is taller and has a square action button. The button has been updated from "Go to storage settings" to "Settings".
+Chat text is now narrated while typing, when text to speech is enabled.
+Narration stops when the message is sent.
+Updated recipe unlocked toast design.
+Technical
+AI Goals
+
+Made schemas for the following goals stricter when parsing and will fail to load an entity json that has invalid data in versions 1.26.30 and newer:
+minecraft:behavior.croak
+Float Range fields interval and duration now only accepts an object with min and max values.
+minecraft:behavior.fire_at_target
+Float Range field attack_range now only accepts an object with min and max values.
+minecraft:behavior.follow_caravan
+minecraft:behavior.emerge stricter
+minecraft:behavior.restrict_open_door
+minecraft:behavior.restrict_sun
+minecraft:behavior.rise_to_liquid_level
+minecraft:behavior.roll
+minecraft:behavior.run_around_like_crazy
+minecraft:behavior.scared
+minecraft:behavior.share_items
+minecraft:behavior.sneeze
+minecraft:behavior.stay_while_sitting
+minecraft:behavior.target_when_pushed
+minecraft:behavior.trade_interest
+API
+
+Released @minecraft/server version 2.8.0.
+Added @minecraft/server version 2.9.0-beta.
+Significantly improved block search speed when using BlockVolume for 'getBlocks' and 'containsBlock' API.
+Released ClientSystemInfo.locale from beta to 2.8.0.
+Released class BlockContainerClosedAfterEvent from beta to 2.8.0.
+Released class BlockContainerClosedAfterEventSignal from beta to 2.8.0.
+Released class BlockContainerOpenedAfterEvent from beta to 2.8.0.
+Released class BlockContainerOpenedAfterEventSignal from beta to 2.8.0.
+Released class EntityContainerClosedAfterEvent from beta to 2.8.0.
+Released class EntityContainerClosedAfterEventSignal from beta to 2.8.0.
+Released class EntityContainerOpenedAfterEvent from beta to 2.8.0.
+Released class EntityContainerOpenedAfterEventSignal from beta to 2.8.0.
+Released class ContainerAccessSource from beta to 2.8.0.
+Released interface BlockContainerAccessEventOptions from beta to 2.8.0.
+Released interface EntityContainerAccessEventOptions from beta to 2.8.0.
+Released interface ContainerAccessSourceFilter from beta to 2.8.0.
+Released class EntityEnderInventoryComponent from beta to 2.8.0.
+Released function StructureManager.getPackStructureIds from beta to 2.8.0.
+Client Entities
+
+Added the hide_held_items Molang expression property to minecraft:client_entity's scripts section that hides held items when it evaluates to a non-zero value.
+Dedicated Server
+
+JSON schema outputs now include beta format versions.
+Entity Components
+
+Added the presets field to the minecraft:pushable_by_entity component, allowing customization of push behavior per entity type.
+These changes are in beta format version.
+Each preset entry supports the following fields:
+filter, conditions that must be met for the preset to be applied.
+push_mode, the type of push calculation: default, legacy_boat, or legacy_minecart.
+strength_multiplier, scales the push force applied to the entity.
+min_distance, minimum distance between entities for push forces to be applied.
+push_scale_self, scales how much push force this entity applies to itself away on collision.
+push_scale_other, scales how much push force this entity applies to the other entity on collision.
+play_sound_cooldown_in_seconds, cooldown in seconds between sounds, a lower number results in more sounds.
+play_sound_impulse_threshold, minimum change of velocity needed to trigger the push sound, a lower value means higher sensitivity.
+Entity Filters
+
+Added the redstone_strength_at_position entity filter that tests the redstone signal strength at the subject entity's position.
+Game rule
+
+Removed the locatorbar boolean gamerule.
+Worlds that previously had locatorbar set to true will automatically migrate to the new playerWaypoints Game Rule with a value of everyone, and false will migrate to off.
+Added the playerWaypoints gamerule as a replacement for the deprecated locatorbar gamerule. Accepted values are off (players are not shown on the locator bar) and everyone (all players are visible on the locator bar).
+Graphical
+
+Removed padding from terrain atlas on RenderDragon.
+Item Components
+
+Added field start_using to the minecraft:use_modifiers item component.
+It can either be set to always or if_first.
+It is defaulted to always with format version lower than 1.26.30 and if_first otherwise.
+When set to if_first, minecraft:use_modifiers will only attempt to start using the item if no other component has already attempted to.
+Molang
+
+Added the query.fuse_time query that returns the remaining fuse time of an entity, or -1 if the entity doesn't have a minecraft:explode component.
+Experimental
+These additions and changes are accessible by enabling the "Beta APIs", "Upcoming Creator Features", and "Experimental Voxel Shape Features" experimental toggles.
+
+Changes
+Technical
+API
+
+Added the WebSocketClientCloseReasons enum to @minecraft/server-net in beta.
+WebSocketClientCloseAfterEvent:
+Added the property reason: WebSocketClientCloseReasons in beta.
+This event is now sent when WebSocketClient.close() is called.
+Added max_websocket_payload_size to @minecraft/sever-net module configuration.
+This setting, if set, will prevent a websocket from being spammed by the server and close the socket if all data payloads size received during a tick exceeds this value.
+Added the getPing() to Player in @minecraft/server in beta.
+Added the playfabId property to Player in @minecraft/server in beta.
+Added the HttpStatusCode enum to @minecraft/server-net in beta.
+WebSocketConnectionFailedError:
+Property errorCode is now a HttpStatusCode in beta.
+@minecraft/server-net in beta:
+When connection websockets, you can now provide headers for the connection packet: WebSocket.connect(uri: string, headers?: HttpHeader[]) : Promise<WebSocketClient>
+GameRules:
+Removed the locatorBar: boolean property from beta.
+Added the playerWaypoints: PlayerWaypointsMode property to beta.
+Added the PlayerWaypointMode enum to beta.
+Added the EntityUpgradeAfterEvent, which fires when an entity upgrade occurs in @minecraft/server.
+Added the entityUpgrade event to WorldAfterEvents in @minecraft/server.
+Blocks
+
+Changed the precipitation behavior value from snow_log_no_collision to snowlogging to avoid confusion regarding its functionality.
+Entities
+
+Added support for using entity actions in entity_version upgraders.
+Entity Components
+
+The following beta fields of minecraft:apply_knockback_rules now use the direction of the tap location when using a touch input device:
+horizontal_hit_angle_scale
+vertical_hit_angle_scale
+vertical_position_angle_scale
+The beta field vertical_hit_angle_scale from minecraft:apply_knockback_rules is now applied when horizontal_hit_angle_scale is negative.
+Surface Builders
+
+The NoiseDescriptor schema definition has been added. The purpose of this schema is to be used as part of a surface or subsurface-builder's schema. It has the following fields:
+name: The string used to initialize the noise. Has no impact on the qualitative aspects of the generated values (required).
+first_octave: Governs the general frequency characteristics of the generated noise. Lower value results in noise with lower frequency content (required).
+amplitudes: Governs the attenuation of the first n octaves in the generated noise (required).
+The NoiseBlockSpecifier schema definition has been added. The purpose of this schema is to be used as part of a surface or subsurface-builder's schema. It has the following fields:
+noise: The noise identifier associated with a particular NoiseBlockSpecifier (non-required).
+threshold: The minimum sampled noise value associated with the provided block (non-required).
+range: The range of sampled noise value associated with the provided block (non-required).
+block: The block to place if the noise sample satisfies either the threshold or range condition (required).
+The minecraft:noise_gradient surface and subsurface builder has an updated API consisting of the following:
+noise: a NoiseDescriptor (required).
+non_replaceable_blocks: A list of blocks that the surface builder is not allowed to replace. Leaving this list empty or unspecified will allow the replacement of any (non-air) block type (non-required).
+noise_block_specifiers: An array of NoiseBlockSpecifiers defining which sample ranges of noise are associated with which blocks. The ranges provided are valid on the interval [0, 1], and may overlap at their endpoints (required).
+Voxel Shapes
+
+Added non-unit-cube voxel shapes for 8 blocks when the Voxel Shapes experiment is enabled:
+Anvil shape (3 blocks): Anvil, Chipped Anvil, Damaged Anvil.
+Cactus shape (1 block).
+End Portal Frame eye shape (1 block): eye-filled state.
+Grindstone shape (1 block).
+Heavy Core shape (1 block).
+Lectern shape (1 block).
+Added directional voxel shapes for 13 blocks when the Voxel Shapes experiment is enabled:
+Shelf shapes (12 blocks): Acacia Shelf, Bamboo Shelf, Birch Shelf, Cherry Shelf, Crimson Shelf, Dark Oak Shelf, Jungle Shelf, Mangrove Shelf, Oak Shelf, Pale Oak Shelf, Spruce Shelf, Warped Shelf.
+Bell attachment shapes (1 block): floor, ceiling, single wall, and double wall variants.
+Fixes
+29 issues fixed
+From released versions before Bedrock Edition 26.30
+
+MCPE-61036 – Skeletons' rate of fire is too high.
+MCPE-228331 – When the minecraft:shooter component is applied to an item and there is no ammunition available, the use animation/movement modifiers will still occur.
+MCPE-228332 – When the minecraft:shooter component is applied to the item with the "charge_on_draw" property set to true and the item is charged, there is a chance that first use will not occur.
+MCPE-228333 – When the minecraft:shooter component is applied to the item with the "charge_on_draw" property set to true and the item is charged, the item will begin reloading immediately after it is fired with a single action.
+MCPE-231879 – Video Settings menu no longer provides an explanation for why Vibrant Visuals or Ray Traced graphics modes cannot be selected.
+MCPE-232902 – Marketplace Pass tab in the Create from Template menu shows only two featured templates.
+MCPE-233039 – Not all items are present when chests generate loot.
+MCPE-234766 – Custom blocks do not reliably use correct component data for rendering.
+MCPE-235799 – Shulker boxes and mob skulls are transparent in the inventory menu initially when using texture streaming.
+MCPE-236157 – /playsound produces multiple lines of command output in some cases.
+MCPE-236165 – /stopsound produces multiple lines of command output.
+MCPE-236301 – Numeric custom block states not properly represented in command auto-completions.
+MCPE-236701 – Command block hover note text not updating.
+MCPE-237708 – Farmer villagers plant/harvest 4 or 5 crops and then stop
+MCPE-237715 – Sulfur bricks, chiseled sulfur, cinnabar bricks and chiseled cinnabar should be categorized as construction blocks.
+MCPE-237719 – Bucket of sulfur cube is not grouped with other buckets in Creative inventory.
+MCPE-237778 – Sulfur caves break bedrock.
+Other
+
+Fixed an issue where dithered objects would flicker in split-screen.
+Fixed an issue where item-in-hand was clipping when inside a block in Vibrant Visuals.
+Fixed an issue for certain item-in-hand not rendering when inside a block in Fancy.
+Fixed the Realms side menu tabs being squashed and difficult to select when the design preview panel was visible.
+Fixed an issue where two states could be presented in the moderate feed screen.
+Fixed a crash related to the data-driven renderer when an entity's geometry expression was unable to be resolved.
+Fixed the on-screen keyboard not dismissing after submitting text in JSON UI text fields on iOS and Android.
+Fixed an issue on the idle device screen on Nintendo Switch, which could result in the text showing incorrectly.
+Fixed permutation component constraints for multi-blocks with format_version >= 1.26.20.
+Fixed an assert that would occur when trying to use the minecraft:noise_gradient builder type inside a minecraft:surface_builder biome component if the biome definition's schema version was set to beta.
+Fixed a bug where pack settings could be lost when an older version of the same pack without settings defined existed in the cache.
+Fixed a bug where custom blocks with random_offset would be put back in the center of its position when snowlogged.
+ Preview 26.30.25
+Beta 26.30.25 (ChromeOS, Android), Preview 26.30.25 (Windows, iOS, iPadOS, Xbox), or Preview 26.30.26 (PlayStation) is the second beta/Preview for Bedrock Edition 26.30, released for most platforms on April 30, 2026, and for PlayStation on May 1, 2026, which adds geysers, the explosive sulfur cube archetype, and fixes bugs.
+
+Changes
+Blocks
+Potent sulfur
+
+When placed above a magma block and under 1–4 water source blocks, it creates a geyser.
+The geyser will erupt at 50 second intervals, shooting a plume of water particles upwards and applying an upward impulse to entities above it for 4–5 seconds.
+Entities directly above the potent sulfur block during an eruption will be launched into the air, but will not take damage from the eruption.
+The height of the plume and how high anything gets launched depends on the number of water blocks above the potent sulfur blocks, with the total height being about 7 blocks above the potent sulfur block for each water block.
+Sulfur spike
+
+Re-added to the Creative inventory.
+Wandering traders can now sell sulfur spikes.
+Four sulfur spikes can now be used to craft one sulfur block.
+Mobs
+Skeleton and stray
+
+Now shoot arrows at the same rate as Java Edition.
+Sulfur cube
+
+Added the "Explosive" archetype, with similar properties to the "Regular" archetype except for a slightly higher air drag.
+Used when absorbing a TNT block.
+Absorbed TNT can be primed by redstone, fire sources (including a dispenser with a flint and steel) or nearby explosions.
+When primed by fire or redstone, absorbed TNT uses a fuse time of 6 seconds.
+When primed by an explosion, absorbed TNT uses a randomized fuse time between 0.75 and 3 seconds.
+Sulfur cubes with an absorbed, primed TNT block cannot be picked up with a bucket, damaged, or sheared.
+On explosion, no small sulfur cubes are spawned, and the sulfur cube disappears.
+Small sulfur cubes no longer occasionally spawn from buckets of sulfur cube.
+World generation
+Sulfur caves
+
+Sulfur springs once again generate above sulfur caves.
+Sulfur springs are now less likely to destroy trees.
+Canyons can now correctly carve through cinnabar and sulfur.
+General
+Graphical
+
+Volumetric fog can now be key framed to change with the time of day. The following settings in the fog definition now support key frames:
+Max Density
+Zero Density Height
+Max Density Height
+Scattering
+Absorption
+Henyey-Greenstein G (Vibrant Visuals only)
+Realms
+
+Updated the Minecraft EULA link displayed in the Realms Core and Realms Plus subscription screens to use the locale-agnostic minecraft.net/eula URL.
+Updated store name on Switch.
+Added icons to the Story feed, Members, Slots, and Saves subtabs in the Realms Hub.
+Settings
+
+Added a "Panorama Scroll Speed" slider to the video settings that controls the rotation speed of the main menu panorama.
+Updated the Creator tab with Ore UI.
+New settings screen in "Creator" tab
+UI
+
+Crafting preview now shows the correct wood items when selected in the recipe book. Recipes containing different wood materials now show the variants related to the materials the player owns.
+Players are now informed when their skin is not compatible with cross-platform multiplayer and can choose to proceed when creating or starting a world.
+⎈ Control + Left/Right arrow now correctly moves the cursor by word in Ore UI text fields on Windows.
+Double tap or click now selects a word, and triple selects all text in Ore UI text fields.
+Tap and drag now moves the cursor in Ore UI text fields.
+Tap and hold now allows selecting text in Ore UI text fields.
+Added ContentCard component to display Marketplace items with pricing, ratings, and content badges.
+Removed the social drawer from the main menu, create new world/edit world screen, and profile screen once again.
+Technical
+AI Goals
+
+Made schemas for the following goals stricter when parsing and will fail to load an entity json that has invalid data in versions 1.26.30 and newer:
+minecraft:behavior.make_love
+minecraft:behavior.receive_love
+minecraft:behavior.skeleton_horse_trap
+minecraft:behavior.swell
+Biome Components
+
+The following biome components have been taken out of beta and are available starting with the "1.26.30" format version:
+minecraft:surface_builder with the new type minecraft:noise_gradient
+minecraft:subsurface_builder
+Commands
+
+Change how the localization process percentage signs in formatted strings: a numbered form with an invalid parameter will be left as it is.
+Entity Components
+
+The following entity components have been taken out of beta and are available starting with the "1.26.30" format version:
+minecraft:apply_knockback_rules
+minecraft:pushable_by_entity
+minecraft:bounciness
+minecraft:air_drag_modifier
+Added the use_self_as_damage_source property to the minecraft:area_attack component.
+If set to false, other entities won't retaliate against the attacking entity.
+Network Protocol
+
+Modified the binary format of BossEventPacket.
+Experimental
+These additions and changes are accessible by enabling the "Beta APIs", "Upcoming Creator Features", "Render Dragon Features for Creators", and "Experimental Voxel Shape Features" experimental toggles.
+
+Changes
+Technical
+API
+
+Added the SoundInstance class to beta with a stop method that allows stopping a playing sound.
+Dimension.playSound now returns a SoundInstance in beta.
+Player.playSound now returns a SoundInstance in beta.
+Blocks
+
+Added snow logging behavior for multi-blocks.
+Graphical
+
+Point lights are now disabled on unsupported hardware (Android, PS4, Xbox One).
+Added Molang support to all keyframed properties.
+Voxel Shapes
+
+Added voxel shapes for 46 blocks that change geometry during runtime based on player interactions or the environment. These shapes need the Voxel Shapes experiment to be enabled. These shapes improve face culling so that hidden faces between adjacent blocks are correctly removed:
+Dripleaf shape (3 blocks): Big Dripleaf, Big Dripleaf Tilt Partial, and Big Dripleaf Tilt Full.
+Fence shape (13 blocks): Fence for each wood type.
+Fence Gate shape (26 blocks): Fence Gate and Fence Gate In Wall for each wood type.
+Fixes
+36 issues fixed
+From released versions before Bedrock Edition 26.30
+
+MCPE-11765 – No iron doors and stone buttons in strongholds.
+MCPE-45633 – Ignored lava hitbox level.
+MCPE-61036 – Skeletons' rate of fire is too high.
+MCPE-112761 – Strider drops are not affected by Looting.
+MCPE-123918 – Splitscreen - crosshair flickers or disappears when one player opens a UI.
+MCPE-173418 – Offline multiplayer not working on 1.20.10 onwards.
+MCPE-174401 – Bees don't pollinate themselves with spore blossoms or chorus flowers.
+MCPE-180178 – The panorama scroll speed option is not available on Bedrock Edition.
+MCPE-181221 – Using a sticky piston and a composter, you can go through walls.
+MCPE-183531 – Entities standing on the edge of mud or soul sand that is next to lava are set on fire and take damage.
+MCPE-229764 – Paint Palette button appears in the Size section of the Character Creator.
+MCPE-235729 – In Android x86_64 build, all entities have no animations.
+MCPE-236402 – Enabling ray tracing causes the game to crash when opening structure blocks.
+MCPE-237189 – Ctrl + Backspace does not work correctly on Ore UI.
+MCPE-237578 – Copper block trumpet sounds are out of tune with other note blocks.
+MCPE-237825 – Bucket of sulfur cube replaces water(affects other replaceable blocks).
+MCPE-237909 – Game crashes when setting color of cloned dyeable item.
+MCPE-238131 – Some seeds could deadlock the game while loading.
+MCPE-238187 – Bedrock Preview calls IRP_MJ_FLUSH_BUFFERS for %LocalAppData%\Temp\Minecraft Bedrock Preview\minecraftpe\texturecache every frame, even when paused.
+Other
+
+Fixed wooden doors in strongholds being placed with the wrong orientation.
+Fixed items being duplicated when crossing chunk borders in the End.
+Fixed a bug where boats would jitter when switching from one to the other.
+Fixed an issue that caused dropped items to sometimes appear behind other objects in Ray Tracing graphics mode.
+Fixed snow golem heads disappearing in Ray Tracing mode when the player is too close
+Fixed z-fighting on scaffolding top face.
+Fixed an issue where loading in some Marketplace worlds would result in a white screen in Vibrant Visuals.
+Fixed a bug where ghasts could get stuck in the preparing-to-fire animation pose after the player walks out of attack range.
+Fixed buttons sometimes becoming unselectable at the bottom of a scroll panel while using a controller.
+Fixed a bug where resource packs with subpacks would not correctly save to new worlds when they were added automatically by activating a corresponding behavior pack.
+Fixed a bug where resource packs with subpacks would not display the valid default settings when they were added automatically by activating a corresponding behavior pack.
+Fixed format for number percentage strings in the Turkish language.
+Fixed the profile picture on the start screen showing a blank space instead of the default Alex icon while loading.
+Fixed the profile picture not updating after signing in due to the refresh window closing prematurely.
+Fixed sorting by Installed state in player library not working on Nintendo Switch.
+Fixed an issue where should_update_bones_and_effects_offscreen and should_update_effects_offscreen settings were not applied as expected.
+Fixed formatting codes when using multiline texts in the Ore UI system.
+ Preview 26.30.27
+Beta 26.30.27 (ChromeOS, Android) or Preview 26.30.27 (Windows, iOS, iPadOS, Xbox, PlayStation) is the third beta/Preview for Bedrock Edition 26.30, released on May 3, 2026, for iOS and iPadOS, and on May 6, 2026, for all remaining devices, which moves the furnace recipe book out of experimental, updates sulfur springs, adds the magma block and slow bouncy sulfur cube archetypes, and fixes bugs.
+
+Changes
+Blocks
+Sulfur and cinnabar block sets
+
+Now have a blast resistance of 6 instead of 3.
+Chiseled sulfur and chiseled cinnabar
+
+Can now be crafted from sulfur and cinnabar slabs.
+Potent sulfur
+
+Now emits a vibration of frequency 10 when it starts erupting.
+Now emits a vibration of frequency 9 when it stops erupting.
+Updated noxious gas sounds.
+Geysers now have sounds.
+Walls
+
+Leads can no longer be attached to sulfur and cinnabar walls.
+Mobs
+Bee
+
+Can now pollinate, be aged, be bred, or be tempted with chorus flowers and spore blossoms.
+Sulfur cube
+
+Sulfur cube spawn eggs now spawn a baby if used on a sulfur cube.
+Added unique hit and push sounds for the explosive ball archetype.
+Sulfur cubes can now be affected by Oozing.
+Added a new archetype for magma blocks.
+When entities touch a magma block sulfur cube, they take fire damage.
+This has unique sounds.
+Added a new slow bouncy archetype for stone-type blocks, which bounces slower with higher knockback resistance.
+The regular archetype now only contains dirt-type blocks and concrete powder.
+Small sulfur cubes now have its own sound event for when landing after a jump.
+World generation
+Sulfur caves
+
+No longer generate with tuff and granite.
+Now generates less likely under oceans and mountains.
+Added a unique, green fog to sulfur caves. This is much denser volumetric fog with Vibrant Visuals.
+Sulfur spring
+
+Updated the structures, with a bigger size, granite, tuff, and more block variations.
+Now generate only in flatter terrain.
+General
+Performance
+
+Improved character load time on the main menu.
+Realms
+
+Added information surrounding resource packs download progress to join Realm progress message.
+"No Members Found" empty state no longer briefly shows up before loading members in the Realms Hub Members tab.
+Server
+
+Dedicated servers now have the allowlist enabled by default in the server.properties, and will display a warning on server startup if the allowlist is enabled but contains no entries.
+UI
+
+Implemented features from the furnace recipe book experiment into gameplay.
+Added a new color formatting code §w  #8CB3FF party_blue_color, used to highlight party members nicknames in chat.
+Added Wishlist grid component to display Marketplace wishlist items with responsive column layout.
+Technical
+AI Goals
+
+Made the schemas for the following stricter when parsing, now will fail to load an entity json that has invalid data in versions 1.26.30 and newer:
+minecraft:behavior.break_door
+minecraft:behavior.door_interact
+minecraft:behavior.hurt_by_target
+minecraft:behavior.open_door
+minecraft:behavior.owner_hurt_by_target
+minecraft:behavior.owner_hurt_target
+minecraft:behavior.random_look_around
+Int Range field look_time now only accepts an object with min and max values. Other formats will fail to parse.
+minecraft:behavior.random_look_around_and_sit
+minecraft:behavior.wither_target_highest_damage
+Blocks
+
+Released the culling_shape field in the minecraft:geometry component from behind the Voxel Shapes experiment. Non-unit-cube culling shapes for certain blocks (e.g. fences, bells, slabs) still require the experiment.
+Released the snow logging behavior for Block Precipitation Interaction component out of experimental.
+DDUI
+
+Replaced Observable with ObservableString, ObservableNumber, ObservableUIRawMessage, and ObservableBoolean.
+Renamed DropdownItem to DropdownItemData.
+Changed some values of DataDrivenScreenClosedReason:
+UserClose to ClientClosed.
+ServerClose to ServerClosed.
+Entity
+
+Released the execute_event_on_home_block entity event response out of experimental.
+Events
+
+Added EntityStartSneakingAfterEvent and EntityStartSneakingAfterEventSignal to beta.
+Features
+
+Added a new feature type height_difference_filter_feature.
+This feature is meant to be used as a filter to filter away positions based on height differences close to the placed feature.
+min_required_upward_height_diff - Specifies the minimum height difference required upwards.
+min_required_downward_height_diff - Specifies the minimum height difference required downwards.
+max_allowed_upward_height_diff - Specifies the maximum height difference allowed upwards.
+max_allowed_downward_height_diff - Specifies the maximum height difference allowed downwards.
+search_radius - Specifies the length in each cardinal direction the filter will check for blocks against the given differences.
+places_feature - Specifies what feature should be placed when filter succeeds.
+Added an only_check_intersection_for_motion_blocking_blocks field to the block_intersection constraint of minecraft:structure_template_feature.
+When true, only motion-blocking blocks within the structure are checked for intersections against the block_allowlist.
+When false, all blocks in the structure except empty ones are checked for intersections, including air.
+Defaults to true, preserving existing behavior.
+Motion-blocking blocks are full blocks that block motion.
+Added the ground_level field to minecraft:structure_template_feature.
+Specifies which Y coordinate of the structure is considered its ground level.
+Used as a vertical offset during placement and determines which layer of the structure is checked by the leveled and grounded constraints.
+All non-air blocks at this level define positions where the leveled and grounded constraints are checked.
+If the value exceeds the structure's height, it is clamped to the maximum valid value and a content warning is emitted.
+Defaults to 0.
+Added a new leveled option to the constraints field of minecraft:structure_template_feature.
+When specified, ensures the structure's ground level is placed on mostly flat terrain.
+Includes a max_steepness field that defines the maximum allowed height difference between the placement position and terrain samples taken at the structure's ground level.
+A valid terrain sample consists of a solid block with a non-solid block above it.
+Defaults to 2.
+Scripting
+
+Released the isSnowLoggable method in ScriptBlockPrecipitationComponent from beta to 2.8.0.
+Experimental
+These additions and changes are accessible by enabling the "Beta APIs", "Upcoming Creator Features", "Experimental Custom Projectile Features", and "Experimental Voxel Shape Features" experimental toggles.
+
+Changes
+Technical
+API
+
+Added the new shape classes to @minecraft/debug-utilities library:
+DebugCone
+DebugCylinder
+DebugPyramid
+DebugEllipsoid
+Blocks
+
+Added the lava_flammable field to the minecraft:flammable component under Upcoming Creator Features.
+Supported values are always and never.
+When set to always, the block is considered when lava attempts to spread fire after adjacent block updates, while still respecting normal fire placement rules.
+When set to never, the block is excluded from that check.
+General
+
+Added the owner_launch_immunity_ticks field to the projectile component.
+Voxel Shapes
+
+Added occlusion voxel shapes for wall-mounted skull blocks when the Voxel Shapes experiment is enabled.
+These shapes improve face culling so that hidden faces of custom blocks are correctly removed when a skull block is attached:
+Wall-mounted skull shapes (6 blocks): Creeper Head, Dragon Head, Player Head, Skeleton Skull, Wither Skeleton Skull, Zombie Head
+Wall-mounted Piglin shape (1 block): Piglin Head
+Fixes
+30 issues fixed
+From released versions before Bedrock Edition 26.30
+
+MCPE-49418 – Phantoms do not drop their exp in the place where they die.
+MCPE-61885 – Bees do not drop their exp in the place where they die.
+MCPE-100180 – Ender pearls teleport player into walls/solid blocks and cause suffocation damage.
+MCPE-176931 – "minecraft:wearable" prevents max stack size from working.
+MCPE-188723 – Add-on Loot Tables match tool condition drops items when bare hand used.
+MCPE-225919 – Dithering is applied to the emissive part of the firefly bush and eyeblossom when the player's camera is near the block.
+MCPE-237537 – Game freezes on world loading screen stuck due to global resource pack.
+MCPE-237762 – Water fog in sulfur caves is blue.
+MCPE-238050 – LootItem.name returns undefined for custom items/blocks when reading loot tables via Script API LootTableManager.
+MCPE-238055 – LootPool.rolls does not return a usable NumberRange.
+MCPE-238056 – LootPool.bonusRolls does not return a usable NumberRange.
+MCPE-238088 – Sounds played through entity or attachables animations produces subtitles even when far away.
+Other
+
+Fixed a bug where trees growing next to spore blossoms and chorus flowers did not have a chance to generate beehives.
+Fixed an issue where dimensions with large sections of air blocks could degrade performance during initial load.
+Fixed a bug where vehicles with a non-zero lock_rider_rotation value would continuously rotate when a player was riding them without giving any movement input.
+Fixed a bug with the sky cubemap and volumetrics not updating after teleport in Vibrant Visuals.
+Fixed an incorrect tile border seam for tiles with heightmaps in Vibrant Visuals.
+Fixed snow golem heads being sometimes incorrectly lit in Vibrant Visuals.
+Fixed an issue causing textures to appear broken when Ray Tracing is enabled.
+Fixed an issue causing name tags to not appear when Ray Tracing is enabled.
+Fixed a bug where boats and boats with chests would visually fill with water when the player was seated inside them near the water surface.
+Fixed a crash that can occur when prompted about extra Joy-Con controllers that are connected.
+Fixed an issue where mob audio could switch to underwater sound variants while the mob was still above the visible water surface.
+Fixed a crash that could occur when loading recipes with invalid result counts from behavior packs during server initialization.
+Fixed a crash that could occur on world exit or join when texture streaming is enabled.
+Fixed Fullscreen mode to remember which screen it was last on.
+Fixed an issue where SimulatedPlayers do not spawn with properties defined in player.json.
+Fixed Dimension.containsBlock() returning incorrect results when using exclude filters on a BlockVolume smaller than 16x16x16.
+Fixed actor textures not loading properly when applying packs with older min engine version.
+Fixed Custom Dimension height range to match Overworld defaults.
+ Preview 26.30.28
+Beta 26.30.28 (ChromeOS, Android) or Preview 26.30.28 (Windows, iOS, iPadOS, Xbox, PlayStation) is the fourth beta/Preview for Bedrock Edition 26.30, released on May 10, 2026, for iOS and iPadOS, and on May 12, 2026, for all remaining devices, which adds music for Chaos Cubed, cloud storage on Windows, and fixes bugs.
+
+Additions
+Command format
+/party
+
+It was mentioned that it was added to be used for sending messages in the party chat, however it is not present in the game yet.
+Items
+Music disc
+
+ Added the "Bounce" music disc by fingerspit.
+Has a chance of being found in mineshaft chest minecarts that are located in a sulfur cave biome.
+Has a comparator output of 8 when played in a jukebox.
+Gameplay
+Music
+
+Added 5 new background music tracks by fingerspit:
+"Shores"
+"Memories"
+"Nightly"
+"Home"
+"Ebb"
+These music tracks will play in the following biomes, and variants:
+Badlands
+Cherry Grove
+Desert
+Dripstone Caves
+Flower Forest
+Forest
+Frozen Peaks
+Grove
+Jagged Peaks
+Jungle
+Lush Caves
+Meadow
+Old Growth Spruce Taiga
+Old Growth Pine Taiga
+Snowy Slopes
+Sparse Jungle
+Stony Peaks
+Swamp
+Sulfur Caves
+Changes
+Blocks
+Cobblestone wall
+
+Cobblestone walls no longer have a trailing space in their name.
+Potent sulfur
+
+Noxious gas from potent sulfur can now rise through non-collidable, waterlogged blocks and spread through other non-collidable blocks.
+Can now erupt when a lava block is placed underneath.
+This makes the geyser eruption continuous, but with slightly muted sounds compared to the eruption from a magma block.
+Players propelled by erupting geysers no longer experience jitter at high latency.
+Players in Creative flight are no longer propelled by geysers.
+Potent sulfur geysers no longer change their eruption timing after each eruption cycle.
+Geyser eruption timing is now determined by the block's position in the world, rather than being randomized when the block is placed.
+Erupting potent sulfur can now emit its plume and propel entities through non-collidable blocks.
+This includes scaffolding, which can be used as an alternative to copper grates to stand above erupting geysers without being affected by noxious gas.
+Mobs
+Sulfur cube
+
+TNT sulfur cubes now ignite when shot with a flaming arrow or blaze fireball.
+TNT sulfur cubes now ignite when using a tool with the Fire Aspect enchantment.
+The sulfur cube's TNT archetype now respects the mobgriefing game rule when exploding.
+Magma blocks no longer damage sulfur cubes with a block inside.
+Throwing items on a sulfur cube containing a magma block no longer makes the item disappear.
+The sulfur cube hot archetype's attack range has been adjusted to be more aligned with Java Edition.
+Sulfur cubes with TNT leash keep exerting its force once the sulfur cube is ignited.
+Sulfur cubes are now unleashed once the absorbed block is ejected.
+Sulfur cubes can no longer ride vehicles.
+Sulfur cubes that have absorbed a block now react the same way when pushed by a player-ridden vehicle as they do when pushed by a player.
+Updated the model and texture of the small sulfur cube.
+Added dedicated sounds for when the sulfur cube is picked up or placed with a bucket.
+General
+Graphical
+
+Re-enabled texture streaming in Windows and mobile Previews after fixing a bug with blank textures.
+Clouds no longer jitter when upscaling is enabled in Vibrant Visuals.
+Armor attached to player no longer flickers when upscaling is enabled in Vibrant Visuals.
+Reduced unnecessary copies in atmospheric scattering keyframe lookups to improve frame time when Vibrant Visuals is enabled.
+Panorama
+
+Updated the panorama to reflect Chaos Cubed.
+Realms
+
+Disabled "Clear all members" button for admin roles to avoid confusion, since admins can not remove other admins or owners.
+Clicking the Try Realms button in the How to Play screen now redirects to the Realms PDP.
+Updated the save modal text when saving settings in Realms edit world.
+Added achievements disabled warning modal to Realms edit world.
+Settings
+
+Updated the Storage tab with Ore UI.
+New settings screen in "Storage" tab
+Text-to-speech
+
+Now reads the character & as "and" instead of "ampersand".
+UI
+
+Removed warning text that "you can't earn achievements" when creating a world with add-ons enabled.
+The party chat now appears in the world.
+Updated the game credits.
+Added Marketplace Error component to display Marketplace errors.
+Non-gameplay related toast notifications (e.g. Minecraft Live reminders) will no longer be able to show during gameplay.
+Added ability to access Marketplace for Preview.
+Improved the furnace recipe book UI.
+Worlds
+
+Worlds can now be uploaded to the cloud on Windows.
+New worlds are synced automatically if storage is available.
+All uploaded worlds are accessible on any device when signed in.
+Each player has a maximum storage of 4GB.
+Cloud storage can be managed in the updated storage settings.
+Technical
+AI Goals
+
+Made the schema for the following stricter when parsing, now will fail to load an entity json that has invalid data in versions 1.26.30 and newer:
+minecraft:behavior.defend_trusted_target
+minecraft:behavior.dragondeath
+minecraft:behavior.dragonholdingpattern
+minecraft:behavior.dragonlanding
+minecraft:behavior.dragonscanning
+minecraft:behavior.dragontakeoff
+minecraft:behavior.follow_target_leader
+minecraft:behavior.nearest_prioritized_attackable_target
+minecraft:behavior.place_block
+The fields xz_range and y_range now only accept an object with min and max values. Other formats will fail to parse.
+minecraft:behavior.random_breach
+minecraft:behavior.random_fly
+minecraft:behavior.random_swim
+minecraft:behavior.take_block
+The fields xz_range and y_range now only accept an object with min and max values. Other formats will fail to parse.
+minecraft:behavior.wither_random_attack_pos_goal
+API
+
+Released EntityUpgradeAfterEvent from beta to stable.
+Entity version upgrades are no longer gated behind the Upcoming Creator Features experiment
+Added a new condition biome_has_tag that allows checking which biome tag is present at the location of the entity that is dropping loot.
+Specify which Biome tag to check in the tag field of the condition.
+Released class BlockComponentBlockStateChangeEvent, enum member EntityHealCause.TotemOfUndying, PrimitiveShape, PrimitiveShapeError, PrimitiveShapesManager, and TextPrimitive from beta to 2.8.0.
+Released minecraft:totem_of_undying firing entityHeal events from beta to v2.8.0.
+Content Log
+
+Content log messages now cut out the user's personal file path prefix to instead only show the relevant path.
+Entity Components
+
+Added the unleash_on_removal field to minecraft:leashable component.
+When set to true (the default), the entity is unleashed from the entity it is leashed to once the component is removed.
+Entities with format versions prior to 1.26.30 will have this field defaulted to false to preserve existing behavior.
+Added the unleash_on_removal field to minecraft:leashable_to component.
+When set to true (the default), entities leashed to the entity are unleashed once the component is removed.
+Entities with format versions prior to 1.26.30 will have this field defaulted to false to preserve existing behavior.
+Entity Event Responses
+
+Added the unleash entity event response.
+If its unleash_self field is set to true, it unleashes the entity from the entity it is leashed to.
+If its unleash_others field is set to true, it unleashes all entities that are leashed to the entity.
+General
+
+String length validation for JSON now correctly apply to multi-byte characters.
+Graphics
+
+Restructured internal graphics settings to be more compact and separated by platform.
+Experimental
+These additions and changes are accessible by enabling the "Beta APIs", "Upcoming Creator Features", "Experimental Custom Projectile Features", and "Experimental Voxel Shape Features" experimental toggles.
+
+Changes
+Technical
+Add-ons
+
+Custom projectiles spawned via the minecraft:spawn_entity component now apply the offset field of minecraft:projectile when the experimental toggle "Custom Projectiles" is enabled.
+API
+
+Added class PlayerStartBreakingBlockAfterEvent to beta.
+Added class PlayerStartBreakingBlockAfterEventSignal to beta.
+Added interface PlayerBreakingBlockEventOptions to beta.
+Added property WorldAfterEvents.playerStartBreakingBlock to beta.
+Removed beta Player.partyInfo scripting property and PartyInfo interface from @minecraft/server.
+Added the minecraft:dynamic_properties block component.
+It is only present on blocks defined with a minecraft:block_entity component with dynamic_properties set to true.
+It stores properties of the same DynamicProperties type that can be found on entities or item stacks.
+It comes with a get, set and totalByteCount API.
+It may only store up to 1KBytes of data per block entity.
+It does not carry over its data to the item resulting from mining or picking the block entity.
+Blocks
+
+Added n_way_visual_rotation field to block geometry component, which takes the name of a block state as a string, which drives visual-only rotation of the block based on that state. Supported states are: minecraft:cardinal_direction, minecraft:sixteen_way_rotation, and all custom states.
+Added minecraft:sixteen_way_rotation as an enabled state for the minecraft:placement_direction block trait, which will automatically apply a state value from 0-15 based on player rotation at time of block placement.
+Added the minecraft:block_entity block component.
+It has a single boolean field dynamic_properties.
+It requires format version 1.26.20 and Experimental Upcoming Creator Features.
+It cannot be used in permutations.
+When a block with a minecraft:block_entity is placed in the world, an associated block-entity will be placed with the intent to provide persistent local metadata, akin to chests, spawners, signs, etc...
+DDUI
+
+Added the class ScriptInvalidObservableError that is thrown when an observable value is expected to be writable, but it is not.
+Changed the class CustomForm:
+Changed the function dropdown:
+Changed return type from CustomForm (throws InvalidFormModificationError) to CustomForm (throws InvalidFormModificationError, InvalidObservableError).
+Changed the function slider:
+Changed return type from CustomForm (throws InvalidFormModificationError) to CustomForm (throws InvalidFormModificationError, InvalidObservableError).
+Changed the function textField:
+Changed return type from CustomForm (throws InvalidFormModificationError) to CustomForm (throws InvalidFormModificationError, InvalidObservableError).
+Changed the function toggle:
+Changed return type from CustomForm (throws InvalidFormModificationError) to CustomForm (throws InvalidFormModificationError, InvalidObservableError).
+Item components
+
+Item components minecraft:swing_sounds, minecraft:durability_sensor, minecraft:record, and minecraft:use_modifiers now accept string-based sound event names in addition to enum values when using the Beta APIs experimental toggle.
+String-based sound names reference entries in sound_definitions.json, allowing content creators to use custom sounds in data-driven items without needing new enum values.
+Packs
+
+Added new pack folder to dedicated server for system packs (packs which are loaded automatically to the world and disallow other packs using their IDs).
+system_behavior_packs and system_resource_packs.
+Scripting
+
+Added BiomeWater API for water graphics overrides to beta.
+Added BiomeColorGrading API for color grading and tone mapping graphics overrides to beta.
+Added BiomeLighting API for lighting graphics overrides to beta.
+Added PlayerWater API for per-player water graphics overrides to beta.
+Added PlayerColorGrading API for per-player color grading and tone mapping graphics overrides to beta.
+Added PlayerLighting API for per-player lighting graphics overrides to beta.
+Added PlayerAtmospherics API for per-player atmospherics graphics overrides to beta.
+Added LootItem.conditions to beta.
+Fixes
+28 issues fixed
+From released versions before Bedrock Edition 26.30
+
+MCPE-91152 – Bone meal not working in one block deep water.
+MCPE-180737 – Accessibility option "Hide Lightning Flashes" is missing in Bedrock Edition.
+MCPE-223126 – Atlas compositing no longer working as of 1.21.90.
+MCPE-230910 – Fishing line follows second player's head movement in split screen mode.
+MCPE-235488 – Search for players accessible when not signed in.
+MCPE-235799 – Shulker boxes and mob skulls are transparent in the inventory menu initially when using texture streaming.
+MCPE-237716 – Sulfur cube cannot spawn in Peaceful difficulty.
+MCPE-238858 – "Bugs" button is translated incorrectly in Portuguese (Brazil)
+From the Bedrock Edition 26.30 development versions
+
+MCPE-238456 – Behavior packs with multiple dimension definitions cause loading crash.
+MCPE-238470 – Chiseled sulfur and cinnabar can be stonecut from their respective polished and brick variants.
+MCPE-238473 – The sound for igniting sulfur cube with TNT inside does not match the TNT block.
+MCPE-238474 – Sulfur cube with TNT inside has some explosion drop decay, even with tntExplosionDropDecay false.
+MCPE-238593 – Sulfur cube and TNT disappear when hit with invisibility potion.
+Other
+
+Fixed a client-side display issue that caused falling blocks (such as sand, gravel, and anvils) to appear to pass through cobwebs without slowing down and to lose their collision after landing.
+Fixed a bug in the Realms saves screen where the "Save to storage" button on an automatic save displayed the active world's size instead of the selected save's size, and the "Free up space" dialog was not shown when the selected automatic save was too large to fit in the Realm's storage.
+Fixed an issue where backups containing only Resource Packs displayed empty entries without names in the Saves tab.
+Fixed an issue where modals may display blank text on the Realms Hub subscription tab.
+Fixed an issue where the wrong icon was used for leaving a realm.
+Fixed Realms Hub settings screens not exiting properly after saving changes made on the screens.
+Fixed a crash that could occur when initializing a dimension on the client side if the spawn dimension was set to a non-Overworld dimension.
+Fixed a bug where the emote wheel could be opened while riding a mob or minecart, causing the player to crouch instead of dismounting.
+Fixed an issue that caused the framerate limit option under Vibrant Visuals Options to behave differently from the other quality options.
+Fixed a bug where you could not show ModalFormData or MessageFormData directly after CustomForm or MessageBox.
+Fixed an issue where on slower connections the hotbar would swap between items if you placed a block and immediately swapped.
+Fixed a bug where held_item_scale was not correctly applied to data driven blocks.
+Fixed marketplace offers sometimes showing coin icons in places they shouldn't.
+Fixed bug where @minecraft/server-net was using the incorrect dedicated server configuration ID for a pack. Under ./config/<moduleID>/* is a pack's configuration for scripting. The server-net module was looking at the pack ID rather than the script module ID like all other modules.
+Fixed an issue where square artifacts would appear when looking at point lights.
+ Preview 26.30.29
+Beta 26.30.29 (ChromeOS, Android), Preview 26.30.29 (Windows, Xbox, PlayStation), or Preview 26.30.30 (iOS, iPadOS) is the fifth beta/Preview for Bedrock Edition 26.30, released on May 17, 2026, for iOS and iPadOS, and on May 19, 2026, for all remaining devices, which fixes bugs.
+
+Additions
+General
+Splashes
+
+Added "Music by fingerspit!".
+Changes
+Blocks
+Potent sulfur
+
+Entities propelled by erupting potent sulfur now travel slightly higher.
+Erupting potent sulfur particles now travel slightly higher.
+Erupting potent sulfur particles no longer get blocked as easily by surrounding blocks.
+Potent sulfur can no longer be moved by pistons or sticky pistons.
+Geysers now have unique sounds when continuously erupting.
+General
+
+Updated the following block textures to match Java Edition:
+ Cinnabar Bricks
+ Slab
+ Stairs
+ Wall
+ Polished Cinnabar
+ Slab
+ Stairs
+ Wall
+ Chiseled Cinnabar
+ Sulfur Bricks
+ Slab
+ Stairs
+ Wall
+ Polished Sulfur
+ Slab
+ Stairs
+ Wall
+ Chiseled Sulfur
+Mobs
+Sulfur cube
+
+Can no longer pick up more than one item at a time by themselves.
+Improved server-side performance with lots of sulfur cubes in an area.
+Sulfur cubes with an absorbed block are now immune to the Poison effect.
+TNT sulfur cubes can now be ignited when in contact with either a magma block or a sulfur cube with a magma block inside of it.
+Sulfur cubes with an absorbed block no longer push player-controlled mounts.
+Sulfur cubes using the fast_flat archetype are no longer buoyant.
+Sulfur cubes using the hot archetype now have the same physics properties as the regular archetype.
+Regular sulfur cubes once again play a landing sound after a jump.
+World generation
+Sulfur caves
+
+Added a unique grass color override.
+Now generate more sulfur pools.
+Sulfur caves exposed to the surface now generate with all the features.
+Adjusted spawn ratios for the following mobs within sulfur caves:
+Creeper: spawns less frequently and always in groups of two.
+Skeleton: spawns less frequently and always in groups of two.
+Sulfur Cube: spawns in groups of two to four.
+Witch: spawns less frequently.
+Zombie: spawns less frequently and always in groups of two.
+Cave Spider: replaces all spider spawns.
+General
+Experiments
+
+Removed the "Custom Projectile Features" experimental toggle and implemented all features into vanilla gameplay.
+Realms
+
+Added a Hardcore heart and border in the Realms Hub slots section for Hardcore worlds.
+UI
+
+Replaced the Locator Bar toggle in the Multiplayer tab of the Create New World and Edit World screens with a Player Waypoints setting, allowing players to choose between "Off" and "Everyone".
+Added support for new Marketplace Content Cards.
+Updated skin info panel in the Dressing Room to remove duplicate author label.
+Added support for responding to Xbox friend requests from the social drawer.
+Technical
+API
+
+Released EntityUpgradeAfterEvent and EntityUpgradeAfterEventSignal from beta to stable.
+Released LocatorBarErrorReason from beta to v2.8.0.
+Released WaypointTexture from beta to v2.8.0.
+Released EntityWaypoint from beta to v2.8.0.
+Released LocationWaypoint from beta to v2.8.0.
+Released LocatorBar from beta to v2.8.0.
+Released PlayerWaypoint from beta to v2.8.0.
+Released Waypoint from beta to v2.8.0.
+Released WaypointTextureBounds from beta to v2.8.0.
+Released WaypointTextureSelector from beta to v2.8.0.
+Released InvalidWaypointError from beta to v2.8.0.
+Released InvalidWaypointTextureSelectorError from beta to v2.8.0.
+Released LocatorBarError from beta to v2.8.0.
+Released CustomTexture from beta to v2.8.0.
+Released EntityVisibilityRules from beta to v2.8.0.
+Released PlayerVisibilityRules from beta to v2.8.0.
+Released DimensionRegistry from beta to v2.8.0.
+Released StartupBeforeEvent.dimensionRegistry from beta to v2.8.0.
+Released CustomDimensionAlreadyRegisteredError from beta to v2.8.0.
+Released CustomDimensionInvalidRegistryError from beta to v2.8.0.
+Released CustomDimensionNameError from beta to v2.8.0.
+Released CustomDimensionReloadNewDimensionError from beta to v2.8.0.
+Added new @minecraft/server-ui 2.1.0 release.
+Biome Components
+
+The minecraft:noise_gradient surface builder type has been updated. The API is the same as before, but the noise ranges provided are now clamped to the range [-1, 1] instead of [0, 1].
+Blocks
+
+The lava_flammable field of the minecraft:flammable component is now usable without the Upcoming Creator Features experimental toggle.
+Components
+
+Added the field stop_if_holding_item to minecraft:behavior.pickup_items:
+Defaults to false.
+If true, the mob will not pick up another item if the item's preferred slot matches.
+DDUI
+
+Released MessageBox, CustomForm, and all supporting APIs out of beta and into @minecraft/server-ui 2.1.0.
+Entity Components
+
+Added the field extra_knockback_approach to minecraft:apply_knockback_rules preset settings for handling extra knockback from enchantments, sprinting and swimming:
+reapply_default preserves the current behaviour where knockback is reapplied with the new power and a default preset.
+multiply instead combines it into the original knockback calculation by multiplying the power value in the preset provided by minecraft:apply_knockback_rules.
+Made several changes to minecraft:pushable_by_entity presets:
+The min_distance field now controls the minimum range at which push interactions can occur for all push_mode values.
+Distance is measured as the horizontal distance between the centers of the two entities.
+Renamed the kick_distance_threshold field to max_distance, which now controls the maximum range at which push interactions can occur for all push_mode values.
+Distance is measured as the horizontal distance between the center of the pushed entity and the edge of the pushing entity's collision box.
+Added a play_sound field to control whether the pushed_by_player sound is played.
+Added a new none value to the push_mode field, which disables pushing behavior entirely.
+Renderer
+
+Entity held_item_scale now accepts a Molang expression for state-driven scaling, and consistently applies to the main hand only in both first and third person.
+World generation
+
+The bedrock floor and ceiling will now be placed regardless of minecraft:surface_builder and minecraft:subsurface_builder presence in the biome.json file.
+Experimental
+These additions and changes are accessible by enabling the "Beta APIs", "Upcoming Creator Features", and "Experimental Voxel Shape Features" experimental toggles.
+
+Changes
+Technical
+API
+
+Added EntityFogComponent to @minecraft/server (beta) for manipulating a player's fog settings, with push, pop, remove, getStack, getTags, and applyStack methods.
+Added EntityFogComponentError to @minecraft/server (beta).
+Added class PlayerCancelBreakingBlockAfterEvent to beta.
+Added class PlayerCancelBreakingBlockAfterEventSignal to beta.
+Added property WorldAfterEvents.playerCancelBreakingBlock to beta.
+Blocks
+
+Added the minecraft:instrument_sound block component behind the Upcoming Creator Features experiment.
+It can be used to assign an instrument to "up" and "down" faces of a block and its permutations.
+All current instruments can be used to define a sound.
+Newly added note.none can be used to specify no sound for a face.
+If a face is not defined it will use its default value; up: note.harp and down: note.none
+At least one face must be defined for the component to be valid.
+Fixes
+45 issues fixed
+From released versions before Bedrock Edition 26.30
+
+MCPE-228331 – When the "minecraft:shooter" component is applied to an item and there is no ammunition available, the use animation/movement modifiers will still occur.
+MCPE-231262 – Valid skins can't be imported on Android.
+MCPE-233039 – Not all items are present when chests generate loot.
+MCPE-234004 – Cave spiders do not spawn in Sulfur Caves on Bedrock Edition
+MCPE-237758 – Sulfur cubes incorrectly use creeper's space detection range (1.8 blocks tall) instead of their actual height.
+MCPE-237914 – Sulfur cubes stick to the bottom of ceilings.
+MCPE-238017 – Client-side placement is incorrectly enabled for blocks that apply custom components using the "permutations" array.
+MCPE-238266 – Command suggestions after /execute ... run now stop after the top-level command name.
+MCPE-238284 – Sulfur cubes do not properly calculate knockback direction when hit by swimming players.
+MCPE-238484 – Noxious gas particle is emissive in simple and fancy graphics modes.
+MCPE-238488 – Lit TNT smoke particles missing.
+From the Bedrock Edition 26.30 development versions
+
+MCPE-238420 – Cinnabar & sulfur set textures are inconsistent with Java.
+MCPE-238470 – Chiseled sulfur and cinnabar can be stonecut from their respective polished and brick variants.
+MCPE-238482 – Naturally generated sulfur springs do not create noxious gas or geysers.
+MCPE-238496 – Sulfur spikes cannot grow.
+MCPE-238663 – The death message for dying to a sulfur cube with an absorbed magma block is "<player> was slain by Unknown".
+MCPE-238664 – Shields block the damage from magma block sulfur cubes.
+MCPE-238665 – Netherite armor is damaged by magma block sulfur cubes.
+MCPE-238666 – Damage sound from getting hurt by a sulfur cube with magma block is wrong.
+MCPE-238669 – Fire immune entities are damaged in the area of sulfur cubes containing magma blocks.
+MCPE-238685 – Hot Sulfur Cubes do not ignite explosive Sulfur Cubes
+MCPE-238689 – Knockback enchantment overrides hit direction on Sulfur Cubes
+MCPE-238784 – “By (creator)” text overlaps skin pack skin count in the Dressing Room
+MCPE-238930 – New Chaos Cubed sound_definitions.json refers to nonexistent music file "clark.ogg".
+MCPE-238949 – Sulfur caves have increased glow lichen generation
+MCPE-238952 – Fast flat Sulfur Cube archetype does not match Java Edition
+MCPE-238953 – Hot Sulfur Cube archetype does not match the regular archetype
+Other
+
+Fixed a bug where sulfur cubes would look for blocks and be tempted at a longer distance than intended.
+Fixed a bug where sulfur cubes would inconsistently stay floating after absorbing a block that would make it sink.
+Fixed a bug that caused custom Nether biomes to generate with a repeating tiling pattern across chunk boundaries.
+Fixed an issue where accepting a game invite while the game was loading could fail due to skins not yet being loaded.
+Fixed the placement of lakes where they would not break above the surface.
+Fixed a scenario where the game would send excessive web requests.
+Fixed Vibrant Visuals shadows and reflections not rendering on PlayStation 4.
+Fixed a crash that could occur on Windows when resizing the game window during initial loading.
+Fixed an issue causing the Marketplace screen to throw an assert.
+Fixed an issue where clearing Realm members via "Clear All Members" resulted in a crash.
+Fixed an issue where pack content would not visually reset until leaving the screen when resetting the world.
+Fixed a freeze when opening a furnace without recipes.
+Fixed a bug where the @minecraft/debug-utilities package did not have a peer dependency on the beta version of @minecraft/server.
+Fixed block traits not respecting experimental requirements for format_version >= 1.26.20.
+Fixed an issue where every /camerashake add changed the shake types of previously added shake events.
+Fixed a bug where the coin icon may not appear on certain Marketplace offers.
+Fixed a race condition when connecting script websocket clients to a server which caused the socket to fail to connect.
+Fixed player spawn position when rejoining a world after their previously saved custom dimension becomes inactive.
+ Preview 26.30.31
+Beta 26.30.31 (ChromeOS, Android) or Preview 26.30.31 (iOS, iPadOS) is the sixth beta/Preview for Bedrock Edition 26.30, released on May 20, 2026, for iOS and iPadOS, and on May 21, 2026, for ChromeOS and Android, which fixes bugs.
+
+Fixes
+Addressed some important bugs that could occur during gameplay.
+ Preview 26.30.32
+Beta 26.30.32 (ChromeOS, Android) or Preview 26.30.32 (Windows, iOS, iPadOS, Xbox, PlayStation) is the seventh and final beta/Preview for Bedrock Edition 26.30, released on May 26, 2026 for most devices, and on May 29, 2026 for iOS, which fixes bugs.
+
+Changes
+Blocks
+Potent sulfur
+
+Erupting geysers can now propel boats and falling blocks.
+Mobs
+Sulfur cube
+
+Sulfur cubes using the "slow bouncy" archetype are now correctly kicked back based on the damage dealt.
+World generation
+Sulfur caves
+
+Now blend correctly with neighboring pre-generated chunks.
+Technical
+Entity Filters
+
+The redstone_strength_at_position entity filter now correctly evaluates to 0 when no signal is present and to the redstone strength when a redstone wire is pointing at the evaluated position.
+Features
+
+The only_check_intersection_for_motion_blocking_blocks field in the block_intersection constraint of minecraft:structure_template_feature is now optional.
+Fixes
+8 issues fixed
+From the Bedrock Edition 26.30 development versions
+
+MCPE-238275 – Sulfur cubes in buckets preserve momentum and other unwanted data.
+MCPE-238463 – Inaccurate translation for "Damage Tilt" setting (RU).
+MCPE-238476 – Redstone dust pointing into centered sulfur cube with tnt does not quite ignite it.
+MCPE-238953 – Hot sulfur cube archetype does not match the regular archetype.
+MCPE-238957 – Old growth taigas no longer play music in Survival mode.
+Other
+
+Fixed a bug where sulfur cubes would sink or not be able to move after ejecting its block.
+Fixed corrupted visuals on mobs when using Vibrant Visuals with PBR resource packs that include heightmap textures for actors.
+Fixed a crash that could occur when a player takes too long to join local multiplayer on Xbox.
+Notes and references
+
+ Only on Windows in this Preview, will be added in other platforms in later Previews.
+
+ "Minecraft Beta & Preview - 26.30.20/21"     – Minecraft Feedback, April 21, 2026.
+
+ "Minecraft Beta & Preview - 26.30.25/26"     – Minecraft Feedback, April 30, 2026.
+
+ "Minecraft Beta & Preview - 26.30.27"     – Minecraft Feedback, May 6, 2026.
+
+ "Minecraft Beta & Preview - 26.30.28"     – Minecraft Feedback, May 12, 2026.
+
+ "Minecraft Beta & Preview - 26.30.29"     – Minecraft Feedback, May 19, 2026.
+
+ "Minecraft Beta & Preview - 26.30.29/31"     – Minecraft Feedback, May 21, 2026.
+
+ "Minecraft Beta & Preview - 26.30.32"     – Minecraft Feedback, May 26, 2026.
+
+Navigation

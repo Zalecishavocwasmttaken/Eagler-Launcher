@@ -1,0 +1,100 @@
+/difficulty
+
+Permission levelrequired
+
+2 ‌[JE  only]
+1 ‌[BE  only]
+
+Restrictions
+
+Cheat only‌[BE  only]
+
+{
+    "title": "<code>/difficulty</code>",
+    "rows": [
+        {
+            "field": "\n* 2 ‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Java Edition\">(link to Java Edition article, displayed as JE)  only</span></i>]</sup>\n* 1 ‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Bedrock Edition\">(link to Bedrock Edition article, displayed as BE)  only</span></i>]</sup>",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "(link to Cheat article, displayed as Cheat) only‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Bedrock Edition\">(link to Bedrock Edition article, displayed as BE)  only</span></i>]</sup>",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+Sets or queries the difficulty level (peaceful, easy, etc.).
+
+Contents
+
+1 Usage
+2 Syntax
+3 Arguments
+4 Result
+5 Output
+6 Examples
+7 History
+
+7.1 Java Edition
+7.2 Bedrock Edition
+
+8 See also
+9 External links
+10 Navigation
+
+Usage
+On a multiplayer server difficulty lasts only until the server is restarted — on restart, difficulty is reloaded from server.properties.
+In Hardcore mode, the difficulty doesn't change even when successful.‌[Java Edition  only]
+
+Syntax
+Java Edition
+difficulty [peaceful|easy|normal|hard]
+Bedrock Edition
+difficulty <difficulty: Difficulty>
+difficulty <difficulty: int>
+Arguments
+JE: peaceful|easy|normal|hard
+BE: difficulty: Difficulty: enum and difficulty: int: int
+
+Specifies the new difficulty level. Must be one of the following:
+peaceful (can be abbreviated as p or 0‌[Bedrock Edition  only]) for Peaceful difficulty
+easy (can be abbreviated as e or 1‌[Bedrock Edition  only]) for Easy difficulty
+normal (can be abbreviated as n or 2‌[Bedrock Edition  only]) for Normal difficulty
+hard (can be abbreviated as h or 3‌[Bedrock Edition  only]) for Hard difficulty
+If unspecified, queries the current difficulty instead of changing it.‌[Java Edition  only]
+Result
+
+CommandTriggerJava EditionBedrock Edition
+
+AnyThe command is incomplete, or any argument is not specified correctly. Unparseable UnparseableThe original difficulty is the same as the specified difficulty. Failed SuccessfulOtherwiseSuccessful
+Output
+
+CommandEditionSituationSuccess Count/execute store success .../execute store result ...
+
+AnyJava EditionOn fail000/difficulty ...On success110/difficultyOn success11the number id of current difficulty (peaceful = 0, easy = 1, normal = 2, hard = 3)AnyBedrock EditionOn fail0N/AN/AOn success1N/AN/A
+Examples
+To change the difficulty to hard: difficulty hard, difficulty h‌[Bedrock Edition  only], or difficulty 3‌[Bedrock Edition  only]
+History
+
+
+
+This section needs expansion. 
+You can help by expanding it.
+
+Java Edition
+Java Edition1.4.212w32a
+Added /difficulty.1.1317w45a
+/difficulty [<value>] now only accepts string IDs, not shorthand or numeric.
+/difficulty 2 is now /difficulty normal.
+/difficulty p is now /difficulty peaceful.
+The player can now query for the current difficulty by using /difficulty without any arguments.
+Bedrock Edition
+Pocket Edition1.0.5alpha 1.0.5.0
+Added /difficulty.
+See also
+/gamemode – changes a player's game mode (Creative, Survival, etc.)
+External links
+"/difficulty Command"     – Microsoft Learn, October 11, 2023.
+Navigation

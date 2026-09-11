@@ -1,0 +1,109 @@
+Not to be confused with Game mode or Gamemode One.
+
+/gamemode
+
+Permission levelrequired
+
+2 ‌[JE  only]
+1 ‌[BE  only]
+
+Restrictions
+
+Cheat only‌[BE  only]No editor‌[BE  only]
+
+{
+    "title": "<code>/gamemode</code>",
+    "rows": [
+        {
+            "field": "\n* 2 ‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Java Edition\">(link to Java Edition article, displayed as JE)  only</span></i>]</sup>\n* 1 ‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Bedrock Edition\">(link to Bedrock Edition article, displayed as BE)  only</span></i>]</sup>",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "(link to Cheat article, displayed as Cheat) only‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Bedrock Edition\">(link to Bedrock Edition article, displayed as BE)  only</span></i>]</sup><br>No (link to Bedrock Editor article, displayed as editor)‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Bedrock Edition\">(link to Bedrock Edition article, displayed as BE)  only</span></i>]</sup>",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+Sets a player's game mode.
+
+Contents
+
+1 Syntax
+2 Arguments
+3 Result
+4 Output
+5 Examples
+6 History
+
+6.1 Java Edition
+6.2 Bedrock Edition
+
+7 See also
+8 External links
+9 Navigation
+
+Syntax
+Java Edition
+gamemode <gamemode> [<target>]
+Bedrock Edition
+gamemode <gameMode: GameMode> [player: target]
+gamemode <gameMode: int> [player: target]
+Arguments
+JE: <gamemode>: gamemode
+BE: gameMode: GameMode: enum and gameMode: int: int
+
+Specifies the new game mode.
+Must be one of the following:survival (can be abbreviated as s or 0 in Bedrock Edition) for Survival modecreative (can be abbreviated as c or 1 in Bedrock Edition) for Creative modeadventure (can be abbreviated as a or 2 in Bedrock Edition) for Adventure modedefault(can be abbreviated as d or 5) for default gamemode ‌[Bedrock Edition  only]spectator for Spectator modeNote that "hardcore" is not a valid option, as it is technically not a game mode.
+JE: <target>: entityBE: player: target: CommandSelector<Player>
+
+Specifies the target(s). If not specified, defaults to the player who executes the command.
+Must be a player name, a target selector or a UUID‌[Java Edition  only].  And the target selector must‌[JE  only]/should‌[BE  only] be of player type. In Bedrock Edition, the target selector should be of player type.
+Result
+
+CommandTriggerJava EditionBedrock Edition
+
+AnyThe command is incomplete, or any argument is not specified correctly. Unparseable UnparseablegameMode: int is not a valid game mode id. N/A Failedplayer: target is a target selector that is not in player type.<target> or player: target fails to resolve to one or more online players. Failed<target> or player: target is not specified when the command's executor is not a player.OtherwiseSuccessful
+Output
+
+CommandEditionSituationSuccess Count/execute store success .../execute store result ...
+
+AnyJava EditionOn fail000On success11the number of players whose game mode is changed.Bedrock EditionOn fail0N/AN/AOn successthe number of targeted players.N/AN/A
+Examples
+To put the executing player into Creative mode:
+/gamemode creative
+/gamemode c‌[Bedrock Edition  only]
+/gamemode 1‌[Bedrock Edition  only]
+To put all players into Survival mode:
+/gamemode survival @a
+History
+Java Edition
+Java Edition Beta1.8Pre-release
+Added /gamemode <player> <mode>. The command requires a player and numeric gamemode.Java Edition1.3.112w16a
+/gamemode is now usable in singleplayer.
+Syntax changed to /gamemode <mode> <player>, where player is now optional (defaulting to the sender) and mode can be a number, or one of survival, creative, s, or c.1.3.112w22a
+Added adventure to /gamemode.12w30a
+Invalid numerical game mode IDs are no longer accepted. Previously, specifying an invalid ID would place the target player into Survival mode.1.814w05a
+Added spectator to /gamemode.1.915w43a
+/gamemode now displays in the chat the game mode the player switches to.16w02a
+The m selector now accepts the standard literal gamemode values and abbreviations, such as a, and adventure, and these may be negated as well (e.g., @a[gamemode=!survival]).1.1317w45a
+Removed abbreviated forms and numeric IDs.1.19.322w45a
+Now this command accepts a gamemode argument, instead of literal subcommands.
+Bedrock Edition
+Pocket Edition Alphav0.16.0build 1
+Added /gamemode.
+Functionality is almost equivalent to Java Edition 1.10 usage, except /gamemode can only use Creative and Survival modes.Pocket Edition1.1.0alpha 1.1.0.0
+Added adventure to /gamemode.Bedrock Edition1.18.30Preview 1.18.30.21
+Added 6 to access Spectator mode.1.18.31ExperimentSpectator Mode
+Added spectator to access Spectator mode.
+
+Spectator mode is now locked behind its own experimental toggle.1.19.30ExperimentSpectator ModePreview 1.19.30.20
+Spectator mode can no longer be accessed via /gamemode 6.1.19.50Preview 1.19.50.20
+Spectator mode is no longer locked behind experimental gameplay.
+See also
+/defaultgamemode‌[Java Edition  only] – sets the initial game mode for players joining the world.
+External links
+"/gamemode Command"     – Microsoft Learn, October 11, 2023.
+Navigation

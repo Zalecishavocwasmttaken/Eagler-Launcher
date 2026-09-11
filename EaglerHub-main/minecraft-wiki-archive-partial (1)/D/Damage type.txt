@@ -1,0 +1,375 @@
+This article is about data pack contents.   For the game mechanic, see Damage.
+
+
+
+This feature is exclusive to Java Edition. 
+
+Damage types are JSON files located in data packs that define different kinds of damage that entities can take. They control which attributes the damage has as well as which death message is used when an entity dies due to that type of damage.
+Additionally, the built-in damage type tags control many aspects of how damage is applied by the game.
+Custom damage types can be applied only by using the /damage command.
+
+Contents
+
+1 JSON format
+2 List of damage types
+3 Scaling
+4 Effects
+5 Death messages
+
+5.1 Default message type
+5.2 Design
+
+6 History
+7 External links
+8 Notes
+9 References
+10 Navigation
+
+JSON format
+Damage types are stored as JSON files within a data pack, at the path data/<namespace>/damage_type/<name>.json.
+[NBT Compound / JSON Object] The root object.
+[String] message_id: Used as part of the death message translation key if [String] death_message_type is set to default, as shown below.
+[Float] exhaustion: The amount of hunger exhaustion caused by this damage type.
+[String] scaling: Whether this damage type scales with difficulty. Possible values: never, always, or when_caused_by_living_non_player. See below for more detail.
+[String] effects: Optional field controlling how incoming damage is shown to the player. Possible values: hurt (default), thorns, drowning, burning, poking, freezing. See below for more detail.
+[String] death_message_type: Optional field that controls the kind of death messages to use. Possible values: default (default), fall_variants, intentional_game_design. See below for more detail.
+For example, here is JSON for the built-in minecraft:arrow:{
+	"exhaustion": 0.1,
+ 	"message_id": "arrow",
+	"scaling": "when_caused_by_living_non_player"
+}
+
+List of damage types
+
+Damage type
+
+Sources
+
+arrow
+
+Any kind of arrow hitting something
+
+bad_respawn_point
+
+A bed or respawn anchor exploding
+
+cactus
+
+Touching a cactus
+
+campfire
+
+Touching a campfire or soul campfire
+
+cramming
+
+When too many mobs are in one place
+
+dragon_breath
+
+Unused
+
+drown
+
+Ticking damage while drowning
+Snow golems, blazes, endermen, and striders in water/rain
+Bees underwater
+Fish, tadpoles, dolphins and squid are out of water for too long
+
+dry_out
+
+When nautiluses, dolphins, and axolotls are out of water for too long
+
+ender_pearl
+
+Teleporting with an ender pearl
+
+explosion
+
+When an end crystal takes damage and blows up
+Damage to the ender dragon when the healing end crystal is destroyed
+A wither fight starting
+A minecart with TNT exploding, either from a flaming arrow or another reason
+TNT exploding when its fuse runs out
+A creeper exploding when its fuse runs out
+An explosion caused by a ghast fireball or wither skull
+Explosions from the dragon respawn animation
+
+fall
+
+Any entity taking fall damage
+Riding an entity that took fall damage
+
+falling_anvil
+
+A falling anvil hitting something
+
+falling_block
+
+A non-anvil, non-dripstone falling block hitting an entity
+
+falling_stalactite
+
+Falling pointed dripstone hitting something
+
+fireball
+
+A ghast or blaze fireball with an owner hitting an entity directly
+
+fireworks
+
+A firework exploding
+
+fly_into_wall
+
+Hitting a wall or world border while flying using elytra, i.e. "kinetic energy"
+
+freeze
+
+Ticking damage while freezing in powder snow
+
+generic
+
+Bees dying after stinging
+Simulating the player_hurt_entity trigger when punching an interaction entity
+Used in a DamageEvent package
+When reporting an end crystal killed by /kill to the dragon fight
+An entity achieving a death that is not assigned to any damage type or is assigned to generic damage type
+
+generic_kill
+
+Using /kill
+
+hot_floor
+
+Standing on a magma block
+
+in_fire
+
+Ticking damage while standing in a fire or soul fire block
+Ticking damage while standing on a lit campfire or soul campfire
+
+in_wall
+
+Ticking damage while stuck in a solid block
+
+indirect_magic
+
+Instant damage from a harming/healing potion (drink, splash, or lingering)
+Extra damage from a guardian's beam attack
+Evoker fangs with an owner dealing damage
+Damage dealt to snow golems, blazes, endermen, and striders from splash water bottles
+
+lava
+
+Ticking damage while in lava
+
+lightning_bolt
+
+When struck by lightning
+
+mace_smash
+
+Extra damage by attacking using mace
+
+magic
+
+Simulating a kill with /loot kill
+Ticking damage from a Harming/Healing effect (i.e. not initial contact)
+Ticking damage from a Poison effect
+Evoker fangs with no owner dealing damage
+A wither skull with no owner hitting something
+A conduit attack
+An arrow of harming hitting something
+
+mob_attack
+
+Melee attack dealt by most mobs
+Touching a pufferfish
+The ender dragon pushing entities away
+A guardian's beam attack
+A ravager roaring
+Touching a blaze
+
+mob_attack_no_aggro
+
+A goat ramming
+
+mob_projectile
+
+A shulker bullet hitting something
+
+on_fire
+
+An entity burning
+Snow golems melting or burning
+
+out_of_world
+
+Ticking damage in the void
+
+outside_border
+
+Ticking damage while outside the world border
+
+player_attack
+
+A player hitting a mob
+A player dealing a sweeping attack
+Feeding a parrot a cookie
+A player breaking a non-mob entity
+When granting the kill_mob_near_sculk_catalyst criteria if the actual damage type couldn't be found
+
+player_explosion
+
+Anything in explosion, when it can be determined a player was directly responsible
+
+sonic_boom
+
+A warden booming
+
+spear
+
+A spear hitting something
+
+spit
+
+A llama spitting
+
+stalagmite
+
+Falling too far onto pointed dripstone
+
+starve
+
+A vex summoned by an evoker dying after its time ran out
+Ticking damage from having no food
+
+sting
+
+A bee stinging
+
+sulfur_cube_hot
+
+Touching a sulfur cube that has absorbed a magma block
+
+sweet_berry_bush
+
+Ticking damage while moving in a berry bush block
+
+thorns
+
+Attacking a guardian or elder guardian
+Attacking an entity wearing armor enchanted with thorns
+
+thrown
+
+A snowball, egg, or ender pearl hitting something
+
+trident
+
+A trident hitting something
+
+unattributed_fireball
+
+A ghast or blaze fireball without an owner hitting an entity directly
+
+wind_charge
+
+A wind charge, thrown or fire from a breeze, hitting something
+
+wither
+
+Ticking damage from a Wither effect
+
+wither_skull
+
+A wither skull with an owner hitting something
+
+Scaling
+Damage types control whether damage scales with difficulty.​[more information needed]
+Possible values of [String] scaling:
+
+never: Damage is always the same.
+always: Damage always scales with difficulty.
+when_caused_by_living_non_player: Damage scales with difficulty if the attacker was a living entity and was not a player.
+Effects
+Damage types control how incoming damage is shown to the player.
+Possible values of [String] effects:
+
+hurt (default): The default hurt sound.
+thorns: Thorns hurt sound.
+drowning: Drowning sound.
+burning: A single tick of burning sound.
+poking: Berry bush poke sound.
+freezing: Freezing tick sound.
+Death messages
+Damage types control the death messages displayed when players or pets die.
+Possible values of [String] death_message_type:
+
+default (default): Use the standard death message logic.
+fall_variants: Use the fall damage death messages, e.g. death.fell.assist.item.
+intentional_game_design: Show the "intentional game design" death message.
+Default message type
+When standard death message logic is being used, messages are generated as follows, making use of the [String] message_id tag:
+
+If the killing blow was caused by an attacker and the attacker was holding a named item in their main hand at the time of death, this is categorized as an item death. A translated message is displayed using the translation key death.attack.<message_id>.item with the following insertions available:
+The name of the dying entity.
+The name of the attacker.
+The name of the item.
+If the killing blow was not caused by an attacker, but the dying entity was damaged by a player or non-player living entity within the last 100 game ticks (5 seconds), this is categorized as an assisted death. This uses the values stored in the [Int Array] last_hurt_by_player and [Int Array] last_hurt_by_mob entity data fields. A translated message is displayed using the translation key death.attack.<message_id>.player with the following insertions available:
+The name of the dying entity.
+The name of the recent attacker. Players take priority over non-players, even if the non-player entity's attack was more recent.
+If neither of the above apply, this is categorized as a normal death. A translated message is displayed using the translation key death.attack.<message_id> with the following insertions available:
+The name of the dying entity.
+The name of the attacker, if there was one.
+Design
+Because of how the default death messages are set up, most vanilla damage types are divided into ones that always have an attacker and ones that never have an attacker. Depending on whether there was an attacker, the translation for normal deaths (death.attack.<message_id>) has either one or two available insertions. Translations have no safe way to access an insertion that may or may not be there, so the primary options are:
+The death type is planned to always have an attacker.
+
+The translation looks like"death.attack.mob": "%s was slain by %s",
+"death.attack.mob.item": "%s was slain by %s using %s",
+
+The translation key death.attack.<message_id>.player is not provided, since assisted deaths are impossible.
+The death type is planned to never have an attacker.
+
+The translation looks like"death.attack.drown": "%s drowned",
+"death.attack.drown.player": "%s drowned whilst trying to escape %s",
+
+The translation key death.attack.<message_id>.item is not provided, since item deaths are impossible.
+The death type may or may not have an attacker.
+
+The translation looks like"death.attack.electricity": "%s was electrocuted",
+"death.attack.electricity.item": "%s was electrocuted by %s using %s",
+"death.attack.electricity.player": "%s was electrocuted whilst trying to escape %s",
+
+The translation key death.attack.<message_id> avoids using the second insertion, since it may or may not be present.
+The translation is a little awkward, because the death message when killed by a player mention them only if they're holding a named weapon.
+To avoid the awkwardness of the third option there can be two different damage types, one for use with an attacker, and one for use without an attacker:"death.attack.active_electricity": "%s was electrocuted by %s",
+"death.attack.active_electricity.item": "%s was electrocuted by %s using %s",
+"death.attack.passive_electricity": "%s was electrocuted",
+"death.attack.passive_electricity.player": "%s was electrocuted whilst trying to escape %s",
+
+History
+Java Edition1.19.423w06a
+Added damage types to data packs.1.20pre1
+Added outside_border, and generic_kill.1.20.523w51a
+Added spit.1.2124w18a
+Added wind_charge.24w19b
+Added campfire.1.21.224w33a
+Added mace_smash and ender_pearl.1.21.1125w41a
+Added a new spear damage type.26.2snap8
+Added sulfur_cube_hot.
+External links
+Damage type Generator on misode.github.io
+Notes
+
+ The entity that was responsible for the damage. Also known as the "source entity". For example, if a player is shot by a skeleton, the skeleton is the attacker. If a player is shot by a dispenser, the arrow itself is the attacker. If the player is pricked by a cactus, there is no attacker.
+
+ This includes armor stands.
+
+References
+
+ MC-84595 – "Roasted in dragon's breath" death message does not appear when player is killed by dragon's breath
+
+Navigation

@@ -1,0 +1,7 @@
+[NBT Compound / JSON Object] minecraft:custom_model_data: A list of values used by items model definitions for model selection and coloring.
+[NBT List / JSON Array] floats: A list of [Float] floats for the range_dispatch model type. Missing values return the fallback model.
+[Byte Array] flags: A list of [Boolean] booleans for the condition model type. Missing value returns the is_false model.
+[NBT List / JSON Array] strings: A list of [String] strings for the select model type. Missing value returns the fallback model.
+[NBT List / JSON Array][Int Array] colors: A list of RGB values for the model model type's tints. Missing values return the default value provided by the item model definition. Each entry can either be a list of floats or an integer. Any provided lists automatically convert to an integer, so the component is saved as an int array.
+[Int]: An RGB color code converted to a decimal number. It can be calculated from the Red, Green and Blue components using this formula:Red<<16 + Green<<8 + Blue An interactive widget is being loaded. If this does not work for you, please reload the page or check if JavaScript is working or enabled.
+[NBT List / JSON Array]: A list containing 3 floats corresponding to red, green, and blue values as a fraction (ranged 0 to 1, inclusive). Automatically converted to the integer format when saved.

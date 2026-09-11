@@ -1,0 +1,257 @@
+Minecraft 24w39a
+
+Edition
+
+Java Edition
+
+Release date
+
+September 25, 2024
+
+Type
+
+Snapshot
+
+Snapshot for
+
+1.21.2
+
+Downloads
+
+Client (.json)Server
+
+Obfuscation maps
+
+ClientServer
+
+Protocol version
+
+ dec: 1073742035 hex: 400000D3
+
+Data version
+
+4069
+
+Resource pack format
+
+39
+
+Data pack format
+
+55
+
+Minimum Java version
+
+Java SE 21
+
+◄◄   1.21.1
+1.21.2
+  1.21.3 ►►
+
+◄   24w38a
+
+ 24w39a
+
+  24w40a ►
+
+{
+    "title": "Minecraft 24w39a",
+    "images": [
+        "24w39a.jpg",
+        "Java Edition 24w39a.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "September 25, 2024",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Snapshot article, displayed as Snapshot)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition 1.21.2 article, displayed as 1.21.2)",
+            "label": "Snapshot for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/e7d80731fe16c07a14cb324229f9316746c01812/client.jar Client] ([https://piston-meta.mojang.com/v1/packages/2b6f8eddb01877162fd33b3bbb25f569b7582ee9/24w39a.json .json])<br />[https://piston-data.mojang.com/v1/objects/31bc8a4f3c73e3873f4a0d42e7c65a7ae43cc44a/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/9f34397089f375ab89b39d9205c460e362e23a37/client.txt Client]<br />[https://piston-data.mojang.com/v1/objects/3b9c91614ac343e0a244eaefb87f10733965cd4f/server.txt Server]",
+            "label": "(link to Obfuscation map article, displayed as Obfuscation maps)"
+        },
+        {
+            "field": " <span style=\"font-size:smaller\"><abbr title=\"decimal\">dec</abbr>: </span>1073742035<br /> <span style=\"font-size:smaller\"><abbr title=\"hexadecimal\">hex</abbr>: </span>400000D3",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "4069",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "39",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "55",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Data pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_21_.28LTS.29 Java SE 21]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Java Edition  1.21.1|<span style=\"margin-right:-0.35em\">◄</span>◄   1.21.1]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition 1.21.2|1.21.2]]'''</td>\n<td style=\"padding: 0.4em\" >[[Java Edition  1.21.3|  1.21.3 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  24w38a|◄   24w38a]]\n</td>\n<td style=\"padding: 0.4em\">''' 24w39a'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  24w40a|  24w40a ►]]\n</td>\n</tr>\n</table>"
+}
+
+24w39a is the seventh snapshot for Java Edition 1.21.2, released on September 25, 2024, which adds bundles to normal gameplay and fixes bugs.
+
+Contents
+
+1 Additions
+
+1.1 General
+
+2 Changes
+
+2.1 Items
+2.2 Non-mob entities
+2.3 General
+
+3 Fixes
+4 Videos
+5 References
+6 Navigation
+
+Additions
+General
+Tags
+
+Added the map_invisibility_equipment item tag, for items that can be equipped to hide the player marker on other players maps.
+Added the #boat entity type tag.
+Changes
+Items
+Bundles
+
+Are no longer experimental.
+Carved pumpkin
+
+Equipping it on the player's head now removes the player marker from other players' maps.
+Non-mob entities
+Boats and boats with chests
+
+The entity IDs for boats and boats with chests have been split into separate types, one per existing variant, instead of Type field.
+
+Old ID
+
+New ID
+
+ boat
+
+ oak_boat
+
+ spruce_boat
+
+ birch_boat
+
+ jungle_boat
+
+ acacia_boat
+
+ dark_oak_boat
+
+ mangrove_boat
+
+ cherry_boat
+
+ bamboo_raft
+
+ chest_boat
+
+ oak_chest_boat
+
+ spruce_chest_boat
+
+ birch_chest_boat
+
+ jungle_chest_boat
+
+ acacia_chest_boat
+
+ dark_oak_chest_boat
+
+ mangrove_chest_boat
+
+ cherry_chest_boat
+
+ bamboo_chest_raft
+
+General
+Container locks
+
+The Lock field of containers has been renamed to lock and is now an item predicate.
+Any items which match the predicate can open the container.
+The lock data component is now also an item predicate.
+Data pack
+
+The pack format version is now 55.
+Removed the bundle feature flag and built-in data pack.
+Predicates
+
+Removed the minecraft:boat entity sub-predicate, since boats no longer have variants.
+UI
+
+Updated slot highlight so item texture has better visibility.
+The previous textures have been added to Programmer Art resource pack.
+Fixes
+23 issues fixed
+From released versions before 1.21
+
+MC-219083 – Hunger client/server desync when natural regeneration is off in peaceful mode.
+MC-235953 – Entity eyes render type doesn't blend non-black transparent pixels properly.
+MC-240001 – The white and red highlights from recipe book previews render above potion tooltips.
+From the 1.21.2 development versions
+
+MC-275216 – Bowl is consumed when feeding a rabbit stew to a wolf.
+MC-275544 – Drowned do not summon reinforcements anymore.
+MC-276305 – Bundles no longer available without enabling feature flag.
+MC-276341 – The time how long you remain on fire no longer increases while being in the fire.
+MC-276426 – Slimes or magma cubes spawned by splitting synchronize inherited status effects.
+MC-276588 – Boat with chest inventory names no longer are suffixed with 'with Chest'.
+MC-276598 – The slot_highlight_front texture renders incorrectly behind with missing recipe items.
+MC-276610 – Ender pearl interaction with bubble columns is broken.
+MC-276611 – Converted mobs do not keep CanBreakDoors tag.
+MC-276615 – Cured Zombie Villagers keep CanPickUpLoot:0b.
+MC-276638 – The server console or LAN game output spammed with "PLAYER moved too quickly!" after a player dies and respawns.
+MC-276646 – Unique Horse Armor sound event is no longer used.
+MC-276674 – Entities with emissive eyes aren't properly affected by fog of any kind.
+MC-276707 – Underwater fireballs constantly play fire extinguishing sound.
+MC-276724 – Arrows and potions resist upward flowing bubble columns.
+MC-276727 – Projectiles are choppy while moving after hitting blocks or entities.
+MC-276807 – All blocks and entities flicker at night or at lower light levels than 15.
+From the previous development version
+
+MC-276817 – Teleport command offsets are applied incorrectly.
+MC-276843 – Touching an end portal while in spectator mode teleports the player when they exit spectator mode.
+MC-276919 – /tp teleports twice the relative distance if there's a block on the teleport point.
+Videos
+Videos made by slicedlime:
+
+
+
+
+
+
+
+
+References
+
+ "Minecraft Snapshot 24w39a"     – Minecraft.net, September 25, 2024.
+
+Navigation

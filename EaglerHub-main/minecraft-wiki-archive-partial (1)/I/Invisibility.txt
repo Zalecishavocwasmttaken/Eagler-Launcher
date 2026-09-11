@@ -1,0 +1,482 @@
+This article is about the effect.   For the unused item in Minecraft Dungeons, see Dungeons:Invisibility Potion.
+
+ "Invisible" redirects here.  For the enchantment in Minecraft Dungeons, see Dungeons:Invisible.
+
+Invisibility
+
+Sources
+
+See § Causes
+
+Particle
+
+ #F6F6F6 (white)
+
+Type
+
+Positive
+
+{
+    "title": "Invisibility",
+    "rows": [
+        {
+            "field": "See (link to #Causes article, displayed as <span style=\"white-space: nowrap;\">§ Causes</span>)",
+            "label": "Sources"
+        },
+        {
+            "field": "<span class=\"sprite-file\" style=\"height:18px;width:18px\">(link to File:EffectSprite particle-invisibility.png article, displayed as 18x18px|link=|alt=EffectSprite particle-invisibility.png: Sprite image for particle-invisibility in Minecraft|class=pixel-image|)</span> #F6F6F6 (white)",
+            "label": "Particle"
+        },
+        {
+            "field": "Positive",
+            "label": "Type"
+        }
+    ],
+    "invimages": [
+        "Potion of Invisibility",
+        "Splash Potion of Invisibility",
+        "Lingering Potion of Invisibility",
+        "Arrow of Invisibility"
+    ],
+    "images": [
+        "Invisibility.png"
+    ]
+}
+
+Invisibility is a status effect that turns players and mobs completely invisible and see-through, but has no effect on held items, worn armor, or certain parts of some mobs. Invisible entities, especially those wearing no armor, can get significantly closer to most mobs without being detected.
+
+Contents
+
+1 Effect
+
+1.1 Rendering
+1.2 Mob detection range
+1.3 Locator bar
+
+2 Causes
+3 Immune mobs
+4 Data values
+
+4.1 ID
+
+5 Advancements
+6 History
+
+6.1 Java Edition
+6.2 Bedrock Edition
+6.3 Legacy Console Edition
+
+7 Issues
+8 Trivia
+9 Gallery
+
+9.1 Screenshots
+
+10 References
+11 Navigation
+
+Effect
+The visible parts of a breeze, a shulker, a saddled strider, a trader llama, a phantom, an enderman, a spider, a saddled pig, and a charged creeper
+The visible parts of an armored player
+Invisibility has three effects: It causes the affected entity's model to disappear, it decreases the distance the player can be detected by mobs, and it hides the player's waypoint from the locator bar.
+
+Rendering
+While under the invisibility effect, the model and name of mobs and players are not rendered, making the mob or player appear to be invisible. This does not prevent the mob or player from interacting with the world.
+Certain features of mobs and players are not affected by Invisibility:
+
+Worn armor (including horse armor, wolf armor, nautilus armor, and carved pumpkins).
+Held items.
+Emitted Particles (including particles from the Invisibility effect).
+Fire from entities set on fire.
+Arrows and bee stingers stuck in players.‌[Java Edition  only]
+Shulker's heads (opened and closed).‌[Java Edition  only]
+Carpets equipped to llamas and trader llamas.‌[Java Edition  only]
+Saddles equipped to pigs, striders, horses, donkeys, mules, camels, nautiluses, and zombie nautiluses.‌[Java Edition  only]
+Harnesses equipped to happy ghasts.‌[Java Edition  only]
+The aura of charged creepers.‌[Java Edition  only]
+The eyes of creakings,‌[Java Edition  only] endermen,‌[Java Edition  only] spiders, cave spiders, and phantoms.
+The eyes and wind effects of breezes.‌[Java Edition  only]
+The blocks inside sulfur cubes.
+Chests on donkeys, mules, llamas, and trader llamas are not rendered when the host mob is invisible.
+
+Mob detection range
+When a player is under the Invisibility effect, the distance at which mobs detect the player is much shorter. After detecting a player, the mob behaves as if the player did not have the Invisibility effect; hostile mobs follow and attack the player until the player is outside of the mob's normal detection range.
+A mob's detection range is determined by the follow_range attribute. When a player does not have any items equipped in armor slots (including elytra), the player is detected at 7% of a mob's normal detection range.
+When a player has items equipped in armor slots, the detection range is 17.5% times the number of pieces of armor. With 4 pieces of armor, the player is detected at 70% of a mob's normal detection range.
+Invisibility stacks with other methods of reducing a mob's detection range:
+
+Sneaking reduces detection range to 80% of the normal range
+Wearing the corresponding mob head reduces detection range of skeletons, zombies, creepers, piglins and piglin brutes to 50% of the normal range. Mob heads are worn in an armor slot, and result in a larger detection range than not wearing the mob head.
+The final detection range is given by the maximum between 2 and the detection range after the reduction, so the final detection range is at least 2.
+The exact numerical information is in the table below:
+
+Mob
+
+Base detection rangewithout Invisibility
+
+Detection range  no armor
+
+Detection range  1 piece of armor
+
+Detection range  2 pieces of armor
+
+Detection range  3 pieces of armor
+
+Detection range  4 pieces of armor
+
+Ghast
+
+100
+7
+17.5
+35
+52.5
+70
+
+Enderman
+
+64
+4.48
+11.2
+22.4
+33.6
+44.8
+
+AllayBeeBlazeVillager
+
+48
+3.36
+8.4
+16.8
+25.2
+33.6
+
+LlamaWither
+
+40
+2.8
+7
+14
+21
+28
+
+ZombieHuskDrownedZombie VillagerZombified Piglin
+
+35
+2.45
+6.125
+12.25
+18.375
+24.5
+
+FoxPillagerRavager
+
+32
+2.24
+5.6
+11.2
+16.8
+22.4
+
+Breeze
+
+24
+2
+4.2
+8.4
+12.6
+16.8
+
+Polar Bear
+
+20
+2
+3.5
+7
+10.5
+14
+
+Illusioner‌[JE  only]
+
+18
+2
+3.15
+6.3
+9.45
+12.6
+
+EvokerVindicator
+
+12
+2
+2.1
+4.2
+6.3
+8.4
+
+All other mobs
+
+16
+2
+2.8
+5.6
+8.4
+11.2
+
+In addition:
+
+Sculk sensors, wardens, cats and villagers do not behave any differently toward invisible entities.
+Pillagers point their crossbows at invisible players outside their reduced detection range, but do not attack.
+Locator bar
+The waypoint of a player affected by Invisibility is not shown on other players' locator bar. In Java Edition, this is done by applying a 100% reduction on the waypoint_transmit_range attribute.
+
+Causes
+
+Cause
+
+Potency
+
+Length
+
+Notes
+
+Potion of Invisibility
+
+I
+
+3:00
+
+Wandering Traders drink this potion when attacked by hostile mobs or when avoiding zombies and illagers.‌[Bedrock Edition  only]
+
+Potion of Invisibility (extended)
+
+I
+
+8:00
+
+Wandering Traders drink this potion if the time is between 12000 and 18000.
+
+Splash Potion of Invisibility
+
+I
+
+3:00
+
+Splash Potion of Invisibility (extended)
+
+I
+
+8:00
+
+Lingering Potion of Invisibility
+
+I
+
+0:45
+
+Lingering Potion of Invisibility (extended)
+
+I
+
+2:00
+
+Arrow of Invisibility
+
+I
+
+0:22
+
+Arrow of Invisibility (extended)
+
+I
+
+1:00
+
+Illusioner
+
+I
+
+1:00
+
+Applies only to illusioners when casting the invisibility spell.
+
+Spawning within the world
+
+I
+
+∞
+
+Applies only to spiders on Hard difficulty.‌[JE  only]
+
+Immune mobs
+Withers and ender dragons are immune to Invisibility.
+
+Data values
+ID
+  This section is about the effect IDs.   For the IDs on potions, see Potion § Item data.   For the IDs on tipped arrows, see Arrow § Metadata.
+
+Java Edition:
+
+NameIdentifier
+Translation key Invisibilityinvisibility
+effect.minecraft.invisibility
+Bedrock Edition:
+
+NameIdentifierNumeric ID
+Translation key Invisibilityinvisibility14
+potion.invisibility
+Advancements
+IconAdvancementIn-game descriptionActual requirements (if different)A Furious CocktailHave every potion effect applied at the same time
+Have all of these 17 status effects applied to the player at the same time:
+
+Fire Resistance
+Infested
+Invisibility
+Jump Boost
+Night Vision
+Oozing
+Poison
+Regeneration
+Resistance
+Slow Falling
+Slowness
+Speed
+Strength
+Water Breathing
+Weakness
+Weaving
+Wind Charged
+
+The source of the effects is irrelevant for the purposes of this advancement. Other status effects may be applied to the player, but are ignored for this advancement.How Did We Get Here?Have every effect applied at the same time
+Have all of these 34 status effects applied to the player at the same time:
+
+Absorption
+Bad Omen
+Blindness
+Breath of the Nautilus
+Conduit Power
+Darkness
+Dolphin's Grace
+Fire Resistance
+Glowing
+Haste
+Hero of the Village
+Hunger
+Infested
+Invisibility
+Jump Boost
+Levitation
+Mining Fatigue
+Nausea
+Night Vision
+Oozing
+Poison
+Raid Omen
+Regeneration
+Resistance
+Slow Falling
+Slowness
+Speed
+Strength
+Trial Omen
+Water Breathing
+Weakness
+Weaving
+Wind Charged
+Wither
+
+The source of the effects is irrelevant for the purposes of this advancement. Other status effects may be applied to the player, but are ignored for this advancement.
+
+See also: Tutorial:Advancement guide/How Did We Get Here?
+
+This is a hidden advancement, meaning that it can be viewed by the player only after completing it, regardless of if its child advancement(s), if any, have been completed.
+History
+Java Edition
+Java Edition Beta1.8Pre-release
+Invisibility is added along with 18 other status effects but is currently unobtainable in regular gameplay.Java Edition1.0.0Beta 1.9 Prerelease 2
+ The effect sprite for Invisibility has been added to inventory.png.
+
+Potions which grant the Invisibility effect are added.
+
+Milk now clears the Invisibility effect.Beta 1.9 Prerelease 3
+Invisibility no longer has any associated potions.1.4.212w34a
+Invisiblity now functions, and turns mobs invisible.
+
+Players under Invisiblity's effect now cannot be detected by other players.
+
+A potion and splash potion of Invisibility have been implemented and added to Creative mode.1.6.113w24a
+Spiders now have a rare chance to spawn with Invisibility on Hard difficulty.1.814w05b
+Sheep's wool is no longer visible when they have the Invisibility effect.30 July 2014
+Jeb has stated that saddles equipped on horses and related mobs are invisible due to technical limitations, as the saddle is part of each horse's texture, and that this may be fixed at some point in the future if more armored mobs were to be implemented.1.1418w43a
+ The effect icon texture of Invisiblity has been changed.19w08a
+The Invisibility status effect has been improved to allow it to correctly work in many cases where it did not.
+
+Guardians no longer see players that are invisible from the Invisibility effect.
+
+Zombies and illagers no longer see invisible villagers and wandering traders.
+
+Withers no longer see invisible players.
+
+Iron golems no longer see invisible hostile-neutral mobs.
+
+Horse armor on horses is now still displayed if the horse wearing it is invisible.1.15.2pre1
+Iron golem's cracks are no longer visible if they have the Invisibility effect.1.19.4Pre-release 3
+The potion & effect color have been changed from  #7F8392 to  #F6F6F6.1.20.223w32a
+The game no longer uses numeric values when storing mob effects to world. Prior to the removal of numeric IDs, this effect's numeral ID was 14.1.21.525w03a
+Saddles on equine mobs and camels are now still displayed if the mob wearing it is invisible; this has resulted from the saddle texture being split from the main texture.1.21.6ExperimentLocator Bar25w15a
+Invisibility now hides players from the locator bar.1.21.625w17a
+The locator bar is now available without its experimental data pack.
+Bedrock Edition
+Pocket Edition Alphav0.11.0build 1
+ Added Invisibility.
+
+Invisibility is currently unobtainable.v0.12.1build 1
+Invisibility can now be obtained from potions and splash potions of Invisibility.v0.15.0build 1
+Added arrow of Invisibility, which inflicts any mob it hits with Invisibility.Pocket Edition1.0.0alpha 0.17.0.1
+Invisibility can now be obtained from a lingering potions of Invisibility.Bedrock Edition1.11.0beta 1.11.0.3
+Wandering traders now hide by drinking potions of Invisibility during nightfall, when hurt by projectiles and magic, or when avoiding zombies and illagers.
+
+The Invisibility status effect has been improved to allow it to correctly work in many cases where it did not.​[more information needed]
+
+Zombies and illagers no longer see invisible villagers and wandering traders.beta 1.11.0.5
+ The effect icon texture of Invisibility has been changed.1.21.80ExperimentLocator BarPreview 1.21.80.20
+Invisibility now hides players from the locator bar.
+Legacy Console Edition
+Legacy Console EditionXbox 360Xbox OnePS3PS4PS VitaWii USwitchTU5CU11.001.001.00Patch 11.0.1
+Invisibility is added along with 18 other status effects but is currently unobtainable in regular gameplay.[is this the correct version?]TU141.04
+Invisiblity now functions, and turns mobs invisible.
+Players under Invisiblity's effect now cannot be detected by other players.
+A potion and splash potion of Invisibility have been implemented and added to Creative mode.TU19CU71.121.121.12
+Spiders now have a rare chance to spawn with Invisibility on Hard difficulty.   1.91
+Wandering traders now hide by drinking potions of Invisibility during nightfall, when hurt by projectiles and magic, or when avoiding zombies and illagers.
+The Invisibility status effect has been improved to allow it to correctly work in many cases where it did not.[verify]​[more information needed]
+Zombies and illagers no longer see invisible villagers and wandering traders.[verify]
+ The effect icon texture of Invisibility has been changed.
+Issues
+Issues relating to "Invisibility" are maintained on the bug tracker. Issues should be reported and viewed there.
+
+Trivia
+Players in Spectator mode see invisible entities as translucent instead.
+In Java Edition, Invisibility prevents the rendering of entity hitboxes by pressing F3 + B.
+In Java Edition, The attack indicator still appears when facing an invisible entity.
+Gallery
+Screenshots
+
+
+
+			A sheep in Java Edition with Invisibility before Java Edition 14w05b. Its wool is still visible.
+
+
+References
+
+ MC-279508
+
+ MC-88791
+
+ MC-13738
+
+ MC-256469
+
+ MC-261797 – resolved as "Works As Intended".
+
+Navigation

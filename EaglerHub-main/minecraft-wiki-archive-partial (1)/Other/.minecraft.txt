@@ -1,0 +1,256 @@
+For the Bedrock Edition directory, see com.mojang.
+
+ Not to be confused with Minecraft.
+
+
+
+This feature is exclusive to Java Edition. 
+
+ .minecraft (or simply  minecraft on macOS) is the game directory of Minecraft: Java Edition and the launcher directory of the Minecraft Launcher.
+The game directory stores data managed by the game client, such as game configuration, worlds and resource packs. The launcher directory stores data managed by the launcher, such as its own configuration, the game client program, game libraries and assets. Those two directories, while technically distinct, are normally unified (in the default layout) into  .minecraft.
+
+Contents
+
+1 Location
+2 Changing location
+3 Directory structure
+
+3.1 Game directory
+3.2 Launcher directory
+
+4 History
+5 References
+6 Navigation
+
+Location
+Below is a table showing the default path of  .minecraft.
+
+Operating system
+
+Location
+
+Windows
+
+%APPDATA%\.minecraft
+
+macOS
+
+~/Library/Application Support/minecraft
+
+Linux
+
+~/.minecraft
+
+Locating the  .minecraft directory may be necessary in order to load a resource pack for use in the game, or to locate any made screenshots.
+The path in the table above is the default configuration. Launchers can place  .minecraft at any path.
+On a Windows computer, the  %APPDATA% directory may be accessed by using the Run command (accessed with the ⊞ Windows + R keyboard shortcut, or from the Start menu). It can also be accessed from Windows Explorer, by typing %APPDATA% into the address bar and pressing ⏎ Return.
+On macOS, the game directory may be accessed by opening Finder, pressing ⇧ Shift + ⌘ Command + G, typing ~/Library/Application Support/minecraft and pressing ⏎ Return. It can also be accessed via Spotlight.
+On Linux or macOS, the ~ in the path refers to the home directory. Files starting with . are hidden by default. In most file managers, pressing ⎈ Control + H toggles viewing hidden files. In macOS specifically, since version 10.12 (Sierra), pressing ⌘ Command + ⇧ Shift + . toggles viewing hidden files.
+
+Changing location
+Changing the game directory path can be done per installation in the Minecraft Launcher. Changing the launcher directory path can be done by using the --workDir command-line parameter (see Tutorial:Custom Minecraft directory).
+The default location of the game directory is the launcher directory, so changing the launcher directory is sufficient if it is desirable for both of them to be moved to another place.
+
+Directory structure
+The complete directory structure is a combination of the game directory and the launcher directory.
+
+Game directory
+
+ .minecraft
+ debug
+ year-month-day_hour.minute.second.zip
+ deviations
+ <tick_number>@year-month-day_hour.minute.second.txt
+ metrics
+ eventloops.csv
+ frame_times_ms_.csv
+ jvm.csv
+ mailboxes.csv
+ rendering_chunk_dispatching.csv
+ rendering_chunk_stats.csv
+ task_total_duration_ms.csv
+ profiling.txt
+ logs
+ year-month-day-sessionNumber.log.gz
+ latest.log
+ resourcepacks
+ saves
+ worldName
+ data
+ minecraft
+ game_rules.dat
+ random_sequences.dat
+ scoreboard.dat
+ stopwatches.dat
+ wandering_trader.dat
+ world_clocks.dat
+ world_gen_settings.dat.
+ scheduled_events.dat
+ custom_boss_events.dat
+ weather.dat
+ namespace
+ command_storage.dat
+ datapacks
+ dimensions
+ minecraft
+ overworld
+ data
+ minecraft
+ chunk_tickets.dat
+ raids.dat
+ world_border.dat
+ entities
+ r.x.z.mca
+ poi
+ r.x.z.mca
+ region
+ r.x.z.mca
+ the_end
+ data
+ minecraft
+ ender_drogon_fight.dat
+ chunk_tickets.dat
+ raids.dat
+ world_border.dat
+ entities
+ r.x.z.mca
+ poi
+ r.x.z.mca
+ region
+ r.x.z.mca
+ the_nether
+ data
+ minecraft
+ chunk_tickets.dat
+ raids.dat
+ world_border.dat
+ entities
+ r.x.z.mca
+ poi
+ r.x.z.mca
+ region
+ r.x.z.mca
+ generated
+ namespace
+ structures
+ name.nbt
+ players
+ advancements
+ uuid.json
+ data
+ uuid.dat
+ uuid.dat_old
+ stats
+ uuid.json
+ icon.png
+ level.dat
+ level.dat_mcr
+ level.dat_old
+ special_level.dat
+ special_level.dat_old
+ resourcepacks
+ resources.zip
+ session.lock
+ screenshots
+ year-month-day_hour.minute.second.png (or, ...second_instance.png)
+ stats
+ stats_player_unsent.dat
+ stats_player_unsent.old
+ texturepacks
+ texturepacks-mp-cache
+ command_history.txt
+ debug.stitched_items.png
+ debug.stitched_terrain.png
+ hotbar.nbt
+ options.txt
+ realms_persistence.json
+ servers.dat
+ textures_0.png
+ textures_1.png
+ textures_2.png
+ textures_3.png
+ textures_4.png
+ usercache.json
+
+Use of a resource pack can be forced by renaming its ZIP file to resources.zip and placing it in the root directory of the world save. This feature is single-player only; however, there is another way for servers to ask or force clients to use the server resource pack.
+
+Launcher directory
+
+ .minecraft
+ assets: Contains game assets, provided to the game using the --assetsDir command line parameter.
+ indexes
+ asset-id.json: The asset index, provided to the game using the --assetIndex command line parameter as the asset-id value only (it is not provided as a full path to the file, and the .json suffix is left out).
+ log_configs
+ client-version.xml
+ objects
+ 00 ..  ff: subdirectories containing the actual asset files: mainly sounds, music and language translations
+ skinpacks
+ 00 ..  ff: subdirectories containing the actual asset files: skin images
+ virtual
+ legacy: legacy assets; used by pre-1.6 versions
+ pre-1.6: additional legacy assets; used by pre-1.6 versions
+ bin
+ jinput.jar
+ lwjgl.jar
+ lwjgl_util.jar
+ minecraft.jar: client.jar for launchers of 1.5.2 and older. The current launcher uses the  versions directory instead.
+ natives
+(native libraries)
+ random ID
+(native libraries)
+ libraries: Various Java libraries packaged per Maven convention (without POM files). Libraries appropriate for the launched version are picked by the launcher and provided to the game.
+ versions
+ version
+ version.jar
+ version.json
+ webcache
+ Cache
+ data_0
+ data_1
+ data_2
+ data_3
+ f_<hexa>
+ Cookies
+ Cookies-journal
+ GPUCache
+ data_0
+ data_1
+ data_2
+ data_3
+ index
+ Visited Links
+ launcher_cef_log.txt
+ launcher_entitlements.json
+ launcher_gamer_pics.json
+ launcher_msa_credentials.json
+ launcher_profiles.json
+ launcher_quick_play.json
+ launcher_settings.json
+ launcher_skins.json
+ launcher_ui_state.json
+ nativelog.txt (macOS only)
+ nativeUpdaterLog.txt (macOS only)
+ output-client.log
+ output-server.log
+
+For Windows and Linux, the contents of  nativelog.txt and  nativeUpdaterLog.txt can be found within  launcher_log.txt when applicable (i.e. the contents of  nativeUpdaterLog.txt is present only in  latest_log.txt after the launcher is updated or launched for the first time).
+
+History
+Java Edition Infdev20100629
+Added  level.dat_oldJava Edition Alphav1.0.11
+Added  session.lockJava Edition1.6
+Removed  lastlogin1.6.113w16a
+Introduced the modern  .minecraft directory structure, initially only containing:  assets,  library and  versions.1.1317w43a
+Removed structure data.
+
+Added datapacks directory.1.1418w47a
+Added  raids.dat19w13a
+Removed  villages.dat and added  poi region files.1.20.223w31a
+Added  command_history.txt to persist command history between worlds.
+References
+
+ Minecraft snapshot 14w07a – Dinnerbone on mojang.com; February 14, 2014
+
+ "[MC-73716] Resources.zip doesn't work for servers (and possibly LAN worlds) – Jira"     – Mojira, October 27, 2014.
+
+Navigation

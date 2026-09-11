@@ -1,0 +1,99 @@
+Not to be confused with Commands/data.
+
+
+
+This feature is exclusive to Java Edition. 
+
+/datapack
+
+Permission levelrequired
+
+2 (/datapack (disable|enable|list))
+4 (/datapack create)
+
+Restrictions
+
+None
+
+{
+    "title": "<code>/datapack</code>",
+    "rows": [
+        {
+            "field": "\n*2 (<code>/datapack (disableenablelist)</code>)\n*4 (<code>/datapack create</code>)",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "None",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+Controls the loading/unloading of data packs.
+Note that feature flags can be enabled through data pack only when creating the world. Data packs requiring a feature flag that is not enabled cannot be loaded by this command.
+If a built-in datapack in the path of datapacks in the vanilla datapack is enabled during world creating, it cannot be disabled by this command.
+
+Contents
+
+1 Syntax
+2 Arguments
+3 Result
+4 Output
+5 History
+6 References
+7 Navigation
+
+Syntax
+datapack disable <name>
+Disable the specified pack.
+datapack enable <name>
+Load the specified pack.
+datapack enable <name> (first|last)
+Load this pack before (lowest priority) or after (highest priority) all others (lowest or highest priority).
+datapack enable <name> (before|after) <existing>
+Load this pack just before (lower priority) or after (higher priority) an existing pack.
+datapack list [available|enabled]
+List all data packs, or list only the available/enabled ones. Hovering over the data packs in the chat output shows their description defined in their pack.mcmeta.
+datapack create <id> <description>
+Creates new empty directory data pack for current world.
+Arguments
+<name>: string
+
+Specifies the name of the data pack.
+Must be a string. And it must be a quotable phrase, which is either a single word (allowed characters: -, +, ., _, A-Z, a-z, and 0-9) or a quoted string (by " or ' ).
+<existing>: string
+
+Specifies the name of an existing enabled data pack.
+Must be a string. And it must be a quotable phrase, which is either a single word (allowed characters: -, +, ., _, A-Z, a-z, and 0-9) or a quoted string (by " or ' ).
+<id>: string
+
+Created pack name, must be a valid directory name.
+Must be a string. And it must be a quotable phrase, which is either a single word (allowed characters: -, +, ., _, A-Z, a-z, and 0-9) or a quoted string (by " or ' ).
+<description>: string
+
+text component to be placed in description in pack.mcmeta.
+Must be a string. And it must be a quotable phrase, which is either a single word (allowed characters: -, +, ., _, A-Z, a-z, and 0-9) or a quoted string (by " or ' ).
+Result
+
+CommandTriggerJava Edition
+
+AnyThe command is incomplete, or any argument is not specified correctly. Unparseable/datapack enable .../datapack disable ...<name> is not a valid data pack. FailedThe data pack has already been enabled/disabled./datapack enable <name> ...Pack <name> requires enabling a feature flag that is not enabled via data pack when creating world./datapack enable ... <existing><existing> is not an existing enabled data pack.AnyOtherwiseSuccessful
+Output
+
+CommandEditionSituationSuccess Count/execute store success .../execute store result ...
+
+AnyJava EditionOn fail000/datapack enable .../datapack disable ...On success11The number of packs that are loaded after executing./datapack list [available|enabled]On success11the number of data packs that are listed
+History
+Java Edition1.1317w46a
+Added /datapack.1.19.322w42a
+Added feature flags. Data pack requiring feature flag that is not enabled cannot load by this command now.1.20.524w11a
+/datapack disable doesn't work in this snapshot.24w12a
+If a built-in datapack in the path of datapacks in the vanilla datapack folder is enabled during world creation, it can no longer be disabled by this command.1.21.625w15a
+Added /datapack create.
+References
+
+ MC-269373 – resolved as "fixed".
+
+Navigation

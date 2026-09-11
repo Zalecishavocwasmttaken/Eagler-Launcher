@@ -1,0 +1,10 @@
+This page describes content that has been removed and was only present in earlier versions of Java Edition. 
+In Java Edition 1.20.5, this format has been replaced with the data component format.
+
+[NBT List / JSON Array] Enchantments: Contains enchantments on this item that affect the way the item works.
+[NBT Compound / JSON Object]: A single enchantment.
+[String] id: The name of the enchantment.
+[Short] lvl: The level of the enchantment, where 1 is level 1. Values are clamped between 0 and 255 when reading.
+[NBT List / JSON Array] StoredEnchantments: Contains enchantments for enchanted books.
+[NBT Compound / JSON Object]: A stored enchantment, identical structure to each enchantment in Enchantments.
+[Int] RepairCost: Number of experience levels to add to the base level cost when repairing, combining, or renaming this item with an Anvil.

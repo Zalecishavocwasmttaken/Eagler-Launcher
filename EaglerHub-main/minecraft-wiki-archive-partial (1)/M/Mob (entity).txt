@@ -1,0 +1,548 @@
+This article is about the removed passive mob.   For the removed hostile mob with an identical appearance, see Monster (entity).   For the other mob, that used MD3 models format, see MD3 Test Mob.  For the controllable character, see Player.  For AI-driven game entities in general, see Mob.
+
+
+
+This article is missing information about: How were they handled in multiplayer Classic? Could you even spawn them in multiplayer? 
+Please expand the article to include this information. Further details may exist on the talk page.
+
+
+
+This page describes content that has been removed from Java Edition. 
+This feature was present in earlier versions of Java Edition, but has since been removed.
+
+Mob
+
+
+
+
+Java Edition
+
+Classic JavaScript remake
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Health points
+
+20HP × 10
+
+Behavior
+
+Passive
+
+Hitbox size
+
+Height: 1.7 blocksWidth: 0.6 blocks
+
+{
+    "title": "Mob",
+    "rows": [
+        {
+            "field": "20<span class=\"hidden-alt-text\">HP</span><span class=\"nowrap mc-hearts\"><span class=\"iconbar pixel-image nowrap\" style=\"--icon-offset:-1px;\" title=\"1  heart\">(link to File:Heart (icon).png article, displayed as 9px|link=|alt=❤️)</span> × 10</span>",
+            "label": "(link to Health article, displayed as Health points)"
+        },
+        {
+            "field": "Passive",
+            "label": "Behavior"
+        },
+        {
+            "field": "Height: 1.7 blocks<br>Width: 0.6 blocks",
+            "label": "(link to Hitbox article, displayed as Hitbox size)"
+        }
+    ],
+    "invimages": [],
+    "images": [
+        "Steve JE3 BE1.png",
+        "0.0.23a 01 (remake) Human view.png",
+        "Rana.png",
+        "Steve (mob).png",
+        "Black Steve.png",
+        "Beast Boy.png"
+    ]
+}
+
+An entity, referred to simply as a mob, was a generic passive mob in early development of Java Edition. This entity came with several different models across early Minecraft: Java Edition versions. It is an in-game instance of the base mob class.
+
+Contents
+
+1 Appearance
+2 Spawning
+3 Drops
+4 Behavior
+5 Sounds
+6 Data values
+
+6.1 ID
+
+7 Entity data
+8 History
+9 Trivia
+10 Gallery
+
+10.1 Textures
+10.2 Minecraft Classic (remake)
+10.3 Renders
+10.4 Screenshots
+
+10.4.1 Of lost versions
+
+10.5 Mojang images
+10.6 Development images
+10.7 Artwork
+
+10.7.1 Rana artwork
+10.7.2 Black Steve
+
+11 See also
+12 External links
+13 References
+14 Navigation
+
+Appearance
+In pre-Classic and Classic, as well as from Indev 0.31 20100131 onward, the mob's model looked identical to the player with the default "Steve" skin.
+Rana had a different model, with the appearance of a girl in a frog outfit. This model was used in early Indev versions up until 0.31 20100128-2304. Rana was based on an original character designed by Dock, the artist who added the model.
+There were also three other model variants, which were different skin variants of the same model,​[more information needed] these variants being commonly referred to by the unofficial names "(White) Steve",  "Black Steve", and "Beast Boy". These names originated as unofficial fanmade terms created by players on IRC chat shortly after their addition in January 2010, and were later adopted by the wider community in the absence of any known official names for the mobs. This was several months before Notch named the default player character "Steve" in October 2010. The first usage of the name "Black Steve", which was later followed by "White Steve" and then just "Steve", was likely inspired by the character Black Steve from the TV show Code Monkeys, and usage of the name "Beast Boy" was likely inspired by the model's resemblance to the DC Comics character of the same name.
+
+Spawning
+
+
+
+This section is missing information about: In versions such as 0.0.23a_01 where loading a level.dat file (if local level saving is enabled) would preserve the mobs, was it ever possible to despawn any of them? Did they ever disappear specifically if loading an online-saved world? 
+Please expand the section to include this information. Further details may exist on the talk page.
+
+Mobs would generate in random places when a world was generated when first added in pre-Classic rd-132328. In rd-20090515 until 0.0.23a_01, they could be manually spawned by pressing G while playing. In the Minecraft Classic JavaScript remake, they would despawn after approximately 1 minute (which did not originally happen in Classic).
+During Indev, until their removal in 0.31 20100202, mobs spawned in random locations in the world once again.
+After being re-implemented but unused in Infdev 20100316, the mob was only spawnable using mods and map editors, but otherwise was not available in vanilla Minecraft.
+
+Drops
+In pre-Classic and Classic versions, as well as Indev versions between 0.31 20091223-0040 and 0.31 20100129-1452, player model and Rana mobs did not drop anything upon death.
+In Indev 0.31 20100130, mobs could drop different resources depending on their appearance:
+
+ "Steve" drops 0–2 string
+ "Black Steve" drops 0–2 sulphur
+ "Beast Boy" drops 0–2 feathers
+From Indev 0.31 20100131 until their removal in Indev 0.31 20100202, player model mobs could drop 0–2 strings, 0–2 gunpowder, or 0–2 feathers. In Indev 0.31 20100201-2227, mobs could also drop 0–1 flint and steel instead of the other items.
+
+Behavior
+The animation of the mob walking before 0.0.15a.
+Mobs could not change blocks; they would just move around the map aimlessly, walking in slightly imperfect circles and jumping occasionally. While walking, they would flail their arms around, until Alpha v1.0.8_01. Mobs were affected by solid blocks, but they were able to walk right through liquids, as if they were air. If the player had a custom skin, any mobs (that were using the player model at the time) created would still use the default skin and would not assume the look of the player. They would not notice dangers, and because of this they would sometimes jump into the void or lava.
+After being re-implemented in Infdev 20100316, mobs could no longer move around, but could still float in water and move their head.
+
+Sounds
+SoundsSoundSourceDescriptionIdentifierVolumePitchAttenuationdistance?When a mob is damagedrandom.hurt1.01.0?
+Data values
+ID
+NameSavegame IDNumeric ID
+Translation key MobMob48
+entity.Mob.name
+Entity data
+
+
+
+This section of the article is empty. 
+You can help by expanding it.
+
+History
+Java Edition pre-Classicrd-132328
+ Added mobs.
+
+They were added using the skin, model and behavior from Zombie Town.
+
+Mobs flail their limbs and heads wildly when walking.rd-20090515
+Mobs can now be spawned by pressing G.
+
+The walking animation has been made less smooth.[is this the correct version?]Java Edition Classic0.0.12a
+Mobs are no longer removed upon level reset.0.0.12a_01
+Mobs are now once again removed upon level reset.0.0.15a (Multiplayer Test 1)
+The model of mobs is now used for other players in the newly introduced multiplayer mode.
+
+Mobs no longer flail their heads when walking.August 13, 2009
+ Notch shows a test skin with a hat layer.0.24_SURVIVAL_TEST
+ The texture used by both the mobs and the player, has been changed.
+
+The ability to spawn mobs has been removed. However, they can still be spawned using mods and map editors.0.28
+ The texture used by both the mobs and the player has changed again, removing the beard.Java Edition IndevDecember 19, 2009
+ Rana is shown in a screenshot posted by Notch.December 22, 2009
+Notch shows concept art of a new player model, appearing similar to the base "Steve" model, but with a miner hat and different clothes.0.3120091223-0040
+ The model for mobs has been changed to Rana.
+
+Mobs can now spawn again.
+
+Mobs do not drop anything when killed.January 29, 2010
+  Two new skins of a new model are shown in a video posted by Notch.0.3120100129-1447
+  Added a new mob model with two skin variants ("Steve" and "Black Steve"), replacing the old Rana model.20100130
+ Added a third skin variant ( "Beast Boy").
+
+"Beast Boy" variants now drop 0–2 feathers.
+
+"Steve" and "Black Steve" variants now drop 0–2 string and 0–2 sulphur, respectively.20100131-2156
+ The mob now uses the player model again instead of the model used for "Steve", "Black Steve", and "Beast Boy".20100202
+The mob has been removed, once again.Java Edition Alphav1.0.3
+The mob now has no movement AI, therefore it is unable to walk around. However, it can still rise in water and look around.v1.0.9
+The animation of the player and the mob has been changed so that their arms no longer flail around.Java Edition Beta1.2
+The mob can no longer appear ingame, but some code for it still exists.May 17, 2011
+Mobs are included in a special developer fork of Beta 1.2_02 as builder NPCs that can build structures.Java Edition1.1116w32a
+The entity ID Mob, as well as the corresponding network ID 48, for mobs have been removed.
+Trivia
+The version of this mob with the beardless Steve player skin uses the old player model, so they are actually slightly taller than the player.
+Despite being taller than the player, mobs looked up at the player when chasing them. This is because their actual hitbox and eye height were shorter than the player's hitbox and eye height.
+"Rana" is the word for "frog" in several languages including Latin, Italian, Spanish and Corsican.
+The Rana and "Steve" models were stored in the game as MD3 files, which is the model format used by Quake III Arena. None of the other models in Minecraft are stored like this, as they are instead hard coded into the game.
+Before their models were implemented, Notch had directly used Quake III Arena character models to test MD3 support: MD3 Test Mob.
+The Rana model is unique in respect to how it is textured. It is the only model that used a palette for its texture, rather than a traditional "net" texture.
+A stylized redesign of Rana appears in the resource pack Actions & Stuff by Oreville Studios as an available skin. Although unofficial, this design would be used on a button used for the Marketplace, promoting it and its release on Marketplace Pass. The same pack also includes a similar character named Sapo (the Spanish, Portuguese, and Galician word for toad).
+Gallery
+Textures
+
+
+
+			Steve
+
+
+
+			This palette texture was used by the Rana model. The palette itself is the same one used by the Nintendo Entertainment System.
+
+
+
+			mcexport.png "Steve"
+
+
+
+			mcexport2.png "Black Steve"
+
+
+
+			mcexport3.png "Beast Boy"
+
+
+Minecraft Classic (remake)
+
+
+
+			Head texture
+
+
+
+			Torso texture
+
+
+
+			Arm texture
+
+
+
+			Leg texture
+
+
+Renders
+
+
+
+			How Rana's animation was supposed to play
+
+
+
+			How Steve's animation was supposed to play
+
+
+
+			How Black Steve's animation was supposed to play
+
+
+
+			How Beast Boy's animation was supposed to play
+
+
+Screenshots
+
+
+
+			A Mob in a hole in Classic Remake
+
+
+
+			Ditto, but in a cave
+
+
+
+			A plain full of mobs
+
+
+
+			Mobs in a pit
+
+
+
+			Mobs on a plain
+
+
+
+			A mob in the distance
+
+
+
+			Mobs in a world
+
+
+
+			Mobs in early Classic
+
+
+
+			Mobs in mid-Classic
+
+
+
+			A mob in a cave
+
+
+
+			A mob under lava
+
+
+
+			More mobs with glitched models
+
+
+
+			A group of Ranas
+
+
+
+			Some more Ranas
+
+
+
+			Ditto
+
+
+
+			Ditto
+
+
+
+			Another Rana
+
+
+
+			Ranas around water
+
+
+
+			Ranas near a structure
+
+
+
+			Rana in a structure
+
+
+
+			Beast Boy
+
+
+
+			Another Beast Boy
+
+
+
+			Screenshot of Black Steve
+
+
+
+			Mobs in late Indev
+
+
+
+			A mob in the JavaScript remake
+
+
+
+			Mobs swimming in a lake in the JavaScript remake
+
+
+
+			Rana in the Indev inventory (from January 4, 2010, to January 13, 2010)
+
+
+
+			"Steves" walking around
+
+
+
+			Mobs in version Alpha v1.2.2. This is unobtainable without modifying chunks.
+
+
+Of lost versions
+
+
+
+			A mob in a field in Classic 0.0.11a
+
+
+
+			A mob with a glitched model
+
+
+Mojang images
+
+
+
+			Mobs in a hole
+
+
+Development images
+
+
+
+			The first image of the mob
+
+
+
+			Mobs beneath a structure
+
+
+
+			Mobs with new second layer on head, with glasses for demonstration
+
+
+
+			Mobs with first armor in 3D Anaglyph
+
+
+
+			Mob with changed armor model
+
+
+
+			The first image of Rana
+
+
+Artwork
+
+
+
+			Concept art of a human character (presumably Steve) wearing a hard hat and outfit
+
+
+
+			Similar characters from another unreleased game
+
+
+Rana artwork
+
+
+
+			Artwork Dock made of Rana and her cat in 2004
+
+
+
+			A part of a sketch Dock made of Rana as a redesign from the original character. The full image of the sketch wasn't archived, but the digitized line art was found.
+
+
+
+			Line art of Rana in a puddle from Dock's book "Digital Manga Techniques" published in 2005. The book also showcases the first artwork of Rana and the piece with the sky background.
+
+
+
+			A work-in-progress model Dock made of Rana
+
+
+
+			A colored work-in-progress model Dock made of Rana
+
+
+
+			A montage of the Rana model by Dock
+
+
+
+			Another montage of the Rana model
+
+
+
+			Rana placed in a 3D environment
+
+
+
+			Another 3D environment with Rana
+
+
+
+			Artwork Dock made of Rana with her cat
+
+
+
+			A papercraft of Rana
+
+
+
+			Rana as a skin in the Actions & Stuff Texture Pack
+
+
+Black Steve
+
+
+
+			Black Steve from Code Monkeys
+
+
+See also
+Character - mobs (in general) that have names given to them.
+Villager – humanoid mobs that move around their village.
+Player – the Minecraft character that is controllable, with the same model as mobs.
+Mannequin - mob-like entities that resemble players as an npc.
+Mob – any entity in Minecraft that has the ability to move around, such as monsters or animals.
+Java Edition removed features – features that have been in Java Edition but were later removed.
+External links
+"After 14 Years, the True Story of Steve Was Just DISCOVERED…" – a video essay on the origin of the names of the Dock-modeled mobs – TheMisterEpic on YouTube.
+References
+
+ "I completely forgot that some minecraft fan made a papercraft of rana. Whoever did this, you're cool. nice job!"  – @docky  on X (formerly Twitter), July 5, 2015
+
+ Minecraft IRC Logs, Adura.7z, 2010-01-29_#minecraft.log
+
+ "NAmes for the new mobs?" (§ r4c7)    by Omega12  – Minecraft Forum, January 31, 2010.
+
+ "Weekend activities"  – Notch, October 24, 2010, Tumblr
+
+ I woke up to some interesting news, so uh? Minecaft lore TLDR no clue idiot kid brain at work – Reddit, u/Cial, July 2, 2024
+
+ "The origins of Minecraft"  (archived)   – The Word of Notch, October 30, 2009.
+
+ https://youtube.com/watch?v=TcCv21AqvWw
+
+ "Exhausted, but happy"  (archived)   – The Word of Notch, May 14, 2009.
+
+ Behavior can be seen in the "Zombie Town" video by Notch, which features mobs.
+
+ "TigIRC logs"     – Archive.org, May 19, 2009, UTC–4. "(18:39:43) <notch> oh, they don't get reset on level resets either.. I'd better fix that."
+
+ https://youtube.com/watch?v=hY0xuFZPOgQ
+
+ Archive is available at https://youtube.com/watch?v=nlZR7_nKMaI .
+
+ "Lights... Cameras... Actions & Stuff! Coming to the #Minecraft Marketplace soon! 🥑"  – @OrevilleStudios  on X (formerly Twitter), November 21, 2024
+
+ "Marketplace Content: May 2025"     by Julius Olofsson  – Minecraft.net, May 6, 2025.
+
+Navigation
+
+
+
+This was a featured article from May 5, 2025 – May 11, 2025. 
+See Minecraft Wiki:Featured articles for more information.

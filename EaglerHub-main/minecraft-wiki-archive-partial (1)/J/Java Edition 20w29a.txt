@@ -1,0 +1,207 @@
+This page covers a development version that has a major issue under certain conditions. 
+The dedicated server for this version has a security vulnerability in the Log4j library that could be used to perform a remote code execution exploit. It can be addressed by appending a certain JVM argument to the server startup command line.
+
+Minecraft 20w29a
+
+Edition
+
+Java Edition
+
+Release date
+
+July 15, 2020
+
+Type
+
+Snapshot
+
+Snapshot for
+
+1.16.2
+
+Downloads
+
+Client (.json)Server
+
+Obfuscation maps
+
+ClientServer
+
+Protocol version
+
+741
+
+Data version
+
+2571
+
+Resource pack format
+
+5
+
+Data pack format
+
+5
+
+Minimum Java version
+
+Java SE 8
+
+◄◄   1.16.1
+1.16.2
+  1.16.3 ►►
+
+◄   20w28a
+
+ 20w29a
+
+  20w30a ►
+
+{
+    "title": "Minecraft 20w29a",
+    "images": [
+        "20w29a.jpg",
+        "Java Edition 20w29a.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "July 15, 2020",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Snapshot article, displayed as Snapshot)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition 1.16.2 article, displayed as 1.16.2)",
+            "label": "Snapshot for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/4a7182b743f15e3c787f8e62e47eb2dd93604167/client.jar Client] ([https://piston-meta.mojang.com/v1/packages/aef0a39775c58a3bd7685d39e3695eb6f25f2037/20w29a.json .json])<br />[https://piston-data.mojang.com/v1/objects/ea9a65a38e000fe76b51fa36e923c09d5d8fa473/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/2d6ed3fdc3598d397951b34c180c8a9b8b98fc8a/client.txt Client]<br />[https://piston-data.mojang.com/v1/objects/4fcc48eb10113d6c4f51a3b469ae3089f8c37a19/server.txt Server]",
+            "label": "(link to Obfuscation map article, displayed as Obfuscation maps)"
+        },
+        {
+            "field": "741",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "2571",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "5",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "5",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Data pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_8_.28LTS.29 Java SE 8]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Java Edition  1.16.1|<span style=\"margin-right:-0.35em\">◄</span>◄   1.16.1]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition 1.16.2|1.16.2]]'''</td>\n<td style=\"padding: 0.4em\" >[[Java Edition  1.16.3|  1.16.3 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  20w28a|◄   20w28a]]\n</td>\n<td style=\"padding: 0.4em\">''' 20w29a'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  20w30a|  20w30a ►]]\n</td>\n</tr>\n</table>"
+}
+
+
+20w29a is the third snapshot for Java Edition 1.16.2, released on July 15, 2020, which changes the syntax of spawning commands and fixes bugs.
+
+Contents
+
+1 Additions
+
+1.1 Command format
+
+2 Changes
+
+2.1 Mobs
+2.2 Gameplay
+2.3 General
+
+3 Fixes
+4 Videos
+5 References
+6 Navigation
+
+Additions
+Command format
+/spawnpoint and /setworldspawn
+
+Added an angle parameter for setting the default facing angle of a respawning player.
+Syntax:
+/spawnpoint [<targets>] [<pos>] [<angle>]
+/setworldspawn [<pos>] [<angle>]
+angle: Floating point yaw angle in degrees. Supports the relative ~ modifier, which defaults to the direction the executing player is facing.
+Changes
+Mobs
+General
+
+Mobs now suffocate when their head is inside soul sand, farmland, and grass paths.
+Vindicators
+
+The attack animations of unarmed vindicators have been changed from  to .
+Gameplay
+Creative inventory
+
+Tools are now sorted based on their tier.
+General
+Custom world generation
+
+worldgen/noise_settings can now contain noise configurations.
+Fixes
+22 issues fixed
+From released versions before 1.16
+
+MC-153230 – Players in spectator mode can stop minecarts.
+MC-157774 – Bouncing off side of blocks while creative flying.
+MC-158735 – Pillagers without crossbows hold their arm up in a way that may be offensive to some people.
+MC-166718 – Mobs no longer suffocate inside of soul sand, farmland, or grass paths.
+MC-176778 – Camera is reset when a block reappears due to high server latency.
+MC-176836 – Unarmed vindicators raise their arm in an offensive way when attacking.
+From 1.16
+
+MC-185019 – Worldgen settings with empty structures parameter generates all structures extremely frequently.
+MC-189788 – Certain mobs in boats sometimes take drowning damage while the boat is moving.
+MC-190559 – Baby striders do not die when it is raining and they are in lava.
+MC-190875 – Creating a custom superflat world with a structure that cannot generate in a given biome, then running /locate on that structure, softlocks the game.
+MC-191031 – Players in spectator mode can interact with boats.
+From 1.16.1
+
+MC-191623 – Ender dragon battle music does not stop after the ender dragon has been defeated.
+MC-192021 – Enchantment glint effect on transparent blocks not properly rendered on Fabulous graphics.
+From the 1.16.2 development versions
+
+MC-193560 – Enchantment glint does not render on elytra in specific circumstances.
+MC-193662 – Player flying in creative mode that is slightly above blocks when they sneak-jump are restrained to that block.
+From the previous development version
+
+MC-194173 – Hitboxes are rendered offset while picking up items or experience on graphics settings Fast and Fancy.
+MC-194200 – Birch trees are not generated correctly in the birch forest and birch forest hills biomes.
+MC-194220 – Totems of undying give Fire Resistance II instead of the maximum Fire Resistance I.
+MC-194257 – Several instances of snowy being misspelled as snovy in the vanilla_worldgen configuration.
+MC-194298 – Bone meal cannot create flowers.
+MC-194300 – Structure data of pillager outposts, villages, and bastion remnants get lost when updating a world to 20w28a.
+MC-194464 – large_oak_foliage_placer incorrectly serializes to blob_foliage_placer.
+Videos
+Video made by slicedlime:
+
+
+
+
+References
+
+ "Important Message: Security vulnerability in Java Edition"     – Minecraft.net, December 10, 2021.
+
+ "Minecraft Snapshot 20w29a"     – Minecraft.net, July 15, 2020.
+
+Navigation

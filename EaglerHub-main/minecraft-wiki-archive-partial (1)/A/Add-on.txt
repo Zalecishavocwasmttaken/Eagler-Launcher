@@ -1,0 +1,766 @@
+For similar game customization in Java Edition, see Data pack and Mod.
+
+
+
+This feature is exclusive to Bedrock Edition. 
+
+Promotional artwork for the introduction of add-ons to the Marketplace
+An add-on is a package format and a type of downloadable content that provides additional custom game features beyond the base game in Minecraft. It contains a set of programming interfaces used for constructing and customizing certain game objects and elements, such as entities, blocks, items, biomes, structures, the user interface, and more. It is officially supported by Mojang Studios, who provide the Creator Documentation for developers.
+Add-ons consist of three main APIs: a resource pack for managing assets and resources, a behavior pack for defining data-driven behaviors, and scripting for writing a set of procedural instructions to perform custom behaviors and interactions. These functions and utilities are used for video game modding.
+Add-ons are officially hosted on the Marketplace, where players can download or purchase them on their devices using an in-game digital currency called Minecoins. They must be submitted by members in the Minecraft Partner Program and approved by the Minecraft Content Team, or made directly in collaboration with Mojang Studios as official DLC. They can also be packaged for external downloading, but these cannot be imported on consoles.
+
+Contents
+
+1 Overview
+
+1.1 Packs
+
+1.1.1 Sub-packs
+
+1.2 Molang
+1.3 Scripting
+1.4 Marketplace
+1.5 Minecraft Education
+
+2 Loading tips
+3 List of official add-ons
+
+3.1 Bedrock Edition
+3.2 Minecraft Education
+
+4 History
+
+4.1 General
+4.2 Scripting
+
+5 Videos
+
+5.1 Historical videos
+
+6 Quotes
+7 Gallery
+8 See also
+9 References
+10 External links
+
+10.1 Official documentation
+10.2 Official tutorials
+10.3 Tools and libraries
+10.4 Unofficial resources
+10.5 Templates
+
+11 Navigation
+
+Overview
+Packs
+Add-ons can be created with two types of data packs: behavior packs and resource packs. Behavior packs can be used to change gameplay and allow adding and customizing entity behaviors, loot tables, spawn rules, item behaviors, item recipes, biome characteristics, and much more. Resource packs affect how the game looks and have no effect on gameplay, and they allow adding and customizing textures, models, music, texts, and interfaces.
+Definitions are written in JSON files, which are organized in multiple folders by their features. This system allows users to override and modify certain features in the base game, or add unique features with their own pack.
+All contents of an add-on can be packaged together in a zipped .mcaddon file. An add-on file can be automatically imported by the game, which will organize all contents in the dedicated directories in com.mojang.
+
+Sub-packs
+Resource packs and behavior packs can contain other packs inside the root, known as sub-packs. A sub-pack has the same format as the main pack and the directory of a sub-pack can have any name. Sub-packs need to be specified in the manifest.json file of the main pack, where a name and minimum memory tier can also be added. For example, a pack can have multiple less resource-intensive sub-packs for lower memory tiers, but it can also be used for other types of settings. The memory tier, affecting which sub-pack is used, can be adjusted in the pack's settings menu in-game.
+
+Molang
+Main article: Molang
+Molang is a simple expression-based language designed for fast, data-driven calculation of values at run-time, and with a direct connection to in-game values and systems. It is used in Bedrock Edition in their add-on system with its purpose being to enable low-level systems like animation to support flexible data-driven behavior for both internal and external creators, while staying highly performant.
+
+Scripting
+Scripting in Visual Studio Code with Minecraft debugger enabled
+Scripting is an add-on feature used to write a set of procedural instructions for the game to perform custom behaviors and interactions at a certain time or in response to events and actions. It lets users control behaviors of entities, blocks, and items; characteristics of the world; or an entire game loop. It is fundamentally different from the behavior pack system, the latter uses a component system with preset definitions provided by the game.
+Script files are written in the JavaScript programming language and loaded by the game under the scripts directory inside an add-on. Users may use TypeScript, a dialect of JavaScript, which provides better error reporting and a static type system. The Scripting API provides script modules for users to interact with the game, each module must be added as a dependency in the manifest.json, some notable ones are:
+
+Module
+
+Description
+
+Latest versions
+
+Notes
+
+@minecraft/common
+
+Provides common resources, such as error classes or interfaces.
+
+1.3.0
+
+–
+
+@minecraft/diagnostics
+
+Provides diagnostics functionality for discovering and diagnosing issues with custom content. Currently provides APIs for Sentry service.
+
+1.0.0-beta
+
+–
+
+@minecraft/server
+
+Provides interactions between the script engine and the game world, such as blocks, entities, items, players, and others; additionally provides Custom Components V2 and Custom Commands.
+
+2.9.0
+2.10.0-beta
+2.11.0-beta​[upcoming: BE 26.50]
+
+–
+
+@minecraft/server-ui
+
+Provides players and server communication through customizable forms. See DDUI for information about the Data-Driven UI framework.
+
+2.1.0
+2.2.0-beta
+2.3.0-beta​[upcoming: BE 26.50]
+
+–
+
+@minecraft/server-graphics
+
+Allows scripts to dynamically customize graphical settings from Vibrant Visuals defined in resource packs.
+
+1.0.0-beta
+
+Pre-release only.
+
+@minecraft/server-net
+
+Provides access to the Internet through web requests, such as GET, POST, and others.
+
+1.0.0-beta
+
+Pre-release only. Only usable on Bedrock Dedicated Server.
+
+@minecraft/server-gametest
+
+Provides the GameTest framework for testing behaviors and interactions within the game world. See GameTest § Bedrock Edition for further information.
+
+1.0.0-beta
+
+Pre-release only. The oldest module for scripting, other names may include: mojang-gametest.
+
+@minecraft/server-admin
+
+Provides APIs useful for dedicated server administration, such as whitelist management, and managing player permissions.
+
+1.0.0-beta
+
+Pre-release only. Only usable on Bedrock Dedicated Server.
+
+@minecraft/server-editor
+
+Provides scripting APIs for Bedrock Editor.​[more information needed]
+
+0.1.0-beta
+
+–
+
+External modules
+
+@minecraft/math
+
+Provides utilities and functions for common math operations.
+
+2.4.0
+
+Notable APIs include: Vector3Utils and Vector3Builder.
+
+@minecraft/gameplay-utilities
+
+Provides utilities and functions for common gameplay operations.
+
+1.3.0
+
+Notables APIs include: nextEvent() and EventPromise.
+
+Typing definitions (for use in TypeScript) can be installed via npm package manager from the official packages owned by mc-npm. There are other built-in modules, further reading.
+External modules are not built directly into the game and act as a helpers or utilities for development; they are available on minecraft-scripting-libraries GitHub and can only be installed through npm. They need to be merged with the scripting project through a bundler; Mojang recommends esbuild for simplicity.
+The Scripting API version 2 is a major update to the Scripting API, which provides a new API to define custom components and custom commands along with other major API changes that aren't backward compatible with the previous version. Most changes from the Scripting API version 2 are available from @minecraft/server version 2.0.0.
+
+Marketplace
+The Marketplace is an in-game platform where creators may sell their add-ons to the player-base. All Marketplace content must be submitted by members in the Minecraft Partner Program and approved by the Minecraft Content Team. Purchased content in the Marketplace is synchronized to the player's Microsoft account, and if they are not signed in, it is saved locally on their device.
+Free add-ons are released as part of special events, for occasions such as to promote the release of A Minecraft Movie for Minecraft's 15 Years celebration and the eventful McDonald's X A Minecraft Movie promotion. See § Official add-ons for a full list of add-ons officially promoted by Mojang Studios.
+In addition to the Marketplace, there are community websites dedicated to hosting community-made add-ons, although such add-ons may only be loaded on Windows and mobile, whereas consoles can only access those add-ons through Realms.
+
+Minecraft Education
+Logo for add-ons on Minecraft Education
+In 2026, add-ons were introduced into Minecraft Education. These add-ons are all free, and designed to be optional utilities for teachers. All DLC of this nature are referred to as add-ons, however several function as skin packs instead.
+
+Loading tips
+An example of an add-on loading tip
+Extra loading tip messages appear if the player is loading a world with add-ons applied. The loading message box is titled "Modified World", and loading tip messages would primarily warn the player about the add-ons or resource packs applied. For a full list, see Loading tips § Add-on tips.
+
+List of official add-ons
+See also: Demo content
+
+Bedrock Edition
+
+Image
+
+Name
+
+Description
+
+Release date
+
+Purchasable
+
+Minecon 2018 New Entity Sample
+
+A pack to show the usage of add-ons to add custom entities for creators, showcased in MINECON Earth 2018.
+
+November 19, 2018
+
+External download
+
+Minecraft Live 2022 Sample Pack
+
+A pack to demonstrate the Minecraft Entity Wizard in Blockbench, showcased in Minecraft Live 2022.
+
+October 17, 2022
+
+External download
+
+Poisonous Potato
+
+An add-on themed around the poisonous potato April Fools' Day event in 2024.
+
+April 1, 2024
+
+Yes
+
+15 Year Party Supplies
+
+An add-on themed around the 15th anniversary of Minecraft with features from 15 Year Journey.
+
+May 21, 2024
+
+Yes
+
+Tetris
+
+A collaborative add-on with features from Tetris.
+
+June 6, 2024
+
+Yes
+
+Lush Bath Bomb
+
+A collaborative add-on to promote bath bombs from Lush.
+
+August 1, 2024
+
+Yes
+
+SpongeBob SquarePants
+
+A collaborative add-on with features from SpongeBob SquarePants.
+
+August 20, 2024
+
+Yes
+
+Ghost Pets
+
+A themed add-on with ghost pet mobs for the Expect the unexpected event around The Garden Awakens.
+
+November 4, 2024
+
+Yes
+
+Majestic Camping
+
+A camping-themed add-on for the Expect the unexpected event.
+
+November 4, 2024
+
+Yes
+
+Phantom Frames
+
+A themed add-on for the Expect the unexpected event.
+
+December 4, 2024
+
+Yes
+
+Scary Furniture
+
+An add-on for the Expect the unexpected event with haunted Minecraft furniture blocks.
+
+December 10, 2024
+
+Yes
+
+Mob Lights
+
+Another themed add-on for the Expect the unexpected event.
+
+December 10, 2024
+
+Yes
+
+Monster Food
+
+An add-on featured for Expect the unexpected with haunted food items and mobs.
+
+December 10, 2024
+
+Yes
+
+Lava Chicken
+
+A promotional add-on for A Minecraft Movie which adds Steve's Lava Chicken shown in the movie.
+
+December 20, 2024
+
+Yes
+
+Sonic
+
+A collaborative add-on with features from Sonic the Hedgehog.
+
+January 7, 2025
+
+Yes
+
+A Minecraft Movie
+
+An add-on that adds many features shown in A Minecraft Movie.
+
+February 26, 2025
+
+Yes
+
+A Minecraft Movie: JetPack
+
+A limited promotional add-on for A Minecraft Movie which could be obtained by purchasing tickets on its opening weekend.
+
+February 27, 2025
+
+No
+
+McDonald's
+
+An add-on themed around the collaboration of A Minecraft Movie with McDonald's.
+
+March 24, 2025
+
+No
+
+Time Capsule
+
+A promotional add-on made for the 15 Days of Minecraft event.
+
+May 16, 2025
+
+Yes
+
+MLB Fan Cave
+
+June 2, 2025
+
+Yes
+
+Adidas Adventurers
+
+A collaborative add-on with Adidas.
+
+June 3, 2025
+
+Yes
+
+How to Train Your Dragon
+
+A collaborative add-on with Universal Studios about the movie How to Train Your Dragon.
+
+June 10, 2025
+
+Yes
+
+Vibrant Memories
+
+An add-on made to promote Vibrant Visuals after its release.
+
+June 18, 2025
+
+Yes
+
+Claims Adjuster
+
+An official add-on that has been promoted with the Ice Cube Claims Adjuster series.
+
+August 13, 2025
+
+Yes
+
+Friendly Fishing
+
+An official collaborative add-on between Marketplace Partners and Conservation International themed around sea life.
+
+September 26, 2025
+
+Yes
+
+Jurassic World
+
+Yes
+
+TRON
+
+Yes
+
+Dungeon Descent
+
+An add-on released to promote new features from Mounts of Mayhem.
+
+January 12, 2026
+
+Yes
+
+Tiny Takeover: Mini Mania
+
+A minigame-centric add-on released to promote Tiny Takeover.
+
+April 21, 2026
+
+Yes
+
+Cursed Cube
+
+An add-on released to promote Chaos Cubed.
+
+June 24, 2026
+
+No
+
+Minecraft Education
+
+Image
+
+Name
+
+Description
+
+Release date
+
+Purchasable
+
+Dice
+
+An add-on which introduces dice blocks.
+
+April 9, 2026
+
+External download
+
+Math Chests Division
+
+An add-on which adds chest blocks made for division.
+
+April 9, 2026
+
+External download
+
+Math Chests Multiplication
+
+An add-on which adds chest blocks made for multiplication.
+
+April 9, 2026
+
+External download
+
+Roman Balneae Structure Pack
+
+An add-on which adds a Roman structure.​[more information needed]
+
+April 9, 2026
+
+External download
+
+Ancient Egypt NPC Pack 1
+
+An add-on which adds NPC skins.
+
+April 9, 2026
+
+External download
+
+Ancient Greece NPC Pack 1
+
+An add-on which adds NPC skins.​[more information needed]
+
+April 9, 2026
+
+External download
+
+Number Shaped Blocks
+
+An add-on which adds blocks molded to various numbers.
+
+April 9, 2026
+
+External download
+
+Number Blocks
+
+An add-on which introduces numeric blocks.
+
+April 9, 2026
+
+External download
+
+Ancient Rome NPC Pack 1
+
+An add-on which adds NPC skins.
+
+April 9, 2026
+
+External download
+
+Non-transitive Dice
+
+An add-on which adds non-transitive dice.
+
+April 9, 2026
+
+External download
+
+History
+ For behavior pack JSON-related APIs additions and changes, see Behavior pack § History.
+
+General
+This section includes major additions and milestones of add-ons. It also includes all Marketplace related history.
+
+August 12, 2016
+The concept of add-ons was hinted at in a post by Searge on August 12, 2016, stating "There will be news about the API at Minecon." The next day it was confirmed by Grum to be a modding API for Bedrock Edition (formerly called Pocket Edition, or MCPE), and at MINECON 2016, the plan and roadmap for the development of add-ons were outlined.Pocket Edition Alphav0.16.0
+Added user-created resource packs that can be installed by world.
+Added user-created behavior packs. These allow the player to change files coded in JSON to change how the game works.Pocket Edition1.1.0alpha 1.1.0.8
+Added the Minecraft Marketplace, in which community resource packs, skin packs, and behavior packs (packaged inside worlds) are distributed.Bedrock EditionFebruary 20, 2024
+Previously, standalone add-ons from the Marketplace were not available and needed to be packaged with a world to be sold on the Marketplace. However, as of February 2024, individual add-ons can now be sold separately on the Marketplace.1.20.70Preview 1.20.70.21
+Added extra loading tips that appear when a world has add-ons applied.1.21.0Preview 1.21.0.23
+Added eight new extra loading tips that replaced the previous ones.March 17, 2026
+ Add-ons were introduced into Minecraft Education. These add-ons are all free, and designed to be optional utilities for teachers. All DLC of this nature are referred to as add-ons, however several function as skin packs instead.
+Scripting
+Bedrock Edition1.9.0beta 1.9.0.3
+Added Minecraft Script Engine, which uses JavaScript.
+Scripts can be written and bundled with behavior packs to listen and respond to game events, get and modify data in components that entities have, and affect different parts of the game.
+Scripts can be used to create experimental custom UI with HTML.1.10.0beta 1.10.0.3
+Packs loading custom UI now required experimental_custom_ui feature flag in manifest.json.
+Fixed several scripting issues affecting custom UI loading, spawn events, filters, and entity validation.1.12.0beta 1.12.0.2
+Added interaction events to the Scripting API for inventory, item, and block.
+Added block query APIs (getBlock function and overrides) for Scripting.
+Added executeCommand API for Scripting.
+Added event data API for Scripting which allows creators to create event data, register and pass it to the event function.
+Added custom blocks through Scripting and additional JSON scripting (and only placed by commands).
+Added a screen to view content log errors.
+Enabled content logging on Bedrock Dedicated Servers.1.18.10beta 1.18.10.28
+Removed HTML-based experimental custom UI (experimental_custom_ui features) and its documentation.1.20.80Preview 1.20.80.20
+Added blocks minecraft:custom_components (version 1) under the Beta APIs experiment.Preview 1.20.80.23
+Added items minecraft:custom_components (version 1) under the Beta APIs experiment.1.21.20Preview 1.21.10.22
+Removed items minecraft:custom_components (version 1) from the Beta APIs experiment. It's enabled by default for JSON formats 1.21.10 and higher.Preview 1.21.10.23
+Added @minecraft/server-ui version 1.2.0.
+Added @minecraft/server-ui version 1.3.0-beta.
+Removed blocks minecraft:custom_components (version 1) from the Beta APIs experiment. It's enabled by default.​[more information needed]1.21.70Preview 1.21.70.20
+Added @minecraft/server version 1.18.0.
+Added @minecraft/server version 2.0.0-beta.1.21.80Preview 1.21.80.22
+Added Custom Commands under the Beta APIs experiment.Preview 1.21.80.25
+Added Custom Components V2 experiment.1.21.90Preview 1.21.90.20
+Added @minecraft/server-ui version 2.0.0.
+Added @minecraft/server-ui version 2.1.0-beta.
+Added @minecraft/server version 2.1.0-beta.
+Removed Custom Components v2 experiment. Custom Components v2 is enabled when using @minecraft/server version 2.0.0 and above.Preview 1.21.90.21
+Added @minecraft/server version 2.0.0. This marked the release of Scripting API version 2.26.10Preview 26.10.21
+Introduced new UI capabilities called Data-Driven UI (DDUI) under Beta APIs experiment. These APIs introduce a new way to create modal forms with new capabilities and an all new look. APIs are available under @minecraft/server-ui module.
+/reload command now closes all the Data Driven UI screens as part of the execution.
+Videos
+Tutorials from the official Minecraft Creator Channel.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Historical videos
+These videos were uploaded when add-ons were first introduced. They demonstrate how add-ons could create customized gameplay and modify existing entities.
+The first introduction of add-ons
+
+
+
+
+
+
+
+
+
+Early add-ons tutorial and playthrough
+
+
+
+
+
+
+
+
+
+
+
+
+
+Early Scripting API and experimental custom UI
+
+
+
+
+
+Quotes
+“Within Minecraft, there are so many ways to be creative and build the worlds of your dreams. But when you want to extend Minecraft even further and introduce new mobs, items and other artifacts into your world, you’ll want to go to the next level of creation by building new Add-On packs that can transform Minecraft.„ — Mike Ammerlaan
+Gallery
+
+
+
+			Promotional artwork released alongside the Change your game, your way! cinematic trailer
+
+
+
+			Render of a "Cake Golem" add-on
+
+
+
+			Artwork of a motorcycle add-on
+
+
+
+			Animation of the Merchant from the Lush Bath Bomb Add-On
+
+
+
+			Promotional image for achievement compatibility with add-ons
+
+
+See also
+Mod
+Commands
+Data pack
+Resource pack
+Skin pack
+World template
+Mash-up pack
+References
+
+ "Entity Behavior Introduction"     – Microsoft Learn, September 19, 2023.
+
+ "Introduction to Loot Tables"     – Microsoft Learn, March 6, 2025.
+
+ "Data-Driven Spawn Rules"     – Microsoft Learn, November 8, 2023.
+
+ "Custom Items"     – Microsoft Learn, September 18, 2024.
+
+ "Recipe Introduction"     – Microsoft Learn, April 19, 2024.
+
+ "Biome JSON and Overview"     – Microsoft Learn, April 10, 2025.
+
+ "Building Sub-Packs"     – Microsoft Learn, August 28, 2025.
+
+ "Molang Documentation - Introduction to Molang"
+
+ "Introduction to Scripting in Minecraft"   (Archive)  – Microsoft Learn, July 17, 2025.
+
+ "Introduction to Scripting in Minecraft"   (Archive)  – Microsoft Learn, April 17, 2025.
+
+ "TypeScript for JavaScript Programmers"     – TypeScript, June 2, 2025.
+
+ "API Modules"     – Bedrock Wiki, June 8, 2025.
+
+ "Scripting V2 Overview"     – Microsoft Learn, July 17, 2025.
+
+ "Introducing Custom Components"     – Microsoft Learn, March 27, 2025.
+
+ "Scripting Custom Commands Overview"     – Microsoft Learn, March 27, 2025.
+
+ "Bring New Ideas to Life with Add-Ons in Minecraft Education"     – Minecraft Education, March 17, 2026.
+
+ "Add-Ons in Minecraft Education Create Customized Learning"  – Minecraft Education on YouTube, March 6, 2026
+
+ "There will be news about the API at Minecon. I'll talk about the things I'm working on and what our plans are. But no more details for now."  – @SeargeDP (Michael Stoyke) on X (formerly Twitter), August 12, 2016
+
+ "the MCPE on, would be nice to say that too."  – @_grum (Erik Broes) on X (formerly Twitter), August 13, 2016
+
+ "Introducing add-ons"     by Linn Viberg  – Minecraft.net, February 20, 2024.
+
+ https://www.minecraft.net/en-us/article/scripting-api-now-public-beta
+
+ https://bedrock.dev/docs/1.9.0.0/1.9.0.3/UI
+
+ The last instance of custom UI documentation is this version: https://bedrock.dev/docs/1.18.0.0/1.18.10.28/UI
+
+ "I'm so impressed by what people have been making in the latest Minecraft Preview with the new Data-Driven UI!"  – @CornerHardMC  on X (formerly Twitter), February  6, 2026
+
+
+"Building your first custom mobs and add-ons for Minecraft"     by Mike Ammerlaan  – Minecraft.net, September 11, 2021.
+
+ "Cake Golem Blockbench Tutorial"     by Patrick Rodes  – ArtStation, July 15, 2024.
+
+ "Animation Presets Blockbench Tutorial"     by Patrick Rodes  – ArtStation, July 15, 2024.
+
+ "It was 1. Great work, everyone 👍"  – @Minecraft (Minecraft) on X (formerly Twitter), August 12, 2024
+
+External links
+Official documentation
+Addons JSON Documentation
+Animation JSON Documentation
+Biome Documentation
+Block JSON Documentation
+Entity JSON Documentation
+Features JSON Documentation
+Item JSON Documentation
+Molang Documentation
+Recipe JSON Documentation
+Particle JSON Documentation
+Schema Documentation
+Script API Documentation
+Official tutorials
+Getting Started With Minecraft Add-Ons
+Introduction to Resource Packs
+Introduction to Behavior Packs
+Getting Started with the Minecraft Entity Wizard
+Getting Started with the Minecraft Item Wizard
+Getting Started with the Minecraft Block Wizard
+Tools and libraries
+Commonly Used Tools
+Minecraft Creator Tools
+Bedrock Editor
+Snowstorm
+Chunker
+Unofficial resources
+Bedrock Wiki
+Minecraft Addons - CurseForge
+Minecraft PE Mods, Maps, Skins, Seeds, Texture Packs | MCPEDL
+Modbay | Everything for Minecraft PE
+Templates
+Resource and Behavior Example Packs
+
+Bedrock Add-On Sample Files
+Script API Example Packs
+
+Script API @minecraft/server-gametest samples
+Script API @minecraft/server samples
+Navigation

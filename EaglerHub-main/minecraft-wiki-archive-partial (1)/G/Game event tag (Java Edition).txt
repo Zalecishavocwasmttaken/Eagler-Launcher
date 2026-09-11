@@ -1,0 +1,247 @@
+Contents
+
+1 List of tags
+
+1.1 allay_can_listen
+1.2 ignore_vibrations_sneaking
+1.3 shrieker_can_listen
+1.4 vibrations
+1.5 warden_can_listen
+
+2 Removed tags
+
+2.1 dampenable_vibrations
+
+3 History
+4 Navigation
+
+A game event tag is a group of game events. See below for the use of each tag.
+The game event tags are under data/<namespace>/tags/game_event folder of data pack.
+
+List of tags
+
+allay_can_listen
+ignore_vibrations_sneaking
+shrieker_can_listen
+vibrations
+warden_can_listen
+allay_can_listen
+Allays can listen and react to game events in this tag.
+
+[NBT List / JSON Array] #minecraft:allay_can_listen (1 values)
+
+minecraft:note_block_play
+
+ignore_vibrations_sneaking
+Game events in this tag are ignored by sculk sensors if the source entity is sneaking.
+
+[NBT List / JSON Array] #minecraft:ignore_vibrations_sneaking (6 values)
+
+minecraft:hit_ground
+minecraft:item_interact_finish
+minecraft:item_interact_start
+minecraft:projectile_shoot
+minecraft:step
+minecraft:swim
+
+shrieker_can_listen
+Game events in this tag trigger sculk shriekers.
+Used in the #warden_can_listen tag.
+
+[NBT List / JSON Array] #minecraft:shrieker_can_listen (1 values)
+
+minecraft:sculk_sensor_tendrils_clicking
+
+vibrations
+Game events in this tag trigger sculk sensors.
+
+[NBT List / JSON Array] #minecraft:vibrations (56 values)
+
+minecraft:block_activate
+minecraft:block_attach
+minecraft:block_change
+minecraft:block_close
+minecraft:block_deactivate
+minecraft:block_destroy
+minecraft:block_detach
+minecraft:block_open
+minecraft:block_place
+minecraft:bounce
+minecraft:container_close
+minecraft:container_open
+minecraft:drink
+minecraft:eat
+minecraft:elytra_glide
+minecraft:entity_action
+minecraft:entity_damage
+minecraft:entity_die
+minecraft:entity_dismount
+minecraft:entity_interact
+minecraft:entity_mount
+minecraft:entity_place
+minecraft:equip
+minecraft:explode
+minecraft:flap
+minecraft:fluid_pickup
+minecraft:fluid_place
+minecraft:hit_ground
+minecraft:instrument_play
+minecraft:item_interact_finish
+minecraft:lightning_strike
+minecraft:note_block_play
+minecraft:prime_fuse
+minecraft:projectile_land
+minecraft:projectile_shoot
+minecraft:resonate_1
+minecraft:resonate_10
+minecraft:resonate_11
+minecraft:resonate_12
+minecraft:resonate_13
+minecraft:resonate_14
+minecraft:resonate_15
+minecraft:resonate_2
+minecraft:resonate_3
+minecraft:resonate_4
+minecraft:resonate_5
+minecraft:resonate_6
+minecraft:resonate_7
+minecraft:resonate_8
+minecraft:resonate_9
+minecraft:shear
+minecraft:splash
+minecraft:step
+minecraft:swim
+minecraft:teleport
+minecraft:unequip
+
+warden_can_listen
+Wardens can listen and react to game events in this tag.
+
+[NBT List / JSON Array] #minecraft:warden_can_listen (57 values)
+
+#minecraft:shrieker_can_listen
+minecraft:block_activate
+minecraft:block_attach
+minecraft:block_change
+minecraft:block_close
+minecraft:block_deactivate
+minecraft:block_destroy
+minecraft:block_detach
+minecraft:block_open
+minecraft:block_place
+minecraft:bounce
+minecraft:container_close
+minecraft:container_open
+minecraft:drink
+minecraft:eat
+minecraft:elytra_glide
+minecraft:entity_action
+minecraft:entity_damage
+minecraft:entity_die
+minecraft:entity_dismount
+minecraft:entity_interact
+minecraft:entity_mount
+minecraft:entity_place
+minecraft:equip
+minecraft:explode
+minecraft:fluid_pickup
+minecraft:fluid_place
+minecraft:hit_ground
+minecraft:instrument_play
+minecraft:item_interact_finish
+minecraft:lightning_strike
+minecraft:note_block_play
+minecraft:prime_fuse
+minecraft:projectile_land
+minecraft:projectile_shoot
+minecraft:resonate_1
+minecraft:resonate_10
+minecraft:resonate_11
+minecraft:resonate_12
+minecraft:resonate_13
+minecraft:resonate_14
+minecraft:resonate_15
+minecraft:resonate_2
+minecraft:resonate_3
+minecraft:resonate_4
+minecraft:resonate_5
+minecraft:resonate_6
+minecraft:resonate_7
+minecraft:resonate_8
+minecraft:resonate_9
+minecraft:shear
+minecraft:shriek
+minecraft:splash
+minecraft:step
+minecraft:swim
+minecraft:teleport
+minecraft:unequip
+
+Removed tags
+
+dampenable_vibrations
+dampenable_vibrations
+​[more information needed]
+Version added: 22w13a. Version removed: 22w17a.
+
+[NBT List / JSON Array] #minecraft:dampenable_vibrations (2 values)
+
+minecraft:hit_ground
+minecraft:step
+
+History
+Java Edition1.1720w49a
+Added game events tag type.
+
+Added #ignore_vibrations_stepping_carefully, and #vibrations tags.1.1720w51a
+Removed eating_start from #vibrations tag.21w05a
+Renamed tag #ignore_vibrations_stepping_carefully to #ignore_vibrations_sneaking.
+
+Added 15 and removed 4 values from #vibrations tag.
+
+added block_change, drinking_finish, eat, entity_damaged, entity_killed, entity_place, equip, minecart_moving, mob_interact, prime_fuse, ravager_roar, ring_bell, shear, shulker_close, and shulker_open
+removed armor_stand_add_item, eating_finish, entity_hit, and flint_and_steel_use
+
+1.1922w12a
+Added #warden_events_can_listen tag.22w13a
+Added #ignore_vibrations_on_occluding_block tag.
+
+Added 12 and removed 17 values from #vibrations tag.
+
+added block_activate, block_deactivate, drink, elytra_glide, entity_damage, entity_die, entity_interact, entity_roar, entity_shake, item_interact_finish, item_interact_start, and note_block_play
+removed block_press, block_switch, block_unpress, block_unswitch, drinking_finish, elytra_free_fall, entity_damaged, entity_killed, fishing_rod_cast, fishing_rod_reel_in, minecart_moving, mob_interact, ravager_roar, ring_bell, shulker_close, shulker_open, and wolf_shaking
+
+Added 13 and 17 removed values from #warden_events_can_listen tag.
+
+added block_activate, block_deactivate, drink, elytra_glide, entity_damage, entity_die, entity_interact, entity_roar, entity_shake, flap, item_interact_finish, item_interact_start, and note_block_play
+removed block_press, block_switch, block_unpress, block_unswitch, drinking_finish, elytra_free_fall, entity_damaged, entity_killed, fishing_rod_cast, fishing_rod_reel_in, minecart_moving, mob_interact, ravager_roar, ring_bell, shulker_close, shulker_open, and wolf_shaking
+
+22w14a
+Renamed tag #warden_events_can_listen to #warden_can_listen.
+
+Added #shrieker_can_listen tags.22w15a
+Renamed tag #ignore_vibrations_on_occluding_block to #dampenable_vibrations.22w17a
+Added #allay_can_listen tag.
+
+Removed #dampenable_vibrations tag.22w18a
+Removed flap from #warden_can_listen tag.Pre-release 1
+Added item_interact_finish, and item_interact_start to #ignore_vibrations_sneaking tag.
+
+Added instrument_play to #vibrations, and #warden_can_listen tags.Pre-release 2
+Added teleport to #vibrations, and #warden_can_listen tags.Pre-release 3
+Removed item_interact_start from #vibrations, and #warden_can_listen tags1.19.122w24a
+Added jukebox_play, and jukebox_stop_play to #vibrations, and #warden_can_listen tags.Pre-release 1
+Removed jukebox_play, and jukebox_stop_play from #vibrations, and #warden_can_listen tags.1.19.423w06a
+Added entity_dismount, and entity_mount to #vibrations, and #warden_can_listen tags.1.2023w12a
+
+Added 10 and removed 3 values from #vibrations, and #warden_can_listen tags.
+
+added resonate_1, resonate_2, resonate_3, resonate_4, resonate_5, resonate_6, resonate_7, resonate_8, resonate_9, resonate_10, resonate_11, resonate_12, resonate_13, resonate_14, and resonate_15
+removed dispense_fail, piston_contract, and piston_extend
+
+1.20.223w31a
+Added entity_action and removed entity_roar, and entity_shake from #vibrations, and #warden_can_listen tags.23w32a
+Added unequip to #vibrations, and #warden_can_listen tags.1.2124w19a
+Moved folder tags/game_events to tags/game_event.26.2snap1
+Added bounce to #vibrations, and #warden_can_listen tags.
+Navigation

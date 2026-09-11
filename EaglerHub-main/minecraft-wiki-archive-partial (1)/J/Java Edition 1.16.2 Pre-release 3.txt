@@ -1,0 +1,170 @@
+This page covers a development version that has a major issue under certain conditions. 
+The dedicated server for this version has a security vulnerability in the Log4j library that could be used to perform a remote code execution exploit. It can be addressed by appending a certain JVM argument to the server startup command line.
+
+Minecraft 1.16.2 Pre-release 3
+
+Edition
+
+Java Edition
+
+Release date
+
+August 6, 2020
+
+Type
+
+Pre-release
+
+Pre-release for
+
+1.16.2
+
+Downloads
+
+Client (.json)Server
+
+Obfuscation maps
+
+ClientServer
+
+Protocol version
+
+748
+
+Data version
+
+2575
+
+Resource pack format
+
+5
+
+Data pack format
+
+5
+
+Minimum Java version
+
+Java SE 8
+
+◄◄   1.16.1
+1.16.2
+  1.16.3 ►►
+
+◄   1.16.2 Pre-release 2
+
+ 1.16.2 Pre-release 3
+
+  1.16.2 Release Candidate 1 ►
+
+{
+    "title": "Minecraft 1.16.2 Pre-release 3",
+    "images": [
+        "1.16.2-pre2.jpg",
+        "Java Edition 1.16.2 Pre-release 3.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "August 6, 2020",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Pre-release article, displayed as Pre-release)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition 1.16.2 article, displayed as 1.16.2)",
+            "label": "Pre-release for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/8cfa861961862c263ff80f2f6478535fd1ed7d8b/client.jar Client] ([https://piston-meta.mojang.com/v1/packages/46cb062b849b43fa1958a5f71b5b779615bc0e8b/1.16.2-pre3.json .json])<br />[https://piston-data.mojang.com/v1/objects/bd47f78f185a525388e446aa44975c147057ebbd/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/e912e5eda715f1b65ce7c23a7825ea9024cf1c35/client.txt Client]<br />[https://piston-data.mojang.com/v1/objects/e28d7c32ce06496a284819467add0f021eebaea7/server.txt Server]",
+            "label": "(link to Obfuscation map article, displayed as Obfuscation maps)"
+        },
+        {
+            "field": "748",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "2575",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "5",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "5",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Data pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_8_.28LTS.29 Java SE 8]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Java Edition  1.16.1|<span style=\"margin-right:-0.35em\">◄</span>◄   1.16.1]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition 1.16.2|1.16.2]]'''</td>\n<td style=\"padding: 0.4em\" >[[Java Edition  1.16.3|  1.16.3 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  1.16.2 Pre-release 2|◄   1.16.2 Pre-release 2]]\n</td>\n<td style=\"padding: 0.4em\">''' 1.16.2 Pre-release 3'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  1.16.2 Release Candidate 1|  1.16.2 Release Candidate 1 ►]]\n</td>\n</tr>\n</table>"
+}
+
+1.16.2 Pre-release 3 (known as 1.16.2-pre3 in the launcher) is the third and final pre-release for Java Edition 1.16.2, released on August 6, 2020, which fixes bugs.
+
+Contents
+
+1 Changes
+
+1.1 Mobs
+
+2 Fixes
+3 Videos
+4 References
+5 Navigation
+
+Changes
+Mobs
+Wolves
+
+Now render correctly in dark areas.
+Fixes
+12 issues fixed
+From released versions before 1.16
+
+MC-105248 – Wet wolves become nearly black in dark areas.
+MC-107529 – Marker:1b armor stands render themselves and their equipment dark if inside solid blocks.
+MC-167756 – Wolf is rendered too dark when not directly affected by skylight.
+From 1.16
+
+MC-191388 – "No key position_predicate in MapLike" console spam.
+From 1.16.1
+
+MC-197049 – Pending messages are saved after relogging, while normal messages are not.
+MC-197053 – Pressing F3 + D clears the pending lines message, but does not clear the pending messages.
+From the 1.16.2 development versions
+
+MC-196534 – Game does not recognize custom dimension type: java.lang.IllegalStateException: Unregistered dimension type.
+MC-197242 – Crash with custom multi-noise dimension: java.lang.IllegalStateException: Unregistered dimension type: cha@90d4173.
+From the previous development version
+
+MC-197122 – Game crashes after entering a Debug Mode world.
+MC-197152 – Ghost blocks can be generated in some piston setups.
+MC-197218 – Piston arm appears twice during retraction in some mechanisms.
+MC-197223 – Game crashes after creating or entering a custom world with no defined biomes or issues with the configuration files.
+Videos
+Video made by slicedlime:
+
+
+
+
+References
+
+ "Important Message: Security vulnerability in Java Edition"     – Minecraft.net, December 10, 2021.
+
+ "Minecraft 1.16.2 Pre-Release 3"     – Minecraft.net, August 6, 2020.
+
+Navigation

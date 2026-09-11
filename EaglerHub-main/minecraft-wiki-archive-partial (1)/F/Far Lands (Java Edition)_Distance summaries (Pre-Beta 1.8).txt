@@ -1,0 +1,164 @@
+The Far Lands in Java Edition are the point where terrain generation in Minecraft breaks due to overflow in its Perlin noise generator, beginning at X/Z: ±12,550,824. As the player ventures further, processes in both how the terrain generates and the game processes break down, reducing the terrain to be almost non-existent. Some distances are the result of hard limits related to floating-point processes, while others are due to the code used to generate terrain breaking down.
+This page is a more detailed and technical explanation of what happens at the Far Lands' various points. Additionally, modding the game to use BigIntegers is required past certain points, as the vanilla client can only go out so far before the game locks up.
+
+Contents
+
+1 Vanilla limits (X/Z: ±16,777,216–X/Z: ±2,147,483,647)
+
+1.1 X/Z: ±16,777,216: Spawn chunk glitch
+1.2 X/Z: ±32,000,000: Fake chunks
+1.3 X/Z: ±268,435,436: Rendering begins breaking
+1.4 X/Z: ±1,004,065,924: Farther Lands
+1.5 X/Z: ±2,147,483,647: 32-bit limit, end of vanilla Far Lands
+1.6 X/Z: ±34,359,738,368: Chunk overwriting, end of vanilla Minecraft
+
+2 Further distances by modding (X/Z: ±34,359,738,368–X/Z: ±1.7977×10308)
+
+2.1 X/Z: ±34,359,738,368: Soil noise overflows
+2.2 X/Z: ±9,007,199,254,740,992: Stripe Lands phenomena
+
+2.2.1 Technical explanation
+
+2.3 X/Z: ±8.1751×1048–X/Z: ±4.119992×1049: True end of terrain generation
+
+2.3.1 X: ±8.1751×1048: First stage
+2.3.2 X: ±8.5766×1048: Second stage
+2.3.3 X/Z: ±9.1762×1048: Third stage
+2.3.4 X: ±1.0299×1049: Fourth stage
+2.3.5 X/Z: ±4.119992×1049: The end
+
+3 Gallery
+
+3.1 Decay progress (without fix)
+
+4 Notes
+5 References
+6 Navigation
+
+Vanilla limits (X/Z: ±16,777,216–X/Z: ±2,147,483,647)
+X/Z: ±16,777,216: Spawn chunk glitch
+Trees generating past 32,000,000 at X=268,435,456 along with normal terrain stretching only a few chunks.
+At each power of two after X/Z: ±524,288 (219), and continuing up until the 32-bit integer limit, a glitch occurs with the way spawn chunks are handled. What happens is certain aspects overflowing, and the game respawns the spawn chunk from (0,0) at these distances since the spawn chunk being permanently stored compared to normal chunks. This takes on a greater role within the Far Lands; starting at X/Z: ±16,777,216 (224), this bug causes the spawn chunk to generate within the Far Lands, meaning normal terrain can be generated and interacted with. This continues up at every power of 2 in the Far Lands until X/Z: ±1,073,741,824 (230), as the following power of 2 is the 32-bit limit and the cessation of terrain generation. The instance at 224 is the only time that normal terrain that can be interacted with generates inside the Far Lands, since the next power of two is past 32 million blocks, where fake chunks generate.
+Beyond 32 million blocks, the instances of the spawn chunk glitch at X/Z: ±33,554,432 (225) to X/Z: ±1,073,741,824 (230) are the only instances where trees, caves and grass can be found beyond the fake chunks boundary, as most terrain decorations do not generate at this distance.
+
+X/Z: ±32,000,000: Fake chunks
+Fake chunks begin generating at X/Z 32,000,000, and lighting no longer works
+At X/Z ±32,000,000, blocks are treated as permanently nonexistent, and do not generate even though they may appear to. When Minecraft generates and loads chunks, it loads an empty version of the terrain, complete with grass, stone and water textures that cannot be walked on. This map generates out to the 32-bit integer limit. The game can load chunks only out to X/Z: ±32,000,000, causing a problem between the noise map and the chunk generator. To fix this problem, Minecraft removes the chunks generated beyond X/Z: >±32,000,000 and generates only the noise map. If the player tries to walk on this map, they fall into the void. This value is hard-coded in the source code of Minecraft, meaning that it cannot be changed without editing the source files. Because chunks technically do not generate beyond X/Z: ±32,000,000, things like trees, falling gravel, falling sand, mobs, grass, and other entities do not generate either. This can make the map relatively stable and crashes can be somewhat rare; however, crashes can happen on low-end computers.
+
+X/Z: ±268,435,436: Rendering begins breaking
+The terrain of the Far Lands begins flickering at high distances due to world rendering breaking down
+By the time one reaches X/Z: ±268,435,436, the "jittering" effect commonly seen at high distances even before the Far Lands reaches a breaking point. RenderList, a component used in how Minecraft renders terrain, degrades to such a point to where the offset is 32 blocks, or two full chunks, and the renderer begins failing to accurately display the terrain the player is looking at or traveling to, alternating between appearing far away or up close, giving the appearance of flickering. This gets worse at the next powers of two at 229 and 230, with a further offset resulting in more jumping.
+
+X/Z: ±1,004,065,924: Farther Lands
+
+The Farther Lands is the name given to another noise overflow which, by default, happens at a greater distance than the normal Far Lands. Whereas the usual Far Lands arise from the overflowing of "low noise" and "high noise", the Farther Lands sees "selector noise" break down instead. Low noise and high noise are two different noise generators which the game uses to generate the potential fundamental shape of terrain, whereas selector noise chooses whether low noise or high noise is used to actually generate the terrain at that given point. When the conventional Far Lands start, despite both low noise and high noise overflowing simultaneously, selector noise still functions normally, meaning that there is still a large amount of possible variation in the shape of the Far Lands.
+
+The Edge Far Lands are on the right, with the comparatively featureless Edge Farther Lands on the left.
+When selector noise does eventually break, which happens at roughly 1,004,065,920 blocks from the world origin, it follows that the variation between low and high noise also breaks down. Like how the usual Far Lands is a series of straight tunnels, the Farther Lands divides the world into a series of straight regions, with low noise used exclusively in one region and high noise in others. As such, the variation usually seen in the Far Lands vanishes after the Farther Lands.
+The Corner Farther Lands take this effect to an extreme: while the normal Corner Far Lands are rich in nuance, the Corner Farther Lands are almost devoid of it. The beginning of the corner makes this all the more obvious, and also highlights edge Farther Lands-corner Far Lands intersections, making the aforementioned straight line regions clear to see.
+
+X/Z: ±2,147,483,647: 32-bit limit, end of vanilla Far Lands
+The end of Minecraft terrain generation at the 32-bit limit of X: 2,147,483,647. World rendering stops working at this point.
+At X/Z: ±2,147,483,647, the 32-bit integer limit, blockpos within chunk formatting breaks completely, attempting to load a chunk from the opposite end of the map relative to the player's axis, -2,147,483,648. As a result, the game freezes as the client hangs indefinitely, waiting to process a chunk that, theoretically, doesn't exist. This occurs whenever the invalid chunk is loaded within the game, even if the player is not at the limit exactly, on both sides. The invalid chunk at 231 usually generates once the player crosses X/Z: ±2,147,483,439 in the positive direction towards the limit, and X/Z: ±2,147,483,794 going towards it in the negatve direction. It is possible however, to avoid freezing if the player is high enough in the air to prevent chunk loading being tied to player positioning, although this is very inconsistent and usually ends up with the game freezing like normal. By using external programs such as CheatEngine, one can teleport their position to exactly 231, although only a few frames will manage to load before the client hangs.
+
+The end of the Far Lands in the Nether at around the same point.
+Additionally, the RenderList class, already severely degraded due to precision loss and the cause of flickering terrain, breaks entirely. Although unviewable normally due to the game freezing right before the 32-bit limit, if most arrays are patched to not overflow (which causes the crash), as one gets closer to the edge, rendering breaks exactly 128 blocks before at X/Z: ±2,147,483,519, initially appearing as one invisible chunk, before expanding outward beyond this point, leaving only an empty void. In chunks beyond this point, the game is essentially returning blank chunks as a result, and the player can, up to 235 blocks, traverse without freezing, although because of the above the performance of the game can be very inconsistent and still be prone to hanging if one stays in an area out this far for too long.
+
+X/Z: ±34,359,738,368: Chunk overwriting, end of vanilla Minecraft
+The game at X: 34,359,738,079. The game has crashed due to the chunks being overwritten, which occurs 289 blocks from here. As soon as this limit is approached, Minecraft crashes.
+The hard limit for any player to reach within Minecraft without modding, is X/Z: ±34,359,738,368. Much like blockpos, chunks will start "looping" at this point, attempting to take from a negative output. While made completely unobservable due to blocks also being 32-bit integers, exceeding this limit should cause chunks from the exact opposite overflow point to begin loading. Doubling distance again will put the player in the equivalent position to (0,0), and once more will appear at the overflow point once more. As a result, this is the end of Minecraft.
+As soon as this limit is approached, the game freezes and crashes due to chunks being overwritten, resulting in an Out of memory screen. However, in some cases, the player may be able to move past this limit for a few seconds before Minecraft crashes. A chunk is 16×16 blocks, and 34,359,738,368 = 2,147,483,648×16, so the chunk coordinates are 32-bit integers as well. If you were around 160 blocks away, that would crash and the game will remain unresponsive until the player force quits.
+
+Further distances by modding (X/Z: ±34,359,738,368–X/Z: ±1.7977×10308)
+
+
+
+The contents of this section are not supported by Mojang Studios or the Minecraft Wiki.
+
+In vanilla Minecraft, the maximum one can travel in the Far Lands before it becomes impossible to progress further is X/Z: ±34,359,738,368, when chunk overflowing causes the game to lock up. It is impossible to teleport beyond this point, unless external programs such as CheatEngine are used to modify player position, in which case it is possible to reach as far out as X/Z: ±1.7977×10308, the maximum signed integer Java can handle, however no further changes will be visible since terrain generation has long stopped since the 32-bit limit at 231, since blockpos and rendering have been broken since. The only way to make terrain generation continue is by using specific mods to do so.
+While there are mods that convert the integers used within Minecraft terrain generation to Longs, these mods are inaccurate and not true to vanilla Minecraft, as this also pushes noise overflows to their Long equivalents (i.e., causing the Far Lands to generate at 53 quadrillion blocks out instead for the same reasons as vanilla), and should not be treated as legitimate since Java Edition terrain was never coded to use Longs. As of 2026, there is only one mod that correctly expands Minecraft's terrain generation while retaining the vanilla components, known as "MC Big Legacy". By storing most integers used in-game to the BigInteger Java class, this allows infinite terrain to generate, and also fixes most of the Far Lands bugs seen initially (i.e., RenderList breaking down, blockpos overflowing at 231), meaning the player can travel well beyond the previous limits without crashing.
+It should be noted that even with BigInteger classes, Java Edition eventually begins breaking down in the same manner as Bedrock Edition at extreme distances. This is due to double-precision floating-point losses occurring (compared to Bedrock's single-precision floating-point precision losses which start well within vanilla boundaries) and terrain processes breaking down, which gradually strip away at the terrain and making movement increasingly difficult.
+
+X/Z: ±34,359,738,368: Soil noise overflows
+Soil noise overflow in the Far Lands at 34 billion blocks.
+At this point, at X/Z: ±34,359,738,368, soil noise, which determines the depth of the surface block corresponding to each biome, overflows. Biome fill noise increments by 0.0625 units each block, or 1 unit every chunk, and thus overflows at or around X/Z ±34,359,738,368. This may not be exact, and the start of this may be off by at least 1,000 blocks, depending on the seed. The biome fill noise overflow generates long strips of stone, with grass in between. The stone layers generate only stone. On the grass strips, the dirt actually extends down all the bedrock floor.
+
+X/Z: ±9,007,199,254,740,992: Stripe Lands phenomena
+The Stripe Lands phenomena beginning at 9.007 quadrillion blocks, causing the terrain to only appear every two blocks
+At X/Z: ±9,007,199,254,740,992, texture UVs, which use a Double-precision floating-point format to render blocks, reach the maximum limit that it can fully render terrain normally (always at a value of 1), at 253, as 53 bits are dedicated to the double format in precision. Past this point, due to this being computed by floating point values, the precision loss within the UVs coordinate becomes 2, and rendering starts breaking down only considering every other block, creating the infamous Stripe Lands phenomena. This is the exact same phenomena seen in Bedrock Edition, although in Java Edition it starts out much further then the former, since Bedrock uses single floating-point precision (breaking at 224 in that case, when the Stripe Lands begin occurring there), while Java uses a double floating-point precision, which breaks at a larger number.
+This gets worse at every power of two, such that at 254, or X/Z: ±18,014,398,509,481,984, the precision loss becomes 4 blocks, meaning that from that point until the next power of two, the distance between rendered parts of the textures of blocks increases. Additionally, at 254, horizontal rendering of textures fails entirely on the surface of blocks, effectively making the Far Lands at this distance appear nearly invisible.
+
+Technical explanation
+The Stripe Lands phenomena is caused by a more severe breakdown within the way floating-point precision works.
+Both Floating-Point types in Java use the IEEE-754 Standard for Floating-Point Arithmetic to represent numbers with decimal precision and large scales by splitting a width of bits into predetermined Sign, Exponent, and Mantissa fields fulfilling each a dedicated purpose. Rather than linearly treating binary values as one complete string of individual "+1" steps, a Floating-Point type uses these divided zones to treat the contents as their own isolated functions within a global formula to calculate a wider range of results both in utility and total range using the exact same binary step and the same total type size to preserve computational norms.
+The sign bit accounts for positive and negative ranges, the exponent scales the magnitude (formulated as 22{Exponent Bits - 1}), while the mantissa determines the precision steps within that scale (expressed as 2^{Mantissa Bits}). The Exponent range is biased down to half to make use of high-speed integer comparisons when dealing with both Negative and Positive FPA, hence the "-1" to said exponent.
+
+At X/Z: ±18,014,398,509,481,984, the precision loss becomes 4, and causes the horizontal rendering to break completely on blocks. This, in effect makes the terrain appear nearly invisible.
+A 32-bit Single-Precision "Float" allocates 1 bit for the sign, 8 bits for the exponent, and 23 bits for the mantissa, amounting to a standard 32-bit allocation. The Sign bit splits the range of values in two between Negatives and Positives. It does not physically cut the possible range in half as the sign bit clears Exponent, being the left-most field, so that it may be used again. However, one bit must be reserved out of the other types of field in order to enable negative values (including negative zero) which is a small sacrifice of total scale or precision by not being placed in those fields instead. The seven Exponent Bits provide a maximum size of 2128. The total range is ± 3.40×1038, with a smallest decimal representation of ±1.17×10−38 to ±1.40×10−45 depending on whether the returned value is a normal or subnormal finite number.
+The twenty-three Mantissa Bits provide an upper limit of representable integers at 16,777,216. Mantissa is the amount of individual steps, or increments, used to represent precision as decimals. It functions by utilizing its width to divide the current Exponent value (Current Power of Two), resulting in an incremental, intended to be decimal, step. Such that "1.0 / {2^Mantissa Bits}" equals X identical small steps needed to reach the next exponent by doubling up exactly in order to clear the Mantissa field into Exponent. This natural progression enables a seamless sequence of values across the entire type.
+On a 32-bit "Float", the step size division uses 8,388,608, derived from 2{23}, which functions "safely" until the Exponent is worth 16,777,216 : 16,777,216 / 8,388,608 = 2,  > 1. A 64-bit Double-Precision "Double" allocates 1 bit for the Sign, 11 bits for the Exponent, and 52 bits for the Mantissa, amounting to a standard 64-bit allocation. Eleven Exponent bits provide a maximum size of 21024 The total range is ±1.7977×10308, with a smallest decimal representation of ±2.22×10-38 to ±4.94×10-324 depending on if the returned value is a normal or subnormal finite number. Fifty-two Mantissa bits provide an upper limit for safe integer representation on each step up to 9,007,199,254,740,992† : 2{53} / 252 = 2, > 1.
+
+X/Z: ±8.1751×1048–X/Z: ±4.119992×1049: True end of terrain generation
+At excessively large distances measured in exponents, terrain generation itself in the Far Lands begins breaking down. This is not the result of a noise value overflow, instead, it is rather caused by seperate measures that are used to calculate and generate the terrain failing at high distances. Specifically, two failures are the primary reasons for the Far Lands degrading this far out, called "decay" and lerp failure. This all is the same process that happened in old Bedrock Edition versions in the Far Lands, but because Bedrock uses single floats, those errors occurred much earlier and practically as soon as the Far Lands start there.
+The decay process occurs because a density function that the game uses for terrain reaches numbers too large for Doubles to properly handle. This causes terrain to start thinning out and degrading in shape. Eventually this causes terrain generation to stop entirely at even higher distances. Lerp failure occurs when the large number mentioned prior is used in a step for each block in a sample per axis, leading to precision loss down to almost zero. The end result is dotted appearances of terrain and instances such as the “sky grid” in the Corner Far Lands.  This was fixed in Beta 1.9 Prerelease 2 for Java Edition 1.0.0 by introducing an optimization which prevents this from occurring.
+Additionally, these distances can only be visible by fixing the issues that cause the Stripe Lands, as it will be extremely difficult to notice the terrain degrading at these distances because of the visual gaps due to (texture UV grids failing) becoming larger with each power of 2, and horizontal rendering on blocks also failing as well. The BigInteger mod "MC Big Legacy" has such an optional fix upon startup.
+
+X: ±8.1751×1048: First stage
+
+On the X axis, the first noticeable stage of degradation begins at approximately X: ±8.1751×1048. Here, as the density function reaches numbers too large to store in a Double format, the terrain noticeably shrinks in size, with the stripes of the Far Lands shrinking to two-block rows of terrain, and even some drop-offs in the terrain as well. At the same time, lerp failure also begins, which causes some portions of terrain to vanish every other block at the lower levels of the Far Lands, which result in comb-like structures appearing that repeat every other block.
+On the Z-axis, the degradation does not happen yet at this distance.
+
+X: ±8.5766×1048: Second stage
+
+The second stage of the degradation starts at X: ±8.5766×1048. At this point, the decay causes the Far Lands to thin out even further, leaving long gaps in between that extend down to sea level. The lerp failure also progresses to generate the comb-like structures more frequently. This is the point where the degradation is very noticeable even at a first glance.
+On the Z-axis, the degradation still does not happen yet.
+
+X/Z: ±9.1762×1048: Third stage
+
+At X/Z: ±9.1762×1048, two things happen depending on what axis the player is on.
+On the X axis, at this distance the third stage of the degradation begins. Here, major decay is visible and is essentially the end of what is considered the defining part of the Far Lands, with a majority of the long walls and tunnels that compose the structure of the Far Lands disappearing. Large gaps exist within the walls leaving the ocean and bedrock floor very visible in all instances. By this point, lerp failure leads to the comb-like structures becoming very common and the only distinct feature left in what remains of the Far Lands. Long single-block stripes of terrain still continue to generate, and dotted lines of blocks (spaced out every other block) also continue.
+On the Z-axis, the terrain finally begins to degrade at this distance, beginning with the first stage of degradation. The decay also progresses quicker on the Z-axis.
+
+X: ±1.0299×1049: Fourth stage
+
+The fourth and final stage of degradation begins at ±1.0299×1049 on the X axis. Here, the decay causes the last long walls that remained of the Far Lands to end entirely. Afterwards, only dotted blocks from the lerp failure remain. They are very spaced out, being separated by dozens to hundreds of blocks. They can also generate underneath the ocean, but terrain generation at this point is largely non-existent.
+
+X/Z: ±4.119992×1049: The end
+
+Terrain generation finally ceases at X/Z: ±4.119992×1049, when the last dotted lines of the Far Lands stop generating. As such, this considered the true end of Minecraft's terrain generation. Beyond this point, only ocean and the bedrock layer remains as those use a different type of generator that is not prone to the same kind of overflow normal terrain is with Perlin noise. This continues out until the game cannot handle player coordinates anymore, which is around X/Z: ±1.7977×10308, at which point Java cannot read higher numbers and rolls the coordinates over to "Infinity". The game also is very prone to crashing at this point even with the BigInteger mod.
+
+Beyond this point, it remains the same, even up to X/Z ±~1.7977×10308 (±21024). Further distances are possible as Java’s own BigInteger class maxes out at X/Z ±~8.8081×10646456992 (2231 − 1). This is theoretically the absolute farthest one could possibly even reach as both BigInt and the coordinates would overflow, the latter rolling over to "Infinity" and crashing the game, making this the absolute maximum Minecraft can generate, even with extensive modding. However, this is an exceptionally gigantic number that any attempts using this method would almost certainly crash the game long before then. The highest distance reached using this method so far is X: ~2.5963×10157826 (2524288) by the YouTuber hypernebule, on June 8, 2026.
+
+Gallery
+Decay progress (without fix)
+
+
+
+			First stage of decay at X: ±8.1751×1048. Sides of the comb structures can be seen.
+
+
+
+			Second stage of decay at X: ±8.5766×1048. Comb structures become more visible
+
+
+
+			Third stage of decay at X: ±9.1762×1048. Thin pillars begin repeating much more commonly.
+
+
+
+			Fourth stage of decay at X: 1.0299×1049. Almost nothing is visible after this point.
+
+
+
+			The end of the Far Lands at X/Z: ±4.119992×1049, giving way to endless ocean and bedrock floor in alternating stripes. As one goes further this will eventually become invisible due to precision loss causing huge spaces between rendered blocks.
+
+
+Notes
+
+References
+
+ https://youtu.be/FTMzUhIW3oc?si=gJNWLJ398YboGf8K&t=99
+
+ Going further then anyone ever has in Minecraft.. YouTube, June 8, 2026.
+
+Navigation

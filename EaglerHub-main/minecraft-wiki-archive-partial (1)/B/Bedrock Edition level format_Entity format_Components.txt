@@ -1,0 +1,246 @@
+This feature is exclusive to Bedrock Edition. 
+
+This page lists the unique NBT tags for entities that have a certain component.
+
+Contents
+
+1 economy_trade_table
+2 ageable
+3 balloon
+4 breathable
+5 breedable
+6 bribeable
+7 inventory
+8 damage_over_time
+9 drying_out_timer
+10 dweller
+11 explode
+12 genetics
+13 home
+14 insomnia
+15 trade_table
+16 tamemount
+17 npc
+18 projectile
+19 spawn_entity
+20 timer
+21 trade_resupply
+22 trust
+23 CommandBlockComponent
+24 FogCommandComponent
+25 FreezingComponent
+26 PropertyComponent
+27 hide
+
+economy_trade_table
+This component is used by villagers and wandering traders.
+
+[NBT Compound / JSON Object]: The entity's root tag.
+[Int] Riches: Unknown.
+[NBT Compound / JSON Object] Offers: (May not exist) The trade info.
+[NBT List / JSON Array] Recipes: The list of trade recipes.
+[NBT Compound / JSON Object]: A recipe.
+[NBT Compound / JSON Object] buyA: The first 'cost' item.
+item  see Item Stack
+[NBT Compound / JSON Object] buyB: (May not exist) The second 'cost' item
+item  see Item Stack
+[NBT Compound / JSON Object] sell: The item being sold for each set of cost items.
+item  see Item Stack
+[Int] tier: The tier that the trader needs to reach to access this recipe.
+[Int] uses: The number of times this trade has been used. The trade becomes disabled when this is greater or equal to maxUses.
+[Int] maxUses: The maximum number of times this trade can be used before it is disabled. Increases by a random amount from 2 to 12 when offers are refreshed.[needs testing]
+[Int] traderExp: The trade experiences to be rewarded to this trader entity.
+[Byte] rewardExp: 1 or 0 (true/false) - true if this trade provides XP orb drops.
+[Int] demand: The price adjuster of the first 'cost' item based on demand. Updated when a villager resupply.
+[Int] buyCountA: The count needed for the first 'cost' item.
+[Int] buyCountB: The count needed for the second 'cost' item.
+[Float] priceMultiplierA: The multiplier on the demand and discount price adjuster; the final adjusted price is added to the first 'cost' item's price.
+[Float] priceMultiplierB: The multiplier on the demand and discount price adjuster; the final adjusted price is added to the second 'cost' item's price.
+[NBT List / JSON Array] TierExpRequirements: Trade experiences required to become each trade tier.
+[NBT Compound / JSON Object]: A tier.
+[Int] <tier_level_num>: Trade xperiences required to become this tier.
+[Byte] ConvertedFromVillagerV1: (May not exist) Unknown.
+[String] TradeTablePath: (May not exist) The path of the json file of the trade table.
+[Int] LowTierCuredDiscount: (May not exist) The discount price adjuster gained by curing zombie villagers
+[Int] HighTierCuredDiscount: (May not exist) The discount price adjuster gained by curing zombie villagers
+[Int] NearbyCuredDiscount: (May not exist) The discount price adjuster gained by curing nearby zombie villagers
+[Int] NearbyCuredDiscountTimeStamp: (May not exist) The discount price adjuster gained by curing nearby zombie villagers
+ageable
+This component is used by baby axolotls, bees, cats, chickens, cows, dolphins, donkeys, foxes, goats, hoglins, horses, llamas, mooshrooms, mules, ocelots, pandas, pigs, polar bears, rabbits, sheep, skeleton horses, sniffers, striders, tadpoles, turtles, villagers, wolves, and zombie horses.
+
+[NBT Compound / JSON Object]: The entity's root tag.
+[Int] Age: Represents the age of the entity in ticks; when negative, the entity is a baby. When 0, the entity becomes an adult.
+[Boolean] GrowthPaused‌: 1 or 0 (true/false) - if true and the mob is a baby, the mob will not age naturally and cannot be fed.
+balloon
+This component is used by allays, bees, chickens, cows, donkeys, foxes, glow squids, horses, iron golems, llamas, mooshrooms, mules, pandas, pigs, rabbits, sheep, skeleton horses, snow golems, and zombie horses.
+
+[NBT Compound / JSON Object]: The entity's root tag.
+[Long] ballon_attached: The Unique ID of the attached entity.
+[Float] ballon_max_height: Max height.
+[Byte] ballon_should_drop: Unknown
+breathable
+This component is used by axolotls, bats, bees, cats, cave spiders, chickens, cows, creepers, dolphins, donkeys, drowned, elder guardians, endermen, endermites, evokers, fish, foxes, frogs, ghasts, glow squids, goats, guardians, hoglins, horses, husks, llamas, magma cubes, mooshrooms, mules, ocelots, pandas, parrots, phantoms, piglins, piglin brutes, pillagers, pigs, players, polar bears, pufferfish, rabbits, ravagers, salmon, sheep, shulkers, silverfish, skeletons, skeleton horses, slimes, sniffers, snow golems, tropical fish, spiders, squids, sea turtles, strays, villagers, vindicators, wardens, wandering traders, withers, wither skeletons, tadpoles, witches, wolves, zombies, zoglins, zombie horses, zombified piglins, and zombie villagers.
+
+[NBT Compound / JSON Object]: The entity's root tag.
+[Short] Air: How much air the living entity has, in ticks.
+breedable
+This component is used by axolotls, bees, cats, chickens, cows, dolphins, donkeys, foxes, goats, hoglins, horses, llamas, mooshrooms, mules, ocelots, pandas, pigs, polar bears, rabbits, sheep, skeleton horses, sniffers, striders, tadpoles, turtles, villagers, wolves, and zombie horses.
+
+[NBT Compound / JSON Object]: The entity's root tag.
+[Int] InLove: Number of ticks until the entity loses its breeding hearts and stops searching for a mate. 0 when not searching for a mate[needs testing].
+[Long] LoveCause: The Unique ID of the entity that caused this animal to breed.
+[Int] BreedCooldown: Unknown
+bribeable
+This component is only used by dolphins.
+
+[NBT Compound / JSON Object]: The entity's root tag.
+[Int] BribeTime: Unknown
+inventory
+This component is used by minecarts with chest, minecarts with command block, minecarts with hopper, horses, donkeys, llamas, mules, pandas, and villagers.
+
+[NBT Compound / JSON Object]: The entity's root tag.
+[NBT List / JSON Array] ChestItems:
+[NBT Compound / JSON Object]: An item in the inventory, including the slot tag.
+[Byte] Slot: The slot the item is in.
+item  see Item Stack
+[String] InventoryVersion: e.g. 1.17.20-beta23
+[String] LootTable: Loot table to be used to fill the inventory when it is next opened, or the items are otherwise interacted with.
+[Int] LootTableSeed: Seed for generating the loot table. 0 or omitted uses a random seed[needs testing].
+damage_over_time
+This component is used by axolotls and dolphins.
+
+[NBT Compound / JSON Object]: The entity's root tag.
+[Short] DamageTime: Unknown
+drying_out_timer
+This component is used by axolotls and dolphins.
+
+[NBT Compound / JSON Object]: The entity's root tag.
+[Long] CompleteTick: The time when this entity completely dries out.
+[Int] State: Must be a boolean. 1 if it already dried out.
+dweller
+This component is used by cats, iron golems, villagers, evokers, pillagers, ravagers, vindicators, and witches. These mobs are classified into "roles" in the component, with cats being "passive", iron golems being "defenders", evokers, pillagers, ravagers, vindicators, and witches being "hostile", and villagers being "inhabitants".
+
+[NBT Compound / JSON Object]: The entity's root tag.
+[String] DwellingUniqueID: Unknown
+[Byte] RewardPlayersOnFirstFounding: Unknown
+[String] PreferredProfession: (May not exist) Unknown
+explode
+This component is used by TNT, minecarts with TNT, creepers, ghast fireballs, end crystals, and wither skulls.
+
+[NBT Compound / JSON Object]: The entity's root tag.
+[Byte] Fuse: (May not exist)  Number of ticks before the explosion
+[Byte] IsFuseLit: (May not exist)  Does the time before the explosion started decreasing
+[Byte] AllowUnderwater: (May not exist)  Explosion will cause damage to territory even underwater
+genetics
+This component is used by goat and pandas.
+
+[NBT Compound / JSON Object]: The entity's root tag.
+[NBT List / JSON Array] GeneArray
+[NBT Compound / JSON Object]: A gene pair
+[Int] HiddenAllele: the hidden allele.​[more information needed]
+[Int] MainAllele: the main allele.​[more information needed]
+home
+This component is used by bees, elder guardians, guardians, piglin brutes, and turtles.
+
+[NBT Compound / JSON Object]: The entity's root tag.
+[NBT List / JSON Array] HomePos: The position of the entity's home.
+[Float]: X
+[Float]: Y
+[Float]: Z
+[Int] HomeDimensionId: The dimension where the entity's home is.
+insomnia
+This component is only used by players.
+
+[NBT Compound / JSON Object]: The entity's root tag.
+[Int] TimeSinceRest: The time in ticks since last rest.
+trade_table
+This component is used by old villagers.
+
+[NBT Compound / JSON Object]: The entity's root tag.
+[Int] sizeOfTradeFirstTimeVector: Unknown
+[Int] FirstTimeTrade: (May not exist) Unknown
+[Int] TradeTier: Unknown
+[Int] Riches: Unknown
+[Byte] Willing: Unknown
+[NBT List / JSON Array] Offers: (May not exist) Unknown
+tamemount
+This component is used by horses, donkeys, mules, and llamas.
+
+[NBT Compound / JSON Object]: The entity's root tag.
+[Int] Temper: Random number that ranges from 0 to 100; increases with feeding or trying to tame it. Higher values make a horse easier to tame.
+npc
+This component is only used by NPCs.
+
+[NBT Compound / JSON Object]: The entity's root tag.
+[String] RawtextName: (May not exist) The name.​[more information needed]
+[String] InteractiveText: (May not exist) The interactive text.​[more information needed]
+[String] Actions: (May not exist) The actions.​[more information needed]
+[NBT List / JSON Array] PlayerSceneMapping: (May not exist) Unknown
+[NBT Compound / JSON Object]: A key-value pair.
+[Long] PlayerID: A player's Unique ID.
+[String] SceneName: Unknown
+projectile
+[NBT Compound / JSON Object]: The entity's root tag.
+[Long] TargetID: Optional. The [Long] UniqueID of the entity which the projectile was launched to.
+[NBT List / JSON Array] StuckToBlockPos: Unknown.
+[Int]: X
+[Int]: Y
+[Int]: Z
+[NBT List / JSON Array] CollisionPos: Unknown.
+[Float]: X
+[Float]: Y
+[Float]: Z
+spawn_entity
+This component is used by chickens and wandering traders.
+
+[NBT Compound / JSON Object]: The entity's root tag.
+[NBT List / JSON Array] entries
+[NBT Compound / JSON Object]: An entry.
+[Int] SpawnTimer: Unknown
+[Byte] StopSpawning: Unknown
+timer
+This component is used by bees, boats, guardians, hoglins, husks, piglins, piglin brutes, players, pufferfish, ravagers, skeletons, wandering traders, and zombies.
+
+[NBT Compound / JSON Object]: The entity's root tag.
+[Long] TimeStamp: Unknown
+[Byte] HasExecuted: Unknown
+[Int] CountTime: Deprecated. Unknown
+trade_resupply
+This component is only used by villagers.
+
+[NBT Compound / JSON Object]: The entity's root tag.
+[Byte] HasResupplied: Unknown
+trust
+This component is only used by foxes.
+
+[NBT Compound / JSON Object]: The entity's root tag.
+[Int] TrustedPlayersAmount: The number of players who are trusted by this entity.
+[Long] TrustedPlayer<num>: A player's Unique ID. Note that <num> counts from 0.
+CommandBlockComponent
+This component may be not accessable with Behavior Pack. But it is used by activated Minecart with Command Block
+
+[NBT Compound / JSON Object]: The entity's root tag.
+[Byte] Ticking: Unknown
+[Int] CurrentTickCount: Number of ticks until it executes the command again.
+FogCommandComponent
+This component may be not accessable with Behavior Pack. But it is used by player entity.
+
+[NBT Compound / JSON Object]: The entity's root tag.
+[NBT List / JSON Array] fogCommandStack: Unknown.
+[String]: Unknown.
+FreezingComponent
+This component may be not accessable with Behavior Pack.
+
+[NBT Compound / JSON Object]: The entity's root tag.
+[Float] FreezingEffectStrength: (May not exist) Unknown
+PropertyComponent
+This component may be not accessable with Behavior Pack.
+
+[NBT Compound / JSON Object]: The entity's root tag.
+[NBT Compound / JSON Object] properties: (May not exist) The entity properties.
+hide
+This component is only used by villagers.
+
+[NBT Compound / JSON Object]: The entity's root tag.
+[Byte] IsInRaid: Unknown
+[Byte] ReactToBell: Unknown

@@ -1,0 +1,260 @@
+Minecraft 24w05a
+
+Edition
+
+Java Edition
+
+Release date
+
+January 31, 2024
+
+Type
+
+Snapshot
+
+Snapshot for
+
+1.20.5
+
+Downloads
+
+Client (.json)Server
+
+Obfuscation maps
+
+ClientServer
+
+Protocol version
+
+ dec: 1073741997 hex: 400000AD
+
+Data version
+
+3809
+
+Resource pack format
+
+25
+
+Data pack format
+
+30
+
+Minimum Java version
+
+Java SE 17
+
+◄◄   1.20.4
+1.20.5
+  1.20.6 ►►
+
+◄   24w04a
+
+ 24w05a
+
+  24w05b ►
+
+{
+    "title": "Minecraft 24w05a",
+    "images": [
+        "24w05a.jpg",
+        "Java Edition 24w05a.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "January 31, 2024",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Snapshot article, displayed as Snapshot)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition 1.20.5 article, displayed as 1.20.5)",
+            "label": "Snapshot for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/314fbbdb6a7872889d7b8cc673bd43c2d64604b1/client.jar Client] ([https://piston-meta.mojang.com/v1/packages/ed586ec8f42b680a52a2b381aa2452e4a1b9813d/24w05a.json .json])<br />[https://piston-data.mojang.com/v1/objects/cc0f01e6406fa8a2b50c3c06edef74e7a7bf74de/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/f73510891fb691fe15918eeb2917594b787d9677/client.txt Client]<br />[https://piston-data.mojang.com/v1/objects/5c1132d3b66299cec90da0536d4f5c7fcfeae90f/server.txt Server]",
+            "label": "(link to Obfuscation map article, displayed as Obfuscation maps)"
+        },
+        {
+            "field": " <span style=\"font-size:smaller\"><abbr title=\"decimal\">dec</abbr>: </span>1073741997<br /> <span style=\"font-size:smaller\"><abbr title=\"hexadecimal\">hex</abbr>: </span>400000AD",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "3809",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "25",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "30",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Data pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_17_.28LTS.29 Java SE 17]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Java Edition  1.20.4|<span style=\"margin-right:-0.35em\">◄</span>◄   1.20.4]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition 1.20.5|1.20.5]]'''</td>\n<td style=\"padding: 0.4em\" >[[Java Edition  1.20.6|  1.20.6 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  24w04a|◄   24w04a]]\n</td>\n<td style=\"padding: 0.4em\">''' 24w05a'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  24w05b|  24w05b ►]]\n</td>\n</tr>\n</table>"
+}
+
+24w05a is the sixth snapshot for Java Edition 1.20.5, released on January 31, 2024 which adds the vault and fixes bugs.
+
+Contents
+
+1 Additions
+
+1.1 General
+
+2 Changes
+
+2.1 Mobs
+2.2 Command format
+2.3 General
+
+3 Experimental
+
+3.1 Additions
+
+3.1.1 Blocks
+
+3.2 Changes
+
+3.2.1 Items
+3.2.2 General
+
+4 Fixes
+5 Videos
+6 References
+7 Navigation
+
+Additions
+General
+Particles
+
+Added vault_connection particle, which shows up when near a vault.
+Server
+
+Added a reserved region file compression id for third-party servers to use for custom compression implementations.
+Compression id 127 can now be used for custom implementations of region file compression.
+When used, the version id must be followed by a namespaced string representing the custom algorithm used.
+Added an option to not compress region files.
+Added a third value to the dedicated server configuration property region-file-compression: none does not compress the data.
+Consumes significantly more space and requires significant time to read and write, even though CPU is used less.
+Might make sense together with filesystem level compression.
+Allowed server operators to view dedicated server TPS debug chart.
+Tags
+
+Added the #dyeable item tag: contains leather_helmet, leather_chestplate, leather_leggings, leather_boots, and leather_horse_armor.
+Changes
+Mobs
+Horse
+
+Replaced [NBT Compound / JSON Object] ArmorItem tag with [NBT Compound / JSON Object] body_armor_item.
+Llama
+
+Replaced [NBT Compound / JSON Object] DecorItem tag with [NBT Compound / JSON Object] body_armor_item.
+Wolf
+
+Replaced [Byte] armor tag with [NBT Compound / JSON Object] body_armor_item.
+Command format
+Slots
+
+Replaced horse.armor slot argument with armor.body, applicable now to all mobs.
+General
+Data pack
+
+The pack format version is now 30.
+Added [NBT Compound / JSON Object] body_armor_item to entity data, which functions similarly to entries of [NBT List / JSON Array] HandItems and [NBT List / JSON Array] ArmorItems.
+Also added [Float] body_armor_drop_chance, which determines the chance of dropping body armor.
+Potion effects stored in items or entities no longer encode their default values.
+amplifier: 0
+duration: 0
+ambient: false
+show_particles: true
+Resource pack
+
+The pack format version is now 25.
+The unused attributes array in core shader definitions has been removed.
+The IViewRotMat uniform has been removed, and the Position attribute for entities is now in (camera relative) world space.
+Light direction uniforms are no longer premultiplied by the view matrix.
+Added texture and model files for vault block.
+Changed texture for the trial key item.
+Added texture and particle file for vault_connection particle.
+Shaders
+
+Removed position_color_normal and position_tex_lightmap_color shaders.
+Replaced position_tex_color_normal shader with rendertype_clouds.
+Experimental
+These additions and changes only take effect when the Update 1.21 experimental data pack is enabled.
+
+Additions
+Blocks
+ Vault
+
+A block that holds locked treasure and loot - find the right key to eject its rewards.
+Found throughout trial chambers, containing the structures' most valuable loot.
+Vaults in trial chambers require a trial key to be unlocked.
+When activated with a trial key, it ejects rewards.
+Can be unlocked by an unlimited amount of players.
+It can be only activated once per player. After a player has unlocked a vault, they cannot unlock that vault again.
+If a player has not unlocked that vault before, an orange stream of particles flows from the player to the vault when nearby.
+Has a keyhole that is open or closed depending on the players nearby.
+If any nearby player has not unlocked that vault, the keyhole is open.
+If all nearby players have unlocked that vault, the keyhole is closed.
+Within its cage, it cycles through and displays items which are possible to eject from its loot table.
+The rewards it ejects are randomized from its loot table each time it is unlocked.
+Cannot be crafted or obtained in Survival, and does not drop anything when mined.
+Explosion-resistant and cannot be moved.
+Vaults currently reuse the same loot table that reward chests previously used in the trial chambers.
+Changes
+Items
+ Trial key
+
+Can now be used to open vaults.
+Texture changed to match the vaults.
+General
+Tags
+
+Added vault to the #features_cannot_replace block tag.
+Fixes
+8 issues fixed
+From released versions before 1.20
+
+MC-187616 – Totems rendered too dark for a second after being used.
+MC-193656 – Banners' breaking texture is displaced and/or repeatedly flips horizontally, depending on the banner's rotation.
+MC-225170 – Normal matrix scaling broken in some situations.
+MC-239084 – Item pickup animation is darker than the actual item model.
+MC-248689 – Fog on falling blocks happens too early.
+MC-260099 – Sniffer's snout shading changes during sniffing.
+MC-264821 – The fog on armor worn by entities occurs too early.
+From the 1.20.5 development versions
+
+MC-267922 – Wolf armor loses custom display name and other NBT when equipped.
+Videos
+Videos made by slicedlime:
+
+
+
+
+
+
+
+
+References
+
+ "Minecraft Snapshot 24w05a"     – Minecraft.net, January 31, 2024.
+
+Navigation

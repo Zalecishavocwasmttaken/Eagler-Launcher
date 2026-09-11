@@ -1,0 +1,40 @@
+Fill layer is a technical feature that fills all air blocks in a 16×1×16 layer with a specified block. It is used by the game in superflat worlds.
+
+Contents
+
+1 Data values
+
+1.1 ID
+1.2 Config
+
+2 Navigation
+
+Data values
+ID
+Java Edition:
+
+Feature typeIdentifier
+[No displayed name]fill_layer
+
+Config
+Main article: Configured feature
+Java Edition:
+
+[NBT Compound / JSON Object] config
+[NBT Compound / JSON Object] state The block to fill with.
+Block state see Template:Nbt inherit/block state/template
+[Int] height The layer to fill, starting at the bottom of the world. Value between 0 and 4064 (inclusive).
+
+An example:
+
+{
+  "type": "minecraft:fill_layer",
+  "config": {
+    "state": {
+      "Name": "minecraft:stone"
+    },
+    "height": 1
+  }
+}
+
+Navigation

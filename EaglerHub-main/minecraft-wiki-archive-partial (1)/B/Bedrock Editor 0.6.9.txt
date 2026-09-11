@@ -1,0 +1,92 @@
+This article would benefit from the addition of more images. 
+Please remove this notice once you have added  suitable images to the article.
+
+v0.6.9
+
+Edition
+
+Bedrock Editor
+
+Release date
+
+July 17, 2024
+
+Client version
+
+1.21.20.23
+
+◄◄   0.6.0
+0.6.9
+  0.7.0 ►►
+
+◄   0.6.8
+
+  0.6.10 ►
+
+{
+    "title": "v0.6.9",
+    "images": [],
+    "rows": [
+        {
+            "field": "''(link to Bedrock Editor article, displayed as Bedrock Editor)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "July 17, 2024",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Bedrock Edition Preview 1.21.20.23 article, displayed as 1.21.20.23)",
+            "label": "Client version"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Bedrock Editor  0.6.0|<span style=\"margin-right:-0.35em\">◄</span>◄   0.6.0]]</td>\n<td rowspan=\"2\" style=\"padding: 0.4em\">'''0.6.9'''</td>\n<td style=\"padding: 0.4em\" >[[Bedrock Editor  0.7.0|  0.7.0 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Bedrock Editor  0.6.8|◄   0.6.8]]\n</td>\n\n<td style=\"padding: 0.4em\">\n[[Bedrock Editor  0.6.10|  0.6.10 ►]]\n</td>\n</tr>\n</table>"
+}
+
+Bedrock Editor v0.6.9 is a minor alpha release for the Bedrock Editor released on July 17, 2024, which makes some UI and API changes.
+
+Contents
+
+1 Additions
+2 Changes
+3 References
+4 Navigation
+
+Additions
+UI
+
+Added persistence for the default hotbar.
+API
+
+Added ExtensionContext.settings.theme which will represent the In-World UI Theme.
+This feature currently has three functions: resolveColorKey(string): Color, setCurrentTheme(string): void, and getThemeList(): string[].
+There is a single minecraft:default theme.
+Future work will add the ability to create, modify, and delete custom themes but the default themes will not be modifiable.
+Changes
+UI
+
+Updated block hotbar to have non-air defaults.
+API
+
+Updated subset of PropertyPane API to use IObservable pattern.
+Added an alternative Property Pane addVector3 API that leverages type safe IObservable. Observables can be created using makeObservable API.
+Added interfaces IVector3PropertyItem and IVector3PropertyItemOptions for the new property item.
+Renamed function to create property bag Vector3 to addVector3_deprecated.
+Added an alternative Property Pane addBool API that leverages type safe IObservableProp value API.
+Added interfaces IBoolPropertyItem and IBoolPropertyItemOptions for the new property item.
+Renamed function to create property bag bool item to addBool_deprecated.
+Converted Property Pane addText API to use IObservableProp.
+Added interfaces IButtonPropertyItem and IButtonPropertyItemOptions for the button property item.
+IPropertyPane addButton API can now take a plain function.
+Removed ButtonVarianttype, and added ButtonPropertyItemVariant enum API.
+Renamed EDITOR_PANE_PROPERTY_ITEM_TYPE enum API to PropertyItemType.
+Converted property pane addImage API to support IObservable. It will also be possible to use custom image formats like icon and block with ImageResourceData as value.
+Added onClickfunction and alignment property to IImagePropertyItemOptions API.
+References
+
+ "Release 0.6.9 (1.21.20.23)"     – GitHub, July 17, 2024.
+
+ "Minecraft Beta & Preview - 1.21.20.23"     – Minecraft Feedback, July 17, 2024.
+
+Navigation

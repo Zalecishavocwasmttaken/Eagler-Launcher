@@ -1,0 +1,225 @@
+Minecraft 26.2 Snapshot 4
+
+Edition
+
+Java Edition
+
+Release date
+
+April 21, 2026
+
+Type
+
+Snapshot
+
+Snapshot for
+
+26.2
+
+Downloads
+
+Client (.json)Server
+
+Protocol version
+
+ dec: 1073742134 hex: 40000136
+
+Data version
+
+4887
+
+Resource pack format
+
+86.1
+
+Data pack format
+
+103.0
+
+Minimum Java version
+
+Java SE 25
+
+◄◄   26.1.2
+26.2
+  26.3 ►►
+
+◄   26.2 Snapshot 3
+
+ 26.2 Snapshot 4
+
+  26.2 Snapshot 5 ►
+
+{
+    "title": "Minecraft 26.2 Snapshot 4",
+    "images": [
+        "26.2-snapshot-4.jpg",
+        "Java Edition 26.2 Snapshot 4.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "April 21, 2026",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Snapshot article, displayed as Snapshot)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition 26.2 article, displayed as 26.2)",
+            "label": "Snapshot for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/08ff2a0b68a3eda26cb73abafe87cd8c9b5a838f/client.jar Client] ([https://piston-meta.mojang.com/v1/packages/883027af8a99f6bcc229655600f9f7d7b8e39eec/26.2-snapshot-4.json .json])<br />[https://piston-data.mojang.com/v1/objects/679190223788622aa5edfb9346fad3d0717087c5/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": " <span style=\"font-size:smaller\"><abbr title=\"decimal\">dec</abbr>: </span>1073742134<br /> <span style=\"font-size:smaller\"><abbr title=\"hexadecimal\">hex</abbr>: </span>40000136",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "4887",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "86.1",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "103.0",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Data pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_25_.28LTS.29 Java SE 25]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Java Edition  26.1.2|<span style=\"margin-right:-0.35em\">◄</span>◄   26.1.2]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition 26.2|26.2]]'''</td>\n<td style=\"padding: 0.4em\" >[[Java Edition  26.3|  26.3 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  26.2 Snapshot 3|◄   26.2 Snapshot 3]]\n</td>\n<td style=\"padding: 0.4em\">''' 26.2 Snapshot 4'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  26.2 Snapshot 5|  26.2 Snapshot 5 ►]]\n</td>\n</tr>\n</table>"
+}
+
+
+26.2 Snapshot 4 (known as 26.2-snapshot-4 in the launcher) is the fourth snapshot for Java Edition 26.2, released on April 21, 2026, which adds two new languages, makes technical changes, and fixes some bugs and issues.
+
+Contents
+
+1 Additions
+
+1.1 General
+
+2 Changes
+
+2.1 Mobs
+2.2 World generation
+2.3 General
+
+3 Fixes
+4 Videos
+5 References
+6 Navigation
+
+Additions
+General
+Attributes
+
+Added minecraft:nameplate_distance.
+Controls how far away in blocks the nameplate of an entity is visible.
+The nameplate cannot be visible if the entity is not visible.
+Accepts values between 0.0 and 512.0.
+Default value: 64.0.
+Added minecraft:below_name_distance.
+Controls how far away in blocks the below_name scoreboard display is visible.
+The nameplate cannot be visible if the entity is not visible.
+Accepts values between 0.0 and 512.0.
+Default value: 10.0.
+Languages
+
+Added support for Swiss French and Chuvash languages.
+Changes
+Mobs
+Hoglins, ocelots, piglins, and zombie horses
+
+Can now spawn on Peaceful difficulty.
+Sulfur cube
+
+Naturally-spawned small sulfur cubes now have the correct size.
+The outer texture of the sulfur cube has been updated to include more detailed eyes.
+Can now spawn on Peaceful difficulty.
+Added sounds for picking up a sulfur cube with a bucket.
+World generation
+Sulfur caves
+
+Granite and tuff are now dispersed between sulfur and cinnabar.
+Sulfur spike
+
+Sulfur spike clusters have been made slightly shorter on average.
+General
+Data pack
+
+The pack format version is now 103.0.
+Predicates
+
+Entity Predicates
+Slime sub-predicate has been renamed from minecraft:type_specific/slime to minecraft:type_specific/cube_mob.
+Resource pack
+
+The version is now 86.1.
+Telemetry
+
+New required events: graphics_capabilities
+This is a new event that posts on startup, and informs developers of the capabilities of the graphics device used to play the game.
+Added new property: backend_name
+This will be Vulkan or OpenGL, and will help developers understand which graphics API players are using.
+Added new property: backend_failure_reason
+This will be a list of short error codes, for example vulkan_device_version_too_low, which will help developers identify any issues with the targeted Vulkan requirements.
+Added new property: backend_failure_message
+This will be a short and vague messages, such as Failed to find the GLFW platform surface extensions, which will help developers narrow down issues if players are experiencing issues running with Vulkan.
+Added new property: backend_failure_missing_capabilities
+This will be a list of missing capabilities from Vulkan, for example VULKAN_CORE_1_2, VK_KHR_dynamic_rendering, which will help developers know which capabilities players would need in order to use Vulkan.
+Texture atlas
+
+The minecraft:beds atlas has been removed.
+Fixes
+17 issues fixed
+From released versions before 26.2
+
+MC-1788 – Ocelots do not spawn naturally on peaceful difficulty in jungle and bamboo jungle biomes.
+MC-186131 – Piglins and hoglins cannot spawn naturally on Peaceful difficulty.
+MC-296343 – Using the  Scroll Wheel to switch between cast fishing rods briefly displays the uncast texture in first-person.
+MC-307002 – Using the /kill command on one of the End crystals used to respawn the ender dragon no longer aborts the respawn sequence.
+From the 26.2 development versions
+
+MC-307301 – No sounds are produced when emptying or scooping up sulfur cubes into buckets.
+MC-307327 – VSync limits the framerate inconsistently in fullscreen with the Vulkan rendering backend on some Mac systems.
+MC-307378 – The glowing effect is not visible with the Vulkan rendering backend on some graphics.
+MC-307423 – JVM crash when launching the game with the Vulkan rendering backend.
+MC-307434 – Sulfur cubes cannot spawn naturally on Peaceful difficulty.
+MC-307626 – The selection lists in the pack selection screen can extend outside the bounds of the game window, violating the Vulkan specification.
+From the previous development version
+
+MC-307532 – Lava buckets now remain filled server-side when emptied into flowing water.
+MC-307539 – The game crashes upon startup on some Mac systems.
+MC-307545 – The "High Contrast" resource pack is listed as incompatible.
+MC-307549 – beds.png-atlas still exists.
+MC-307587 – Wet sponges are no longer removed from the inventory server-side when placed in the Nether.
+MC-307624 – The cube mob entity sub-predicate is called type_specific/slime rather than cube_mob.
+MC-307647 – Crash on startup with the Vulkan validation layer enabled — the NORMAL vertex attribute uses a format without guaranteed VERTEX_BUFFER_BIT support.
+Videos
+Videos made by slicedlime:
+
+
+
+
+
+
+
+
+References
+
+ "Minecraft 26.2 Snapshot 4"     – Minecraft.net, April 21, 2026.
+
+Navigation

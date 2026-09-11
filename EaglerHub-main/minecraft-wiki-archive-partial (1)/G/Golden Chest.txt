@@ -1,0 +1,238 @@
+This article documents an April Fools' Day joke. 
+This feature was exclusively part of a joke version and is not currently planned for addition to regular Minecraft.
+
+Golden Chest
+
+Renewable
+
+Yes
+
+Stackable
+
+Yes (64)
+
+Tool
+
+Blast resistance
+
+2.5
+
+Hardness
+
+2.5
+
+Luminous
+
+No
+
+Transparent
+
+Partially
+
+Waterloggable
+
+Yes
+
+Flammable
+
+No
+
+Catches firefrom lava
+
+Yes
+
+Note block instrument
+
+Default (Harp)
+
+{
+    "title": "Golden Chest",
+    "rows": [
+        {
+            "field": "Yes",
+            "label": "(link to Renewable resource article, displayed as Renewable)"
+        },
+        {
+            "field": "Yes (64)",
+            "label": "Stackable"
+        },
+        {
+            "field": "<span class=\"sprite-file\" style=\"height:32px;width:32px;--vertical-align:middle\">(link to File:SlotSprite Axe Required.png article, displayed as 32x32px|link=|alt=SlotSprite Axe Required.png: Sprite image for Axe Required in Minecraft|class=pixel-image|This block can be broken with any tool, but an axe is the quickest)</span>",
+            "label": "Tool"
+        },
+        {
+            "field": "2.5",
+            "label": "(link to Explosion#Blast resistance article, displayed as Blast resistance)"
+        },
+        {
+            "field": "2.5",
+            "label": "(link to Breaking#Blocks by hardness article, displayed as Hardness)"
+        },
+        {
+            "field": "No",
+            "label": "(link to Light article, displayed as Luminous)"
+        },
+        {
+            "field": "Partially",
+            "label": "(link to Opacity article, displayed as Transparent)"
+        },
+        {
+            "field": "Yes",
+            "label": "(link to Waterlogging article, displayed as Waterloggable)"
+        },
+        {
+            "field": "No",
+            "label": "(link to Fire#Flammable blocks article, displayed as Flammable)"
+        },
+        {
+            "field": "Yes",
+            "label": "Catches fire<br>from (link to lava article, displayed as lava)"
+        },
+        {
+            "field": "Default (Harp)",
+            "label": "(link to Note Block#Instruments article, displayed as Note block instrument)"
+        }
+    ],
+    "invimages": [],
+    "images": [
+        "Golden Chest.gif"
+    ]
+}
+
+A golden chest is a joke variant of the chest only present in snapshot 23w13a_or_b. It is created by opening a normal or trapped chest while the minecraft:midas_touch vote rule is activated. Ender chests are unaffected.
+
+Contents
+
+1 Obtaining
+
+1.1 Breaking
+
+2 Usage
+
+2.1 Container
+2.2 Redstone component
+
+3 Sounds
+
+3.1 Generic
+3.2 Unique
+
+4 Data values
+5 Issues
+6 Navigation
+
+Obtaining
+Golden chests are not a separate block and thus cannot be obtained with the command /give or through the Creative inventory. To create a golden chest without minecraft:midas_touch activated, the player can use the /setblock command with a regular or trapped chest and the tag "gold": /setblock ~ ~ ~ minecraft:chest{gold:1b}, or /setblock ~ ~ ~ minecraft:trapped_chest{gold:1b}.
+Opening a large chest with midas_touch changes the chest visually, but the texture is glitched. Large golden chests do not change the items inside into gold.
+
+Breaking
+Golden chests only drop normal chests and cannot be obtained when mined, even when using a tool enchanted with Silk Touch.
+
+Block
+
+Golden Chest
+
+Hardness
+
+2.5
+
+Tool
+
+Breaking time (sec)
+
+Default
+
+3.75
+
+Wooden
+
+1.9
+
+Stone
+
+0.95
+
+Iron
+
+0.65
+
+Diamond
+
+0.5
+
+Netherite
+
+0.45
+
+Golden
+
+0.35
+
+OptionsEfficiency000Haste0011JEBE
+
+Legend
+ incorrect tool, drops nothing
+ correct tool, drops nothing or something other than the block itself
+ correct tool, drops the block itself
+italicized can be instant mined
+
+ These durations ignore any other influential factors (e.g., Mining Fatigue) and are measured in seconds. For more information, see Breaking § Mining efficiency.
+
+Usage
+Golden chests function similarly to normal chests. Golden trapped chests still function as trapped chests but have no red-tinted latch like regular ones.
+Both types of golden chests have a random chance on every item in the chest turning into a golden item, according to the minecraft:midas_touch vote rule:
+
+Iron nuggets become gold nuggets.
+Raw copper and raw iron become raw gold.
+Raw copper blocks and raw iron blocks become raw gold blocks.
+Normal ore blocks become gold ore.
+Deepslate ore blocks become deepslate gold ore.
+Nether quartz ore becomes nether gold ore.
+Swords, axes, pickaxes, shovels, hoes, armor, and horse armor become golden.
+Apples become golden apples and golden apples become enchanted golden apples.
+Carrots become golden carrots.
+Melon slices become glistering melon slices.
+Rails become powered rails.
+Arrows become spectral arrows.
+Other items and blocks become gold ingots and gold blocks.
+Container
+Main article: Chest § Container
+A golden chest has 27 slots of inventory space.
+Golden chests open when used. To move items between the golden chest inventory and the player inventory or hotbar while the golden chest GUI is open, drag or shift-click the items. Holding ⇧ Shift and double-clicking while holding an item moves all items of the type clicked on in or out of the golden chest, to the extent that space is available for them. To exit the golden chest GUI, use the Esc control.
+
+Redstone component
+Main article: Trapped Chest § Redstone component
+Golden trapped chests can be used to detect when their inventory is accessed by players.
+A golden trapped chest is inactive while not being accessed, but activates when accessed by a player. Mobs cannot access/activate a golden trapped chest, and a golden trapped chest is not activated by items moving into or out of it by droppers or hoppers.
+While active, a golden trapped chest:
+
+powers any adjacent redstone dust, including beneath the golden trapped chest, to a power level equal to the number of players accessing the golden trapped chest (maximum 15);
+powers any adjacent redstone repeaters facing away from the golden trapped chest to power level 15;
+strongly powers any full solid opaque block (stone, dirt, block of gold, etc.) beneath the golden trapped chest to a power level equal to the number of players accessing the golden trapped chest (maximum 15);
+activates any adjacent mechanism components, including above or below, such as pistons, redstone lamps, etc. Due to hoppers being locked by redstone activation, hoppers below a golden trapped chest do not take items from it while it is open.
+An active golden trapped chest does not power any adjacent redstone comparators facing away from it. Redstone comparators can measure the block state of the golden trapped chest, producing a power level from 0 to 15 proportional to how full the golden trapped chest is. Anything else powered by an active trapped chest (including a block beneath it) can power redstone comparators normally.
+
+Sounds
+Generic
+
+
+
+This section uses a sound table which may not accurately represent the sounds associated with this feature. 
+Because of MC-177082, subtitles for falling on blocks may not have existed at this point in development, so a dedicated sound table accounting for this may be required.
+
+v
+t
+e wood sound typeSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitchAttenuationdistance​Block brokenBlocksOnce the block has brokenblock.wood.breaksubtitles.block.generic.break​1.00.816​Block placedBlocksWhen the block is placedblock.wood.placesubtitles.block.generic.place​1.00.816​Block breakingBlocksWhile the block is in the process of being brokenblock.wood.hitsubtitles.block.generic.hit​0.250.516​Something falls on a blockEntity-DependentFalling on the block with fall damageblock.wood.fallsubtitles.block.generic.fall​0.50.7516​FootstepsEntity-DependentWalking on the blockblock.wood.stepsubtitles.block.generic.footsteps​0.151.016
+Unique
+SoundsSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitchAttenuationdistance​Chest closesBlocksWhen a golden chest closesblock.chest.closesubtitles.block.chest.close​0.50.9–1.016​Chest opensBlocksWhen a golden chest opensblock.chest.opensubtitles.block.chest.open​0.50.9–1.016​Chest lockedBlocksWhen a player attempts to open a golden chest locked using the [String] Lock tagblock.chest.lockedsubtitles.block.chest.locked​1.01.016
+Data values
+
+
+
+This section of the article is empty. 
+You can help by expanding it.
+
+Issues
+Issues relating to "Golden Chest" are not maintained on the bug tracker because it is an April Fools' joke, and is therefore not in the newest stable version or snapshot. Issues reported there are closed as "Invalid".
+
+Navigation

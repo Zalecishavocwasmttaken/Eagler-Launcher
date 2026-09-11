@@ -1,0 +1,117 @@
+"Help" redirects here.  For help with editing the Minecraft Wiki, see Help:Contents.
+ "?" redirects here.  For other uses, see ? (disambiguation).
+
+/help
+
+Aliases
+
+/?‌[Bedrock Edition  only]
+
+Permission levelrequired
+
+0
+
+Restrictions
+
+None
+
+{
+    "title": "<code>/help</code>",
+    "rows": [
+        {
+            "field": "<!-- Command --><code ><span>/?</span></code><!-- /Command -->‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Bedrock Edition\">(link to Bedrock Edition article, displayed as Bedrock Edition)  only</span></i>]</sup>",
+            "label": "Aliases"
+        },
+        {
+            "field": "0",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "None",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+Provides help/lists of commands.
+
+Contents
+
+1 Usage
+2 Syntax
+3 Arguments
+4 Result
+5 Output
+6 Examples
+7 History
+
+7.1 Java Edition
+7.2 Bedrock Edition
+
+8 References
+9 External links
+10 Navigation
+
+Usage
+Commands that the executor cannot use (due to permission level or other restrictions) are not displayed.
+In Java Edition, some complicated commands may show only the basic usage; additional information can be supplied by entering more specific parameters of that command.
+
+Syntax
+Java Edition
+help
+Lists all commands.
+help <command>
+Shows usages for one command.
+Bedrock Edition
+help <command: CommandName>
+Shows usages for one command.
+help [page: int]
+Lists all commands.
+Arguments
+JE: <command>: stringBE: command: CommandName: enum
+
+Specifies the command name to provide help for.
+In Java Edition:
+Must be a string. And it is a greedy phrase (taking the rest of the command as the string argument). Entering more specific parameters of that command is allowed.
+In Bedrock Edition:
+Must be a valid command name.
+BE: page: int: int
+
+Specifies the page number of the command list. Numbers less than 1 or greater than the total number of pages are treated as 1 or the last page respectively.
+Must be a [Int]32-bit integer number (from -2147483648 (-231) to 2147483647 (231-1) ). And it must be between -2147483648 and 2147483647 (inclusive).
+Result
+
+CommandTriggerJava EditionBedrock Edition
+
+/help <command: CommandName>/help [page: int]The command is incomplete, or any argument is not specified correctly. N/A Unparseable/help <command><command> is invalid. Failed N/AAnyOtherwiseSuccessful
+Output
+
+CommandEditionSituationSuccess Count/execute store success .../execute store result ...
+
+AnyJava EditionOn fail000On success11the number of listed command usagesBedrock EditionOn fail0N/AN/AOn success1N/AN/A
+Examples
+To display (the first page of‌[Bedrock Edition  only]) the command list: /help.
+To display the usage for the /give command: /help give.
+To display the usage for the add section of the /scoreboard command: /help scoreboard add.
+History
+Java Edition
+Java Edition1.3.112w17a
+Added /help and alias /?.1.916w02a
+Running /help in a command block now randomly uses a humorous phrase as the output.1.1317w45a
+Running /help in a command block no longer shows a humorous phrase as the output.
+
+/help is no longer split into pages.
+
+Removed alias /?
+Bedrock Edition
+Pocket Edition Alphav0.16.0build 1
+Added /help and its alias /?.
+References
+
+ MC-124295
+
+External links
+"/help Command"     – Microsoft Learn, October 11, 2023.
+Navigation

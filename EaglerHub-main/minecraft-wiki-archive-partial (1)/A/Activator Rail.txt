@@ -1,0 +1,470 @@
+Activator Rail
+
+Renewable
+
+Yes
+
+Stackable
+
+Yes (64)
+
+Tool
+
+Blast resistance
+
+0.7
+
+Hardness
+
+0.7
+
+Luminous
+
+No
+
+Transparent
+
+Yes
+
+Waterloggable
+
+Yes
+
+Flammable
+
+No
+
+Catches firefrom lava
+
+No
+
+Map color
+
+ 0 NONE
+
+Note block instrument
+
+Default (Harp)
+
+{
+    "title": "Activator Rail",
+    "rows": [
+        {
+            "field": "Yes",
+            "label": "(link to Renewable resource article, displayed as Renewable)"
+        },
+        {
+            "field": "Yes (64)",
+            "label": "Stackable"
+        },
+        {
+            "field": "<span class=\"sprite-file\" style=\"height:32px;width:32px;--vertical-align:middle\">(link to File:SlotSprite Pickaxe Required.png article, displayed as 32x32px|link=|alt=SlotSprite Pickaxe Required.png: Sprite image for Pickaxe Required in Minecraft|class=pixel-image|This block can be broken with any tool, but a pickaxe is the quickest)</span>",
+            "label": "Tool"
+        },
+        {
+            "field": "0.7",
+            "label": "(link to Explosion#Blast resistance article, displayed as Blast resistance)"
+        },
+        {
+            "field": "0.7",
+            "label": "(link to Breaking#Blocks by hardness article, displayed as Hardness)"
+        },
+        {
+            "field": "No",
+            "label": "(link to Light article, displayed as Luminous)"
+        },
+        {
+            "field": "Yes",
+            "label": "(link to Opacity article, displayed as Transparent)"
+        },
+        {
+            "field": "Yes",
+            "label": "(link to Waterlogging article, displayed as Waterloggable)"
+        },
+        {
+            "field": "No",
+            "label": "(link to Fire#Flammable blocks article, displayed as Flammable)"
+        },
+        {
+            "field": "No",
+            "label": "Catches fire<br>from (link to lava article, displayed as lava)"
+        },
+        {
+            "field": "<span style=\"white-space: nowrap;\"><span style=\"display: inline-block; background-color: rgb(); border: 1px solid #888; border-radius: 0.3em; color: transparent; width: 1em; height: 1em; vertical-align: -0.36em; margin-right: -0.1em\"><br></span> 0 NONE</span>",
+            "label": "(link to Map item format#Color table article, displayed as Map color)"
+        },
+        {
+            "field": "Default (Harp)",
+            "label": "(link to Note Block#Instruments article, displayed as Note block instrument)"
+        }
+    ],
+    "invimages": [
+        "Activator Rail"
+    ],
+    "images": [
+        "Activator Rail.png",
+        "Powered Activator Rail.png"
+    ]
+}
+
+An activator rail is a type of rail that, if powered, can eject entities from regular minecarts, lock hopper minecarts, ignite TNT minecarts, and activate the command in a command block minecart. If not powered, it can only unlock locked hopper minecarts.
+
+Contents
+
+1 Obtaining
+
+1.1 Breaking
+1.2 Generated loot
+1.3 Crafting
+
+2 Usage
+
+2.1 Rail
+2.2 Redstone component
+2.3 Mob interaction
+2.4 Piston interactivity
+
+3 Sounds
+4 Data values
+
+4.1 ID
+4.2 Block states
+
+5 History
+
+5.1 Java Edition
+5.2 Bedrock Edition
+5.3 Legacy Console Edition
+5.4 New Nintendo 3DS Edition
+5.5 Data history
+
+6 Issues
+7 Trivia
+8 Gallery
+
+8.1 Screenshots
+8.2 In other media
+
+9 See also
+10 References
+11 Navigation
+
+Obtaining
+Breaking
+The correct tool to break an activator rail is a pickaxe. It will always drop itself when broken, regardless of the tool used.
+
+Block
+
+Activator Rail
+
+Hardness
+
+0.7
+
+Tool
+
+Breaking time (sec)
+
+Default
+
+1.05
+
+Wooden
+
+0.55
+
+Stone
+
+0.3
+
+Copper
+
+0.25
+
+Iron
+
+0.2
+
+Diamond
+
+0.15
+
+Netherite
+
+0.15
+
+Golden
+
+0.1
+
+OptionsEfficiency000Haste0011JEBE
+
+Legend
+ incorrect tool, drops nothing
+ correct tool, drops nothing or something other than the block itself
+ correct tool, drops the block itself
+italicized can be instant mined
+
+ These durations ignore any other influential factors (e.g., Mining Fatigue) and are measured in seconds. For more information, see Breaking § Mining efficiency.
+
+Generated loot
+
+Item
+
+Structure
+
+Container
+
+Quantity
+
+Chance
+
+Java Edition and Bedrock Edition
+
+Activator Rail
+
+Mineshaft
+
+Chest not located in a sulfur cave
+
+1–4
+
+27.1%{ "item": "Activator Rail", "stacksize": "1–4", "chance": 0.271, "structure": "Mineshaft", "container": "Chest not located in a sulfur cave" }
+
+Mineshaft
+
+Chest located in a sulfur cave
+
+1–4
+
+23%{ "item": "Activator Rail", "stacksize": "1–4", "chance": 0.22974537037037035, "structure": "Mineshaft", "container": "Chest located in a [[sulfur cave]]" }
+
+Crafting
+
+Ingredients
+Crafting recipe
+
+Iron Ingot +Stick +Redstone Torch
+
+6
+
+Usage
+An activator rail can be used as a rail and as a redstone component.
+To place an activator rail, use an activator rail item while pointing at a surface facing the space the activator rail should occupy. An activator rail can be placed on:
+
+the top of any full solid opaque block (stone, dirt, blocks of gold, etc.), including full-block mechanism components (command blocks, dispensers, droppers, note blocks, and redstone lamps)
+the top of a hopper, upside-down slab, or upside-down stairs.
+the top of any transparent block (glass, etc.)
+An activator rail cannot be attached to the side or bottom of any block, but attempting to make such an attachment may cause the activator rail to attach to the top of a block under the destination space. For example, if a fence is on the ground, attempting to attach an activator rail to the side of the fence causes the activator rail to be attached to the top of the ground next to the fence instead.
+When placed, an activator rail configures itself to line up with any adjacent rails (including detector rails, powered rails, and other activator rails), as well as adjacent rails one block up. The behaviors in Java and Bedrock editions diverge in the following ways.
+In Java Edition:
+
+If there are two adjacent rails on non-opposite sides, or three or more adjacent rails, or no adjacent rails at all, an activator rail aligns itself in the direction the player is facing. If an existing activator rail is connected to only one other rail or none at all, and a new rail is placed perpendicular to the activator rail, then the activator rail aligns itself in the east-west direction (if it isn't already facing that way). If a rail it would align with is one block up, an activator rail slants upward toward it (with multiple options to slant upward to, an activator rail "prefers" west or south). Other configurations can be created by placing and removing various rails.[needs testing]
+In Bedrock Edition:
+
+If there are two adjacent rails on non-opposite sides, or three or more adjacent rails, an activator rail aligns itself in the east-west direction. If there are no adjacent rails, an activator rail aligns itself in the north-south direction (but if a rail is later placed to the east or west, the activator rail re-orients itself in the east-west direction even if it is already connected to another rail to the north or south). If a rail it would align with is one block up, an activator rail slants upward toward it (with multiple options to slant upward to, an activator rail "prefers", in order: west, east, south, and north). Other configurations can be created by placing and removing various rails.
+Rail
+Main article: Rail
+Activator rails (and other rails) can be used as "roads" for minecarts. A minecart that enters an activator rail's space from either end of the activator rail continues to move, losing only a little velocity (which can then be increased again with powered rails). A minecart that enters an activator rail's space from the side turns east or south (depending on the activator rail's orientation), or in the downward direction for a slanted activator rail.
+
+Redstone component
+See also: Redstone circuit
+
+Activator rails can be used to affect minecarts that travel over them.
+
+Activation
+An activator rail is a redstone mechanism and can be activated by:
+an adjacent active power component (for example, a redstone torch, a block of redstone, a daylight sensor, etc.)
+an adjacent powered block (strongly-powered or weakly-powered)
+a powered redstone comparator or redstone repeater facing the activator rail
+powered redstone dust configured to point at the activator rail, or configured as a plus sign. An activator rail is not activated by adjacent powered redstone dust that is configured to point in another direction.
+In Bedrock Edition, activator rails can only activate on input/consumer redstone ticks (C-tick).
+An activated activator rail also activates any adjacent activator rails it is connected to, up to eight away from the original activation source. Thus a single activation source can activate up to 17 rails (one original in the middle and eight on either side). An activated activator rail does not activate adjacent rails not connected to it.
+Activation and deactivation are instant and occur in the same gametick the power source turns on or off (any eventual delay depends on the power source).
+Behavior
+An activator rail affects minecarts above it with varying effects that occur as soon as any part of the minecart is on the activator rail.
+An active activator rail:
+
+starts shaking, and ejects mobs (including players) from minecarts — the destination location is picked the same way as when dismounting a minecart
+repeatedly activates minecarts with command blocks — a command block minecart executes its command every four game ticks until the command block minecart is no longer on the activator rail
+disables minecarts with hoppers — a disabled hopper minecart cannot pick up items it travels through until it is enabled by an inactive activator rail (or until it is broken and re-placed)
+primes minecarts with TNT — primed TNT minecarts explode after four seconds with an explosive power proportional to their speed over the activator rail.
+An inactive activator rail enables minecarts with hoppers — an enabled hopper minecart picks up items it travels through until it is disabled by an active activator rail.
+A hopper minecart stops picking up items in the same tick it touches an active activator rail or in the same tick the inactive rail it is standing on is powered (it does not collect the item it could have taken from a container above in the same tick the activator rail turns on and takes the first item in the same tick the rail turns off again).
+
+Mob interaction
+Like other types of rails, spiders, cave spiders, and wardens are the only land mobs that can walk onto activator rails.‌[Java Edition  only]
+
+Piston interactivity
+An activator rail can be pushed by a piston, and can be pulled by a sticky piston. However, it breaks and drops as an item when it is unsupported due to being moved.
+
+Sounds
+Java Edition:
+
+v
+t
+e metal sound typeSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitchAttenuationdistance​Block brokenBlocksOnce the block has brokenblock.metal.breaksubtitles.block.generic.break​1.01.216​Block placedBlocksWhen the block is placedblock.metal.placesubtitles.block.generic.place​1.01.216​Block breakingBlocksWhile the block is in the process of being brokenblock.metal.hitsubtitles.block.generic.hit​0.250.7516​Something falls on a blockEntity-DependentFalling on the block with fall damageblock.metal.fallsubtitles.block.generic.fall​0.51.2516​FootstepsEntity-DependentWalking on the blockblock.metal.stepsubtitles.block.generic.footsteps​0.151.516
+Bedrock Edition:
+
+v
+t
+e metal sound typeSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitch​Block brokenBlocksOnce the block has brokendig.stonesubtitles.block.generic.break​1.01.1–1.2​Block placedBlocksWhen the block is placeduse.stonesubtitles.block.generic.place​1.01.2–1.25​Block breakingBlocksWhile the block is in the process of being brokenhit.stonesubtitles.block.generic.hit​0.30.75​FootstepsPlayersFalling on the block with fall damagefall.stonesubtitles.block.generic.footsteps​0.41.0​FootstepsPlayersWalking on the blockstep.stonesubtitles.block.generic.footsteps​0.351.0​FootstepsBlocksJumping from the blockjump.stonesubtitles.block.generic.footsteps​0.121.0​FootstepsBlocksFalling on the block without fall damageland.stonesubtitles.block.generic.footsteps​0.221.0
+Data values
+ID
+Java Edition:
+
+NameIdentifierFormBlock tagsItem tags
+Translation key Activator Railactivator_railBlock & Itemprevent_mob_spawning_insiderailsrails
+block.minecraft.activator_rail
+Bedrock Edition:
+
+NameIdentifierNumeric ID FormItem ID
+Translation key Activator Railactivator_rail126Block & Giveable ItemIdentical
+tile.activator_rail.name
+ ID of block's direct item form, which is used in savegame files and addons.
+
+ Available with /give command.
+
+ The block's direct item form has the same ID as the block.
+
+Block states
+See also: Block states
+
+Java Edition:
+
+  Name
+  Default value
+  Allowed values
+  Description
+  poweredfalsefalsetrueTrue if rail is activated.
+shapenorth_south
+east_westnorth_southSpecifies the rail's orientation.
+ascending_eastascending_northascending_southascending_westA rail that ascends toward the direction noted.For example, an ascending_west rail is a straight rail that goes upward from the east toward the west.
+waterloggedfalsefalsetrueWhether or not there's water in the same place as this rail.
+Bedrock Edition:
+
+  NameMetadata Bits
+  Default value
+  Allowed valuesValues forMetadata Bits
+  Description
+  rail_data_bit0x8falsefalsetrue01True if rail is activated.
+rail_direction0x10x20x40
+00 flat track going north-south11 flat track going east-west22 sloped track ascending to the east33 sloped track ascending to the west44 sloped track ascending to the north55 sloped track ascending to the south6789UnsupportedUnused
+History
+Java Edition
+Java Edition1.513w02a
+           Added activator rails.13w02b
+The crafting recipe of activator rails has now been changed to include sticks and redstone torch. Previously, it required only 6 iron ingots vertically at the end.13w04a
+Activated activator rails now disable minecarts with hoppers.1.7.213w39a
+Activated activator rails now activate minecarts with command blocks.1.814w04a
+  If an activator rail is set to render as the block inside of a minecart via commands or map editing, it now appears as this (previously it would be entirely invisible).14w05a
+Activated activator rails now eject players and mobs from minecarts.14w28a
+Sloped activator rails no longer decrease their hitbox to 2 pixels of a block when activated.1.915w38a
+All sloped rail types' hitbox heights have been decreased from 10 pixels of a block to about 2.5 pixels of a block.15w39a
+The dismounting location of activator rails is now predictable. Entities now dismount from vehicles (boats, minecarts, horses) by the right side relative to the motion of the vehicle. If the right side is unavailable, the other potential locations are tested in this order: Right, Left, Back Right, Back Left, Front Right, Front Left, Back, Front.15w44a
+Activator rails can now be found in minecarts with chests in mineshafts.15w46a
+Mobs no longer spawn on activator rails.1.1016w21a
+All sloped rail types' hitbox heights have been increased from about 2.5 pixels of a  block to a full block.1.1116w32b
+All sloped rail types', including activator rails, hitbox heights have now been decreased from a full block to a half block.1.1418w43a
+           The textures of activator rails have now been changed.19w12b
+Activator rails can now be placed on glass, ice, glowstone and sea lantern.1.1720w45a
+All rail types can now be waterlogged.
+Bedrock Edition
+Pocket Edition Alphav0.13.0build 1
+   Added activator rails.v0.14.0build 1
+Activator rails can now be found inside minecarts with chests in mineshafts.Bedrock Edition1.7.0beta 1.7.0.2
+Rails are once again broken by flowing water. Previously it flowed through the rails.1.10.0beta 1.10.0.3
+   The textures of activator rails have now been changed.1.20.30Preview 1.20.20.21
+Increased the hardness and blast resistance of activator rails from 0.5 to 0.7.
+Legacy Console Edition
+Legacy Console EditionXbox 360Xbox OnePS3PS4PS VitaWii USwitchTU19CU71.101.101.10Patch 11.0.1
+   Added activator rails.TU31CU191.221.221.22Patch 3
+Activated activator rails now eject players and mobs from minecarts.TU46CU361.381.381.38Patch 15
+All sloped rail types' hitbox heights have been increased from 10 pixels of a block to a full block.TU54CU441.521.521.52Patch 241.0.4
+All sloped rail types', including activator rails, hitbox heights have now been decreased from a full block to a half block.TU69 1.761.761.76Patch 38
+All types of rails can now be waterlogged and are no longer destroyed by flowing water. Instead it flows right through them.  1.90
+   The textures of activator rails have now been changed.
+New Nintendo 3DS Edition
+New Nintendo 3DS Edition0.1.0
+   Added activator rails.
+Data history
+Java Edition1.814w10a
+ Activator rails with numerical metadata variants 6, 7, 14 and 15, which are inaccessible through normal gameplay or even commands and as such require the use of external editors to exist, now have no model. Their appearances prior to this point were unknown.14w25a
+Activator rails are now defined via block states rather than by numerical metadata. Prior to this version, the numerical metadata variants of the activator rail were as follows:
+
+
+   DV
+   Description
+
+
+0
+Unpowered north-south
+
+1
+Unpowered east-west
+
+2
+Unpowered ascending east
+
+3
+Unpowered ascending west
+
+4
+Unpowered ascending north
+
+5
+Unpowered ascending south
+
+6-7
+Inaccessible - behavior unknown
+
+8
+Powered north-south
+
+9
+Powered east-west
+
+10
+Powered ascending east
+
+11
+Powered ascending west
+
+12
+Powered ascending north
+
+13
+Powered ascending south
+
+14-15
+Inaccessible - behavior unknown
+14w26a
+Activator rails with metadata values 6, 7, 14 and 15 have now been completely removed from the game.[verify]1.1317w47a
+Prior to The Flattening, this block's numeral ID was 157.
+Issues
+Issues relating to "Activator Rail" are maintained on the bug tracker. Issues should be reported and viewed there.
+
+Trivia
+The Minecart shake animation when passing over an activator rail is caused by the rail actively damaging the Minecart. This can be noticed by attempting to punch a Minecart right after it plays this animation, seeing how the Minecart is immediately destroyed.
+Gallery
+Screenshots
+
+
+
+			A minecart is shaking on an active activator rail
+
+
+In other media
+
+
+
+			 An activator rail as seen in Minecraft Earth.
+
+
+See also
+Rail
+Powered rail
+Detector rail
+References
+
+Navigation

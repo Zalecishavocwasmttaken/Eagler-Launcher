@@ -1,0 +1,176 @@
+For the seventh released Combat Test, see Java Edition Combat Test 7c.
+
+
+
+This page documents a version of the game that was initially only released privately. 
+This version was never intended to be released to the public, but it is available in archived copies.
+
+
+
+This page covers a development version that has a major issue under certain conditions. 
+The dedicated server for this version has a security vulnerability in the Log4j library that could be used to perform a remote code execution exploit. It can be addressed by appending a certain JVM argument to the server startup command line.
+
+Minecraft Combat Test 7
+
+Edition
+
+Java Edition
+
+Release date
+
+August 12, 2020
+
+Type
+
+Snapshot
+
+Snapshot for
+
+Combat Test 7c
+
+Downloads
+
+Client (.json)Server
+
+Obfuscation maps
+
+ClientServer
+
+Protocol version
+
+802
+
+Data version
+
+2702
+
+Resource pack format
+
+6
+
+Data pack format
+
+6
+
+Minimum Java version
+
+Java SE 8
+
+◄◄   Combat Test 6
+Combat Test 7c
+  Combat Test 8b ►►
+
+ Combat Test 7
+
+  Combat Test 7b ►
+
+{
+    "title": "Minecraft Combat Test 7",
+    "images": [
+        "Java Edition Combat Test 7.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "August 12, 2020",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Snapshot article, displayed as Snapshot)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition Combat Test 7c article, displayed as Combat Test 7c)",
+            "label": "Snapshot for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/3ad450f458149702ec3dd7655af44ab422a83e72/client.jar Client] ([https://archive.org/download/Combat_Test_7ab/1_16_combat-1.zip .json])<br />[https://piston-data.mojang.com/v1/objects/ee1c898661f5342d52c6e0cdee0bec99f3f60910/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/050cccf384543060a95fe9c773b4db4922a7b16d/client.txt Client]<br />[https://piston-data.mojang.com/v1/objects/28aa23fa4ed247f59ad9317cff635432473ab4cb/server.txt Server]",
+            "label": "(link to Obfuscation map article, displayed as Obfuscation maps)"
+        },
+        {
+            "field": "802",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "2702",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "6",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "6",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Data pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_8_.28LTS.29 Java SE 8]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" rowspan=\"2\">[[Java Edition  Combat Test 6|<span style=\"margin-right:-0.35em\">◄</span>◄   Combat Test 6]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition Combat Test 7c|Combat Test 7c]]'''</td>\n<td style=\"padding: 0.4em\" >[[Java Edition  Combat Test 8b|  Combat Test 8b <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n\n<td style=\"padding: 0.4em\">''' Combat Test 7'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  Combat Test 7b|  Combat Test 7b ►]]\n</td>\n</tr>\n</table>"
+}
+
+Combat Test 7 is a development version for Combat Test 7c released on August 12, 2020, for private testing. This combat experiment is a fork of 1.16.2.
+
+Contents
+
+1 Changes
+
+1.1 Items
+1.2 Gameplay
+
+2 Fixes
+3 Notes
+4 Navigation
+
+Changes
+Items
+Axes
+
+Sword enchantments can now be applied to axes with the help of a book in an anvil, but still not in an enchanting table.
+Potions
+
+Now stack to 16.
+Gameplay
+Attacking
+
+Reintroduced the reach bonus for charged attacks ("200% attacks").
+Reverted how the sweep attack works.
+Now requires the enchantment and a charged attack.
+Reintroduced the attack indicator.
+Removed the reach bonus for charged attacks when the attacker is crouching.
+Bows
+
+Reverted the bow inaccuracy mechanic.
+Eating
+
+Reverted eating being interrupted when the player takes damage.
+Shield
+
+Now activates instantaneously in all cases.
+Now fully blocks explosions.
+Fixes
+Fixed netherite damage values as they previously still used 1.15 values.
+Fixed a speed bug when crouching with a shield.
+Notes
+
+ Unzip this file in the .minecraft/versions folder.
+
+ Reason given by Jeb: "Feedback from PvP players was that it added a tactical layer and options when fighting. Since the charged attacks were reintroduced, I had to redesign how the "quick misses" work. A miss will not count as a charged attack - you need to wait for the full duration of the weapon's original delay. Because of code organization, the penalty for auto-attacking is now specifically 1 tick, instead of 20% of the current weapon's delay. Note: Base reach is still 3, it has not been reverted to 2.5 as in v5."
+
+ Reason given by Jeb: "Every feature adds complexity and this didn't have enough payoff in either PvP or PvE. The feedback was also that the mechanic was inverted (accuracy should increase the longer you aim), but that way the game would get too slow".
+
+ Reason given by Jeb: "I liked the interruption mechanic, but it was inconsistent. Particularly since honey bottles also are drinkable (with fairly high nutrition value)".
+
+Navigation
+
+ "Important Message: Security vulnerability in Java Edition"     – Minecraft.net, December 10, 2021.

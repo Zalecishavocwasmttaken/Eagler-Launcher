@@ -1,0 +1,196 @@
+1.9.1-pre1
+
+Edition
+
+Java Edition
+
+Release date
+
+March 9, 2016
+
+Type
+
+Pre-release
+
+Pre-release for
+
+1.9.1
+
+Downloads
+
+Client (.json)Server
+
+Protocol version
+
+107
+
+Data version
+
+170
+
+Resource pack format
+
+2
+
+Minimum Java version
+
+Java SE 6
+
+◄◄   1.9
+1.9.1
+  1.9.2 ►►
+
+ 1.9.1-pre1
+
+  1.9.1-pre2 ►
+
+{
+    "title": "1.9.1-pre1",
+    "images": [
+        "1.9.1-pre1.png",
+        "Java Edition 1.9.1-pre1.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "March 9, 2016",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Pre-release article, displayed as Pre-release)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition 1.9.1 article, displayed as 1.9.1)",
+            "label": "Pre-release for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/23386d5d39a8376ee23e61d65f27fb52ed5bee2b/client.jar Client] ([https://piston-meta.mojang.com/v1/packages/440cb683d6c525e5c2201e2be89d75451c30c426/1.9.1-pre1.json .json])<br />[https://piston-data.mojang.com/v1/objects/04a6ca96d4024050c50570731568b94771ff7910/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "107",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "170",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "2",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_6 Java SE 6]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" rowspan=\"2\">[[Java Edition  1.9|<span style=\"margin-right:-0.35em\">◄</span>◄   1.9]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition 1.9.1|1.9.1]]'''</td>\n<td style=\"padding: 0.4em\" >[[Java Edition  1.9.2|  1.9.2 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n\n<td style=\"padding: 0.4em\">''' 1.9.1-pre1'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  1.9.1-pre2|  1.9.1-pre2 ►]]\n</td>\n</tr>\n</table>"
+}
+
+1.9.1-pre1 is the first pre-release for Java Edition 1.9.1, released on March 9, 2016.
+
+Contents
+
+1 Additions
+
+1.1 Items
+
+2 Changes
+
+2.1 Blocks
+2.2 Mobs
+2.3 Command format
+2.4 Gameplay
+2.5 General
+
+3 Fixes
+4 Videos
+5 Trivia
+6 References
+7 Navigation
+
+Additions
+Items
+Armor
+
+New armor attribute: generic.armorToughness.
+Damage formula is now totalDamage=damage×(1−max(defensePoints5,defensePoints−damage2+toughness4)25), i.e. increased toughness means less armor defense point reduction from strong attacks.
+Diamond armor has toughness 2, all other armor has toughness 0. A full set of diamond armor, therefore gives a toughness attribute of 8.
+New option enableWeakAttacks in options.txt.
+Defaults to false. When false, the client will ignore attempts to attack when weapon cooldown is less than 75% recharged.
+The effect was removed in the final release, however the option itself remains.
+Elytra
+
+Added sound effects, while gliding in the Elytra.
+Sound event item.elytra.flying.
+Changes
+Blocks
+Dispensers
+
+Increased limit per tick for scheduled tile ticks from 1,000 to 65,536.
+Hoppers
+
+Can now push and pull items to and from chests, that are blocked from opening.
+Mobs
+General
+
+Improved AI.
+Command format
+Target selectors
+
+Entity selector c (count) now sorts on proximity using true coordinates, not coordinates snapped to the grid.
+Gameplay
+Combat
+
+Missing an attack no longer triggers the weapon cooldown (later reverted in final release.)
+General
+Loot tables
+
+Now also work with dispensers and droppers.
+Dispensers with arrows in jungle temples now use loot tables.
+Session IDs
+
+Now no longer printed by the game to the log files or to the launcher.
+Fixes
+7 issues fixed
+From released versions before 1.9.1
+
+MC-7961 – Hopper can't fill or empty a chest if the chest is blocked from opening.
+MC-56162 – Setting /worldborder damage amount 0 doesn't work.
+MC-95352 – Spatial target arguments c, dx, dy, dz behave unexpectedly and inconsistently.
+From version 1.9
+
+MC-90257 – A chain of command blocks may takes more than 1 tick to traverse.
+MC-96219 – Block duplication bug with pistons (ghost blocks).
+MC-96927 – Selector c targeting inaccurate entity position.
+MC-98327 – Elytra texture transparency issues.
+Other fixes:
+
+Fixed game engine adding non-existent entities (failed mob spawns, etc.) to its internal lists, increasing instability.
+Videos
+Video made by slicedlime:
+
+
+
+
+Trivia
+This version was previously removed from the launcher for some time, but was added back in September 2018.
+
+References
+
+ https://web.archive.org/web/0/http://www.mojang.com/2016/03/minecraft-191-pre-release-1/
+
+ "Elytras have sounds? Well, in 1.9.1 pre-release 1 they do. Read about that (and more) at http://www.mojang.com/2016/03/minecr …"  – @SeargeDP (Michael Stoyke) on X (formerly Twitter), March 9, 2016
+
+ MC-96927 – Selector c= targeting inaccurate entity position
+
+ MCL-4420 - Shown as "<censored>" in launcher but correctly written into log file.
+
+ "Paper patch 0078" – https://github.com/starlis/Paper/blob/b2dd99e74e91fbe5f7c28fe29faa58b7162c1aa6/Spigot-Server-Patches/0078-Optimize-Navigation-Listener.patch
+
+Navigation

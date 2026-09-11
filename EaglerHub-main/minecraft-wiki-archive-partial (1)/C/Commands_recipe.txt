@@ -1,0 +1,96 @@
+/recipe
+
+Permission levelrequired
+
+2 ‌[JE  only]
+1 ‌[BE  only]
+
+Restrictions
+
+Cheat only
+
+{
+    "title": "<code>/recipe</code>",
+    "rows": [
+        {
+            "field": "\n* 2 ‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Java Edition\">(link to Java Edition article, displayed as JE)  only</span></i>]</sup>\n* 1 ‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Bedrock Edition\">(link to Bedrock Edition article, displayed as BE)  only</span></i>]</sup>",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "(link to Cheat article, displayed as Cheat) only",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+Gives or takes (unlocks or locks) recipes for players.
+
+Contents
+
+1 Syntax
+2 Arguments
+3 Result
+4 Output
+5 History
+
+5.1 Java Edition
+5.2 Bedrock Edition
+
+6 See also
+7 External links
+8 Navigation
+
+Syntax
+recipe give <targets> * (Java Edition)
+recipe give <player: target> * (Bedrock Edition)
+recipe give <player: target> "*" (Bedrock Edition)
+Gives (unlocks) all recipes to the player.
+recipe take <targets> * (Java Edition)
+recipe take <player: target> * (Bedrock Edition)
+recipe take <player: target> "*" (Bedrock Edition)
+Takes (locks) all recipes from the player.
+recipe give <targets> <recipe> (Java Edition)
+recipe give <player: target> <recipe: string> (Bedrock Edition)
+Gives (unlocks) a specified recipe to the player.
+recipe take <targets> <recipe> (Java Edition)
+recipe take <player: target> <recipe: string> (Bedrock Edition)
+Takes (locks) a specified recipe from the player.
+Arguments
+JE: <target>: entityBE: player: target: CommandSelector<Player>
+
+Specifies the player(s) to give or take the recipe from.
+Must be a player name, a target selector or a UUID‌[Java Edition  only].  And the target selector must‌[JE  only]/should‌[BE  only] be of player type. In Bedrock Edition, the target selector should be of player type.
+JE: <recipe>: resource_locationBE: recipe: string: basic_string
+
+Specifies a recipe to give or take.
+Must be a resource location for an unregistered content. In Bedrock Edition, must be the ID of a recipe (namespace cannot be omitted or added), see the official document.
+Result
+
+CommandTriggerJava EditionBedrock Edition
+
+AnyThe command is incomplete, or any argument is not specified correctly. Unparseable Unparseable<target> or player: target fails to resolve to one or more online players. Failed Failedplayer: target is a target selector that is not in player type. N/A Failed/recipe ... */recipe ... "*"‌[BE  only]There's no player being newly unlocked or locked any recipe. Failed Successful/recipe ... <recipe>/recipe ... <recipe: string>There's no recipe with the specified ID. FailedThere's no player being newly unlocked or locked any recipe.AnyOtherwiseSuccessful
+Output
+
+CommandEditionSituationSuccess Count/execute store success .../execute store result ...
+
+AnyJava EditionOn fail000On success11the total number of recipes given to/taken from each player.AnyBedrock EditionOn fail0N/AN/A/recipe ... <*|"*">On successthe number of specified players.N/AN/A/recipe ... <recipe: string>On successthe number of players whose recipe is newly unlocked/locked.N/AN/A
+History
+Java Edition
+Java Edition1.1217w13a
+Added /recipe.
+Bedrock Edition
+Bedrock Edition1.20.10ExperimentRecipe UnlockingPreview 1.20.10.21
+Added /recipe behind the "Recipe Unlocking" experimental toggle.1.20.30ExperimentRecipe UnlockingPreview 1.20.20.20
+Updated the syntax to match Java Edition.
+The recipes are now suggested by the command auto-complete.
+Now an output message appears after the command is executed.1.20.30Preview 1.20.20.21
+/recipe is no longer behind the "Recipe Unlocking" experimental toggle.Preview 1.20.20.22
+Renamed the victim: target argument to player: target.
+See also
+Knowledge Book
+/gamerule doLimitedCrafting – Whether players should only be able to craft recipes that they have unlocked first.
+External links
+"/recipe Command"     – Microsoft Learn, April 3, 2025.
+Navigation

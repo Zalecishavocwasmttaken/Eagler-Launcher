@@ -1,0 +1,247 @@
+Minecraft 20w49a
+
+Edition
+
+Java Edition
+
+Release date
+
+December 2, 2020
+
+Type
+
+Snapshot
+
+Snapshot for
+
+1.17
+
+Downloads
+
+Client (.json)Server
+
+Obfuscation maps
+
+ClientServer
+
+Protocol version
+
+ dec: 1073741832 hex: 40000008
+
+Data version
+
+2685
+
+Resource pack format
+
+7
+
+Data pack format
+
+7
+
+Minimum Java version
+
+Java SE 8
+
+◄◄   1.16.5
+1.17
+  1.17.1 ►►
+
+◄   20w48a
+
+ 20w49a
+
+  20w51a ►
+
+{
+    "title": "Minecraft 20w49a",
+    "images": [
+        "20w49a.jpg",
+        "Java Edition 20w49a.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "December 2, 2020",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Snapshot article, displayed as Snapshot)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition 1.17 article, displayed as 1.17)",
+            "label": "Snapshot for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/818705401f58ee4df2267bf97fa2e0fb6e78ce28/client.jar Client] ([https://piston-meta.mojang.com/v1/packages/13ef29a79cc0512e124963fd964e44fd11efe369/20w49a.json .json])<br />[https://piston-data.mojang.com/v1/objects/2fc0afe1fd31ca872761efbd2a7f635db234b359/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/141219c3dd05268d559a5e17e8b8f1f0bf982598/client.txt Client]<br />[https://piston-data.mojang.com/v1/objects/0b30deba62ef6c2064dfd12f4f46b9d6388d9c8c/server.txt Server]",
+            "label": "(link to Obfuscation map article, displayed as Obfuscation maps)"
+        },
+        {
+            "field": " <span style=\"font-size:smaller\"><abbr title=\"decimal\">dec</abbr>: </span>1073741832<br /> <span style=\"font-size:smaller\"><abbr title=\"hexadecimal\">hex</abbr>: </span>40000008",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "2685",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "7",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "7",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Data pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_8_.28LTS.29 Java SE 8]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Java Edition  1.16.5|<span style=\"margin-right:-0.35em\">◄</span>◄   1.16.5]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition 1.17|1.17]]'''</td>\n<td style=\"padding: 0.4em\" >[[Java Edition  1.17.1|  1.17.1 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  20w48a|◄   20w48a]]\n</td>\n<td style=\"padding: 0.4em\">''' 20w49a'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  20w51a|  20w51a ►]]\n</td>\n</tr>\n</table>"
+}
+
+20w49a is the fourth snapshot for Java Edition 1.17, released on December 2, 2020, which adds sculk sensors, the dripstone caves biome, and the ability to expand the world height limit.
+
+Contents
+
+1 Additions
+
+1.1 Blocks
+1.2 World generation
+1.3 Gameplay
+1.4 General
+
+2 Changes
+
+2.1 Blocks
+2.2 Items
+2.3 Gameplay
+2.4 General
+
+3 Fixes
+4 Videos
+5 References
+6 Navigation
+
+Additions
+Blocks
+ Sculk sensor
+
+A new redstone component.
+Detects vibrations, and emits a redstone signal.
+Emits a different strength if connected to a comparator, and the signal strength is based on the vibration's frequency.
+Vibrations can be occluded using wool blocks.
+Can only be obtained via the Creative inventory or commands such as /give.
+World generation
+Dripstone caves
+
+A new underground biome.
+Made up of primarily dripstone blocks and stone, with large clusters of dripstone blocks hanging from the ceiling, pointed dripstone on the floor and ceiling and many pools of water.
+Does not generate naturally in normal worlds, and can only be generated using buffet worlds with "Dripstone caves" selected as the source biome or using custom world.
+Gameplay
+Death messages
+
+Added death messages for being skewered by a falling stalactite:
+"<player> was skewered by a falling stalactite"
+"<player> was skewered by a falling stalactite whilst fighting <entity>"
+Particles
+
+New particle types: vibration and dust_color_transition
+General
+Tags
+
+Added the dripstone_replaceable_blocks block tag.
+Contains the base_stone_overworld block tag and dirt.
+Used in dripstone generation to determine what dripstone can replace and what pointed dripstone can generate on.
+Added the occludes_vibration_signals block tag.
+Contains the wool block tag.
+Blocks in this tag prevent sculk sensors from hearing vibrations if the block is between the sculk sensor and the vibration.
+Added new game_events tag type.
+Added the ignore_vibrations_stepping_carefully game event tag.
+Contains the step, falling, and shooting projectile events.
+Game events in this tag are ignored by sculk sensors if the source entity is sneaking.
+Added the vibrations game event tag.
+Contains every game event.
+Game events in this tag trigger sculk sensors.
+Changes
+Blocks
+Pointed dripstone
+
+When in a dimension with ultrawarm set to true, such as the Nether, downwards facing dripstone creates lava particles instead of water particles.
+Items
+Bundle
+
+Fullness is now always shown even if advanced tooltips are disabled.
+Gameplay
+Absorption effect
+
+The yellow absorption hearts now stay yellow if the player has the Poison or Wither effects, instead of appearing empty.
+Freezing
+
+Frozen hearts now appear in Hardcore mode.
+However, they appear the same as normal frozen hearts.
+General
+Custom dimensions
+
+Added height and min_y variables to dimension types, allowing for the height limit to be increased in custom world settings.
+The void now starts 64 blocks below min_y.
+Servers
+
+Removed the max-build-height server setting.
+Fixes
+28 issues fixed
+From released versions before 1.17
+
+MC-18880 – The Absorption effect has no texture for poison/wither hearts (appears empty instead).
+MC-46650 – When flying through blocks in spectator mode in F5, the camera zooms in and out a lot.
+MC-201840 – Optional function tags sometimes don't run even when the tag exists.
+From the 1.17 development versions
+
+MC-203797 – Placing or removing a block over the void causes a DecoderException on servers.
+MC-204314 – Double copper slabs only drop a single slab when mined.
+MC-205043 – Absorption hearts appear broken when taking freezing damage.
+MC-205096 – Hardcore hearts lose all color when player is taking freeze damage.
+MC-205391 – Waxing cut copper does not prevent it from oxidising.
+MC-205629 – Unused sign cache when rendering signs.
+From the previous development version
+
+MC-206553 – Pointed Dripstone creates water particles in the Nether.
+MC-206563 – Pointed dripstone is not connected to the player's hand.
+MC-206578 – Large pillars of stalactites don't fall when the block above is removed.
+MC-206583 – Cauldrons below stalactites at least 2 blocks tall will not fill up.
+MC-206591 – Setting any floating block to a pointed dripstone, causes the replaced block to drop as an item.
+MC-206594 – Large stalactites falling occasionally do not drop all of their pointed dripstone items.
+MC-206606 – Frustum stage of stalactites negates fall damage.
+MC-206613 – Pointed Dripstone duplicates when the block it was attached to is removed.
+MC-206615 – Pointed dripstone's hitbox can extend further than a block, causing nearby stalactites to not be able to fall.
+MC-206642 – Stalactites destroy items they fall on, however stalagmites don't.
+MC-206643 – When a dripstone's hitbox extends into the space of another block, the area that extends into said block cannot be targeted.
+MC-206669 – Inconsistency between dripstone and non-mob entities.
+MC-206682 – Floating dripstone tips are sometimes left behind from large dripstone pillars.
+MC-206689 – Floating pointed dripstone top.
+MC-206691 – Pointed dripstone replaces items with pointed dripstone items.
+MC-206711 – Coding error at net.minecraft.world.entity.Entity.resetPos().
+MC-206790 – Waterlogged dripstone does not update.
+MC-206878 – Pointed dripstone attached to a piston is not removed as the piston extends.
+MC-206961 – Flashing frozen hearts use the poisoned absorption heart texture.
+Videos
+Video made by slicedlime:
+
+
+
+
+References
+
+ "Minecraft Snapshot 20w49a"     – Minecraft.net, December 2, 2020.
+
+Navigation

@@ -1,0 +1,101 @@
+This feature is exclusive to Java Edition. 
+
+/version
+
+Permission levelrequired
+
+2
+
+Restrictions
+
+None
+
+{
+    "title": "<code>/version</code>",
+    "rows": [
+        {
+            "field": "2",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "None",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+Presents the server's game version information to the client on the chat.
+
+Contents
+
+1 Usage
+2 Syntax
+3 Result
+4 Output
+5 History
+6 Navigation
+
+Usage
+See also: version.json
+
+Prints the server's game version information on the chat, such as the name, protocol version, and the resource pack and data pack formats.
+This is similar to the F3 + V debug hotkey, but presents server side info instead of client side.
+The following is an example of what would be printed to chat on 26.2:
+
+Server version info:
+id = 26.2
+name = 26.2
+data = 4903
+series = main
+protocol = 776 (0x308)
+build_time = Tue Jun 16 12:01:27 UTC 2026
+pack_resource = 88.0
+pack_data = 107.1
+stable = yes
+
+Field
+Content
+
+ID
+Version ID string
+
+Name
+User-friendly name of the version, usually identical to ID.
+
+Data
+Data version
+
+Series
+Identifies which branch the game comes from, the default value is "main". This can be seen in the version.json for older versions, for example, "deep_dark_preview" was used for Deep Dark Experimental Snapshot 1 and "april<YYYY>" is used for joke versions released since 2022.
+
+Protocol
+Protocol version
+
+Build time
+Timestamp of when the version was built, in local timezone.
+
+Pack resource
+Resource pack format
+
+Pack data
+Data pack format
+
+Stable
+Yes for release versions, no for development versions
+
+Syntax
+version
+Result
+Always successful.
+
+Output
+
+CommandEditionSituationSuccess Count/execute store success .../execute store result ...
+
+AnyJava EditionOn success111
+History
+Java Edition1.21.625w15a
+Added /version.
+Navigation

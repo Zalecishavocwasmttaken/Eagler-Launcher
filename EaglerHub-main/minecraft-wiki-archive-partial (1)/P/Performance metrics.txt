@@ -1,0 +1,49 @@
+This article is a stub. 
+You can help by expanding it. The talk page may contain suggestions.Instructions: Maybe related to Java Flight Recorder, see Commands/jfr
+
+
+
+
+This feature is exclusive to Java Edition. 
+
+
+
+This article has no navigation boxes. 
+Please add one or more navigation box templates to this article to help with navigation and categorization.
+
+Performance metrics are timed recordings that report the game's performance in various measurements. They report tick durations, memory heap sizes, event loops, rendering statistics, and other information.
+The number and details about which metrics are recorded is not solidified, and may be subject to change between versions.
+
+Contents
+
+1 Generating the log
+2 Log
+
+2.1 File structure
+
+3 History
+
+Generating the log
+Pressing F3 + L begins the debug log process. The process defaults to 10 seconds, but may be stopped at any time by pressing F3 + L again.
+
+Log
+The resulting log is saved at debug/profiling/<yyyy-MM-dd_HH.mm.ss>.zip.
+
+File structure
+
+ <date>.zip
+ profiling.txt
+ deviations
+ (<tick>@<date>).txt
+ metrics
+ eventloops.csv
+ frame_times__ms_.csv
+ jvm.csv
+ mailboxes.csv
+ rendering_chunk_dispatching.csv
+ rendering_chunk_stats.csv
+ task_total_durations__ms_.csv
+
+History
+Java Edition1.1721w11a
+Added Performance Metrics.

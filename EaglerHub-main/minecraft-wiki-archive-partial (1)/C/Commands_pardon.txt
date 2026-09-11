@@ -1,0 +1,122 @@
+This feature is exclusive to Java Edition. 
+
+These commands remove a single or multiple players from the ban list by their game profile or IP address.
+To add players into the ban list, operator may use /ban or manually adding it into the banned-players.json.
+
+Contents
+
+1 pardon
+
+1.1 Syntax
+1.2 Arguments
+1.3 Result
+1.4 Output
+
+2 pardon-ip
+
+2.1 Syntax
+2.2 Arguments
+2.3 Result
+2.4 Output
+
+3 History
+4 Navigation
+
+pardon
+
+/pardon
+
+Permission levelrequired
+
+3
+
+Restrictions
+
+Dedicated server
+
+{
+    "title": "<code>/pardon</code>",
+    "rows": [
+        {
+            "field": "3",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "Dedicated server<br>",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+Removes profiles from the ban list, allowing anyone to connect into the server with UUIDs of these profiles.
+
+Syntax
+pardon <targets>
+Arguments
+<targets>: game_profile
+
+Specifies the player profile(s) to remove from the ban list.
+Specifies one or more game profiles (player profiles). Must be a player name (should be a real one if the server is in online mode) or a player-type target selector.
+Result
+
+CommandTriggerJava Edition
+
+AnyThe command is incomplete, or any argument is not specified correctly. UnparseableTarget selector fails to resolve to one or more online players. FailedAll specified player profiles is not banned.OtherwiseSuccessful
+Output
+
+CommandEditionSituationSuccess Count/execute store success .../execute store result ...
+
+AnyJava EditionOn failN/A00On successN/A1the number of player profiles that is removed from ban list.
+pardon-ip
+
+/pardon-ip
+
+Permission levelrequired
+
+3
+
+Restrictions
+
+Dedicated server
+
+{
+    "title": "<code>/pardon-ip</code>",
+    "rows": [
+        {
+            "field": "3",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "Dedicated server<br>",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+Removes an IP address from the ban list, allowing anyone to connect to the server from that IP address.
+
+Syntax
+pardon-ip <target>
+Arguments
+<target>: string
+
+Specifies the IP address to remove from the ban list. Should be a valid IP address.
+Must be a string. And it must be in a single word (Allowed characters include: -, +, ., _, A-Z, a-z, and 0-9).
+Result
+
+CommandTriggerJava Edition
+
+AnyThe command is incomplete, or any argument is not specified correctly. Unparseable<string> fails to resolve as an IP. FailedThe specified IP is not banned.OtherwiseSuccessful
+Output
+
+CommandEditionSituationSuccess Count/execute store success .../execute store result ...
+
+AnyJava EditionOn fail000On success111
+History
+Java Edition Alphav1.0.16
+Added /pardon and /pardon-ip.
+Navigation

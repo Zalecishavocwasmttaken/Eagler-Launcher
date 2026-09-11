@@ -1,0 +1,205 @@
+This page describes content that has been removed from Java Edition. 
+This feature was present in earlier versions of Java Edition, but has since been removed.
+
+Invalid data value Anvil
+
+Rarity tier
+
+  Common
+
+Renewable
+
+No
+
+Stackable
+
+Yes (64)
+
+{
+    "title": "Invalid data value Anvil",
+    "rows": [
+        {
+            "field": "<span style=\"white-space: nowrap;\"><span style=\"display: inline-block; background-color: #fff; border: 1px solid #888; border-radius: 0.3em; color: transparent; width: 1em; height: 1em; vertical-align: -0.36em; margin-right: -0.1em\"><br></span> </span> Common",
+            "label": "(link to Rarity article, displayed as Rarity tier)"
+        },
+        {
+            "field": "No",
+            "label": "(link to Renewable resource article, displayed as Renewable)"
+        },
+        {
+            "field": "Yes (64)",
+            "label": "Stackable"
+        }
+    ],
+    "invimages": [],
+    "images": [
+        "Missing Model JE3.png"
+    ]
+}
+
+Invalid data value anvils are item forms of the anvil with damage values outside of the usual range which anvils can usually be obtained in.
+
+Contents
+
+1 Obtaining
+
+1.1 Transmutation
+
+2 Usage
+
+2.1 Conversion to future versions
+
+3 History
+
+3.1 Java Edition
+3.2 Bedrock Edition
+
+4 Issues
+5 References
+6 External links
+7 Navigation
+
+Obtaining
+Without the use of commands, invalid data value anvils are unobtainable in the last versions in which they existed without inheriting them from a prior version in which they were obtainable.
+Currently, the item form with damage value 3 is the only invalid anvil variant known to be obtainable as an item in Survival with normal techniques.
+
+Transmutation
+Block transmutation with arrows can be used to obtain anvils with metadata 12, 13, 14 and 15. These blocks can be mined in 14w21b or earlier to obtain the item form with a damage value of 3. The initial block being transmuted must be a south-facing undamaged anvil, i.e. an anvil block with metadata value 0. Chipped and damaged anvils, as well as anvils facing any direction other than south, cannot be transmuted.
+
+Usage
+Only three different types of anvil are intended to be accessible in normal gameplay. The anvil item with a damage value of 3 corresponds to a fourth variant which would theoretically be even more broken than the "damaged" state. This is the type of anvil that the item places from 12w41a up to 14w25b (excluding versions from 13w02a to 13w04a, in which the lack of a defined texture causes the block to crash the game). From 14w26a to 17w46a, due to metadata being superseded by block states, attempting to place this item will cause a game crash due to it not being able to place a valid block state.
+
+Conversion to future versions
+
+
+
+This section of the article is empty. 
+You can help by expanding it.
+
+History
+Java Edition
+Java Edition1.4.212w41a
+Added anvils. Invalid data variants exist as a consequence of how block and item metadata is handled.
+
+The item forms of anvils do not use the correct texture. The block forms use states 0-3 for undamaged anvils facing in the four possible directions, 4-7 for chipped anvils, 8-11 for damaged anvils, and 12-15 correspond to the "invalid" state. The item forms 0-3 use the undamaged texture, 4-7 the chipped texture and 8-11 the damaged texture. This is despite the fact that the item form with damage 0 corresponds to undamaged anvils, 1 to chipped anvils, 2 to damaged anvils and 3 to the invalid anvil state when placed.1.513w02a
+Texture handling has been overhauled. As invalid data value anvils (items with damage 12-15 and blocks with metadata 12-15) do not have any textures to point to, they cause a game crash immediately when the game attempts to render them.13w05a
+The game crash with invalid data value anvils has been fixed. They now render identically to undamaged anvils.1.6.113w21a
+The item forms of anvils now use the correct texture to represent their brokenness. This change has affected the appearances of invalid anvil states 4 and above.1.814w25a
+ With the introduction of data-driven item models, any item with a data value outside of what is accepted by the game has no model to point to, resulting in use of the missing item model.14w30a
+Invalid data value anvils, alongside other invalid data value items, now appear the size of a full block when held in third person or by another player or mob.1.915w31a
+ The missing model's inventory appearance has changed, resulting in the appearance of invalid data value anvils also changing.
+
+The items also appear the size of a full block when held in first person and when dropped on the ground, and also appear larger than before in an item frame.1.1317w43a
+ The missing texture has changed, resulting in the appearance of invalid data value anvils also changing.17w47a
+Numeric IDs for blocks and items have been completely removed from the game, with different anvil damage levels being given their own string IDs. As a result, invalid data value anvils have been "removed" as they now convert into undamaged anvil items.
+Bedrock Edition
+Bedrock Edition?
+ Added the deprecated anvil. Since it has a data value of 12, it can be considered as an invalid data value anvil.
+Inventory appearances (values marked in red are not known to be obtainable in survival mode)
+
+From version
+
+Damage value
+
+Notes
+
+3
+
+4
+
+5
+
+6
+
+7
+
+8
+
+9
+
+10
+
+11
+
+12
+
+13
+
+14
+
+15
+
+1.4.2
+
+12w41a
+
+1.5
+
+13w02a
+
+-
+
+-
+
+-
+
+-
+
+The item forms with damage values 12-15 crash the game due to no texture being defined.
+
+13w05b
+
+The item forms with damage values 12-15 no longer crash the game.
+
+1.5.1
+
+13w11a
+
+Incredibly subtle changes
+
+1.6.1
+
+13w21a
+
+Anvils 0-2 now correctly show their damage states. This repeats modulo 3 for higher states.
+
+1.8
+
+14w03a
+
+Anvils states now repeat modulo 4, with 4n+3 appearing identical to 4n.
+
+14w10a
+
+Anvil items now appear rotated and damaged according to the corresponding block metadata. 12-15 are now 2D.
+
+14w10c
+
+Many anvil items now appear as deformed cuboids of varying proportions.
+
+14w25a
+
+Model no longer exists
+
+1.9
+
+15w31a
+
+The missing model is no longer rotated or downscaled.
+
+1.13
+
+17w43a
+
+The missing texture has changed.
+
+Issues
+Invalid data value anvils are an issue, and due to their removal, can be considered already fixed.
+
+References
+
+ MC-1497
+
+External links
+Invalid Data Value Anvil at the Minecraft Discontinued Features wiki
+Navigation

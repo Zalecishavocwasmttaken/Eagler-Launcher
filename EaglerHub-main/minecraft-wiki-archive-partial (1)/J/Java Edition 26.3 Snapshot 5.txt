@@ -1,0 +1,188 @@
+Minecraft 26.3 Snapshot 5
+
+Edition
+
+Java Edition
+
+Release date
+
+July 21, 2026
+
+Type
+
+Snapshot
+
+Snapshot for
+
+26.3
+
+Downloads
+
+Client (.json)Server
+
+Protocol version
+
+ dec: 1073742151 hex: 40000147
+
+Data version
+
+5004
+
+Resource pack format
+
+93.0
+
+Data pack format
+
+112.0
+
+Minimum Java version
+
+Java SE 25
+
+◄◄   26.2
+26.3
+
+◄   26.3 Snapshot 4
+
+ 26.3 Snapshot 5
+
+  26.3 Snapshot 6 ►
+
+{
+    "title": "Minecraft 26.3 Snapshot 5",
+    "images": [
+        "26.3-snapshot-5.jpg",
+        "Java Edition 26.3 Snapshot 5.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "July 21, 2026",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Snapshot article, displayed as Snapshot)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition 26.3 article, displayed as 26.3)",
+            "label": "Snapshot for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/0cda4b16710f5b42e532b20ed9b8965c105e77a8/client.jar Client] ([https://piston-meta.mojang.com/v1/packages/609f056a33bb849fb218060899491b2a7cc45d4d/26.3-snapshot-5.json .json])<br />[https://piston-data.mojang.com/v1/objects/bc881a3fc6e63c490e614ab3bf9c43adc0449ab2/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": " <span style=\"font-size:smaller\"><abbr title=\"decimal\">dec</abbr>: </span>1073742151<br /> <span style=\"font-size:smaller\"><abbr title=\"hexadecimal\">hex</abbr>: </span>40000147",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "5004",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "93.0",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "112.0",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Data pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_25_.28LTS.29 Java SE 25]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Java Edition  26.2|<span style=\"margin-right:-0.35em\">◄</span>◄   26.2]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition 26.3|26.3]]'''</td>\n<td style=\"padding: 0.4em\" ></td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  26.3 Snapshot 4|◄   26.3 Snapshot 4]]\n</td>\n<td style=\"padding: 0.4em\">''' 26.3 Snapshot 5'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  26.3 Snapshot 6|  26.3 Snapshot 6 ►]]\n</td>\n</tr>\n</table>"
+}
+
+26.3 Snapshot 5 (known as 26.3-snapshot-5 in the launcher) is the fifth snapshot for Java Edition 26.3, released on July 21, 2026, which fixes bugs.
+
+Contents
+
+1 Changes
+
+1.1 General
+
+2 Removals
+3 Fixes
+4 Videos
+5 References
+6 Navigation
+
+Changes
+General
+Data pack
+
+The pack format version is now 112.0.
+Codec for element lists/tags now allows mixing inline values and references.
+For example, item modifiers like [{type:set_count, ...}, "minecraft:some_modifier"] are now allowed.
+Resource pack
+
+The version is now 93.0.
+Shaders
+
+Order-independent Transparency (OIT)-related shader changes
+The B3D_IS_ZERO_TO_ONE define has been renamed to RENDERPEARL_IS_ZERO_TO_ONE
+Shader compilation changes
+Shaders are now compiled by ShaderC when using OpenGL as well, identically to when using Vulkan.
+Shader includes are now handled by ShaderC using #include instead of #moj_import
+Shader inputs and outputs must have a location specified in shader source.
+Vertex input names must still match expected names.
+Vertex outputs are matched to fragment inputs solely by location, name is now ignored.
+Introduced new define RENDERPEARL_INSTANCE_INDEX_INCLUDES_BASE_INSTANCE – a boolean indicating if gl_InstanceIndex follows Vulkan or OpenGL (gl_InstanceID) semantics.
+Removals
+World generation
+
+Features
+Removed the extra_rare_growths and catalyst_chance fields from minecraft:sculk_patch.
+Fixes
+22 issues fixed
+From released versions before 26.3
+
+MC-5269 – Updating a server's address in the multiplayer menu does not update its status.
+MC-278771 – The incorrect command context is used when providing suggestions for redirected commands.
+MC-293755 – The ender dragon's neck and tail disconnect from its body when it turns.
+MC-306628 – TNT minecarts don't delete piercing arrows.
+MC-307918 – Sculk patches can cause errors in the log during world generation.
+MC-308344 – Validation error when compiling shaders containing in/out array or matrix variables with the Vulkan rendering backend.
+MC-308406 – Item models are shown incorrectly in the smithing table menu's armor stand.
+MC-308647 – The resource packs screen can cache font glyphs incorrectly after toggling the "Font Settings" option.
+MC-309298 – Sending chat messages while having the "Chat Delay" option set to a nonzero value can sometimes kick you from the game.
+MC-309565 – Block outlines are rendered behind translucent elements if the "High Contrast Block Outlines" option is enabled.
+MC-310041 – Under specific conditions, chunk loading frequently fails.
+From the 26.3 development versions
+
+MC-309250 – Naturally generated decorated pots don't drop bricks when broken with tools.
+MC-309500 – Crafting decorated pots without sherds using the recipe book creates a pot that doesn't drop bricks when broken with a tool.
+MC-309566 – Block outlines are rendered behind translucent elements if the "Improved Transparency" option is disabled.
+MC-309743 – The attacking animation of drowned is incorrect.
+From the previous development version
+
+MC-310096 – Invalid item modifiers crash the game.
+MC-310098 – Trying to mix item modifier references and inline values in a list prevents the pack from loading.
+MC-310125 – Blaze powder in brewing stands uses the cooking/speed_default number provider instead of brewing/speed_default.
+MC-310133 – Gurgles do not aim their tridents correctly.
+MC-310135 – The server crashes when requesting command suggestions for /attribute referenced from /execute.
+MC-310149 – Glass flickers when looking at it closely with the Vulkan rendering backend and the "Improved Transparency" option enabled.
+MC-310163 – The game crashes when entering exclusive fullscreen on Wayland.
+Videos
+Videos made by slicedlime:
+
+
+
+
+
+
+
+
+References
+
+ "Minecraft 26.3 Snapshot 5"     – Minecraft.net, July 21, 2026.
+
+Navigation

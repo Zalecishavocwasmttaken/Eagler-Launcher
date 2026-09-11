@@ -1,0 +1,1007 @@
+This article is about food items for players in the main game.   For items used for breeding, see Breeding.   For items used for taming, see Taming.  For food in Minecraft Dungeons, see MCD:Food.  For food in Minecraft Dungeons II, see MCD2:Food.
+
+A player eating a cooked porkchop in third-person view. Animation is available in Bedrock Edition only, does not appear in Java Edition.
+A player eating bread in Java Edition (first-person view)
+Food refers to consumable items that, when eaten, restore hunger and saturation points, sometimes giving status effects.
+
+Contents
+
+1 Eating
+
+1.1 Consumption time
+1.2 Eating while at full hunger
+
+2 Hunger
+
+2.1 Natural regeneration
+2.2 Sprinting
+2.3 Starvation
+2.4 Food hunger values
+
+3 Saturation
+
+3.1 Saturation boost
+3.2 Food saturation values
+
+4 Exhaustion
+
+4.1 Energy-intensive actions
+
+5 Effects
+
+5.1 Food effects
+5.2 Hunger effect
+5.3 Saturation effect
+
+6 Food sources
+
+6.1 Ingredients
+
+7 Internal variables
+8 Sounds
+9 Achievements
+10 Advancements
+11 History
+
+11.1 Development
+11.2 Java Edition
+11.3 Bedrock Edition
+11.4 Legacy Console Edition
+11.5 Java Edition Combat Tests
+
+12 Issues
+13 Gallery
+
+13.1 Mojang screenshots
+
+14 Notes
+15 References
+16 Navigation
+
+Eating
+The consumption time difference between a honey bottle (2 seconds), bread (1.6 seconds), and dried kelp (0.8 seconds)
+Eating is the process of consuming food items. Eating a food item requires holding use, and takes an amount of time dependent on the food's consumption time value.
+
+Consumption time
+Eating (or drinking) a consumable takes 32 game ticks (1.6 seconds), with exceptions: Dried kelp takes half the time (16 game ticks (0.8 seconds)), and honey bottles take 25% longer (40 game ticks (2 seconds)). Cake is a block and thus cannot be eaten in the hand, requiring the player to place it down and then use it.
+
+Eating while at full hunger
+In Survival, food cannot be eaten while already at full hunger, with the exception of chorus fruit, golden apples, enchanted golden apples, honey bottles, and suspicious stew. This also applies to potions, water bottles, and milk buckets. In Creative mode and Peaceful difficulty,‌[Bedrock Edition  only] any food can be consumed at any time.
+
+Hunger
+The hunger bar is shown above the hotbar to the right of the health bar.
+ "Hunger" redirects here.  For the status effect, see Hunger (effect).
+Hunger is a value that determines healing, whether or not the player can sprint, and whether or not the player is starving. Hunger is restored by eating food items. Hunger is lost by healing or by performing energy-intensive actions that exhaust the player, and is the second value to be consumed by it, after saturation.
+The player's current hunger value is represented by the hunger bar (), which displays above the hotbar on the right side, opposite of the health bar. Each hunger point is represented by half a hunger icon (), and the maximum hunger value is 20. Hunger points can also be restored by applying the Saturation status effect. The hunger value does not drain on Peaceful difficulty, and always remains at the maximum value of 20.
+
+Natural regeneration
+Gaining natural regeneration by being at  or above
+If the hunger value is at 18 () or above, or the saturation value is non-zero, the player's health naturally regenerates every 4 seconds (80 ticks). Saturation is used first, and then once fully drained, hunger is used instead. When the hunger value drops to 17 () or below, natural regeneration stops.
+
+Sprinting
+Main article: Sprinting § Activating
+If the hunger value is at 6 () or below, the player loses the ability to sprint until the hunger value exceeds 7 .
+
+Starvation
+Taking starvation damage due to being at
+If the hunger value reaches 0 (), the player begins to lose health due to starvation. Starvation damages the player by 1HP every 4 seconds (80 ticks). Starvation damage ignores armor and armor toughness, the Protection enchantment, and the Resistance effect. Starvation damage stops taking effect when reaching certain health thresholds on certain difficulties.
+
+On Easy difficulty, starvation damage stops when the player's health is at 10HP or below.
+On Normal difficulty, starvation damage stops when the player's health is at 1HP or below.
+On Hard difficulty, starvation damage does not stop at any health threshold.
+Food hunger values
+
+Hunger values
+
+Food type
+Hunger restored
+
+Cake (all slices together)
+14 ( × 7)
+
+Suspicious Stew (Saturation effect)
+13 ( × 6.5)
+
+Rabbit Stew
+10 ()
+
+Cooked PorkchopPumpkin PieSteak
+8 ()
+
+Beetroot SoupCooked ChickenCooked MuttonCooked SalmonGolden CarrotHoney BottleMushroom StewSuspicious Stew
+6 ()
+
+Baked PotatoBreadCooked CodCooked Rabbit
+5 ()
+
+AppleChorus FruitEnchanted Golden AppleGolden AppleRotten Flesh
+4 ()
+
+CarrotRaw BeefRaw PorkchopRaw Rabbit
+3 ()
+
+CookieGlow BerriesMelon SlicePoisonous PotatoRaw ChickenRaw CodRaw MuttonRaw SalmonSpider EyeSweet BerriesCake (single slice)
+2 ()
+
+BeetrootDried KelpPotatoPufferfishTropical Fish
+1 ()
+
+Saturation
+ "Saturation" redirects here.  For the status effect, see Saturation (effect).
+Saturation is a value that determines healing, as well as the time until hunger begins to deplete. Saturation is lost by healing or performing energy-intensive actions that exhaust the player, and is the first value to be consumed by it, before hunger.
+The player's current saturation value is not visually displayed as a bar, unlike the hunger value. Instead, when saturation reaches zero, the hunger bar starts to shake or jitter periodically.
+
+Saturation boost
+Gaining saturation boost from reaching full hunger, consuming the saturation gained from the cooked porkchop to heal
+
+
+
+This feature is exclusive to Java Edition. 
+
+Saturation boost, also known as saturation healing, is a mechanic exclusive to Java Edition that regenerates health when the player's hunger bar is full (). Saturation boost heals 1HP by consuming 1.5 () saturation, and activates every 0.5 seconds (10 ticks) when at full hunger. While the saturation mechanic as a whole is in both Bedrock Edition and Java Edition, saturation boost is only in Java Edition.
+
+Food saturation values
+
+Saturation values
+
+Food type
+Saturation restored
+Saturation boost‌[Java Edition  only]
+
+Health restored
+Duration
+
+Suspicious Stew (Saturation effect)
+21.2 ( × 10.6)
+14.133HP × 7.0665
+7.067 seconds (141 ticks)
+
+Golden Carrot
+14.4 ( × 7.2)
+9.6HP × 4.8
+4.8 seconds (96 ticks)
+
+Cooked PorkchopSteak
+12.8 ( × 6.4)
+8.533HP × 4.2665
+4.267 seconds (85 ticks)
+
+Rabbit Stew
+12 ( × 6)
+8HP
+4 seconds (80 ticks)
+
+Cooked MuttonCooked SalmonEnchanted Golden AppleGolden Apple
+9.6 ()
+6.4HP × 3.2
+3.2 seconds (64 ticks)
+
+Beetroot SoupCooked ChickenMushroom StewSuspicious Stew
+7.2 ()
+4.8HP × 2.4
+2.4 seconds (48 ticks)
+
+Baked PotatoBreadCooked CodCooked Rabbit
+6 ()
+4HP
+2 seconds (40 ticks)
+
+Pumpkin Pie
+4.8 ()
+3.2HP × 1.6
+1.6 seconds (32 ticks)
+
+Carrot
+3.6 ()
+2.4HP × 1.2
+1.2 seconds (24 ticks)
+
+Spider Eye
+3.2 ()
+2.133HP × 1.0665
+1.067 seconds (21 ticks)
+
+Cake (all slices together)
+2.8 ()
+1.867HP × 0.9335
+0.933 seconds (19 ticks)
+
+AppleChorus Fruit
+2.4 ()
+1.6HP × 0.8
+0.8 seconds (16 ticks)
+
+Raw BeefRaw PorkchopRaw Rabbit
+1.8 ()
+1.2HP × 0.6
+0.6 seconds (12 ticks)
+
+BeetrootHoney BottleMelon SlicePoisonous PotatoRaw ChickenRaw MuttonSweet Berries‌[Bedrock Edition  only]
+1.2 ()
+0.8HP × 0.4
+0.4 seconds (8 ticks)
+
+Rotten Flesh
+0.8 ()
+0.533HP × 0.2665
+0.267 seconds (5 ticks)
+
+PotatoDried Kelp‌[Java Edition  only]
+0.6 ()
+0.4HP × 0.2
+0.2 seconds (4 ticks)
+
+CookieGlow BerriesRaw CodRaw SalmonSweet Berries‌[Java Edition  only]Cake (single slice)
+0.4 ()
+0.267HP × 0.1335
+0.133 seconds (3 ticks)
+
+PufferfishTropical FishDried Kelp‌[Bedrock Edition  only]
+0.2 ()
+0.133HP × 0.0665
+0.067 seconds (2 ticks)
+
+Exhaustion
+Exhaustion is incurred from doing certain energy-intensive actions, and certain actions exhaust the player more than others. Exhaustion first reduces saturation, and then reduces hunger.
+Once the exhaustion level reaches 4.0, it resets to 0.0 and reduces the saturation by 1 () if there is any saturation remaining. If the saturation is 0, it reduces the hunger by 1 () instead.
+
+Energy-intensive actions
+
+Action
+
+Exhaustionlevel increase
+
+Units
+
+Swimming
+
+0.01
+
+per meter
+
+Breaking a block
+
+0.005
+
+per block broken
+
+Sprinting
+
+0.1
+
+per meter
+
+Jumping
+
+0.05
+
+per jump
+
+Attacking an entity
+
+0.1
+
+per attack landed
+
+Attacking with a spear enchanted with Lunge
+
+4.0 × (level)
+
+per lunge attack, regardless whether it hits
+
+Taking damage that is normally protected by armor
+
+0.1
+
+per distinct instance of damage being received
+
+Hunger
+
+0.005
+
+per tick, per Hunger status effect level
+
+Jumping while sprinting
+
+0.2
+
+per jump
+
+Natural regeneration (requires  × 9 or higher and having the gamerule naturalRegeneration set to true)
+
+6.0
+
+per 1HP healed
+
+Hunger from raw chicken, rotten flesh, or taking damage from husks.
+
+3.0
+
+full 0:30 duration of Hunger I, at 0.1 per second
+
+Hunger from pufferfish
+
+4.5
+
+full 0:15 duration of Hunger III, at 0.3 per second
+
+Getting pushed by other means (except flowing water, which counts as swimming)
+
+-
+
+-
+
+Effects
+Getting the Hunger effect from eating rotten flesh
+Certain foods provide additional effects when eaten, both helpful and harmful. This can come in the form of gaining status effects, clearing status effects, or teleportation.
+
+Food effects
+
+Effects
+
+Food type
+Applied effects
+
+Chorus Fruit
+Teleports the user randomly
+
+Enchanted Golden Apple
+0:20 Regeneration II‌[Java Edition  only]0:30 Regeneration II‌[Bedrock Edition  only]2:00 Absorption IV5:00 Resistance I5:00 Fire Resistance
+
+Golden Apple
+0:05 Regeneration II2:00 Absorption I
+
+Honey Bottle
+Clears Poison
+
+Milk Bucket
+Clears all status effects
+
+Poisonous Potato
+0:05 Poison (60% chance)
+
+Pufferfish
+0:15 Hunger III0:15 Nausea1:00 Poison II
+
+Raw Chicken
+0:30 Hunger I (30% chance)
+
+Rotten Flesh
+0:30 Hunger I (80% chance)
+
+Spider Eye
+0:05 Poison I
+
+Suspicious Stew
+0:03 Fire Resistance (Allium)
+
+0:11 Blindness (Azure Bluet / Open Eyeblossom)‌[Java Edition  only]0:07 Blindness (Azure Bluet / Open Eyeblossom)‌[Bedrock Edition  only]
+
+0.35s Saturation (Blue Orchid / Dandelion / Golden Dandelion)‌[Java Edition  only]0.3s Saturation (Blue Orchid / Dandelion / Golden Dandelion)‌[Bedrock Edition  only]
+
+0:07 Nausea (Closed Eyeblossom)
+
+0:05 Jump Boost (Cornflower)
+
+0:11 Poison (Lily of the Valley)
+
+0:07 Regeneration (Oxeye Daisy)
+
+0:05 Night Vision (Poppy / Torchflower)
+
+0:07 Weakness (Red Tulip / Orange Tulip / Pink Tulip / White Tulip)
+
+0:07 Wither (Wither Rose)
+
+Hunger effect
+Main article: Hunger (effect)
+The Hunger effect removes 1 () hunger or 1 () saturation point every 40level seconds, and turns the hunger bar to a green color (). It is inflicted by being attacked by a husk, or by eating pufferfish, rotten flesh, or raw chicken.
+
+Saturation effect
+Main article: Saturation (effect)
+The Saturation effect replenishes 1 () hunger point and 2 () saturation points every 0.05 seconds (1 tick)‌[Java Edition  only] per level. It is applied exclusively through suspicious stew crafted with a blue orchid or dandelion.
+
+Food sources
+
+Sources
+
+Food type
+Food source
+
+Apple
+Destroyed/despawned oak or dark oak leavesStronghold altar and storeroom, village weaponsmith and plains house, igloo and bonus chestsReceive 4 for 1 emerald at apprentice-level trade of farmer villager
+
+Baked Potato
+Trial Spawners and  ominous trial spawners in Trial ChambersAncient city ice box and trial chambers supply chestsTrial chambers intersection barrelsCooking a potato
+
+Beetroot
+Harvesting beetroot cropsFarmer villager who drop beetroot after harvesting beetroot crop
+
+Beetroot Soup
+Crafting a bowl together with beetrootsSnowy village house chests
+
+Bread
+Crafting from wheatMonster room, stronghold altar and storeroom, village, mineshaft, woodland mansion and bonus chestsReceive 6 for 1 emerald at novice-level trade of farmer villagerFarmer villager who drop bread after harvesting wheatRaid gift from farmer villager‌[Java Edition  only]Trial spawners in trial chambers.
+
+Cake
+Crafting from wheat, eggs, sugar, and milkReceive 1 for 1 emerald at expert-level trade of farmer villagerBuried treasure chest‌[Bedrock Edition  only]Trial chamber intersection chests
+
+Carrot
+Killing zombiesHarvesting carrot cropspillager outpost and Shipwreck supply chestbonus chest‌[Bedrock Edition  only]Farmer villagers who drop carrots after harvesting a carrot crop
+
+Chorus Fruit
+Breaking chorus plants in The End
+
+Cooked Chicken
+Cooking a raw chickenKilling chickens with fireReceive 8 for 1 emerald at novice-level trade from Butcher villagerRaid gift from butcher villager‌[Java Edition  only]Trial spawners in trial chambers
+
+Cooked Cod
+Cooking a raw codKilling cod with fire‌[Java Edition  only]Killing dolphin with fireRare drop from guardians and elder guardians when killed with fire‌[Java Edition  only]Receive 6 for 1 emerald + 6 raw cod at novice-level trade from fisherman villagerBuried treasure chests‌[Java Edition  only]
+
+Cooked Mutton
+Cooking raw muttonKilling sheep with fireRaid gift from butcher villager‌[Java Edition  only]
+
+Cooked Porkchop
+Cooking a raw porkchopKilling pigs or hoglins with fireReceive 5 for 1 emerald at apprentice-level trade from butcher villagerRaid gift from butcher villager‌[Java Edition  only]Bastion remnant chests
+
+Cooked Rabbit
+Cooking raw rabbitKilling rabbits with fireRaid gift from butcher villager‌[Java Edition  only]
+
+Cooked Salmon
+Cooking a raw salmonKilling salmon with fire‌[Java Edition  only]buried treasure chest‌[Java Edition  only]Receive 6 for 1 emerald + 1 raw salmon at apprentice-level trade from fisherman villager
+
+Cookie
+Crafting from wheat and cocoa beansReceive 18 for 3 emerald at journeyman-level trade from farmer villagerRaid gift from farmer villager‌[Java Edition  only]
+
+Dried Kelp
+Cooking kelp in a furnace, smoker, or campfireCrafting from dried kelp blockRaid gift from farmer villager‌[Java Edition  only]
+
+Enchanted Golden Apple
+Desert pyramid, monster room, woodland mansion, mineshaft, ruined portal and ancient city chestsOminous vaults in trial chambers
+
+Golden Apple
+Crafting from an apple and gold ingots.Desert pyramid, monster room, mineshaft, stronghold altar, woodland mansion, igloo, big ocean ruins, ruined portal and ancient city center chestsOminous vaults in trial chambers
+
+Glow Berries
+Collected from cave vinesMineshaft, ancient city and trial chambers supply chests
+
+Golden Carrot
+Crafting a carrot with gold nuggetsReceive 3 for 3 emerald at master-level trade from farmer villagerBastion remnant,  ruined portal and  ancient city ice box chestsVaults in trial chambersOminous trial spawners in trial chambers
+
+Honey Bottle
+Crafting from honey blockCollecting from beehives or bee nestsVaults in trial chambers
+
+Melon Slice
+Harvesting a melon block
+
+Mushroom Stew
+Crafting with a bowl and one of each mushroomUsing a bowl on a mooshroom
+
+Poisonous Potato
+Harvesting potato cropsShipwreck supply chest
+
+Potato
+Killing zombiesHarvesting potato cropsFarmer villager who drop potato after harvesting potato cropbonus chest‌[Bedrock Edition  only] Plains and taiga village, pillager outpost, and shipwreck supply chest
+
+Pufferfish
+FishingKilling pufferfishRare drop from guardians and elder guardian
+
+Pumpkin Pie
+Crafting with a pumpkin, an egg, and sugarReceive 4 for 1 emerald at apprentice-level trade from farmer villagervillage taiga house chestRaid gift from farmer villager‌[Java Edition  only]
+
+Rabbit Stew
+Crafting with a bowl, carrot, baked potato, mushroom, and cooked rabbitReceive 1 for 1 emerald at novice-level trade from butcher villager
+
+Raw Beef
+Killing cows, red mooshrooms, and brown mooshroomvillage butcher chest
+
+Raw Chicken
+Killing chickensCat gift
+
+Raw Cod
+FishingKilling cod, guardians, elder guardians, dolphins, polar bearsRare drop from guardians and elder guardiansvillage fisher barrelRaid gift from fisherman villager‌[Java Edition  only]
+
+Raw Mutton
+Killing sheepvillage butcher chest
+
+Raw Porkchop
+Killing pigs or hoglinsVillage butcher and bastion remnant stable chests
+
+Raw Rabbit
+Killing rabbits
+
+Raw Salmon
+FishingKilling salmon and polar bearsRare drop from guardians and elder guardiansRaid gift from fisherman villager‌[Java Edition  only]village fisher barrel‌[Java Edition  only]bonus chest
+
+Rotten Flesh
+Killing zombies, zombified piglins, zombie villagers, husks, drowned, and zombie horsesmonster room, igloo, woodland mansion, small ocean ruins, village temple, shipwreck supply, desert, and jungle pyramid chestsCaught as junk from fishingCat gift
+
+Spider Eye
+Killing spiders, cave spiders and witches.Desert pyramid chests.
+
+Steak
+Cooking raw beefKilling cows, red mooshrooms, or brown mooshrooms with fireRaid gift from butcher villager‌[Java Edition  only]Ominous trial spawners in trial chambers.
+
+Suspicious Stew
+Crafting with a bowl, red mushroom, brown mushroom, and any flowerFeed brown mooshroom any flower then using a bowl on brown mooshroomReceive 1 for 1 emerald at expert-level trade of farmer villager, excluding Fire Resistance, Regeneration, and Wither Ancient city ice box chests.
+
+Sweet Berries
+Breaking sweet berry bushesPicking ripe berries from sweet berry bushes (right-click)Taiga village house chests.‌[Java Edition  only]
+
+Tropical Fish
+FishingKilling tropical fishRare drop from guardians and elder guardians
+
+Ingredients
+The following items cannot be eaten on their own. Instead, they are used to craft consumable food items.
+
+Ingredient(s)
+
+Used to make
+
+Source(s)
+
+Bowl
+
+Mushroom Stew
+Beetroot Soup
+Rabbit Stew
+Suspicious Stew
+
+Crafting from planks
+Fishing
+Turtle killed by lightning
+Eating food made with them
+
+Cocoa Beans
+
+Cookies
+
+Breaking cocoa plants
+
+Egg
+
+Cake
+Pumpkin Pie
+
+Laid by chickens
+Found in village fletcher chests
+
+Milk Bucket
+
+Cake
+
+Milking a cow, mooshroom or a goat
+Killing a wandering trader drinking it
+
+Brown Mushroom or Red Mushroom
+
+Mushroom Stew
+Rabbit Stew
+Suspicious Stew
+
+Breaking naturally generated mushrooms in:
+Dark/shady areas
+Swamp and mushroom fields biomes
+The Nether
+Breaking huge brown or red mushrooms
+Using shears on a brown mooshroom or red mushroom
+Bought from wandering trader
+
+Any small flower
+
+Suspicious stew
+
+Breaking naturally generated flowers
+Using bone meal on a grass block
+Bought from wandering trader
+Killing iron golem (poppy)
+
+Pumpkin
+
+Pumpkin pie
+
+Harvesting mature pumpkins grown from pumpkin seeds
+Naturally occurring pumpkins
+Taiga and snowy taiga villages
+Bought from wandering trader
+
+Sugar
+
+Cake
+Pumpkin pie
+
+Crafting from sugar cane or honey bottle
+Dropped by witches
+Creating from its base elements ‌[Bedrock Edition and Minecraft Education  only]
+
+Wheat
+
+Bread
+Cake
+Cookie
+
+Harvesting mature wheat seeds
+Found in monster room, woodland mansion, shipwreck, igloo, village, ocean ruins, and pillager outpost chest
+Crafting from hay bales
+
+Gold Nugget
+
+Golden Carrot
+
+Crafting from gold ingots
+Dropped by zombified piglins
+Found in shipwreck, igloo, village, and ocean ruins chest
+Smelting golden armor or tools
+Mining nether gold ore without Silk Touch
+
+Gold Ingot
+
+Golden Apple
+
+Crafting from gold blocks or gold nuggets
+Rarely dropped by zombified piglins
+Smelting gold ore or nether gold ore
+Found in shipwreck, jungle pyramid, monster room, woodland mansion, nether fortress, end city, mineshaft, village, stronghold, buried treasure and desert pyramid chest
+
+Honey Block
+
+Honey Bottle
+
+Crafting from honey bottles
+
+Internal variables
+Food uses four variables, the values of which are stored in the player.dat format. Variables can be queried in-game with the following command: /data get entity <player's name> <variable>‌[Java Edition  only].
+
+foodLevel: The player's current hunger level, shown on the hunger bar. Its initial value on world creation or respawn is 20 ( × 10).
+foodSaturationLevel: The player's current saturation level, which determines how fast foodLevel depletes and is controlled by the kinds of food the player has eaten. Its maximum value always equals foodLevel's value and decreases with foodLevel. Its initial value on world creation or respawn is 5.
+foodTickTimer: This variable is used when foodLevel either exceeds 17 (), or is at zero. It increases on every tick, and whenever it reaches 80 (4 seconds), it resets to zero and 1HP is added or deducted, depending on whether the player is saturated or starving. If the player has a full 20 ( × 10), 1⁄6 of 1HP times the player's foodSaturationLevel is restored, up to a maximum of 1HP, when foodTickTimer reaches 10 (1⁄2 second), and foodTickTimer is reset to zero.
+foodExhaustionLevel: The player's current exhaustion level, which determines how fast the foodSaturationLevel depletes. Its value is increased by the player's actions (see Exhaustion level increase for specific values). The initial value is zero. When it reaches a value of at least 4, the total value is decreased by 4 and one point is subtracted from foodSaturationLevel, or foodLevel if foodSaturationLevel is at zero.
+Sounds
+Java Edition:
+
+v
+t
+eSoundsSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitchAttenuationdistance​EatingPlayersWhile a player is eating somethingentity.generic.eatsubtitles.entity.generic.eat​varies0.8–1.216​EatingFriendly MobsWhen a player finishes eating somethingentity.generic.eatsubtitles.entity.generic.eat​1.00.6–1.416​BurpPlayersWhen a player finishes eating somethingentity.player.burpsubtitles.entity.player.burp​0.50.9–1.016
+ Can be 0.5, 1.0, or 1.5
+
+Bedrock Edition:
+
+v
+t
+eSoundsSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitch​EatingPlayersWhile a player is eating somethingrandom.eatsubtitles.entity.generic.eat​0.5–1.10.8–1.2​BurpPlayersWhen a player finishes eating somethingrandom.burpsubtitles.entity.player.burp​0.50.9–1.0
+Achievements
+IconAchievementIn-game descriptionActual requirements (if different)Gamerscore earnedTrophy type (PS)PS4OtherPork ChopCook and eat a pork chop.—10BronzeBake BreadTurn wheat into bread.Pick up bread from a crafting table output.15BronzeThe LieBake a cake using: wheat, sugar, milk, and eggs.Pick up a cake from a crafting table output.30BronzeDelicious FishCatch and cook a fish!Pick up a cooked cod after cooking it in a furnace, smoker, campfire, or soul campfire.Note: This does not work if the block used is connected to a hopper underneath, as the player is not getting the item directly from the output.15SilverIron BellyStop starvation using Rotten Flesh.Eat a piece of rotten flesh while at 0 () hunger points.20BronzeRabbit SeasonCook and Eat Rabbit Meat—15BronzeTime for StewGive someone a suspicious stew.Drop a suspicious stew. Another player must then pick up this suspicious stew.20BronzeOverpoweredEat an Enchanted Golden Apple—30SilverCastawayEat nothing but dried kelp for three in-game daysEat dried kelp once; in the following three in-game days, eat nothing but dried kelp.20Bronze
+Advancements
+IconAdvancementIn-game descriptionActual requirements (if different)A Furious CocktailHave every potion effect applied at the same time
+Have all of these 17 status effects applied to the player at the same time:
+
+Fire Resistance
+Infested
+Invisibility
+Jump Boost
+Night Vision
+Oozing
+Poison
+Regeneration
+Resistance
+Slow Falling
+Slowness
+Speed
+Strength
+Water Breathing
+Weakness
+Weaving
+Wind Charged
+
+The source of the effects is irrelevant for the purposes of this advancement. Other status effects may be applied to the player, but are ignored for this advancement.How Did We Get Here?Have every effect applied at the same time
+Have all of these 34 status effects applied to the player at the same time:
+
+Absorption
+Bad Omen
+Blindness
+Breath of the Nautilus
+Conduit Power
+Darkness
+Dolphin's Grace
+Fire Resistance
+Glowing
+Haste
+Hero of the Village
+Hunger
+Infested
+Invisibility
+Jump Boost
+Levitation
+Mining Fatigue
+Nausea
+Night Vision
+Oozing
+Poison
+Raid Omen
+Regeneration
+Resistance
+Slow Falling
+Slowness
+Speed
+Strength
+Trial Omen
+Water Breathing
+Weakness
+Weaving
+Wind Charged
+Wither
+
+The source of the effects is irrelevant for the purposes of this advancement. Other status effects may be applied to the player, but are ignored for this advancement.
+
+See also: Tutorial:Advancement guide/How Did We Get Here?
+
+This is a hidden advancement, meaning that it can be viewed by the player only after completing it, regardless of if its child advancement(s), if any, have been completed.HusbandryThe world is full of friends and foodConsume anything that can be consumed, except for cake.Fishy BusinessCatch a fishReel in a fishing rod attached to any of these fish items:
+
+Raw Cod
+Raw Salmon
+Tropical Fish
+Pufferfish
+The player need not to have actually fished to trigger this advancement.A Balanced DietEat everything that is edible, even if it's not good for you
+Eat each of these 40 foods:
+
+Apple
+Baked Potato
+Beetroot
+Beetroot Soup
+Bread
+Carrot
+Chorus Fruit
+Cooked Chicken
+Cooked Cod
+Cooked Mutton
+Cooked Porkchop
+Cooked Rabbit
+Cooked Salmon
+Cookie
+Dried Kelp
+Enchanted Golden Apple
+Glow Berries
+Golden Apple
+Golden Carrot
+Honey Bottle
+Melon Slice
+Mushroom Stew
+Poisonous Potato
+Potato
+Pufferfish
+Pumpkin Pie
+Rabbit Stew
+Raw Beef
+Raw Chicken
+Raw Cod
+Raw Mutton
+Raw Porkchop
+Raw Rabbit
+Raw Salmon
+Rotten Flesh
+Spider Eye
+Steak
+Suspicious Stew
+Sweet Berries
+Tropical Fish
+
+Other foods and consumables can be eaten, but are ignored for this advancement.
+History
+Development
+May 20, 2009
+Notch mentions adding food, which would be used to heal the player, and could be obtained by farming or hunting.June 14, 2009
+Notch discussed how food would work in Survival mode: "Monsters will hurt you and take away from your health. The only way to regain health is to eat food. You get food from either hunting or from farming."July 19, 2011
+The hunger bar is first seen in an image Notch posted to Twitter that showcases his experimentation with world height.
+Java Edition
+Java Edition Classic0.24_SURVIVAL_TEST
+Mushrooms are now edible, making them the first food to be added in the game. At the time, food restores health instead of hunger, and are eaten instantly without sound or animation.
+
+Brown mushrooms restore 5HP and red mushrooms take 3HP hearts, most likely a developer/debug feature for testing.0.25 SURVIVAL TEST
+Pigs now drop 0-2 brown mushrooms upon death.Java Edition Indev0.3120091231-1856
+Mushrooms are no longer edible.[is this the correct version?]20091231-2147
+Added apples, which are currently non-functional.20100110
+Apples are now edible, and restore 4HP each.20100130
+Added mushroom stew, which restores 8HP health.20100206-2034
+Added bread, which restores 5HP.
+
+Mushroom stew now restores 10HP health.20100219
+Pigs now drop raw porkchops, which restore 3HP and can be smelted to become cooked porkchops, which restore 8HP.Java Edition Infdev20100227-1414
+Added golden apples. At the time, they were crafted with blocks of gold, and restored 20HP × 10, but internally 42HP × 21.20100625-1917
+Golden apples can now be found in dungeons, making the item obtainable.Java Edition Alphav1.2.0?
+Added raw fish, which restores 2HP and cooked fish, which restores 5HP, obtainable through fishing.v1.2.3
+Eating food now functions correctly in multiplayer.Java Edition Beta1.2
+Added cake, with its slice restoring 3HP and a full cake restoring 18HP × 9.1.4
+Added cookies, which restore 1HP.1.5
+Pigs now drop cooked porkchops if killed while on fire.1.8Pre-release
+Hunger was introduced. Food no longer restores health directly, but the player can regenerate if the hunger meter is 90% or over.
+
+Added melons, raw chicken as a drop from chickens, which can be smelted into cooked chicken, raw beef as a drop from cows, which can be smelted into steak, and rotten flesh as a new drop from zombies.
+
+Added an eating animation, instead of food simply disappearing from the player's hand as if a block had been placed.
+
+Added hunger bar. Food now restores hunger instead of health.
+
+Food now stacks in the inventory, with the exception of cake and mushroom stew.
+
+With the addition of the hunger bar, all foods restore the same amount of hunger as hearts, except for mushroom stew, which restores 8 (), golden apples, which restore 10 () and give 30 seconds of Regeneration and cake, with its slice restoring 2 () and the whole cake restoring 12 ( × 6).
+
+Apples now generate in the new stronghold storeroom chests, making them obtainable.Java Edition1.0.0Beta 1.9 Prerelease 2
+Added spider eyes, as a drop from spiders.RC1
+Eating now has sounds.1.1release
+Golden apples are now made with gold nuggets instead of blocks of gold, restore 4 () and give 4 seconds of Regeneration.1.3.112w18a
+The exhaustion cost of sprint jumping is now 0.2 from 0.8, meaning that constant sprint jumping is a viable means of fast long-distance travel in most situations.
+
+Cocoa beans now drop rarely from jungle leaves, making all food renewable.12w19a
+Cookies now restore 2 ().12w21a
+Added enchanted golden apples, which functioned like golden apples prior to 1.1 and had the same crafting recipe, but also gave resistance and fire resistance for 5 minutes each.1.4.212w34a
+Added potatoes and carrots, which can be obtained from zombies as a rare drop.
+
+Potatoes can be cooked to make baked potatoes.
+
+Harvesting potatoes may give 0–2 poisonous potatoes.
+
+Carrots can be crafted into golden carrots.12w37a
+Added pumpkin pies.
+
+Mushroom stew now restores 6 ().1.6.113w23a
+Natural health regeneration now increases the food exhaustion level.
+
+Golden apples are now crafted with 8 golden ingots.1.7.213w36a
+The exhaustion cost of sprint jumping is now 0.8 (up from 0.2), meaning that constant sprint jumping is no longer viable as a means of fast long-distance travel in most situations.
+
+Added clownfish, raw salmon, cooked salmon, and pufferfish.
+Resistance no longer reduces starvation damage.1.814w02a
+Baked potatoes now restore 5 () hunger points instead of 6, with a corresponding reduction in saturation restored.
+
+Carrots now restore 3 () hunger points instead of 4, with a corresponding reduction in saturation restored.14w25a
+Eating immediately after attacking no longer continues the swinging animation.14w27a
+Added raw mutton, cooked mutton, raw rabbit, cooked rabbit, and rabbit stew.14w28a
+Cake now has one more slice.14w29a
+Hunger now regenerates when depleted if the difficulty is set to Peaceful.14w30a
+Food is now positioned a little higher and further left during the eating animation in first person view.1.915w31a
+Added chorus fruit, beetroot and beetroot soup.15w40a
+Added saturation boost, where saturation is consumed to heal faster.
+
+Regenerating health now increases exhaustion more.15w44a
+Saturation boost now takes effect only when reaching full hunger (20 ( × 10)).
+
+Enchanted golden apples are no longer craftable, making them no longer renewable.15w49a
+Sneaking now increases exhaustion by 0.005/m, decreased from 0.01/m.1.1116w32a
+Exhaustion rates decreased across the board: Swimming decreased from 0.015/m to 0.01/m, breaking blocks decreased from 0.025/block to 0.005/block, jumping decreased from 0.2/jump to 0.05/jump, sprint jumping decreased from 0.8/jump to 0.2/jump, attacking and taking damage both decreased from 0.3/attack to 0.1/attack, Hunger status effect decreased from 0.5/s to 0.1/s.
+
+Sneaking and walking no longer affect exhaustion.
+
+Exhaustion rate from regeneration is increased from 4.0/half-heart to 6.0/half-heart.
+
+The hunger bar is now visible when riding a boat or a minecart.1.1318w07a
+Added dried kelp.1.1418w43a
+Added suspicious stew.18w49a
+Added sweet berries.1.1519w34a
+Added honey bottles.19w35a
+Honey bottles now remove Poison effect when consumed.19w44a
+Honey bottles can now be crafted with 4 bottles and 1 honey block.19w46a
+All foods can now be consumed in Creative mode.1.1721w05a
+Added glow berries.
+Bedrock Edition
+Pocket Edition Alphav0.4.0
+Added the first food items: apples, bread, mushroom stew, raw beef, steak, raw chicken, cooked chicken, raw porkchops, and cooked porkchop.v0.5.0
+Added melons, melon slices, and melon seeds.v0.7.0
+Added cakes.v0.8.0build 1
+Added pumpkin pie, carrots, potatoes, and baked potatoes.build 2
+Added beetroots and beetroot soup.v0.9.0build 1
+Potatoes and carrots can be obtainable from zombies (rare drop) or harvested.
+
+Added cookies.v0.11.0build 1
+Added rotten flesh as a new drop from zombies. It Poisons the player when eaten.​[more information needed]
+
+Added raw fish, cooked fish, clownfish, and pufferfish.v0.12.1build 1
+Hunger was introduced. Food no longer restores health directly, but the player can regenerate if the hunger meter is 90% or over.
+
+Eating food now restores hunger.
+
+Spiders now drop spider eyes.
+
+Added poisonous potatoes, golden apples, enchanted golden apples and golden carrots.v0.13.0build 1
+The amount of Hunger restored by food is now the same as in Java Edition.
+
+Added raw rabbit, cooked rabbit, and rabbit stew.v0.15.0build 1
+Added raw mutton and cooked mutton.Pocket Edition1.0.0alpha 0.17.0.1
+Added chorus fruit.Bedrock Edition1.4.0beta 1.2.14.2
+Added dried kelp, which is the first food item that restores a different amount of hunger than in Java Edition.1.7.0beta 1.7.0.2
+Food can now be eaten in Creative mode and on Peaceful difficulty.1.10.0beta 1.10.0.3
+Added sweet berries, which is the second food item that restores a different amount of hunger than in Java Edition.1.13.0beta 1.13.0.9
+Added suspicious stew.1.14.0beta 1.14.0.1
+Added honey bottle.1.17.0beta 1.16.220.52
+Added glow berries.1.18.30Preview 1.18.20.26
+The rate that hunger decreases has been changed to better match Java Edition and can now be changed with behavior packs (add-ons).
+Legacy Console Edition
+Legacy Console EditionXbox 360Xbox OnePS3PS4PS VitaWii USwitchTU1CU11.001.001.00Patch 11.0.1
+Added all food from and prior to Java Edition Beta 1.6.6.TU5
+Added the food bar and hunger.
+Added an eating animation and sounds.
+Changed all the text descriptions for food to show how much they refill the food bar.
+Food items are now stackable, except mushroom stew and cake.
+Added raw chicken, cooked chicken, raw beef, steak, melons, and rotten flesh.TU7
+Added spider eyes.TU141.04
+Added enchanted golden apples, potatoes, baked potatoes, poisonous potatoes, carrots, golden carrots, and pumpkin pie.TU31CU191.221.221.22Patch 3
+Added clownfish, raw salmon, cooked salmon, pufferfish, raw mutton, cooked mutton, raw rabbit, cooked rabbit, and rabbit stew.
+Eating immediately after attacking no longer continues the swinging animation.TU43CU331.361.361.36Patch 13
+Food now regenerates health.
+Added beetroots and beetroot soup.TU46CU361.381.381.38Patch 15
+Added chorus fruit.
+Chorus fruits, golden apples and enchanted golden apples can now be eaten in creative mode.TU48CU381.411.411.41Patch 17
+Chorus fruits, golden apples and enchanted golden apples are no longer consumed when eaten in creative mode.[is this the correct version?]TU49CU391.421.421.42Patch 18
+Food is now positioned a little higher and further left during the eating animation in first person view.TU54CU441.521.521.52Patch 241.0.4
+Exhaustion rates decreased across the board: Swimming decreased from 0.015/m to 0.01/m, breaking blocks decreased from 0.025/block to 0.005/block, jumping decreased from 0.2/jump to 0.05/jump, sprint jumping decreased from 0.8/jump to 0.2/jump, attacking and taking damage both decreased from 0.3/attack to 0.1/attack, Hunger status effect decreased from 0.5/s to 0.1/s.
+
+Sneaking and walking no longer affect exhaustion.
+
+Exhaustion rate from regeneration is increased from 0.4/half-heart to 0.6/half-heart.TU69 1.761.761.76Patch 38
+Added dried kelp.  1.91
+Added sweet berries.
+Java Edition Combat Tests
+Java Edition Combat Tests5
+Saturation is no longer capped by the hunger level of the player.
+
+Upon eating food, the player's saturation is always set to the food's provided saturation amount unless their current saturation level exceeds what is obtainable from the food.
+
+Removed saturation boost.
+
+Changed food consumption time from 32 game ticks (1.6 seconds) to 40 game ticks (2 seconds).
+
+The player now received natural regeneration when above a hunger level of 7 () rather than 18 ( × 9)
+
+Natural regeneration now heals every 60 game ticks (3 seconds) instead of every 80 game ticks (4 seconds).
+
+The player now takes damage from starvation every 60 game ticks (3 seconds) instead of every 80 game ticks (4 seconds) when the hunger bar is empty.
+
+Natural regeneration now always drains food points.
+
+The player can now sprint at any hunger value.6
+Reverted food consumption time to 32 ticks (1.6 seconds).
+
+Eating is now interrupted if something hits the player.
+
+Natural regeneration now occurs every 40 game ticks (2 seconds) instead of every 60 game ticks (3 seconds).
+
+The player now takes damage from starvation every 40 game ticks (2 seconds) instead of every 60 game ticks (3 seconds) when the hunger bar is empty.
+
+Natural regeneration now drains food points randomly, at a 50% chance.
+
+Reintroduced the rule that sprinting requires more than 6 points of food.
+Issues
+Issues relating to "Food" are maintained on the bug tracker. Issues should be reported and viewed there.
+
+Gallery
+Mojang screenshots
+
+
+
+			Food being cooked over a campfire
+
+
+
+
+
+
+Notes
+
+ The stew always grants either 5-7 seconds of Blindness, or 7-10 seconds of Night Vision
+
+References
+
+ MC-77962 – Eating / drinking animation does not work in third person mode – resolved as "Invalid".
+
+ "If the the food bar is empty in MC 1.8, it will slowly drop your health to 5 hearts on easy, to 0.5 hearts on normal, and kill you on hard"  – @jeb_ (Jens Bergensten) on X (formerly Twitter), September 6, 2011
+
+ "Experimental Combat Snapshot - version 5"     by Jeb  – Reddit, January 16, 2020. "…food rebalance: Saturation boost…"
+
+ MCPE-52353 – Saturation status effect does not restore saturation points
+
+ MC-201394
+
+ MC-273056
+
+ "[MCPE-56031] Hunger bar depletes too fast – Jira"     – Mojira, November 7, 2019.   Resolved as "Fixed".
+
+Navigation

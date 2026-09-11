@@ -1,0 +1,676 @@
+This article is about files that link to raw item models and configure their rendering.   For raw models that directly define the appearance and shape of items, see Model § Item models.
+
+
+
+This feature is exclusive to Java Edition. 
+
+Contents
+
+1 JSON format
+
+1.1 Items model
+
+2 Items model types
+
+2.1 model
+
+2.1.1 Tint sources types
+
+2.1.1.1 constant
+2.1.1.2 dye
+2.1.1.3 firework
+2.1.1.4 grass
+2.1.1.5 map_color
+2.1.1.6 potion
+2.1.1.7 team
+2.1.1.8 custom_model_data
+
+2.2 composite
+2.3 condition
+
+2.3.1 Boolean property types
+
+2.3.1.1 broken
+2.3.1.2 bundle/has_selected_item
+2.3.1.3 carried
+2.3.1.4 component
+2.3.1.5 damaged
+2.3.1.6 extended_view
+2.3.1.7 fishing_rod/cast
+2.3.1.8 has_component
+2.3.1.9 keybind_down
+2.3.1.10 selected
+2.3.1.11 using_item
+2.3.1.12 view_entity
+2.3.1.13 custom_model_data
+
+2.4 select
+
+2.4.1 Property types
+
+2.4.1.1 block_state
+2.4.1.2 charge_type
+2.4.1.3 component
+2.4.1.4 context_dimension
+2.4.1.5 context_entity_type
+2.4.1.6 display_context
+2.4.1.7 local_time
+2.4.1.8 main_hand
+2.4.1.9 trim_material
+2.4.1.10 custom_model_data
+
+2.5 range_dispatch
+
+2.5.1 Numeric property types
+
+2.5.1.1 bundle/fullness
+2.5.1.2 compass
+2.5.1.3 cooldown
+2.5.1.4 count
+2.5.1.5 crossbow/pull
+2.5.1.6 damage
+2.5.1.7 time
+2.5.1.8 use_cycle
+2.5.1.9 use_duration
+2.5.1.10 custom_model_data
+
+2.6 empty
+2.7 bundle/selected_item
+2.8 special
+
+2.8.1 special model types
+
+2.8.1.1 banner
+2.8.1.2 bell
+2.8.1.3 book
+2.8.1.4 chest
+2.8.1.5 conduit
+2.8.1.6 copper_golem_statue
+2.8.1.7 decorated_pot
+2.8.1.8 end_cube
+2.8.1.9 head
+2.8.1.10 player_head
+2.8.1.11 shield
+2.8.1.12 shulker_box
+2.8.1.13 trident
+
+3 History
+
+3.1 Removed special model types
+
+3.1.1 bed
+3.1.2 standing_sign
+3.1.3 hanging_sign
+
+4 References
+5 Navigation
+
+Items models, commonly referred to as Client Items, Item definitions or Itemstates, are processor files used by the game to define and select which model to use for rendering items, depending of various criteria such as components, item interactions, their position in the inventory, or numerous other in-game values.
+Items models are stored as JSON files in a resource pack in the assets/<namespace>/items folder.
+Which items model is used by an item is based on the component item_model, which references the identifier of the items model at /assets/<namespace>/items/<id>, and can be changed through commands.
+
+JSON format
+
+[NBT Compound / JSON Object] Root object
+[Boolean] hand_animation_on_swap: Optional. Describes if a down-and-up animation should be played in first-person view when the item slot is changed (either type, count, components or by swapping the item into the other hand). Default: true.
+[Boolean] oversized_in_gui: Optional. Describes if the items model is allowed to render bigger than the item slot. If false the render will be clipped to the item slot size. Default: false.
+The ability of items being rendered outside of their slots is not considered officially supported by Mojang. It's a backward compatibility until an official functionality is developed at some point in the future.
+[Float] swap_animation_scale: Optional. Indicates how fast the item moves up and down when swapping items in hotbar. Large speeds can allow items that take more of the screen space to fully duck before swapped into the next item. Default: 1.0.
+[NBT Compound / JSON Object] model: Set the basic Items model object.
+
+Items model
+
+[NBT Compound / JSON Object] An Items model object
+[String] type: One of minecraft:model, minecraft:composite, minecraft:condition, minecraft:select, minecraft:range_dispatch, minecraft:empty, minecraft:bundle/selected_item, or minecraft:special.
+[NBT Compound / JSON Object] transformation: This field uses the same format as the transformation field of the display entity, i.e. either an array of 16 numbers representing a matrix or structure with decomposed translation, scale and rotation info.
+For types with children (minecraft:composite, minecraft:condition, minecraft:select, or minecraft:range_dispatch), the transformation will be composed with the transformation of the children, except for bundle/selected_item.
+Model transformations will be applied AFTER item display transformations (i.e. display section in model files).
+Model transformations is not supported in minecraft:empty, and minecraft:bundle/selected_item type.
+Additional fields depending on value of type, see § Items model types.
+
+Items model types
+model
+Render a plain model from the models directory.
+
+[NBT Compound / JSON Object] Root model items model object
+[String] type: minecraft:model
+[String] model: Specifies the path to the model file of the item, in form of a Namespaced ID.
+[NBT List / JSON Array] tints: Optional. List of tint sources to apply to the elements of rendered model (first entry applies to tintindex 0, second one to tintindex 1, etc.). Elements with no tintindex specified remain untinted.
+[NBT Compound / JSON Object] A tint source object
+[String] type: One of minecraft:constant, minecraft:dye, minecraft:firework, minecraft:grass, minecraft:map_color, minecraft:potion, minecraft:team, or minecraft:custom_model_data.
+Additional fields depending on value of tint source type.
+
+Tint sources types
+constant
+Return a constant RGB color.
+
+[NBT Compound / JSON Object] Root constant tint source object
+[String] type: minecraft:constant
+[Int][NBT List / JSON Array] value: A packed integer RGB value (e.g. -1) or an array of decimal RGB values, each between 0.0 and 1.0 (e.g. [1, 1, 1])
+
+dye
+Return value from dyed_color component or default if not present
+
+[NBT Compound / JSON Object] Root dye tint source object
+[String] type: minecraft:dye
+[Int][NBT List / JSON Array] default: An RGB value.
+
+firework
+Return average of colors from firework_explosion component or default color if there are none.
+
+[NBT Compound / JSON Object] Root firework tint source object
+[String] type: minecraft:firework
+[Int][NBT List / JSON Array] default: An RGB value.
+
+grass
+Return grass color at specific climate parameters, based on textures/colormap/grass.png
+
+[NBT Compound / JSON Object] Root grass tint source object
+[String] type: minecraft:grass
+[Float] temperature: Positive float between 0.0 and 1.0.
+[Float] downfall: Positive float between 0.0 and 1.0.
+
+map_color
+
+
+
+This section describes content that will likely be removed in a future update of Java Edition. 
+This content has been removed in  development versions for Java Edition 26.3, but the full update removing it has not been released yet.
+
+
+Return value from map_color component or default color if component is not present.
+
+[NBT Compound / JSON Object] Root map_color tint source object
+[String] type: minecraft:map_color
+[Int][NBT List / JSON Array] default: An RGB value.
+
+potion
+Return color from potion_contents component:
+
+if component is present:
+custom_color value, if there is one present in component
+default color, if effect list is empty
+average of effect colors
+else, default color
+
+[NBT Compound / JSON Object] Root potion tint source object
+[String] type: minecraft:potion
+[Int][NBT List / JSON Array] default: An RGB value.
+
+team
+Returns the team color of context entity, if any. Else, when there is no context entity, entity is not in a team or team has no color, return default.
+
+[NBT Compound / JSON Object] Root team tint source object
+[String] type: minecraft:team
+[Int][NBT List / JSON Array] default: An RGB value.
+
+custom_model_data
+Return value from colors list in custom_model_data component.
+
+[NBT Compound / JSON Object] Root custom_model_data tint source object
+[String] type: minecraft:custom_model_data
+[Int] index: Optional. Index for field in colors. Default: 0.
+[Int][NBT List / JSON Array] default: An RGB value.
+
+composite
+Render multiple sub-models in the same space.
+
+[NBT Compound / JSON Object] Root composite items model object
+[String] type: minecraft:composite
+[NBT List / JSON Array] models: List of Items model objects to render.
+
+condition
+
+[NBT Compound / JSON Object] Root condition items model object
+[String] type: minecraft:condition
+[String] property: type of boolean property. One of minecraft:broken, minecraft:bundle/has_selected_item, minecraft:carried, minecraft:component, minecraft:damaged, minecraft:extended_view, minecraft:fishing_rod/cast, minecraft:has_component, minecraft:keybind_down, minecraft:selected, minecraft:using_item, minecraft:view_entity, or minecraft:custom_model_data.
+Additional fields depending on value of boolean property type.
+[NBT Compound / JSON Object] on_true: The Items model object when the property is true.
+[NBT Compound / JSON Object] on_false: The Items model object when the property is false.
+
+Boolean property types
+broken
+Return true if the item is damageable and has only one use remaining before breaking.
+No additional fields for this type.
+
+bundle/has_selected_item
+Return true if bundle is "open", i.e. it has selected item visible in GUI.
+No additional fields for this type.
+
+carried
+Return true if item is carried between slots in GUI.
+No additional fields for this type.
+
+component
+Uses component data component predicates to match item components.
+
+additional fields:
+[String] predicate: Type of component predicate (member of minecraft:data_component_predicate_type registry).
+[String][NBT List / JSON Array][NBT Compound / JSON Object] value: Value to match against the predicate. The required data structure depends on the predicate.
+
+damaged
+Return true if the item is damageable and has been used at least once.
+No additional fields for this type.
+
+extended_view
+Return true if player has requested extended details by holding shift key down. Only works when item is displayed in UI. Note: not a keybind, can't be rebound.
+No additional fields for this type.
+
+fishing_rod/cast
+Return true if there is a fishing bobber attached to currently used fishing rod.
+No additional fields for this type.
+
+has_component
+Return true if the given component is present on the item.
+
+additional fields:
+[String] component: Component name.
+[Boolean] ignore_default: Optional. If default component value should be handled as "no component". Default: false.
+
+keybind_down
+Return true if keybind is currently active.
+
+additional fields:
+[String] keybind: Keybind ID, same as value in keybind text component.
+
+selected
+Return true if item is selected on a hotbar.
+No additional fields for this type.
+
+using_item
+Return true if player is currently using this item.
+No additional fields for this type.
+
+view_entity
+When not spectating, return true if context entity is the local player entity, i.e. the one controlled by client.
+When spectating, return true if context entity is the spectated entity.
+If context entity is not present, will return false.
+No additional fields for this type.
+
+custom_model_data
+Return value from flags list in custom_model_data component.
+
+additional fields:
+[Int] index: Optional. Index for field in flags. Default: 0.
+
+select
+Render an items model based on discrete property.
+
+[NBT Compound / JSON Object] Root select items model object
+[String] type: minecraft:select
+[String] property: type of property. One of minecraft:block_state, minecraft:charge_type, minecraft:component, minecraft:context_dimension, minecraft:context_entity_type, minecraft:display_context, minecraft:local_time, minecraft:main_hand, minecraft:trim_material, or minecraft:custom_model_data.
+Additional fields depending on value of property type.
+[NBT List / JSON Array] cases: List of cases to match.
+[NBT Compound / JSON Object] A case to match
+[String][NBT List / JSON Array] when: Value to match against property, type depends on property. If a list, will match any value of them.
+[NBT Compound / JSON Object] model: The Items model object for this case.
+[NBT Compound / JSON Object] fallback: The Items model object if no valid entry was found. Optional, but will render a "missing" error model if not present.
+
+Property types
+block_state
+Return value for some property from block_state component.
+
+additional fields:
+[String] block_state_property: String key to select from component.
+
+Values: Any string.
+
+charge_type
+Return charge type stored in charged_projectiles component.
+No additional fields for this type.
+Values:
+
+none: If there are no projectiles or component is not present.
+rocket: If there is at least one firework rocket.
+arrow: Any other case.
+component
+Return value from a component. If the selected value comes from a registry and the current datapacks does not provide it, the entry will be silently ignored.
+
+additional fields:
+[String] component: Namespaced ID of the component type.
+
+Values: Depends on the target component type.
+
+context_dimension
+Return the ID of the dimension in context, if any.
+No additional fields for this type.
+Values: Namespaced dimension ID.
+
+context_entity_type
+Return the holding entity type, if present.
+No additional fields for this type.
+Values: Namespaced entity type ID.
+
+display_context
+Return context this item is rendered in.
+No additional fields for this type.
+Values:
+
+none
+thirdperson_lefthand
+thirdperson_righthand
+firstperson_lefthand
+firstperson_righthand
+head
+gui
+ground
+fixed
+on_shelf
+local_time
+Returns the current time formatted according to a given pattern. The value is updated every second. For full format documentation for locale, time zone and pattern, see ICU (International Components for Unicode) documentation.
+
+additional fields:
+[String] locale: Optional. A Unicode locale identifier (LDML 1.7). Defaults to "", which results in the "root" locale (a set of defaults, including English names).
+en_US: English language (used for things like week names), formating as in USA.
+cs_AU@numbers=thai;calendar=japanese: Czech language, Australian formatting, Thai numerals and Japanese calendar.
+[String] time_zone: Optional. A time zone code. Defaults to the client timezone. Also see the ICU4J TimeZone documentation.
+Examples: Europe/Stockholm, GMT+0:45
+[String] pattern: Describes format to be used for time formatting. See the corresponding Unicode Technical Standard for details.
+yyyy-MM-dd: 4-digit year number, then 2-digit month number, then 2-digit day of month number, all zero-padded if needed, separated by -.
+HH:mm:ss: current time (hours, minutes, seconds), 24-hour cycle, all zero-padded to 2 digits of needed, separated by :.
+
+Values: Any string.
+
+main_hand
+Return main hand of holding player.
+No additional fields for this type.
+Values: left, or right.
+
+trim_material
+Return value of material field from trim component, if present.
+No additional fields for this type.
+Values: Namespaced ID trim material.
+
+custom_model_data
+Return value from strings list in custom_model_data component.
+
+additional fields:
+[Int] index: Optional. Index for field in strings. Default: 0.
+
+Values: Any string.
+
+range_dispatch
+Render an items model based on numeric property. Will select last entry with threshold less or equal to property value.
+
+[NBT Compound / JSON Object] Root range_dispatch items model object
+[String] type: minecraft:range_dispatch
+[String] property: type of numeric property. One of minecraft:bundle/fullness, minecraft:compass, minecraft:cooldown, minecraft:count, minecraft:crossbow/pull, minecraft:damage, minecraft:time, minecraft:use_cycle, minecraft:use_duration, or minecraft:custom_model_data.
+Additional fields depending on value of numeric property type.
+[Float] scale: Optional. Factor to multiply property value with. Default: 1.0.
+[NBT List / JSON Array] entries:
+[NBT Compound / JSON Object] An entry object
+[Float] threshold: Threshold float value to select this entry.
+[NBT Compound / JSON Object] model: The Items model object for this threshold.
+[NBT Compound / JSON Object] fallback: The Items model object if no valid entry was found. Optional, but will render a "missing" error model instead.
+
+Numeric property types
+bundle/fullness
+Return weight of bundle_contents component or 0 if not present.
+No additional fields for this type.
+
+compass
+Return an angle, scaled from 0.0 to 1.0 in x-z plane between holder position and target. If target is not valid (not present, in other dimension or too close to holder position) random value will be returned.
+
+additional fields:
+[String] target: One of:
+spawn: points at world spawn.
+lodestone: points at location stored in lodestone_tracker component.
+recovery: points at last player death location.
+none: always return an invalid target.
+[Boolean] wobble: Optional. If true, value will oscillate for some time around target before settling. Default: true.
+
+cooldown
+Return remaining cooldown for item, scaled between 0.0 to 1.0.
+No additional fields for this type.
+
+count
+Return stack size.
+
+additional fields:
+[Boolean] normalize: Optional. Default: true.
+If true, return count divided by max_stack_size component, clamped to 0.0 to 1.0.
+If false, return count clamped to 0 to minecraft:max_stack_size.
+
+crossbow/pull
+Return crossbow-specific use time.
+No additional fields for this type.
+
+damage
+Return value for damage component or 0 if not present.
+
+additional fields:
+[Boolean] normalize: Optional. Default: true.
+If true, return value of damage divided by max_damage component, clamped to 0.0 to 1.0.
+If false, return raw value of damage, clamped to 0 to max_damage.
+
+time
+Return value of an in-game time, scaled between 0.0 to 1.0.
+
+additional fields:
+[String] source: Time source to return. One of daytime, moon_phase, or random. For daytime, the source value is the minecraft:visual/sun_angle environment attribute divided by 360.0, meaning 0.0 represents noon and 0.5 represents midnight. For moon_phase, the source value is the minecraft:visual/moon_phase environment attribute, with full_moon, waning_gibbous, third_quarter, waning_crescent, new_moon, waxing_crescent, first_quarter, and waxing_gibbous mapped to 0⁄8, 1⁄8, 2⁄8, 3⁄8, 4⁄8, 5⁄8, 6⁄8, and 7⁄8 respectively. In both cases, the source value will default to 0.0 in locations that don't specify those environment attributes, like the Nether and the End. For random, the source value is a new random value every frame.
+[Boolean] wobble: Optional. If false, source value will be used directly. If true, value will oscillate for some time around source value before settling. Default: true.
+
+use_cycle
+Return remaining use ticks modulo period.
+
+additional fields:
+[Float] period: Optional. Must be positive. Default 1.0.
+
+use_duration
+Return item use ticks.
+
+additional fields:
+[Boolean] remaining: Optional. If true, returned value will be remaining use ticks, if false - ticks so far. Default: false.
+
+custom_model_data
+Return value from floats list in custom_model_data component or 0 if not present.
+
+additional fields:
+[Int] index: Optional. Index for field in floats. Default: 0.
+
+empty
+Does not render anything.
+No additional fields for this type.
+
+bundle/selected_item
+Render the selected stack in bundle_contents component, if present, otherwise does nothing.
+No additional fields for this type.
+
+special
+Render a special model.
+
+[NBT Compound / JSON Object] Root special items model object
+[String] type: minecraft:special
+[NBT Compound / JSON Object] model
+[String] type: type of special model. One of minecraft:banner, minecraft:bed, minecraft:bell, minecraft:book, minecraft:chest, minecraft:conduit, minecraft:copper_golem_statue, minecraft:decorated_pot, minecraft:end_cube, minecraft:head, minecraft:player_head, minecraft:shield, minecraft:shulker_box, minecraft:standing_sign, minecraft:hanging_sign, or minecraft:trident.
+Additional fields depending on value of special model type.
+[String] base: Namespaced ID of model in models directory, to providing transformations, particle texture and GUI light.
+
+special model types
+banner
+Render a banner with patterns from banner_patterns component.
+
+[NBT Compound / JSON Object] Root banner special type object
+[String] type: minecraft:banner
+[String] attachment: Optional. Selects a model to be used, one of ground, or wall. Default: ground.
+[String] color: Color of the banner base, one of 16 predefined colors.
+
+bell
+Render the animated part of a Bell block.
+No additional fields for this type.
+
+book
+Render the book that normally is a part of Enchanting Table and Lectern.
+
+[NBT Compound / JSON Object] Root book special type object
+[String] type: minecraft:book
+[Int] open_angle: Angle (in degrees) between the book cover and the centerline (0 means closed, 90 means open flat)
+[Float] page1: Define the positions of the page inside the book, 0.0 means that the page is at the leftmost position, 1.0 at the rightmost position.
+[Float] page2: Same values than for page1 field.
+
+chest
+Render a single chest.
+
+[NBT Compound / JSON Object] Root chest special type object
+[String] type: minecraft:chest
+[String] texture: Namespaced ID for the texture in the chests texture atlas without the .png suffix. By default this includes textures in textures/entity/chest/, without the prefix.
+[String] chest_type: Optional. Selects a model to be used, one of single, left, or right. Default: single.
+[Float] openness: Optional. Render the chest in the specified open state, between 0.0 (fully closed) to 1.0 (fully open). Default: 0.0.
+
+conduit
+Render conduit.
+No additional fields for this type.
+
+copper_golem_statue
+Render a copper golem statue.
+
+[NBT Compound / JSON Object] Root copper_golem_statue special type object
+[String] type: minecraft:copper_golem_statue
+[String] pose: One of sitting, running, star, or standing.
+[String] texture: Namespaced ID for the texture with the .png suffix.
+
+decorated_pot
+Render a decorated pot. Uses values from pot_decorations component.[verify]
+No additional fields for this type.
+
+end_cube
+Render a block-sized starfield cube.
+
+[NBT Compound / JSON Object] Root end_cube special type object
+[String] type: minecraft:end_cube
+[String] effect: Select the specific effect to apply between gateway, or portal.
+
+head
+Render a head.
+
+[NBT Compound / JSON Object] Root head special type object
+[String] type: minecraft:head
+[String] kind: One of skeleton, wither_skeleton, player, zombie, creeper, piglin, or dragon.
+[String] texture: Optional. Namespaced ID for the texture, without textures/entity/ prefix and .png suffix.
+If absent, default texture will be used, depending on kind field.
+[Float] animation: Optional. Controlling head animation if available for this kind of head (like Piglin ears or Ender Dragon jaw). Default: 0.0.
+The dragon animation is 10 units long. Mouth fully closed at -2.5 and fully open at 2.5 .
+The piglin ears wiggle out of sync. The left ear period is 8.3333 and right ear period is 10.0.
+
+player_head
+Render a player head. Use the data into the profile component to select the texture to render.
+No additional fields for this type.
+
+shield
+Render a shield. Uses patterns from banner_patterns component and color from base_color component.
+No additional fields for this type.
+
+shulker_box
+Render a shulker box.
+
+[NBT Compound / JSON Object] Root shulker_box special type object
+[String] type: minecraft:shulker_box
+[String] texture: Namespaced ID for the texture in the shulker boxes texture atlas without the .png suffix. By default this includes textures in textures/entity/shulker/, without the prefix.
+[Float] openness: Optional. Render the shulker box in the specified open state, between 0.0 (fully closed) to 1.0 (fully open). Default: 0.0.
+
+trident
+Render a trident.
+No additional fields for this type.
+
+History
+Java Edition1.21.424w45a
+Added Item model definitions.24w46a
+Added holder_type property types.
+
+Added keybind_down boolean property types.
+
+Added standing_sign and hanging_sign special model types.
+
+Added texture field to head special model types.
+
+Removed xmas boolean property, replaced by local_time property model types.
+
+Removed shift_down boolean property, replaced by extended_view boolean property.
+Pre-Release 1
+Added hand_animation_on_swap field to items model definition.
+
+Added empty item model type.
+
+Added team tint sources type.
+
+Added context_dimension property type.
+
+Added view_entity boolean property type.
+
+Renamed holder_type to context_entity_type property type.
+
+Removed natural_only field and added source field in time numeric property type.
+
+Added none to possible values for target field  in compass numeric property type.
+
+Added animation field to head special model type.
+1.21.525w03a
+Added component property type.25w04a
+Added component boolean property type.1.21.6Pre-Release 1
+Removed the support of loading profile data for head special type to render player head.
+
+Added player_head special type.
+
+Added oversized_in_gui field to items model definition.
+1.21.925w31a
+Added copper_golem_statue special type.25w33a
+Added on_shelf display context.1.21.1125w41a
+Added swap_animation_scale field to items model definition.26.1snap11
+Added transformation field to Items model object.
+
+Added bell, and book special model types.
+
+Added attachment field to banner, and hanging_sign special model types.
+
+Added attachement [sic] field to standing_sign special model type.
+
+Added part field to bed special model type.
+
+Added chest_type field to chest special model type.
+
+Removed orientation field from shulker_box special model type.pre1
+Added end_cube special model types.26.2snap3
+Removed the bed special model type.snap7
+Removed standing_sign, and hanging_sign special model types.Upcoming Java Edition26.3snap7
+Removed the map_color tint sources type.
+Removed special model types
+bed
+Render one half of a bed. To render both halves, and so the whole bed, use a minecraft:composite model.
+Version added: 24w45a. Version removed: 26.2 snapshot 3.
+
+[NBT Compound / JSON Object] Root bed special type object
+[String] type: minecraft:bed
+[String] part: Select the half to render between head, or foot.
+[String] texture: Namespaced ID for the texture in the beds texture atlas without the .png suffix. By default this includes textures in textures/entity/bed/, without the prefix.
+
+standing_sign
+Renders a standing sign.
+Version added: 24w46a. Version removed: 26.2 snapshot 7.
+
+[NBT Compound / JSON Object] Root standing_sign special type object
+[String] type: minecraft:standing_sign
+[String] attachement [sic]: Optional. Selects a model to be used, one of wall, or ground. Default: ground.
+[String] wood_type: One of oak, spruce, birch, acacia, cherry, jungle, dark_oak, pale_oak, mangrove, bamboo, crimson, or warped.
+[String] texture: Optional. Namespaced ID for the texture in the signs texture atlas without the .png suffix. By default this includes textures in textures/entity/signs/, without the prefix. If present, wood_type field is ignored.
+
+hanging_sign
+Renders a hanging sign.
+Version added: 24w46a. Version removed: 26.2 snapshot 7.
+
+[NBT Compound / JSON Object] Root hanging_sign special type object
+[String] type: minecraft:hanging_sign
+[String] attachment: Optional. Selects a model to be used, one of wall, ceiling, or ceiling_middle. Default: ceiling_middle.
+[String] wood_type: One of oak, spruce, birch, acacia, cherry, jungle, dark_oak, pale_oak, mangrove, bamboo, crimson, or warped.
+[String] texture: Optional. Namespaced ID for the texture in the signs texture atlas without the .png suffix. By default this includes textures in textures/entity/signs/, without the prefix. If present, wood_type field is ignored.
+
+References
+
+ Name from the official name ("Item model", 24w45a news) and file directory (assets/<namespace>/items).
+
+ "Minecraft 1.21.6 Pre-Release 1"     – Minecraft.net, May 28, 2025.
+
+ News in Resource Pack Version 46 (1.21.4 Pre-Release 1)
+
+ The JSON field name is misspelled as "attachement" instead of "attachment" in the game's source code.
+
+Navigation

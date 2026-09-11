@@ -1,0 +1,9 @@
+[NBT Compound / JSON Object] direct_entity: The entity that was the direct cause of the damage.
+entity predicate see Template:Nbt inherit/conditions/entity/template
+[NBT Compound / JSON Object] source_entity: Checks the entity that was the source of the damage (for example: The skeleton that shot the arrow).
+entity predicate see Template:Nbt inherit/conditions/entity/template
+[Boolean] is_direct: If true, checks if the damage is direct (i.e. the direct and source entities are the same), if false checks if the damage is not direct. Omitted to not check.
+[NBT List / JSON Array] tags: An array of objects containing damage type tags that the type of the damage should be included in.
+[NBT Compound / JSON Object]: An object representing a damage type tag.
+[String] id: The resource location of the tag.​[until: JE 26.3] / a single namespaced ID, a list of namespaced IDs, or a hash-prefixed tag ID of a minecraft:damage_type type.​[upcoming: JE 26.3]
+[Boolean] expected: Whether this tag should be present on the damage type.

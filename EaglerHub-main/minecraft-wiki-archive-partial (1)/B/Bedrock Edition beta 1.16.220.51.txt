@@ -1,0 +1,120 @@
+beta 1.16.220.51
+
+Edition
+
+Bedrock Edition
+
+Release date
+
+Xbox, Windows 10, Android: March 11, 2021
+
+Internal version
+
+Windows: 1.16.22051.0
+Xbox One: 1.16.22051.70
+Android: 1.16.220.51
+
+Type
+
+Beta
+
+Beta for
+
+1.16.220
+
+Protocol version
+
+430
+
+◄◄   1.16.210
+1.16.220
+  1.16.221 ►►
+
+◄   beta 1.16.220.50
+
+ beta 1.16.220.51
+
+  beta 1.16.220.52 ►
+
+{
+    "title": "beta 1.16.220.51",
+    "images": [
+        "Bedrock 1.16.220.51 PatchNotes.jpg",
+        "Bedrock 1.16.220.51.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Bedrock Edition article, displayed as Bedrock Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "'''Xbox, Windows 10, Android:''' March 11, 2021",
+            "label": "Release date"
+        },
+        {
+            "field": "'''Windows''': 1.16.22051.0<br>\n'''Xbox One''': 1.16.22051.70<br>\n'''Android''': 1.16.220.51<br>",
+            "label": "Internal version"
+        },
+        {
+            "field": "Beta",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Bedrock Edition 1.16.220 article, displayed as 1.16.220)",
+            "label": "Beta for"
+        },
+        {
+            "field": "430",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Bedrock Edition  1.16.210|<span style=\"margin-right:-0.35em\">◄</span>◄   1.16.210]]</td>\n<td style=\"padding: 0.4em\">'''[[Bedrock Edition 1.16.220|1.16.220]]'''</td>\n<td style=\"padding: 0.4em\" >[[Bedrock Edition  1.16.221|  1.16.221 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Bedrock Edition  beta 1.16.220.50|◄   beta 1.16.220.50]]\n</td>\n<td style=\"padding: 0.4em\">''' beta 1.16.220.51'''</td>\n<td style=\"padding: 0.4em\">\n[[Bedrock Edition  beta 1.16.220.52|  beta 1.16.220.52 ►]]\n</td>\n</tr>\n</table>"
+}
+
+Beta 1.16.220.51 is the second beta version for Bedrock Edition 1.16.220, released on March 11, 2021, which had technical changes and fixes bugs.
+
+Contents
+
+1 Changes
+
+1.1 Technical
+
+2 Fixes
+3 References
+4 Navigation
+
+Changes
+Technical
+GameTest Framework
+
+Renamed all references of Actor to Entity.
+Renamed BlockPos to BlockLocation.
+Added startSequence in GameTest which allows finer control over advanced test sequences.
+GameTest sequence callbacks no longer take tests a parameter as the initial test object now lives as long as the whole test.
+Fixes
+General
+
+Sounds of ditching/collecting Powder Snow with bucket are now assigned to the correct sound categories (MCPE-111739).
+Player no longer constantly emits particles when on fire after exiting Powder Snow (MCPE-111679).
+Powder Snow block is no longer present in Creative Menu (MCPE-105407).
+Fixed Drowned holding tridents backwards during attack (MCPE-118213).
+Enabled "Find Friends" button on Xbox.
+Performance and Stability
+
+Improved input latency on Windows 10 when V-Sync is enabled (MCPE-98861).
+Accessibility
+
+Fixed a bug where UI screen reader didn't read out default controller focus and checkbox state on the Online Play is not Rated pop-up.
+Technical
+
+Updated behavior packs to require explicit module dependencies when using other native modules.
+Identifiers within render_controllers will now be considered content errors if there is no render controller matching that name.
+Entity json before version 1.16.100 will no longer give a content error for the deprecated field minecraft:foot_size.
+Modified condition in "animation_controllers.json" to allow mobs to enter "wield_third_person_raise" (MCPE-118213).
+Fixed an issue where loading into a world would cause continuous molang errors around "unhandled request for unknown variable".
+References
+
+ "Minecraft Beta - 1.16.220.51 (Xbox One/Windows 10/Android)"     – Minecraft Feedback, March 11, 2021.
+
+Navigation

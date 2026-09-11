@@ -1,0 +1,256 @@
+/locate
+
+Permission levelrequired
+
+2 ‌[JE  only]
+1 ‌[BE  only]
+
+Restrictions
+
+Cheat only‌[BE  only]
+
+{
+    "title": "<code>/locate</code>",
+    "rows": [
+        {
+            "field": "\n* 2 ‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Java Edition\">(link to Java Edition article, displayed as JE)  only</span></i>]</sup>\n* 1 ‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Bedrock Edition\">(link to Bedrock Edition article, displayed as BE)  only</span></i>]</sup>",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "(link to Cheat article, displayed as Cheat) only‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Bedrock Edition\">(link to Bedrock Edition article, displayed as BE)  only</span></i>]</sup>",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+Displays the coordinates for the closest generated structure or biomes of a given type in the chat for the player who executed the command. In Java Edition, it can also display for the closest points of interest.​[upcoming: BE]
+
+Contents
+
+1 Usage
+2 Syntax
+3 Arguments
+4 Result
+5 Output
+6 Examples
+7 History
+
+7.1 Java Edition
+7.2 Bedrock Edition
+
+8 References
+9 External links
+10 Navigation
+
+Usage
+For /locate structure ..., the vertical coordinate of structure is ignored when finding. In Java Edition, the horizonal search range is 201x201 units of the Structure's spacing (see Default structure sets for values). For example, Mansions have a spacing of 80 chunks, so it can search out ±128,000 blocks before failure. For concentric ring structures like Strongholds, there is no set max distance. Structures within the same structure set are ordered approximately by taxicab distance, and structures with greater spacing have prioritized over others due to a bug, meaning the found structure is not necessarily the closest.
+For /locate biome ..., the horizonal search resolution is 32 blocks, and vertical resolution is 64 blocks, which means biomes that are too narrow may not be found. The horizonal search range is 12801×12801 blocks in Java Edition.​[more information needed]
+In Java Edition, for /locate poi ..., the search range is a sphere with a radius of 256 blocks.
+When locating structure or POI, if successful, the following message is sent to chat: "The nearest <requested thing(s)> is at [<x> ~ <z>] (<distance> blocks away)", in which <distance> is the horizontal distance from the executor.
+When locating biome, if successful, the following message is sent to chat: "The nearest <requested biome(s)> is at [<x> <y> <z>] (<distance> blocks away)", in which <distance> is the distance from the executor to the biome.
+In Java Edition, the coordinates in these messages can be clicked, which can put the command /tp @s <x> ~ <z> in the chat box. The command can then be executed, and the player is sent to those coordinates. Also, in Java Edition, this message does not appear if the command was run from a function.
+
+Syntax
+Java Edition
+/locate structure <structure>
+/locate biome <biome>
+/locate poi <poi>
+Bedrock Edition
+/locate structure <structure: Structure> [useNewChunksOnly: Boolean]
+/locate biome <minecraft: Biome>
+Arguments
+JE : <biome>: resource_or_tag
+BE: biome: Biome: enum
+
+Specifies the biome to locate. In Java Edition, this argument also supports biome tags.
+In Java Edition, must be an existing registered resource location or tag in minecraft:worldgen/biome registry. In Bedrock Edition, must be an ID of a biome (with namespace)
+JE (case-sensitive): <structure>: resource_or_tag_key
+BE: structure: Structure: enum
+
+Specifies the structure to locate. See Generated structures#Data values.
+In Java Edition, must be a resource location or a tag, which resolves during command execution into an entry or tag in minecraft:worldgen/structure registry. In Bedrock Edition, must be an ID of a generated structure (without namespace)
+BE: useNewChunksOnly: Boolean: enum
+
+Specifies if a structure of any type wants to be located in new chunks only (true) or not (false), and it's false by default.
+Must be a [Boolean]Boolean (either true or false).
+JE : <poi>: resource_or_tag
+
+Specifies the point of interest to locate.
+Must be an existing registered resource location or tag in minecraft:point_of_interest_type registry.
+The following are resource locations of POIs:
+
+Point of Interest
+ID
+
+Blast Furnace
+
+armorer
+
+Bee nest
+
+bee_nest
+
+Beehive
+
+beehive
+
+Smoker
+
+butcher
+
+Cartography Table
+
+cartographer
+
+Brewing Stand
+
+cleric
+
+Composter
+
+farmer
+
+Barrel
+
+fisherman
+
+Fletching Table
+
+fletcher
+
+Bed
+
+home
+
+Cauldron
+
+leatherworker
+
+Lectern
+
+librarian
+
+Lightning Rod
+
+lightning_rod
+
+Lodestone
+
+lodestone
+
+Stonecutter
+
+mason
+
+Bell
+
+meeting
+
+Nether Portal
+
+nether_portal
+
+Loom
+
+shepherd
+
+Smithing Table
+
+toolsmith
+
+Grindstone
+
+weaponsmith
+
+This argument also supports point of interest type tags, as following:
+
+Tag
+
+Includes
+
+#acquirable_job_site
+
+armorer
+butcher
+cartographer
+cleric
+farmer
+fisherman
+fletcher
+leatherworker
+librarian
+mason
+shepherd
+toolsmith
+weaponsmith
+
+#bee_home
+
+bee_nest
+beehive
+
+#village
+
+#acquirable_job_site
+home
+meeting
+
+Result
+
+CommandTriggerJava EditionBedrock Edition
+
+AnyThe command is incomplete, or any argument is not specified correctly. Unparseable Unparseablelocate structure ...The specified resource location or tag is not a valid structure or structure tag. Failed N/AThe requested structure doesn't generate in this dimension. FailedUnable to locate the requested structure within a square of 201×201 units of the Structure's Spacing.[needs testing in Bedrock Edition].locate biome ...Unable to locate the requested biome within a square of 12801×12801 blocks[needs testing in Bedrock Edition].locate poi ...Unable to locate the requested poi within a ball with a radius of 256 blocks. N/AAnyOtherwiseSuccessful
+Output
+
+CommandEditionSituationSuccess Count/execute store success .../execute store result ...
+
+AnyJava EditionOn fail000locate structure ...locate poi ...On success11horizontal distancebetween the executor and the requested structure or POIlocate biome ...On success11distance between the executor and the requested biomeAnyBedrock EditionOn fail0N/AN/AOn success1N/AN/A
+Examples
+To obtain the coordinates of the nearest woodland mansion: /locate structure mansion
+To obtain the coordinates of the nearest pillager outpost in new chunks only: /locate structure pillager_outpost true‌[Bedrock Edition  only]
+To obtain the coordinates of the nearest village of any kind: /locate structure #village‌[Java Edition  only]//locate structure village‌[Bedrock Edition  only]
+To obtain the coordinates of the nearest desert biome: /locate biome desert
+To obtain the coordinates of the nearest point of interest used by villagers: /locate poi #village‌[Java Edition  only]
+History
+Java Edition
+Java Edition1.1116w39a
+Added /locate.1.1317w45a
+The y-coordinate is now returned as 64 instead of ?.
+The result of the command, used by /execute store, is the absolute distance to the structure.1.1318w06a
+/locate now accepts different structure names for all structures previously grouped under Temple: Desert_Pyramid, Igloo, Jungle_Pyramid, and Swamp_Hut.18w08a
+Added a clickable teleport link to the /locate command output.1.1418w47a
+/locate now accepts Pillager_Outpost.18w48a
+/locate now accepts New_Village.19w02a
+/locate no longer accepts New_Village.1.1620w11a
+Nether fossils can now be located.20w21a
+Structure names are now specified as lowercase.1.18.222w03a
+/locate now uses a namespace ID parameter instead of hard coded values.Pre-release 1
+/locate now support tags, using # prefix to distinguish from normal IDs.
+
+The parameter is now a configured structure rather than a structure type.1.1922w19a
+/locatebiome has been merged with /locate.
+Added the ability to locate points of interest.Upcoming Java Edition26.3snap10
+Improved the performance when trying to locate structures.
+Bedrock Edition
+Pocket Edition1.0.0alpha 0.17.0.1
+Added /locate.alpha 0.17.0.2
+Removed /locate.alpha 1.0.0.0
+Re-added /locate. Works only for strongholds.1.1.0alpha 1.1.0.0
+/locate can now find other structures.Bedrock Edition?
+/locate can no longer locate structures that generate outside of the world boundary in old worlds.1.19.10Preview 1.19.10.23
+/locate can now find biomes.1.19.30Preview 1.19.30.20
+The original command /locate <feature: Structure> is no longer used.Preview 1.19.30.21
+Added new structure names with underscores like ancient_city, bastion_remnant, buried_treasure, end_city, pillager_outpost, and ruined_portal.1.21.100Preview 1.21.100.20
+/locate biome now requires that the biome's namespace is specified (ex: minecraft:plains instead of just plains). Auto-complete suggestions for this command will now include namespaces.Upcoming Bedrock Edition26.50ExperimentPoints of Interest (POI)Preview 26.50.26
+/locate can now locate points of interest, using /locate poi.
+References
+
+ MC-138887
+
+ MC-298295 – resolved as "Works as Intended".
+
+External links
+"/locate Command"     – Microsoft Learn, June 10, 2025.
+Navigation

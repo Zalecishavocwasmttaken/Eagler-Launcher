@@ -1,0 +1,178 @@
+For the Java Edition version of this guide, see Java Edition guides/Bats and Pots.
+
+Bats and Pots
+
+Edition
+
+Bedrock Edition
+
+Official name
+
+Bats and Pots
+
+Version(s)
+
+1.20.50
+1.20.51
+1.20.60
+1.20.62
+1.20.70
+1.20.71
+1.20.72
+1.20.73
+
+◄ Trails & TalesArmored Paws ►
+
+{
+    "title": "Bats and Pots",
+    "images": [],
+    "rows": [
+        {
+            "field": "''(link to Bedrock Edition article, displayed as Bedrock Edition)''",
+            "label": "Edition"
+        },
+        {
+            "field": "(link to Bats and Pots article, displayed as Bats and Pots)",
+            "label": "Official name"
+        },
+        {
+            "field": "<ul class=\"hlist\"><li>\n* (link to Bedrock Edition 1.20.50 article, displayed as 1.20.50)\n* (link to Bedrock Edition 1.20.51 article, displayed as 1.20.51)\n* (link to Bedrock Edition 1.20.60 article, displayed as 1.20.60)\n* (link to Bedrock Edition 1.20.62 article, displayed as 1.20.62)\n* (link to Bedrock Edition 1.20.70 article, displayed as 1.20.70)\n* (link to Bedrock Edition 1.20.71 article, displayed as 1.20.71)\n* (link to Bedrock Edition 1.20.72 article, displayed as 1.20.72)\n* (link to Bedrock Edition 1.20.73 article, displayed as 1.20.73)</li></ul>",
+            "label": "Version(s)"
+        }
+    ],
+    "invimages": [],
+    "footer": "<span style=\"display:inline-block; padding:0 .4em;\">[[bedrock Edition guides/Trails & Tales|◄ Trails & Tales]]</span><span style=\"display:inline-block; padding:0 .4em;\">[[bedrock Edition guides/Armored Paws |Armored Paws ►]]</span>"
+}
+
+This guide is a simplified overview of all non-experimental changes in the Bats and Pots drop (Bedrock Edition 1.20.50 to 1.20.73), which assumes at least some familiarity with Trails & Tales (Bedrock Edition 1.20.0 to 1.20.41), excluding experimental features in these versions.
+
+Contents
+
+1 Mobs
+
+1.1 Changed
+
+2 Blocks
+
+2.1 Changed
+
+3 Items
+
+3.1 Changed
+
+4 Non-mob Entities
+
+4.1 Changed
+
+5 Gameplay
+
+5.1 Changed
+
+6 Navigation
+
+Mobs
+Changed
+
+Name
+Image
+Changed
+
+General
+
+Mobs on fire no longer spread fire to their target when holding something in their main hand.
+Changed mob attack reach calculation.
+In horizontal directions, mobs' attack reach are now their bounding box extended in horizontal directions, instead of using horizontal width to determine.
+For example, a ravager won't be able to attack through a few block thick walls.
+In vertical directions, mobs' attack reach are now the exact vertical range of their bounding box. When there's no overlap between their bounding box and their target's bounding box in vertical direction, they can not attack, in specific:
+Riding a medium-sized mob (e.g. horse) can get rid of attacks from short mobs (e.g. baby zombie).
+Riding a tall mob (e.g. camel) can get rid of attacks from standard size mobs (e.g. zombie).
+Some mob's reaching height now extended (e.g. enderman, safety height changed from 1.5 to 3).
+
+Bat
+
+Their model, animations, and texture have been updated.
+
+Zoglin
+
+Now despawn in Peaceful difficulty.
+
+Wolf
+
+Wolves can now withstand the same amount of damage as in Java Edition.
+Rather than halving all damage dealt to tamed wolves by entities other than players or arrows.
+Increased the maximum health of tamed wolves from 20HP × 10 to 40HP × 20. Pre-existing tamed wolves need to be fed to reach the new maximum health.
+To ensure the healing rate remains consistent, the health restored by feeding wolves has been doubled.
+
+Blocks
+Changed
+
+Name
+Image
+Changed
+
+Chorus flower
+
+Now can be destroyed by any projectile, which will no longer disappear after impact.
+
+Decorated pot
+
+Now can store items, up to a single stack of items.
+Now can be smashed by projectiles, which cause them to shatter and drop their contents.
+Now can stack up to 64.
+Updated the shatter, break, and step sounds to be "smashier".
+
+Frosted ice
+
+No longer leaves water in the world when mined with a Silk Touch tool.
+
+Hopper anddropper
+
+
+
+Now can insert and/or extract items from decorated pots.
+
+Redstone comparator
+
+Now can read the number of items in decorated pots.
+
+Sculk sensor and  calibrated sculk sensor
+
+Now can detect players interacting with decorated pots, with frequency 11.
+
+Items
+Changed
+
+Name
+Image
+Changed
+
+Smithing templates
+
+Armor trims can now be applied to custom armor.
+
+Suspicious stew
+
+Suspicious stew can now be eaten even if the player is at full hunger.
+
+Non-mob Entities
+Changed
+
+Name
+Image
+Changed
+
+Minecart with hopper
+
+Now can insert and/or extract items from decorated pots.
+
+Gameplay
+Changed
+
+Name
+Changed
+
+Raid
+
+Raid mobs can now join existing raids.
+
+Navigation

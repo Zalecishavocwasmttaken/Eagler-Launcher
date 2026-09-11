@@ -1,0 +1,405 @@
+This feature is exclusive to Java Edition. 
+
+Item modifiers (also known as loot modifiers) can be used to apply modifications to item stacks, such as adjusting the stack size or adding enchantments. They can be defined in datapacks as JSON files, or used in loot tables. The /item command also accepts item modifiers in SNBT format.
+A single modification in item modifiers is called item function or loot function.
+
+Contents
+
+1 Definition
+2 Usage
+
+2.1 Commands
+2.2 Loot tables
+
+3 Format
+
+3.1 Function types
+
+4 History
+5 Issues
+6 References
+7 External links
+8 Navigation
+
+Definition
+An item modifier is a single loot function or an array of loot functions to apply to the item. The root element of an item modifier can be either an [NBT Compound / JSON Object] JSON object or NBT compound tag, following the structure of a loot function below, or an [NBT List / JSON Array] JSON array or NBT list, containing multiple loot functions.
+Item modifiers are defined using the JSON format in data packs, or the SNBT format in /item command.
+Item modifiers defined in data packs in the following directory structure, highlighted below:
+
+ data pack name.zip or  data pack name
+ pack.mcmeta
+ data
+ namespace
+ item_modifier
+ <name>.json
+More directories…
+
+Usage
+Commands
+Item modifiers can be invoked with the /item command. When doing so, it is required to specify a target slot to invoke the modifier upon, either an item inside a container block's contents, or inside an entity's inventory.
+There are two variations of this command: /item modify invokes a modifier alone upon the target slot, /item replace replaces the item in the target slot with another and subsequently invokes a modifier upon it.
+
+/item modify (block <pos> | entity <targets>) <slot> <modifier>
+/item replace (block <pos> | entity <targets>) <slot> from (block <pos> | entity <targets>) [<modifier>]
+Loot tables
+In loot tables, item modifiers can be defined without the need for a separate file; however, separate files can also be explicitly referenced using the reference function.
+
+Format
+The format of a single item modifier is:
+
+[NBT Compound / JSON Object] Root object
+[String] function: Resource location of the loot function type to apply. Valid function types are described below.
+[NBT List / JSON Array] conditions: A list of predicates, of which all must pass, for this function to be applied.
+[NBT Compound / JSON Object] A predicate. The structure is described on the Predicates page.
+Other parameters of the function, described below.
+
+Multiple modifiers may be bundled into one by placing them into a JSON array or an NBT list. In this case, all listed modifiers are applied in sequence, similar to the sequence modifier type.
+
+[NBT List / JSON Array] The root, a list in this case
+[NBT Compound / JSON Object] An item modifier.
+
+Function types
+The possible resource locations (namespace minecraft: is omitted) for [String] function field and associated extra contents:
+
+apply_bonus—Applies a predefined bonus formula to the count of the item stack.
+[String] enchantment: ID of an enchantment on the tool provided by loot context used for level calculation.
+[String] formula: A resource location. Can be binomial_with_bonus_count for 1 bonus item plus bonus determined by binomial distribution with n=level + extra, p=probability. Can be uniform_bonus_count for uniform distribution (from 0 to level * bonusMultiplier), or ore_drops for a special function used for ore drops in the vanilla game (Count *= (max(1; randomInt(0(inclusive) .. (Level + 2)(exclusive))))).
+[NBT Compound / JSON Object] parameters: Values required for the formula.
+[Int] extra: For formula 'binomial_with_bonus_count', the extra value.
+[Float] probability: For formula 'binomial_with_bonus_count', the probability.
+[Float] bonusMultiplier: For formula 'uniform_bonus_count', the bonus multiplier.
+
+copy_components—Copies components from a specified source onto an item.
+[String] source: Source type to pull from. Specifies an entity or block entity from loot context. Can be block_entity, this, attacker, direct_attacker, attacking_player, target_entity, interacting_entity, tool
+[NBT List / JSON Array] include: Optional. A list of components to include. If omitted, all components are copied.
+[String]: A component
+[NBT List / JSON Array] exclude: Optional. A list of components to exclude.
+[String]: A component
+
+copy_custom_data—Copies NBT values from an entity, block entity, or storage to the item's minecraft:custom_data component.
+[String] source: Shorthand form of [NBT Compound / JSON Object] source below with [String] type set to context. Specifies an entity or block entity from loot context. Can be block_entity, this, attacker, direct_attacker, attacking_player, target_entity, or interacting_entity..
+[NBT Compound / JSON Object] source: Information of the block entity, entity or storage to copy NBT from.
+[String] type: Set to context to use a block entity or an entity as the source, or storage to use a command storage as the source.
+[String] target: Included only if type is set to context. Specifies an entity or block entity from loot context to copy NBT from. Can be block_entity, this, attacker, direct_attacker, attacking_player, target_entity, or interacting_entity..
+[String] source: Included only if type is set to storage. A resource location specifying the storage ID to copy NBT from.
+[NBT List / JSON Array] ops: A list of copy operations.
+[NBT Compound / JSON Object] An NBT operation.
+[String] source: The NBT path to copy from.
+[String] target: The NBT path to copy to, starting from the item's minecraft:custom_data component.
+[String] op: Set to replace to replace any existing contents of the target NBT path, append to append to a list or array, or merge to merge into a compound tag.
+
+copy_name—Copies an entity or block entity's name tag into the item's minecraft:custom_name component.
+[String] source - The target whose name is to be copied. Specifies an entity or block entity from loot context. Can be block_entity, this, attacking_entity, last_damage_player, direct_attacker, target_entity or interacting_entity.
+
+copy_state—Copies block state properties provided by loot context to the item's minecraft:block_state component.
+[String] block: A block ID. Function fails if the block doesn't match the [NBT List / JSON Array] properties list.
+[NBT List / JSON Array] properties: A list of properties to copy.
+[String] The name of a block state to copy.
+
+discard—Removes the item stack.
+
+enchant_randomly—Enchants the item with one randomly-selected enchantment. The level of the enchantment, if applicable, is random. A book converts to an enchanted book when enchanted.
+[String][NBT List / JSON Array] options: Optional. Any number of enchantment(s) (an [String] ID, or a [String] tag with #, or an [NBT List / JSON Array] array containing [String] IDs). List of enchantments to choose from. If omitted, all enchantments are possible.
+[Boolean] only_compatible: Optional, defaults to true. Whether only enchantments that are compatible with the item should be chosen (i.e. the item is listed in the enchantments supported_items). Books are always considered compatible.
+[Boolean] include_additional_cost_component. Optional, defaults to false. Whether to add a additional_trade_cost component to the item. The value is calculated as 2 + random(0, 5 + level * 10) + 3 * level where level is the level of the enchantment applied.
+
+enchant_with_levels—Enchants the item, with the specified enchantment level (roughly equivalent to using an enchanting table at that level). A book converts to an enchanted book.
+[Int][NBT Compound / JSON Object] levels: Number provider. Specifies the enchantment level to use.
+[String][NBT List / JSON Array] options: Optional. Any number of enchantment(s) (an [String] ID, or a [String] tag with #, or an [NBT List / JSON Array] array containing [String] IDs). List of enchantments to choose from. If omitted, all enchantments are possible.
+[Boolean] include_additional_cost_component. Optional, defaults to false. Whether to add a additional_trade_cost component to the item. The value is equal to the value determined by [Int][NBT Compound / JSON Object] levels.
+
+enchanted_count_increase—Adjusts the stack size based on the level of the specified enchantment on the killer entity provided by loot context.
+[Int][NBT Compound / JSON Object] count: A number provider. Specifies the number of additional items per level of the enchantment. Note the number may be fractional, rounded after multiplying by the enchantment level.
+[Int] limit: Specifies the maximum amount of items in the stack after the enchantment calculation. If the value is 0, no limit is applied. Defaults to 0.
+[String] enchantment: One enchantment (an [String] ID). The enchantment whose levels should be used to calculate the count.
+
+exploration_map—The input item is replaced with a new explorer map.​[until: JE 26.3] Generates a new map instance with an outline of the terrain surrounding a nearby generated structure, and sets the item's map_color​[until: JE 26.3], map_id, and map_decorations to display that map instance with a marker at the structure's location. Does nothing if the input item is not an empty map​[until: JE 26.3], the loot context does not provide an origin, or a valid destination cannot be found. To avoid generating items with no map instance,​[upcoming: JE 26.3] minecraft:filtered can be used to minecraft:discard the item if it does not have a map_id component after this modifier runs.
+[String] destination: A tag of structure to locate. Defaults to on_treasure_maps.
+[String] decoration: The icon used to mark the destination on the map. Accepts any of the map icon text IDs (case insensitive). If mansion or monument is used, the color of the lines on the item texture changes to match the corresponding explorer map. Defaults to mansion.
+[Int] zoom: The zoom level of the resulting map. Defaults to 2.
+[Int] search_radius: The size, in chunks, of the area to search for structures. The area checked is square, not circular. Radius 0 causes only the current chunk to be searched, radius 1 causes the current chunk and eight adjacent chunks to be searched, and so on. Defaults to 50.
+[Boolean] skip_existing_chunks: Don't search in chunks that have already been generated. Defaults to true.
+
+explosion_decay—Removes some items from a stack, if the explosion radius is provided by loot context. Each item in the item stack has a chance of 1/explosion radius to be lost.
+
+fill_player_head—Adds required item tags of a player head.
+[String] entity: Specifies a player to be used for the player head. Specifies an entity from loot context. Can be this, attacker, direct_attacker, attacking_player, target_entity, or interacting_entity..
+
+filtered—Applies an Item Predicate to the target item, and runs modifiers according to whether the predicate passes or fails.
+[NBT Compound / JSON Object] item_filter: An Item Predicate
+item predicate see Template:Nbt inherit/conditions/item/template
+[NBT Compound / JSON Object][NBT List / JSON Array] on_pass: (Optional) Modifier or list of modifiers to apply to items that match the filter
+[NBT Compound / JSON Object][NBT List / JSON Array] on_fail: (Optional) Modifier or list of modifiers to apply to items that do NOT match the filter
+
+furnace_smelt—Smelts the item as it would be in a furnace without changing its count.
+
+limit_count—Limits the count of every item stack.
+[Int] limit: An integer to specify the exact limit to use.
+[NBT Compound / JSON Object] limit: Limits the count between a minimum and maximum value.
+[Int][NBT Compound / JSON Object] min: Optional. A number provider. Minimum limit to use.
+[Int][NBT Compound / JSON Object] max: Optional. A number provider. Maximum limit to use.
+
+modify_contents—Applies a function to every item inside an inventory component. If such a component does not exist, it is not added.
+[String] component: A target component. Allowed values are bundle_contents, charged_projectiles, container}}.
+[NBT Compound / JSON Object][NBT List / JSON Array] modifier: Function or list of functions to be applied to every item inside the container.
+
+reference—Call sub-functions
+[String][NBT List / JSON Array] name: Location of function to call.
+
+sequence—Applies a list of functions. Doesn't check [NBT List / JSON Array] conditions (all functions always run)
+[NBT List / JSON Array] functions: Location of function to call.
+[NBT Compound / JSON Object] An item modifier. The same JSON structure as described on this page.
+
+set_attributes—Add attribute modifiers to the item.
+[NBT List / JSON Array] modifiers:
+[NBT Compound / JSON Object]: An attribute modifier to add.
+[String] attribute: The resource location of the attribute this modifier is to act upon.
+[String] operation: The operation of this attribute modifier. One of add_value, add_multiplied_base, or add_multiplied_total.
+[Float][NBT Compound / JSON Object] amount: A number provider. Specifies the amount of the modifier.
+[String] id: Resource location to assign the modifier.
+[String] slot: Sets the slots the item must be in for the modifier to take effect. One of: mainhand, offhand, feet, legs, chest, head.
+[NBT List / JSON Array] slot: To choose randomly from a set of possible slots. List contains strings of one of the above slot choices, to choose randomly from. The random selection can be weighted by listing the same slot multiple times.
+[Boolean] replace: Optional. Set to true to replace the existing item attributes with the attributes in  [NBT List / JSON Array] modifiers. If false, the lines are appended to the list of existing attributes. Defaults to true.
+
+set_banner_pattern - Adds or replaces banner patterns of a banner. Function successfully adds patterns into NBT tag even if invoked on a non-banner.
+[NBT List / JSON Array] patterns: List of patterns to add or replace with.
+[NBT Compound / JSON Object]: A pattern.
+[String] pattern: The pattern type. For example, square_bottom_left.
+[String] color: The color for this pattern. One of white, orange, magenta, light_blue, yellow, lime, pink, gray, light_gray, cyan, purple, blue, brown, green, red, black.
+[Boolean] append: Required. If true, the patterns are applied on top of the banner's existing patterns.
+
+set_book_cover—Sets the cover details of the minecraft:written_book_content component. If present, any pages in the book are left untouched.
+[String] author: Optional. Sets the author of the book. If omitted, the original author is kept (or an empty string is used if there was no component).
+[Int] generation: Optional. Sets the generation value of the book (original, copy, etc.). Allowed values are 0 to 3. If omitted, the original generation is kept (or 0 is used if there was no component).
+[NBT Compound / JSON Object][NBT List / JSON Array][String] title: Optional. Sets the title of the book as a raw JSON text component. If omitted, the original title is kept (or an empty string is used if there was no component).
+
+set_components—Sets components of an item.
+[NBT Compound / JSON Object] components: A map of components ID to component value. Components with a ! prefix (e.g. "!minecraft:damage": {}) causes this component to be removed.
+
+set_contents - Sets the contents of a container block item to a list of entries.
+[NBT List / JSON Array] entries: A list of loot table entry producer to provide item stacks.
+[String] component: The target component to be filled with items. Existing contents are replaced. Allowed values: container, bundle_contents, and charged_projectiles. Both bundle_contents and charged_projectiles ignore empty stacks.
+
+set_count - Sets the stack size.
+[Int][NBT Compound / JSON Object] count: A number provider. Specifies the stack size to set.
+[Boolean] add: Optional. If true, change is relative to current count. Defaults to false.
+
+set_custom_data—Sets the minecraft:custom_data component.
+[String][NBT Compound / JSON Object] tag: The data to merge onto the item's minecraft:custom_data component, either within a JSON string or as unflattened tags.  That means that {"tag": "{a:1}"} and {"tag": {"a":1}} are equivalent. When using the string representation, additional care is required: the outer braces { } of the component must still be present and if the NBT contains quotation marks ", they must be escaped with a backslash \.
+
+set_custom_model_data—Sets minecraft:custom_model_data component.
+[NBT Compound / JSON Object] floats: Optional. Specifies floats for the custom model data.
+[NBT List / JSON Array] values: A list of number providers.
+[String] mode: Determines how existing values should be modified. Allowed values are "append", "insert", "replace_all", "replace_section".
+[Int] offset: Used only if [String] mode is set to "insert" or "replace_section". Specifies index to insert or replace values from. Defaults to 0
+[Int] size: Used only if [String] mode is set to  "replace_section". Specifies the size of the range to be replaced. If omitted, the size of [NBT List / JSON Array] values field is used.
+[NBT Compound / JSON Object] flags: Optional. Specifies flags for the custom model data.
+[NBT List / JSON Array] values: A list of [Boolean] boolean values.
+[String] mode: Determines how existing values should be modified. Allowed values are "append", "insert", "replace_all", "replace_section".
+[Int] offset: Used only if [String] mode is set to "insert" or "replace_section". Specifies index to insert or replace values from. Defaults to 0
+[Int] size: Used only if [String] mode is set to  "replace_section". Specifies the size of the range to be replaced. If omitted, the size of [NBT List / JSON Array] values field is used.
+[NBT Compound / JSON Object] strings: Optional. Specifies strings for the custom model data.
+[NBT List / JSON Array] values: A list of [String] strings.
+[String] mode: Determines how existing values should be modified. Allowed values are "append", "insert", "replace_all", "replace_section".
+[Int] offset: Used only if [String] mode is set to "insert" or "replace_section". Specifies index to insert or replace values from. Defaults to 0
+[Int] size: Used only if [String] mode is set to  "replace_section". Specifies the size of the range to be replaced. If omitted, the size of [NBT List / JSON Array] values field is used.
+[NBT Compound / JSON Object] colors: Optional. Specifies colors for the custom model data.
+[NBT List / JSON Array] values: A list of RGB values.
+[Int][NBT Compound / JSON Object]: A number provider specifying an RGB value as a decimal.
+[NBT List / JSON Array]: A list containing 3 individual red, green, and blue values that is automatically converted to a decimal. ​[more information needed]
+[String] mode: Determines how existing values should be modified. Allowed values are "append", "insert", "replace_all", "replace_section".
+[Int] offset: Used only if [String] mode is set to "insert" or "replace_section". Specifies index to insert or replace values from. Defaults to 0
+[Int] size: Used only if [String] mode is set to  "replace_section". Specifies the size of the range to be replaced. If omitted, the size of [NBT List / JSON Array] values field is used.
+
+set_damage - Sets the item's damage value (durability).
+[Float][NBT Compound / JSON Object] damage: A number provider. Specifies the durability fraction to set (1.0 is undamaged, 0.0 is zero durability left).
+[Boolean] add: Optional. If true, change is relative to current damage. Defaults to false.
+
+set_enchantments - Modifies the item's enchantments. A book converts to an enchanted book.
+[NBT Compound / JSON Object] enchantments: Enchantments to modify.
+[Int][NBT Compound / JSON Object] An enchantment: Key name is the enchantment ID. Value is a number provider specifying the enchantment power. Powers are clamped at a maximum of 255. Decreasing an enchantment power below 1 remove the enchantment, through a relative negative add or through a direct value assignemnt.
+[Boolean] add: Optional. If true, change is relative to current level. A nonexistent enchantment is presumed to start at 0. Defaults to false.
+
+set_fireworks—Sets minecraft:fireworks component.
+[NBT Compound / JSON Object] explosions: Optional. Specifies firework explosions.
+[NBT List / JSON Array] values: List of firework explosion data.
+[String] shape: The shape of the explosion. Can be small_ball, large_ball, star, creeper, or burst.
+[Int Array] colors: The colors of the initial particles of the explosion, randomly selected from.
+[Int Array] fade_colors: The colors of the fading particles of the explosion, randomly selected from.
+[Boolean] has_trail: Whether or not the explosion has a trail effect (diamond).
+[Boolean] has_twinkle: Whether or not the explosion has a twinkle effect (glowstone dust).
+[String] mode: Determines how existing fireworks component should be modified. Allowed values are "append", "insert", "replace_all", "replace_section".
+[Int] offset: Used only if [String] mode is set to "insert" or "replace_section". Specifies index to insert or replace explosions from. Defaults to 0
+[Int] size: Used only if [String] mode is set to  "replace_section". Specifies the size of the range to be replaced. If omitted, the size of [NBT List / JSON Array] explosions field is used.
+[Int] flight_duration: Optional, allowed values are 0 to 255. Determines flight duration measured in number of gunpowder. If omitted, the flight duration of the item is left untouched (or set to 0 if the component did not exist before).
+
+set_firework_explosion—Sets minecraft:firework_explosion component.
+[String] shape: The shape of the explosion. Can be small_ball, large_ball, star, creeper, or burst.
+[Int Array] colors: The colors of the initial particles of the explosion, randomly selected from.
+[Int Array] fade_colors: The colors of the fading particles of the explosion, randomly selected from.
+[Boolean] has_trail: Whether or not the explosion has a trail effect (diamond).
+[Boolean] has_twinkle: Whether or not the explosion has a twinkle effect (glowstone dust).
+
+set_instrument - Sets the item tags for instrument items to a random value from a tag.
+[String] options: The resource location started with # of an instrument tag, one of the listings is selected randomly.
+
+set_item—Replaces item type without changing count or components.
+[String] item: An item ID.
+
+set_loot_table - Sets the loot table for a container block when placed and opened.
+[String] name: Specifies the resource location of the loot table to be used.
+[Int] seed: Optional. Specifies the loot table seed. If absent or set to 0, the seed won't be put into the NBT, and a random seed is used when opening the container.
+[String] type: the block entity type to be written in BlockEntityTag.id.
+
+set_lore - Adds or changes the item's lore.
+[NBT List / JSON Array] lore: List of lines to append or replace on the item's lore.
+[NBT List / JSON Array][NBT Compound / JSON Object][String] A line of item lore, following the Raw JSON text format. Components requiring resolution are resolved only if entity successfully targets an entity.
+[String] entity: Specifies the entity to act as @s when referenced in the JSON text component. Specifies an entity from loot context. Can be this, attacker, direct_attacker, attacking_player, target_entity, or interacting_entity..
+[String] mode: Required. Determines how existing lore component should be modified. Allowed values are "append", "insert", "replace_all", "replace_section".
+[Int] offset: Used only if [String] mode is set to "insert" or "replace_section". Specifies index to insert or replace lines of lore from. Defaults to 0
+[Int] size: Used only if [String] mode is set to  "replace_section". Specifies the size of the range to be replaced. If omitted, the size of [NBT List / JSON Array] lore field is used.
+
+set_name—Adds or changes the item's custom name.
+[NBT List / JSON Array][NBT Compound / JSON Object][String] name: A JSON text component, overwriting the previous custom name on the item. Components requiring resolution are resolved only if entity successfully targets an entity.
+[String] entity: Specifies the entity to act as @s when referenced in the JSON text component. Specifies an entity from loot context. Can be this, attacker, direct_attacker, attacking_player, target_entity, or interacting_entity..
+[String] target: Optional. Allowed values are custom_name or item_name, corresponding with the component to be set. Defaults to custom_name.
+
+set_ominous_bottle_amplifier—Sets the ominous_bottle_amplifier component of an item.
+[NBT Compound / JSON Object] amplifier: a number provider used to generate the ominous_bottle_amplifier component.
+
+set_potion—Sets the potion_contents component of an item.
+[String] id: The potion ID. Set to empty to remove the Potion tag.
+
+set_random_dyes—Sets the dyed_color component of an item.
+[Int][NBT Compound / JSON Object] id: A number provider. The amount of random dyes to select and add to the item. The same dye can be selected multiple times.
+
+set_random_potion—Sets the potion_contents component of an item randomly.
+[String][NBT List / JSON Array] options: Optional. Any number of potion(s) (an [String] ID, or a [String] tag with #, or an [NBT List / JSON Array] array containing [String] IDs). If omitted, all potions are possible.
+
+set_stew_effect—Sets the status effects for suspicious stew. Fails if invoked on an item that is not suspicious stew.
+[NBT List / JSON Array] effects: The effects to apply.
+[NBT Compound / JSON Object] An effect.
+[String] type: The effect ID.
+[Int][NBT Compound / JSON Object] duration: A number provider. The duration of the effect.
+
+set_writable_book_pages—Manipulates the pages of the minecraft:writable_book_content component.
+[NBT List / JSON Array] pages: A list of pages as filterable strings.
+[NBT Compound / JSON Object]: A single page.
+[String] raw: The plain text content of the page.
+[String] filtered: The filtered text of the page. Optional. Shown only to players with chat filter enabled, instead of [String] raw
+Alternatively, a single page can be represented as follows:
+[String]: The plain text content of a page.
+[String] mode: Determines how existing pages should be modified. Allowed values are "append", "insert", "replace_all", "replace_section".
+[Int] offset: Used only if [String] mode is set to "insert" or "replace_section". Specifies index to insert or replace pages from. Defaults to 0
+[Int] size: Used only if [String] mode is set to "replace_section". Specifies the size of the range to be replaced. If omitted, the size of [NBT List / JSON Array] pages field is used.
+
+set_written_book_pages—Manipulates the pages of the minecraft:written_book_content component.
+[NBT List / JSON Array] pages: A list of pages as filterable text components.
+[NBT Compound / JSON Object]: A single page.
+[NBT Compound / JSON Object][NBT List / JSON Array][String] raw: A text component.
+[NBT Compound / JSON Object][NBT List / JSON Array][String] filtered: A text component. Optional. Shown only to players with chat filter enabled, instead of [NBT Compound / JSON Object][NBT List / JSON Array][String] raw
+Alternatively, a single page can be represented as follows:
+[NBT Compound / JSON Object][NBT List / JSON Array][String]: A text component.
+[String] mode: Determines how existing pages should be modified. Allowed values are "append", "insert", "replace_all", "replace_section".
+[Int] offset: Used only if [String] mode is set to "insert" or "replace_section". Specifies index to insert or replace pages from. Defaults to 0
+[Int] size: Used only if [String] mode is set to "replace_section". Specifies the size of the range to be replaced. If omitted, the size of [NBT List / JSON Array] pages field is used.
+
+toggle_tooltips—Toggles which tooltips are visible.
+[NBT Compound / JSON Object] toggles: A map of supported item components to modify. All fields are optional.
+[Boolean] attribute_modifiers: Changes the visibility of the tooltip displaying the item's attribute modifiers.
+[Boolean] can_break: Changes the visibility of the tooltip displaying the blocks the item can break in Adventure mode.
+[Boolean] can_place_on: Changes the visibility of the tooltip displaying the blocks the item can placed on in Adventure mode.
+[Boolean] dyed_color: Changes the visibility of the tooltip displaying dyed armor color.
+[Boolean] enchantments: Changes the visibility of the tooltip displaying the item's enchantments.
+[Boolean] stored_enchantments: Changes the visibility of the tooltip displaying the item's stored enchantments (for enchanted books).
+[Boolean] trim: Changes the visibility of the tooltip displaying the item's armor trim.
+[Boolean] unbreakable: Changes the visibility of the tooltip displaying the item's unbreakable status. Setting this to any value does not change whether the item is unbreakable.
+
+History
+Java Edition1.915w43a
+Added loot functions as part of loot tables.1.1720w46a
+Added the ability to create dedicated item modifier files in data packs using the same syntax as existing loot functions.1.1821w39a
+Added set_potion function.1.1922w18a
+Added set_instrument function.1.2023w14a
+Added reference function.1.20.223w32a
+Added sequence function.1.20.524w09a
+Added set_components function.
+Added copy_components function.
+set_nbt and copy_nbt functions have been renamed to set_custom_data and copy_custom_data respectively.
+
+set_attributes function has been updated:
+The slot field now supports any, armor, and hand values.
+The operation values have been renamed:
+addition -> add_value
+multiply_base -> add_multiplied_base
+multiply_total -> add_multiplied_total
+24w11a
+Added set_fireworks function.
+
+Added set_firework_explosion function.
+
+Added set_book_cover function.
+
+Added set_writable_book_pages function.
+
+Added set_written_book_pages function.24w12a
+Added toggle_tooltips function.
+Replaced the replace field for set_lore with the mode and offset fields.24w13a
+Removed field components from copy_components function and replaced it with include and exclude. Only components that are included (explicitly or implicitly) but not excluded are copied.
+
+Added optional field target to the set_name function to specify whether the custom_name or item_name component should be set.24w14a
+Added replace field to the set_attributes function.Pre-Release 1
+Updated set_contents function:
+Removed type field.
+Added component field. Allowed values: container, bundle_contents, charged_projectiles
+
+Updated set_custom_data function:
+Updated tag field. It now accepts both SNBT data written as a string (existing format) and unflattened tags.
+
+Added filtered function.
+
+Added modify_contents function.
+
+Added set_custom_model_data function.
+
+Added set_item function.
+Pre-Release 2
+set_fireworks function has been updated:
+The list of firework explosions and the replacement mode have been moved inside the explosions field.
+{ "explosions": <list>, "mode": <mode>, <mode-dependent fields>} becomes {"explosions": {"values": <list>, "mode": <mode>, <mode-dependent fields>}}
+The explosions field is now optional.1.2124w18a
+Target entities killer, direct_killer, killer_player were renamed to attacker, direct_attacker, attacking_player
+
+copy_name source entities killer and killer_player were renamed to attacking_entity and last_damage_player24w21a
+Moved item modifiers from  item_modifiers to  item_modifier1.21.424w45a
+minecraft:set_custom_model_data now has more fields to accommodate more complex component structure.1.21.9Pre-Release 1
+minecraft:copy_name: The source field now accepts new context values.
+minecraft:copy_components: The source field now accepts new context values.1.21.1125w43a
+Added minecraft:discard.
+minecraft:filtered: The field modifier has been replaced with two fields: on_pass and on_fail.26.1snap1
+Added minecraft:set_random_dyes, and minecraft:set_random_potion.
+Changed minecraft:enchant_with_levels, now also takes the following field: include_additional_cost_component.
+Changed minecraft:enchant_randomly, now also takes the following field: include_additional_cost_component.snap5
+minecraft:set_random_dyes: No longer works only for items in #dyeable tag.pre1
+minecraft:set_instrument: The options field now also accepts an ID and a list of IDs in addition to a tag.Upcoming Java Edition26.3snap1
+Added minecraft:command_slot_source loot table type.snap4
+The conditions field is now available in all loot functions and has been renamed to condition.
+Changed minecraft:sequence, minecraft:modify_contents, minecraft:set_attributes, minecraft:enchanted_count_increase, minecraft:enchant_with_levels, minecraft:set_custom_model_data, minecraft:set_enchantments, minecraft:set_count, minecraft:limit_count, minecraft:set_damage, minecraft:set_ominous_bottle_amplifier, minecraft:set_random_dyes, minecraft:set_stew_effect, minecraft:set_loot_table, minecraft:exploration_map.
+Removed minecraft:reference.snap7
+Changed minecraft:exploration_map: the map_color field has now been removed, the function no longer changes the type of the item it is applied to.snap9
+Changed minecraft:sequence: can now only use an inline definition in a top-level file.snap10
+Changed minecraft:set_loot_table: Removed unused field type. The tag field, previously known as name, has been renamed to loot_table_id
+Issues
+Issues relating to "Item modifier" are maintained on the bug tracker. Issues should be reported and viewed there.
+
+References
+
+ MC-275648
+
+MC-306418
+
+ "Minecraft 1.20.5 Pre-Release 1"     – Minecraft.net.
+
+External links
+Item Modifier Generator on misode.github.io
+Navigation

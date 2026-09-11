@@ -1,0 +1,165 @@
+This page covers a development version that has a major issue under certain conditions. 
+The dedicated server for this version has a security vulnerability in the Log4j library that could be used to perform a remote code execution exploit. It can be addressed by appending a certain JVM argument to the server startup command line.
+
+1.13.1-pre1
+
+Edition
+
+Java Edition
+
+Release date
+
+August 16, 2018
+
+Type
+
+Pre-release
+
+Pre-release for
+
+1.13.1
+
+Downloads
+
+Client (.json)Server
+
+Protocol version
+
+399
+
+Data version
+
+1626
+
+Resource pack format
+
+4
+
+Data pack format
+
+4
+
+Minimum Java version
+
+Java SE 8
+
+◄◄   1.13
+1.13.1
+  1.13.2 ►►
+
+◄   18w33a
+
+ 1.13.1-pre1
+
+  1.13.1-pre2 ►
+
+{
+    "title": "1.13.1-pre1",
+    "images": [
+        "18w33a.png",
+        "Java Edition 1.13.1-pre1.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "August 16, 2018",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Pre-release article, displayed as Pre-release)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition 1.13.1 article, displayed as 1.13.1)",
+            "label": "Pre-release for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/7f7ae07cc319346b632f6c9f26ff8c67728b203c/client.jar Client] ([https://piston-meta.mojang.com/v1/packages/45558ece6af1cdd1beaa4d18c0ef984eee8598ac/1.13.1-pre1.json .json])<br />[https://piston-data.mojang.com/v1/objects/988fec4e71e5fa1fc29a50230de05a11973d62ab/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "399",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "1626",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "4",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "4",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Data pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_8_.28LTS.29 Java SE 8]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Java Edition  1.13|<span style=\"margin-right:-0.35em\">◄</span>◄   1.13]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition 1.13.1|1.13.1]]'''</td>\n<td style=\"padding: 0.4em\" >[[Java Edition  1.13.2|  1.13.2 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  18w33a|◄   18w33a]]\n</td>\n<td style=\"padding: 0.4em\">''' 1.13.1-pre1'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  1.13.1-pre2|  1.13.1-pre2 ►]]\n</td>\n</tr>\n</table>"
+}
+
+1.13.1-pre1 is the first pre-release for Java Edition 1.13.1 released on August 16, 2018, which renames /chunk to /forceload, improves performance, and fixes a few bugs.
+
+Contents
+
+1 Changes
+
+1.1 Command format
+1.2 General
+
+2 Fixes
+3 Videos
+4 References
+5 Navigation
+
+Changes
+Command format
+Renamed /chunk to /forceload.
+General
+Improved performance of rendering chunks.
+Improved performance of spawning mobs.
+Fixes
+16 issues fixed
+From released versions before 1.13.1
+
+MC-31681 – Fog and clouds darken when indoors or under trees (<16 Chunk Render Distance).
+MC-51150 – Swimming in water, riding a minecart or standing on soul sand and snow layers 8 darkens the sky at day time.
+MC-109311 – Woodland mansion failed to generate.
+MC-132457 – Advancement and dimension command suggestions require minecraft namespace.
+MC-132496 – Passive Mob Spawning Breaks 1.9+.
+MC-132762 – Observed signal strength observer abnormality.
+MC-134587 – Using F3 + T several times will eventually freeze iMac.
+MC-135484 – Pressing Q + right click a block while holding a double block only shows the top of the block.
+MC-135878 – Maps delete recently marked banners upon reopening world.
+From the 1.13.1 development versions
+
+MC-133713 – /spreadplayers and /worldborder <center> suggests X/Y instead of X/Z when nothing is typed.
+MC-135392 – Dimension arguments fail to properly serialize, breaking "/chunk in" and "/execute in" in multiplayer.
+MC-135398 – /chunk (force|unforce) with /execute store success.
+MC-135424 – Relative coordinates cannot be used with /chunk.
+MC-135426 – Cannot tab-complete chunk coordinates in /chunk.
+MC-135428 – /chunk targets the overworld by default and not the sender's dimension.
+From the previous development version
+
+MC-136051 – Mob spawning ignores light level, biomes and block height.
+Videos
+Video made by slicedlime:
+
+
+
+
+
+References
+
+ "Important Message: Security vulnerability in Java Edition"     – Minecraft.net, December 10, 2021.
+
+ "Minecraft 1.13.1 pre-release 1"     – Minecraft.net, August 16, 2018.
+
+Navigation

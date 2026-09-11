@@ -1,0 +1,25 @@
+[String] type: The kind of consume effect. Must be one of apply_effects, remove_effects, clear_all_effects, teleport_randomly, or play_sound.
+If type is apply_effects
+Applies effects on the consumer. Additional fields:
+[NBT List / JSON Array] effects: A list of effect instances applied once consumed.
+[NBT Compound / JSON Object]: A single effect.
+[String] id: The ID of the effect.
+[Byte] amplifier: The amplifier of the effect, with level I having value 0. Optional, defaults to 0.
+[Int] duration: The duration of the effect in ticks. Value -1 is treated as infinity. Values 0 or less than -2 are treated as 1. Optional, defaults to 1 tick.
+[Boolean] ambient: Whether or not this is an effect provided by a beacon and therefore should be less intrusive on the screen. Optional, defaults to false.
+[Boolean] show_particles: Whether or not this effect produces particles. Optional, defaults to true.
+[Boolean] show_icon: Whether or not an icon should be shown for this effect. Optional, defaults to true.
+[Float] probability: The chance for the above effects to be applied once consumed. Must be a positive float between 0.0 and 1.0. Defaults to 1.0.
+If type is remove_effects
+Removes a some of effects from the consumer. Additional fields:
+[NBT List / JSON Array][String] effects: A set of effects removed once consumed, as either a single ID or list of IDs.
+If type is clear_all_effects
+Clears all effects of the consumer. No additional fields.
+If type is teleport_randomly
+Teleports the consumer randomly within a given range. Additional fields:
+[Float] diameter: The diameter that the consumer is teleported within. Defaults to 16.0.
+[Boolean] directional_particles​[upcoming: JE 26.3]: Whether to show a particle trail in the direction of the teleportation. If not specified, defaults to true.
+If type is play_sound
+Plays a sound. Additional fields:
+[String][NBT Compound / JSON Object] sound: One server-side sound event (an [String] ID, or a new [NBT Compound / JSON Object] server-side sound event definition) played once when consumed.
+A sound event see Template:Nbt inherit/sound event/template

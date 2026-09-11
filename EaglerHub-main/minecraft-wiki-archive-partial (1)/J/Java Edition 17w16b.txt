@@ -1,0 +1,162 @@
+This page covers a development version that has a major issue under certain conditions. 
+The dedicated server for this version has a security vulnerability in the Log4j library that could be used to perform a remote code execution exploit. It can be addressed by appending a certain JVM argument to the server startup command line.
+
+Minecraft 17w16b
+
+Edition
+
+Java Edition
+
+Release date
+
+April 21, 2017
+
+Type
+
+Snapshot
+
+Snapshot for
+
+1.12
+
+Downloads
+
+Client (.json)Server
+
+Protocol version
+
+323
+
+Data version
+
+1127
+
+Resource pack format
+
+3
+
+Minimum Java version
+
+Java SE 8
+
+◄◄   1.11.2
+1.12
+  1.12.1 ►►
+
+◄   17w16a
+
+ 17w16b
+
+  17w17a ►
+
+{
+    "title": "Minecraft 17w16b",
+    "images": [
+        "17w16a.png",
+        "Java Edition 17w16b.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "April 21, 2017",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Snapshot article, displayed as Snapshot)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition 1.12 article, displayed as 1.12)",
+            "label": "Snapshot for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/339b2099d66421af8f194e76074ebda5694abdb3/client.jar Client] ([https://piston-meta.mojang.com/v1/packages/635a0c0f77e2bf6157c41e25647dfe65cc1b18f4/17w16b.json .json])<br />[https://piston-data.mojang.com/v1/objects/80601961e590046727791d6b18f51d840ea86e1c/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "323",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "1127",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "3",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_8_.28LTS.29 Java SE 8]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Java Edition  1.11.2|<span style=\"margin-right:-0.35em\">◄</span>◄   1.11.2]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition 1.12|1.12]]'''</td>\n<td style=\"padding: 0.4em\" >[[Java Edition  1.12.1|  1.12.1 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  17w16a|◄   17w16a]]\n</td>\n<td style=\"padding: 0.4em\">''' 17w16b'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  17w17a|  17w17a ►]]\n</td>\n</tr>\n</table>"
+}
+
+17w16b is the seventh snapshot for Java Edition 1.12, released on April 21, 2017.
+
+Contents
+
+1 Additions
+
+1.1 Gameplay
+1.2 General
+
+2 Fixes
+3 Videos
+4 Trivia
+5 References
+6 Navigation
+
+Additions
+Gameplay
+Gamerules
+
+maxCommandChainLength
+The default is 65536.
+Determines the number at which the chain command block acts as a "chain".
+General
+Advancements
+
+New trigger: minecraft:item_durability_changed
+Triggers when an item in the player's inventory is damaged in some manner, such as hurting a mob with a sword.
+Three conditions that can be used for this trigger:
+item: Checks information about the item before durability loss.
+durability: Checks the durability of the item after durability loss.
+delta: Checks how much durability was lost.
+Fixes
+9 issues fixed
+From released versions before 1.12
+
+MC-111753 – Hopper/Dropper will not input water bottles into brewing stand after potions have been removed by a hopper from brewing stand
+From the 1.12 development versions
+
+MC-115883 – Parrots disappear when climbing ladders/vines
+MC-116271 – Parrots turn red
+From the previous development version
+
+MC-116357 – Some items appear multiple times in the recipe book
+MC-116365 – The "conditional" setting no longer works for command blocks
+MC-116372 – Chain command blocks set to "needs redstone" still executes without signal
+MC-116388 – Chain command blocks can clone themselves to create an infinite loop which freezes the server
+MC-116398 – Crash when changing dimension/relogging with a full inventory
+MC-116432 – Server crashed when leaving items on crafting table with full inventory
+Videos
+Video made by slicedlime:
+
+
+
+
+Trivia
+17w16b was previously removed from the launcher for some time, but was added back in September 2018.
+References
+
+ "Important Message: Security vulnerability in Java Edition"     – Minecraft.net, December 10, 2021.
+
+ "Minecraft Snapshot 17w16b"     – Minecraft.net, April 21, 2017.
+
+Navigation

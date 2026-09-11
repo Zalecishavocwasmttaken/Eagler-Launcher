@@ -1,0 +1,1081 @@
+Contents
+
+1 Preview 26.50.20
+
+1.1 Changes
+
+1.1.1 Blocks
+1.1.2 General
+1.1.3 Technical
+
+1.2 Experimental
+
+1.2.1 Changes
+
+1.2.1.1 Blocks
+1.2.1.2 Mobs
+1.2.1.3 Non-mob entities
+1.2.1.4 World generation
+1.2.1.5 Technical
+
+1.3 Fixes
+
+2 Preview 26.50.22
+
+2.1 Changes
+
+2.1.1 Blocks
+2.1.2 Mobs
+2.1.3 World generation
+2.1.4 General
+2.1.5 Technical
+
+2.2 Experimental
+
+2.2.1 Changes
+
+2.2.1.1 Technical
+
+2.3 Fixes
+
+3 Preview 26.50.24
+
+3.1 Additions
+
+3.1.1 Blocks
+3.1.2 Items
+
+3.2 Changes
+
+3.2.1 Blocks
+3.2.2 Items
+3.2.3 World generation
+3.2.4 General
+3.2.5 Technical
+
+3.3 Experimental
+
+3.3.1 Changes
+
+3.3.1.1 Technical
+
+3.4 Fixes
+
+4 Preview 26.50.25
+
+4.1 Changes
+
+4.1.1 Blocks
+4.1.2 Items
+4.1.3 World generation
+4.1.4 General
+4.1.5 Technical
+
+4.2 Experimental
+
+4.2.1 Changes
+
+4.2.1.1 Technical
+
+4.3 Fixes
+
+5 Preview 26.50.26
+
+5.1 Changes
+
+5.1.1 Items
+5.1.2 World generation
+5.1.3 General
+5.1.4 Technical
+
+5.2 Experimental
+
+5.2.1 Changes
+
+5.2.1.1 Technical
+
+5.3 Fixes
+
+6 Preview 26.50.27
+7 Notes and references
+8 Navigation
+
+This is a list of Bedrock Edition 26.50 development versions.
+
+ Preview 26.50.20
+Beta 26.50.20 (ChromeOS, Android), Preview 26.50.20 (Windows, Xbox, PlayStation), or beta 26.50.21 (Nintendo Switch 2) is the first beta/Preview for Bedrock Edition 26.50, released on July 21, 2026, for all devices except iOS, which fixes bugs.
+This version was released for the Nintendo Switch 2 closed beta on August 7, 2026, being the first closed beta.
+
+Changes
+Blocks
+ Hay bale
+
+Updated sides texture from  so that the two red twines appear symmetrically distant from the top/bottom edges; the twines now line up with the straw bed texture too.
+General
+Realms
+
+Disabled an expired Realm's Renew button when renewal is not supported on current device.
+Users are now warned when applying custom packs to their Realm and how they will appear when profanity filter is enabled. Custom pack names and descriptions are filtered when viewing in Edit world when profanity filter is enabled.
+Added support for Realm name changed and Realm description changed admin log events.
+Add different default values for some subscription details information that can come back null from Realms services to avoid blocking players from viewing subscription related screens with an error modal.
+Added guards for cases where callbacks are fired after facet goes out of scope in the Create new world flow.
+Settings
+
+Renamed Point Light Quality to Block Light Quality in the video settings.
+Moved the Block Light Quality setting out of the Render Dragon Features for Creators experiment.
+Removed the "Text to Speech with Device Settings" option.
+Added a Clear Layout Cache action to Storage settings for cached server tab content.
+Updated old world conversion flow in Ore UI Storage settings tab.
+Ported in Ore UI the modal connected to the "Sync Old World" action in the Storage tab.
+UI
+
+New social/friends drawer infrastructure with performance fixes.
+Updated the Wishlist Marketplace tab with Ore UI.
+New Wishlist screen
+Added high-resolution Korean font support and fixed Korean text showing as question marks on mobile.
+Added missing translation text to layout button of the achievements screen.
+Selecting a featured item from the Dressing Room no longer requires 2 clicks to select the item.
+Ported the party eligibility check when joining multiplayer from JSON to the Ore UI.
+Added a new grid option for viewing achievements and some general UX improvements.
+Removed flickering icon and world card texture on layout change in the Play screen.
+The Play screen column layout now alternate between 4, 3 and 2 columns depending on GUI scale.
+Updated the inventory panel in the Loom, Stonecutter, Cartography Table, Villager, and Wandering Trader screens in Pocket UI to match the header style used by the Inventory and Crafting Table screens.
+Added Date owned as the default sort option for the Owned by me tab in Create from template, showing the most recently acquired templates first.
+Technical
+Actor Components
+
+Made the minecraft:anger_level schema stricter when parsing and fail to load an entity json that has invalid data in versions 1.26.50 and newer.
+AI Components
+
+Made schemas for the following components stricter when parsing and fail to load an entity json that has invalid data in versions 1.26.50 and newer:
+minecraft:boss
+minecraft:collision_box
+minecraft:damage_over_time
+minecraft:exhaustion_values
+minecraft:flocking
+minecraft:game_event_movement_tracking
+minecraft:grows_crop
+minecraft:home
+minecraft:interact
+The interactions, spawn_entities, and play_sounds fields has changed to only take arrays.
+minecraft:physics
+minecraft:projectile
+Alternate names for fields are no longer valid.
+first_spawn_chance and second_spawn_chance fields under spawn_chance now take floats in the range 0.0 - 1.0.
+anchor field now takes the following string values instead of integers: origin, eye_height, middle.
+damage field under impact_damage now takes an object with min and max fields.
+effects field under mob_effects now now takes an array of mob instances.
+minecraft:trade_table
+API
+
+Released @minecraft/server version 2.10.0.
+Added @minecraft/server version 2.11.0-beta.
+SoundInstance now exposes an id property that returns a unique identifier for the instance.
+SoundInstance now exposes a soundEventId property that reports the sound event the instance was started with.
+SoundInstance now exposes a recipient property that returns the Player the sound was played for, or undefined for broadcast sounds.
+SoundInstance now exposes a durationInfo property that returns a SoundDurationInfo when the underlying sound definition includes duration information, otherwise undefined.
+Added SoundDurationInfo with a duration property, an isActive property, and a getPlaybackPosition() getter that returns the elapsed playback time in seconds.
+WorldAfterEvents now exposes a soundCompleted signal with a soundInstanceId property that matches the id of the SoundInstance that completed, which fires when a tracked sound's declared duration elapses.
+Released interface BlockQueryOptions from beta to v2.10.0.
+Changed function Dimension.getBlocks to use BlockQueryOptions in v2.10.0.
+Released function BlockVolumeBase.getClosest  from beta to v2.10.0.
+Released function BlockVolumeBase.getFarthest  from beta to v2.10.0.
+Released function Camera.addShake  from beta to v2.10.0.
+Released function Camera.stopShaking  from beta to v2.10.0.
+Released interface CameraShakeOptions  from beta to v2.10.0.
+Released enum CameraShakeType  from beta to v2.10.0.
+Renamed EntityTamedEventFilter to EntityTamedEventOptions for consistency.
+Released class EntityTamedEventOptions from beta to v2.10.0.
+Released class EntityTamedAfterEvent  from beta to v2.10.0.
+Released class EntityTamedAfterEventSignal  from beta to v2.10.0.
+Released class EntityTamedBeforeEvent  from beta to v2.10.0.
+Released class EntityTamedBeforeEventSignal  from beta to v2.10.0.
+Released interface EntityTamedEventOptions  from beta to v2.10.0.
+Released property WorldAfterEvents.entityTamed  from beta to v2.10.0.
+Released property WorldBeforeEvents.entityTamed  from beta to v2.10.0.
+Moved BlockInstrumentComponent from beta into 2.10.0.
+DDUI
+
+Added fixedFormatDigits to SliderOptions within @minecraft/server-ui so the slider display can format to a certain decimal point.
+Entity components
+
+Added projectile-hit teleportation fields to the minecraft:teleport component.
+teleports_on_projectile_hit determines whether the entity attempts to teleport away from an incoming projectile and defaults to false.
+projectile_filter defines the conditions an incoming projectile must meet to trigger a teleport attempt.
+Added type families to vanilla projectile entities.
+All vanilla projectile entities now include the projectile family.
+Each projectile includes a type-specific family, such as arrow, snowball, or wither_skull.
+The multiple_targets field on the minecraft:projectile component is now defaulted to false with format version 1.26.50 and above while remaining defaulted to true otherwise.
+Made the schema for minecraft:insomnia stricter for format version 1.26.50 and later.
+Features
+
+Added the minecraft:conditional_list feature which places features based on a collection of conditions evaluated in order.
+The conditional_features field is an array of objects, each containing a places_feature reference and an optional Molang condition expression.
+The early_out_scheme field controls when evaluation stops: condition_success stops at the first condition that passes, placement_success stops at the first successful placement, and none (default) evaluates all entries without stopping early.
+Added the multipart_block_column_feature that places an ordered column made of 1–4 block types: tip_block, frustum_block, middle_block, and base_block.
+Its default growth direction is UP.
+The blocks used depend on the generated column height:
+1 block: tip_block
+2 blocks: frustum_block + tip_block
+3 blocks: base_block + frustum_block + tip_block
+4+ blocks: base_block + one or more middle_block + frustum_block + tip_block
+The restrictions include: may_place_on which restricts valid placement surfaces and may_replace to restrict which existing blocks may be replaced (omit to allow any).
+Molang
+
+Added query.has_all_biome_tags world generation Molang query that returns 1.0 if the biome at the current placement position has all of the specified tags.
+Added query.has_any_biome_tags world generation Molang query that returns 1.0 if the biome at the current placement position has at least one of the specified tags.
+Packs
+
+System packs are now sorted into alpha-numeric ordering before being added to the stack.
+Server
+
+Released version 2.2.0 of @minecraft/server-ui.
+Experimental
+These additions and changes are accessible by enabling the "Beta APIs", "Upcoming Creator Features", "Render Dragon Features for Creators", "Drop 3 of 2026", and new "Creator World Clocks Features" experimental toggles.
+
+Changes
+Blocks
+Red shrub
+
+Can now be snowlogged.
+Shelf mushroom
+
+Shelf mushrooms now burn correctly when exposed to lava.
+Players will no longer fall through a shelf mushroom when growing it whilst standing upon it.
+Added breaking particles to the shelf mushroom.
+Mobs
+Wandering trader
+
+Can now offer poplar logs.
+Wolf
+
+Wolves spawned in dappled forests now use the pale wolf variant.
+Non-mob entities
+Cushion
+
+Players can now place cushions next to each other when aiming the crosshair close to an already placed cushion.
+Players are no longer moved into the ground when a cushion they are sitting on is destroyed by lava.
+Collecting any ingredient from a cushion recipe now unlocks it in the recipe book and displays the recipe unlock toast notification.
+World generation
+Abandoned camp
+
+Cushions now generate in abandoned camps.
+Abandoned camps now generate the variant matching their biome instead of the generic forest variant in specialized forest biomes.
+Secret chests in abandoned camps can now contain their intended diamond and potion loot and no longer generate oxidized copper chains instead.
+Technical
+API
+
+Added lineHeightOverride property to TextPrimitive and DebugText.
+Blocks
+
+Blocks defined with the minecraft:multi_block trait cannot also define the minecraft:random_offset component if the multi-block direction field is horizontal.
+DDUI
+
+Added support to show icons for buttons.
+Added property tooltips in beta for the following interfaces:
+DropdownOptions
+MessageBox
+SliderOptions
+TextFieldOptions
+TextOptions
+ToggleOptions
+Added function button1WithOptions.
+Added function button2WithOptions.
+Added property imageDetails for the interface ButtonOptions.
+Added interface ImageDetails.
+Added interface MessageBoxButtonOptions.
+The playback position now restarts at the beginning of each iteration when a looping sound repeats, and a looping sound's duration is only considered complete after all of its iterations have played.
+Graphical
+
+In the new Block Light Quality setting with the Render Dragon Features for Creators experiment, three more options are available that enable point lights.
+Some options may be hidden depending on device capabilities and resource pack configuration.
+Fixes
+37 issues fixed
+From released versions before Bedrock Edition 26.50
+
+MCPE-99462 – Hoppers don't pickup items parallel to chunk border.
+MCPE-108119 – Mobs desync and teleport back when Simulation Distance is higher than Render Distance.
+MCPE-117298 – Tridents, eggs and snowballs hit the endermen.
+MCPE-167490 – The space droppers and crafters check to push into storage entities is offset by -0.5 X, Y, and Z.
+MCPE-186514 – Achievement page displays about "Preview" while using beta version.
+MCPE-234311 – Game no longer registers every individual  Scroll Wheel step.
+MCPE-235450 – Text going off a book and cannot see.
+MCPE-237771 – Sulfur cube spawn egg MERS is inconsistent with its item texture.
+MCPE-238556 – Can't change the tick speed to 0 While in world.
+MCPE-239554 – No green tint from Nausea when screen distortion is zero.
+MCPE-240015 – [Experimental] Cannot compost poplar saplings.
+MCPE-240018 – [Experimental] The new single wool slabs and stairs conduct redstone.
+MCPE-240461 – Cushion name (as entity) displays raw translation key.
+MCPE-240465 – Some new subtitles added in 26.40.30 preview have placeholder text.
+MCPE-240468 – Cushions float slightly above the block it is placed on.
+MCPE-240484 – Straw Bed breaking texture is heavily corrupted and patchy.
+MCPE-240499 – Player sitting in cushion are positioned much higher compared to Java Edition.
+MCPE-240546 – Baby Foxes have no texture.
+MCPE-240723 – The texture of straw beds does not align with the texture of sideways hay bales.
+Other
+
+Fixed the poplar sign UI texture to match with Java Edition.
+Fixed the poplar log top texture to have the correct color palette.
+Fixed clouds rendering as bright white spots after switching to Vibrant Visuals in-game with low cloud render distance.
+Fixed a bug when a pack's dependency packs would not load pack settings properly.
+Fixed in-game realms system performance regression.
+Fixed a rare crash that could occur while ticking block entities.
+Fixed a crash that can occur when failing to parse certain resource pack contents.
+Fixed an issue where updates to chunks would sometimes not save correctly when the same chunk was unloaded and loaded rapidly.
+Fixed EffectTypes.get() and EffectTypes.getAll() so they can be called from before events.
+Fixed a bug where large Images in CustomForms cause the background of the form to be invisible for an extended period of time.
+Fixed MERS not applying to assets in multiple Vanilla content slices:
+1.21.120 copper chest
+1.21.120 gray dye, green dye, light blue dye, and light gray dye
+26.20 baby bee
+26.20 baby fox
+Fixed .texture_set.json not being compatible with certain JSON tools.
+Fixed texture bleeding on custom blocks using automatic block face UV assignment with undersized textures.
+Fixed the alignment of the spruce shelf MERS texture.
+Fixed an issue which sometimes caused materials/entity.material from resource packs to have no effect.
+Fixed an issue where transferring to another server with the same resource pack at a different version would cause players to load in with no resource pack applied.
+Fixed dedicated server system packs not loading pack settings.
+ Preview 26.50.22
+Beta 26.50.22 (ChromeOS, Android) or Preview 26.50.22 (Windows, iOS, iPadOS, Xbox, PlayStation) is the second beta/Preview for Bedrock Edition 26.50, released on July 25, 2026, for iOS and iPadOS, and on July 28, 2026, for all remaining devices, which fixes bugs.
+
+Changes
+Blocks
+Poplar leaves
+
+No longer show black pixels while held in hand on Simple graphics with Fancy Leaves enabled.
+Shelf mushroom
+
+Are now immediately destroyed when lava flows into them.
+Mobs
+Bat
+
+Now spawns in all Overworld biomes except the deep dark, and in groups of 8 like the Java Edition as long as the light level is low enough.
+Monsters
+
+Armor stands and drowned are now harder for hostile mobs to detect while invisible.
+World generation
+Abandoned camp
+
+Modified existing abandoned camps and added more campsites.
+General
+Experiments
+
+Removed the "Drop 3 of 2026" experiment and implemented all features in vanilla gameplay.
+Graphical
+
+"Automatic" upscaling quality now defaults to native resolution when using the Custom graphics preset.
+Realms
+
+Introduced a localized loading spinner to replace the play button on the Realms tab when the client is fetching additional information from services, and a reload button that player can use to reload the tab should the fetch fails.
+UI
+
+Text strings on world tile buttons across My World, My Templates, and Servers menus are no longer truncated by ellipses.
+Screenshots can now be set as world thumbnails without triggering an assertion.
+Trusted servers no longer prompt players for confirmation after restarting the client.
+Updated the Adjust brightness screen in the video settings with Ore UI.
+Added an empty-state message for the Marketplace Wishlist with a Browse Marketplace call to action.
+Ported in Ore UI the deletion modal used by the Storage list.
+Technical
+AI Components
+
+Made schema for the minecraft:tamemount component stricter when parsing and will fail to load an entity json that has invalid data in versions 1.26.50 and newer.
+AI Goals
+
+Added in_range_movement_mode to minecraft:behavior.ranged_attack for format versions 1.26.50 and newer.
+hold_position makes the entity hold its position while within attack range.
+follow_target makes the entity continue moving toward its target while within attack range.
+Actor goal minecraft:behavior.ranged_attack now takes a float range for attack_range instead of attack_radius_min and attack_radius for format versions 1.26.50 and newer.
+API
+
+Released the class EntityStartSneakingAfterEvent from beta to v2.10.0.
+Released the class EntityStartSneakingAfterEventSignal from beta to v2.10.0.
+Released the class EntityStopSneakingAfterEvent from beta to v2.10.0.
+Released the class EntityStopSneakingAfterEventSignal from beta to v2.10.0.
+Released the interface EntitySneakingChangedEventOptions from beta to v2.10.0.
+Released the property WorldAfterEvents.entityStartSneaking from beta to v2.10.0.
+Released the property WorldAfterEvents.entityStopSneaking from beta to v2.10.0.
+Released Player.fogSettings from beta to v2.10.0.
+Released the class FogSettings from beta to v2.10.0.
+Released the class FogSettingsError from beta to v2.10.0.
+Released the class BlockDynamicPropertiesComponent from beta to v2.10.0.
+Released the class ItemBlockDynamicPropertiesComponent from beta to v2.10.0.
+Blocks
+
+Fences:
+Vanilla fence blocks now expose per-direction connection block states (minecraft:connection_north, minecraft:connection_east, minecraft:connection_south, minecraft:connection_west), reflecting which neighbors the fence connects to. Changing a fence's connections now sends block updates to neighboring blocks in worlds using version 1.26.50 and later.
+Stairs
+Vanilla stair blocks now expose a minecraft:corner block state (none, inner_left, inner_right, outer_left, outer_right) reflecting the corner shape formed with adjacent stairs.
+For new worlds (base game version 1.26.40 and later), stair corner-state changes now trigger neighbor block updates for parity with Java Edition; existing worlds keep the prior client-only update behavior.
+Camera
+
+Camera presets that inherit from minecraft:follow_orbit no longer reset the player's rotation the first time they are applied, for presets using format version 1.26.50 or later.
+DDUI
+
+Released CustomForm.image and ImageOptions to version 2.2.0 of @minecraft/server-ui.
+Entity components
+
+Immunity to the freezing from powder snow is no longer hardcoded at runtime and is instead defined by the minecraft:freezing_immune component.
+The following mobs will be upgraded to automatically have this component:
+minecraft:creaking
+minecraft:ender_dragon
+minecraft:polar_bear
+minecraft:skeleton
+minecraft:snow_golem
+minecraft:stray
+minecraft:wither
+All non-mob entities are implicitly immune.
+The ambient sounds of entities are no longer redefined at runtime and instead respect the conditions defined by minecraft:ambient_sound_interval.
+Previously the ambient sound event name of an entity would be overwritten in these conditions:
+If its head was in water then it would become ambient.in.water.
+If it was not on the ground then it would become ambient.in.air.
+If it would otherwise play ambient sounds and it was a baby then it would become ambient.baby.
+If any of these conditions were true then it would override any user-defined entry in the event_names parameter of minecraft:ambient_sound_interval.
+Now this will no longer happen and only the event name specified by minecraft:ambient_sound_interval will be used.
+Entities defined in any older version will fall back to the original overriding path as a minecraft:uses_legacy_ambient_sounds component will be added.
+The minecraft:uses_legacy_ambient_sounds is deprecated as users should now specify the indended behavior in minecraft:ambient_sound_interval.
+Deprecated minecraft:projectile's owner_launch_immunity_ticks field in favor of a spatial check that determines when the projectile has left its shooter's vehicle hierarchy.
+Projectiles can now only hit the entity that shot them, or entities in the same vehicle hierarchy (such as the shooter's mount), after they have spatially left that hierarchy.
+Features
+
+A new value, wall, to the field surface has been added to the schema of snap_to_surface_feature, which allows the feature to be snapped to walls as well as ceilings and floors.
+A new field allow_non_air_placement has been added to the schema of snap_to_surface_feature, which allows specifying whether the snapped feature can be snapped through solid blocks.
+If the snap is started inside a block that is not water or air, this field decides if the feature can snap out of it.
+Renamed the field vertical_search_range to search_range in the schema for snap_to_surface_feature.
+Loot tables
+
+Added the optional operator field to all loot table conditions, allowing control of whether the condition's result is used directly or negated.
+== and equals apply when the condition evaluates to true.
+!= and not apply when the condition evaluates to false.
+Omitting operator preserves the existing behavior and is equivalent to using ==.
+Mobs
+
+Many mob properties are no longer saved if their values are the default.
+Molang
+
+Added new query query.head_is_in_water which checks if the head of the entity is in water.
+Script Debugger
+
+Added the script-debugger-listen-address server property; script debugger listen mode now binds to loopback by default, and non-loopback listen addresses require a configured passcode.
+Experimental
+These additions and changes are accessible by enabling the "Beta APIs" experimental toggle.
+
+Changes
+Technical
+API
+
+Changed the following beta APIs in @minecraft/server-admin:
+Changed arguments for AllowList.add() take an AllowListEntryNameInfo and boolean to allow this player to ignore player limits when joining the server.
+Changed arguments for AllowList.contains() to take an AllowListEntryNameInfo.
+Changed arguments for AllowList.remove() to take an AllowListEntryNameInfo.
+Added property ignoresPlayerLimit to AllowListEntry.
+Added new AllowListEntryNameInfo.
+ChatSendBeforeEvent:
+The targets property can now be modified to control which players receive the chat message.
+Fixes
+27 issues fixed
+From released versions before Bedrock Edition 26.50
+
+MCPE-181173 – Teleporting non-player entities between dimensions by commands will cause them appear in wrong position.
+MCPE-227980 – Same stronghold has variable eyes of ender count.
+MCPE-238926 – Memory leak from moving blocks that are far from the player.
+MCPE-239320 – Furnace recipe book preferences are not saved after reloading a world.
+MCPE-239639 – Pressing Tab repeatedly while dying freezes/crashes the game.
+MCPE-239802 – The Japanese font is no longer Noto Sans.
+MCPE-240016 – [Experimental] Can be given wool double slabs.
+MCPE-240031 – Orange popular leaves are placed before red in the creative inventory.
+MCPE-240050 – Placing two double slabs together turns into normal slabs.
+MCPE-240464 – Cushion item and color in order with creative inventory goes wrong.
+MCPE-240527 – Arrows shot downwards get stuck in the player's own hitbox.
+MCPE-240721 – Very long item catalog group names crash the game.
+MCPE-240792 – Cushions are not placed immediately after beds in the Creative inventory.
+From the Bedrock Edition 26.50 development versions
+
+MCPE-240906 – Cushion group name in Creative inventory uses singular form instead of plural.
+MCPE-240911 – Cushions in Abandoned Camps can generate inside other objects.
+Other
+
+Fixed a bug where damage calculation did not apply correctly to Players falling from certain heights through one block of water.
+Fixed an issue that could cause players who died while inside a Nether portal to respawn in the Nether.
+Fixed tears in the dithering effect when looking through models in Vibrant Visuals.
+Fixed downloading a copy of a Realm world never happening if the settings were changed.
+Fixed height on the members search bar.
+Fixed the string Core and Plus sometimes being translated in other languages than the selected one.
+Fixed a crash that could occur when opening Change Control Mode under Touch Settings after deleting a world.
+Fixed vertical menu screen reader narration in Settings screens.
+Fixed capes causing visual discrepancies between the in game model and the model shown in the Dressing Room.
+Fixed error message display when the Marketplace wishlist fails to load, ensuring players receive appropriate feedback about connectivity and service issues.
+Fixed a bug where hiding a CustomForm and then immediately showing another one would get the response UserBusy.
+Fixed input and HUD delay after closing Data Driven UI screens.
+ Preview 26.50.24
+Beta 26.50.24 (ChromeOS, Android, Nintendo Switch 2) or Preview 26.50.24 (Windows, iOS, iPadOS, Xbox, PlayStation) is the third beta/Preview for Bedrock Edition 26.50, released on August 2, 2026, for iOS and iPadOS, on August 5, 2026, for most remaining devices, which adds concrete stairs and slabs, updates maps and explorer maps, and fixes bugs.
+This version was released for the Nintendo Switch 2 closed beta on August 11, 2026, being the second closed beta.
+
+Additions
+Blocks
+ Concrete stairs and slabs
+
+New variants of concrete blocks that can be dyed in sixteen colors.
+Items
+Explorer maps
+
+ Added abandoned campsite maps showing the location of other abandoned camps in the following biomes:
+Bamboo Jungle
+Cherry Grove
+Birch Forest
+Dappled Forest
+Flower Forest
+Pale Garden
+Swamp
+Windswept Forest
+Added explorer maps for the following structures:
+ Ancient City
+ Mineshaft
+ Desert Pyramid
+ Warm Ocean Ruins
+Changes
+Blocks
+Straw bed
+
+The sleeping camera is no longer positioned too high above the player when sleeping.
+Sulfur spike and pointed dripstone
+
+Restored the growth speed after a recent change accidentally made them grow 25 times faster.
+Items
+Cushion
+
+Breaking a named cushion no longer drops the default item.
+Cushions now pop into an item when pushed by blocks.
+ Locator map, map, empty map, and explorer maps
+
+Updated existing inventory icons.
+The player icon on maps shows the facing direction when outside the map once again, with a new texture.
+Explorer maps can no longer be zoomed out, neither in a crafting table nor in a cartography table.
+World generation
+Abandoned camp
+
+Explorer maps leading to other abandoned camps, mineshafts, ancient cities, desert pyramids, and warm ocean ruins can now be found in abandoned camp chests.
+General
+UI
+
+All remaining poplar items are now listed between the mangrove and cherry items in the Creative inventory.
+Skins can now have names consisting entirely of numbers.
+Friend profiles now have a Realm-specific join button when the Realm is available.
+Updated the Chat Settings UI to increase readability of the Chat Color and My Mentions Color dropdowns.
+Added Marketplace wishlist pagination with gamepad bumper navigation.
+Added dynamic wishlist grid row sizing for Marketplace wishlist cards.
+Improved inventory item tooltips with a new description in blue:
+
+Anvil, Chipped Anvil, Damaged Anvil: Repair & enchant tools
+Barrel, Chest, Shulker Box: Storage
+Blast Furnace: Smelt metal faster
+Brewing Stand: Brew potions
+Brush: Excavate & brush
+Cartography Table: Modify Maps
+Cauldron: Holds liquids & potions
+Compass: Points to world spawn
+Composter: Make bone meal
+Crafter: Automate crafting
+Crafting Table: Make stuff
+Dispenser: Automate actions
+Dropper: Eject items
+Enchanting Table: Enchant tools & books
+Flint and Steel: Make fire
+Furnace: Smelt & cook
+Grindstone: Remove enchantments
+Hoe: Farming
+Hopper: Add items to chest
+Lectern: Display books
+Loom: Decorate banners
+Observer: Detects change
+Piston: Push blocks
+Recovery Compass: See where you died
+Redstone Comparator: Reads signal strength
+Shears: Cut & trim
+Smithing Table: Upgrade tools & armor
+Smoker: Cook food faster
+Sticky Piston: Pull blocks
+Stonecutter: Cut stone & copper
+Redstone conductors: Redstone conductor
+Block of Redstone
+Redstone Dust
+Redstone-powered blocks: Redstone powered
+Crafter
+Dispenser
+Dropper
+Piston
+Powered Rail
+Redstone Lamp
+Sticky Piston
+Redstone power sources: Redstone power source
+Daylight Detector
+Observer
+Redstone Comparator
+Redstone Torch
+
+Some tools now show their efficiency on the tooltip:
+Axes show their "Chop Efficiency".
+Pickaxes show their "Mining Efficiency".
+Shovels show their "Dig Efficiency".
+Changed the color of §9 from  #5555FF to  #447FFF.
+Changed the color of §h from  #E3D4D1 to  #D9CCB8.
+Changed the color of §i from  #CECACA to  #A9B4B7.
+Changed the color of §j from  #443A3B to  #8F727D.
+Changed the color of §m from  #971607 to  #EE222C.
+Changed the color of §n from  #B4684D to  #C87363.
+Changed the color of §p from  #DEB12D to  #FFBF1E.
+Changed the color of §q from  #119F36 to  #13A045.
+Changed the color of §s from  #2CBAA8 to  #5FECFF.
+Changed the color of §t from  #21497B to  #577BFF.
+Changed the color of §u from  #9A5CC6 to  #B66CDD.
+Changed the color of §v from  #EB7114 to  #FF6A00.
+Technical
+AI Goals
+
+Made the schema for minecraft:behavior.follow_mob stricter when parsing, now will fail to load an entity json that has invalid data in versions 1.26.50 and newer.
+API
+
+Entity.teleport now throws an Error when the entity has passengers and the target dimension is different from the entity's current dimension. Passengers must be dismounted before teleporting to another dimension. Current solution is scoped to fix current game breaking interruptions with future improvements backlogged.
+Tamed pets no longer attempt to follow their owner when the owner travels to or from a custom dimension.
+The rotation property of DebugShape now applies to DebugLine, DebugArrow, DebugCircle, DebugSphere, and DebugBox.
+World now exposes a soundDefinitionRegistry property that returns a SoundDefinitionRegistry for querying registered server sound definitions.
+Added SoundDefinitionRegistry with a getDefinitions() method that returns the registered SoundDefinition entries and accepts an optional SoundDefinitionFilter.
+Added SoundDefinition with a soundEventId property, a durationInfo property, a musicInfo property, and a tags property.
+Added SoundDefinitionDurationInfo with a duration property.
+Added SoundDefinitionMusicInfo with genres, moods, artist, and title properties.
+Added SoundDefinitionFilter with minDuration, maxDuration, genres, moods, artists, titles, and tags properties.
+Player.playSound now accepts a SoundDefinition in addition to a sound event id.
+Block components
+
+Thin fences and tripwire:
+Vanilla glass panes, iron bars, copper bars, and tripwire blocks now expose minecraft:connection_north, minecraft:connection_east, minecraft:connection_south, and minecraft:connection_west block states reflecting which cardinal neighbors they connect to.
+For new worlds, thin fence and tripwire connection state changes now trigger neighbor block updates for parity with Java Edition; existing worlds keep the prior client-only update behavior.
+Blocks
+
+Extended /fill command behaviour with multi-blocks to Scripting fill block APIs, such as Dimension.fillBlocks.
+The block component minecraft:block_entity no longer requires the experimental toggle from format version 1.26.20 onward.
+Removed minecraft:block_entity component restrictions for multi-blocks, each part will have its own block entity by design.
+Commands
+
+Added the /serveridentity command, which lets dedicated-server operators save, delete, and check the status of the server identity key.
+Dedicated server
+
+NetherNet is now the default transport used by dedicated servers.
+Windows dedicated servers now use the correct application data directory.
+Added a dedicated server option to unpack optimized creator packs into loose files.
+Entity components
+
+Made the minecraft:instant_despawn component schema stricter for entity JSON at format version 1.26.50 and later.
+Added the minecraft:can_stand_on_powder_snow component for entity definitions with a format version of 1.26.50 and later.
+Entities with this component can stand on top of powder snow.
+The lightweight type family no longer grants this behavior to entity definitions using format version 1.26.50 or later.
+Entity definitions using an older format version that include the lightweight type family are automatically upgraded to include this component.
+The endermite, fox, rabbit, and silverfish entity definitions no longer include the lightweight type family.
+Added the minecraft:block_movement_slowdown_immunity entity component.
+When set, the entity is immune to movement slowdown from the specified blocks.
+Sounds
+
+Released minecaft:sound block component out of experimental.
+It can be used to assign a set of sounds to block and its permutations similar to sound field in blocks.json.
+blocks.json overrides values of minecraft:sound component, including values in all permutations.
+Structure Files
+
+Added version 2 of the structure (.mcstructure) file format.
+The block_indices arrays are now stored as NBT IntArrayTags instead of a ListTag containing one IntTag per block, which significantly reduces the time and memory needed to save and load structures.
+The second block_indices array is now optional in version 2 structure (.mcstructure) files, and is left out when nothing is stored in the extra block layer, making those files ~50% smaller.
+Version 1 structures still load correctly, and are upgraded to version 2 the next time they are saved.
+All entity data has been saved again, even when it has default values.
+Experimental
+These additions and changes are accessible by enabling the "Beta APIs" and "Creator World Clocks Features" experimental toggles.
+
+Changes
+Technical
+API
+
+Added new tech and support for using scripting to interface with the VS Code debugger live diagnostics:
+Added the class DiagnosticsManager to access the new debugger diagnostics tech.
+Added the class DiagnosticsTab, used to represent a tab view in the debugger live diagnostics page.
+Added the class DiagnosticsView, used to represent a single display view within a tab.
+Added the class DiagnosticsStat for representing data to be used with the live diagnostics.
+Added the class DiagnosticsError for diagnostics related errors.
+Added the WorldClock class to @minecraft/server in beta.
+Has properties for name, time, and isPaused to retrieve state of the world clock.
+Added WorldClockRegistry class to @minecraft/server in beta.
+Has a registerClock function to allow registrations of new world clocks during startup.
+Added the WorldClockRegistrationError class to @minecraft/server in beta. This is thrown by WorldClockRegistry.registerClock when registration of a world clock fails.
+Added the WorldClockReloadNewWorldClockError class to @minecraft/server in beta. This is thrown when trying to register a new world clock after reloading scripts.
+Added the WorldClockInvalidRegistryError class to @minecraft/server in beta. This is thrown when trying to register world clocks outside of the BeforeStartupEvent.
+Added the WorldClockNotFoundError class to @minecraft/server in beta. This is thrown by World.getClock when a world clock does not exist.
+Added the theWorldClockRegistry to BeforeStartupEvent in beta
+Added the getClock function to the World class in beta
+BlockUtilityTasks:
+Added the optional directionMask parameter to floodSearch for restricting traversal directions.
+Features
+
+Added scripting API to query Points of Interest in the current dimension.
+Fixes
+25 issues fixed
+From released versions before Bedrock Edition 26.50
+
+MCPE-184162 – PlayStation: Eye of Ender death explode particle crashes the game.
+MCPE-234954 – Player skin model becomes visually distorted during gameplay, causing limbs and body parts to appear misaligned or rotated incorrectly.
+MCPE-235086 – Idle framerate reduction increases CPU usage, power consumption, and clock speed when the CPU is being lightly loaded.
+MCPE-240019 – No color of poplar leaves smelts into leaf litter.
+MCPE-240038 – Torches and Stonecutters cannot be crafted using the Recipe Book.
+MCPE-240467 – You can clip under solid blocks if a cushion is broken while sitting in it.
+MCPE-240483 – A pixel of the straw bed appears more reflecting than others on straw bed MERS texture.
+MCPE-240504 – Players sitting on the cushion will sink one block after using /kill to clear the cushion.
+MCPE-240730 – Renamed cushions do not display their custom name when placed.
+MCPE-240731 – Cushion does not produce breaking particle and sound when break due to no supporting block.
+MCPE-240849 – Cushions do not break over lava and water.
+Other
+
+Fixed the straw bed texture so it no longer contains floating pixels or extra pixels that are never visible in-game.
+Fixed totem of undying activation not synchronizing health when final health equals the original value.
+Fixed an issue where players and mobs could load in a world at (0,0,0) and lose all their items after reloading world.
+Fixed a bug with item in hand jittering with temporal anti-aliasing upscaling enabled.
+Fixed a bug where spiders and cave spiders would occasionally be slowed by cobwebs.
+Fixed an issue where mobs and players could reload with an inconsistent movement speed.
+Fixed realm role actions not showing correctly for certain roles.
+Fixed a crash that could occur while retrieving network addresses on Android.
+Fixed 'out of space' error displaying when attempting to download large items regardless of available space.
+Fixed an issue where setting the Cheats toggle to OFF during world creation would not reset cheats to default values.
+Fixed the scale property on DebugShape when used with DebugCone, DebugEllipsoid, DebugPyramid, and DebugCylinder.
+Fixed screens visited not mounting if another global route action happened while the screen was unmounting.
+Fixed book and quill's lighting value when on a lectern when block Light quality is set to volumetric lights or above.
+Fixed an issue that caused the brightness of some point lights to oscillate.
+ Preview 26.50.25
+Beta 26.50.25 (ChromeOS, Android) or Preview 26.50.25 (Windows, iOS, iPadOS, Xbox, PlayStation) is the fourth beta/Preview for Bedrock Edition 26.50, released on August 9, 2026, for iOS and iPadOS, and on August 11, 2026, for all remaining devices, which fixes bugs.
+
+Changes
+Blocks
+Concrete slabs and stairs
+
+Can now be obtained by cutting concrete in a stonecutter.
+Jukebox
+
+Multiple jukeboxes can now play the same sounds independently.
+Red shrub
+
+Now uses unique sounds.
+Straw bed
+
+Now breaks faster with a hoe.
+Wool stairs and slabs
+
+Now break faster with shears.
+Can now be used to craft paintings.
+Items
+Explorer map
+
+"Buried Ancient City Camp Map" has been renamed to "Buried Ancient City Map".
+"Buried Mineshaft Camp Map" has been renamed to "Buried Mineshaft Map".
+"Desert Temple Camp Map" has been renamed to "Desert Pyramid Map".
+"Warm Ocean Ruins Camp Map" has been renamed to "Warm Ocean Ruins Map".
+World generation
+Abandoned camp
+
+Barrels can now contain white cushions and straw beds.
+Explorer maps can no longer lead to other camps in the same biome that they were looted from.
+Replaced firework rockets with gunpowder in loot tables.
+General
+Graphical
+
+Changed the map color of red shrubs to match with crimson nylium.
+Changed the map color of shelf mushrooms to match with yellow terracotta.
+UI
+
+Achievement warnings are no longer displayed in Preview and beta builds.
+Realms Plus subscribers who open Marketplace Pass from the Marketplace sidebar now go straight to the View All Packs screen instead of the subscription page.
+Technical
+Actor Components
+
+Made the minecraft:barter schema stricter when parsing and fail to load an entity json that has invalid data in versions 1.26.50 and newer.
+AI components
+
+Made the minecraft:preferred_path component stricter when parsing and will fail to load an entity json that has invalid data in versions 1.26.50 and newer.
+AI Goals
+
+Updated minecraft:behavior.follow_mob: Whenever the goal stops or is removed through a component group change, the mob's navigation is always interrupted.
+API
+
+Released version 1.0.0 of @minecraft/server-graphics, promoting the module and all of its APIs out of beta.
+@minecraft/server-graphics version 1.0.0 requires version 2.3.0 or later of @minecraft/server.
+Block components
+
+Updated the Block JSON loader to support future optimizations and out of game upgrades.
+Leaves:
+All leaves blocks now carry the minecraft:leaves tag.
+Tree features match through tags": "query.any_tag('minecraft:leaves')" in may_replace instead of listing each leaves block by name, so a new leaves block no longer has to be added to every tree feature to be grown through.
+minecraft:tags:
+The minecraft:is_shears_item_destructible block tag now also grants the shears breaking speed bonus, matching the behavior of the other is_*_item_destructible tags.
+Blocks
+
+Released horizontal multi-blocks; these are blocks defined with the minecraft:multi_block trait with a direction field that is horizontal.
+The Upcoming Creator Features experiment is still required for them if format_version is less than 1.26.50.
+Chorus Plant:
+Chorus plant blocks now expose the minecraft:connection_north, minecraft:connection_east, minecraft:connection_south, minecraft:connection_west, minecraft:connection_up, and minecraft:connection_down block states reflecting which adjacent chorus plants and chorus flowers they connect to.
+Fire:
+Fire blocks now expose the minecraft:connection_north, minecraft:connection_east, minecraft:connection_south, minecraft:connection_west, minecraft:connection_up, and minecraft:connection_down block states reflecting the flammable and supporting blocks around them.
+Gameplay
+
+The minecraft:default_biome component in the dimension JSON is now optional and only supported on custom dimensions; using it on a vanilla dimension now produces a content error instead of being silently accepted.
+Added the minecraft:default_biome component to custom dimension JSON, allowing creators to configure the biome a custom dimension generates with.
+Added support for defining custom dimensions with JSON and configuring custom dimension heights.
+JSON Schema
+
+The JSON document upgrader now differentiates base game JSON from creator JSON, so base game content may use the minecraft: namespace while creator content continues to be validated against creator namespace rules.
+Packs
+
+System packs that fail to load their manifest file or fail to execute their script plugin will now stop the dedicated server.
+Pack Settings
+
+Added a new multiselect pack setting type, letting pack authors declare a list of options.
+Molang can query for active options in the multiselect via query.is_pack_setting_selected.
+world.getPackSettings() now can return an array of strings for multiselect options in @minecraft/server beta.
+PackSettingsChangeAfterEvent.settingValue now can be an array of strings for multiselect options in @minecraft/server beta.
+Sounds
+
+Added allow_concurrent_streaming to sound objects in sound_definitions.json, allowing streamed ordinary sound events to play independent simultaneous instances. The field defaults to true in format version 1.26.50 and later.
+Spawn events
+
+The minecraft:start_transforming event has been split into two events.
+minecraft:start_transforming_into_zombie happens when a husk becomes submerged in water.
+minecraft:start_transforming_into_drowned happens when a zombie becomes submerged in water.
+This change was incorrectly stated as husks and zombies now preserving their equipment when transformed into zombies and drowned.
+Experimental
+These additions and changes are accessible by enabling the "Beta APIs" experimental toggle.
+
+Changes
+Technical
+API
+
+Scripting websockets now send a ping packet to the socket server every 45 seconds instead of every second.
+The minecraft:server_sound_definitions payload in sounds/sound_definitions.json now accepts an optional broadcast_range field on each definition specifying an XZ range in blocks.
+Fixes
+26 issues fixed
+From released versions before Bedrock Edition 26.50
+
+MCPE-89543 – PlayStation GUI scale modifier resetting after restarting game.
+MCPE-147584 – Blocks can be placed on the chain, which should not be placed on them.
+MCPE-189586 – Tag "minecraft:is_shears_item_destructible" doesn't work on custom blocks
+MCPE-190746 – Chains prevent spawns one block below them.
+MCPE-232536 – Lanterns can be placed on the bottom of horizontal chains.
+MCPE-235723 – "Leave Boat" button texture is corrupted when using "D-Pad & tap to interact".
+MCPE-236819 – Localization fragments may appear incorrectly in hovers.
+MCPE-239750 – Using a bucket on a sulfur cube may pick up liquid or powder snow located at the world origin.
+MCPE-240014 – All colors of poplar leaves block other saplings but poplar from growing up.
+MCPE-240057 – Sculk sensors pick up vibrations from dropped wool slabs and stairs.
+MCPE-240164 – Wool slabs and stairs are not broken faster when using shears.
+MCPE-240331 – Seagrass in abandoned camp is not filled by water.
+MCPE-240466 – Cushion breaks when placed in the same block space as chains.
+MCPE-240477 – Different cushion dismount message compared to Java.
+MCPE-240495 – Shelf mushrooms render behind snow layers in the inventory.
+MCPE-240501 – Flowing water in dappled forests is opaque.
+MCPE-240778 – Cushions break when sharing a block space with a honey block and sniffer egg.
+MCPE-240780 – /summon cushion spawns a black cushion by default instead of white.
+From the Bedrock Edition 26.50 development versions
+
+MCPE-241279 – Cushion can be broken in the Adventure game mode.
+MCPE-241352 – Stonecutter recipes for concrete stairs and slabs are missing.
+Other
+
+Fixed an issue that caused the sky to render incorrectly when seen through boats in Vibrant Visuals.
+Fixed an issue where using a lava bucket on a cow produced a milk bucket.
+Fixed a crash that could occur when flying over or through water bodies with entities nearby.
+Fixed a double toast notification happening while importing an old world from a PlayStation 4 preview to a PlayStation 5 preview.
+Fixed a bug where calling the Player.playSound method could result in read-only errors when writing new properties to the player class afterwards.
+Fixed an error when deeplinking from the subscribe now button from the Marketplace Pass site while client is closed.
+ Preview 26.50.26
+Beta 26.50.26 (ChromeOS, Android, Nintendo Switch 2) or Preview 26.50.26 (Windows, iOS, iPadOS, Xbox, PlayStation) is the fifth beta/Preview for Bedrock Edition 26.50, released on August 16, 2026, for iOS and iPadOS, and on August 18, 2026, for all remaining devices, which changes the panorama for the next game drop and fixes bugs.
+This version was released for the Nintendo Switch 2 closed beta on August 25, 2026, being the third closed beta.
+
+Changes
+Items
+Cushion
+
+Can no longer be renamed with a name tag.
+Map
+
+Changed the map colors of all poplar blocks.
+World generation
+Abandoned camp
+
+Now less likely generate on top of villages.
+General
+Graphical
+
+Increased the maximum render distance with Vibrant Visuals to 48 chunks on Windows.
+Poplar door hinges now have metallic reflectiveness.
+120 fps compatibility for the Nintendo Switch 2 closed beta.
+Panorama
+
+Updated the panorama to reflect the third drop of 2026.
+Parties
+
+The /party command is now usable, sending messages in the current party.
+Party chat messages now appear in the gameplay chat for the player, with blue <Party><Player> prefix.
+Parties are no longer marked as "(Beta)".
+UI
+
+Some sign-in errors which were previously reported as "Wool" are now reported with a more specific codename.
+Screen narration now properly reads out the first focused element after opening the game menu.
+Shelf mushrooms now have the correct scale in inventory slots.
+Added an option to mute a player when reporting their chat messages.
+Cloud storage is now temporarily disabled on Preview to match with 26.42.
+Technical
+API
+
+Released PrimitiveShapesManager.getShapes from beta to 2.10.0.
+Released PrimitiveShapeQueryOptions from beta to 2.10.0.
+DimensionTypes.get and DimensionTypes.getAll now return custom dimension types in addition to vanilla dimension types.
+DDUI:
+The close button in DDUI forms now make a sound when clicked or when the form is closed with a key shortcut.
+Dimension:
+Moved the cloneBlocks method from beta to v2.10.0, allowing regions of blocks to be cloned from one area of a dimension to another with support for clone modes and an optional block filter.
+Released the enum CloneMode.
+Released the Dimension method cloneBlocks.
+Blocks
+
+Replacing a custom block that has a minecraft:block_entity component with a different block definition now creates a new block entity, so the previous block's dynamic properties are no longer carried over to the block that replaced it.
+Changing only a block state keeps the same block entity and its dynamic properties.
+Entity components
+
+Vulnerability to freezing damage from powder snow is no longer hardcoded at runtime and is instead defined by the minecraft:freezing_vulnerable component.
+The following mobs will be upgraded to automatically have this component:
+minecraft:blaze
+minecraft:magma_cube
+minecraft:strider
+This change was mentioned in the last preview’s changelog, rather than this preview’s changelog.
+The isolated_physics field on minecraft:projectile now defaults to true for format version 1.26.30 and above, and false for older versions.
+Vanilla projectile entities now explicitly set isolated_physics to false on their minecraft:projectile component.
+A content error is now emitted when isolated_physics is set to true on an entity using a Vanilla projectile runtime_identifier (e.g., minecraft:arrow), as it is not intended to be used with Vanilla projectiles.
+Experimental
+These additions and changes are accessible by enabling the "Beta APIs", "Creator World Clocks Features", and new "Points of Interest (POI)" experimental toggles.
+
+Changes
+Technical
+API
+
+Added the TimeMarker class to @minecraft/server in beta.
+Has properties for name, time, and period.
+Added the WorldClockRegistrationOptions interface to @minecraft/server in beta.
+Added the TimeMarkerOptions interface to @minecraft/server in beta.
+Added the WorldClockReloadTimeMarkerError class to @minecraft/server in beta. This is thrown when an existing world clock has an invalid time marker after reloading scripts.
+Added the WorldClockAddTimeMarkerError class to @minecraft/server in beta. This is thrown by a WorldClock.addTimeMarker when adding a time marker fails.
+Added the WorldClockRemoveMinecraftTimeMarkerError class to @minecraft/server in beta. This is thrown by WorldClock.removeTimeMarker when trying to remove a time marker with the minecraft: namespace.
+Added the WorldClockInvalidTimeMarkerError class to @minecraft/server in beta. This is thrown when trying to access data on an invalid time marker minecraft: namespace.
+Added the WorldClockTimeMarkerNotFoundError class to @minecraft/server in beta. This is thrown by a WorldClock when a time marker does not exist.
+Added the WorldClockRewindError class to @minecraft/server in beta. This is thrown by WorldClock.rewindTo when the world clock's current time is behind the time marker's first occurrence.
+Added the WorldClockOnTimeModifiedAfterEvent class to @minecraft/server in beta.
+This event is fired when a world clock's time is directly changed through scripting or commands.
+Added the WorldClockOnTimeModifiedAfterEventSignal class to @minecraft/server in beta.
+Added the WorldClockOnPausedAfterEvent class to @minecraft/server in beta.
+This event is fired when a world clock is paused.
+Added the WorldClockOnPausedAfterEventSignal class to @minecraft/server in beta.
+Added the WorldClockOnResumedAfterEvent class to @minecraft/server in beta.
+This event is fired when a world clock is resumed.
+Added the WorldClockOnResumedAfterEventSignal class to @minecraft/server in beta.
+Added the WorldClockOnTimeMarkerAfterEvent class to @minecraft/server in beta.
+This event is fired when a world clock's time hits a time marker.
+Added the WorldClockOnTimeMarkerAfterEventSignal class to @minecraft/server in beta.
+Added the WorldClockOnRestartBeforeEvent class to @minecraft/server in beta.
+This event is fired when a world clock ticks at the maximum time and is about to restart.
+The newTime property on the event can be optionally set to set a custom restart time for the world clock.
+Added WorldClockOnRestartBeforeEventSignal class to @minecraft/server in beta.
+Added the WorldClockEventOptions interface to @minecraft/server in beta.
+Has a clock property to filter out which clock the event should fire for.
+Added the WorldClockTimeMarkerEventOptions interface to @minecraft/server in beta.
+Has a clock property to filter out which clock the event should fire for.
+Has an optional timeMarker property to filter out which time marker the event should fire for.
+EntityIsTamedComponent:
+Added read-only tamedToPlayer and tamedToPlayerId properties to beta that return the player and player id that tamed the entity.
+WorldAfterEvents:
+Added the worldClockOnTimeModified event signal to @minecraft/server in beta. This is used to subscribe to world clock time modified events.
+Added the worldClockOnPaused event signal to @minecraft/server in beta. This is used to subscribe to world clock paused events.
+Added the worldClockOnResumed event signal to @minecraft/server in beta. This is used to subscribe to world clock resumed events.
+Added the worldClockOnTimeMarker event signal to @minecraft/server in beta. This is used to subscribe to world clock time marker events.
+WorldBeforeEvents:
+Added the worldClockOnRestart event signal to @minecraft/server in beta. This is used to subscribe to world clock restart events.
+WorldClock:
+Added timeMarkers property in beta.
+Added addTimeMarker function in beta.
+Added removeTimeMarker function in beta.
+Added set function in beta.
+Added skipTo function in beta.
+Added rewindTo function in beta.
+WorldClockRegistry:
+Added registrationOptions parameter to registerClock function to optionally create time markers during registration in beta.
+Blocks
+
+Added the container field to the minecraft:block_entity block component, which gives a custom block a container that holds up to 54 item stacks, persists with the world, drops its contents when the block is broken, and opens a container screen when the block is used.
+Replacing a custom block whose minecraft:block_entity declares a container with a different block definition rebuilds its block entity, so the outgoing block drops its container contents rather than handing them to the new block.
+Added scripting access to custom block inventories provided by minecraft:block_entity containers.
+Commands
+
+Added a new /time of sub-command for modifying world clocks under the Creator World Clocks Features experiment.
+/time of <clock> add <time> - Adds time to the clock. Cannot result in a negative time.
+/time of <clock> set <time> - Sets the clock to the specified time. Cannot be set to negative.
+/time time of <clock> set <timemarker> (next previous stay) - Sets the clock to the occurrence of the time marker. Cannot result in a negative time.
+/time of <clock> pause - Pauses the clock.
+/time of <clock> resume - Resumes the clock.
+/time of <clock> query time - Outputs the clock's current time.
+Added /locate poi for locating registered points by type or tag.
+Fixes
+31 issues fixed
+From released versions before Bedrock Edition 26.50
+
+MCPE-117477 – Yellowtail parrot fish does not exist.
+MCPE-240287 – Poplar wood appears orange on maps.
+MCPE-240463 – Certain closed captions for straw bed are untranslated.
+MCPE-240476 – Vibrant Visuals can no longer be enabled in worlds with the Education features toggle enabled.
+MCPE-240482 – Cannot place cushion under existing cushion.
+MCPE-240506 – Straw beds have Z-fighting issues.
+MCPE-240720 – Fit-to-frame being disabled incorrectly causes icons to be centered.
+MCPE-241505 – Attempting to join old worlds fails and gives "Block" error code every time, even in singleplayer.
+MCPE-241528 – minecraft:overworld and minecraft:dimension_bounds do not work.
+From the Bedrock Edition 26.50 development versions
+
+MCPE-240897 – Softlock when going back to the play screen from a connection error.
+MCPE-241081 – DDUI font does not wrap around and space itself correctly.
+MCPE-241160 – Foxes hold the shelf mushroom block offset from their mouth.
+MCPE-241421 – Breaking cushions does not trigger sculk sensors or sculk shriekers.
+MCPE-241662 – Paintings can be crafted with wool slabs and stairs.
+MCPE-241675 – Missing closed captions for shelf mushrooms.
+MCPE-241687 – Honey blocks and sniffer eggs can no longer be read through by comparators in latest beta.
+Other
+
+Fixed trees not generating in cherry grove and old growth birch forest abandoned camps.
+Fixed red shrubs flickering when placed against one another in multiplayer.
+Fixed being able to place a cushion on top of another cushion when moving quickly in any direction.
+Fixed triangular gaps that could appear in water surfaces where water meets a bank or flows over a lip.
+Fixed an issue that would sometimes cause a crash when opening the Realms Edit World, particularly on iOS devices.
+Fixed a crash that could occur when render controller expressions referenced variables of the wrong resource type.
+Fixed worlds containing chunks saved before block connection upgrades getting stuck while loading when creating the world.
+Fixed game stuttering in worlds after long play sessions or after leaving the game suspended for an extended time.
+Fixed poplar hanging sign visuals to be in parity with other signs.
+Fixed leftover instances where button touch areas did not align with the buttons in windowed Android modes with a title bar, such as Samsung DeX and pop up view.
+Fixed a bug where a party leader using Join Game on a friend not in their party would spuriously see the "Your party is too large" message.
+Fixed the gamepad cursor in menus becoming choppy after long play sessions or after leaving the game suspended for an extended time.
+Fixed Player.fogSettings APIs throwing when a player re-joins server.
+Fixed an issue where DDUI CustomForm/MessageBox was not working in split screen.
+Fixed "item_display_transforms" -> "gui" -> "translation" no longer affecting an item's position in the slot.
+ Preview 26.50.27
+Beta 26.50.27 (ChromeOS, Android) or Preview 26.50.27 (Windows, iOS, iPadOS, Xbox, PlayStation) is the sixth beta/Preview for Bedrock Edition 26.50, released on August 24, 2026, for iOS and iPadOS, and on August 25, 2026, for all remaining devices, with "additional fixes and improvements".
+
+Notes and references
+
+ "Minecraft Beta & Preview - 26.50.20"     – Minecraft Feedback, July 21, 2026.
+
+ MCPE-240898 – Clear Layout Cache button not on Ore UI storage settings
+
+ "Minecraft Beta & Preview - 26.50.22"     – Minecraft Feedback, July 28, 2026.
+
+ "Minecraft Beta & Preview - 26.50.24"     – Minecraft Feedback, August 5, 2026.
+
+ "Minecraft Beta & Preview - 26.50.25"     – Minecraft Feedback, August 11, 2026.
+
+ "Minecraft Beta & Preview - 26.50.26"     – Minecraft Feedback, August 18, 2026.
+
+ "Minecraft Beta & Preview - 26.50.26/27"     – Minecraft Feedback, August 25, 2026.
+
+Navigation

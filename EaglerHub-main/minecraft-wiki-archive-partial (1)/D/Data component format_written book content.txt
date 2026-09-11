@@ -1,0 +1,11 @@
+[NBT Compound / JSON Object] minecraft:written_book_content: The contents and metadata of this written book. Adding this component to any item other than a written_book does nothing except add text to the item tooltip. If this component is removed from a written_book item, attempting to use the item will still swing the arm and increment its used statistic, but no UI will appear.
+[NBT List / JSON Array] pages: A list of the pages in the book.
+[NBT Compound / JSON Object] or [String][NBT List / JSON Array][NBT Compound / JSON Object]: A single page. If set to a string, list, or compound with no raw or filtered tags in it, it corresponds to [String][NBT List / JSON Array][NBT Compound / JSON Object] raw.
+[String][NBT List / JSON Array][NBT Compound / JSON Object] raw: A text component representing the text content of the page. See Text component format.
+[String][NBT List / JSON Array][NBT Compound / JSON Object] filtered: A text component representing the filtered text of the page. Optional. Shown only to players with chat filter enabled, instead of [String] raw.
+[String][NBT Compound / JSON Object] title: The title of this written book. Overrides the base item name. If set to an empty string, it is ignored and does not override the base item name. If set to a string, it corresponds to [String] raw.
+[String] raw: The plain text title. Has a maximum length of 32 characters.
+[String] filtered: The filtered title. Optional. Shown only to players with chat filter enabled, instead of [String] raw.
+[String] author: The author of this written book. This is shown in the item tooltip.
+[Int] generation: The number of times this written book has been copied. 0 = original, 1 = copy of original, 2 = copy of copy, 3 = tattered. Defaults to 0. If the value is greater than 1, the book cannot be copied. If specified, this is shown in the item tooltip.
+[Boolean] resolved: If true, the text components have already been resolved by the server. If false, they are resolved either when the book is opened by an operator, when the book is placed into a lectern by an operator, or when the item stack is written to a lectern's Book tag by a command. Defaults to false.

@@ -1,0 +1,232 @@
+Preview 1.21.80.21
+
+Edition
+
+Bedrock Edition
+
+Release date
+
+March 18, 2025
+
+Server version
+
+1.21.80.21
+
+Editor version
+
+0.9.2
+
+Build version
+
+31828387
+
+Internal version
+
+Windows, Xbox: 1.21.8021.0Android: 1.21.80.21
+
+Version code
+
+Android:
+952108021 (armeabi-v7a, 34)
+962108021 (x86, 34)
+972108021 (arm64-v8a, 34)
+982108021 (x86_64, 34)
+
+Type
+
+Preview
+
+Preview for
+
+1.21.80
+
+Downloads
+
+ ServerWindowsLinux
+
+Protocol version
+
+791
+
+◄◄   1.21.73
+1.21.80
+  1.21.81 ►►
+
+◄   Preview 1.21.80.20
+
+ Preview 1.21.80.21
+
+  Preview 1.21.80.22 ►
+
+{
+    "title": "Preview 1.21.80.21",
+    "images": [
+        "Bedrock 1.21.80.21.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Bedrock Edition article, displayed as Bedrock Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "March 18, 2025",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Bedrock Dedicated Server 1.21.80.21 article, displayed as 1.21.80.21)",
+            "label": "Server version"
+        },
+        {
+            "field": "(link to Bedrock Editor 0.9.2 article, displayed as 0.9.2)",
+            "label": "''(link to Bedrock Editor article, displayed as Editor)'' version"
+        },
+        {
+            "field": "31828387",
+            "label": "Build version"
+        },
+        {
+            "field": "'''Windows, Xbox''': 1.21.8021.0<br>'''Android''': 1.21.80.21",
+            "label": "Internal version"
+        },
+        {
+            "field": "'''Android''':<br />\n952108021 (armeabi-v7a, 34)<br />\n962108021 (x86, 34)<br />\n972108021 (arm64-v8a, 34)<br />\n982108021 (x86_64, 34)",
+            "label": "Version code"
+        },
+        {
+            "field": "Preview",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Bedrock Edition 1.21.80 article, displayed as 1.21.80)",
+            "label": "Preview for"
+        },
+        {
+            "field": "'''Server'''<br>[https://www.minecraft.net/bedrockdedicatedserver/bin-win-preview/bedrock-server-1.21.80.21.zip Windows]<br>[https://www.minecraft.net/bedrockdedicatedserver/bin-linux-preview/bedrock-server-1.21.80.21.zip Linux]",
+            "label": "Downloads"
+        },
+        {
+            "field": "791",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Bedrock Edition  1.21.73|<span style=\"margin-right:-0.35em\">◄</span>◄   1.21.73]]</td>\n<td style=\"padding: 0.4em\">'''[[Bedrock Edition 1.21.80|1.21.80]]'''</td>\n<td style=\"padding: 0.4em\" >[[Bedrock Edition  1.21.81|  1.21.81 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Bedrock Edition  Preview 1.21.80.20|◄   Preview 1.21.80.20]]\n</td>\n<td style=\"padding: 0.4em\">''' Preview 1.21.80.21'''</td>\n<td style=\"padding: 0.4em\">\n[[Bedrock Edition  Preview 1.21.80.22|  Preview 1.21.80.22 ►]]\n</td>\n</tr>\n</table>"
+}
+
+Beta 1.21.80.21 (ChromeOS, Android) or Preview 1.21.80.21 (Windows, iOS, iPadOS, Xbox, PlayStation) is the second beta/Preview version for Bedrock Edition 1.21.80, released on March 18, 2025, which fixes bugs.
+
+Contents
+
+1 Changes
+
+1.1 General
+1.2 Mobs
+1.3 Technical
+
+2 Experimental
+
+2.1 Changes
+
+2.1.1 Gameplay
+2.1.2 Technical
+
+3 Fixes
+4 References
+5 Navigation
+
+Changes
+General
+UI
+
+Adding "Manage Storage" button if download fails due to lack of space with instructions on what needs to be cleared out.
+Adding "Clear Download Cache" button to storage for clearing files that got stuck due to a downloading error.
+Auto clearing the download cache on startup if it detects that it is running out of space.
+VR
+
+Removed access to virtual and mixed reality gameplay.
+Mobs
+General
+
+A recent change that caused "invincible pet" mobs to despawn have reverted.
+Mobs in worlds opened during Preview may have despawned, but players updating to the upcoming 1.21.70 release should be unaffected.
+Sheep
+
+Texture now matches Java Edition.
+This change was not mentioned in the changelog.
+Technical
+API
+
+Moved the following player methods from beta to v1.18.0:
+setPropertyOverrideForEntity
+removePropertyOverrideForEntity
+clearPropertyOverridesForEntity
+Biomes
+
+Added music_definition field to minecraft:biome_music component in client_biome json files to control the music played in the biome. The default music will be determined by the dimension if the biome_music component or music_definition property is left off. An empty string can be used if the biome is intended to be silent.
+Blocks
+
+Blocks using the minecraft:block_placer component now can get added as loose items in the creative inventory and recipe book again.
+Components
+
+Content errors will log missing texture references in the minecraft:icon item component.
+The minecraft:rideable component's Seat definition now has two additional fields:
+third_person_camera_radius can be used to set a different camera radius when in third person or third person front camera. The value needs to be in the range [1.0, 64.0]. Value 0.0 is ignored.
+camera_relax_distance_smoothing adds springiness to the camera movement when the camera moves back to its radius after being pushed closer to the player by and obstacle. A higher value means a stiffer spring. The value needs to be in the range [1.0, 32.0]. Value 0.0 is ignored.
+The minecraft:leashable component now support multiple presets:
+A list of presets can be defined in the new presets field.
+Each preset determines how the entity behaves when leashed to another entity.
+A preset is selected when the entity is leashed and remains active until it is leashed to something else.
+The first preset whose filter conditions are met will be applied.
+If no presets match, a default configuration is used instead.
+The following fields are now part of each preset:
+filter: Defines the condition that selects this preset out of all the presets upon leashing.
+soft_distance: Distance at which the spring effect begins.
+hard_distance: Distance at which the leash stiffens.
+max_distance: Distance at which the leash breaks.
+can_be_stolen: Determines if a player can steal the leashed entity using a lead.
+Molang
+
+Added the query.leashed_entity_count Molang query, which allows querying how many entities have the given entity as their leash holder.
+Stability and performance
+
+Make friends drawer and play screen more performant using a cached view.
+Experimental
+These additions and changes are accessible by enabling the "Beta APIs" and "Locator Bar" experimental toggles.
+
+Changes
+Gameplay
+Player Locator Bar
+
+Player dots on the locator bar now show correctly regardless of simulation distance.
+Technical
+API
+
+EntityMarkVariantComponent has been changed to read-only in version 2.0 beta.
+Blocks
+
+Always add a missing Destruction Particles component to blocks that have a Material Instances component, using the down material as reference:
+The texture field in minecraft:destruction_particles is now optional; if not provided or empty, it will be populated from the Material Instances component.
+Graphical
+
+Enforced minimum Android, iOS, and iPadOS requirements for devices running the Deferred Technical Preview for maintained performance, stability, and visuals moving forward. For Android, a Adreno 640, Mali-G68, Mali-G77, or Xclipse 530 GPU or higher is required. On iOS devices, an A12 Bionic chip or later is required. On iPadOS devices, an A12 Bionic or M1 chip or later is required.
+Disabled local exposure on all platforms because of a bug that can cause massive visual corruption in the Deferred Technical Preview. Developers will re-enable the technology in a future update once the issue has been resolved.
+Fixes
+9 issues fixed
+From released versions before 1.21.80
+
+MCPE-71476 – Sheep skin/sheared texture is the old and not the new
+MCPE-188731 – Spawn Under Nether Portal after traveling to the overworld
+MCPE-190620 – Custom spawn eggs no longer appear under spawn eggs
+MCPE-190750 – Cold variants of cows, chickens, and pigs spawn in Mangrove Swamp instead of warm variants
+Other
+
+Fixed ambient occlusion issue for non-1×1×1 blocks. When a block around any of these smaller non-1×1×1 blocks is broken, the AO computation is correctly applied to the face in the direction of that broken block. Previously the wrong face could be seen getting lightened/darkened. A list of blocks affected: stairs, walls, gates, buttons, cakes, plates, fences, anvil, grindstone, hopper, bell, lectern, eggs, brewing stand.
+Worlds are no longer missing from the storage menu.
+Bundle tooltip no longer sometimes renders as if having a different amount of items.
+Block using the minecraft:destruction_particles component will now correctly be sent to player connecting to a host.
+Fixed a bug that caused the Editor to crash when the Deferred Technical Preview was enabled.
+References
+
+ "Minecraft Beta & Preview - 1.21.80.21"     – Minecraft Feedback, March 18, 2025.
+
+Navigation

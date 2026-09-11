@@ -1,0 +1,216 @@
+This page covers a development version that has a major issue under certain conditions. 
+The dedicated server for this version has a security vulnerability in the Log4j library that could be used to perform a remote code execution exploit. It can be addressed by appending a certain JVM argument to the server startup command line.
+
+Minecraft 17w18b
+
+Edition
+
+Java Edition
+
+Release date
+
+May 4, 2017
+
+Type
+
+Snapshot
+
+Snapshot for
+
+1.12
+
+Downloads
+
+Client (.json)Server
+
+Protocol version
+
+327
+
+Data version
+
+1131
+
+Resource pack format
+
+3
+
+Minimum Java version
+
+Java SE 8
+
+◄◄   1.11.2
+1.12
+  1.12.1 ►►
+
+◄   17w18a
+
+ 17w18b
+
+  1.12-pre1 ►
+
+{
+    "title": "Minecraft 17w18b",
+    "images": [
+        "17w18a.png",
+        "Java Edition 17w18b.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "May 4, 2017",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Snapshot article, displayed as Snapshot)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition 1.12 article, displayed as 1.12)",
+            "label": "Snapshot for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/d10320fe0a9bf0e86bbea792216bb0da4430b17a/client.jar Client] ([https://piston-meta.mojang.com/v1/packages/03c7dbe028a8a62862d4fec5951343ff0f5012b5/17w18b.json .json])<br />[https://piston-data.mojang.com/v1/objects/915c1833209d588ade3e064577700037093861da/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "327",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "1131",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "3",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_8_.28LTS.29 Java SE 8]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Java Edition  1.11.2|<span style=\"margin-right:-0.35em\">◄</span>◄   1.11.2]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition 1.12|1.12]]'''</td>\n<td style=\"padding: 0.4em\" >[[Java Edition  1.12.1|  1.12.1 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  17w18a|◄   17w18a]]\n</td>\n<td style=\"padding: 0.4em\">''' 17w18b'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  1.12-pre1|  1.12-pre1 ►]]\n</td>\n</tr>\n</table>"
+}
+
+17w18b is the eleventh and final snapshot for Java Edition 1.12, released on May 4, 2017.
+
+Contents
+
+1 Additions
+
+1.1 General
+
+2 Changes
+
+2.1 General
+
+3 Fixes
+4 Videos
+5 Trivia
+6 References
+7 Navigation
+
+Additions
+General
+Advancements
+
+Added 5 advancements, 4 of which are in the new "Husbandry" tab.
+Advancements added in this version include:
+Husbandry/AdventureIconAdvancementIn-game descriptionParentActual requirements (if different)Resource locationRewards
+HusbandryThe world is full of friends and food—Consume any edible item (except for cake).husbandry/root—
+A Seedy PlacePlant a seed and watch it growHusbandryPlant one of these 5 crops:
+
+Beetroot
+Melon
+Nether Wart
+Pumpkin
+Wheathusbandry/plant_seed—
+Serious DedicationCompletely use up a diamond hoe, and then reevaluate your life choicesA Seedy PlaceUse up any item that has durability.husbandry/break_diamond_hoe—
+A Balanced DietEat everything that is edible, even if it's not good for youA Seedy Place
+Eat each of these 30 foods:
+
+Apple
+Baked Potato
+Beetroot
+Beetroot Soup
+Bread
+Carrot
+Chorus Fruit
+Cooked Chicken
+Cooked Fish
+Cooked Mutton
+Cooked Porkchop
+Cooked Rabbit
+Cookie
+Golden Apple
+Golden Carrot
+Melon Slice
+Mushroom Stew
+Poisonous Potato
+Potato
+Pumpkin Pie
+Rabbit Stew
+Raw Beef
+Raw Chicken
+Raw Fish
+Raw Mutton
+Raw Porkchop
+Raw Rabbit
+Rotten Flesh
+Spider Eye
+Steak
+
+Other foods and consumables can be eaten, but are ignored for this advancement.husbandry/balanced_diet—
+Hired HelpSummon an Iron Golem to help defend a villageWhat a Deal!Summon an iron golem.adventure/summon_iron_golem—
+
+Added new advancement triggers:
+consume_item
+placed_block
+arbitrary_player_tick - only one player runs it per tick
+Changes
+General
+Advancements
+
+The "Monster Hunter" and "Monsters Hunted" advancements now use 22 mobs instead of 23, removing the illusioner from the list.
+Moved the advancements added in 17w18a (Best Friends Forever, The Parrots and the Bats, Two by Two) into the Husbandry tab.
+Narrator
+
+Made the narrator work on nearly all systems (Linux requires Flite for it to work).
+Fixes
+12 issues fixed
+From the 1.12 development versions
+
+MC-114930 – Narrator not working
+MC-115838 – Dark dot on white bed in recipe selection
+MC-116746 – @s selector ignores dx/dy/dz
+MC-116772 – Illusion Illagers are required for advancement "Kill All Mobs" even though they don't spawn
+MC-116810 – Models on Recipe Book tabs render badly
+MC-116821 – doLimitedCrafting gamerule not working
+MC-116940 – Client/server disagreement when using a knowledge book with invalid recipes
+From the previous development version
+
+MC-116950 – Cannot place buttons, levers, torches... on barrier blocks
+MC-116953 – A single horse is considered tamed multiple times in a row
+MC-116974 – Can place block-dependent blocks on glassy blocks or leaves
+MC-116976 – Shulker box duplication when placed below lever
+MC-116985 – Buttons and levers can't be placed on the sides of corner stairs
+Videos
+Video made by slicedlime:
+
+
+
+
+Trivia
+17w18b was previously removed from the launcher for some time, but was added back in September 2018.
+References
+
+ "Important Message: Security vulnerability in Java Edition"     – Minecraft.net, December 10, 2021.
+
+ "Minecraft Snapshot 17w18a"     – Minecraft.net, May 3, 2017.
+
+Navigation

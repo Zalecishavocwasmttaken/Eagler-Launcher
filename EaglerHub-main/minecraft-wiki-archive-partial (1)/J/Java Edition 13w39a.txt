@@ -1,0 +1,168 @@
+The pre-reupload server .exe    of this release is lost. 
+While this version is known to exist, it has not been archived in the launcher or elsewhere, and is therefore considered lost.
+If you believe you have a copy of this version, please post it on the talk page.
+
+13w39a
+
+Edition
+
+Java Edition
+
+Release date
+
+September 26, 2013
+
+Type
+
+Snapshot
+
+Snapshot for
+
+1.7.2
+
+Downloads
+
+Client (.json)Original server
+Reuploaded server (.exe)
+
+Protocol version
+
+80
+
+Resource pack format
+
+1
+
+Minimum Java version
+
+Java SE 6
+
+◄◄   1.6.4
+1.7.2
+  1.7.4 ►►
+
+◄   13w38c
+
+ 13w39a
+
+  13w39b ►
+
+{
+    "title": "13w39a",
+    "images": [
+        "13w39a Banner.png",
+        "Java Edition 13w39a.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "September 26, 2013",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Snapshot article, displayed as Snapshot)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition 1.7.2 article, displayed as 1.7.2)",
+            "label": "Snapshot for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/b091a8b92b9d0b1f23ee2fd1a048b751f437ff76/client.jar Client] ([https://piston-meta.mojang.com/v1/packages/2f4e00c7f6e3bc4a707c027ae2b527bcede4adda/13w39a.json .json])<br />[https://vault.omniarchive.uk/archive/java/server-release/1.7/pre/13w39a-1511.jar Original server]<br>\n[https://piston-data.mojang.com/v1/objects/10e8687a623cb3def606fa3855aaed5ef79aac66/server.jar Reuploaded server] ([https://piston-data.mojang.com/v1/objects/0fd70dcd7cc81087a28d7cd508cb8c896220d0b9/windows_server.exe .exe])",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "80",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "1",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_6 Java SE 6]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Java Edition  1.6.4|<span style=\"margin-right:-0.35em\">◄</span>◄   1.6.4]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition 1.7.2|1.7.2]]'''</td>\n<td style=\"padding: 0.4em\" >[[Java Edition  1.7.4|  1.7.4 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  13w38c|◄   13w38c]]\n</td>\n<td style=\"padding: 0.4em\">''' 13w39a'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  13w39b|  13w39b ►]]\n</td>\n</tr>\n</table>"
+}
+
+13w39a is the eighth snapshot for Java Edition 1.7.2, released on September 26, 2013. It adds red sand to mesa biomes and allows for more than one enchantment on a book.
+The server was reuploaded just over an hour after release.​[more information needed]
+
+Contents
+
+1 Additions
+
+1.1 Blocks
+1.2 Non-mob entities
+
+2 Changes
+
+2.1 Items
+2.2 World generation
+2.3 General
+
+3 Fixes
+4 Trivia
+5 References
+6 Navigation
+
+Additions
+Blocks
+ Red sand
+
+Generated on the lowest surface levels of the mesa biome.
+Behaves like normal sand.
+Can be smelted into glass and crafted into TNT, but cannot be crafted into sandstone.
+Non-mob entities
+  Minecart with command block
+
+Can only be obtained using /give @p 422, /give @p hopper_command_block or /summon MinecartCommandBlock.
+Activated by activator rails.
+Run their command every so often as long as they are powered - a command block minecart going across a single powered activator rail at full speed runs its command thrice.
+Can be success-tested while on a detector rail with a redstone comparator next to the rail (just like how the minecart with chest and minecart with hopper can be fill-checked).
+Changes
+Items
+Enchanted books
+
+Can now give multiple enchantments.
+World generation
+Badlands
+
+Orange terracotta generates in place of sandstone, but not in the same type of formation.
+General
+Logging
+
+Now done using Log4j 2.
+Default logging location is now in logs/latest.log, older logs are archived in logs/year-months-day-counter.log.gz with GZIP compress. The year is 4 digits, and the month and day are both 2 digits. The counter is the number of startups on the day. The counter is 1 when the first startup of the day and increasing each startup.
+The way logs are saved can be changed, examples: HTML page, database, errors only, no logging at all.
+As a result, this is the first version to be affected by the Log4Shell security vulnerability, although running the game through the current launcher will automatically apply a patch to fix it.
+Fixes
+9 issues fixed
+From released versions before 1.7.2
+
+MC-673 – Sky/lighting doesn't get darker during a thunderstorm.
+MC-1105 – Villagers act like it is raining when they are in the desert, and it rains elsewhere.
+MC-28405 – The saddle equip sound effect does not play when equipping a pig with a saddle.
+From the 1.7.2 development versions
+
+MC-29521 – Rain doesn't make particles/sound in some biomes (extreme hills).
+MC-31418 – Snow golems die in extreme hills snow.
+MC-31432 – XP orb sound bug.
+MC-31438 – Enemy monster slider controls the sound of items entering one's inventory.
+From the previous development version
+
+MC-31932 – Hopper: java.lang.NullPointerException.
+MC-31947 – Hopper: java.lang.NullPointerException.
+Trivia
+13w39a was previously removed from the launcher for some time, but was added back in September 2018.
+References
+
+ "Minecraft snapshot 13w39a"   (Archive)  by Dinnerbone  – Mojang.com, September 26, 2013.
+
+Navigation

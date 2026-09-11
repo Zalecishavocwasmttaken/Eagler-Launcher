@@ -1,0 +1,80 @@
+"Spectate" redirects here.  For the gamemode, see Spectator.
+
+
+
+This feature is exclusive to Java Edition. 
+
+/spectate
+
+Permission levelrequired
+
+2
+
+Restrictions
+
+None
+
+{
+    "title": "<code>/spectate</code>",
+    "rows": [
+        {
+            "field": "2",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "None",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+Causes a player in Spectator mode to spectate another entity or stop spectating.
+If the spectator is away from the target, the command will result in a camera follow mode, instead of the default first-person view.
+
+Contents
+
+1 Syntax
+2 Arguments
+3 Result
+4 Output
+5 History
+6 References
+7 Navigation
+
+Syntax
+spectate <target> [<player>]
+
+Causes a player to spectate another entity.
+spectate
+
+Stops spectating.
+Arguments
+<target>: entity
+
+Specifies the target to be spectated.
+Must be a player name, a target selector or a UUID.  And the target selector must be in single type.
+<player>: entity
+
+Specifies the spectating player. If unspecified, defaults to the executor.
+Must be a player name, a target selector or a UUID.  And the target selector must be of single-player type.
+Result
+
+CommandTriggerJava Edition
+
+AnyThe command is incomplete, or any argument is not specified correctly. Unparseable<target> fails to resolve to an entity (named player must be online). Failed<player> fails to resolve to a online player.<player> is not specified when the command's executor is not a player.<player> and <target> are the same.<player> isn't in spectator mode.OtherwiseSuccessful
+Output
+
+CommandEditionSituationSuccess Count/execute store success .../execute store result ...
+
+AnyJava EditionOn fail000On success111
+History
+Java Edition1.1519w41a
+Added /spectate.1.19.423w03a
+Now /spectate command works between dimensions.
+References
+
+ MC-224960 – resolved as "Fixed".
+
+Navigation

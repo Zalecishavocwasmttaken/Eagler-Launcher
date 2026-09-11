@@ -1,0 +1,110 @@
+Not to be confused with Commands/camera.
+
+
+
+This feature is exclusive to Bedrock Edition and Minecraft Education. 
+
+/camerashake
+
+Permission levelrequired
+
+1
+
+Restrictions
+
+Cheat only
+
+{
+    "title": "<code>/camerashake</code>",
+    "rows": [
+        {
+            "field": "1",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "(link to Cheat article, displayed as Cheat) only<br>",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+Sends a request to client for shaking the player's camera (the effect won't be shown if the player has Camera Shake disabled in their Accessibility settings).
+
+Contents
+
+1 Syntax
+2 Arguments
+3 Result
+4 Output
+5 Example
+6 History
+
+6.1 Bedrock Edition
+6.2 Minecraft Education
+
+7 External links
+8 Navigation
+
+Syntax
+camerashake add <player: target> [intensity: float] [seconds: float] [shakeType: CameraShakeType]
+Add the camera shake effect to a player.
+camerashake stop <player: target>
+Stops the camera shake.
+Arguments
+player: target: CommandSelector<Player>
+
+Specifies the player(s) whose clients are sent a camera shake request. If not specified, defaults to the command's executor (@s).
+Must be a player name or a target selector.  Unlike in other command, this target selector can always target online dead players with @e.
+intensity: float: float
+
+Specifies the intensity of the camera shake.
+Must be a [Float]Single-precision floating-point number (from -(2-2-23)×2127 (≈-3.4×1038) to (2-2-23)2×127 (≈3.4×1038) ). Should be between 0 and 4 (inclusive).
+seconds: float: float
+
+Specifies the duration of the camera shake.
+Must be a [Float]Single-precision floating-point number (from -(2-2-23)×2127 (≈-3.4×1038) to (2-2-23)2×127 (≈3.4×1038) ).
+shakeType: CameraShakeType: enum
+
+Specifies the type of camera shake direction.
+Must be one of positional and rotational.
+Result
+
+CommandTriggerBedrock Edition
+
+Anythe arguments are not specified correctly Unparseablethe intensity number is less than 0 or above 4 FailedOtherwiseSuccessful
+Output
+
+CommandEditionSituationSuccess Count
+
+AnyBedrock EditionOn fail0On success1
+Example
+To perform a positional camera shake with intensity 0.25 for 5 seconds:
+
+/camerashake add @p 0.25 5 positional
+To perform a rotational camera shake with intensity 0.25 for 5 seconds:
+
+/camerashake add @p 0.25 5 rotational
+
+
+
+			Example of a positional camera shake
+
+
+
+			Example of a rotational camera shake
+
+
+History
+Bedrock Edition
+Bedrock Edition1.16.100beta 1.16.100.57
+Added /camerashake.beta 1.16.100.59
+Added the ability to pick between different shake types.1.16.210beta 1.16.210.54
+Added the stop camera shake command type.
+Minecraft Education
+Minecraft Education1.17.301.17.30.2
+Added /camerashake.
+External links
+"/camerashake Command"     – Microsoft Learn, October 11, 2023.
+Navigation

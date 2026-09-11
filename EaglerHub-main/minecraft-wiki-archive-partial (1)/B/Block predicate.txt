@@ -1,0 +1,155 @@
+This article is about the system used by worldgen features and enchantments.   For the similar system used by advancements, see predicate.
+
+
+
+This feature is exclusive to Java Edition. 
+
+A block predicate (also known as a placement condition) is a test for the state of a block at a given position in the world. They are used by placement modifiers in placed features, numerous configured features, and enchantments.
+
+Contents
+
+1 JSON Format
+2 Types
+
+2.1 all_of
+2.2 any_of
+2.3 has_sturdy_face
+2.4 height_range
+2.5 inside_world_bounds
+2.6 matching_block_tag
+2.7 matching_blocks
+2.8 matching_fluids
+2.9 not
+2.10 replaceable
+2.11 solid
+2.12 true
+2.13 would_survive
+
+3 History
+4 Navigation
+
+JSON Format
+Block predicates are defined using the following format:
+
+[NBT Compound / JSON Object]: a block predicate
+[String] type: The type of the block predicate. See Block predicate § Types for options.
+additional fields depending on [String] type. See Block predicate § Types.
+
+Types
+The following block predicate types exist:
+
+all_of
+Combined multiple block predicates. Matches if all specified block predicates match.
+
+[NBT Compound / JSON Object]: a block predicate
+[String] type: all_of
+[NBT List / JSON Array] predicates: (Can be empty) The child predicates.
+[NBT Compound / JSON Object]: A block predicate.
+
+any_of
+Combined multiple block predicates. Matches if at least one of the specified block predicates matches.
+
+[NBT Compound / JSON Object]: a block predicate
+[String] type: any_of
+[NBT List / JSON Array] predicates: (Can be empty) The child predicates.
+[NBT Compound / JSON Object]: A block predicate.
+
+has_sturdy_face
+Checks if the block at the specified offset has a full block supporting surface in the specified direction.
+
+[NBT Compound / JSON Object]: a block predicate
+[String] type: has_sturdy_face
+[NBT List / JSON Array] offset: (optional, defaults to [0,0,0]) A list of 3 integers specifying an [X, Y, Z] block position offset to check.
+[Int]: Value between -16 and 16 (inclusive).
+[String] direction: The direction of the block to check if it is sturdy.
+
+height_range
+Checks the height of the position against a given range.​[upcoming: JE 26.3]
+
+[NBT Compound / JSON Object]: a block predicate
+[String] type: height_range
+[NBT Compound / JSON Object] min_inclusive: Vertical anchor describing the minimum height required.
+[NBT Compound / JSON Object] max_inclusive: Vertical anchor describing the maximum height required.
+
+inside_world_bounds
+Checks if the positions y-level (with specified offset) is within the height limits of the world.
+
+[NBT Compound / JSON Object]: a block predicate
+[String] type: inside_world_bounds
+[NBT List / JSON Array] offset: (optional, defaults to [0,0,0]) A list of 3 integers specifying an [X, Y, Z] block position offset to check.
+[Int]: Value between -16 and 16 (inclusive).
+
+matching_block_tag
+Checks if the block at the specified offset is in the given block tag.
+
+[NBT Compound / JSON Object]: a block predicate
+[String] type: matching_block_tag
+[NBT List / JSON Array] offset: (optional, defaults to [0,0,0]) A list of 3 integers specifying an [X, Y, Z] block position offset to check.
+[String] tag: The block tag without # to check for.
+
+matching_blocks
+Checks if the block at the specified offset is one of the specified blocks.
+
+[NBT Compound / JSON Object]: a block predicate
+[String] type: matching_blocks
+[NBT List / JSON Array] offset: (optional, defaults to [0,0,0]) A list of 3 integers specifying an [X, Y, Z] block position offset to check.
+[String][NBT List / JSON Array] blocks: Any number of block(s) (an [String] ID, or a [String] tag with #, or an [NBT List / JSON Array] array containing [String] IDs) that will match.
+
+matching_fluids
+Checks if the fluid at the specified offset is one of the specified fluid.
+
+[NBT Compound / JSON Object]: a block predicate
+[String] type: matching_fluids
+[NBT List / JSON Array] offset: (optional, defaults to [0,0,0]) A list of 3 integers specifying an [X, Y, Z] block position offset to check.
+[String][NBT List / JSON Array] fluids: Any number of fluid(s) (an [String] ID, or a [String] tag with #, or an [NBT List / JSON Array] array containing [String] IDs) that will match.
+
+not
+Inverts a given block predicate. Matches if the specified other block predicate does not match.
+
+[NBT Compound / JSON Object]: a block predicate
+[String] type: not
+[NBT Compound / JSON Object] predicate: The block predicate to invert.
+
+replaceable
+Checks if the block at the specified offset can be replaced by placing blocks.
+
+[NBT Compound / JSON Object]: a block predicate
+[String] type: replaceable
+[NBT List / JSON Array] offset: (optional, defaults to [0,0,0]) A list of 3 integers specifying an [X, Y, Z] block position offset to check.
+[Int]: Value between -16 and 16 (inclusive).
+
+solid
+Checks if the block at the specified offset is solid.
+
+[NBT Compound / JSON Object]: a block predicate
+[String] type: solid
+[NBT List / JSON Array] offset: (optional, defaults to [0,0,0]) A list of 3 integers specifying an [X, Y, Z] block position offset to check.
+[Int]: Value between -16 and 16 (inclusive).
+
+true
+Always matches, independent of the block.
+
+[NBT Compound / JSON Object]: a block predicate
+[String] type: true
+
+would_survive
+Checks if a specified block state is a valid placement at the given offset.
+
+[NBT Compound / JSON Object]: a block predicate
+[String] type: would_survive
+[NBT List / JSON Array] offset: (optional, defaults to [0,0,0]) A list of 3 integers specifying an [X, Y, Z] block position offset to check.
+[Int]: Value between -16 and 16 (inclusive).
+[NBT Compound / JSON Object] state: The blockstate to test.
+Block state see Template:Nbt inherit/block state/template
+
+History
+
+
+
+This section is missing information about: general history of block predicates. Specifically, when block predicates were added or removed. 
+Please expand the section to include this information. Further details may exist on the talk page.
+
+Upcoming Java Edition26.3snap2
+Added minecraft:height_range.snap8
+Added minecraft:volume_match.
+Navigation

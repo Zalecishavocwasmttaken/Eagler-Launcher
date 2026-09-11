@@ -1,0 +1,208 @@
+This page covers a release version that has a major issue under certain conditions. 
+The dedicated server for this version has a security vulnerability in the Log4j library that could be used to perform a remote code execution exploit. It can be addressed by appending a certain JVM argument to the server startup command line.
+
+Minecraft 1.16.4
+
+Edition
+
+Java Edition
+
+Release date
+
+November 2, 2020
+
+Development versions
+
+Pre-releases (2) Release candidates (1) (View all)
+
+Downloads
+
+Client (.json)Server
+
+Obfuscation maps
+
+ClientServer
+
+Protocol version
+
+754
+
+Data version
+
+2584
+
+Resource pack format
+
+6
+
+Data pack format
+
+6
+
+Minimum Java version
+
+Java SE 8
+
+◄◄   1.16
+1.16.4
+  1.17 ►►
+
+◄   1.16.3
+
+  1.16.5 ►
+
+{
+    "title": "Minecraft 1.16.4",
+    "images": [
+        "1.16.4 banner.jpg",
+        "Java Edition 1.16.4.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "November 2, 2020",
+            "label": "Release date"
+        },
+        {
+            "field": "<div class=\"hlist\"><span style=\"white-space:nowrap;\">(link to :Category:Java Edition 1.16.4 pre-releases article, displayed as '''Pre-releases''') (2) </span><br/><span style=\"white-space:nowrap;\">(link to :Category:Java Edition 1.16.4 release candidates article, displayed as '''Release candidates''') (1) </span><br/>((link to Java Edition 1.16.4/Development versions article, displayed as View all))</div>",
+            "label": "<span style=\"white-space: normal;\">Development versions</span>"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/1952d94a0784e7abda230aae6a1e8fc0522dba99/client.jar Client] ([https://piston-meta.mojang.com/v1/packages/e54eda49b4a3b6dc407b952e494d0c32da422693/1.16.4.json .json])<br />[https://piston-data.mojang.com/v1/objects/35139deedbd5182953cf1caa23835da59ca3d7cd/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/0837de813d1a6b67e23da3c520a84e872c8d2f0e/client.txt Client]<br />[https://piston-data.mojang.com/v1/objects/d9ae0e8e28475254855430ff051daaa0dd041a08/server.txt Server]",
+            "label": "(link to Obfuscation map article, displayed as Obfuscation maps)"
+        },
+        {
+            "field": "754",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "2584",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "6",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "6",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Data pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_8_.28LTS.29 Java SE 8]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Java Edition  1.16|<span style=\"margin-right:-0.35em\">◄</span>◄   1.16]]</td>\n<td rowspan=\"2\" style=\"padding: 0.4em\">'''1.16.4'''</td>\n<td style=\"padding: 0.4em\" >[[Java Edition  1.17|  1.17 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  1.16.3|◄   1.16.3]]\n</td>\n\n<td style=\"padding: 0.4em\">\n[[Java Edition  1.16.5|  1.16.5 ►]]\n</td>\n</tr>\n</table>"
+}
+
+1.16.4 is a minor update to Java Edition released on November 2, 2020, which adds the social interactions screen and fixes various bugs. The content of 1.16.4 is identical to its release candidate. While 1.16.4 was not the last minor version of 1.16, it was the last one before snapshots for 1.17 began. This is the final version released in 2020.
+
+Contents
+
+1 Additions
+
+1.1 General
+
+2 Changes
+
+2.1 Items
+2.2 General
+
+3 Fixes
+4 Videos
+5 Trivia
+6 Note
+7 References
+8 Navigation
+
+Additions
+General
+Chat
+
+Added an option to hide matched names.
+Some servers send chat messages in non-standard formats. With this option on, the game attempts to apply chat hiding anyway by matching the text in messages.
+Social interactions
+
+Gives players the ability to disable chatting with certain players, thus hiding any messages received from them.
+Opens with a configurable key binding, by default P.
+Whether a player is hidden resets when re-joining a server.
+The status of a player is listed below their name.
+Changes
+Items
+Netherite leggings
+
+Changed the texture of the worn netherite leggings model.
+General
+Accounts
+
+When logging in with a Microsoft account, players blocked in that account are now also blocked in the game, and account restrictions are now respected.
+Accessibility
+
+A button to open a link to the accessibility guide can now be found in the "Accessibility Options" screen.
+Crashes
+
+More information is now added to the crash log in cases where poor performance causes the server to crash.
+Options
+
+Added "joinedFirstServer" option to options.txt.
+Protocol versions
+
+New network protocol scheme, with a high bit (bit 30) set for snapshots. The protocol version will increase by 1 for each snapshot, but full releases may keep the same protocol version as the previous full release in cases where the network protocols are compatible.
+Multiplayer
+
+When the server and client version are incompatible, a message reading "Incompatible version!" in red will be displayed, instead of "Client out of date!" or "Server out of date!" in dark red.
+When multiplayer is disabled, the message displayed now reads, "Multiplayer is disabled. Please check your Microsoft account settings." instead of "Multiplayer is disabled. Please check your launcher settings."
+Splashes
+
+The splashes relating to the Black Lives Matter movement have been added to splashes.txt. These splashes were added to the game via a launcher update during 1.16.2 but were not in splashes.txt. The splashes are:
+Black lives matter!
+Be anti-racist!
+Learn about allyship!
+Speak OUT against injustice and UP for equality!
+Amplify and listen to BIPOC voices!
+Educate your friends on anti-racism!
+Support the BIPOC community and creators!
+Stand up for equality in your community!
+Fixes
+4 issues fixed
+From 1.16
+
+MC-192434 – The top front texture of worn netherite leggings is inconsistent with the rest of the texture.
+From 1.16.2
+
+MC-199487 – World generation deadlock causes crash.
+From 1.16.3
+
+MC-201885 – Divide by zero error in the ender dragon entity class can cause a server crash and infinite velocity.
+From the 1.16 development versions
+
+MC-202147 – Cursor in Social Interactions & Recipe Book & Anvil menu doesn’t blink
+Videos
+Video made by slicedlime:
+
+
+
+
+Trivia
+This was the last full version to be released in 2020.
+Originally, this version was going to be released on October 29, 2020, but it got postponed by 4 days.
+With the introduction of social interactions, this is the oldest Java Edition release so far that does not show players a warning pop-up telling it's an older version that doesn't support the latest safety features when they launch it in the official launcher.
+Note
+Minecraft 1.16.4 and Minecraft 1.16.5 are network compatible, that is, 1.16.4 servers can have players from 1.16.5.
+References
+
+ "Important Message: Security vulnerability in Java Edition"     – Minecraft.net, December 10, 2021.
+
+ "Minecraft Java Edition 1.16.4"     – Minecraft.net, November 3, 2020.
+
+ "Hello! Things happened and we made the decision to hold the release of 1.16.4 until Monday. Still, there won't be any changes from 1.16.4-rc1 to the actual release."  – @adrian_ivl  on X (formerly Twitter), October 29, 2020
+
+Navigation

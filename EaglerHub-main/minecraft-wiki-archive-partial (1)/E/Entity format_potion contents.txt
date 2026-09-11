@@ -1,0 +1,11 @@
+[String] potion: The ID of a potion type. Optional. See Potion#Item data.
+[Int] custom_color: The overriding color of this potion texture, and/or the particles of the area effect cloud created.
+[String] custom_name: An optional string used to generate containing stack name. The game uses the translation key item.minecraft.<item type>.effect.<value>. This name has a higher priority than the minecraft:item_name component, but lower than the minecraft:custom_name component.
+[NBT List / JSON Array] custom_effects: A list of the additional effects that this item should apply.
+[NBT Compound / JSON Object]: A single custom effect.
+[String] id: The ID of the effect.
+[Byte] amplifier: The amplifier of the effect, with level I having value 0. Optional, defaults to 0.
+[Int] duration: The duration of the effect in ticks. Value -1 is treated as infinity. Values 0 or less than -2 are treated as 1. Optional, defaults to 1 tick.
+[Boolean] ambient: Whether or not this is an effect provided by a beacon, conduit, or nautilus and therefore should be less intrusive on the screen. Optional, defaults to false.
+[Boolean] show_particles: Whether or not this effect produces particles. Optional, defaults to true.
+[Boolean] show_icon: Whether or not an icon should be shown for this effect. Optional, defaults to true.

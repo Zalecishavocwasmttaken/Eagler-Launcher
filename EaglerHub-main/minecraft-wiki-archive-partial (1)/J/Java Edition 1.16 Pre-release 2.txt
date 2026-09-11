@@ -1,0 +1,178 @@
+This page covers a development version that has a major issue under certain conditions. 
+The dedicated server for this version has a security vulnerability in the Log4j library that could be used to perform a remote code execution exploit. It can be addressed by appending a certain JVM argument to the server startup command line.
+
+Minecraft 1.16 Pre-release 2
+
+Edition
+
+Java Edition
+
+Release date
+
+June 5, 2020
+
+Type
+
+Pre-release
+
+Pre-release for
+
+1.16
+
+Downloads
+
+Client (.json)Server
+
+Obfuscation maps
+
+ClientServer
+
+Protocol version
+
+722
+
+Data version
+
+2557
+
+Resource pack format
+
+5
+
+Data pack format
+
+5
+
+Minimum Java version
+
+Java SE 8
+
+◄◄   1.15.2
+1.16
+  1.16.1 ►►
+
+◄   1.16 Pre-release 1
+
+ 1.16 Pre-release 2
+
+  1.16 Pre-release 3 ►
+
+{
+    "title": "Minecraft 1.16 Pre-release 2",
+    "images": [
+        "20w17a.jpg",
+        "Java Edition 1.16 Pre-release 2.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "June 5, 2020",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Pre-release article, displayed as Pre-release)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition 1.16 article, displayed as 1.16)",
+            "label": "Pre-release for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/a1382f4cf8815e3085efb1782cf32ed5cb621b86/client.jar Client] ([https://piston-meta.mojang.com/v1/packages/41a4f175ace2686d2c4d6658c007d04a12b60487/1.16-pre2.json .json])<br />[https://piston-data.mojang.com/v1/objects/8daeb71269eb164097d7d7ab1fa93fc93ab125c3/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/b7b693fc488eb874f3597648b6fe02182d56f467/client.txt Client]<br />[https://piston-data.mojang.com/v1/objects/c7b54e3ab9d29d13b4efc1ff43aa70325536c384/server.txt Server]",
+            "label": "(link to Obfuscation map article, displayed as Obfuscation maps)"
+        },
+        {
+            "field": "722",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "2557",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "5",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "5",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Data pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_8_.28LTS.29 Java SE 8]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Java Edition  1.15.2|<span style=\"margin-right:-0.35em\">◄</span>◄   1.15.2]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition 1.16|1.16]]'''</td>\n<td style=\"padding: 0.4em\" >[[Java Edition  1.16.1|  1.16.1 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  1.16 Pre-release 1|◄   1.16 Pre-release 1]]\n</td>\n<td style=\"padding: 0.4em\">''' 1.16 Pre-release 2'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  1.16 Pre-release 3|  1.16 Pre-release 3 ►]]\n</td>\n</tr>\n</table>"
+}
+
+1.16 Pre-release 2 (known as 1.16-pre2 in the launcher) is the second pre-release for Java Edition 1.16, released on June 5, 2020, which fixes some critical bugs from the previous pre-release.
+
+Contents
+
+1 Changes
+
+1.1 World generation
+1.2 General
+
+2 Fixes
+3 Videos
+4 References
+5 Navigation
+
+Changes
+World generation
+Floating Islands
+
+Guardians and pillagers now spawn correctly in floating islands worlds.
+Villages
+
+"Jellie" cats now spawn naturally in villages.
+General
+Data packs
+
+Entering the world in an unknown dimension (caused by disabling a data pack which added said dimension) now puts the player in the Overworld at the same coordinates.
+Fixes
+16 issues fixed
+From released versions before 1.16
+
+MC-56970 – Leaves show x-ray effect on fast graphics.
+MC-128066 – Highly transparent block edges on ice, slime block and honey block.
+MC-147591 – Cat type "Jellie" doesn't spawn in villages upon world generation.
+MC-148794 – Guardians are not spawning in preset "Floating Island".
+MC-148802 – Pillager don't spawn around outpost with the floating island generation.
+MC-152001 – Zombie villages never spawn with baby zombie villagers.
+MC-166260 – Light from fire that has gone out lingers at the border of chunks.
+MC-172650 – Ice side texture does not appear underwater.
+From the 1.16 development versions
+
+MC-176011 – Minecraft 20w13a server spamming chat after update.
+From the previous development version
+
+MC-187350 – Game randomly crashes: IllegalStateException: POI never registered.
+MC-187352 – Loading a world created in 1.16-pre1 always ask for confirmation.
+MC-187353 – Crash when loading some worlds: IllegalStateException: Lock is no longer valid.
+MC-187358 – Worlds generated in 1.16-pre1 do not have their world generation settings saved correctly, causing chunk errors.
+MC-187364 – Disabling and enabling dimension datapack disables nether and end.
+MC-187406 – Game crashes when joining in disabled dimension.
+MC-187408 – Game crashing with nether portals: java.lang.NullPointerException: Ticking player.
+Videos
+Video made by slicedlime:
+
+
+
+
+References
+
+ "Important Message: Security vulnerability in Java Edition"     – Minecraft.net, December 10, 2021.
+
+ "Minecraft 1.16 Pre-Release 2"     – Minecraft.net, June 5, 2020.
+
+Navigation

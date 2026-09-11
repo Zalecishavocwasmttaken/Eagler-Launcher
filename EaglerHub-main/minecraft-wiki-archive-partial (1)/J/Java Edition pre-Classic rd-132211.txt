@@ -1,0 +1,184 @@
+This page documents a formerly unreleased version. 
+This version was never intended to be released to the public, but it is available in archived copies.
+
+
+
+The only archived copy of this version is edited. 
+A copy of this version has been archived. This copy plays correctly; however, it is not a bit-perfect original.If you believe you have a clean, unedited copy of this version, please post on the talk page.
+
+rd-132211
+
+Edition
+
+Java Edition
+
+Date developed
+
+May 13, 2009
+
+Build date
+
+August 6, 2013 (launcher version)
+
+Downloads
+
+Original unavailableLauncher client (.json)
+
+Minimum Java version
+
+Java SE 5
+
+al_version
+
+Unspecified
+
+rd-132211
+
+◄  Cave game tech test
+
+ rd-132328 ►
+
+{
+    "title": "rd-132211",
+    "images": [
+        "Pre-Classic rd-132211.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "May 13, 2009",
+            "label": "Date developed"
+        },
+        {
+            "field": "August 6, 2013 (launcher version)",
+            "label": "Build date"
+        },
+        {
+            "field": "Original unavailable<br>[https://piston-data.mojang.com/v1/objects/393e8d4b4d708587e2accd7c5221db65365e1075/client.jar Launcher client] ([https://piston-meta.mojang.com/v1/packages/8b6e0c4f183ffb61b6a0c818787b0499b315123e/rd-132211.json .json])",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_5 Java SE 5]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        },
+        {
+            "field": "Unspecified(link to Category:Pending al_version article, displayed as Category:Pending al_version)",
+            "label": "(link to al_version article, displayed as al_version)"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0\" ></td>\n<td rowspan=\"2\" style=\"padding: 0.4em\">'''rd-132211'''</td>\n<td style=\"padding: 0\" ></td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition pre-Classic Cave game tech test|◄  Cave game tech test]]\n</td>\n\n<td style=\"padding: 0.4em\">\n[[Java Edition pre-Classic rd-132328| rd-132328 ►]]\n</td>\n</tr>\n</table>"
+}
+
+rd-132211 is the first labeled pre-Classic version of Minecraft, created on May 13, 2009, at 20:11 UTC. It is the earliest version available through the Minecraft Launcher and the oldest archived version of Minecraft.
+The copy in the launcher was last modified on August 6, 2013, making it technically not original.
+
+Contents
+
+1 Additions
+
+1.1 Gameplay
+
+2 Changes
+
+2.1 World generation
+
+3 Removals
+
+3.1 World generation
+
+4 Bugs
+5 Trivia
+6 Notes
+7 Gallery
+8 References
+9 Navigation
+
+Additions
+Gameplay
+Controls
+
+Placing and destroying blocks.
+Left-click places a block. Right-click destroys a block.
+Blocks cannot be placed beyond the world border.
+The build limit is Y=64.
+Players can place blocks within the space they occupy.
+Added a flashing white overlay highlighting the face of the targeted block when hovering with the mouse.
+The level is saved when ⏎ Return is pressed or when the game is exited.
+Changes
+World generation
+General
+
+Level generation was redesigned from the irregular terrain shown in Cave game tech test to produce a completely flat world, similar to a modern superflat world.
+Terrain generates from Y=0 to Y=43.
+Space below Y=0 is empty.
+The top layer at Y=43 consists of grass blocks, while all lower terrain consists of stone.
+Removals
+World generation
+Caves
+
+No longer generate.
+Bugs
+ 3 bugs reported
+
+Blocks can be placed directly within the space occupied by the player. This bug remained in the game until Classic 0.0.9a.
+On some systems, commonly those featuring Intel GPUs, there is extreme performance issues causing the framerate to drop to 1. This is caused by the old renderer repeatedly redrawing every single block around the player every frame instead of only updating changed blocks like in modern versions. This overwhelms weak OpenGL drivers.
+The camera pivot bug causes the view to rotate around a fixed point in the world instead of rotating on the player's axis. This causes the player's perspective to shift as the camera rotates.
+Trivia
+The "rd" prefix in the version title stands for RubyDung, a game Notch was developing in early 2009 whose codebase was repurposed for Minecraft.
+Level data is saved in a single level.dat file inside the game's root directory, unlike future versions that have dedicated folders.
+Although the intended world size is 256×64×256, worlds of any dimensions can be loaded. Worlds smaller than the intended size have terrain generated over them, while larger worlds are truncated.
+Grass blocks are stored using the same block ID (Block ID: 1) as stone; the difference between them is purely visual.
+Despite normally only using 2 block IDs (0 and 1), 0–255 are all possible IDs. Invalid IDs appear as air, but do not get converted into it upon saving the world.
+Because of these behaviors, nearly any gzipped file named level.dat can theoretically be loaded as a world, including a modern level.dat file. Saving such a world is likely to corrupt it because of terrain generation or truncation.
+Notes
+Aside from the folders in the .jar file, the .class files and the contents of the folders remain unchanged, being last modified at May 13, 2009 at 22:09 at the latest.
+Gallery
+
+
+
+			A house
+
+
+
+			A shelter
+
+
+
+			A castle
+
+
+
+			Falling over the edge of the world
+
+
+
+			Grass patch from a world created in a later version
+
+
+
+			Stone basin from a world created in a later version
+
+
+
+			Stone field from a world created in a later version
+
+
+
+			Partially built town
+
+
+
+			Free depiction of this version
+
+
+References
+
+ 22:11 in Sweden (CEST) time.
+
+ TigIRC logs: "(14:10:09) Zaratustra: I can spawn blocks where I currently exist" [...] "(14:10:32) notch: yeah, it's one of those bugs.. I keep ignoring it" (18:10 UTC, May 16, 2009)
+
+Navigation

@@ -1,0 +1,108 @@
+This page describes content that has been removed from Minecraft. 
+This feature was present in earlier versions of Minecraft, but has since been removed.
+
+
+
+This feature is exclusive to Bedrock Edition. 
+
+/clearslot
+
+Permission levelrequired
+
+1
+
+Restrictions
+
+Cheat only
+
+{
+    "title": "<code>/clearslot</code>",
+    "rows": [
+        {
+            "field": "1",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "(link to Cheat article, displayed as Cheat) only",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+Clears a specified slot of a specified entity or container. This includes any containers listed in Chest (disambiguation).
+
+Contents
+
+1 Syntax
+2 Arguments
+3 Result
+4 Examples
+5 History
+6 Navigation
+
+Syntax
+Clears a slot from a container
+/clearslot block <position: x y z> slot.container <slotId: int>
+Clears a slot of an entity
+/clearslot entity <target: target> <slotType: EntityEquipmentSlot> <slotId: int>
+
+Arguments
+<position: x y z>: CommandPosition
+
+The coorindates of the container
+Must be a three-dimensional coordinates composed of <X>, <Y> and <Z>, each of which must be a single-precision floating-point number or tilde and caret notation.
+
+<target: target>: CommandSelector<Actor>
+
+The entity to be targeted
+Must be a player name or a target selector.
+
+<slotType: EntityEquipmentSlot>: Enum
+
+The slot type of the slot. This can be the following:
+slot.armor
+Armor slot for mobs with only 1 armor slot such as Horse
+slot.armor.chest
+Chestplate slot
+slot.armor.feet
+Boots slot
+slot.armor.head
+Helmet slot
+slot.armor.legs
+Leggings slot
+slot.chest
+Chest slots where the chest is equipped on mobs such as Donkey
+slot.enderchest
+Slots of a player's Ender Chest
+slot.hotbar
+A player's hotbar slot
+slot.inventory
+A player's inventory slot
+slot.saddle
+Saddle slot for mobs such as Pig
+slot.weapon.mainhand
+The main hand slot of a mob
+For players, this refers to the currently held item in the hotbar
+slot.weapon.offhand
+The off hand slot of a mob or player
+<slotId: int>: int
+
+The slot ID of the specified slot type
+Must be a [Int]32-bit integer number (from -2147483648 (-231) to 2147483647 (231-1) ).
+Result
+
+CommandTriggerBedrock Edition
+
+AnyThe command is incomplete, or any argument is not specified correctly. Unparseable/clearslot block ...position: x y z isn't pointing to a container. Failed/clearslot entity ...target: target fails to target anything.slotType: EntityEquipmentSlot does not apply for the entity targeted.AnyslotId: int does not point to a valid slot.The slot specified does not contain any items.OtherwiseSuccessful
+Examples
+Clear the current main hand slot of the player
+/clearslot entity @s slot.weapon.mainhand 0
+Clear the first slot of a container
+/clearslot 0 64 0 slot.container 0
+History
+Bedrock Edition1.2.13release
+Accidentally added developer commands to iOS, including /clearslot.1.2.14
+Removed all developer commands.
+Navigation

@@ -1,0 +1,80 @@
+Not to be confused with Commands/tellraw or Commands/msg.
+
+ For the removed command, see Commands/broadcast.
+
+/say
+
+Permission levelrequired
+
+2 ‌[JE  only]
+1 ‌[BE  only]
+
+Restrictions
+
+None
+
+{
+    "title": "<code>/say</code>",
+    "rows": [
+        {
+            "field": "\n* 2 ‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Java Edition\">(link to Java Edition article, displayed as JE)  only</span></i>]</sup>\n* 1 ‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Bedrock Edition\">(link to Bedrock Edition article, displayed as BE)  only</span></i>]</sup>",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "None",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+Broadcasts message in the chat to all players on the server.
+
+Contents
+
+1 Syntax
+2 Arguments
+3 Result
+4 Output
+5 History
+
+5.1 Java Edition
+5.2 Bedrock Edition
+
+6 See also
+7 External links
+8 Navigation
+
+Syntax
+Java Edition
+say <message>
+Bedrock Edition
+say <message: message>
+Arguments
+JE: <message>: messageBE: message: message: CommandMessage
+
+Specifies the message to say.
+It is a greedy phrase string argument (taking the rest of the command as the string argument). Can include spaces as well as target selectors. The game replaces entity selectors in the message with the list of selected entities' names, which is formatted as "name1 and name2" for two entities, or "name1, name2, ... and namen" for n entities. In Bedrock Edition, @<player name> can be used to mention a player; @here can be used to mention all players.
+Result
+
+CommandTriggerJava EditionBedrock Edition
+
+AnyThe command is incomplete, or any argument is not specified correctly. Unparseable UnparseableOtherwiseSuccessful
+Output
+
+CommandEditionSituationSuccess Count/execute store success .../execute store result ...
+
+AnyJava EditionOn success111Bedrock EditionOn success1N/AN/A
+History
+Java Edition
+Java Edition Classic0.0.16a_01server 1.1
+Replaced /broadcast with /say.
+Bedrock Edition
+Pocket Edition Alphav0.16.0build 1
+Added /say.
+See also
+/tell – Sends a message to specific players.
+External links
+"/say Command"     – Microsoft Learn, October 11, 2023.
+Navigation

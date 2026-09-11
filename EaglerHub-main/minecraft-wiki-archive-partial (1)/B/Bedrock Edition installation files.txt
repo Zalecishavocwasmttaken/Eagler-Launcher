@@ -1,0 +1,188 @@
+The installation files for Bedrock Edition contain the game program as well as resources required to run the game, such as resource packs, behavior packs, skin packs, and Vibrant Visuals configurations. On the Windows version of Bedrock Edition, those are located in  Minecraft for Windows or  Minecraft Preview for Windows.
+
+Contents
+
+1 Location
+
+1.1 Windows
+1.2 Android
+
+2 Directory structure
+3 History
+4 See also
+5 References
+6 Navigation
+
+Location
+Windows
+On Windows, the files are located under the  <installation drive>\XboxGames\Minecraft for Windows (or  <installation drive>\XboxGames\7792D9CE-355A-493C-AFBD-768F4A77C3B0 when installed through Microsoft Store.)
+For Preview, the files are located under  <installation drive>\XboxGames\Minecraft Preview for Windows (or  <installation drive>\XboxGames\98BD2335-9B01-4E4C-BD05-CCC01614078B when installed through Microsoft Store.)
+This directory contains a few unknown files and a  Content directory containing all data. The  XboxGames directory may also be located on other partition depending on the game's installation folder, which is configured in Microsoft Store or the Xbox app.
+The main  Content directory can also be accessed from the old UWP storage location in %PROGRAMFILES%\WindowsApps. The directory's name is different based on each versions:
+
+For release versions, it is formatted like MICROSOFT.MINECRAFTUWP_<internal version>_x64__8wekyb3d8bbwe.
+For Minecraft Preview, it is formatted like Microsoft.MinecraftWindowsBeta_<internal version>_x64__8wekyb3d8bbwe.
+For Minecraft Education, it is formatted like Microsoft.MinecraftEducationEdition_<internal version>_x64__8wekyb3d8bbwe
+Android
+On Android, the files are located inside APK files. Those are based on ZIP archives, and can be opened with an archive tool that supports this format. The assets present in the  Content directory on Windows are located in the  install_pack.apk split, inside the  assets directory.
+When the game is installed, the APK files are installed into  /data/app. While this directory is not readable without root, it is possible to access the APK files using Android Debug Bridge (ADB) or third-party tools like Package Manager.
+
+Directory structure
+
+ Content
+ behavior_packs: Contains imported behavior packs for signed out players.
+ data: The directory containing all vanilla resources for the game.
+ behavior_packs: Contains vanilla behavior packs.
+ credits: Contains the texts for the credit sequence.
+ credits.json: Contains Mojang staff and other people who have worked on Minecraft: Bedrock Edition.
+ end.txt: Contains the End Poem.
+ quote.txt: Contains the quotation added at the end of the credit sequence.
+ definitions: Contains various built-in definitions of certain things in the game.
+ attachables: Contains attachable definitions for armors and gears, include all variants of helmet, chestplate, leggings, and boots; bow, crossbow, elytra, shield, trident, and turtle helmet.
+ disconnection_errors: Contains JSON definitions for handling network and multiplayer disconnect screens and localized error messages.
+ feature_rules: Contains rules for the features generated in the world.
+ features: Contains features generated in the world.
+ persona: Contains appearance definitions for the default characters. They dictate what the character should wear, such as hair, shirt, pants, etc.
+ sdl_layouts: Contains the JSON UI files for the Character Creator menu.[verify]
+ spawn_groups: Contains spawning mechanics for each individual wave of raids.
+ fonts: Contains a singular font file, see below.
+ Mojangles.ttf: The Mojangles TrueType font file used in the game.
+ gui: Contains Ore UI resources, such as UI definitions (HTML, CSS, and JavaScript), images, fonts, etc.
+ dist/hbui: hbui stands for Hummingbird UI, which is the former name for Ore UI, the framework used in building the game's user interface.
+ icu: Contains files used for text localization, Unicode rules, and regional formatting.
+ ray_tracing: Contains some resources for RTX, including textures.
+ renderer: Contains configurations for Vibrant Visuals.
+ resource_packs: Contains vanilla resource packs.
+ skin_packs: Contains vanilla skin packs.
+ store: Contains terms of use texts for both Realms subscriptions, including translations.
+ bootstrap.json: ​[more information needed]
+ bootstrap_creator.json: ​[more information needed]
+ bootstrap_legacy.json: ​[more information needed]
+ def_action_test.json: ​[more information needed]
+ packetlimitconfig.json: Contains rate-limiting rules for packets to maintain stability.
+ profanity_filter.wlist: The profanity filter list encoded in Base64.
+ texture_backwards_compatibility_mapping.json: A JSON file used by the game to map texture compatibility in resource pack.
+ uniforms.json: ​[more information needed]
+ development_behavior_packs: Contains manually imported behavior packs for signed out players.
+ development_resource_packs: Contains manually imported resource packs for signed out players.
+ development_skin_packs: Contains manually imported skin packs for signed out players.
+ Installers
+ GameInputRedist.msi: The installer program for Microsoft GameInput, an application used for controller, keyboard, and mouse inputs.
+ resource_packs: Contains imported resource packs for signed out players.
+ appxmanifest.xml: App package manifest.
+ cohtml.WindowsDesktop.dll: Coherent Gameface's HTML engine for Ore UI.
+ cohtml_icuuc.dll: Coherent Gameface and Unicode Internationalization.
+ CoreMessagingXP.dll: Library related to Windows App SDK.
+ dcompi.dll: Library related to Windows App SDK.
+ dwmcorei.dll: Library related to Windows App SDK.
+ DwmSceneI.dll: Library related to Windows App SDK.
+ fmod.dll: FMOD audio processing library. All sound files in the vanilla resource packs are encoded in .fsb, which requires this library.
+ gamelaunchhelper.exe: Alternative executable for launching the game.
+ LargeLogo.png: The large version (480×480) of the app icon.
+ layout.xml: Package mapping file.
+ layout_50dd1acc-7556-5abd-21b7-e1d945549a4d.xml: Identical to  layout.xml (not in full release).
+ layout_51799afd-84ea-174d-c1e4-204d4e4086d3.xml: Identical to  layout.xml (not in Preview).
+ libHttpClient.GDK.dll: HTTP and WebSocket library.
+ Logo.png: The default version (150x150) of the app icon.
+ marshal.dll: Library related to Windows App SDK.
+ MCSplashScreen.png: The red Mojang Studios splash screen shown on startup.
+ MediaDecoders.WindowsDesktop.dll: Library related to Coherent Gameface, likely for media encoding.
+ Microsoft.DirectManipulation.dll: Library related to Direct Manipulation, part of the Windows App SDK.
+ Microsoft.Graphics.Display.dll: Library related to Windows App SDK.
+ Microsoft.InputStateManager.dll: Library related to Windows App SDK.
+ Microsoft.Internal.FrameworkUdk.dll: Library related to Windows App SDK.
+ Microsoft.UI.Composition.OSSupport.dll: Library related to WinUI, part of the Windows App SDK.
+ Microsoft.UI.Designer.dll: Library related to WinUI, part of the Windows App SDK.
+ Microsoft.UI.dll: Library related to WinUI, part of the Windows App SDK.
+ Microsoft.UI.Input.dll: Library related to WinUI, part of the Windows App SDK.
+ Microsoft.UI.pri: Resources for  Microsoft.UI.dll.
+ Microsoft.UI.Windowing.Core.dll: Library related to WinUI, part of the Windows App SDK.
+ Microsoft.UI.Windowing.dll: Library related to WinUI, part of the Windows App SDK.
+ Microsoft.UI.Xaml.Controls.dll: Library related to WinUI, part of the Windows App SDK.
+ Microsoft.UI.Xaml.Controls.pri: Resource file for  Microsoft.UI.Xaml.Controls.dll.
+ Microsoft.ui.xaml.dll: Library related to WinUI, part of the Windows App SDK.
+ Microsoft.UI.Xaml.Internal.dll: Library related to WinUI, part of the Windows App SDK.
+ Microsoft.UI.Xaml.Phone.dll: Library related to WinUI, part of the Windows App SDK.
+ Microsoft.ui.xaml.resources.19h1.dll: Library related to WinUI, part of the Windows App SDK.
+ Microsoft.ui.xaml.resources.common.dll: Library related to WinUI, part of the Windows App SDK.
+ Microsoft.Windows.ApplicationModel.Background.UniversalBGTask.dll: Library related to Windows App SDK.
+ Microsoft.Windows.ApplicationModel.Resources.dll: Library related to Windows App SDK.
+ Microsoft.WindowsAppRuntime.Bootstrap.dll: Library related to Windows App SDK.
+ Microsoft.WindowsAppRuntime.dll: Library related to Windows App SDK.
+ Microsoft.WindowsAppRuntime.pri: Resource file for  Microsoft.WindowsAppRuntime.dll
+ MicrosoftGame.Config: GDK app manifest.
+ Minecraft.Windows.exe: The main executable for the Bedrock Edition GDK app (encrypted).
+ Minecraft.Windows.exp: ​[more information needed]
+ minecraftIcon.ico: The app icon which shows on the top of the app window (not in Preview).
+ minecraftPreviewIcon.ico: The Minecraft Preview app icon which shows on the top of the app window (not in full release).
+ MRM.dll: Library related to Windows App SDK.
+ nvngx_dlss.dll: Library for NVIDIA DLSS functionality.
+ PlayFabMultiplayerGDK.dll: Likely related to multiplayer support via Azure PlayFab.
+ PushNotificationsLongRunningTask.ProxyStub.dll: Library related to Windows App SDK.
+ RenoirCore.WindowsDesktop.dll: Coherent Labs' Renoir Graphics Library.
+ resources.pri: Resources file containing localized strings and assets.
+ SmallLogo.png: The small version (44x44) of the app icon.
+ StoreLogo.png: The Microsoft Store version (100x100) of the app icon.
+ v8.dll: Library related to V8 JavaScript engine used for Coherent Gameface.
+ v8_libbase.dll: Library related to V8 JavaScript engine used for Coherent Gameface.
+ v8_libplatform.dll: Library related to V8 JavaScript engine used for Coherent Gameface.
+ v8_zlib.dll: Zlib compression library related to the V8 JavaScript engine used for Coherent Gameface.
+ WebView2Loader.dll: ​[more information needed]
+ WERHandler.dll: ​[more information needed]
+ WinPixEventRuntime.dll: ​[more information needed]
+ WinUIEdit.dll: Library related to WinUI, part of the Windows App SDK.
+ wuceffectsi.dll: Library related to Windows App SDK.
+ XCurl.dll: Library which implements libCurl APIs while being GDK compliant. Likely used for HTTP requests.
+
+History
+
+
+
+This section needs expansion. 
+You can help by expanding it.
+
+Bedrock Edition1.16.100beta 1.16.100.50
+Added  gui/dist/hbui to match Ore UI.1.20.60?
+Removed  data/test,  coherenticuin.dll,  coherenticuuc.dll,  CoherentScript.dll,  icudt53l.dat,  icudtcoherent53.dll,  icui18n.dll,  icuuc.dll. Added  cohtml_icuuc.dll,  v8.dll,  v8_libbase.dll,  v8_libplatform.dll,  v8_zlib.dll.1.21.0?
+Removed  Microsoft.Services.Store.Engagement.winmd.1.21.40?
+Added  xsapi.dll.1.21.80?
+Removed  openxr_loader.dll. Added  PlayFabMultiplayerUwp.dll.1.21.120Preview 1.21.120.21
+Minecraft for Windows is now a GDK application instead of a UWP application, moving the main content directory from  %PROGRAMFILES%\WindowsApps to  <installation drive>\XboxGames. The game can now also be installed to a drive other than the main system drive.
+The  AppxMetadata,  data/shaders,  UAP.Assets and  UAP.Win10.Assets folders and the  [Content_Types].xml,  AppxBlockMap.xml,  AppxSignature.p7x,  HttpServer.UWP.dll,  in-app-purchases.xml,  xboxservices.config and  xsapi.dll files were removed.
+The  Installers/GameInputRedist.msi,  dxcompiler.dll,  dxil.dll,  gamelaunchhelper.exe,  LargeLogo.png,  layout.xml,  layout_50dd1acc-7556-5abd-21b7-e1d945549a4d.xml /  layout_8b08c6ae-d30f-3099-2f7c-557abd18d01b.xml,  Logo.png,  MCSplashScreen.png,  MicrosoftGame.Config,  Minecraft.Windows.exp,  SmallLogo.png,  StoreLogo.png,  WinPixEventRuntime.dll and  XCurl.dll files were added.
+
+The  cohtml.UWP.dll,  MediaDecoders.UWP.dll,  PlayFabMultiplayerUwp.dll and  RenoirCore.UWP.dll files were replaced with  cohtml.WindowsDesktop.dll,  MediaDecoders.WindowsDesktop.dll,  PlayFabMultiplayerGDK.dll and  RenoirCore.WindowsDesktop.dll respectively.1.21.130Preview 1.21.130.26
+Added  minecraftIcon.ico/ minecraftPreviewIcon.ico in order to fix MCPE-227849.26.20Preview 26.20.21
+Removed  cohtml_icuuc.dll. Added  CoreMessagingXP.dll,  dcompi.dll,  dwmcorei.dll,  DwmSceneI.dll,  marshall.dll,  Microsoft.DirectManipulation.dll,  Microsoft.Graphics.Display.dll,  Microsoft.InputStateManager.dll,  Microsoft.Internal.FrameworkUdk.dll,  Microsoft.UI.Composition.OSSupport.dll,  Microsoft.UI.Designer.dll,  Microsoft.UI.dll,  Microsoft.UI.Input.dll,  Microsoft.UI.pri,  Microsoft.UI.Windowing.Core.dll,  Microsoft.UI.Windowing.dll,  Microsoft.UI.Xaml.Controls.dll,  Microsoft.UI.Xaml.Controls.pri,  Microsoft.ui.xaml.dll,  Microsoft.UI.Xaml.Internal.dll,  Microsoft.UI.Xaml.Phone.dll,  Microsoft.ui.xaml.resources.19h1.dll,  Microsoft.ui.xaml.resources.common.dll,  Microsoft.Windows.ApplicationModel.Background.UniversalBGTask.dll,  Microsoft.Windows.ApplicationModel.Resources.dll,  Microsoft.WindowsAppRuntime.Bootstrap.dll,  Microsoft.WindowsAppRuntime.dll,  Microsoft.WindowsAppRuntime.pri,  MRM.dll,  PushNotificationsLongRunningTask.ProxyStub.dll,  WebView2Loader.dll,  WinUIEdit.dll and  wuceffectsi.dll.26.20
+Re-added  cohtml_icuuc.dll.26.30Preview 26.30.29
+Added  data/packetlimitconfig.json.26.30
+Renamed  layout_8b08c6ae-d30f-3099-2f7c-557abd18d01b.xml to  layout_51799afd-84ea-174d-c1e4-204d4e4086d3.xml.26.40
+Removed  dxcompiler.dll and  dxil.dll.
+See also
+ com.mojang, the directory storing all user data.
+Bedrock Edition cache files, the storage of temporary cache.
+References
+
+ https://www.elevenforum.com/t/change-game-installation-options-in-microsoft-store-and-xbox-app-in-windows-11.19791/
+
+ https://learn.microsoft.com/en-us/windows/msix/overview
+
+ https://docs.coherent-labs.com/cpp-gameface/integration/setup_guide_native/
+
+ https://unicode-org.github.io/icu/userguide/icu4c/
+
+ https://learn.microsoft.com/gaming/gdk/docs/features/common/packaging/overviews/packaging-getting-started-for-pc
+
+ https://github.com/Microsoft/libHttpClient
+
+ https://learn.microsoft.com/gaming/gdk/docs/features/common/game-config/microsoftgameconfig-overview
+
+ https://github.com/NVIDIA/DLSS/blob/main/lib/Windows_x86_64/rel/nvngx_dlss.dll
+
+ https://coherent-labs.com/posts/introducing-renoir-graphics-library/
+
+ https://learn.microsoft.com/en-us/windows/uwp/app-resources/resource-management-system
+
+ https://learn.microsoft.com/en-us/gaming/gdk/docs/features/console/networking/web-requests/intro-xcurl
+
+Navigation

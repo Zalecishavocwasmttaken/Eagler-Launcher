@@ -1,0 +1,778 @@
+This feature is exclusive to Java Edition. 
+
+A configured feature is the configuration of a feature type. They can be used in placed features to define the features that are placed in a world.
+Configured features are stored as JSON files within a data pack in the data/<namespace>/worldgen/configured_feature​[until: JE 26.3] / data/<namespace>/worldgen/feature​[upcoming: JE 26.3] folder.
+
+Contents
+
+1 JSON format
+2 Feature types
+
+2.1 Configuration-less features
+
+3 History
+4 Issues
+5 External links
+6 Navigation
+
+JSON format
+
+[NBT Compound / JSON Object]: Root object.
+[String] type: The ID of feature type.
+[NBT Compound / JSON Object] config​[until: JE 26.3]: Configuration of this configured feature. The properties depend on the value of [String] type, described below.
+
+Feature types
+
+
+
+This section needs cleanup to comply with the style guide. [discuss]
+Please help improve this section. The talk page may contain suggestions.Reason: Fix all the redirects in the transclusions, as the features have been moved to title case per MCW:TITLE
+
+A feature type determines how and what a configured feature should generate. They are hardcoded, thus new ones cannot be added through datapacks. Most feature types have configuration options that can be set using a configured feature. The following lists all feature types and their configuration options.
+
+bamboo
+
+[NBT Compound / JSON Object] config
+[Float] probability The probability for a podzol disk to generate below the bamboo. The disk has a radius of 1 to 4 blocks. Value between 0.0 and 1.0 (inclusive).
+
+basalt_columns
+
+[NBT Compound / JSON Object] config
+[Int][NBT Compound / JSON Object] reach​[until: JE 26.3] / [NBT Compound / JSON Object] column_reach​[upcoming: JE 26.3] The max radius of a column in this column cluster. Value between 0 and 3 (inclusive).
+[Int][NBT Compound / JSON Object] column_count​[upcoming: JE 26.3] The number of columns to generate. Value between 1 and 150 (inclusive).
+Int provider see Template:Nbt inherit/int_provider/template
+[Int][NBT Compound / JSON Object] height The max height is height + 1. Value between 1 and 10 (inclusive).
+[Int][NBT Compound / JSON Object] cluster_reach​[upcoming: JE 26.3] The size of the square to attempt to generate columns in. Value between 0 and 13 (inclusive) which is also limited by height.
+[String] block​[upcoming: JE 26.3] Which block to place.
+[String] can_replace​[upcoming: JE 26.3] Which blocks can be replaced by the column.
+[String] continue_through​[upcoming: JE 26.3] Which pre-existing blocks to accept as part of a column.
+[String] cannot_place_on​[upcoming: JE 26.3] Which blocks are avoided when starting placement.
+Int provider see Template:Nbt inherit/int_provider/template
+
+block_blob
+
+[NBT Compound / JSON Object] config
+[NBT Compound / JSON Object] state: The block state to use.
+Block state see Template:Nbt inherit/block state/template
+[NBT Compound / JSON Object] can_place_on: The block predicate that defines which blocks the rock can be placed on.
+Block predicate see Template:Nbt inherit/block predicate/template
+
+block_column
+
+[NBT Compound / JSON Object] config
+[String] direction The direction of the column. One of up, down, north, east, south, or west.
+[NBT Compound / JSON Object] allowed_placement A block predicate that must be passed for each position of the column.
+
+[String] type: The type of the block predicate. See Block predicate § Types for options.
+additional fields depending on [String] type. See Block predicate § Types.
+[Boolean] prioritize_tip Determines where to cut off blocks when space is restricted. If true, starts removing layers from the start of the column.
+[NBT List / JSON Array] layers (Required, but can be empty) The layers of this column.
+[NBT Compound / JSON Object] A layer.
+[Int][NBT Compound / JSON Object] height Specifying the height of the layer. Must be a non-negative int.
+Int provider see Template:Nbt inherit/int_provider/template
+[NBT Compound / JSON Object] provider The block to use for this layer.
+Block state provider see Template:Nbt inherit/block state provider/template
+
+block_pile
+
+[NBT Compound / JSON Object] config
+[NBT Compound / JSON Object] state_provider The block to use.
+Block state provider see Template:Nbt inherit/block state provider/template
+
+delta_feature
+
+[NBT Compound / JSON Object] config
+
+[NBT Compound / JSON Object] contents The block to use on the inside of the delta.
+Block state see Template:Nbt inherit/block state/template
+[NBT Compound / JSON Object] rim The block to use for the rim of the delta.
+Block state see Template:Nbt inherit/block state/template
+[Int][NBT Compound / JSON Object] size The size of the inside of the delta. Value between 0 and 16 (inclusive).
+Int provider see Template:Nbt inherit/int_provider/template
+[Int][NBT Compound / JSON Object] rim_size The size of the rim of the delta. Value between 0 and 16 (inclusive).
+Int provider see Template:Nbt inherit/int_provider/template
+
+The only rule for which blocks the delta feature can replace (via the 'contents' or 'rim' block state) is that the target block must have one air block above it and no horizontally-adjacent air blocks. One consequence of this is that delta features cannot generate underwater, but can generate on the water's surface if the feature placement is on the same y-level.
+Delta features are always generated last regardless of the order specified by their biome's generation step. In effect, this means that delta blocks can be overridden by features such as tall grass, often resulting in a splotchy appearance.
+
+disk
+
+[NBT Compound / JSON Object] config
+[NBT Compound / JSON Object] state_provider A rule-based block state provider.
+A rule-based block state provider see Template:Nbt inherit/rule-based block state provider/template
+[Int][NBT Compound / JSON Object] radius The radius of this disk. Value between 0 and 8 (inclusive).
+Int provider see Template:Nbt inherit/int_provider/template
+[Int] half_height Half of the height of this disk. Value between 0 and 4 (inclusive).
+[NBT Compound / JSON Object] target A block predicate that must be passed to generate this feature.
+
+[String] type: The type of the block predicate. See Block predicate § Types for options.
+additional fields depending on [String] type. See Block predicate § Types.
+
+end_gateway
+
+[NBT Compound / JSON Object] config
+[Boolean] exact: Whether the gateway should teleport entities to the exact exit position.
+[NBT List / JSON Array] exit: (optional) The block position where the gateway should exit.
+[Int] X coordinate.
+[Int] Y coordinate.
+[Int] Z coordinate.
+
+end_podium
+
+​[upcoming: JE 26.3]
+
+end_spike
+
+[NBT Compound / JSON Object] config
+[Boolean] crystal_invulnerable (optional, defaults to false) Whether the End crystals on it are invulnerable.
+[NBT List / JSON Array] crystal_beam_target (optional) Block position of the beam target.
+[Int] The X coordinate.
+[Int] The Y coordinate.
+[Int] The Z coordinate.
+[NBT List / JSON Array] spikes (Required, but can be empty. If empty, uses the default random spikes) Configurations of each spike.
+[NBT Compound / JSON Object] A spike.
+[Int] centerX (optional, defaults to 0) The X coordinate.
+[Int] centerZ (optional, defaults to 0)  The Z coordinate.
+[Int] radius (optional, defaults to 0)  The radius of the spike.
+[Int] height (optional, defaults to 0)  The height of the spike.
+[Boolean] guarded (optional, defaults to false)  Whether to generate an iron bar cage around the crystal.
+
+fill_layer
+
+[NBT Compound / JSON Object] config
+[NBT Compound / JSON Object] state The block to fill with.
+Block state see Template:Nbt inherit/block state/template
+[Int] height The layer to fill, starting at the bottom of the world. Value between 0 and 4064 (inclusive).
+
+flower
+
+[NBT Compound / JSON Object] config
+[Int] tries: (optional, defaults to 128) The number of attempts to generate. Must be a positive integer.
+[Int] xz_spread: (optional, defaults to 7) The horizontal spread range. Must be a non-negative integer.
+[Int] y_spread: (optional, defaults to 3) The vertical spread range. Must be a non-negative integer.
+[String][NBT Compound / JSON Object] feature: One placed feature (an [String] ID, or a new [NBT Compound / JSON Object] placed feature definition) — The placed feature that this patch generates.
+
+fallen_tree
+
+[NBT Compound / JSON Object] config
+[NBT Compound / JSON Object] trunk_provider The block to use for the trunk.
+Block state provider see Template:Nbt inherit/block state provider/template
+[Int][NBT Compound / JSON Object] log_length The length of the fallen log. Value between 0 and 16 (inclusive).
+Int provider see Template:Nbt inherit/int_provider/template
+[NBT List / JSON Array] log_decorators (Required, but can be empty) Decorations to add to fallen log of the tree
+[NBT Compound / JSON Object] A decorator, see Tree definition § Decorator
+[NBT List / JSON Array] stump_decorators (Required, but can be empty) Decorations to add to the stump.
+[NBT Compound / JSON Object] A decorator, see Tree definition § Decorator
+
+fossil
+
+[NBT Compound / JSON Object] config
+[NBT List / JSON Array] fossil_structures: (Cannot be empty) A list of fossil structure templates to choose from.
+[String]: One structure template (an [String] ID)
+[NBT List / JSON Array] overlay_structures: (Cannot be empty) A list of overlay structure templates to choose from. Has to have the same length as [NBT List / JSON Array] fossil_structures.
+[String]: One structure template (an [String] ID)
+[String][NBT List / JSON Array][NBT Compound / JSON Object] fossil_processors: One processor list (an [String] ID, or a new [NBT List / JSON Array][NBT Compound / JSON Object] processor list definition) — The processor for fossil structure templates.
+[String][NBT List / JSON Array][NBT Compound / JSON Object] overlay_processors: One processor list (an [String] ID, or a new [NBT List / JSON Array][NBT Compound / JSON Object] processor list definition) — The processor for overlay structure templates.
+[Int] max_empty_corners_allowed: Integer between 0 and 7 — How many corners of the structure are allowed to be empty for it to generate. Prevents structures floating in the air.
+
+geode
+
+[NBT Compound / JSON Object] config
+[NBT Compound / JSON Object] blocks The blocks used for the geode.
+[NBT Compound / JSON Object] filling_provider The blockstate provider used for the 'filling' layer. This is air in vanilla geodes.
+Block state provider see Template:Nbt inherit/block state provider/template
+[NBT Compound / JSON Object] inner_layer_provider The blockstate provider used for the inner layer. This is an 'amethyst block' in vanilla geodes.
+Block state provider see Template:Nbt inherit/block state provider/template
+[NBT Compound / JSON Object] alternate_inner_layer_provider The blockstate provider used for the inner layer 'alternate' block. This is a 'budding amethyst' block in vanilla geodes
+Block state provider see Template:Nbt inherit/block state provider/template
+[NBT Compound / JSON Object] middle_layer_provider The blockstate provider used for the middle layer. This is calcite in vanilla geodes.
+Block state provider see Template:Nbt inherit/block state provider/template
+[NBT Compound / JSON Object] outer_layer_provider The blockstate provider used for the outer layer. This is smooth basalt in vanilla geodes
+Block state provider see Template:Nbt inherit/block state provider/template
+[NBT List / JSON Array] inner_placements (At least one blockstate entry required) The blockstates placed within the geode, adjacent to the 'alternate_inner_layer_provider' block(s) by default. In vanilla geodes there are 4 entries, for 'small_amethyst_bud', 'medium_amethyst_bud', 'large_amethyst_bud' and 'amethyst_cluster'.
+[NBT Compound / JSON Object] A block state.
+Block state see Template:Nbt inherit/block state/template
+[String] cannot_replace A block tag listing which blocks not to replace. The tag used by vanilla geodes is #minecraft:features_cannot_replace.
+[String] invalid_blocks A block tag listing invalid blocks. Due to MC-264886, any value is treated as #minecraft:geode_invalid_blocks. Additionally, air is an invalid block.
+[NBT Compound / JSON Object] layers The thickness of each layer. Unknown units, seems to be non-linear. Larger values generate larger geodes. Values smaller than precisely 0.01 seem to be broken, resulting in much larger geodes than expected.
+[Double] filling (optional, defaults to 1.7) Value between 0.01 and 50 (inclusive).
+[Double] inner_layer (optional, defaults to 2.2) Value between 0.01 and 50 (inclusive).
+[Double] middle_layer (optional, defaults to 3.2) Value between 0.01 and 50 (inclusive).
+[Double] outer_layer (optional, defaults to 4.2) Value between 0.01 and 50 (inclusive).
+[NBT Compound / JSON Object] crack The configuration of the crack on the geode.
+[Double] generate_crack_chance (optional, defaults to 1.0) The probability for generating crack. Value between 0.0 and 1.0 (inclusive).
+[Double] base_crack_size (optional, defaults to 2) Value between 0.0 and 5.0 (inclusive).
+[Int] crack_point_offset (optional, defaults to 2) Value between 0 and 10 (inclusive).
+[Double] noise_multiplier (optional, defaults to 0.05) Value between 0.0 and 1.0 (inclusive).
+[Double] use_potential_placements_chance (optional, defaults to 0.35) The probability for placing the inner placement on a block of inner layer. Value between 0 and 1 (inclusive).
+[Double] use_alternate_layer0_chance (optional, defaults to 0.0) The chance for a given 'inner_layer_provider' block to be replaced with an 'alternate_inner_layer_provider' block. Value between 0 and 1 (inclusive).
+[Boolean] placements_require_layer0_alternate (optional, defaults to true) Whether the 'inner_placements' block(s) can only be placed on an 'alternate_inner_layer_provider' block.
+[Int][NBT Compound / JSON Object] outer_wall_distance (optional, defaults to a uniform int between 4 and 5) The offset on each coordinate of the center from the feature start. Value between 1 and 20 (inclusive).
+Int provider see Template:Nbt inherit/int_provider/template
+[Int][NBT Compound / JSON Object] distribution_points (optional, defaults to a uniform int between 3 and 4) Value between 1 and 20 (inclusive).
+Int provider see Template:Nbt inherit/int_provider/template
+[Int] invalid_blocks_threshold Check distribution_points times near the center of the geode, and if the number of invalid blocks found exceeds this number, the feature will not be generated.
+[Int][NBT Compound / JSON Object] point_offset (optional, defaults to a uniform int between 1 and 2) Value between 1 and 10.
+Int provider see Template:Nbt inherit/int_provider/template
+[Int] min_gen_offset (optional, defaults to -16) The minimum Chebyshev distance between the block and the center.
+[Int] max_gen_offset (optional, defaults to 16) The maximum Chebyshev distance between the block and the center.
+
+Unlike ore features, geode features are always centered on their bottom northwest corner. For this reason, any placement predicates should be offset by the geode's average radius in order to perform checks on the proper location.
+The 'min_gen_offset' and 'max_gen_offset' values determines the geode's cutoff size. Values greater than the default of ±16 slightly increase the effective cutoff size for very large geodes, though the size is ultimately limited to within the adjacent chunks.
+
+huge_brown_mushroom
+
+[NBT Compound / JSON Object] config
+[NBT Compound / JSON Object] cap_provider The block to use for the cap.
+Block state provider see Template:Nbt inherit/block state provider/template
+[NBT Compound / JSON Object] stem_provider The block to use for the stem.
+Block state provider see Template:Nbt inherit/block state provider/template
+[Int] foliage_radius (optional，defaults to 2) The size of the cap.
+[NBT Compound / JSON Object] can_place_on The block predicate that defines which blocks the huge mushroom can be placed on.
+Block predicate see Template:Nbt inherit/block predicate/template
+
+huge_fungus
+
+[NBT Compound / JSON Object] config
+[NBT Compound / JSON Object] hat_state The block to use for the hat.
+Block state see Template:Nbt inherit/block state/template
+[NBT Compound / JSON Object] decor_state The block to use as decoration.
+Block state see Template:Nbt inherit/block state/template
+[NBT Compound / JSON Object] stem_state The block to use for the stem.
+Block state see Template:Nbt inherit/block state/template
+[NBT Compound / JSON Object] valid_base_block The block to place this feature on.
+Block state see Template:Nbt inherit/block state/template
+[Boolean] planted (optional, defaults to false) Whether this huge fungus is planted. If false, it can't exceed the world ceiling, can replace blocks whose material is plant, and doesn't drop items when replaced by other blocks.
+[NBT Compound / JSON Object] replaceable_blocks A block predicate. The predicate must pass for a block to be replaced by this feature.
+
+[String] type: The type of the block predicate. See Block predicate § Types for options.
+additional fields depending on [String] type. See Block predicate § Types.
+
+huge_red_mushroom
+
+[NBT Compound / JSON Object] config
+[NBT Compound / JSON Object] cap_provider The block to use for the cap.
+Block state provider see Template:Nbt inherit/block state provider/template
+[NBT Compound / JSON Object] stem_provider The block to use for the stem.
+Block state provider see Template:Nbt inherit/block state provider/template
+[Int] foliage_radius (optional，defaults to 2) The size of the cap.
+[NBT Compound / JSON Object] can_place_on The block predicate that defines which blocks the huge mushroom can be placed on.
+Block predicate see Template:Nbt inherit/block predicate/template
+
+iceberg
+
+[NBT Compound / JSON Object] config
+[NBT Compound / JSON Object] state The block to use.
+Block state see Template:Nbt inherit/block state/template
+
+lake
+
+[NBT Compound / JSON Object] config
+[NBT Compound / JSON Object] fluid The block to use for the fluid of the lake.
+Block state provider see Template:Nbt inherit/block state provider/template
+[NBT Compound / JSON Object] barrier The block to use for the barrier of the lake. If 'air' is specified, the barrier remains unchanged instead of overwriting any existing blocks.
+Block state provider see Template:Nbt inherit/block state provider/template
+[String] can_place_feature Describes the block that the feature can be placed on.
+[String] can_replace_with_air_or_fluid Describes the block that the feature can replace with air or the provided fluid block.
+[String] can_replace_with_barrier Describes the block that the feature can replace with the provided barrier block.
+
+large_dripstone
+
+[NBT Compound / JSON Object] config
+[Int] floor_to_ceiling_search_range (optional, defaults to 30) The search range from start point to cave floor or ceiling (rather than from floor to ceiling). Value between 1 and 512 (inclusive).
+[Int][NBT Compound / JSON Object] column_radius Used to provide a min and max value for radius. Note that this int provider doesn't provide a single int, but provides the min and max value of the specified distribution. Value between 1 and 16 (inclusive). See the graph for details.
+Int provider see Template:Nbt inherit/int_provider/template
+[Float][NBT Compound / JSON Object] height_scale Higher value leads to higher height. Value between 0.0 and 20.0 (inclusive).
+Float provider see Template:Nbt inherit/float_provider/template
+[Float] max_column_radius_to_cave_height_ratio The ratio of the max radius to the height of the cave. Value between 0.0 and 1.0 (inclusive).
+[Float][NBT Compound / JSON Object] stalactite_bluntness Truncate the tip of stalactite. Higher value leads to lower height. Value between 0.1 and 10.0 (inclusive).
+Float provider see Template:Nbt inherit/float_provider/template
+[Float][NBT Compound / JSON Object] stalagmite_bluntness Truncate the tip of stalagmite. Higher value leads to lower height. Value between 0.1 and 10.0 (inclusive).
+Float provider see Template:Nbt inherit/float_provider/template
+[Float][NBT Compound / JSON Object] wind_speed Larger value results in larger inclination. Value between 0.0 and 2.0 (inclusive).
+Float provider see Template:Nbt inherit/float_provider/template
+[Int] min_radius_for_wind The min column radius to used for the wind. Value between 0 and 100.
+[Float] min_bluntness_for_wind The min value of the bluntnesses to used for the wind. Value between 0.0 and 5.0 (inclusive).
+[String] replaceable_blocks Describes which blocks the feature can generate on.
+
+multiface_growth
+
+[NBT Compound / JSON Object] config
+[String] block (defaults to glow_lichen) The block to place, currently must be glow_lichen or sculk_vein.
+[Int] search_range (optional, defaults to 10) Value between 1 and 64 (inclusive).
+[Float] chance_of_spreading (optional, defaults to 0.5) Value between 0.0 and 1.0 (inclusive).
+[Boolean] can_place_on_floor (optional, defaults to false).
+[Boolean] can_place_on_ceiling (optional, defaults to false).
+[Boolean] can_place_on_wall (optional, defaults to false).
+[String][NBT List / JSON Array] can_be_placed_on Can be a block ID or a block tag, or a list of block IDs.
+
+nether_forest_vegetation
+
+[NBT Compound / JSON Object] config
+[NBT Compound / JSON Object] state_provider The block to use.
+Block state provider see Template:Nbt inherit/block state provider/template
+[Int] spread_width The horizonal distance to spread to. The max width is spread_width * 2 -1. Must be a positive integer.
+[Int] spread_height The vertical distance to spread. The max height is spread_height * 2 -1. Must be a positive integer.
+
+​[until: JE 26.3]
+
+netherrack_replace_blobs
+
+[NBT Compound / JSON Object] config
+[NBT Compound / JSON Object] state The block to use.
+Block state see Template:Nbt inherit/block state/template
+[NBT Compound / JSON Object] target The block to replace. Properties here are ignored.
+Block state see Template:Nbt inherit/block state/template
+[Int][NBT Compound / JSON Object] radius Value between 0 and 12 (inclusive).
+Int provider see Template:Nbt inherit/int_provider/template
+
+no_bonemeal_flower
+
+[NBT Compound / JSON Object] config
+[Int] tries: (optional, defaults to 128) The number of attempts to generate. Must be a positive integer.
+[Int] xz_spread: (optional, defaults to 7) The horizontal spread range. Must be a non-negative integer.
+[Int] y_spread: (optional, defaults to 3) The vertical spread range. Must be a non-negative integer.
+[String][NBT Compound / JSON Object] feature: One placed feature (an [String] ID, or a new [NBT Compound / JSON Object] placed feature definition) — The placed feature that this patch generates.
+
+ore
+
+[NBT Compound / JSON Object] config
+[Int] size Value between 0 and 64 (inclusive). Determines the size of the ore vein. Further details on the relationship between 'size' and the actual number of blocks comprising the ore vein is available here.
+[Float] discard_chance_on_air_exposure Value between 0 and 1 (inclusive). The chance for the entire ore vein to be discarded if any constituent block is adjacent to an air block. Other non-solid blocks such as water do not count.
+[NBT List / JSON Array] targets (required, but can be empty) A list of targets.
+[NBT Compound / JSON Object] A target.
+[NBT Compound / JSON Object] target A  rule test to check the block to replace.
+[NBT Compound / JSON Object] state The block to use.
+Block state see Template:Nbt inherit/block state/template
+
+Note that ore features (if allowed to generate in air) will not generate without a solid block nearby to act as the starting point. The ore feature does not necessarily have to intersect with this point, but the required distance does seem to scale with the ore size.
+
+overlay
+
+[NBT Compound / JSON Object] config
+[String][NBT Compound / JSON Object][NBT List / JSON Array] features: Any number of placed feature(s) (an [String] ID, or a new [NBT Compound / JSON Object] placed feature definition, or a [String] tag with #, or an [NBT List / JSON Array] array containing either [String] IDs or new [NBT Compound / JSON Object] definitions in the same data type); Cannot be empty — Features to choose from.
+
+​[upcoming: JE 26.3]
+
+projected_random_patchy_square
+
+[NBT Compound / JSON Object] config
+[String] block: Which block to place.
+[String] project_through: Which blocks are considered "empty" and should be projected through.
+[Int][NBT Compound / JSON Object] size: The size of the square as measured from the center to the edge. Value between 1 and 16 (inclusive).
+[Int][NBT Compound / JSON Object] max_projection_height: The maximum change in y-level from the original height to the placement height for a block in the square. The number must not be negative.
+
+​[upcoming: JE 26.3]
+
+random_boolean_selector
+
+[NBT Compound / JSON Object] config
+[String][NBT Compound / JSON Object] feature_false: One placed feature (an [String] ID, or a new [NBT Compound / JSON Object] placed feature definition)
+[String][NBT Compound / JSON Object] feature_true: One placed feature (an [String] ID, or a new [NBT Compound / JSON Object] placed feature definition)
+
+random_selector
+
+[NBT Compound / JSON Object] config
+[String][NBT Compound / JSON Object] default: One placed feature (an [String] ID, or a new [NBT Compound / JSON Object] placed feature definition) — Used if none of the below features are chosen.
+[NBT List / JSON Array] features: (Required, but can be empty) A list of placed features from which to randomly choose.
+[NBT Compound / JSON Object]: A feature and its corresponding chance.
+[String][NBT Compound / JSON Object] feature: One placed feature (an [String] ID, or a new [NBT Compound / JSON Object] placed feature definition)
+[Float] chance: The chance of this feature being chosen. Value between 0.0 and 1.0 (inclusive).
+The defined features can either reference a placed feature directly, or can reference a configured feature by nesting another "feature" node within. For more information, see this page on the two allowed types of feature definitions.
+
+random_patch
+
+[NBT Compound / JSON Object] config
+[Int] tries: (optional, defaults to 128) The number of attempts to generate. Must be a positive integer.
+[Int] xz_spread: (optional, defaults to 7) The horizontal spread range. Must be a non-negative integer.
+[Int] y_spread: (optional, defaults to 3) The vertical spread range. Must be a non-negative integer.
+[String][NBT Compound / JSON Object] feature: One placed feature (an [String] ID, or a new [NBT Compound / JSON Object] placed feature definition) — The placed feature that this patch generates.
+
+replace_single_block
+
+[NBT Compound / JSON Object] config
+[NBT List / JSON Array] targets (Required, but can be empty) A list of targets.
+[NBT Compound / JSON Object] A target.
+[NBT Compound / JSON Object] target  A  rule test to check the block to replace.
+[NBT Compound / JSON Object] state The block to use.
+Block state see Template:Nbt inherit/block state/template
+
+root_system
+
+[NBT Compound / JSON Object] config
+[Int] required_vertical_space_for_tree Value between 1 and 64 (inclusive).
+[Int] level_test_distance Value between 0 and 16 (inclusive).
+[Int] max_level_deviation Value between 0 and 64 (inclusive).
+[Int] root_radius Value between 1 and 64 (inclusive).
+[Int] root_placement_attempts Value between 1 and 256 (inclusive).
+[Int] root_column_max_height Value between 1 and 4096 (inclusive).
+[Int] hanging_root_radius Value between 1 and 64 (inclusive).
+[Int] hanging_roots_vertical_span Value between 1 and 16 (inclusive).
+[Int] hanging_root_placement_attempts Value between 1 and 256 (inclusive).
+[Int] allowed_vertical_water_for_tree Value between 1 and 64 (inclusive).
+[String][NBT List / JSON Array] root_replaceable A block ID or a list of IDs, or tag with # specifying which blocks can be replaced by the root column.
+[NBT Compound / JSON Object] root_state_provider The block to use for the root column.
+Block state provider see Template:Nbt inherit/block state provider/template
+[NBT Compound / JSON Object] hanging_root_state_provider The block to use hanging below the root column.
+Block state provider see Template:Nbt inherit/block state provider/template
+[NBT Compound / JSON Object] allowed_tree_position The block predicate used to check if the tree position is valid.
+
+[String] type: The type of the block predicate. See Block predicate § Types for options.
+additional fields depending on [String] type. See Block predicate § Types.
+[String][NBT Compound / JSON Object] feature The placed feature to place on top of the root system. Can be an ID of a placed feature, or a placed feature object.
+
+scattered_ore
+
+[NBT Compound / JSON Object] config
+[Int] size Value between 0 and 64 (inclusive). Determines the size of the ore vein. Further details on the relationship between 'size' and the actual number of blocks comprising the ore vein is available here.
+[Float] discard_chance_on_air_exposure Value between 0 and 1 (inclusive). The chance for the entire ore vein to be discarded if any constituent block is adjacent to an air block. Other non-solid blocks such as water do not count.
+[NBT List / JSON Array] targets (required, but can be empty) A list of targets.
+[NBT Compound / JSON Object] A target.
+[NBT Compound / JSON Object] target A  rule test to check the block to replace.
+[NBT Compound / JSON Object] state The block to use.
+Block state see Template:Nbt inherit/block state/template
+
+Note that ore features (if allowed to generate in air) will not generate without a solid block nearby to act as the starting point. The ore feature does not necessarily have to intersect with this point, but the required distance does seem to scale with the ore size.
+
+sculk_patch
+
+[NBT Compound / JSON Object] config
+
+[Int] charge_count The number of charges. Value between 1 and 32 (inclusive).
+[Int] amount_per_charge The initial value of each charge. Value between 1 and 500 (inclusive).
+[Int] spread_attempts The number of attempts to spread. Value between 1 and 64 (inclusive).
+[Int] growth_rounds The number of times to generate. Value between 0 and 8 (inclusive).
+[Int] spread_rounds The number of times to spread. Value between 0 and 8 (inclusive).
+[Int][NBT Compound / JSON Object] extra_rare_growths​[until: JE 26.3] The number of extra shriekers generated.
+Int provider see Template:Nbt inherit/int_provider/template
+[Float] catalyst_chance​[until: JE 26.3] The probability of generating a catalyst. Value between 0.0 and 1.0 (inclusive).
+
+seagrass
+
+[NBT Compound / JSON Object] config
+
+[Float] probability Value between 0.0 and 1.0 (inclusive). Probability of using tall seagrass instead of seagrass
+
+​[until: JE 26.3]
+
+sea_pickle
+
+[NBT Compound / JSON Object] config
+[Int][NBT Compound / JSON Object] count Value between 0 and 256 (inclusive). The max count of the sea pickle block (not single sea pickle).
+Int provider see Template:Nbt inherit/int_provider/template
+
+​[until: JE 26.3]
+
+simple_block
+
+[NBT Compound / JSON Object] config
+[NBT Compound / JSON Object] to_place The block to use.
+Block state provider see Template:Nbt inherit/block state provider/template
+[Boolean] schedule_tick (optional, defaults to false) Whether to schedule a block update.
+
+simple_random_selector
+
+[NBT Compound / JSON Object] config
+[String][NBT Compound / JSON Object][NBT List / JSON Array] features: Any number of placed feature(s) (an [String] ID, or a new [NBT Compound / JSON Object] placed feature definition, or a [String] tag with #, or an [NBT List / JSON Array] array containing either [String] IDs or new [NBT Compound / JSON Object] definitions in the same data type); Cannot be empty — Features to choose from.
+
+speleothem
+
+[NBT Compound / JSON Object] config
+[Float] chance_of_taller_generation (optional, defaults to 0.2) Value between 0.0 and 1.0 (inclusive). Probability for double-block dripstone.
+[Float] chance_of_directional_spread (optional, defaults to 0.7) Value between 0.0 and 1.0 (inclusive). Probability that the dripstone spreads in a horizontal direction.
+[Float] chance_of_spread_radius2 (optional, defaults to 0.5) Value between 0.0 and 1.0 (inclusive). Probability of horizontal spread by two blocks.
+[Float] chance_of_spread_radius3 (optional, defaults to 0.5) Value between 0.0 and 1.0 (inclusive). After the spread by two blocks, probability of spreading the third block.
+[String] base_block} Describes the block forming the base of the speleothem.
+[String] pointed_block Describes the block creating the columns of the speleothem.
+[String] replaceable_blocks Describes which blocks the feature can generate on.
+
+speleothem_cluster
+
+[NBT Compound / JSON Object] config
+[Int] floor_to_ceiling_search_range For how many blocks the feature searches for the floor or ceiling. Value between 1 and 512 (inclusive).
+[Int][NBT Compound / JSON Object] height The height of the cluster. Value between 1 and 128 (inclusive).
+Int provider see Template:Nbt inherit/int_provider/template
+[Int][NBT Compound / JSON Object] radius The radius of the cluster. Value between 1 and 128 (inclusive).
+Int provider see Template:Nbt inherit/int_provider/template
+[Int] max_stalagmite_stalactite_height_diff The maximum height difference between stalagmites and stalactites. Value between 0 and 64 (inclusive).
+[Int] height_deviation The height deviation. Value between 1 and 64 (inclusive).
+[Int][NBT Compound / JSON Object] speleothem_block_layer_thickness The dripstone block layer's thickness. Value between 0 and 128 (inclusive).
+Int provider see Template:Nbt inherit/int_provider/template
+[Float][NBT Compound / JSON Object] density Value between 0.0 and 2.0 (inclusive).
+Float provider see Template:Nbt inherit/float_provider/template
+[Float][NBT Compound / JSON Object] wetness Value between 0.0 and 2.0 (inclusive).
+Float provider see Template:Nbt inherit/float_provider/template
+[Float] chance_of_speleothem_column_at_max_distance_from_center Value between 0.0 and 1.0 (inclusive).
+[Int] max_distance_from_edge_affecting_chance_of_speleothem Value between 1 and 64 (inclusive).
+[Int] max_distance_from_center_affecting_height_bias Value between 1 and 64 (inclusive).
+[String] base_block Describes the block forming the base of the speleothem.
+[String] pointed_block Describes the block creating the columns of the speleothem.
+[String] replaceable_blocks Describes which blocks the feature can generate on.
+
+spike
+
+[NBT Compound / JSON Object] config
+[NBT Compound / JSON Object] can_place_on: The block predicate that defines which blocks the spike can be placed on.
+[NBT Compound / JSON Object] can_replace: The block predicate that defines which blocks the spike can replace.
+[NBT Compound / JSON Object] state: The block state to use.
+
+spring_feature
+
+[NBT Compound / JSON Object] config
+[NBT Compound / JSON Object] state The fluid to use.
+Block state see Template:Nbt inherit/block state/template
+[Int] rock_count (optional, defaults to 4) The required number of blocks adjacent to the spring that belong to [NBT List / JSON Array] valid_blocks. Block above is not counted.
+[Int] hole_count (optional, defaults to 1) The required number of air blocks adjacent to the spring. Block above is not counted.
+[Boolean] requires_block_below (optional, defaults to true) Whether the spring feature requires a block in [NBT List / JSON Array] valid_blocks below it.
+[String][NBT List / JSON Array] valid_blocks Can be a block ID or a block tag, or a list of block IDs.
+
+tree
+
+[NBT Compound / JSON Object]: Root object.
+[String] type: minecraft:tree
+[NBT Compound / JSON Object] config
+[Boolean] ignore_vines (optional, defaults to false) Allows the tree to generate even if there are vines blocking it.
+[NBT Compound / JSON Object] below_trunk_provider An optional rule-based block state provider defining how to replace the block below the trunk. For the default value, see Tree definition § Default below trunk provider
+A rule-based block state provider see Template:Nbt inherit/rule-based block state provider/template
+[NBT Compound / JSON Object] trunk_provider The block to use for the trunk. Note that when the trunk placer is fancy_trunk_placer, the block must have axis property, such as logs.
+Block state provider see Template:Nbt inherit/block state provider/template
+[NBT Compound / JSON Object] foliage_provider The block to use for the foliage.
+Block state provider see Template:Nbt inherit/block state provider/template
+[NBT Compound / JSON Object] minimum_size Defines the width of the tree at different heights relative to the lowest trunk block, for the minimum size of the feature, see Tree definition § Minimum size
+[NBT Compound / JSON Object] trunk_placer Defines how the trunk is generated, see Tree definition § Trunk placer
+[NBT Compound / JSON Object] foliage_placer Defines how the foliage is generated, see Tree definition § Foliage placer
+[NBT Compound / JSON Object] root_placer (optional) Controls how roots are generated, and which blocks to use, see Tree definition § Root placer
+[NBT List / JSON Array] decorators (Required, but can be empty) Decorations to add to the tree apart from the trunk and leaves.
+[NBT Compound / JSON Object] A decorator, see Tree definition § Decorator
+
+twisting_vines
+
+[NBT Compound / JSON Object] config
+[Int] spread_width Must be a positive integer. The max spread width is spread_width * 2 + 1
+[Int] spread_height Must be a positive integer. The max spread height is spread_height * 2 + 1
+[Int] max_height Must be a positive integer. The max length is max_height * 2, and the min length is 1.
+
+​[until: JE 26.3]
+
+underwater_magma
+
+[NBT Compound / JSON Object] config
+[Int] floor_search_range Value between 0 and 512 (inclusive).
+[Int] placement_radius_around_floor Value between 0 and 64 (inclusive).
+[Float] placement_probability_per_valid_position Value between 0.0 and 1.0 (inclusive).
+
+vegetation_patch
+
+[NBT Compound / JSON Object] config
+[String] surface The surface to place on. One of floor, or ceiling
+[Int][NBT Compound / JSON Object] depth Value between 1 and 128 (inclusive). Amount of blocks, that should be replaced by column.
+Int provider see Template:Nbt inherit/int_provider/template
+[Int] vertical_range Value between 1 and 256 (inclusive). Y radius in which column should search for available placement.
+[Float] extra_bottom_block_chance Value between 0.0 and 1.0 (inclusive). Chance to add 1 to [Int][NBT Compound / JSON Object] depth.
+[Float] extra_edge_column_chance Value between 0.0 and 1.0 (inclusive). Chance to add search position adjacent to initial rectangle.
+[Float] vegetation_chance Value between 0.0 and 1.0 (inclusive). The chance of placing [String][NBT Compound / JSON Object] vegetation_feature on found available position.
+[Int][NBT Compound / JSON Object] xz_radius XZ radius for searching available positions. Also note that the even though the x and z axes share the same integer provider, they are sampled individually, for example, if a uniform type integer provider is used for the [Int][NBT Compound / JSON Object] xz_radius with a min of 2 and a max of 8, the x radius could be 6 while the z radius could be 3. Specifying unique X and Z values isn't possible.
+Int provider see Template:Nbt inherit/int_provider/template
+[String] replaceable A block tag with # specifying which blocks can be replaced by the column.
+[NBT Compound / JSON Object] ground_state The block, used for generating column.
+Block state provider see Template:Nbt inherit/block state provider/template
+[String][NBT Compound / JSON Object] vegetation_feature The placed feature to place on found available position. Can be a placed feature ID, or a placed feature object.
+
+waterlogged_vegetation_patch
+
+[NBT Compound / JSON Object] config
+[String] surface The surface to place on. One of floor, or ceiling
+[Int][NBT Compound / JSON Object] depth Value between 1 and 128 (inclusive). Amount of blocks, that should be replaced by column.
+Int provider see Template:Nbt inherit/int_provider/template
+[Int] vertical_range Value between 1 and 256 (inclusive). Y radius in which column should search for available placement.
+[Float] extra_bottom_block_chance Value between 0.0 and 1.0 (inclusive). Chance to add 1 to [Int][NBT Compound / JSON Object] depth.
+[Float] extra_edge_column_chance Value between 0.0 and 1.0 (inclusive). Chance to add search position adjacent to initial rectangle.
+[Float] vegetation_chance Value between 0.0 and 1.0 (inclusive). The chance of placing [String][NBT Compound / JSON Object] vegetation_feature on found available position.
+[Int][NBT Compound / JSON Object] xz_radius XZ radius for searching available positions. Also note that the even though the x and z axes share the same integer provider, they are sampled individually, for example, if a uniform type integer provider is used for the [Int][NBT Compound / JSON Object] xz_radius with a min of 2 and a max of 8, the x radius could be 6 while the z radius could be 3. Specifying unique X and Z values isn't possible.
+Int provider see Template:Nbt inherit/int_provider/template
+[String] replaceable A block tag with # specifying which blocks can be replaced by the column.
+[NBT Compound / JSON Object] ground_state The block, used for generating column.
+Block state provider see Template:Nbt inherit/block state provider/template
+[String][NBT Compound / JSON Object] vegetation_feature The placed feature to place on found available position. Can be a placed feature ID, or a placed feature object.
+
+Configuration-less features
+These features have files in the data/<namespace>/worldgen/configured_feature folder, but none of them have any configuration options in current versions.
+
+basalt_pillar
+
+[NBT Compound / JSON Object] config
+[String] block​[upcoming: JE 26.3] Which block to place.
+[String] can_replace​[upcoming: JE 26.3] Which blocks to replace.
+[Short][NBT Compound / JSON Object] direction​[upcoming: JE 26.3] Vertical direction of the pillar, being up or down.
+[Float][NBT Compound / JSON Object] chance_to_continue​[upcoming: JE 26.3] Optional probability between 0 and 1 (inclusive) that the pillar continues another block, assuming the block matches can_replace.
+[String] cap_feature​[upcoming: JE 26.3] Optional placed feature at the end of the pillar.
+
+​[until: JE 26.3]
+
+blue_ice
+
+[NBT Compound / JSON Object] config: Empty
+
+bonus_chest
+
+[NBT Compound / JSON Object] config: Empty
+
+chorus_plant
+
+[NBT Compound / JSON Object] config: Empty
+
+coral_claw
+
+[NBT Compound / JSON Object] config
+[String] feature​[upcoming: JE 26.3]: A placed feature that is used to place at every desired block position.
+
+​[until: JE 26.3]
+
+coral_mushroom
+
+[NBT Compound / JSON Object] config
+[String] feature​[upcoming: JE 26.3]: A placed feature that is used to place at every desired block position.
+
+​[until: JE 26.3]
+
+coral_tree
+
+[NBT Compound / JSON Object] config
+[String] feature​[upcoming: JE 26.3]: A placed feature that is used to place at every desired block position.
+
+​[until: JE 26.3]
+
+desert_well
+
+[NBT Compound / JSON Object] config: Empty
+
+​[until: JE 26.3]
+
+end_island
+
+[NBT Compound / JSON Object] config: Empty
+
+end_platform
+
+[NBT Compound / JSON Object] config: Empty
+
+freeze_top_layer
+
+[NBT Compound / JSON Object] config: Empty
+
+glowstone_blob
+
+[NBT Compound / JSON Object] config
+[String] block​[upcoming: JE 26.3] Which block to place.
+[String] accepted_neighbors​[upcoming: JE 26.3] Which blocks count as a valid neighbor.
+[String] can_replace​[upcoming: JE 26.3] Which blocks to replace.
+[Int][NBT Compound / JSON Object] attempts​[upcoming: JE 26.3] How many placements attempts to make. Value between 1 and 3,000 (inclusive).
+[Int][NBT Compound / JSON Object] xz_offset​[upcoming: JE 26.3] What offsets to try against the x and z axes. Value between -16 and 16 (inclusive).
+[Int][NBT Compound / JSON Object] y_offset​[upcoming: JE 26.3] What offsets to try against the y axis. Value between -16 and 16 (inclusive).
+
+​[until: JE 26.3]
+
+kelp
+
+[NBT Compound / JSON Object] config: Empty
+
+​[until: JE 26.3]
+
+monster_room
+
+[NBT Compound / JSON Object] config: Empty
+
+no_op
+
+[NBT Compound / JSON Object] config: Empty
+
+vines
+
+[NBT Compound / JSON Object] config: Empty
+
+void_start_platform
+
+[NBT Compound / JSON Object] config: Empty
+
+weeping_vines
+
+[NBT Compound / JSON Object] config: Empty
+
+​[until: JE 26.3]
+History
+Java Edition1.16.220w28a
+Added experimental support for configured features in data packs.20w29a
+Renamed the minecraft:decorated_flower feature in minecraft:no_bonemeal_flower.1.1720w45a
+Added minecraft:geode feature.20w49a
+Added minecraft:dripstone_cluster, minecraft:large_dripstone, and minecraft:small_dripstone features.21w03a
+Added minecraft:glow_lichen feature type.1.1922w11a
+Added block field into glow_lichen (multiface_growth) feature config.
+Added minecraft:sculk_patch feature type.22w12a
+Leaves are now waterloggable. And foliage placers now always waterlog the blocks when replacing water, if the foliage block has a waterlogged block state.22w13a
+Added extra_rare_growths field into sculk_patch feature config.22w14a
+Renamed the glow_lichen feature type to multiface_growth.
+
+Added surface_disk feature type.
+
+Added can_origin_replace field into the minecraft:disk feature config. Must be a block ID or a block tag, or a list of block IDs. The feature origin must in these blocks to generate the feature.
+
+Added root_placer field into the minecraft:tree feature config.
+
+Added attached_to_leaves decorator into the minecraft:tree feature config.
+
+Added probability field into the leave_vine decorator of the minecraft:tree feature config.
+
+Added upwards_branching_trunk_placer trunk placer into the minecraft:tree feature config.22w15a
+Merged the surface_disk and ice_patch feature types into the disk type.
+
+Added state_provider and targets fields into the minecraft:disk feature config, replacing state, targets and can_origin_replace fields.
+
+Added trunk_offset_y and above_root_placement fields into the root placer in the minecraft:tree feature config.
+
+Removed the y_offset field of the mangrove_root_placer root placer in the minecraft:tree feature config. Moved all other additional fields of mangrove_root_placer into an object [NBT Compound / JSON Object] mangrove_root_placement.1.19.423w07a
+Added minecraft:cherry_foliage_placer and minecraft:cherry_trunk_placer into the minecraft:tree feature config.1.2023w17a
+Added replaceable_blocks field into the minecraft:huge_fungus feature config.1.21.424w44a
+The simple_block feature type has a new optional field: schedule_tick.1.21.525w09a
+Added attached_to_logs field into the minecraft:tree feature config.26.1snap6
+Renamed forest_rock feature type to block_blob.26.2snap1
+minecraft:geode: The fields cannot_replace and invalid_blocks in blocks section of feature configuration now also accept an ID and a list of IDs in addition to a tag.
+minecraft:root_system: The field root_replaceable in the feature configuration now also accepts an ID or a list of IDs in addition to a tag.
+minecraft:vegetation_patch: The field replaceable in the feature configuration now also accepts an ID and or a list of IDs in addition to a tag.
+minecraft:waterlogged_vegetation_patch: The field replaceable in the feature configuration now also accepts an ID and or a list of IDs in addition to a tag.
+pointed_dripstone has been renamed to speleothem.
+dripstone_cluster has been renamed to speleothem_cluster.
+Added the base_block, pointed_block, and replaceable_blocks fields to the renamed features, as well as the latter to large_dripstone.
+Additional speleothem fields have been renamed (e.g. chance_of_taller_dripstone to chance_of_taller_generation) to account for the name changes.snap5
+minecraft:multiface_growth: The field block is now mandatory (defaulted to minecraft:glow_lichen).snap6
+Added the minecraft:weighted_random_selector feature type.
+minecraft:large_dripstone: The maximum allowed value for column_radius has been reduced from 19 to 16.
+minecraft:root_system: Added level_test_distance and field max_level_deviation fields.Upcoming Java Edition26.3snap1
+The worldgen/configured_feature registry has moved to worldgen/feature and configuration is now done inline in the root object rather than separated into a config field.
+Added minecraft:end_podium feature type.
+minecraft:tree feature type: added shelf_mushroom tree decorator type, added poplar_foliage_placer foliage placer type, added poplar_trunk_placer trunk placer type.snap2
+Renamed the following feature types:
+basalt_columns to stepped_column_cluster
+basalt_pillar to single_block_pillar
+glowstone_blob to random_neighbor_spread
+
+Added minecraft:overlay and minecraft:projected_random_patchy_square feature types.snap3
+Removed the following feature types:
+minecraft:coral_mushroom
+minecraft:kelp
+minecraft:seagrass
+minecraft:sea_pickle
+
+minecraft:coral_claw and minecraft:coral_tree feature types: Added the feature field.snap4
+Removed the following feature types:
+minecraft:nether_forest_vegetation
+minecraft:twisting_vines
+minecraft:weeping_vines
+snap5
+minecraft:sculk_patch feature type: Removed the extra_rare_growths and catalyst_chance fields.snap8
+Removed the minecraft:desert_well feature type.
+Issues
+Issues relating to "Configured feature" are maintained on the bug tracker. Issues should be reported and viewed there.
+
+External links
+Configured feature Generator on misode.github.io
+Navigation

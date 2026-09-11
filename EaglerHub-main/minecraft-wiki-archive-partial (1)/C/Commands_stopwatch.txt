@@ -1,0 +1,81 @@
+This feature is exclusive to Java Edition. 
+
+/stopwatch
+
+Permission levelrequired
+
+2
+
+Restrictions
+
+None
+
+{
+    "title": "<code>/stopwatch</code>",
+    "rows": [
+        {
+            "field": "2",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "None",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+Allows manipulation of stopwatches to keep track of real time — the time measured is not affected by the game's tick rate (i.e. pausing, /tick, or even server lag). This makes it useful to detect and compensate for lag e.g. when programming functions in a data pack.
+
+Contents
+
+1 Usage
+2 Syntax
+3 Arguments
+4 Result
+5 Output
+6 History
+7 Navigation
+
+Usage
+The time is calculated with millisecond precision. Therefore:
+
+When displayed, it is presented in seconds with 3 decimal places (e.g. 43.961s).
+While any number can be used as the scale argument, a scale with a value >1000 is not useful to extract additional precision in the integer return value.
+Syntax
+/stopwatch ...
+
+... create <id> - Creates a stopwatch, which immediately begins running
+... query <id> [<scale>] - Gets the value of the stopwatch, the amount of time since it was created/restarted in seconds.
+... restart <id> - Restarts a stopwatch
+... remove <id> - Removes a stopwatch
+Arguments
+<id>: resource_location
+
+Specifies the stopwatch to operate on.
+Must be a resource location for an unregistered content.
+<scale>: double
+
+Specifies the value to multiply the returned value by, e. g. stopwatch query foo:bar 20 would get the elapsed time in ticks. Does not affect the value displayed in chat. If the return value would exceed 32-bit signed integer limits (<-2147483648 or >2147483647), it is clamped.
+Result
+
+CommandTriggerJava Edition
+
+AnyThe command is incomplete, or any argument is not specified correctly. Unparseablestopwatch create ...The specified stopwatch already exists. Failedstopwatch query ...The specified stopwatch doesn't exist.stopwatch restart ...The specified stopwatch doesn't exist.stopwatch remove ...The specified stopwatch doesn't exist.AnyOtherwiseSuccessful
+Output
+
+CommandEditionSituationSuccess Count/execute store success .../execute store result ...
+
+AnyJava EditionOn fail000stopwatch create ...On success111stopwatch query ...On success11The value of the stopwatch, multiplied by <scale>, then flooredstopwatch restart ...On success111stopwatch remove ...On success111
+History
+Java Edition1.21.1125w41a
+Added /stopwatch.25w42a
+Switched the order of the id argument.
+
+query now returns the queried value.
+
+Added the scale argument to query.
+Navigation
+
+ https://www.minecraft.net/en-us/article/minecraft-snapshot-25w42a

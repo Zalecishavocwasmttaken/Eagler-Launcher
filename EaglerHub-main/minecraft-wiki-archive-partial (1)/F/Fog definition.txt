@@ -1,0 +1,75 @@
+This feature is exclusive to Bedrock Edition. 
+
+Fog settings are stored as JSON files in a resource pack in the  fogs directory. Multiple fog settings can be created and each biome can be assigned a fog setting in the client biome JSON files. Fog settings can also be applied with the /fog command, which will override the biome fog settings.
+All fog settings are optional, if not specified they will equal to lower settings in the fog stack, first data default values and then hardcoded values. Default fog settings can be specified in the biomes_client.json file which will overwrite all fog settings that are not specified in the resource pack.
+Configurations for volumetric fog can be key framed to change effects with the daylight cycle. Instead of specifying one float or color, they are objects containing keys and the values. The key can be 0-1, corresponding to the daylight cycle (1 is noon). Values are linearly interpolated between keys.
+
+Contents
+
+1 JSON format
+2 History
+3 External links
+4 Navigation
+
+JSON format
+
+[NBT Compound / JSON Object] The root tag
+[String] format_version: The 3-part schema version used in the file, usually  1.16.110 or 1.21.90.
+[NBT Compound / JSON Object] minecraft:fog_settings
+[NBT Compound / JSON Object] description
+[String] identifier: The identifier for these settings, which can be specified in the  biome.client_biome.json files. Must include a namespace. For a full list of vanilla identifiers that are applied to biomes, see Fog § Vanilla fog settings.
+[NBT Compound / JSON Object] distance: The regular fog settings that are always visible.
+[NBT Compound / JSON Object] air: Fog settings while the camera is inside air.
+[Float] fog_start: The distance where fog will begin to appear.
+[Float] fog_end: The distance where fog becomes opaque.
+[String] render_distance_type: The type of measuring used for fog distances. When set to render, the above values are measured in decimals as a percentage of the current render distance. When set to fixed, the above values are measured in blocks and the fog distance does not change with the render distance.
+[Int Array][String] fog_color: The color of the fog, supports RGB array or HEX string. Overridden by atmospherics with Vibrant Visuals for air and weather fog.
+[NBT Compound / JSON Object] lava: Fog settings while the camera is inside lava.
+[NBT Compound / JSON Object] lava_resistance: Fog settings while the camera is inside lava under the Fire Resistance effect.
+[NBT Compound / JSON Object] water: Fog settings while the camera is inside water.
+[NBT Compound / JSON Object] transition_fog: Settings for the transition between fogs when the camera has just entered water.
+[NBT Compound / JSON Object] init_fog: Fog settings for the initial fog applied when the camera has just entered water.
+[Float] min_percent: The minimum progress of fog transition.
+[Float] mid_seconds: The time it takes to reach the mid_percent of fog transition in seconds.
+[Float] mid_percent: The progress of fog transition after the specified seconds.
+[Float] max_seconds: Total amount of time it takes to complete transition in seconds, when the transition fog completely disappears.
+[NBT Compound / JSON Object] weather: Fog settings while the camera is inside air during precipitation.
+[NBT Compound / JSON Object] volumetric: Volumetric fog settings exclusive to Vibrant Visuals and ray tracing.
+[NBT Compound / JSON Object] density
+[NBT Compound / JSON Object] air: Volumetric fog settings while the camera is inside air.
+[Float] max_density: The multiplier on how much fog disrupts the light, between 0.0 (no fog) and 1.0 (opaque). Can be key framed in 26.30.​[upcoming]
+[Boolean] uniform: Whether fog density is distributed evenly across all heights.
+[Float] zero_density_height: The height in blocks that fog will begin to appear, when uniform is false. Can be key framed in 26.30.​[upcoming]
+[Float] max_density_height: The height in blocks that fog reaches its maximum density value, when uniform is false. Can be key framed in 26.30.​[upcoming]
+[NBT Compound / JSON Object] lava: Volumetric fog settings while the camera is inside lava.
+[NBT Compound / JSON Object] lava_resistance: Volumetric fog settings while the camera is inside lava under the Fire Resistance effect.
+[NBT Compound / JSON Object] water: Volumetric fog settings while the camera is inside water.
+[NBT Compound / JSON Object] weather: Volumetric fog settings while the camera is inside air during precipitation.
+[NBT Compound / JSON Object] media_coefficients
+[NBT Compound / JSON Object] air: Fog effects applied to light when it passes through air.
+[NBT Compound / JSON Object][Int Array][String] scattering: How much of each RGB color of the light is spread by the fog; supports RGB array or HEX string. Can be key framed in 26.30.​[upcoming]
+[NBT Compound / JSON Object][Int Array][String] absorption: How much of each RGB color of the light is absorbed by the fog; supports RGB array or HEX string. Can be key framed in 26.30.​[upcoming]
+[NBT Compound / JSON Object] cloud: Fog effects applied to light when it passes through clouds.
+[NBT Compound / JSON Object] water: Fog effects applied to light when it passes through water.
+[NBT Compound / JSON Object] henyey_greenstein_g: Exclusive to Vibrant Visuals, requires format version 1.21.90.
+[NBT Compound / JSON Object] air
+[NBT Compound / JSON Object][Float] henyey_greenstein_g: Controls the distribution of scattered light in air, between -1.0 and 1.0, defaults to 0.75. Positive values result in forward-scattering while negative values result in backward-scattering. Can be key framed in 26.30.​[upcoming]
+[NBT Compound / JSON Object] water
+[NBT Compound / JSON Object][Float] henyey_greenstein_g: Controls the distribution of scattered light in water, between -1.0 and 1.0, defaults to 0.6. Positive values result in forward-scattering while negative values result in backward-scattering. Can be key framed in 26.30.​[upcoming]
+
+ Only in resource packs with "pbr" capability
+
+History
+Bedrock Edition1.16.100beta 1.16.100.54
+Separated fog settings from biomes_client.json in favor of new fog definitions for each biome, with many more customization options.
+Added volumetric fog options used for ray tracing.1.16.200ExperimentCaves and Cliffsbeta 1.16.200.52
+Added powder snow fog.Preview 1.20.60.21ExperimentRender Dragon Features for Creators
+Added volumetric fog and light shafts to deferred lighting.Preview 1.21.10.20ExperimentRender Dragon Features for Creators
+Volumetric fog density settings are now supported for weather when a format version of 1.21.0 or higher is specified.1.21.90Preview 1.21.90.20
+Added Vibrant Visuals in stable releases outside of experiments, which allows usage of volumetric fog.Preview 1.21.90.26
+Added henyey_greenstein_g settings to the fog json files, exclusive to Vibrant Visuals.26.30Preview 26.30.25
+Configurations for volumetric fog can now be key framed in order to let effects change with the daylight cycle, in the 1.21.20 schema.
+External links
+"Fog in Resource Packs"     – Microsoft Learn.
+"Volumetric Fog and Light Shafts"     – Microsoft Learn.
+Navigation

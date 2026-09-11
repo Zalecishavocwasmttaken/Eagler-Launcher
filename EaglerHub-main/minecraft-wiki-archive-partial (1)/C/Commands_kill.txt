@@ -1,0 +1,103 @@
+"Kill" redirects here.  For the action of killing, see Death.
+
+/kill
+
+Permission levelrequired
+
+2 ‌[JE  only]
+1 ‌[BE  only]
+
+Restrictions
+
+Cheat only‌[BE  only]
+
+{
+    "title": "<code>/kill</code>",
+    "rows": [
+        {
+            "field": "\n* 2 ‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Java Edition\">(link to Java Edition article, displayed as JE)  only</span></i>]</sup>\n* 1 ‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Bedrock Edition\">(link to Bedrock Edition article, displayed as BE)  only</span></i>]</sup>",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "(link to Cheat article, displayed as Cheat) only‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Bedrock Edition\">(link to Bedrock Edition article, displayed as BE)  only</span></i>]</sup>",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+Kills entities (players, mobs, items, etc.).
+
+Contents
+
+1 Usage
+2 Syntax
+3 Arguments
+4 Result
+5 Output
+6 Examples
+7 History
+
+7.1 Java Edition
+7.2 Bedrock Edition
+
+8 External links
+9 Navigation
+
+Usage
+Directly kills living targets compulsorily (directly removes the entity) and prompts Killed <entity display name>, or <Killed <number> entities if multiple entities are killed, which is irrespective of any of the targeted mob(s)' protective effects (armor, Protection, and Resistance). However, the damage can be adjusted by the ender dragon. Totems of undying can't be triggered when their owner(s) die(s) because of this command.
+When the command kills mob(s), it issues the appropriate death message. Players and mobs killed this way drop loot, and slimes, magma cubes, and sulfur cubes that are not of minimum size spawn smaller ones. Non-mob entities disappear if they are targeted.
+In Java Edition, ender dragons killed by this command will skip their death animation and immediately open the exit portal.
+In Bedrock Edition, players in Creative mode cannot be killed using this command.
+
+Syntax
+Java Edition
+kill [<targets>]
+Bedrock Edition
+kill [target: target]
+Arguments
+JE: <targets>: entityBE: target: target: CommandSelector<Actor>
+
+Specifies the target(s) to kill. If not specified, defaults to the player who executed the command.
+Must be a player name, a target selector or a UUID‌[Java Edition  only].
+Result
+
+CommandTriggerJava EditionBedrock Edition
+
+AnyAny argument is not specified correctly. Unparseable Unparseable<targets> or target: target is not specified when the command's executor is not an entity. Failed Failed<targets> or target: target fails to resolve to one or more entities (named players must be online).All the targets are creative-mode players. SuccessfulOtherwiseSuccessful
+Output
+
+CommandEditionSituationSuccess Count/execute store success .../execute store result ...
+
+AnyJava EditionOn fail000On success11the number of targeted entitiesBedrock EditionOn fail0N/AN/AOn successthe number of entities that are killedN/AN/A
+Examples
+To kill the player executing the command: kill @s or kill
+To kill the player Steve: kill Steve
+To kill item entities: kill @e[type=item]
+To kill all entities except players (if there are too many entities, some won’t be killed.) : kill @e[type=!player]
+To kill all creepers within 10 blocks:
+JE: kill @e[distance=..10,type=creeper]
+BE: kill @e[r=10,type=creeper]
+To kill all arrows that are stuck in a target: kill @e[type=arrow,nbt={inBlockState:{Name:"minecraft:target"}}]‌[Java Edition  only]
+History
+Java Edition
+Java Edition Alphav1.2.6server 0.2.8
+Added /kill. It currently deals 1000HP × 500 damage.Java Edition1.3.112w16a
+/kill is now usable in singleplayer.
+Parsing of the command is now more strict, rejecting extra characters after the command name (such as /killme or /killed).  However, arguments are still ignored, meaning /kill playername still only kills the executor.
+/kill now uses void damage instead of generic damage, bypassing armor.  The death message is now "player fell out of the world" instead of "player died".
+/kill now prints the message "Ouch. That look [sic] like it hurt." on execution.1.6.113w24b
+/kill now deals 3.4×1038 damage.1.814w02a
+Added (player|entity) argument to /kill.
+Replaced the "Ouch! That looked like it hurt" message with "Killed player".14w02c
+To fix MC-44371, /kill now directly kills non-living targets.1.1317w45a
+<target> argument is no longer optional.1.1519w38a
+<target> argument is once again optional.1.20Pre-release 1
+/kill now uses generic_kill type damage instead of void damage.
+Bedrock Edition
+Pocket Edition Alphav0.16.0build 1
+Added /kill.
+External links
+"/kill Command"     – Microsoft Learn, October 11, 2023.
+Navigation

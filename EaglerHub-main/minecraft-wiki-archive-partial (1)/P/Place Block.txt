@@ -1,0 +1,277 @@
+This article is about the block.   For other uses, see Place.
+
+
+
+This article documents an April Fools' Day joke. 
+This feature was exclusively part of a joke version and is not currently planned for addition to regular Minecraft.
+
+Place Block
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Renewable
+
+Yes
+
+Stackable
+
+Yes (64)
+
+Tool
+
+Blast resistance
+
+3
+
+Hardness
+
+3
+
+Luminous
+
+No
+
+Transparent
+
+No
+
+Flammable
+
+No
+
+Catches firefrom lava
+
+No
+
+Note block instrument
+
+Bass Drum
+
+{
+    "title": "Place Block",
+    "rows": [
+        {
+            "field": "Yes",
+            "label": "(link to Renewable resource article, displayed as Renewable)"
+        },
+        {
+            "field": "Yes (64)",
+            "label": "Stackable"
+        },
+        {
+            "field": "<span class=\"sprite-file\" style=\"height:32px;width:32px;--vertical-align:middle\">(link to File:Invicon Wooden Pickaxe.png article, displayed as 32x32px|link=|alt=Invicon Wooden Pickaxe.png: Sprite image for Wooden Pickaxe in Minecraft|class=pixel-image|A wooden pickaxe or better is required to mine this block)</span>",
+            "label": "Tool"
+        },
+        {
+            "field": "3",
+            "label": "(link to Explosion#Blast resistance article, displayed as Blast resistance)"
+        },
+        {
+            "field": "3",
+            "label": "(link to Breaking#Blocks by hardness article, displayed as Hardness)"
+        },
+        {
+            "field": "No",
+            "label": "(link to Light article, displayed as Luminous)"
+        },
+        {
+            "field": "No",
+            "label": "(link to Opacity article, displayed as Transparent)"
+        },
+        {
+            "field": "No",
+            "label": "(link to Fire#Flammable blocks article, displayed as Flammable)"
+        },
+        {
+            "field": "No",
+            "label": "Catches fire<br>from (link to lava article, displayed as lava)"
+        },
+        {
+            "field": "Bass Drum",
+            "label": "(link to Note Block#Instruments article, displayed as Note block instrument)"
+        }
+    ],
+    "invimages": [
+        "Place Block"
+    ],
+    "images": [
+        "Place Block (S).png",
+        "Place Block (W).png",
+        "Place Block (N).png",
+        "Place Block (E).png",
+        "Place Block (U).png",
+        "Place Block (D).png"
+    ]
+}
+
+The place block is a joke block existing only in Java Edition 23w13a_or_b. It takes blocks from a container on its back side and places them in front of it when given a redstone signal.
+
+Contents
+
+1 Obtaining
+
+1.1 Breaking
+1.2 Crafting
+
+2 Usage
+
+2.1 Activation
+2.2 Basic utility
+
+3 Sounds
+4 Data values
+
+4.1 ID
+4.2 Block states
+
+5 Issues
+6 See also
+7 Navigation
+
+Obtaining
+Breaking
+A place block drops itself when mined with a pickaxe. If mined without a pickaxe, it drops nothing.
+
+Block
+
+Place Block
+
+Hardness
+
+3
+
+Tool
+
+Breaking time (sec)
+
+Default
+
+15
+
+Wooden
+
+2.25
+
+Stone
+
+1.15
+
+Iron
+
+0.75
+
+Diamond
+
+0.6
+
+Netherite
+
+0.5
+
+Golden
+
+0.4
+
+OptionsEfficiency000Haste0011JEBE
+
+Legend
+ incorrect tool, drops nothing
+ correct tool, drops nothing or something other than the block itself
+ correct tool, drops the block itself
+italicized can be instant mined
+
+ These durations ignore any other influential factors (e.g., Mining Fatigue) and are measured in seconds. For more information, see Breaking § Mining efficiency.
+
+Crafting
+
+Ingredients
+Crafting recipe
+
+Cobblestone +Hopper +Redstone Dust +Bow
+
+Usage
+The place block can be "used" only when the vote for minecraft:place_block is approved. If this is not the case, the block cannot be:
+
+placed (nothing happens)
+dropped (the block gets removed from the inventory but no item appears)
+activated (the block does not react to redstone signals)
+crafted (the output of the crafting table stays empty)
+Activation
+A place block can be activated by:
+
+an adjacent active power component (Exceptions: a redstone torch does not turn ON a place block it is attached to)
+an adjacent powered opaque block (strongly-powered or weakly-powered)
+a powered redstone repeater or redstone comparator facing the place block
+powered redstone dust configured to point at the place block, or on top of it, or a directionless "dot" next to it; a place block is not activated by adjacent powered redstone dust that is configured to point in another direction.
+A place block is not activated by adjacent powered redstone dust that is configured to point in another direction.
+
+Basic utility
+A place block can be used to place blocks either from a container (e.g. chest) behind it, or that were dropped as items behind it. A place block can be placed so that its in- and outputs face in any direction, including up or down. When placed, the output faces toward the player. The texture of this side is identical to the output of an observer.
+
+After being activated, the place block checks the block behind it. If there is a container, the place block pulls one item from the first available slot of that container: there is no check if the item is in fact a placeable block. Valid containers include: chests and trapped chests (both small and large), barrels, shulker boxes, dispensers, droppers and hoppers, as well as minecarts with chests and minecarts with hoppers. Only the fuel slot can be accessed from furnaces, blast furnaces and smokers. In case of brewing stands, place block can pull from the blaze powder slot and potion slot, but none of these can actually contain placeable blocks. It can also pull music discs out of a jukebox and books from a chiseled bookshelf, but those items can't be placed either.
+If there is no container, or if all available slots are empty, the place block next checks if there are any item entities in the 1×1×1 space behind it. If there are, it pulls an item with the largest Age.
+Immediately after pulling an item, the place block attempts to place the item in front of itself (the place block does not have any storage). If the attempt fails, item is ejected instead, just like from a dropper.
+Attempt to place can fail for multiple reasons:
+
+The item is not a placeable block.
+The space on the output side is occupied by another block.
+However, if the space is occupied by a replaceable block, like short grass or water, another block can be placed.
+In case of water, if a block that is attempted to be placed can be waterlogged, it is then waterlogged.
+The space on the output side is blocked by an entity.
+However, non-solid blocks like flowers can be placed.
+Other conditions do not allow the block to be placed in that space, e.g. attempting to place a flower on stone.
+Even though, in theory, a block can be placed, the attempt may still fail because due to the placement block being an unpolished feature: for example, placing a hanging sign never works, regardless of the number of blocks available to support it.
+Place blocks cannot spawn mobs from spawn eggs, place minecarts on rails, or perform other similar tasks that usually involve the player right-clicking.
+
+Sounds
+
+
+
+This section uses a sound table which may not accurately represent the sounds associated with this feature. 
+Because of MC-177082, subtitles for falling on blocks may not have existed at this point in development, so a dedicated sound table accounting for this may be required.
+
+v
+t
+e stone sound typeSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitchAttenuationdistance​Block brokenBlocksOnce the block has brokenblock.stone.breaksubtitles.block.generic.break​1.00.816​Block placedBlocksWhen the block is placedblock.stone.placesubtitles.block.generic.place​1.00.816​Block breakingBlocksWhile the block is in the process of being brokenblock.stone.hitsubtitles.block.generic.hit​0.250.516​Something falls on a blockEntity-DependentFalling on the block with fall damageblock.stone.fallsubtitles.block.generic.fall​0.50.7516​FootstepsEntity-DependentWalking on the blockblock.stone.stepsubtitles.block.generic.footsteps​0.151.016
+Data values
+ID
+NameIdentifierForm
+Translation key Place Blockplace_blockBlock & Item
+block.minecraft.place_block
+Block states
+See also: Block states
+
+
+
+This section of the article is empty. 
+You can help by expanding it.
+
+Issues
+Issues relating to "Place Block" are not maintained on the bug tracker because it is an April Fools' joke, and is therefore not in the newest stable version or snapshot. Issues reported there are closed as "Invalid".
+
+See also
+Pickaxe block
+Navigation

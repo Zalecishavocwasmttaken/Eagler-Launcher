@@ -1,0 +1,939 @@
+For the Bedrock Edition version of this guide, see Bedrock Edition guides/The Wild Update.
+
+The Wild Update
+
+Edition
+
+Java Edition
+
+Official name
+
+The Wild Update
+
+Version(s)
+
+1.19
+1.19.1
+1.19.2
+1.19.3
+1.19.4
+
+◄ Caves & Cliffs: Part IITrails & Tales ►
+
+{
+    "title": "The Wild Update",
+    "images": [],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "Edition"
+        },
+        {
+            "field": "(link to The Wild Update article, displayed as The Wild Update)",
+            "label": "Official name"
+        },
+        {
+            "field": "<ul class=\"hlist\"><li>\n* (link to Java Edition 1.19 article, displayed as 1.19)\n* (link to Java Edition 1.19.1 article, displayed as 1.19.1)\n* (link to Java Edition 1.19.2 article, displayed as 1.19.2)\n* (link to Java Edition 1.19.3 article, displayed as 1.19.3)\n* (link to Java Edition 1.19.4 article, displayed as 1.19.4)</li></ul>",
+            "label": "Version(s)"
+        }
+    ],
+    "invimages": [],
+    "footer": "<span style=\"display:inline-block; padding:0 .4em;\">[[java Edition guides/Caves & Cliffs: Part II|◄ Caves & Cliffs: Part II]]</span><span style=\"display:inline-block; padding:0 .4em;\">[[java Edition guides/Trails & Tales |Trails & Tales ►]]</span>"
+}
+
+This guide is a simplified overview of all non-experimental changes in The Wild Update update (Java Edition 1.19.x releases), which assumes at least some familiarity with the Caves & Cliffs updates (Java Edition 1.17.x and 1.18.x releases).
+
+Contents
+
+1 Mobs
+
+1.1 New
+1.2 Changed
+
+2 Blocks
+
+2.1 New
+2.2 Changed
+
+3 Items
+
+3.1 New
+3.2 Changed
+
+4 Structures
+
+4.1 New
+
+5 Non-mob entities
+
+5.1 New
+5.2 Changed
+
+6 Biomes
+
+6.1 New
+
+7 Gameplay
+
+7.1 Changed
+
+8 Effects
+
+8.1 New
+
+9 Enchantments
+
+9.1 New
+
+10 Advancements
+11 See also
+
+Mobs
+New
+
+Name
+Image
+Habitat
+Drops
+Note
+
+Warden
+
+Summoned when a player triggers a natural sculk shrieker four times.
+
+Sculk Catalyst (1)
+1–3XP (when killed by a player or tamed wolf)
+
+The first fully blind mob. In order to find a target, it relies on vibrations, smell, and contact.
+Rises out of the floor when summoned. Digs back into the ground when it reverts back to a calm state and doesn't detect a vibration in 60 seconds.
+Has the highest health out of all mobs in Java Edition.
+Is immune to fire, lava, and knockback.
+A warden starts out searching for a target, slowly getting more agitated as it gets more suspicious of a mob. When fully agitated, it roars and then pursues the target.
+A warden instantly becomes fully agitated when hit by another mob.
+Wardens possess an extremely powerful melee attack, which can also disable shields.
+If a target is still being pursued, but out of reach for warden's melee attack, warden hits the target with a ranged sonic boom attack, which bypasses shields and armor.
+
+Frog
+
+Swamp and mangrove swamp
+
+1–3XP (when killed by a player or tamed wolf)
+
+Spawns when a tadpole grows up.
+Frogs have three color variations, each depending on the temperature of the biome it spawns in. Temperate biomes spawn orange frogs, cold biomes spawn green frogs, and warm biomes spawn white frogs.
+Eats tiny slimes to produce slimeballs.
+Eats tiny magma cubes to produce froglights. The type of frog influences the froglight's color.
+
+Tadpole
+
+None
+
+None
+
+Spawns when hatching from frogspawn.
+Grows up into a frog.
+Possesses the traits of a fish mob, like requiring water, being able to be placed in a water bucket, and flopping around outside of water.
+
+Allay
+
+Woodland mansion
+Pillager outpost
+
+None
+
+Flies around and follows the player.
+Looks for dropped items of the same kind as the item given to it by the player. After a while, it brings those items to the player.
+If a note block is played nearby, the allay leaves the items on top of the note block instead.
+Can be duplicated by giving them an amethyst shard while dancing.
+
+Changed
+
+Name
+Image
+Changed
+
+Creeper
+
+Can now be ignited by using a fire charge on it.
+
+Enderman
+
+In Java 1.19, they spawn from light level 0 to 11 in the Nether, which is wider range than before.
+In Java 1.19.3, they only spawn at light level 7 and below in the Nether, instead of 11 and below, to nerf certain portal-based mob farms.
+Blocks carried by endermen now use loot tables to generate drops when killed.
+This is done by simulating the block being mined using a Silk Touch diamond axe.
+
+Rabbit
+
+Now always drops one raw rabbit when killed, or one cooked rabbit when killed by fire.
+
+Skeleton and wither skeleton
+
+
+
+In Java 1.19, they spawn from light level 0 to 11 in the Nether, which is wider range than before.
+In Java 1.19.3, they only spawn at light level 7 and below in the Nether, instead of 11 and below, to nerf certain portal-based mob farms.
+The process of converting to stray can be interrupted now.
+
+Turtle
+
+Now has a 5 minute cooldown after breeding.
+
+Vex
+
+Changed its model and textures.
+Retains a slightly oversized hitbox to make it easier to fight.
+Now use a separate charging animation when empty-handed.
+
+Goat
+
+Now can drop 2 horns each.
+The number of horns left to drop is represented on the model.
+
+Llama
+
+Changed all variants' chest texture, to use the chest texture since the texture update.
+
+Parrot
+
+Can now imitate wardens.
+
+Pillager
+
+Changed its model, slightly shortened its coat to match its actual texture.
+
+Spider and cave spider
+
+
+
+Fixed texture mapping of both types of spiders.
+
+Villager
+
+Changed their models, now their last two rows of pixels on their robes can render.
+Changed their textures in all biomes.
+The color of the top and bottom of their legs now matches the sides correctly.
+Removed the identical part in savanna villagers' texture with the villager base texture.
+Slightly changed jungle villagers' shoes texture.
+
+Vindicator
+
+Changed its model, slightly shortened its coat to match its actual texture.
+Changes its crossed arm's texture.
+The "gap" between the two arms is connected correctly now.
+Changed the color of the seam face between their upper and lower arms, which is not visible in default.
+
+Wandering trader
+
+Now sells 1 mangrove propagule for 5 emeralds.
+
+Zombie villager
+
+Changed their models, now their last two rows of pixels on their robes can render.
+Changed their clothes texture in all biomes (except desert and swamp).
+The color of the top and bottom of their legs now matches the sides correctly.
+Added "shirt" part in savanna zombie villagers' clothes, to match other zombie villagers.
+Slightly changed jungle zombie villagers' shoes texture.
+Removed extra textures on weaponsmith zombie villagers' arm's top.
+
+Blocks
+New
+
+Name
+Image
+Obtaining
+Tool Required
+Uses
+
+Reinforced deepslate
+
+Generates as part of the frame structure in the ancient city.
+
+None (does not drop)
+
+Used for decoration.
+
+Sculk
+
+Generates in the deep dark.
+Can be found in ancient city chests.
+Can be created by a sculk catalyst.
+
+Hoe (requires Silk Touch)
+
+Drops experience when mined without Silk Touch.
+
+Sculk catalyst
+
+Generates in the deep dark.
+Can be found in ancient city chests.
+Dropped by wardens.
+
+Hoe (requires Silk Touch)
+
+When a mob dies nearby, the catalyst blooms and sends out a bubbling charge, which spreads a patch of sculk and sculk veins whenever it goes over surface blocks like stone, grass blocks, and netherrack.
+Bubbling charges only spread sculk veins on other non-surface blocks.
+Bubbling charges have a chance to create sculk sensors and sculk shriekers when moving on top of sculk.
+The amount of sculk it spreads depends on how much experience the mob would have dropped.
+
+Sculk shrieker
+
+Generates in the deep dark.
+Can be created by a sculk catalyst.
+
+Hoe (requires Silk Touch)
+
+Shrieks as a response to a player setting off sculk sensors nearby, stepping on itself, or when receiving a redstone signal.
+A natural sculk shrieker can inflict the Darkness effect.
+Each shriek acts as a warning. When a player initially gets to the third warning, a natural shrieker summons a warden.
+Each warning level gets cleared out if the player has not set off a shrieker within 10 minutes.
+Dying completely clears out warning levels.
+A sculk shrieker placed by a player or catalyst cannot inflict Darkness or summon wardens.
+
+Sculk vein
+
+Generates in the deep dark.
+Can be created by a sculk catalyst.
+
+Hoe (requires Silk Touch)
+
+Used for decoration.
+Can be placed on all six sides of a block, much like glow lichen.
+
+Frogspawn
+
+Created by frogs after breeding.
+Can't be picked up, even with Silk Touch.
+
+Any (does not drop)
+
+Hatches into tadpoles.
+
+Froglight
+
+Produced when a frog eats a tiny magma cube.
+Warm frogs produce pearlescent froglights.
+Cold frogs produce verdant froglights.
+Temperate frogs produce ochre froglights.
+
+Pickaxe
+
+Emits a light level of 15.
+
+Mangrove log
+
+Found naturally at mangrove trees.
+
+Axe
+
+Can be crafted into planks.
+
+Mangrove planks
+
+Ingredients
+Crafting recipe
+
+Mangrove Log
+
+4
+
+Axe
+
+Function the same as every other plank type.
+
+Mangrove stairs and slab
+
+Ingredients
+Crafting recipe
+
+Mangrove Planks
+
+4
+
+Mangrove Planks
+
+6
+
+Axe
+
+Used for decoration.
+
+Mangrove leaves
+
+Found naturally at mangrove trees.
+
+Shears, hoe, sword
+
+Propagules can grow under mangrove leaves.
+
+Mangrove propagule
+
+Drops from grown propagules.
+
+Any
+
+Can be placed in flower pots.
+Can be waterlogged.
+Grows into mangrove trees if planted on dirt in air or water, given adequate space.
+
+Mangrove wood
+
+Ingredients
+Crafting recipe
+
+Mangrove Log
+
+3
+
+Axe
+
+Can be used as a decorative block.
+Can be crafted into mangrove planks.
+
+Stripped mangrove log
+
+Can be obtained by right clicking a mangrove log with any tier of axe, this consumes one durability on the axe.
+
+Axe
+
+Can be used as a decorative block.
+Can be crafted into mangrove planks.
+
+Stripped mangrove wood
+
+Can be obtained by right clicking mangrove wood with any tier of axe, this consumes one durability on the axe.
+
+Axe
+
+Can be used as a decorative block.
+Can be crafted into mangrove planks.
+
+Mangrove door and mangrove trapdoor
+
+Ingredients
+Crafting recipe
+
+Mangrove Planks
+
+3
+
+Mangrove Planks
+
+2
+
+Axe
+
+Can be opened and closed.
+
+Mangrove button and mangrove pressure plate
+
+
+
+Ingredients
+Crafting recipe
+
+Mangrove Planks
+
+Mangrove Planks
+
+Axe
+
+Produce a redstone signal when pressed or stepped on.
+
+Mangrove fence and mangrove fence gate
+
+
+
+Ingredients
+Crafting recipe
+
+Mangrove Planks +Stick
+
+3
+
+Stick +Mangrove Planks
+
+Axe
+
+Act like a barrier for mobs and players.
+Fence gate can be opened and closed.
+
+Mangrove sign
+
+Ingredients
+Crafting recipe
+
+Mangrove Planks +Stick
+
+3
+
+Axe
+
+Displays custom text.
+Text color can be changed with dyes, or brightened with glow ink sacs.
+
+Mangrove roots
+
+Found naturally at mangrove trees.
+
+Axe
+
+The only transparent block that can transmit redstone signals.
+
+Mud
+
+By using a water bottle on dirt, coarse dirt, or rooted dirt.
+Found naturally in mangrove swamps.
+
+Shovel
+
+Mobs that walk on top of mud sink slightly.
+Can be crafted into packed mud.
+Mud can be converted into clay when positioned above a block that has pointed dripstone underneath.
+
+Muddy mangrove roots
+
+Ingredients
+Crafting recipe
+
+Mud +Mangrove Roots
+
+Generates underneath mangrove trees that grow on mud.
+
+Shovel
+
+Used for decoration.
+
+Packed mud
+
+Ingredients
+Crafting recipe
+
+Mud +Wheat
+
+Pickaxe
+
+Can be crafted into mud bricks.
+
+Mud bricks
+
+Ingredients
+Crafting recipe
+
+Packed Mud
+
+4
+
+Pickaxe
+
+Used for decoration.
+
+Mud brick stairs and slabs
+
+Ingredients
+Crafting recipe
+
+Mud Bricks
+
+4
+
+Mud Bricks
+
+6
+
+Pickaxe
+
+Used for decoration.
+
+Mud brick wall
+
+Ingredients
+Crafting recipe
+
+Mud Bricks
+
+6
+
+Pickaxe
+
+Acts like a barrier for mobs and players.
+
+Changed
+
+Name
+Image
+Changed
+
+Invisible blocks
+
+Barriers and structure voids no longer produce particles when broken, for consistency with the light block.
+
+Sculk sensor
+
+Now available in the Creative inventory.
+Now generates in the deep dark.
+Can now be created by a sculk catalyst.
+Now activates when stepped on.
+Mining a sculk sensor without Silk Touch now drops experience.
+
+Brewing stand
+
+Slightly changed its texture, to make their arms connect to their bases.
+Updated base UVs and texture to match a graphical fix in Bedrock Edition, which has no effect on visuals.
+
+Cocoa pod
+
+Slightly changed the stage2's texture, to make width consistency with other stages' textures.
+
+Doors
+
+The top of doors no longer flips in an unnatural way when opening in certain directions.
+
+End portal frame
+
+Slightly changed its texture, to make better transition with the end stone texture.
+
+End rod
+
+Removed unused pixels in its texture.
+
+Glow lichen
+
+Can now be placed on the top and sides of soul sand and maximum height snow.
+
+Leaves
+
+Now waterloggable.
+
+Mycelium
+
+Slightly changed its side texture, to match other dirt-based blocks.
+
+Piston and  sticky piston
+
+
+
+Changed their textures, to match the color of the oak planks on the piston head.
+
+Smoker
+
+Rotated pixels at the bottom left corner in their textures, to make a correct direction.
+
+TNT
+
+Ores and monster spawners blown up by TNT ignited by a player now drop experience.
+
+Vines
+
+Can now be placed on the sides of soul sand and maximum height snow.
+
+Chorus flower
+
+Mobs no longer spawn on this block.
+
+Fence gates
+
+No longer provide center support beneath them.
+For example, hanging signs cannot be placed under fence gates.
+
+Scaffolding
+
+Changed its texture.
+Mobs no longer spawn on this block.
+
+Shulker box
+
+Now pops off blocks attached (such as torches) to the opened faces when opening.
+While open, blocks which require support cannot be placed on these open faces.
+
+Monster spawner
+
+No longer have a default mob spawn type when placed by a player, which was a pig previously.
+Do not emit fire particles when a mob spawn type has not been defined.
+Renamed to "Monster Spawner" to match Bedrock Edition, and removed purple text color.
+Pick-block now works for spawner blocks.
+The mob type is now displayed in the hover description of a spawner item stack.
+
+Jukebox
+
+Now emits a note particle above them while playing a music disc, to match Bedrock Edition.
+Now emits a redstone signal of 15 while playing a music disc.
+Droppers and hoppers can now interact with it.
+
+Items
+New
+
+Name
+Image
+Obtaining
+Uses
+
+Spawn eggs for all new mobs, as well as for iron golem and snow golem
+
+Obtained from the Creative inventory.
+
+Spawn the respective mob.
+
+Spawn eggs for wither and ender dragon
+
+Obtained only with commands.
+
+Spawn the respective mob.
+
+Swift Sneak enchanted book
+
+Can be found in ancient city chests.
+
+Applied to leggings.
+Increases sneaking speed.
+
+Bucket of tadpole
+
+Obtained by using a water bucket on a tadpole.
+
+Can be used to spawn a tadpole.
+
+Echo shard
+
+Can be found in ancient city chests.
+
+Can be crafted into a recovery compass.
+
+Recovery compass
+
+Ingredients
+Crafting recipe
+
+Echo Shard +Compass
+
+Points to player's last death point.
+
+Music disc "5"
+
+Ingredients
+Crafting recipe
+
+Disc Fragment
+
+Plays the track "Five" from the The Wild Update soundtrack.
+
+Disc fragment
+
+Can be found in ancient city chests.
+
+Can be crafted into music disc "5".
+
+Goat horn
+
+Drops when a goat charges at blocks typically found in biomes it spawns in.
+"Ponder, "Sing", "Seek", and "Feel" horns are dropped by regular goats; in addition, they are found in pillager outpost chests.
+"Admire, "Call", "Yearn", and "Dream" horns are dropped by screaming goats.
+
+Emits a loud noise when used.
+Each horn variant creates a different sound.
+
+Changed
+
+Name
+Image
+Changed
+
+Boat
+
+Changed item textures of all previously existing boats.
+The paddles represent their respective wood color and their inside rims of the boats are darker, to match Bedrock Edition.
+
+Polar bear spawn egg
+
+Changed the colors, to distinguish it from the ghast spawn egg.
+
+Water bucket
+
+Water buckets can now be emptied into waterlogged blocks.
+
+Armor and elytra
+
+Now player can swap the equipped gear by using them.
+
+Potions, splash potions,  lingering potions and  tipped arrows
+
+Changed colors of following potions (all forms) and tipped arrows: Fire Resistance, Harming, Invisibility, Leaping, Luck, Night Vision, Poison, Slowness, Strength, Swiftness, Turtle Master, Water Breathing.
+Potions no longer have an enchantment glint due to it obscuring the color of the potion contents.
+
+Shield
+
+A sound is now played when a shield is placed into the offhand slot.
+
+Structures
+New
+
+Name
+Image
+Generates
+Chests
+Mobs
+Description
+
+Ancient city
+
+Generates in the deep dark.
+
+Yes (multiple)
+
+Warden (when summoned from sculk shriekers)
+
+An extensive, sculk-infested dungeon comprised of ruins of deepslate, wool, and dark oak.
+All ancient cities have a large frame structure in the middle - the only place where the reinforced deepslate block generates.
+Its chests may contain unique loot not found anywhere else, including a new enchantment, a new material, and music disc fragments.
+No mobs may spawn in this structure besides wardens, even if parts of it are outside of the deep dark's borders.
+
+Mangrove tree
+
+Mangrove trees generate in mangrove swamps. They can also be grown from mangrove propagules.
+
+No
+
+No
+
+A tree made of mangrove leaves, roots, logs, vines, and moss carpets.
+
+Non-mob entities
+New
+
+Name
+Image
+Creation
+Drops
+Note
+
+Mangrove boat
+
+Ingredients
+Crafting recipe
+
+Mangrove Planks
+
+None
+
+Can be used to cross water.
+
+Boat with chest
+
+Ingredients
+Crafting recipe
+
+Chest +Oak Boat or Spruce Boat or Birch Boat or Jungle Boat or Acacia Boat or Dark Oak Boat or Mangrove Boat
+
+None
+
+Can be used to transport items over water.
+
+Changed
+
+Name
+Image
+Changed
+
+Armor stand
+
+Now preserve custom names when placed and broken.
+
+Minecart with hopper
+
+No longer aggravates piglins when opened.
+
+Minecart with spawner
+
+No longer have a default mob spawn type when placed by a player, which was a pig previously.
+Do not emit fire particles when a mob spawn type has not been defined.
+Renamed to "Minecart with Monster Spawner".
+
+Biomes
+New
+
+Name
+Image
+Description
+Structures
+
+Deep dark
+
+A cave biome that generates in the deepest depths of the world, covered almost entirely by sculk.
+The deep dark is oriented to generate underneath mountainous regions, typically those covered by peak biomes like stony peaks and badlands.
+No mobs can spawn in this biome besides wardens.
+
+Amethyst geodes
+Dungeons
+Strongholds
+Ancient cities
+
+Mangrove swamp
+
+A densely-forested variant of the swamp, housing a lot of mangrove trees.
+Mangrove swamps are oriented to generate along the borders of warm biomes such as jungles and deserts.
+The ground of the mangrove swamp is composed of grass blocks and mud.
+
+Mangrove trees
+
+Gameplay
+Changed
+
+Name
+Changed
+
+Advancements
+
+The advancement "Birthday Song" is now a regular advancement instead of a challenge.
+
+Creative inventory
+
+The ordering of tabs and the contents in the Creative inventory have been overhauled to make the experience of finding relevant blocks and items easier.
+Changed the icons of Creative tabs for better color coding as well as to show most iconic visuals.
+Petrified oak slab has been removed from the Creative inventory, but can still be accessed through commands.
+Operator-only blocks and items can now be found in the "Operator Utilities" tab when a player has both the "Operator Items Tab" option in controls menu set to ON and the required operator permissions.
+Tooltips for all items in Creative menu outside single-category tabs show categories where this item can be found.
+The textures for the tabs are now skinnier.
+
+Pause screen
+
+The 'Game Menu' text heading has been moved to the top of the screen instead of being just right above the buttons.
+
+Spectator
+
+"Teleport to Team Member" option in spectator menu now only shows up for teams with viable target players.
+
+Effects
+New
+
+Name
+Image
+Causes
+Description
+
+Darkness
+
+Wardens and sculk shriekers
+
+Dims the player's vision by darkening the screen and pulling in black fog.
+
+Enchantments
+New
+
+Name
+Maximum level
+Primary items
+Secondary items
+Incompatible with
+Description
+
+Swift Sneak
+
+III
+
+None
+
+Increases sneaking speed.
+
+Advancements
+IconAdvancementIn-game descriptionActual requirements (if different)Sneak 100Sneak near a Sculk Sensor or Warden to prevent it from detecting youSneak while causing a vibration within 8 blocks of a sculk sensor or 16 blocks of a warden.It SpreadsKill a mob near a Sculk CatalystKill any mob that drops experience near a sculk catalyst, with the sole exception of the ender dragon. Mobs that drop no experience are ignored for this advancement.You've Got a Friend in MeHave an Allay deliver items to youGive an allay an item and then have it return to the player with more of that item.This is a hidden advancement, meaning that it can be viewed by the player only after completing it, regardless of if its child advancement(s), if any, have been completed.Bukkit BukkitCatch a Tadpole in a BucketUse a water bucket on an tadpole.Birthday SongHave an Allay drop a Cake at a Note BlockHave an allay that is holding a cake previously given to it by the player throw any other cake on a note block.This is a hidden advancement, meaning that it can be viewed by the player only after completing it, regardless of if its child advancement(s), if any, have been completed.When the Squad Hops into TownGet each Frog variant on a LeadThe frogs don't need to be leashed at the same time.With Our Powers Combined!Have all Froglights in your inventoryHave a pearlescent, ochre, and verdant froglight in the inventory at the same time.
+See also

@@ -1,0 +1,411 @@
+Not to be confused with Entity.
+
+A block entity (also known as a tile entity) is an additional object associated with certain blocks.
+
+Contents
+
+1 Usage
+2 List of block entities
+3 Render limits
+4 History
+
+4.1 Java Edition
+4.2 Bedrock Edition
+4.3 Legacy Console Edition
+4.4 New Nintendo 3DS Edition
+
+5 See also
+6 Navigation
+
+Usage
+Block entities can store additional information about their block, beyond the finite set of block states that a block may have. For example, all blocks that can store items use a block entity for this purpose. Block entities can also tick, running code regularly while loaded, even when not interacted with directly.
+Complex rendering not available to normal block models is also achieved with block entities.
+Blocks with block entities can be moved by pistons in Bedrock Edition, but not in Java Edition.
+
+List of block entities
+
+
+
+It has been suggested that  this section be split into its own page. [discuss]
+If this split affects many pages, or may potentially be controversial, do not split until a consensus has been reached. Reason: we should have two tables: one for block entities in both major editions, and one for edu-only block entities
+
+
+These are the current blocks that hold block entities.
+
+Block entity
+
+Usage
+
+Beehive
+Bee Nest
+
+Stores bees and their entity data.
+Ticks regularly to determine when the bees should exit.
+
+Signs
+Hanging Signs
+Chalkboard‌[BE & edu  only]
+Poster‌[BE & edu  only]
+Slate‌[BE & edu  only]
+
+Stores and renders written text.
+Renders the sign itself.‌[BE  only]
+
+Sculk Sensor
+Calibrated Sculk Sensor
+
+Stores the redstone signal strength.
+Listens for nearby vibrations.
+
+Sculk Catalyst
+
+Stores xp levels.
+Listens for nearby deaths, and spreads charges.
+
+Sculk Shrieker
+
+Stores the number of activations.
+Listens for nearby vibrations.
+
+Banners
+
+Stores the base color‌[BE  only], the patterns, and a custom name.
+Renders the banner with its patterns.
+
+Chest
+Trapped Chest
+Shulker Box
+Dyed Shulker Box
+Dispenser
+Dropper
+Barrel
+Chiseled Bookshelf
+Decorated Pot
+
+Stores its contents and a custom name for the interface.
+For chests, trapped chests, shulker boxes and decorated pots, renders the block.
+
+Furnace
+Smoker
+Blast Furnace
+Brewing Stand
+Campfire
+Soul Campfire
+
+Stores its contents, the cooking and fuel times, and a custom name for the interface.
+Ticks regularly to advance the cooking time.
+For campfires, renders the contained items.
+
+Hopper
+
+Stores its contents, the transfer cooldown, and a custom name for the interface.
+Ticks regularly to advance the cooldown and search for items to pull.
+
+Lectern
+
+Stores the page the book is currently on.
+Renders the book.
+
+Crafter
+
+Stores its contents, which slots are disabled and the crafting cooldown.
+Ticks regularly to advance the cooldown.
+
+Beacon
+
+Stores the pyramid level, active effects, and contents.
+Ticks regularly to check for a valid pyramid, and apply effects to nearby players.
+Renders the beacon beam.
+
+Creaking Heart
+
+Stores the UUID of the transient creaking associated with this creaking heart.
+
+Monster Spawner
+Trial Spawner
+
+Stores:
+- the entity to be spawned
+- the delay until the next entity is spawned, and the min and max values for the next spawn delay
+- how many entities to spawn per spawn attempt
+- additional data about the entity to be spawned (such as equipment, and status effects)
+- the loot reward for the trial spawner
+Ticks regularly to advance its cooldown, check for spawn conditions, and spawn mobs.
+Renders the spinning entity inside.
+
+Vault
+
+Stores its loot configuration and tracked players.
+Renders the spinning items inside.
+
+Note Block‌[BE  only]
+
+Stores the note to be played.
+
+Item Frame‌[BE  only]
+Glow Item Frame‌[BE  only]
+
+Stores the contained item.
+Renders the item.
+
+Piston‌[BE  only]
+Sticky Piston‌[BE  only]
+
+Stores the offset of block, and blocks that it should move or break. Also stores the moving process.
+
+Moving Piston
+
+Stores the offset of block‌[JE  only], direction of movement‌[JE  only], and ID of the moving block.
+Renders the block.
+
+Jukebox
+
+Stores the contained music discs.
+Ticks regularly to end the song when enough time has elapsed.
+
+Enchanting Table
+
+Stores a custom name for the interface.
+Renders the book.
+
+End Portal
+End Gateway
+
+For end gateways, stores the destination location.
+Renders the block.
+
+Player Head
+Zombie Head
+Skeleton Skull
+Wither Skeleton Skull
+Creeper Head
+Dragon Head
+Piglin Head
+
+For player heads, stores the player's skin information.
+Renders the block.
+
+   Command Block
+
+Stores the command text, its output strength, and the output text.
+
+    Structure Block
+
+Stores information about the structure.
+
+Jigsaw Block
+
+Stores the structure pool and the block this jigsaw block becomes.
+
+Nether Reactor Core‌[BE  only]
+
+Stores the reaction phase and the time remaining in the reaction.
+Ticks regularly to update the time remaining in the reaction.
+
+Daylight Detector
+
+Ticks regularly to update its output signal strength.
+
+Flower Pot‌[BE  only]
+
+Stores the ID and the data value of the block displayed inside of it.
+
+Redstone Comparator
+
+Stores its output strength.
+
+Bed‌[BE  only]
+
+Stores its color.
+Renders the block.
+
+Cauldron‌[BE  only]
+
+Stores details about liquid content. Cauldrons containing dyed water store water color. Cauldrons containing potions store the potion's ID and a tag of whether it is a splash potion or not.
+
+Conduit
+
+Ticks regularly to check its activation area for valid activation blocks and apply effects to nearby players.
+Renders the block.
+
+Bell
+
+Ticks regularly to apply the glowing effect to nearby raiders when used.‌[JE  only]
+Renders the bell.
+
+Lodestone‌[BE  only]
+
+To link with a compass.
+
+Suspicious Sand
+Suspicious Gravel
+
+Stores the loot table and contents.
+Renders the item while brushing.
+
+Compound Creator‌[BE & edu  only]Element Constructor‌[BE & edu  only]Lab Table‌[BE & edu  only]Material Reducer‌[BE & edu  only]
+
+Stores the items in the lab table and the process of lab experiment.
+
+Ender Chest
+
+Renders the block.
+
+Shelf
+
+Stores and renders items.
+Stores whether items should be centered or aligned to the bottom.
+
+Copper Golem Statue
+
+Renders the block.
+Stores the golem's custom name.
+
+Potent Sulfur
+
+Stores the base amount of time remaining in the dormant phase when able to create geysers[verify]
+The number of seconds remaining until the block switches between dormant and erupting phases.[verify]
+The base amount of time the block erupts when able to create geysers, in seconds.[verify]
+Ticks regularly to update its geyser progress.[verify]
+
+Render limits
+
+
+
+This feature is exclusive to Java Edition. 
+
+The rendering of block entities that use the block entity renderer stops beyond a hard-coded block limit which is modeled after the radius of a sphere. This limit is not affected by the Render Distance nor the Entity Distance scale in the Video Settings.
+Some effects related to block entities stop rendering beyond a different number of blocks:
+
+The beacon and end gateway beams stop rendering beyond 256 blocks in Java Edition or 64 blocks in Bedrock Edition or when the end gateway is out of frame.
+The outlines created by a structure block stop rendering beyond 96 blocks.
+History
+
+
+
+This section is missing information about: populate this with every historical addition and removal 
+Please expand the section to include this information. Further details may exist on the talk page.
+
+Java Edition
+Java Edition Indev0.3120100124-2119
+Added chests along with a chest block entity.20100219
+Added furnaces, along with a furnace block entity.Java Edition Infdev20100607
+Re-added signs as blocks along with a sign block entity.20100625-1917
+Added monster spawners, which also use the sign block entity.20100627
+Monster spawners now use their own block entity.Java Edition Alphav1.0.1
+Added wall signs, which also use the sign block entity.Java Edition Beta1.2
+Added dispensers, along with a dispenser block entity.
+
+Added note blocks, along with a note block block entity.1.7
+Added moving pistons, along with a moving piston block entity.1.8Pre-release
+The chest block entity is now used to render its newly changed model.Java Edition1.0.0Beta 1.9 Prerelease 3
+Added brewing stands, along with a brewing stand block entity.
+
+Added enchanting tables, along with a enchanting table block entity.
+
+Added the End portal block, along with a End portal block entity.1.3.112w21a
+Added ender chests along with a ender chest block entity.1.4.212w32a
+Added command blocks along with a command block block entity.
+
+Added beacons along with a beacon block entity.12w36a
+Added heads, along with a skull block entity.1.513w01a
+Added daylight detectors, along with a daylight detector block entity.
+
+Added hoppers, along with a hopper block entity.
+
+Added redstone comparators, along with a redstone comparator block entity.13w03a
+Added droppers, along with a dropper block entity.1.7.213w36a
+Flower pots now use a block entity.1.814w30a
+Added banners along with a banner block entity.1.915w31a
+Added the End gateway block, along with a end gateway block entity.
+
+Added structure blocks, along with a structure block block entity.15w34a
+Added chain and repeating command blocks, which both use the command block block entity.1.1116w32a
+The namespaced ID of block entities have been lowercased and renamed.16w39a
+Added shulker boxes, along with a shulker box block entity.1.1217w15a
+Beds now use a block entity.1.1317w47a
+Note blocks no longer have an associated block entity and instead use the block state system.
+
+Flower pots no longer have an associated block entity and instead use individual blocks instead.
+
+Bed colors are no longer determined using its block entity.
+
+Banner base colors are no longer determined using the banner block entity.
+
+Head variants (creeper, skeleton, etc.) are no longer determined using the skull block entity.
+
+Trapped chests now use a unique block entity.18w15a
+Added conduits, along with a conduit block entity.1.1418w44a
+Added barrels, along with a barrel block entity.
+
+Added bells, along with a bell block entity.
+
+Added lecterns, along with a lectern block entity.
+
+Added smokers and blast furnaces, which both use the furnace block entity.18w46a
+Added jigsaw blocks, along with a jigsaw block block entity.19w02a
+Added campfires, along with a campfire block entity.18w50a
+Smokers and blast furnaces now use their own unique block entities.1.1519w34a
+Added beehives and bee nests, along with a beehive block entity.1.1620w15a
+Added soul campfires, which use the campfire block entity.1.1720w49a
+Added sculk sensors along with a sculk sensor block entity.1.19Deep Dark Experimental Snapshot 1
+Added sculk catalysts, along with a sculk catalyst block entity.
+
+Added sculk shriekers, along with a sculk shrieker block entities.22w11a
+Implemented the previously mentioned features into normal snapshot.1.19.3ExperimentUpdate 1.2022w42a
+Added chiseled bookshelves along with a chiseled bookshelf block entity.
+
+Added hanging signs, along with a hanging sign block entity.1.19.4ExperimentUpdate 1.2023w07a
+Added decorated pots along with a decorated pot block entity.
+
+Added suspicious sand, along with a suspicious sand block entity.1.2023w12a
+Added calibrated sculk sensors, along with a calibrated sculk sensor block entity.
+
+Added suspicious gravel, which also uses suspicious sand block entity, which has been renamed to "brushable block entity" to better fit both block usages.1.20.3ExperimentUpdate 1.2123w45a
+Added trial spawners, along with a trial spawner block entity.23w42a
+Added crafters, along with a crafter block entity.1.20.5ExperimentUpdate 1.2124w05a
+Added vaults, along with a vault block entity.1.21.2ExperimentWinter Drop24w40a
+Added creaking hearts, along with a creaking heart block entity.1.21.525w03a
+Added test blocks, along with a test block block entity.
+
+Added test instance blocks, along with a test instance block block entity.1.21.925w31a
+Added copper golem statues along with a copper golem statue block entity.
+
+Added shelves, along with a shelf block entity.25w34a
+The shelf block entity now determines if items align with the bottom or the middle of a shelf.26.2snap3
+The bed block entity has been removed.snap5
+Potent sulfur now uses a block entity.snap7
+Signs and hanging signs are now rendered with block models (previously the block entity renderer was used instead).Upcoming Java Edition26.3snap4
+minecraft:sign and minecraft:hanging_sign: By default, commands and other click events contained in sign text are no longer executed when the block is clicked. Changed the rules for opening the sign edit screen after a block is placed. Signs will now accept and return the minecraft:sign_text_front, minecraft:sign_text_back and minecraft:waxed components.
+ minecraft:brewing_stand: Some fields are now stored as integers rather than shorts.
+minecraft:furnace, minecraft:smoker and minecraft:blast_furnace: The following fields are now stored as integers rather than shorts.
+Bedrock Edition
+
+
+
+This section of the article is empty. 
+You can help by expanding it.
+
+Legacy Console Edition
+
+
+
+This section of the article is empty. 
+You can help by expanding it.
+
+New Nintendo 3DS Edition
+
+
+
+This section of the article is empty. 
+You can help by expanding it.
+
+See also
+Block entity format – describes the save format for block entities
+Entities, which are all the dynamic, moving objects throughout the Minecraft world, plus several non-moving objects that resemble blocks.
+Block states, which are, like block entities, extra pieces of data that further define a block.
+Navigation
+
+
+
+ "Sorry I broke the signs, here's the fix" (archived) – The Word of Notch, Tumblr, June 27, 2010.

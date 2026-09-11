@@ -1,0 +1,148 @@
+/whitelist
+
+Aliases
+
+/allowlist‌[Bedrock Edition  only]
+
+Permission levelrequired
+
+3 ‌[JE  only]
+4 ‌[BE  only]
+
+Restrictions
+
+Dedicated serverCheat only‌[BE  only]
+
+{
+    "title": "<code>/whitelist</code>",
+    "rows": [
+        {
+            "field": "<code>/allowlist</code>‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Bedrock Edition\">(link to Bedrock Edition article, displayed as Bedrock Edition)  only</span></i>]</sup>",
+            "label": "Aliases"
+        },
+        {
+            "field": "\n* 3 ‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Java Edition\">(link to Java Edition article, displayed as JE)  only</span></i>]</sup>\n* 4 ‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Bedrock Edition\">(link to Bedrock Edition article, displayed as BE)  only</span></i>]</sup>",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "Dedicated server<br>(link to Cheat article, displayed as Cheat) only‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Bedrock Edition\">(link to Bedrock Edition article, displayed as BE)  only</span></i>]</sup>",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+Used to manage server whitelists.
+In Java Edition, server operators can always connect when the whitelist is active, even if their profiles do not appear in the whitelist. In Bedrock Edition, players must be whitelisted regardless of operator status. The profiles of the whitelisted players are stored in the whitelist.json or allowlist.json‌[Bedrock Edition  only] configuration file.
+
+Contents
+
+1 Syntax
+2 Arguments
+3 Result
+4 Output
+5 editor-allowlist
+
+5.1 Syntax
+5.2 Result
+
+6 History
+
+6.1 Java Edition
+6.2 Bedrock Edition
+
+7 External links
+8 Navigation
+
+Syntax
+whitelist add <targets> (Java Edition)
+allowlist add <name: string> (Bedrock Edition)
+Adds player profile(s) into the whitelist. The player does not need to be online.
+whitelist list
+Displays all player profiles in the whitelist.
+whitelist off
+Disables the server's use of a whitelist. Not implemented in Bedrock Edition.
+whitelist on
+Enables the server's use of a whitelist. Not implemented in Bedrock Edition.
+whitelist reload
+Reloads the list of player profiles in whitelist.json or allowlist.json‌[Bedrock Edition  only] from disk (used when whitelist.json has been modified outside of Minecraft).
+whitelist remove <targets> (Java Edition)
+allowlist remove <name: string> (Bedrock Edition)
+Removes player profile(s) from the whitelist. The player does not need to be online.
+Arguments
+JE: <targets>: game_profile
+
+Specifies the player profile(s) to be added into or removed from the whitelist.
+Specifies one or more game profiles (player profiles). Must be a player name (should be a real one if the server is in online mode) or a player-type target selector.
+BE: name: string: basic_string
+
+Specifies the player name(s) to be added into or removed from the whitelist.
+Must be a string. And it must be a single word that has no space or a double-quoted string (When quoted, \ can be used to escape characters).
+Result
+
+CommandTriggerJava Edition
+
+AnyThe command is incomplete, or any argument is not specified correctly. Unparseable/whitelist onThe whitelist is already enabled. Failed/whitelist offThe whitelist is already disabled.The target selector fails to resolve to one or more online players./whitelist add <targets>There's no player profile newly added to the whitelist./whitelist remove <targets>All specified profiles are not in the whitelist.AnyOtherwiseSuccessful
+Output
+
+CommandEditionSituationSuccess Count/execute store success .../execute store result ...
+
+AnyJava EditionOn failN/A00/whitelist on/whitelist off/whitelist reloadOn successN/A11/whitelist listOn successN/A1the number of player profiles in the list./whitelist add <targets>On successN/A1the number of new player profiles added to the whitelist./whitelist remove <targets>On successN/A1the number of player profiles removed from the whitelist.
+editor-allowlist
+
+
+
+This feature is exclusive to Bedrock Editor. 
+
+/editor-allowlist
+
+Permission levelrequired
+
+4
+
+Restrictions
+
+Cheat onlyDedicated server
+
+{
+    "title": "<code>/editor-allowlist</code>",
+    "rows": [
+        {
+            "field": "4",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "(link to Cheat article, displayed as Cheat) only<br>Dedicated server<br>",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+Used to reload the editor allowlist.
+
+Syntax
+editor-allowlist reload
+Unknown
+Result
+
+CommandTriggerBedrock Edition
+
+AnyThe command is incomplete. UnparseableAnyOtherwiseSuccessful
+History
+Java Edition
+Java Edition Beta1.3
+Added /whitelist.Upcoming Java Edition26.3snap2
+Whitelist is now enabled by default.
+Bedrock Edition
+Bedrock Edition1.16.0release
+Added /whitelist.1.17.0beta 1.16.230.50
+Renamed to /allowlist.release
+Reverted back to /whitelist.1.18.10release
+Renamed to /allowlist.?
+Added /editor-allowlist, available only in Bedrock Editor.
+External links
+"/allowlist Command"     – Microsoft Learn, August 1, 2024.
+Navigation

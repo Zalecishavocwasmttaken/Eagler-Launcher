@@ -1,0 +1,214 @@
+Preview 1.21.120.23
+
+Edition
+
+Bedrock Edition
+
+Release date
+
+September 23, 2025
+
+Server version
+
+1.21.120.23
+
+Editor version
+
+1.1.4
+
+Build version
+
+37237128
+
+Internal version
+
+Windows, Xbox: 1.21.12023.0Android: 1.21.120.23
+
+Version code
+
+Android:
+952112023 (armeabi-v7a, 35)
+962112023 (x86, 35)
+972112023 (arm64-v8a, 35)
+982112023 (x86_64, 35)
+
+Type
+
+Preview
+
+Preview for
+
+1.21.120
+
+Downloads
+
+ ServerWindowsLinux
+
+Protocol version
+
+853
+
+◄◄   1.21.114
+1.21.120
+  1.21.121 ►►
+
+◄   Preview 1.21.120.22
+
+ Preview 1.21.120.23
+
+  Preview 1.21.120.24 ►
+
+{
+    "title": "Preview 1.21.120.23",
+    "images": [
+        "Bedrock 1.21.120.23.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Bedrock Edition article, displayed as Bedrock Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "September 23, 2025",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Bedrock Dedicated Server 1.21.120.23 article, displayed as 1.21.120.23)",
+            "label": "Server version"
+        },
+        {
+            "field": "(link to Bedrock Editor 1.1.4 article, displayed as 1.1.4)",
+            "label": "''(link to Bedrock Editor article, displayed as Editor)'' version"
+        },
+        {
+            "field": "37237128",
+            "label": "Build version"
+        },
+        {
+            "field": "'''Windows, Xbox''': 1.21.12023.0<br>'''Android''': 1.21.120.23",
+            "label": "Internal version"
+        },
+        {
+            "field": "'''Android''':<br />\n952112023 (armeabi-v7a, 35)<br />\n962112023 (x86, 35)<br />\n972112023 (arm64-v8a, 35)<br />\n982112023 (x86_64, 35)",
+            "label": "Version code"
+        },
+        {
+            "field": "Preview",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Bedrock Edition 1.21.120 article, displayed as 1.21.120)",
+            "label": "Preview for"
+        },
+        {
+            "field": "'''Server'''<br>[https://www.minecraft.net/bedrockdedicatedserver/bin-win-preview/bedrock-server-1.21.120.23.zip Windows]<br>[https://www.minecraft.net/bedrockdedicatedserver/bin-linux-preview/bedrock-server-1.21.120.23.zip Linux]",
+            "label": "Downloads"
+        },
+        {
+            "field": "853",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Bedrock Edition  1.21.114|<span style=\"margin-right:-0.35em\">◄</span>◄   1.21.114]]</td>\n<td style=\"padding: 0.4em\">'''[[Bedrock Edition 1.21.120|1.21.120]]'''</td>\n<td style=\"padding: 0.4em\" >[[Bedrock Edition  1.21.121|  1.21.121 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Bedrock Edition  Preview 1.21.120.22|◄   Preview 1.21.120.22]]\n</td>\n<td style=\"padding: 0.4em\">''' Preview 1.21.120.23'''</td>\n<td style=\"padding: 0.4em\">\n[[Bedrock Edition  Preview 1.21.120.24|  Preview 1.21.120.24 ►]]\n</td>\n</tr>\n</table>"
+}
+
+Beta 1.21.120.23 (ChromeOS, Android) or Preview 1.21.120.23 (Windows, iOS, iPadOS, Xbox, PlayStation) is the fourth beta/Preview version for Bedrock Edition 1.21.120, released on September 23, 2025, which fixes bugs.
+
+Contents
+
+1 Additions
+
+1.1 General
+
+2 Changes
+
+2.1 Mobs
+2.2 Technical
+
+3 Experimental
+
+3.1 Additions
+
+3.1.1 Technical
+
+4 Fixes
+5 References
+6 Navigation
+
+Additions
+General
+Settings
+
+Added a toggle to the accessibility settings to enable/disable the dithering effect on mobs.
+Changes
+Mobs
+ Drowned
+
+Can now spawn with enchanted tridents.
+This change was not mentioned in the changelog.
+ Parrot
+
+Parrots imitating hostile mob sounds are now affected by the "Friendly Creatures" volume slider in settings.
+Technical
+API
+
+Released setDynamicProperties method on Entity, ContainerSlot, ItemStack and World to 2.3.0.
+Dimension
+Moved isChunkLoaded(location: Vector3): boolean from beta to v2.3.0.
+Block Components
+
+Added emissive field to minecraft:material_instances block component with these requirements.
+World must enable Upcoming Creator Features experiment for emissive face materials to work.
+Block format_version must be greater than or equal to 1.21.120.
+Item Components
+
+Added the emit_vibrations field to the minecraft:use_modifiers item component, which controls whether an item emits vibrations when it starts or stops being used.
+Structures
+
+Data driven jigsaw structures can now be used outside of experiments.
+Experimental
+These additions and changes are accessible by enabling the "Beta APIs" experimental toggle.
+
+Additions
+Technical
+API
+
+Added getBlockStandingOn(options?: GetBlocksStandingOnOptions): Block undefined method to beta.
+Added getAllBlocksStandingOn(options?: GetBlocksStandingOnOptions): Block[]; methods to beta.
+Added GetBlocksStandingOnOptions interface.
+Added AABB interface which defines an axis-aligned bounding box to beta.
+Added parameter center:Vector3 which defines the centerpoint of the box.
+Added parameter extent:Vector3 which defines the distance from the centerpoint to the edges of the box.
+Added method getAABB(): AABB to beta.
+Added unbreakable property to ItemDurabilityComponent in beta.
+(Beta) Player method clearPropertyOverridesForEntity can now take an Entity or Entity ID as valid arguments.
+Fixes
+16 issues fixed
+From released versions before 1.21.120
+
+MCPE-105889 – Items cannot be transported to hotbar slots using their corresponding hotkeys.
+MCPE-155739 – A Drowned that picks up a Nautilus Shell drops weapons.
+MCPE-208089 – Vibrant Visuals: Being underwater in a cave is extremely bright.
+MCPE-222915 – Vibrant Visuals: Sky appears black on certain Android devices.
+MCPE-227714 – Copper golem statue names are not converted to and from items.
+MCPE-227741 – Pressing the windows key during gameplay causes the cursor to freeze up.
+MCPE-227893 – Parity issue: Copper trapdoor's recipe still outputs 2 items.
+From the 1.21.120 development versions
+
+MCPE-227626 – Player models in inventory no longer follows cursor movement.
+MCPE-227830 – Buttons can no longer be immediately pressed while the game window is unfocused.
+MCPE-227920 – Preview GDK Build is missing a lot of SupportedFileTypes from the UWP Build.
+Other
+
+Fixed a bug with the biome blending system in Vibrant Visuals that caused non-surface biomes to be ignored.
+Fixed a bug where a sound played on certain screens after an invalid navigation with gamepad or keyboard even when Text To Speech was disabled.
+Fixed a crash occurring on mobs running the minecraft:behavior.delayed_attack AI goal.
+Fixed some scenarios where the additional context information for error messages was inaccurate after previously catching an exception.
+Fixed use of a default surface builder by some recent preview builds, biomes no longer require a surface builder. Surfaces in distant chunks now appear correctly when playing on Realms.
+Fixed an issue when inserting items into storage items through the UI. Previously the items inserted could result in gaps in the container stack when it was previously modified through the ItemInventoryComponent API. The storage container now sorts items to remove gaps prior to an item being inserted via the UI.
+References
+
+ "Minecraft Beta & Preview - 1.21.120.23"     – Minecraft Feedback, September 23, 2025.
+
+Navigation

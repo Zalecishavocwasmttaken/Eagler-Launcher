@@ -1,0 +1,572 @@
+See also: Identifier § Registries and registry objects
+
+Registries are repositories of data that contain entries pertaining to certain aspects of the game, such as the world, the player, among others. Each registry enumerates entries of a certain type, such as minecraft:block or minecraft:enchantment, assigning each entry a namespaced identifier, a numeric ID, and tags.
+The contents of built-in registries are fixed for a given protocol version. These registries can only be changed through modding. Data-driven registries on the other hand can be modified through data packs. Some data-driven registries are only used by the server, while other synchronized registries are sent over the network when a player connects, and used by both the client and the server. This ability for the server to send customized registries to the client was introduced in 1.16.3, and allows for a great deal of customization over certain features of the game.
+Of these, synchronized registries demand the most consideration from a protocol implementer. Supporting built-in registries properly is also important, as their contents, and consequently IDs, are liable to change between versions.
+
+Contents
+
+1 Built-in registries
+
+1.1 List of built-in registries
+
+2 Synchronized registries
+
+2.1 Obtaining vanilla registry data
+2.2 Known packs negotiation
+2.3 List of synchronized registries
+
+2.3.1 Banner pattern requirements
+2.3.2 Damage type requirements
+2.3.3 Instrument requirements
+2.3.4 Jukebox song requirements
+2.3.5 Trim material requirements
+2.3.6 Dimension type requirements
+2.3.7 Biome requirements
+2.3.8 Chicken variant requirements
+
+Built-in registries
+These registries are defined directly in Minecraft's code, and can only be changed though modding. The client and server implicitly agree on which numeric IDs correspond to which entries. Unlike pre-flattening block and item IDs, these IDs can and often do change between versions.
+For versions 1.14 and above the mapping from names to IDs can be obtained from the built-in data generators.
+
+List of built-in registries
+This list only includes built-in registries that are used directly in the protocol, including ones that are only referenced in Update Tags but excluding those that are only referenced in registry data NBT.
+
+Name
+
+Entries
+
+Description
+
+minecraft:attribute
+
+Entries
+
+Entity attributes.
+
+minecraft:block
+
+Entries
+
+Types of blocks. Note that the IDs in this registry are separate from (but related to) block state IDs.
+
+minecraft:block_entity_type
+
+Entries
+
+Types of block entities.
+
+minecraft:consume_effect_type
+
+Entries
+
+minecraft:custom_stat
+
+Entries
+
+Statistics which do not fit into any of the other categories.
+
+minecraft:data_component_type
+
+Entries
+
+Data components.
+
+minecraft:entity_type
+
+Entries
+
+Types of entities.
+
+minecraft:fluid
+
+Entries
+
+Types of fluids. Currently only used in the protocol in tag definitions.
+
+minecraft:game_event
+
+Entries
+
+Sources of vibrations detected by sculk components and wardens.
+
+minecraft:item
+
+Entries
+
+Types of items.
+
+minecraft:menu
+
+Entries
+
+Types of container windows.
+
+minecraft:mob_effect
+
+Entries
+
+Types of status effects.
+
+minecraft:particle_type
+
+Entries
+
+Types of particle effects.
+
+minecraft:potion
+
+Entries
+
+Built-in potion types. Note that these have "long" and "strong" variants, as would be seen on brewing.
+
+minecraft:recipe_book_category
+
+Recipe book tabs.
+
+minecraft:recipe_display
+
+Entries
+
+minecraft:slot_display
+
+Entries
+
+minecraft:sound_event
+
+Entries
+
+Built-in sound events.
+
+minecraft:stat_type
+
+Entries
+
+Statistic categories.
+
+minecraft:villager_type
+
+Entries
+
+Villager biome types.
+
+Synchronized registries
+The server sends these registries to the client via Registry Data packets during the configuration phase, one packet for each registry.
+
+Packet ID
+
+State
+
+Bound To
+
+Field Name
+
+Field Type
+
+Notes
+
+Varies
+
+Configuration
+
+Client
+
+Registry ID
+
+Identifier
+
+Name of the registry, such as minecraft:dimension_type.
+
+Entries
+
+Entry ID
+
+Prefixed Array
+
+Identifier
+
+Name of the entry, such as minecraft:overworld.
+
+Data
+
+Prefixed Optional NBT
+
+Entry data. If omitted, sourced from the selected known packs.
+
+The ordering of the entries in the Entries array defines the numeric IDs that they will be assigned to, starting from 0 and counting upwards. It is essential to maintain consistency between server and client, since many parts of the protocol reference these entries by their ID. The client will disconnect upon receiving a reference to a non-existing entry.
+The NBT data of registry entries has the same structure as their definitions in data packs, but represented in NBT instead of JSON. The format for each registry is defined in the list of registries below.
+
+Obtaining vanilla registry data
+The default contents of data-driven registries are defined as JSON in the default data pack, which is located inside both client.jar and server.jar under data/. These files can be extracted using any ZIP extraction utility. Note however that since 1.18 the server.jar (but not client.jar) distributed by Mojang is wrapped inside a bundler, and extracting the data pack requires first extracting the inner server.jar located at META-INF/versions/*/server-*.jar from the outer server.jar.
+Alternatively, the data is available as a single JSON file for the following versions:
+
+1.21
+1.20.6
+1.20.2
+1.20.1
+1.19.2
+1.19
+Known packs negotiation
+In order to save bandwidth, the client and server can negotiate which data packs are known by both peers, and avoid sending NBT sourced from those packs over the network. In practice the vanilla client and server as of 1.21.8 only recognize one data pack, minecraft:core, which contains the default definitions. Data from custom data packs is always sent over the network.
+
+S→C: Known Packs (clientbound) (with all data packs known by the server)
+C→S: Known Packs (serverbound) (with the subset of data packs also known by the client)
+Server computes the mutually supported data packs
+S→C: Multiple Registry Data (for each registry, containing all entries, but excluding mutually known NBT)
+S→C: Update Tags
+Client accumulates registry and tag data for later resolution
+S→C: Finish Configuration
+Client resolves registry and tag data, loading data from packs when requested, and detecting unbound references to entries and tags
+When resolving an entry from a Registry Data packet, the client will always use the NBT data specified in the packet if it is present. Otherwise it will look for the data in the selected known packs. Tag data is never sourced from known packs, and must always be sent by the server in full.
+If an entry is not mentioned in a Registry Data packet, it will not exist in the game session, even if it exists in one of the known packs. All entries that will be used in the session must be listed in Registry Data packets; only the NBT part can be omitted.
+When multiple known packs are selected, the client will combine them the same way resource and data packs are normally combined. The packs are listed in Clientbound Known Packs from the bottom of the stack to the top, so earlier packs are overridden by later ones.
+A custom server implementation may choose to skip sending Clientbound Known Packs, in which case all NBT data must be present in the Registry Data packets, or to require that the client knows about minecraft:core, in which case no NBT needs to be sent. Similarly a custom client may respond with an empty Serverbound Known Packs packet, and require the server to send all registry NBT. All of these incomplete implementations are compatible with the vanilla implementation, but interoperability between them will be limited.
+
+List of synchronized registries
+
+Name
+
+NBT format
+
+Requirements
+
+Description
+
+minecraft:banner_pattern
+
+NBT format
+
+See below
+
+Types of banner patterns, specifying their textures.
+
+minecraft:chat_type
+
+NBT format
+
+Optional
+
+Chat types, specifying how chat messages are formatted. Referenced in the Disguised Chat Message and Player Chat Message packets.
+
+minecraft:damage_type
+
+NBT format
+
+See below
+
+Damage types, specifying audiovisual effects generated by damage events. Referenced in the Damage Event packet.
+
+minecraft:dialog
+
+NBT format
+
+Optional
+
+Types of dialogs.
+
+minecraft:dimension_type
+
+NBT format
+
+See below
+
+Types of dimensions, specifying characteristics such as the build height limit. Referenced in the Login (play) and Respawn packets.
+
+minecraft:enchantment
+
+NBT format
+
+Optional
+
+Types of enchantments.
+
+minecraft:instrument
+
+NBT format
+
+See below
+
+Goat horn instruments, specifying their tooltip description and the sound event used when the local player uses a goat horn.
+
+minecraft:jukebox_song
+
+NBT format
+
+See below
+
+Types of music discs.
+
+minecraft:painting_variant
+
+NBT format
+
+Non-empty
+
+Painting variants.
+
+minecraft:sulfur_cube_archetype
+
+NBT format
+
+Non-empty
+
+Sulfur cube archetypes.
+
+minecraft:test_environment
+
+NBT format
+
+Optional
+
+GameTest environments.
+
+minecraft:test_instance
+
+NBT format
+
+Optional
+
+GameTest instances.
+
+minecraft:timeline
+
+NBT format
+
+Optional
+
+Timelines, which can manipulate environment attributes on the client based on the time values of world clocks.
+
+minecraft:trim_material
+
+NBT format
+
+See below
+
+Armor trim materials.
+
+minecraft:trim_pattern
+
+NBT format
+
+Optional
+
+Armor trim patterns.
+
+minecraft:world_clock
+
+NBT format
+
+Optional
+
+World clocks.
+
+minecraft:worldgen/biome
+
+NBT format
+
+See below
+
+Biomes. The name is an artifact of the directory structure used in data packs; the uses of biome information on the client are unrelated to world generation. Referenced in the Chunk Biomes and Chunk Data and Update Light packets.
+
+minecraft:cat_variant
+
+NBT format
+
+Non-empty
+
+Cat variants.
+
+minecraft:cat_sound_variant
+
+NBT format
+
+Non-empty
+
+Cat sound variants.
+
+minecraft:chicken_variant
+
+NBT format
+
+See below
+
+Chicken variants.
+
+minecraft:chicken_sound_variant
+
+NBT format
+
+Non-empty
+
+Chicken sound variants.
+
+minecraft:cow_variant
+
+NBT format
+
+Non-empty
+
+Cow variants.
+
+minecraft:cow_sound_variant
+
+NBT format
+
+Non-empty
+
+Cow sound variants.
+
+minecraft:frog_variant
+
+NBT format
+
+Non-empty
+
+Frog variants.
+
+minecraft:pig_variant
+
+NBT format
+
+Non-empty
+
+Pig variants.
+
+minecraft:pig_sound_variant
+
+NBT format
+
+Non-empty
+
+Pig sound variants.
+
+minecraft:wolf_variant
+
+NBT format
+
+Non-empty
+
+Wolf variants.
+
+minecraft:wolf_sound_variant
+
+NBT format
+
+Non-empty
+
+Wolf sound variants.
+
+minecraft:zombie_nautilus_variant
+
+NBT format
+
+Non-empty
+
+Zombie Nautilus variants.
+
+Banner pattern requirements
+Due to their use in the default values of item components, the following banner pattern tags must be defined (in Update Tags) for the vanilla client to accept a Finish Configuration packet:
+
+minecraft:pattern_item/bordure_indented
+minecraft:pattern_item/creeper
+minecraft:pattern_item/field_masoned
+minecraft:pattern_item/flow
+minecraft:pattern_item/flower
+minecraft:pattern_item/globe
+minecraft:pattern_item/guster
+minecraft:pattern_item/mojang
+minecraft:pattern_item/piglin
+minecraft:pattern_item/skull
+Damage type requirements
+The following damage types must be defined for the vanilla client to accept a Login (play) packet:
+
+minecraft:cactus
+minecraft:campfire
+minecraft:cramming
+minecraft:dragon_breath
+minecraft:drown
+minecraft:dry_out
+minecraft:ender_pearl
+minecraft:fall
+minecraft:fly_into_wall
+minecraft:freeze
+minecraft:generic
+minecraft:generic_kill
+minecraft:hot_floor
+minecraft:in_fire
+minecraft:in_wall
+minecraft:lava
+minecraft:lightning_bolt
+minecraft:magic
+minecraft:on_fire
+minecraft:out_of_world
+minecraft:outside_border
+minecraft:spear
+minecraft:stalagmite
+minecraft:starve
+minecraft:sweet_berry_bush
+minecraft:wither
+Due to their use in the default values of item components, the following damage type tags must be defined (in Update Tags) for the vanilla client to accept a Finish Configuration packet:
+
+minecraft:bypasses_shield
+minecraft:is_explosion
+minecraft:is_fire
+Instrument requirements
+Due to its use as the default value of the minecraft:instrument data component for goat horns, an instrument named minecraft:ponder_goat_horn must be defined for the vanilla client to accept a Finish Configuration packet.
+
+Jukebox song requirements
+Due to their use in the default values of item components, the following jukebox songs must be defined for the vanilla client to accept a Finish Configuration packet:
+
+minecraft:11
+minecraft:13
+minecraft:5
+minecraft:blocks
+minecraft:bounce
+minecraft:cat
+minecraft:chirp
+minecraft:creator
+minecraft:creator_music_box
+minecraft:far
+minecraft:lava_chicken
+minecraft:mall
+minecraft:mellohi
+minecraft:otherside
+minecraft:pigstep
+minecraft:precipice
+minecraft:relic
+minecraft:stal
+minecraft:strad
+minecraft:tears
+minecraft:wait
+minecraft:ward
+Trim material requirements
+Due to their use in the default values of item components, the following trim materials must be defined for the vanilla client to accept a Finish Configuration packet:
+
+minecraft:amethyst
+minecraft:copper
+minecraft:diamond
+minecraft:emerald
+minecraft:gold
+minecraft:iron
+minecraft:lapis
+minecraft:netherite
+minecraft:quartz
+minecraft:redstone
+minecraft:resin
+Dimension type requirements
+The minecraft:dimension_type registry is technically optional, but due to the required Dimension Type field, it is impossible to send a valid Login (play) packet unless the registry has at least one entry.
+
+Biome requirements
+A biome named minecraft:plains must be defined for the vanilla client to accept a Login (play) packet. It is used as the default for unloaded chunks.
+
+Chicken variant requirements
+Due to their use in the default values of item components, the following chicken variants must be defined for the vanilla client to accept a Finish Configuration packet:
+
+minecraft:cold
+minecraft:temperate
+minecraft:warm
+
+
+
+This article is licensed under a Creative Commons Attribution-ShareAlike 3.0 license. 
+This article has been imported from wiki.vg or is a derivative of such a page. Thus, the wiki's usual license does not apply.Derivative works must be licensed using the same or a compatible license.

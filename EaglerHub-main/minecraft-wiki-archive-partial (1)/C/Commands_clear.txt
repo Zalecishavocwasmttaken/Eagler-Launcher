@@ -1,0 +1,116 @@
+/clear
+
+Permission levelrequired
+
+2 ‌[JE  only]
+1 ‌[BE  only]
+
+Restrictions
+
+Cheat only‌[BE  only]
+
+{
+    "title": "<code>/clear</code>",
+    "rows": [
+        {
+            "field": "\n* 2 ‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Java Edition\">(link to Java Edition article, displayed as JE)  only</span></i>]</sup>\n* 1 ‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Bedrock Edition\">(link to Bedrock Edition article, displayed as BE)  only</span></i>]</sup>",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "(link to Cheat article, displayed as Cheat) only‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Bedrock Edition\">(link to Bedrock Edition article, displayed as BE)  only</span></i>]</sup>",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+Clears items from player inventory, including items being dragged by the player. Can also detect and query the amount of specified items.
+
+Contents
+
+1 Usage
+2 Syntax
+3 Arguments
+4 Result
+5 Output
+6 Examples
+7 History
+
+7.1 Java Edition
+7.2 Bedrock Edition
+
+8 See also
+9 External links
+10 Navigation
+
+Usage
+Items in the inventory and items from container (chest, crafting table, etc.) dragging over the cursor can be cleared.
+In Bedrock Edition, items dragging from the inventory can also be cleared, while in Java Edition only if not in Creative mode can these be cleared.
+In Java Edition, items in players' four crafting slots can also be cleared.
+
+Syntax
+Java Edition
+clear [<targets>] [<item>] [<maxCount>]
+Bedrock Edition
+clear [player: target] [itemName: Item] [data: int] [maxCount: int]
+Arguments
+JE: <targets>: entityBE: player: target: CommandSelector<Player>
+
+Specifies the player(s) whose items are cleared. If not specified, defaults to the player who executes the command.
+Must be a player name, a target selector or a UUID‌[Java Edition  only].  And the target selector must‌[JE  only]/should‌[BE  only] be of player type. In Bedrock Edition, the target selector should be of player type.
+JE: <item>: item_predicateBE: itemName: Item: enum
+
+Specifies the item to be cleared. If not specified, all items are cleared.
+In Java Edition, it must be in the format of item_id[tests](accepts item or block tags), in which tests can be omitted when they are not needed. See minecraft:item_predicate for details. In Bedrock Edition, it must be an item id or a block id for which the item form exist.
+data: int: int
+
+Specifies the data value of the item to be cleared. If not specified, or if -1, all items that match itemName: Item are cleared, regardless of their data. Values (bitwise AND 0xFFFF) that are invalid for the specified item id revert to 0.
+Must be a [Int]32-bit integer number (from -2147483648 (-231) to 2147483647 (231-1) ). Should be between -1 and 2,147,483,647 (inclusive, without commas).
+JE: <maxCount>: integerBE: maxCount: int: int
+
+Specifies the maximum number of items to be cleared. If not specified, or if -1‌[Bedrock Edition  only], all items that match item, or itemName: Item and data: int are cleared. If 0, instead of clearing of items, detects and queries the amount of specified items.
+Must be a [Int]32-bit integer number (from -2147483648 (-231) to 2147483647 (231-1) ). In Java Edition, it must be between 0 and 2147483647 (inclusive). In Bedrock Edition, it should be between -1 and 2147483647 (inclusive).
+Result
+
+CommandTriggerJava EditionBedrock Edition
+
+AnyThe command is incomplete, or any argument is not specified correctly. Unparseable Unparseable<targets> or player: target is not specified when the command's executor is not a player. Failed Failedplayer: target is a target selector that is not in player type. N/A<targets> or player: target fails to resolve to one or more online players. FailedThere are no specified items in any player's inventory.data: int is lower than -1. N/AmaxCount: int is lower than -1.OtherwiseSuccessful
+Output
+
+CommandEditionSituationSuccess Count/execute store success .../execute store result ...
+
+AnyJava EditionOn fail000On success11the number of total items that are cleared or detected.Bedrock EditionOn fail0N/AN/AOn successthe number of players who have the specified items.N/AN/A
+Examples
+To clear your entire inventory: clear
+To clear all items from Alice's inventory: clear Alice
+To clear all wool items from Alice's inventory: clear Alice #minecraft:wool‌[Java Edition  only]
+To clear all orange wool items from the inventory of all players: clear @a minecraft:wool 1‌[Bedrock Edition  only] or  clear @a minecraft:orange_wool
+To clear all golden swords with the "Sharpness I" enchantment from the nearest player
+clear @p minecraft:golden_sword[enchantments~[{sharpness:1}]]‌[Java Edition  only]
+To test if a random player has stone in their inventory: clear @r minecraft:stone 0 0‌[Bedrock Edition  only] or  clear @r minecraft:stone 0‌[Java Edition  only]
+History
+Java Edition
+Java Edition1.4.212w37a
+Added /clear.12w38a
+Added item argument to /clear.1.814w02a
+Added data argument to /clear.1.915w31b
+/clear now clears the offhand slot.1.1317w45a
+The syntax of /clear has changed from /clear [<target>] [<item>] [<data>] [<count>] [<nbt>] to
+ /clear [<target>] [<item>] [<count>].1.1620w07a
+/clear now clears the items in the inventory crafting grid.20w22a
+/clear now works properly with the inventory crafting grid.1.20.524w09a
+Updated the syntax. Now uses item components instead of NBT tags.
+Now target items must have every component that is the same as the specified key-value pair, or the default value of the component if it is not specified.
+Bedrock Edition
+Pocket Edition1.0.5alpha 1.0.5.0
+Added /clear.
+See also
+/data — can change or remove items in block or entity inventories
+/give — give items to player
+/kill — can destroy item entities
+/item‌[Java Edition  only] — can manipulate items in block or entity inventories
+/replaceitem‌[Bedrock Edition  only] — can replace items in block or entity inventories
+External links
+"/clear Command"     – Microsoft Learn, October 11, 2023.
+Navigation

@@ -1,0 +1,61 @@
+This feature is exclusive to Bedrock Edition. 
+
+/dedicatedwsserver
+
+Permission levelrequired
+
+1
+
+Restrictions
+
+Cheat only
+
+{
+    "title": "<code>/dedicatedwsserver</code>",
+    "rows": [
+        {
+            "field": "1",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "(link to Cheat article, displayed as Cheat) only<br>",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+Allows players to connect to a dedicated WebSocket server, primarily used by developers to implement custom scripts or modifications to the client through WebSocket connections.
+
+Contents
+
+1 Syntax
+2 Arguments
+3 Result
+4 Example
+5 History
+6 Navigation
+
+Syntax
+/dedicatedwsserver <server-address> <port>
+Attempts to connect to a WebSocket server at the specified address and port.
+Arguments
+server: string: basic_string
+
+The IP address or the host name of the WebSocket server.
+port: int: int
+
+The port through which the connection is made.
+Result
+
+CommandTriggerBedrock Edition
+
+AnyThe command is incomplete, or any argument is not specified correctly. UnparseableOtherwiseSuccessful
+Example
+Connect to a WebSocket server at the IP-address 192.168.1.10 and port 3000.
+/dedicatedwsserver 192.168.1.10 3000
+History
+Bedrock Edition1.19.10Preview 1.19.10.20
+Added /dedicatedwsserver.
+Navigation

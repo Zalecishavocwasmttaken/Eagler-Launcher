@@ -1,0 +1,226 @@
+This feature is exclusive to Java Edition. 
+
+Noise settings are for generating the shape of the terrain and noise caves, and what blocks the terrain is generated with, stored as JSON files within a data pack in the path data/<namespace>/worldgen/noise_settings, and are used with the minecraft:noise generator in a dimension. Vanilla settings include minecraft:overworld for normal Overworld generation, minecraft:amplified for Amplified Overworld generation, minecraft:nether for regular Nether generation, minecraft:caves for Cave (Nether-like generation but with Overworld terrain features) generation, minecraft:end for regular End generation, and minecraft:floating_islands for Floating Islands (similar to The End outer islands) generation.
+
+Contents
+
+1 JSON format
+2 Noise router
+3 Surface rule
+4 Defaults
+5 History
+6 External links
+7 Navigation
+
+JSON format
+
+[NBT Compound / JSON Object]: Root object.
+
+[Int] sea_level: The sea level in this dimension. Note that this value only affects world generation. The sea level for mob spawning is a fixed value 63.
+[Boolean] disable_mob_generation: Disables creature spawning upon chunk generation.
+[Boolean] ore_veins_enabled​[until: JE 26.3]: Whether ore veins generate.
+[Boolean] aquifers_enabled: Whether aquifers generate. If set to false, almost all caves below sea level are filled with water.
+[Boolean] legacy_random_source: Whether to use the old random number generator from before 1.18 for world generation.
+[NBT List / JSON Array] debug_functions​[upcoming: JE 26.3]: density functions values to show in the chunk_generation_stats debug entry.
+[String] label: Label to identify the density function.
+[String] function: The density function to compute and show at the player position. If not specified, no density function value will be shown.
+[NBT Compound / JSON Object] default_block: The default block used for the terrain.
+Block state see Template:Nbt inherit/block state/template
+[NBT Compound / JSON Object] default_fluid: The default block used for seas and lakes.
+Block state see Template:Nbt inherit/block state/template
+[NBT List / JSON Array] spawn_target: (Required, but can be empty) A list of climate parameters to specify the points around which the player tries to spawn. The game selects some horizonal locations that are not more than 2560 blocks away from the origin (0,0), then sample the noise values ("depth" noise and "offset" are always 0), and calculate ((x^2+z^2)^2) / 390625 + (the square of the minimum distance to the ranges in the list). The player spawns near the location where this value is smallest.
+[NBT Compound / JSON Object]：A range.
+Noise parameter for biome (See World generation § Biomes for usages of each parameter in vanilla game) see Template:Nbt inherit/parameter point/template
+[NBT Compound / JSON Object] noise: Fields for world generation.
+[Int] min_y: The minimum Y coordinate where terrain starts generating. Value between -2032 and 2031 (both inclusive). Must be divisible by 16.
+[Int] height: The total height where terrain generates. Value between 0 and 4064 (both inclusive). Must be divisible by 16. And min_y + height cannot exceed 2032.
+[Int] size_horizontal​[until: JE 26.3]: Value between 0 and 4 (both inclusive). Note that the noise breaks into the 12×12 block section per chunk for the value 3.
+[Int] size_vertical​[until: JE 26.3]: Value between 0 and 4 (both inclusive)
+[NBT Compound / JSON Object] noise_router: The noise router routes density functions to noise parameters used for world generation.
+[NBT Compound / JSON Object] surface_rule​[until: JE 26.3] / [NBT Compound / JSON Object] material_rule​[upcoming: JE 26.3]: The main surface rule to place blocks in the terrain.
+
+Noise router
+Main article: Noise router
+The noise router is a collection of density functions. Density functions compute a value for each block position. They are used for terrain generation, biome layout, aquifers, ore veins, and more.
+
+Surface rule
+Main article: Surface rule
+Surface rules are used to determine the block for each solid position of the terrain. Noise settings contains one root [NBT Compound / JSON Object] surface_rule field that contains all the logic for placing the different surface blocks.
+
+Defaults
+These are the default settings for some vanilla presets. For brevity, some fields are summarized or omitted entirely; the vanilla data pack's minecraft/worldgen/noise_settings directory has them in full.
+Amplified and large biomes are the same as Overworld generation, but the [NBT Compound / JSON Object] noise_router is adjusted.
+
+Property
+
+Overworld
+
+Caves
+
+Floating Islands
+
+The Nether
+
+The End
+
+[Int] sea_level
+
+63
+
+32
+
+-64
+
+32
+
+0
+
+[Boolean] disable_mob_generation
+
+False
+
+False
+
+False
+
+False
+
+True
+
+[Boolean] ore_veins_enabled​[until: JE 26.3]
+
+True
+
+False
+
+False
+
+False
+
+False
+
+[Boolean] aquifers_enabled
+
+True
+
+False
+
+False
+
+False
+
+False
+
+[Boolean] legacy_random_source
+
+False
+
+True
+
+True
+
+True
+
+True
+
+[NBT Compound / JSON Object] default_block
+
+Stone
+
+Netherrack
+
+End Stone
+
+[NBT Compound / JSON Object] default_fluid
+
+Water
+
+Lava
+
+Air
+
+[NBT List / JSON Array] spawn_target
+
+Two spawn targets
+
+Empty
+
+Empty
+
+Empty
+
+Empty
+
+[Int] noise.min_y
+
+-64
+
+-64
+
+0
+
+0
+
+0
+
+[Int] noise.height
+
+384
+
+192
+
+256
+
+128
+
+128
+
+[Int] noise.size_horizontal​[until: JE 26.3]
+
+1
+
+1
+
+2
+
+1
+
+2
+
+[Int] noise.size_vertical​[until: JE 26.3]
+
+2
+
+2
+
+1
+
+2
+
+1
+
+[NBT Compound / JSON Object] surface_rule
+
+The usual Overworld rules: places bedrock, deepslate, grass, and all biome-specific blocks.
+
+Similar to the Overworld, but with a bedrock roof and tweaked to allow generating dirt and grass not on the surface.
+
+Similar to the Overworld, but with no bedrock floor and tweaked to allow generating dirt and grass not on the surface.
+
+Places the bedrock floor and roof, and biome-specific blocks.
+
+Places end stone only.
+
+History
+Upcoming Java Edition26.3snap1
+The surface_rule field has been renamed to material_rule.snap2
+The spawn_target field has been updated to allow use of any density function, instead of just a subset of those defined within the noise_router field.snap10
+Added the debug_functions field.
+
+Removed the ore_veins_enabled field. Its functionality has been replaced by the ore_vein density function.
+
+Removed the size_horizontal and size_vertical fields. Its functionality is now specified in the interpolated density function.
+
+External links
+Noise settings Generator on misode.github.io
+Navigation

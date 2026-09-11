@@ -1,0 +1,486 @@
+Amethyst Geode
+
+
+
+
+
+
+
+
+
+
+Biomes
+
+Any Overworld biome
+
+Consists of
+
+Amethyst Cluster
+Large Amethyst Bud
+Medium Amethyst Bud
+Small Amethyst Bud
+Block of Amethyst
+Budding Amethyst
+Calcite
+Smooth Basalt
+
+{
+    "title": "Amethyst Geode",
+    "rows": [
+        {
+            "field": "Any (link to Overworld article, displayed as Overworld) biome",
+            "label": "(link to Biome article, displayed as Biomes)"
+        },
+        {
+            "field": "(values exceeds 1000 characters...)",
+            "label": "Consists of"
+        }
+    ],
+    "invimages": [],
+    "images": [
+        "Amethyst Geode uncracked.png",
+        "Amethyst geode.png"
+    ]
+}
+
+An amethyst geode is a structure-like feature found in the underground of the Overworld. Amethyst geodes contain smooth basalt and calcite and are the main sources of amethyst shards and blocks of amethyst.
+
+Contents
+
+1 Generation
+2 Structure
+3 Data values
+
+3.1 ID
+3.2 Config
+
+4 History
+
+4.1 Announcement
+4.2 Java Edition
+4.3 Bedrock Edition
+
+5 Issues
+6 Gallery
+
+6.1 Screenshots
+6.2 Renders
+6.3 Concept artwork
+6.4 In other media
+
+7 References
+8 External links
+9 Navigation
+
+Generation
+Amethyst geodes generate between Y=-58 and Y=30. Each chunk has a 1⁄24 chance to attempt to generate a geode.
+
+An interactive widget is being loaded. If this does not work for you, please reload the page or check if JavaScript is working or enabled.
+Structure
+   For the technical details behind amethyst geode structures, see Amethyst Geode/Structure.
+
+The inside of a cracked amethyst geode
+Amethyst geodes consist of three layers: an outer layer of smooth basalt, a middle layer of calcite, and a hollow layer of primarily amethyst blocks, with 8.3% replaced by budding amethyst blocks instead. Amethyst crystals generate within the structure on budding amethyst. Amethyst geodes have a 95% chance of generating with a crack, exposing their inside. Caves, aquifers, and canyons may be overridden by amethyst geodes, and as such are often obstructed by them.
+
+Data values
+ID
+Java Edition:
+
+Feature typeIdentifier
+ [No displayed name]geode
+
+Configured featureIdentifier
+ [No displayed name]amethyst_geode
+
+Bedrock Edition:
+
+FeatureIdentifier
+ [No displayed name]amethyst_geode_feature
+
+Config
+Main article: Configured feature
+Java Edition:
+
+[NBT Compound / JSON Object] config
+[NBT Compound / JSON Object] blocks The blocks used for the geode.
+[NBT Compound / JSON Object] filling_provider The blockstate provider used for the 'filling' layer. This is air in vanilla geodes.
+Block state provider see Template:Nbt inherit/block state provider/template
+[NBT Compound / JSON Object] inner_layer_provider The blockstate provider used for the inner layer. This is an 'amethyst block' in vanilla geodes.
+Block state provider see Template:Nbt inherit/block state provider/template
+[NBT Compound / JSON Object] alternate_inner_layer_provider The blockstate provider used for the inner layer 'alternate' block. This is a 'budding amethyst' block in vanilla geodes
+Block state provider see Template:Nbt inherit/block state provider/template
+[NBT Compound / JSON Object] middle_layer_provider The blockstate provider used for the middle layer. This is calcite in vanilla geodes.
+Block state provider see Template:Nbt inherit/block state provider/template
+[NBT Compound / JSON Object] outer_layer_provider The blockstate provider used for the outer layer. This is smooth basalt in vanilla geodes
+Block state provider see Template:Nbt inherit/block state provider/template
+[NBT List / JSON Array] inner_placements (At least one blockstate entry required) The blockstates placed within the geode, adjacent to the 'alternate_inner_layer_provider' block(s) by default. In vanilla geodes there are 4 entries, for 'small_amethyst_bud', 'medium_amethyst_bud', 'large_amethyst_bud' and 'amethyst_cluster'.
+[NBT Compound / JSON Object] A block state.
+Block state see Template:Nbt inherit/block state/template
+[String] cannot_replace A block tag listing which blocks not to replace. The tag used by vanilla geodes is #minecraft:features_cannot_replace.
+[String] invalid_blocks A block tag listing invalid blocks. Due to MC-264886, any value is treated as #minecraft:geode_invalid_blocks. Additionally, air is an invalid block.
+[NBT Compound / JSON Object] layers The thickness of each layer. Unknown units, seems to be non-linear. Larger values generate larger geodes. Values smaller than precisely 0.01 seem to be broken, resulting in much larger geodes than expected.
+[Double] filling (optional, defaults to 1.7) Value between 0.01 and 50 (inclusive).
+[Double] inner_layer (optional, defaults to 2.2) Value between 0.01 and 50 (inclusive).
+[Double] middle_layer (optional, defaults to 3.2) Value between 0.01 and 50 (inclusive).
+[Double] outer_layer (optional, defaults to 4.2) Value between 0.01 and 50 (inclusive).
+[NBT Compound / JSON Object] crack The configuration of the crack on the geode.
+[Double] generate_crack_chance (optional, defaults to 1.0) The probability for generating crack. Value between 0.0 and 1.0 (inclusive).
+[Double] base_crack_size (optional, defaults to 2) Value between 0.0 and 5.0 (inclusive).
+[Int] crack_point_offset (optional, defaults to 2) Value between 0 and 10 (inclusive).
+[Double] noise_multiplier (optional, defaults to 0.05) Value between 0.0 and 1.0 (inclusive).
+[Double] use_potential_placements_chance (optional, defaults to 0.35) The probability for placing the inner placement on a block of inner layer. Value between 0 and 1 (inclusive).
+[Double] use_alternate_layer0_chance (optional, defaults to 0.0) The chance for a given 'inner_layer_provider' block to be replaced with an 'alternate_inner_layer_provider' block. Value between 0 and 1 (inclusive).
+[Boolean] placements_require_layer0_alternate (optional, defaults to true) Whether the 'inner_placements' block(s) can only be placed on an 'alternate_inner_layer_provider' block.
+[Int][NBT Compound / JSON Object] outer_wall_distance (optional, defaults to a uniform int between 4 and 5) The offset on each coordinate of the center from the feature start. Value between 1 and 20 (inclusive).
+Int provider see Template:Nbt inherit/int_provider/template
+[Int][NBT Compound / JSON Object] distribution_points (optional, defaults to a uniform int between 3 and 4) Value between 1 and 20 (inclusive).
+Int provider see Template:Nbt inherit/int_provider/template
+[Int] invalid_blocks_threshold Check distribution_points times near the center of the geode, and if the number of invalid blocks found exceeds this number, the feature will not be generated.
+[Int][NBT Compound / JSON Object] point_offset (optional, defaults to a uniform int between 1 and 2) Value between 1 and 10.
+Int provider see Template:Nbt inherit/int_provider/template
+[Int] min_gen_offset (optional, defaults to -16) The minimum Chebyshev distance between the block and the center.
+[Int] max_gen_offset (optional, defaults to 16) The maximum Chebyshev distance between the block and the center.
+
+Unlike ore features, geode features are always centered on their bottom northwest corner. For this reason, any placement predicates should be offset by the geode's average radius in order to perform checks on the proper location.
+The 'min_gen_offset' and 'max_gen_offset' values determines the geode's cutoff size. Values greater than the default of ±16 slightly increase the effective cutoff size for very large geodes, though the size is ultimately limited to within the adjacent chunks.
+
+An example
+
+{
+  "type": "minecraft:geode",
+  "config": {
+    "blocks": {
+      "alternate_inner_layer_provider": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:budding_amethyst"
+        }
+      },
+      "cannot_replace": "#minecraft:features_cannot_replace",
+      "filling_provider": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:air"
+        }
+      },
+      "inner_layer_provider": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:amethyst_block"
+        }
+      },
+      "inner_placements": [
+        {
+          "Name": "minecraft:small_amethyst_bud",
+          "Properties": {
+            "facing": "up",
+            "waterlogged": "false"
+          }
+        },
+        {
+          "Name": "minecraft:medium_amethyst_bud",
+          "Properties": {
+            "facing": "up",
+            "waterlogged": "false"
+          }
+        },
+        {
+          "Name": "minecraft:large_amethyst_bud",
+          "Properties": {
+            "facing": "up",
+            "waterlogged": "false"
+          }
+        },
+        {
+          "Name": "minecraft:amethyst_cluster",
+          "Properties": {
+            "facing": "up",
+            "waterlogged": "false"
+          }
+        }
+      ],
+      "invalid_blocks": "#minecraft:geode_invalid_blocks",
+      "middle_layer_provider": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:calcite"
+        }
+      },
+      "outer_layer_provider": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:smooth_basalt"
+        }
+      }
+    },
+    "crack": {
+      "base_crack_size": 2.0,
+      "crack_point_offset": 2,
+      "generate_crack_chance": 0.95
+    },
+    "distribution_points": {
+      "type": "minecraft:uniform",
+      "value": {
+        "max_inclusive": 4,
+        "min_inclusive": 3
+      }
+    },
+    "invalid_blocks_threshold": 1,
+    "layers": {
+      "filling": 1.7,
+      "inner_layer": 2.2,
+      "middle_layer": 3.2,
+      "outer_layer": 4.2
+    },
+    "max_gen_offset": 16,
+    "min_gen_offset": -16,
+    "noise_multiplier": 0.05,
+    "outer_wall_distance": {
+      "type": "minecraft:uniform",
+      "value": {
+        "max_inclusive": 6,
+        "min_inclusive": 4
+      }
+    },
+    "placements_require_layer0_alternate": true,
+    "point_offset": {
+      "type": "minecraft:uniform",
+      "value": {
+        "max_inclusive": 2,
+        "min_inclusive": 1
+      }
+    },
+    "use_alternate_layer0_chance": 0.083,
+    "use_potential_placements_chance": 0.35
+  }
+}
+
+History
+Announcement
+October 3, 2020
+ Amethyst geodes are shown at Minecraft Live 2020.October 6, 2020
+  Cory Scheviak tweeted a screenshot where an updated amethyst geode was shown with budding amethyst and amethyst buds.
+Java Edition
+Java Edition1.1720w45a
+  Added amethyst geodes.21w08a
+  The tuff layer of amethyst geodes has been replaced with smooth basalt.
+
+Amethyst geodes can no longer generate fully in midair.21w20a
+Amethyst geodes have now actually been made rarer (after being incorrectly stated to have been made rarer in 21w19a), from 1 geode in 30 chunks to 1 geode in 53 chunks.1.1821w41a
+Amethyst geodes no longer generate above Y=30.
+
+The rarity of amethyst geodes has been adjusted to match pre-21w20a rarity.
+Bedrock Edition
+Bedrock Edition1.17.0ExperimentCaves and Cliffsbeta 1.17.0.50
+  Added amethyst geodes.1.17.0beta 1.17.0.52
+Amethyst geodes are now available without enabling Experimental Gameplay.beta 1.17.0.56
+Amethyst geodes have now been made slightly rarer, from 1 geode in 48 chunks to 1 geode in 53 chunks.1.18.0beta 1.18.0.20
+Amethyst geodes are now able to generate below Y=0.beta 1.18.0.21
+Amethyst geodes no longer generate above Y=30.
+
+The rarity of amethyst geodes has been adjusted to match pre-beta 1.17.0.56 rarity.
+Issues
+Issues relating to "Amethyst Geode" are maintained on the bug tracker. Issues should be reported and viewed there.
+
+Gallery
+Screenshots
+
+
+
+			The amethyst geode menu screen in Java Edition 1.17.1.
+
+
+
+			An amethyst geode in Spectator mode. The amethyst geode is next to a lush caves biome.
+
+
+
+			The inside of the amethyst geode that was shown in Minecraft Live 2020.
+
+
+
+			An amethyst geode's inside.
+
+
+
+			The inside of an amethyst geode.
+
+
+
+			An interior view into an amethyst geode.
+
+
+
+			A creeper, spider, and sheep near an amethyst geode, from the Minecraft Live 2023 trailer.
+
+
+
+			An amethyst geode generating in an iceberg.
+
+
+
+			An amethyst geode generated on a desert superflat world.
+
+
+
+			An amethyst geode generating above the ground.
+
+
+
+			An amethyst geode in a village.
+
+
+
+			An amethyst geode generated in a mineshaft.
+
+
+
+			An amethyst geode intersecting an ocean monument.
+
+
+
+			Three amethyst geodes that all spawned in close proximity, with two of them touching.
+
+
+
+			A fossil in an amethyst geode.
+
+
+
+			An amethyst geode with an odd growth in its basalt shell. Note that the protrusion is much smaller in the calcite layer, and missing entirely in the amethyst core.
+
+
+
+			A monster room overwritten by an amethyst geode.
+
+
+
+			A shipwreck overwritten by an amethyst geode.
+
+
+
+			A stronghold overwritten by an amethyst geode.
+
+
+
+			An amethyst geode and a mineshaft.
+
+
+
+			An amethyst geode with a mineshaft and 2 cave spider spawners.
+
+
+
+			An exposed amethyst geode in a desert.
+
+
+
+			An amethyst geode that is intersecting with a lava lake.
+
+
+
+			An underwater amethyst geode.
+
+
+
+			An image teased by Cory Scheviak of an amethyst geode generated underwater (brightened).
+
+
+
+			An amethyst geode partially exposed on the surface.
+
+
+
+			An amethyst geode cutting through bedrock.
+
+
+
+			An amethyst geode inside a stalactite.
+
+
+
+			An amethyst geode in an underwater cave.
+
+
+
+			A mineshaft going through an amethyst geode.
+
+
+
+			An amethyst geode with a mineshaft inside.
+
+
+
+			Another amethyst geode generated inside of a mineshaft.
+
+
+
+			Inside an underwater geode.
+
+
+Renders
+
+
+
+			Cracked amethyst geode in 20w46a, after the textures of calcite, block of amethyst, and budding amethyst were changed
+
+
+
+			Ditto, for uncracked amethyst geode
+
+
+
+			An amethyst geode in 20w48a after the textures of block of amethyst and budding amethyst were changed again.
+
+
+Concept artwork
+
+
+
+			Concept art of underground crystals, which was later reiterated into the amethyst geode.
+
+
+
+			Ditto.
+
+
+In other media
+
+
+
+			Alex gazing inside a geode.
+
+
+
+			A Lego amethyst geode, as featured in the set The Badlands Mineshaft.
+
+
+
+			Artwork of an amethyst geode, made for International Women's Day.
+
+
+
+
+
+
+References
+
+  MC-205854 – Geodes do not connect to caves properly – resolved as "Works As Intended".
+
+ MC-214782 – Geodes can generate floating in caves – resolved as "Fixed".
+
+ MC-225352 – Geodes have not been made "significantly rarer" – resolved as "Fixed".
+
+ MCPE-141326 – [Experimental] Amethyst Geode doesn't generate on negative Y levels / below Y=0 – resolved as "Fixed".
+
+ MC-203636 – Amethyst geodes can generate above ground – resolved as "Works As Intended".
+
+ MC-203758 – Amethyst geodes don't generate properly when intersecting a mineshaft – resolved as "Works As Intended".
+
+ "Minecraft Caves & Cliffs Update: Part II - Official Trailer"  – Minecraft on YouTube, November 30, 2021
+
+ https://www.linkedin.com/posts/mojangstudios_minecraft-play-videogames-activity-6907052285797515264-za6a?utm_source=combined_share_message&utm_medium=member_desktop
+
+External links
+"Building Blocks: Amethyst Geode"     by Duncan Geere  – Minecraft.net, October 20, 2025.
+Navigation

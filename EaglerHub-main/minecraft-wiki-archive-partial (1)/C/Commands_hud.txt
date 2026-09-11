@@ -1,0 +1,84 @@
+This article is about the command.   For the system showing the player's conditions, see Heads-up display.
+
+
+
+This feature is exclusive to Bedrock Edition and Minecraft Education. 
+
+/hud
+
+Permission levelrequired
+
+1
+
+Restrictions
+
+Cheat only
+
+{
+    "title": "<code>/hud</code>",
+    "rows": [
+        {
+            "field": "1",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "(link to Cheat article, displayed as Cheat) only<br>",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+Changes the visibility of a HUD element.
+
+Contents
+
+1 Syntax
+2 Arguments
+3 Result
+4 Output
+5 Examples
+6 History
+7 External links
+8 Navigation
+
+Syntax
+hud <target: target> <visible: HudVisibility> [hud_element: HudElement]
+Arguments
+target: target: CommandSelector<Player>
+
+Specifies the target(s) to change the HUD element(s) visibility for.
+Must be a player name or a target selector.
+visible: HudVisibility: enum
+
+Whether hide or reset the HUD element(s) visibility.
+Must be either hide or reset.
+hud_element: HudElement: enum
+
+The HUD element(s).
+Must be one of air_bubbles, all, armor, crosshair, health, horse_health, hotbar, hunger,
+item_text, paperdoll, progress_bar, status_effects,tooltips, and touch_controls.
+
+Result
+
+CommandTriggerBedrock Edition
+
+AnyThe command is incomplete, or any argument is not specified correctly. Unparseabletarget: target fails to resolve to one or more online players. FailedOtherwiseSuccessful
+Output
+
+CommandEditionSituationSuccess Count
+
+AnyBedrock EditionOn fail0On success1
+Examples
+To hide all HUD elements for all players:
+/hud @a hide all
+To make the health bar visible again for the nearest player in Survival mode:
+/hud @p[m=s] reset health
+History
+Bedrock Edition1.20.60ExperimentUpcoming Creator FeaturesPreview 1.20.60.23
+Added /hud behind the "Upcoming Creator Features" experimental toggle.1.20.80Preview 1.20.80.23
+Moved the /hud command out of "Upcoming Creator Features" experimental toggle.
+External links
+"/hud Command"     – Microsoft Learn, April 12, 2024.
+Navigation

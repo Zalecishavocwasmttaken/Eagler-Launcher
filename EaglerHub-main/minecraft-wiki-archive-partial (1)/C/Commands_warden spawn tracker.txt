@@ -1,0 +1,72 @@
+This feature is exclusive to Java Edition. 
+
+
+
+This feature is intended for debugging purposes only, and should not be used during normal play. It might cause crashes and corrupt world saves.
+
+/warden_spawn_tracker
+
+Permission levelrequired
+
+2
+
+Restrictions
+
+-DMC_DEBUG_DEV_COMMANDS debug property
+
+{
+    "title": "<code>/warden_spawn_tracker</code>",
+    "rows": [
+        {
+            "field": "2",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "<code>-DMC_DEBUG_DEV_COMMANDS</code> (link to debug property article, displayed as debug property)",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+/warden_spawn_tracker is a command that can be enabled with the debug property -DMC_DEBUG_DEV_COMMANDS. It sets how many warnings a sculk shrieker gives before spawning a warden.
+
+Contents
+
+1 Syntax
+2 Arguments
+3 Result
+4 Output
+5 History
+6 Navigation
+
+Syntax
+warden_spawn_tracker clear
+
+Clears the player's warnings.
+warden_spawn_tracker set <warning_level>
+
+Sets the player's warnings to the specified number.
+Arguments
+<warning_level>: integer
+
+Specifies the level to set the player's warnings to.
+Must be a [Int]32-bit integer number (from -2147483648 (-231) to 2147483647 (231-1) ). And it must be between 0 and 4 (inclusive).
+Result
+
+CommandTriggerJava Edition
+
+AnyThe command is incomplete, or any argument is not specified correctly. UnparseableThe executor is not a player. FailedOtherwiseSuccessful
+Output
+
+CommandEditionSituationSuccess Count/execute store success .../execute store result ...
+
+AnyJava EditionOn fail000Java EditionOn success111
+History
+Java Edition1.19Deep Dark Experimental Snapshot 1
+Added /warden_spawn_tracker.22w11a
+/warden_spawn_tracker is no longer accessible through normal gameplay.1.20.323w43a
+/warden_spawn_tracker is now accessible when the game is run in an IDE.1.21.9Pre-Release 1
+Added debug property -DMC_DEBUG_DEV_COMMANDS, making the command accessible in the vanilla game again.
+Navigation

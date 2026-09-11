@@ -1,0 +1,187 @@
+This page covers a development version that has a major issue under certain conditions. 
+The dedicated server for this version has a security vulnerability in the Log4j library that could be used to perform a remote code execution exploit. It can be addressed by appending a certain JVM argument to the server startup command line.
+
+Minecraft 16w32b
+
+Edition
+
+Java Edition
+
+Release date
+
+August 11, 2016
+
+Type
+
+Snapshot
+
+Snapshot for
+
+1.11
+
+Downloads
+
+Client (.json)Server
+
+Protocol version
+
+302
+
+Data version
+
+801
+
+Resource pack format
+
+3
+
+Minimum Java version
+
+Java SE 6
+
+◄◄   1.10.2
+1.11
+  1.11.1 ►►
+
+◄   16w32a
+
+ 16w32b
+
+  16w33a ►
+
+{
+    "title": "Minecraft 16w32b",
+    "images": [
+        "16w32a.png",
+        "Java Edition 16w32b.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "August 11, 2016",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Snapshot article, displayed as Snapshot)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition 1.11 article, displayed as 1.11)",
+            "label": "Snapshot for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/71afbf19a5e9d37cceb449743323acbb17895dae/client.jar Client] ([https://piston-meta.mojang.com/v1/packages/a672dd946075b43da267bcd73d3953f09845767c/16w32b.json .json])<br />[https://piston-data.mojang.com/v1/objects/b912ff1468e93003f36cda32db5d70133b517f97/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "302",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "801",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "3",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_6 Java SE 6]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Java Edition  1.10.2|<span style=\"margin-right:-0.35em\">◄</span>◄   1.10.2]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition 1.11|1.11]]'''</td>\n<td style=\"padding: 0.4em\" >[[Java Edition  1.11.1|  1.11.1 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  16w32a|◄   16w32a]]\n</td>\n<td style=\"padding: 0.4em\">''' 16w32b'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  16w33a|  16w33a ►]]\n</td>\n</tr>\n</table>"
+}
+
+16w32b is the second snapshot for Java Edition 1.11, released on August 11, 2016 to fix some bugs and crashes from 16w32a.
+
+Contents
+
+1 Changes
+
+1.1 Blocks
+1.2 Mobs
+1.3 Command format
+
+2 Fixes
+3 Videos
+4 Trivia
+5 References
+6 Navigation
+
+Changes
+Blocks
+All sloped rail types
+
+Hitbox heights are decreased from a full block to a half of a block.
+Mobs
+Green-robed villagers
+
+Re-added this entity as Profession:5; its name is shown in the trading GUI as "Nitwit".
+Spawns naturally in villages.
+When spawned naturally in a village, or from an egg, it has no trades.
+Green-robed zombie villagers
+
+Re-added this entity as Profession:5.
+Spawns naturally anywhere zombie villagers spawn.
+Command format
+/title can now display text in the action bar position.
+Fixes
+34 issues fixed
+From released versions before 1.11
+
+MC-2188 – Item gets used when pressing the use button on a saddled pig
+MC-19033 – Pig with a saddle loses name and you get the name tag back when chunk the pig is in gets unloaded
+MC-30790 – particle blast on landing based on fall distance rather than fall speed
+MC-34943 – /summon-ing a villager without a "Count" tag allows the trade, but does not take the item
+MC-71367 – Shift-clicking two slots of same item into anvil results in client-side stack of zero in inventory
+MC-75290 – Transferring lapis lazuli into the enchanting GUI can leave you a stack of zero
+MC-76899 – Dragging items with the  Middle Mouse Button causes block count to go negative
+MC-81818 – When resizing the window, you may end up spining around.
+MC-97245 – Boat placement sound uses equipment sound subtitle
+MC-100398 – "Marker"true ArmorStands can be pushed by Pistons (incl. + excl. NoGravity:1)
+MC-101063 – Invalid item id in villager trading causes client, who tries to trade, to crash
+MC-101608 – Teleporting a Vehicle will Kick off its Passengers
+MC-102248 – Player being killed by Stray shows "@ was shot by Skeleton" death message
+MC-102454 – Generic/green robed (zombie) villagers aren't spawnable.
+MC-102638 – All sloped rail hitbox equivalent to the a complete block
+MC-105862 – Arrows of slowness disapear from inventory
+From the previous development version
+
+MC-105948 – Selecting a language no longer changes it in-game/crash the game
+MC-105950 – Zombie Villager spawn egg only spawns the farmer zombie villager
+MC-105953 – Minecraft crashes with superflat preset that uses block which does not exist as item (Example: The Void)
+MC-105954 – Game crashes when hit by an entity holding an item without a specified damage value
+MC-105955 – selectors don't accept minecraft: prefix for entity type, but error message states otherwise
+MC-105956 – Trying to ride donkey/mule from spawn egg crashes the game
+MC-105960 – Entity ID in chat tooltip uses old format (e.g. ArmorStand instead of minecraft:armor_stand)
+MC-105962 – Achievements for picking up (block) items don't trigger
+MC-105969 – /summon minecraft:lightning_bolt does not work
+MC-105970 – Structure Void Blocks Missing Textures When Breaking
+MC-105975 – Incorrect entity translation name in statistics
+MC-105989 – Execute detect stairs stops working after reloading the world
+MC-105990 – Using single lead item in creative mode removes it from inventory
+MC-106002 – ⇧ Shift + double click no longer moves all stacks
+MC-106014 – Crash when a fishing rod bobber goes in a nether portal
+MC-106016 – When you put armor on an armor stand, you cannot get the armor off the stand
+MC-106035 – Client Deletes MC Assets
+MC-106036 – Dispensing a pumpkin or a wither skull will crash the game
+Videos
+Video made by slicedlime:
+
+
+
+
+Trivia
+16w32b was previously removed from the launcher for some time, but was added back in September 2018.
+References
+
+ "Important Message: Security vulnerability in Java Edition"     – Minecraft.net, December 10, 2021.
+
+ "Minecraft Snapshot 16w32a"  (archived)   by Searge  – Mojang.com, August 10, 2016.
+
+Navigation

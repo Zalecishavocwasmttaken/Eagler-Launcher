@@ -1,0 +1,10 @@
+This page describes content that has been removed and was only present in earlier versions of Java Edition. 
+In Java Edition 1.20.5, this format has been replaced with the data component format.
+
+[NBT Compound / JSON Object] Trim: Properties of Armor Trim.
+[String] material: The material which decides the color of armor trim.
+[String] pattern: The pattern of armor trim.
+[NBT Compound / JSON Object] display: The display tag.
+[Int] color: The color of the leather armor. The tooltip displays "Dyed" if advanced tooltips are disabled, otherwise it displays the hexadecimal color value. Color codes are the hex code of the color converted to a decimal number, or can be calculated from the Red, Green and Blue components using this formula:Red<<16 + Green<<8 + Blue
+
+ For positive values larger than 0x00FFFFFF, the top byte is ignored. All negative values produce white.

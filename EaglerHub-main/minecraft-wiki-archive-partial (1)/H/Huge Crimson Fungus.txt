@@ -1,0 +1,182 @@
+Huge Crimson Fungus
+
+Biomes
+
+Crimson Forest
+
+Generates inexisting chunks  
+
+Yes
+
+Consists of
+
+Crimson Stem
+Nether Wart Block
+Shroomlight
+Weeping Vines
+
+{
+    "title": "Huge Crimson Fungus",
+    "rows": [
+        {
+            "field": "<span class=\"nowrap\"><span class=\"sprite-file\" style=\"\">(link to File:BiomeSprite crimson-forest.png article, displayed as 16x16px|link=Crimson Forest|alt=|class=pixel-image|)</span>(link to Crimson Forest article, displayed as <span class=\"sprite-text\">Crimson Forest</span>)</span>",
+            "label": "(link to Biome article, displayed as Biomes)"
+        },
+        {
+            "field": "Yes",
+            "label": "Generates in<br>existing chunks  "
+        },
+        {
+            "field": "(values exceeds 1000 characters...)",
+            "label": "Consists of"
+        }
+    ],
+    "invimages": [],
+    "images": [
+        "Huge Crimson fungi.png"
+    ]
+}
+
+A huge crimson fungus is a large tree-like feature that generates in the Nether and can be grown from crimson fungi.
+
+Contents
+
+1 Appearance
+2 Generation
+3 Growth
+4 Data values
+
+4.1 ID
+4.2 Config
+
+5 History
+6 Issues
+7 Gallery
+
+7.1 Screenshots
+
+8 See also
+9 References
+10 Navigation
+
+Appearance
+The trunks of huge crimson fungi are made of crimson stems. Huge crimson fungus trunks can be either thick or thin: thick trunks grow up in a 3×3-plus shape, with stray stems sometimes in the corners, while thin trunks grow straight up as a 1×1 column.
+To determine the size of huge crimson fungi, a random integer is chosen between 4 and 13 [inclusive]. There is a 1⁄12 chance of that integer doubling. The resulting value is the height of the trunk. A layer of wart blocks and shroomlights is then spread around the trunk, being able to generate up to 3 blocks out from the trunk, and are the "leaves" of the fungus. There is a 3×3×2 hollow ring that surrounds the lowest block of a fungus where no blocks generate.
+Huge crimson fungi may also have weeping vines growing replacing the same, or from the underside of wart blocks. In this way huge crimson fungi may grow the weeping vines lower than the stems as well as initially generate replacing the stems, when naturally-generated uniquely along the local ceiling.
+
+Generation
+Huge crimson fungi in a crimson forest
+Huge crimson fungi generate only in crimson forests.
+
+Growth
+One of the tallest possible crimson fungi
+When bone meal is used on a crimson fungus that is planted on crimson nylium, this has a 40% chance to grow into its huge equivalent. The stem, shroomlight, or nether wart block do not replace blocks. A fungus does not grow by itself through random ticks, unlike saplings.
+Huge crimson fungi grow even with blocks above them, and do not replace any solid blocks when grown; however, they do not grow if blocked by the world height limit, or if situated outside of the world.
+Huge crimson fungi can grow up to 27 blocks tall. The maximum space they can take up is 9×27×9 blocks (partially hollow), and the average is 213 blocks of volume.
+Nether wart blocks and shroomlights persist when the stems of the huge fungus are removed, unlike how leaves decay when logs of a tree are removed.
+
+Data values
+ID
+Java Edition:
+
+Feature typeIdentifier
+ [No displayed name]huge_fungus
+
+Configured featureIdentifier
+ [No displayed name]crimson_fungus
+
+ [No displayed name]crimson_fungus_planted
+
+Bedrock Edition:
+
+Feature typeIdentifier
+ [No displayed name]_huge_crimson_fungus_feature
+
+Config
+Main article: Configured feature
+Java Edition:
+
+[NBT Compound / JSON Object] config
+[NBT Compound / JSON Object] hat_state The block to use for the hat.
+Block state see Template:Nbt inherit/block state/template
+[NBT Compound / JSON Object] decor_state The block to use as decoration.
+Block state see Template:Nbt inherit/block state/template
+[NBT Compound / JSON Object] stem_state The block to use for the stem.
+Block state see Template:Nbt inherit/block state/template
+[NBT Compound / JSON Object] valid_base_block The block to place this feature on.
+Block state see Template:Nbt inherit/block state/template
+[Boolean] planted (optional, defaults to false) Whether this huge fungus is planted. If false, it can't exceed the world ceiling, can replace blocks whose material is plant, and doesn't drop items when replaced by other blocks.
+[NBT Compound / JSON Object] replaceable_blocks A block predicate. The predicate must pass for a block to be replaced by this feature.
+
+[String] type: The type of the block predicate. See Block predicate § Types for options.
+additional fields depending on [String] type. See Block predicate § Types.
+
+An example
+
+{
+  "type": "minecraft:huge_fungus",
+  "config": {
+    "decor_state": {
+      "Name": "minecraft:shroomlight"
+    },
+    "hat_state": {
+      "Name": "minecraft:warped_wart_block"
+    },
+    "planted": false,
+    "replaceable_blocks": {
+      "type": "minecraft:matching_blocks",
+      "blocks": [
+        "minecraft:warped_fungus",
+        "minecraft:crimson_fungus",
+        "minecraft:weeping_vines",
+        "minecraft:weeping_vines_plant",
+        "minecraft:twisting_vines",
+        "minecraft:twisting_vines_plant"
+      ]
+    },
+    "stem_state": {
+      "Name": "minecraft:warped_stem",
+      "Properties": {
+        "axis": "y"
+      }
+    },
+    "valid_base_block": {
+      "Name": "minecraft:warped_nylium"
+    }
+  }
+}
+
+History
+Java EditionSeptember 28, 2019
+Huge crimson fungi was shown as part of crimson forest biome.1.1620w06a
+Added huge crimson fungi.20w09a
+Crimson fungi must now be placed on the crimson nylium to grow into huge crimson fungi.1.2023w17a
+Added replaceable_blocks field to the huge_fungus feature config.Bedrock Edition1.16.0beta 1.16.0.51
+Added huge crimson fungi.
+Issues
+Issues relating to "Huge Crimson Fungi" are maintained on the bug tracker. Issues should be reported and viewed there.
+
+Gallery
+Screenshots
+
+
+
+			A huge crimson fungus in a Nether fortress
+
+
+
+			A huge crimson fungus generated on netherrack
+
+
+
+			The shortest huge fungus and the tallest huge fungus
+
+
+See also
+Huge Warped Fungus
+Tutorial:Huge fungus generation
+References
+
+ MC-170858 – Crimson and Warped trees do not check for empty space when growing – resolved as "Works as Intended".
+
+Navigation

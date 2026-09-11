@@ -1,0 +1,344 @@
+The Player permissions menu in Bedrock Edition
+The permission level is used to describe the permissions a player or a command executor has in a world or server. For example, in Bedrock Edition, /setmaxplayers can't be executed in a command block, because this command requires the executor to have a permission level of 3, while command blocks have a permission level of only 2.
+Player permissions‌[Bedrock Edition  only] are a set of rules that dictate what players can and cannot do in a multiplayer world, such as building or attacking players.
+
+Contents
+
+1 Description
+
+1.1 Java Edition
+1.2 Bedrock Edition
+
+2 Player permissions
+3 Situations
+
+3.1 Java Edition
+3.2 Bedrock Edition
+
+4 History
+
+4.1 Java Edition
+4.2 Bedrock Edition
+
+5 Issues
+6 Gallery
+
+6.1 Minecraft Education
+
+7 See also
+8 References
+9 Navigation
+
+Description
+Levels are incremental, meaning level n allows anything that any level less than n allows.
+
+Java Edition
+In Java Edition, the capabilities granted by level permission are only usable if the player has an operator status granted with /op. Server administrators can set permission levels by editing the ops.json file.
+The permission levels may allow players to configure certain game settings:
+Level 0 – Operator
+
+The player can enable the TPS graph in the debug screen.
+The player can see command block output‌ in chat, if the game rule is enabled.
+The player can see command output from other operators and the server console if broadcast-console-to-ops is enabled.
+Level 1 – Moderator
+
+The player can bypass spawn protection.
+Level 2 – Gamemaster
+
+More commands are available.
+The player can use command blocks.
+The player can open the GUI of Test Blocks.
+The player can copy the server-side NBT data of an entity or a block entity when pressing the F3 + I debug hotkey, and copy the client-side NBT data when pressing ⇧ Shift + F3 + I.
+The player can use F3 + F4 (game mode switcher) and F3 + N debug hotkey (toggle between Spectator and the previous game mode).
+The player can change or lock difficulty in Options screen. Note that the player in a singleplayer world or the owner of a LAN world can change or lock difficulty without a permission level of 2.
+With "Operator Items Tab" option turned on, the player can find operator items and an "Operator Utilities" tab in the creative inventory.
+Target selectors can be used in commands like /tell and raw JSON texts.
+Level 3 – Admin
+
+Commands related to multiplayer management are available.
+Level 4 – Owner
+
+All commands are available, including commands related to server management.
+Bedrock Edition
+In Bedrock Edition, permission levels mostly dictate which commands a player may use. In different levels, certain commands are available, and a level inherits commands from levels less than it.
+Using the /op command, enabling the "Operator Commands" setting in the player permissions, or setting a player's permissions to "Operator", a player can be granted Operator status.
+
+On external servers and Realms, this sets the level to 1.
+On a joined multiplayer game (LAN or online), this sets the level to 2.
+On a locally hosted game, this sets the level to 3.
+Using the /deop command, disabling the "Operator Commands" setting in the player permissions, or setting a player's permissions to "Member", a player can be revoked Operator status and always has a permission level of 0.
+By default, the world host has permission level 3 (1 for Realm owners) and all joined players have permission level 0. Setting any other player to Operator permanently disables achievements for the world.
+Note that certain commands might still be locked if cheats are disabled, which can be toggled in the game settings. The permission levels and their available commands are:
+Level 0 – Any / Normal
+
+The player can view the game settings but not change them.
+The player can view all player permissions but not change them.
+The owner of the world or Realm can edit their own and other player's player permissions, including setting Operator status and kicking players.
+The Realm owner can never edit their own player permissions; they are always Operator.
+All commands available to non-privileged players:
+
+/gametips
+/help (/?)
+/list
+/me
+/msg (/w)
+/packstack
+/tell
+Level 1 – Game Directors / Operator
+
+The player can see command block output‌ in chat, if the game rule is enabled.
+The player can place, break, and interact with command, structure, and jigsaw blocks, if they are in Creative mode.
+The  button is available in the chat for quick commands.
+The player can edit game settings.
+The player can edit their own and other players' player permissions (excluding the Realm owner), including setting operator status
+The player can kick other players, excluding the world owner but including the Realm owner.
+Mostly commands that affect gameplay and entities:
+
+List of commands
+
+/aimassist
+/alwaysday
+/camera
+/camerashake
+/clear
+/clearspawnpoint
+/clone
+/controlscheme
+/damage
+/daylock
+/dialogue
+/difficulty
+/effect
+/enchant
+/event
+/execute
+/fill
+/fog
+/function
+/gamemode
+/gamerule
+/gametest
+/give
+/hud
+/inputpermission
+/kick
+/kill
+/list
+/locate
+/loot
+/mobevent
+/music
+/particle
+/playanimation
+/playsound
+/project (Editor only)
+/recipe
+/replaceitem
+/ride
+/say
+/schedule
+/scoreboard
+/scriptevent
+/setblock
+/setworldspawn
+/spawnpoint
+/spreadplayers
+/stopsound
+/structure
+/summon
+/tag
+/teleport (/tp)
+/tellraw
+/testfor
+/testforblock
+/testforblocks
+/tickingarea
+/time
+/title
+/titleraw
+/toggledownfall
+/weather
+/xp
+
+Level 2 – Admin / Host
+Game administrator commands:
+
+/deop
+/op
+/place
+/reload
+/script
+/wsserver
+Level 3 – Host / Automation
+Game host commands:
+
+/setmaxplayers
+Level 4 – Owner / Admin
+Server administrator commands:
+
+/allowlist
+/changesetting
+/permission
+/reloadconfig
+/reloadpacketlimitconfig
+/save
+/sendshowstoreoffer
+/serveridentity​[upcoming: BE 26.50]
+/stop
+/transfer
+
+ This can be done in:
+permissions.json for servers
+The "Default player permissions" setting in the Create new world or Edit world screen as well as the Realms Manage Members screen
+default-player-permission-level in server.properties
+
+ The first names and commands are from the official documentation. The second names are from the debug information of Bedrock Dedicated Server.
+
+Player permissions
+
+
+
+This feature is exclusive to Bedrock Edition. 
+
+
+
+This section needs expansion. 
+You can help by expanding it.Instructions: Test some edge cases
+
+The Player Permissions screen on Realms without specific permission options
+Player permissions dictate what a player can and cannot do in a world.
+
+In the Create new world and Edit world screen as well as the Realms Manage Members screen, the world host can set the default player permissions on first join between Visitor, Member (default), and Operator.
+On servers, this can be changed with default-player-permission-level in server.properties.
+Any player with operator permissions plus the world host or Realm owner can configure player permissions per player (including themselves) on a separate screen accessible in the social drawer in the game menu.
+On servers, this can also be done in permissions.json. Permissions can be reloaded or listed with /permission.
+The Realm owner can never have their permissions changed and is always operator.
+Realm administrators can change permissions per member in the "Manage Members" screen, or on the minecraft.net Realm settings, even if they are not online.
+There are four roles which can set specific permissions for players:
+
+Operator, which enables all permissions, including operator commands, world settings, teleportation, and all of member permissions.
+Member, which enables mining, building, and interaction with the world.
+Visitor, which only lets players view or observe the world only, with none of the permissions enabled. Visitors can still interact with entities, such as trading with villagers, and use/manage items in their inventory or picked up.
+Custom, which enables specific permissions set by operators. On Realms, this is not available and only the three preset roles are available. The following permissions can be applied:
+
+Permission
+
+Description
+
+Enabled for
+
+Build
+
+Allows the player to place blocks and entities in the world. This also allows players to interact with most blocks, such as beds, bells, signs, and item frames, but not shelves and blocks that open an inventory.
+
+Member
+
+Mine
+
+Allows the player to break blocks in the world.
+
+Member
+
+Use doors and switches
+
+Allows the player to use doors, levers, and buttons.
+
+Member
+
+Open containers
+
+Allows the player to interact with blocks and entities using an inventory GUI, such as chests, crafting tables, and mount inventories.
+
+Member
+
+Attack Players
+
+Allows the player to deal damage to players.
+
+Member
+
+Attack Mobs
+
+Allows the player to deal damage to all entities other than players.
+
+Member
+
+Operator Commands
+
+This enables Operator permissions for the player. Depending on whether this is a hosted world, joined world, or joined server, the permission level is increased, allowing usage of operator commands and changing permissions. See above for details.
+
+Operator
+
+Teleport
+
+Allows the player to use the /tp command.
+
+Operator
+
+Changes are saved only after leaving the menu. Regardless of their own permissions, players can always view all permissions from themselves and other players.
+
+Kick player warning
+Below all permissions, operators and world hosts have the option to kick a player from the world, similar to /kick. Realm administrators also have the option to ban another member from the Realm.
+
+Situations
+Java Edition
+For a function:
+When parsing a function (including macro line parsing), the permission level defaults to 2 (but it can be changed in server.properties).
+When calling a function, see command context for details.
+For a player:
+If the player is an operator in a dedicated server, their permission level can be specified in the ops.json file. and its default value is specified in server.properties.
+If the player is the owner or another operator in a Realm, their permission level is 2.
+Unless the Realm is playing a minigame: then the owner's permission level is 0, and no one else can be operators.
+If the player is in a singleplayer world, and cheats were enabled when creating the world, their permission level is 4.
+If the player is the owner of a LAN world, and cheats were enabled when creating the world, their permission level is 4.
+All players in a command-allowed LAN world have a permission level of 4.
+Otherwise, the player's permission level is 0.
+For other command executors, see command context for details.
+For raw JSON text resolution executors, see command context for details.
+Bedrock Edition
+For a function:
+When parsing a function, the permission level is 1.
+When calling a function, see command context for details.
+For a player:
+In a dedicated server or Realm, if the player is Operator, the permission level is 1 (default for Realm owners).
+In a joined local world, if the player is Operator, the permission level is 2.
+In a hosted local world, if the player is Operator (default), the permission level is 3.
+Otherwise, the player's permission level is 0.
+For other command executors, see command context for details.
+History
+
+
+
+This section needs expansion. 
+You can help by expanding it.
+
+
+
+This section is missing information about: release versions, Old PE / BE versions 
+Please expand the section to include this information. Further details may exist on the talk page.
+
+Java Edition
+Java Edition1.14.4Pre-Release 4
+Added the function-permission-level option that controls what permission level functions have.
+Bedrock Edition
+Bedrock Edition1.21.70Preview 1.21.70.22
+ Player permissions screen has been updated to match Ore UI, except on Realms.
+Issues
+Issues relating to "Permission" are maintained on the bug tracker. Issues should be reported and viewed there.
+
+Gallery
+Minecraft Education
+
+
+
+			The "Player Permissions" screen
+
+
+See also
+Commands/permission sets player's specific permission level.
+Ore UI, the Bedrock Edition UI refresh.
+References
+
+ https://atlas.minecraft.net/guidelines
+
+Navigation

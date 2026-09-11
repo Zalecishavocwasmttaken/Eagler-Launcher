@@ -1,0 +1,54 @@
+Cave game tech test was developed by Notch from May 10–13, 2009.
+
+Contents
+
+1 May 10/11, 2009
+2 May 12, 2009
+3 May 13, 2009 (pre-Classic rd-131641)
+4 May 13, 2009 (pre-Classic rd-131648)
+5 References
+6 Navigation
+
+May 10/11, 2009
+Development of what would become Minecraft started on May 10 or May 11,  2009, according to Notch. The game at this time builds off the source code of RubyDung, an unfinished game that Notch was making prior to Minecraft.
+
+May 12, 2009
+Development of Cave Game continued, with Notch finding a performance issue. By this point, Notch had added physics, lighting, chunks, world generation, and a few blocks.
+
+The lighting engine at this point was simple, with only two light levels, bright and dark. Sunlight is emitted by the top edge of the map and hits any block that is under it, regardless of distance. It passes through transparent blocks to light blocks underneath. Blocks that do not receive light are in a dim shadow that remains at the same level of brightness no matter how far they are from a light source.
+Chunks are 8×8 instead of the 16×16 from later versions and are 64 blocks high. Chunks take 0.1 seconds to generate.
+The map itself is 256×64×256 and contains collections of caves running throughout.
+The only blocks in the game are "air", grass and stone. These blocks have their textures taken from RubyDung. Grass generates on fully lit tiles at the top layer of the world, and on blocks exposed to the sky several layers down (after this point, only stone generates.).
+The performance issue involved extreme memory usage  and huge lag spikes that occurred every time a block updated.
+May 13, 2009 (pre-Classic rd-131641)
+The performance issue from the previous day was changed by 16:41 UTC so the game updates a maximum of two chunks per frame, but it was still laggy.
+
+May 13, 2009 (pre-Classic rd-131648)
+Notch managed to get the game playable by 16:48 UTC, reporting that he managed to get 72 frames per second with 288 chunk updates per second. At 16:55 UTC, Notch changed the chunk size to 16×16 from 8×8.
+
+A screenshot from Notch's showcase of the game titled "Cave game tech test".
+Notch recorded the first video of the game at around 19:51 UTC and uploaded it to YouTube with the title "Cave game tech test" and to his blog as "Cave Game tech demo".
+
+References
+
+ "About the game"   (Archive)  – Minecraft, June  2009.
+
+ Rotab's IRC logs on Archive.org; #minecraft.20090525.log. May 25, 2009 (UTC+2). "(10:40:09) <@Notch> heh, the game game tech test video is from the 13'th"[...]"(10:40:18) <@Notch> that was after two days of work, so I started the 11'th, probably"
+
+ "lwjgl IRC logs"  (archived)   – Echelog, May 13, 2009, UTC+2. "[13:34:09] <Notch> i was trying to narrow down a performance issue last night."
+
+ "lwjgl IRC logs"  (archived)   – Echelog, May 13, 2009, UTC+2. "[13:51:00] <Notch> wait, I think I did my math wrong here somewhere. 3 terabytes of ram?"
+
+ "lwjgl IRC logs"  (archived)   – Echelog, May 13, 2009, UTC+2. "[14:08:46] <Notch> Riven_: 100 ms lag spikes make the game unplayable right now, and they happen every time a block changes.. soo.. :-\"
+
+ "lwjgl IRC logs"  (archived)   – Echelog, May 13, 2009, UTC+2. "[18:41:59] <Notch_> I made it only update two chunks per frame maximum, and it's very slow"
+
+ "lwjgl IRC logs"  (archived)   – Echelog, May 13, 2009, UTC+2. "[18:48:38] <Notch_> I managed to force it to do as I want now. 72 fps, 288 chunk updates per second"
+
+ "lwjgl IRC logs"  (archived)   – Echelog, May 13, 2009, UTC+2. "[18:55:45] <Notch_> the chunk size is 16x16 now.."
+
+ "Cave game tech test"  – Nizzotch on YouTube, May 13, 2009. "(Archive)"
+
+ "Cave Game tech demo!" (archived) – The Word of Notch, Tumblr, May 13, 2009.
+
+Navigation

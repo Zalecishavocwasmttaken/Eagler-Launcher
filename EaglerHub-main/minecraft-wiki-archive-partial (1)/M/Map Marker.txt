@@ -1,0 +1,126 @@
+For the marker textures on maps, see Map § Map icons.
+
+
+
+This feature is exclusive to Bedrock Edition. 
+
+Map Marker
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Health points
+
+20HP × 10
+
+Hitbox size
+
+?
+
+{
+    "title": "Map Marker",
+    "rows": [
+        {
+            "field": "20<span class=\"hidden-alt-text\">HP</span><span class=\"nowrap mc-hearts\"><span class=\"iconbar pixel-image nowrap\" style=\"--icon-offset:-1px;\" title=\"1  heart\">(link to File:Heart (icon).png article, displayed as 9px|link=|alt=❤️)</span> × 10</span>",
+            "label": "(link to Health article, displayed as Health points)"
+        },
+        {
+            "field": "?",
+            "label": "(link to Hitbox article, displayed as Hitbox size)"
+        }
+    ],
+    "invimages": [
+        "Map Marker Spawn Egg"
+    ],
+    "images": [
+        "Map-marker--bedrock-editor.gif",
+        "Location pointer selected.gif",
+        "Location pointer idle.png",
+        "Ruler pointer selected.png",
+        "Ruler idle.png"
+    ]
+}
+
+Map markers are entities exclusive to the Bedrock Editor.
+
+Contents
+
+1 Spawning
+2 Behavior
+3 Usage
+4 Official server
+5 Data values
+
+5.1 ID
+5.2 Spawn Egg
+
+6 History
+7 Navigation
+
+Spawning
+Map markers do not spawn naturally. Found only in Bedrock Editor, spawn eggs exist in the spawn egg group in the Creative inventory. They can also be summoned using the /summon command.
+
+Behavior
+Map Marker: Continues rotating counterclockwise. At this time, triggers the particle “editor:selected_marker”.
+Location Pointer Selected: Continues rotating slowly counterclockwise.
+Location Pointer Idle: No particular behavior.
+Ruler Pointer Selected: No special behavior.
+Ruler Idle: No special behavior.
+All map markers are affected by gravity, and can take damage and die, such as when the player punches them.
+
+Usage
+In Bedrock Editor, it is used as a marker when using tools.
+
+Official server
+In the official Capture the Flag test server, map markers can be seen without using Bedrock Editor.
+
+Data values
+ID
+NameIdentifierNumeric ID
+Translation key Map Markereditor:map_marker?
+entity.editor:map_marker.name
+EntitySprite location_pointer_selected.png: Sprite image for location_pointer_selected in Minecraft Location Pointer Selectededitor:location_pointer_selected?
+entity.editor:location_pointer_selected.name
+EntitySprite location_pointer_idle.png: Sprite image for location_pointer_idle in Minecraft Location Pointer Idleeditor:location_pointer_idle?
+entity.editor:location_pointer_idle.name
+EntitySprite ruler_pointer_selected.png: Sprite image for ruler_pointer_selected in Minecraft Ruler Pointer Selectededitor:ruler_pointer_selected?
+entity.editor:ruler_pointer_selected.name
+EntitySprite ruler_idle.png: Sprite image for ruler_idle in Minecraft Ruler Idleeditor:ruler_idle?
+entity.editor:ruler_idle.name
+Spawn Egg
+NameIdentifier
+Translation key item.spawn_egg.entity.editor:map_marker.nameeditor:map_marker_spawn_egg
+item.spawn_egg.entity.editor:map_marker.name
+ item.spawn_egg.entity.editor:location_ponter_selected.nameeditor:location_ponter_selected_spawn_egg
+item.spawn_egg.entity.editor:location_ponter_selected.name
+ item.spawn_egg.entity.editor:location_ponter_idle.nameeditor:location_ponter_idle_spawn_egg
+item.spawn_egg.entity.editor:ruler_pointer_selected.name
+ item.spawn_egg.entity.editor:ruler_pointer_selected.nameeditor:ruler_pointer_selected_spawn_egg
+item.spawn_egg.entity.editor:ruler_pointer_selected.name
+ item.spawn_egg.entity.editor:ruler_idle.nameeditor:ruler_idle_spawn_egg
+item.spawn_egg.entity.editor:ruler_idle.name
+History
+Bedrock Editor0.3.1
+ Added map markers.0.5.11
+Map markers are now used with the line tool.?
+    Four new map markers have been added.?
+Map markers are now affected by gravity and can take damage. They have 20HP × 10.
+Navigation

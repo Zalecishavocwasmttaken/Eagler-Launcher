@@ -1,0 +1,173 @@
+This feature is exclusive to Java Edition. 
+
+A block state provider is used to provide a (potentially randomized) block and block state to be placed by configured features.
+
+Contents
+
+1 JSON format
+2 Types
+
+2.1 copy_properties_provider
+2.2 dual_noise_provider
+2.3 noise_provider
+2.4 noise_threshold_provider
+2.5 simple_state_provider
+2.6 random_block_provider
+2.7 randomized_int_state_provider
+2.8 rotated_block_provider
+2.9 weighted_state_provider
+2.10 rule_based_state_provider
+
+3 History
+4 Navigation
+
+JSON format
+Block state providers are defined using the following format:
+
+[NBT Compound / JSON Object]: A block state provider
+[String] type: The type of the block state provider, see Block state provider § Types for option.
+Additional fields based on [String] type, see Block state provider § Types.
+
+Types
+The following block state provider types exist.
+
+copy_properties_provider
+Copies common block state properties from the block at the evaluated position to the resulting state.​[upcoming: JE 26.3]
+
+[NBT Compound / JSON Object]: A block state provider
+[String] type: copy_properties_provider
+[String] source: Provides the block state which the copied properties are copied on top of. Only properties common between both the source and the target blocks will be copied.
+
+dual_noise_provider
+Randomly chooses a block state according to two noise values.
+
+[NBT Compound / JSON Object]: A block state provider
+[String] type: dual_noise_provider
+[Long] seed: The seed of the noise.
+[NBT Compound / JSON Object] noise: A noise.
+[Float] scale: Horizontal scale of noise. Must be a positive value.
+[NBT Compound / JSON Object] slow_noise: The noise used for the first selection.
+[Float] slow_scale: Horizontal scale of the slow noise. Must be a positive value.
+[NBT Compound / JSON Object] variety: The number of block states that selected out by slow noise.
+[Int] min_inclusive: The min number of block states after selection by slow noise. Must be an integer equal to or greater than 1.
+[Int] max_inclusive: The max number of block states after selection by slow noise. Must be an integer equal to or less than 64, and must be greater than [Int] min_inclusive.
+[NBT List / JSON Array] variety: Shorthand version of [NBT Compound / JSON Object] variety.
+[Int]: Min number. Must be an integer equal to or greater than 1.
+[Int]: Max number. Must be an integer equal to or less than 64, and must be greater than the min number.
+[Int] variety: Shorthand version of [NBT Compound / JSON Object] variety when the min equals to the max. Value between 1 and 64 (both inclusive).
+[NBT List / JSON Array] states: List of block states to choose from.
+[NBT Compound / JSON Object]: A block state.
+Block state see Template:Nbt inherit/block state/template
+
+noise_provider
+Randomly chooses a block state according to a noise value.
+
+[NBT Compound / JSON Object]: A block state provider
+[String] type: noise_provider
+[Long] seed: The seed of the noise.
+[NBT Compound / JSON Object] noise: A noise.
+[Float] scale: Horizontal scale of the noise. Must be a positive value.
+[NBT List / JSON Array] states: (Cannot be empty) List of optional block states.
+[NBT Compound / JSON Object]: A block state.
+Block state see Template:Nbt inherit/block state/template
+
+noise_threshold_provider
+Uses different block states when a noise value above or below the threshold.
+
+[NBT Compound / JSON Object]: A block state provider
+[String] type: noise_threshold_provider
+[Long] seed: The seed of the noise.
+[NBT Compound / JSON Object] noise: A noise.
+[Float] scale: Horizontal scale of noise. Must be a positive value.
+[Float] threshold: Value between -1.0 and 1.0 (inclusive). The threshold of the noise value. If the noise value is lower than this value, the block states in low_states will be selected.
+[Float] high_chance: Value between 0.0 and 1.0 (inclusive). If the noise value is higher than the threshold, the block states in high_states will be selected with a probability of high_chance.
+[NBT Compound / JSON Object] default_state: Default block state. These block states is used when the noise value is higher than threshold but high_states is not selected according to high_chance.
+Block state see Template:Nbt inherit/block state/template
+[NBT List / JSON Array] low_states: (Cannot be empty) List of block states to choose from when lower than threshold.
+[NBT Compound / JSON Object]: A block state.
+Block state see Template:Nbt inherit/block state/template
+[NBT List / JSON Array] high_states: (Cannot be empty) List of block states to choose from when higher than threshold.
+[NBT Compound / JSON Object]: A block state.
+Block state see Template:Nbt inherit/block state/template
+
+simple_state_provider
+Specifies a single block state directly
+
+[NBT Compound / JSON Object]: A block state provider
+[String] type: simple_state_provider
+[NBT Compound / JSON Object] state: The block state to use.
+Block state see Template:Nbt inherit/block state/template
+
+random_block_provider
+Returns the default block state for a randomly chosen block.​[upcoming: JE 26.3]
+
+[NBT Compound / JSON Object]: A block state provider
+[String] type: random_block_provider
+[String][NBT Compound / JSON Object][NBT List / JSON Array] blocks: Any number of block(s) (an [String] ID, or a new [NBT Compound / JSON Object] block definition, or a [String] tag with #, or an [NBT List / JSON Array] array containing either [String] IDs or new [NBT Compound / JSON Object] definitions in the same data type); Cannot be empty — Blocks to choose from.
+Block state see Template:Nbt inherit/block state/template
+
+randomized_int_state_provider
+Assigns a random value to an integer block property.
+
+[NBT Compound / JSON Object]: A block state provider
+[String] type: randomized_int_state_provider
+[String] property: The name of a block property.
+[Int][NBT Compound / JSON Object] values: The value of the block property.
+Int provider see Template:Nbt inherit/int_provider/template
+[NBT Compound / JSON Object] source: Another block state provider that specifies the source of the block state.
+Block state provider see Template:Nbt inherit/block state provider/template
+
+rotated_block_provider
+Randomly rotates axially-rotated blocks​[until: JE 26.3] / any block with axis or facing properties.​[upcoming: JE 26.3]
+
+[NBT Compound / JSON Object]: A block state provider
+[String] type: rotated_block_provider
+[NBT Compound / JSON Object] state: The block ID to use. The block properties are ignored.​[until: JE 26.3] / A block state provider​[upcoming: JE 26.3]
+[NBT Compound / JSON Object] direction​[upcoming: JE 26.3]: Optional. Describes the direction to set. If omitted, a random direction is chosen.
+Block state see Template:Nbt inherit/block state/template
+
+weighted_state_provider
+Chooses a block state from a weighted list.
+
+[NBT Compound / JSON Object]: A block state provider
+[String] type: weighted_state_provider
+[NBT List / JSON Array] entries: (Cannot be empty) A weighted list of block state entries.
+[NBT Compound / JSON Object] A block state and its corresponding weight.
+[NBT Compound / JSON Object] data: The block state to use.
+Block state see Template:Nbt inherit/block state/template
+[Int] weight: The weight of this entry.
+
+rule_based_state_provider
+Provides a block state depending on the current block(s) by matching a sequence of rules.
+
+[NBT Compound / JSON Object]: A block state provider
+[String] type: rule_based_state_provider
+[NBT Compound / JSON Object] fallback The block to use when no rules' predicates match. This field is optional. If unspecified and no rules' predicates match, then no block is placed.
+Block state provider see Template:Nbt inherit/block state provider/template
+[NBT List / JSON Array] rules (Required, but can be empty) Rules of the block to use.
+[NBT Compound / JSON Object] One rule.
+[NBT Compound / JSON Object] if_true The block predicate of this rule.
+
+[String] type: The type of the block predicate. See Block predicate § Types for options.
+additional fields depending on [String] type. See Block predicate § Types.
+[NBT Compound / JSON Object] then The block to use when the predicate is passed.
+Block state provider see Template:Nbt inherit/block state provider/template
+
+History
+
+
+
+This section is missing information about: general history of block state providers. Specifically, when block state providers were added or removed. 
+Please expand the section to include this information. Further details may exist on the talk page.
+
+Java Edition1.16.220w28a
+Block state providers now control the blocks placed by many configured features.[verify]26.1snap11
+All block state providers now support the rule_based_state_provider type, which previously was only available for disk features.Upcoming Java Edition26.3snap2
+Added the copy_properties_provider block state provider.snap3
+Added the random_block_provider block state provider.
+
+Renamed the source_block_state_provider field in copy_properties_provider to source.
+
+The rotated_block_provider block state provider now works on any block with axis or facing properties, and a direction field has been added.
+
+Navigation

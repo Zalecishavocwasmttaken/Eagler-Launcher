@@ -1,0 +1,269 @@
+This article is about all particle texture atlases.   For single texture files, see Particles § Bedrock Edition texture files.   For the history of particle textures themselves that extends beyond the lifespan of this sheet, see Bedrock Edition history of textures/Particles.
+
+
+
+This feature is exclusive to Bedrock Edition and Legacy Console Edition. 
+
+
+
+This page describes content that has been removed from Java Edition. 
+This feature was present in earlier versions of Java Edition, but has since been removed.
+
+
+
+It has been suggested that this article be moved to Particle texture atlases. If this move affects many pages or may potentially be controversial, do not move the page until a consensus is reached. [discuss, links]
+Reason: Not just about this one atlas. I'm not sure about this name though, maybe it could even be removed or merged with some kind of list of textures
+When moving, be sure to use the appropriate tool instead of simply copying and pasting the page's contents, to preserve the edit history.
+
+particles.png as of Bedrock Edition 1.21.120
+particles.png and related particle atlases are texture atlases found inside the game's internal resource packs used to load the majority of the game's particle textures, excluding those derived from other textures.
+
+Contents
+
+1 Usage
+2 Format
+3 History
+
+3.1 Java Edition
+3.2 Bedrock Edition
+
+4 Gallery
+5 See also
+6 Navigation
+
+Usage
+These texture atlases are used for particle textures. The main file, particles.png, is used for the majority of particles. Some particles with dynamic textures, such as campfire smoke and falling leaves have their own texture atlases. Texture atlases can be found in Content/data/resource_packs/vanilla_version/textures/particle or .../particles, where the version number corresponds to the latest version the texture atlas has been modified. Each particle defines which texture atlas it uses in its JSON file in the same resource pack. Each particle atlas has an associated texture set which defines the MERS values used in Vibrant Visuals.
+The following particle atlases are currently in use:
+
+
+
+The regular color texture files.
+
+
+
+			biome_tinted_leaves_atlas.png
+
+
+
+			campfire_smoke.png
+
+
+
+			cherry_petal_atlas.png
+
+
+
+			geyser_base.png
+
+
+
+			geyser_plume.png
+
+
+
+			geyser_poof.png
+
+
+
+			gust.png
+
+
+
+			noxious_gas.png
+
+
+
+			pale_oak_leaves_atlas.png
+
+
+
+			particles.png
+
+
+
+			sculk_charge.png
+
+
+
+			sculk_charge_pop.png
+
+
+
+			sculk_soul.png
+
+
+
+			small_gust.png
+
+
+
+			sonic_explosion.png
+
+
+
+			soul.png
+
+
+
+			trial_spawner_atlas.png
+
+
+
+			trial_spawner_ominous_atlas.png
+
+
+
+
+
+These are MERS texture files used in Vibrant Visuals. Note that most pixels are transparent because they have a subsurface scattering value of 0, but other channels can still have values. See Particles § Bedrock Edition texture files for files edited to ignore the alpha channel.
+
+
+
+			biome_tinted_leaves_atlas_mers.tga
+
+
+
+			campfire_smoke_mers.tga
+
+
+
+			cherry_petal_atlas_mers.tga
+
+
+
+			geyser_base.tga
+
+
+
+			geyser_plume.tga
+
+
+
+			geyser_poof.tga
+
+
+
+			gust_mers.tga
+
+
+
+			noxious_gas_mers.tga
+
+
+
+			pale_oak_leaves_atlas_mers.tga
+
+
+
+			particles_mers.tga
+
+
+
+			sculk_charge_mers.tga
+
+
+
+			sculk_charge_pop_mers.tga
+
+
+
+			sculk_soul_mers.tga
+
+
+
+			small_gust_mers.tga
+
+
+
+			sonic_explosion_mers.tga
+
+
+
+			soul_mers.tga
+
+
+
+			trial_spawner_atlas_mers.tga
+
+
+
+			trial_spawner_ominous_atlas_mers.tga
+
+
+
+Custom texture atlases may be created in resource packs for custom particles.
+
+Format
+particles.png may have changed width with time. The file is split into different squares, usually 8×8 but bigger for some other cases, which correspond to the texture of many particles found in-game. Like with items.png, unused sections of the texture are completely transparent, unlike with terrain.png and the paintings sheet where such regions are colored magenta.
+
+History
+
+
+
+This section is missing information about: Legacy Console Edition and changes of other texture atlases 
+Please expand the section to include this information. Further details may exist on the talk page.
+
+Java Edition
+particles.png was compressed in 13w09c, 15w49a, and 1.11-pre1. explosion.png was compressed in 13w09c and 15w49a, and explosion.png and sweep.png in 1.11-pre1.
+
+Java Edition Classic0.26 SURVIVAL TEST
+ Added particles.png.Added smoke particles, used for explosion smoke at the time, in which case they would either remain white, or be tinted gray and black.Added a single water particle, used for rain.Java Edition Indev0.3120100124-2310
+ particles.png has been updated.The bubble particle has been added.20100125
+ particles.png has been updated.The flame particle has been added.The ember particle has been added.Minecraft Indev20100212-1210
+ particles.png has been updated.A larger splash particle, containing a loaf-like pattern has been added.Java Edition Alphav1.0.4
+ particles.png has been updated.More water particles have been added.v1.2.0preview
+ particles.png has been updated. Added the fishing bobber texture.Java Edition Beta1.2
+ particles.png has been updated.Added the note texture with the addition of the note block - the texture is gray but tinted accordingly.1.4
+ particles.png has been updated.Heart particles have been added, possibly for taming.Also added were two unused water-like particles, which appear to be either analogous to the flame and ember particles, or a prototype for the dripping particles added later.1.8Pre-release
+ particles.png has been updated.The particle for critical hits has been added, which is tinted an unknown color in-game.
+ Added explosion particles as part of explosion.png.Java Edition1.0.0Beta 1.9 Prerelease
+ particles.png has been updated.Generic fluid dripping particles were added - these are tinted after the fact to suit either water or lava.Beta 1.9 Prerelease 3
+ particles.png has been updated.This version adds the Standard Galactic Alphabet for enchanting purposes.Beta 1.9 Prerelease 4
+ particles.png has been updated.Potion-related particles have been added.Also added was the magic crit particle, which is tinted an unknown color in-game.1.4.212w34a
+ particles.png has been updated.This adds some village-related particles, including an unused angry face.1.4.612w49a
+ particles.png has been updated.This adds firework trail particles.12w50a
+ particles.png has been updated.This adds the massive firework explosion particle, the first non-8x8 particle in this file.1.6.113w24a
+particles.png has been moved from directly in the jar among the class fles to assets/minecraft/textures/particle with the advent of resource packs.1.6.213w24a
+explosion.png has been moved from the misc folder to the textures/entity folder.1.915w31a
+ particles.png has been updated.This adds particles then used for end rods and shulker bullets, and later (in 1.11 and onwards) the totem of undying.15w34b
+ particles.png has been updated.This adds the dark heart for damaging.15w34c
+ Added sweep.png for sweeping type attacks.April Fools 2018
+particles.png has been updated.Particles now use 8-bit color.1.1318w07a
+ particles.png has been updated.The dimensions of the file have expanded considerably.This adds bubble popping particles without a doubt associated with the bubble column.18w15a
+ particles.png has been updated.This adds a multitude of particles later used with the conduit.18w16a
+ particles.png has been updated.The diverse set of conduit particles have been removed and replaced with a single one.1.1418w43a
+ sweep.png has been changed, appearing somewhat smoother at the edges.19w02a
+ particles.png has been updated.This version adds the huge smoke particles associated with the campfire.19w03a
+ particles.png has been updated.All of the campfire smoke particles have been rotated 90 degrees clockwise, with the exception of the last two, which have instead been moved a pixel up and to the left.19w06a
+The particles.png file has been replaced by individual particle images and json entries, allowing for HD textures and changing used frames.
+
+explosion.png and sweep.png have been split into 16 and 8 files respectively and these have been relocated from the entity folder to the particles folder.
+Bedrock Edition
+particles.png was compressed in v0.15.0 alpha build 1.
+
+Pocket Edition Alphav0.1.0
+ Added particles.png, identical to the version from Beta 1.4.v0.4.0
+ Replaced particles.png with the version from Beta 1.9 Prerelease 4.v0.12.1build 1
+ particles.png has been updated.The file now contains the explosion particles, instead of explosion.png being added. As they are shrunk down and Pocket Edition cannot render translucent particles, they appear far more pixelated than on Java Edition.The village-related particles have been added.v0.14.0build 1
+ particles.png has been updated.Added a gray bubble particle.Pocket Edition1.0.0alpha 0.17.0.1
+ particles.png has been updated.The particles associated with end rods and shulker bullets have been added.Bedrock Edition1.5.0beta 1.5.0.1
+ particles.png has been updated.Added conduit and flash particles.?
+ Added campfire_smoke.png.1.16.0beta 1.16.0.51
+ particles.png has been updated.Added the soul flame particle and an unused "soul lava" particle.beta 1.16.0.57
+ Added soul.png.?
+ particles.png has been updated.1.21.90?
+ The following particle textures have been updated with unique texture sets for Vibrant Visuals: biome_tinted_leaves_atlas.png, campfire_smoke.png, cherry_petal_atlas.png, gust.png, infested.png, ominous_spawning.png, pale_oak_leaves_atlas.png, particles.png, pixel.png, raid_omen.png, sculk_charge.png, sculk_pop.png, sculk_soul.png, shriek.png, small_gust.png, sonic_explosion.png, soul.png, trial_omen.png, trial_spawner_atlas.png, trial_spawner_ominous_atlas.png, vault_connection.png, and vibration_signal.png.1.21.111Preview 1.21.110.23
+ particles.png has been updated with particles for copper torches and an unused copper lava particle.26.20ExperimentDrop 2 of 2026Preview 26.20.23
+  Added noxious_gas.png.26.30Preview 26.30.25
+      Added geyser_base.png, geyser_plume.png, and geyser_poof.png.
+Gallery
+
+
+
+			An outdated guide to the textures in particles.png
+
+
+See also
+Texture pack
+terrain.png
+Navigation

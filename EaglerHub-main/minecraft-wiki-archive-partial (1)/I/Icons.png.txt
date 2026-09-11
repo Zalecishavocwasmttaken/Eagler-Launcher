@@ -1,0 +1,172 @@
+This article is a work in progress. 
+Please help expand and improve it. The talk page may contain suggestions.
+
+
+
+
+This feature is exclusive to Bedrock Edition. 
+
+
+
+This page describes content that has been removed from Java Edition. 
+This feature was present in earlier versions of Java Edition, but has since been removed.
+
+icons.png is a texture sheet used by the game to store the textures of several UI elements.
+The latest icons.png file in Bedrock Edition.
+Contents
+
+1 Content
+2 History
+
+2.1 Java Edition
+2.2 Bedrock Edition
+
+3 Gallery
+4 See also
+5 References
+6 Navigation
+
+Content
+icons.png contains the sprites of older UI elements, including health, hunger, experience, and armor.
+In Java Edition, unlike a large amount of texture sheets, it was still used until recent updates. However, it has now been split into multiple files in the hud folder (assets/minecraft/textures/gui/sprites/hud).
+The following image map shows how the elements are used when hovered over. Several of them are unused and therefore have no label.
+
+Logic for determining what heart or haunch icon to use:
+
+def draw_heart(x, y):
+    if is_hardcore:
+        v = 45
+    else:
+        v = 0
+
+    # Draw background/outline
+    if recently_changed:
+        # White outline
+        draw(x, y, 16 + 9, v, 9, 9)  # 25
+    else:
+        # Black outline
+        draw(x, y, 16, v, 9, 9)
+
+    if not is_absorption_heart:
+        # Above check did not exist until 20w49a, causing invisible absorption hearts
+        # https://bugs.mojang.com/browse/MC-18880
+        if is_poisoned:
+            u = 16 + 36  # 52
+        elif is_withered:
+            u = 16 + 72  # 88
+        elif is_frozen:
+            u = 16 + 126  # 142
+        else:
+            u = 16
+
+    if recently_lost:
+        # These are always drawn, but are overwritten in most cases
+        # (They draw up to the previous health value, while the regular hearts
+        # draw to the current health value)
+        # This references a nonexistent texture when frozen:
+        # https://bugs.mojang.com/browse/MC-206881
+        if half_heart:
+            draw(x, y, u + 54 + 9, v, 9, 9)  # 79 / 115 / 151 / 205 (invalid)
+        else:
+            draw(x, y, u + 54, v, 9, 9)  # 70 / 106 / 142 / 196 (invalid)
+
+    if is_absorption_heart:
+        # Prior to MC-18880 being fixed this could use missing textures
+        # After the fix u is always 16
+        if half_heart:
+            draw(x, y, u + 144 + 9, v, 9, 9)  # 169
+        else:
+            draw(x, y, u + 144, v, 9, 9)  # 160
+    else:
+        if half_heart:
+            draw(x, y, u + 36 + 9, v, 9, 9)  # 61 / 97 / 133 / 203
+        else:
+            draw(x, y, u + 36, v, 9, 9)  # 52 / 88 / 124 / 194
+
+    # 34 and 43 (red outline, white outline) seem to be unused)
+
+def draw_haunch(x, y):
+    # Draw background/outline
+    if has_hunger:
+        # Green outline
+        draw(x, y, 16 + 13 * 9, 27, 9, 9)  # 133
+        u = 16 + 36  # 52
+    else:
+        # Black outline
+        draw(x, y, 16, 27, 9, 9)
+        u = 16
+
+    if half_haunch:
+        draw(x, y, u + 45, 27, 9, 9)  # 61 / 97
+    else:
+        draw(x, y, u + 36, 27, 9, 9)  # 52 / 88
+
+    # 25, 34, 43, and 124 (white, red, white, and brown outlines) go unused
+    # As are 70, 79, 106, 155 (lighter variants that could have served the same
+    # purpose as recently lost hearts, but that doesn't really make sense for
+    # hunger)
+
+There are a few additional invisible textures that have alpha set to zero but still have color data.
+
+History
+
+
+
+This section is missing information about: the uses of the following icons, or if they are truly unused:
+Duplicate connection icons added in Beta 1.8
+Mirrored hunger icon added in Beta 1.8
+Golden outlined empty hunger icon added in Beta 1.8
+Blue armor outline textures added in 15w34b 
+Please expand the section to include this information. Further details may exist on the talk page.
+
+The file was compressed in 13w09c, 15w49a, 1.11-pre1, 17w50a and 19w41a.
+
+Java Edition
+Java Edition Classic0.24_SURVIVAL_TEST
+ Added icons.png.The crosshair texture has been added.Eight heart textures have been added for the health bar. Their uses are: empty,[verify] empty while damaged, unknown, unknown, full heart (2 HP), half heart (1 HP), full heart while being damaged and half heart while being damaged.
+Textures for the armor bar have been added, with icons for 2, 1 and 0 points.A bubble and bubble popping icon for the air meter has been added.There is a large region of purple grid closely resembling the  placeholder block texture found in terrain.png and kz.png, however the icons are not aligned to it at all (this grid appears to be 8×8, with 9×9 icons through it).Java Edition Indev0.3120100109-1939
+ icons.png has been updated.Changed heart textures. Red parts now brighter and empty parts now darker.Minecraft Indev20100218-0011
+ icons.png has been updated.The armor bar textures appear to have been repositioned, and a duplicate 2 armor points icon added - whether it has use or is an unused duplicate is unknown.Java Edition Beta1.8Pre-release
+ icons.png has been updated.Textures for the hunger bar have been added, like with the health bar: empty,[verify] unknown, unknown, unknown, full icon (2), half icon (1), unknown, unknown.Textures for hearts with the Poison status effect have been added: full, half, full taking damage, half taking damage.Textures for hunger with the Hunger effect have been added: full, half, unknown, unknown.There are two empty hunger shaped icons, one is for empty hunger under the Hunger effect. The other is unknown.There is a mirrored hunger icon, its use unknown.There are two sets of connection icons. The ones under the crosshair are unused, whereas the ones in the bottom left corner are seen in game.Textures for the experience bar have been added.The half armor bar icon has been mirrored to reflect its new placement.Java Edition1.0.0Beta 1.9 Prerelease 2
+ icons.png has been updated.Textures for hearts in hardcore mode have been added:empty,[verify] unknown, unknown, unknown, full heart (2 HP), half heart (1 HP), full heart while being damaged, half heart being damaged, poisoned full heart, poisoned half heart, poisoned full heart being damaged, poisoned half heart being damagedBeta 1.9 Prerelease 6
+ icons.png has been updated.The boss bar textures have been added.1.3.112w25a
+ Added unknown white textures.1.4.212w34a
+ Added textures for hearts with the Wither effect: full, half, full damaging, half damaging, hardcore full, hardcore half, hardcore full damaging and hardcore half damaging.1.6.113w16a
+ Added icons for hearts of mobs the player is riding: empty,[verify] unknown, unknown, unknown, full heart (2 HP), half heart (1 HP), full heart while being damaged, half heart being damagedThe horse jump bar has been added.13w25a
+ Added absorption hearts: full, half, hardcore full, hardcore half1.915w31a
+The boss bar textures are no longer used with the addition of bars.png.15w34a
+ Added attack cooldown indicators: an empty and full hotbar indicator and an empty and full crosshair indicator.15w34b
+ icons.png has been updated.Two light blue armor icon outlines have been added, of completely unknown use.1.11.116w50a
+ A third crosshair attack indicator with an exclamation mark (!) has been added, displayed when fully loaded and aiming at entity in range of attack.release
+ icons.png has been updated.Attack indicator when focussing on entity now shows plus-sign (+) rather than an exclamation mark.1.1720w46a
+ icons.png has been updated.Added hearts for taking freezing damage.20w49a
+ icons.png has been updated.This version duplicates frozen hearts for hardcore mode.21w11a
+ icons.png has been updated.This version made frozen hearts actually unique in hardcore mode.1.1922w17a
+ icons.png has been updated.The armor icons, incorrectly updated in Beta 1.8, have been fixed.1.20.223w31a
+icons.png has been removed, with each texture split into individual files.Java Edition Combat Tests3
+ Added four icons for shield blocking cooldown.
+Bedrock Edition
+Pocket Edition Alphav0.1.0
+ Added icons.png.v0.6.0
+ icons.png has been updated.v0.11.0build 1
+ icons.png has been updated.v0.13.0build 4
+ icons.png has been updated.v0.15.0build 1
+ icons.png has been updated.
+Gallery
+
+
+
+			Most of the historically unused textures in icons.png, excluding those whose positions would have coincided.
+
+
+See also
+Resource pack
+References
+
+ "The GUIde"   , April 2016.
+
+ MC-207557
+
+ MC-249039
+
+Navigation

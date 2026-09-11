@@ -1,0 +1,179 @@
+It has been suggested that this page be merged with Llama. [discuss]
+If this merge affects many pages or may potentially be controversial, do not merge the page until a consensus is reached.
+
+Llama Spit
+
+Hitbox size
+
+Height: 0.25 blocksWidth: 0.25 blocks
+
+Spawn
+
+Llama attack
+
+{
+    "title": "Llama Spit",
+    "rows": [
+        {
+            "field": "Height: 0.25 blocks<br>Width: 0.25 blocks",
+            "label": "(link to Hitbox article, displayed as Hitbox size)"
+        },
+        {
+            "field": "(link to Llama article, displayed as Llama) attack",
+            "label": "(link to Mob spawning article, displayed as Spawn)"
+        }
+    ],
+    "invimages": [],
+    "images": [
+        "Llama Spit.png"
+    ]
+}
+
+Llama spit is a projectile produced by llamas and trader llamas that deals a small amount of damage.
+
+Contents
+
+1 Behavior
+2 Sounds
+3 Data values
+
+3.1 ID
+3.2 Entity data
+
+4 History
+
+4.1 Java Edition
+4.2 Bedrock Edition
+4.3 Legacy Console Edition
+4.4 New Nintendo 3DS Edition
+
+5 Issues
+6 Gallery
+
+6.1 Screenshots
+
+7 Navigation
+
+Behavior
+Llama spit that hits an entity deals 1HP damage. Despite the spit being a projectile, dying from llama spit still shows the death message "<player> was slain by trader llama/llama." In Bedrock Edition, however, the death message is "<player> was spitballed by trader llama/llama". When a llama accidentally hits a neutral or hostile mob (except goats) with its llama spit, the mob retaliates and attacks that llama.
+The spit entity must belong to an entity to do damage, meaning that a spit entity summoned by commands does no damage unless its Owner NBT attribute matches the UUID of an entity in loaded chunks.
+In Bedrock Edition, llama spit can be deflected if hit by the player or hit by certain projectiles. Doing so makes the new entity the owner of the spit.
+Llama spit can not pass through any blocks, and in Java Edition, includes non-solid blocks (ex. signs, open fencegate & sugarcane) and even water. The spitting animation still shows the trajectory but the spit entity that does damage terminates on the non-solid block.
+Llama spit can be blocked by a shield or deflected by fist ‌[Bedrock Edition  only].
+
+Llama spit properties
+
+Drag-H
+
+0.99
+
+Gravity
+
+-0.06 m/tick2
+
+Drag-Y
+
+0.99
+
+Ticking order
+
+1
+
+Launch angle calculator
+
+Given a target coordinate and an initial speed, calculate the llama spit launch angle to hit the target. Target is hit after  ticks.
+
+X
+
+0 to 10
+
+Yaw
+
+ deg
+
+Y
+
+0 to 10
+
+Pitch
+
+ degUnreachable1 Direct hit
+
+Z
+
+0 to 10
+
+Speed
+
+3 m/tick
+
+See also: Calculators/Projectile motion
+
+ Yaw and pitch follow the Minecraft's convention, thus zero yaw is directed at +Z (south) and looking upwards corresponds to negative values of pitch.
+
+Sounds
+Java Edition:
+Llama spit uses the Friendly Creatures sound category for entity-dependent sound events.
+
+SoundsSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitchAttenuationdistance​Llama spitsFriendly MobsWhen a llama or trader llama spits at somethingentity.llama.spitsubtitles.entity.llama.spit​1.00.8–1.216
+Bedrock Edition:
+
+SoundsSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitch​ ?Friendly MobsWhen a llama or trader llama spits at somethingmob.llama.spit​ ?0.80.8–1.2 (Baby: 1.3–1.7)
+Data values
+ID
+Java Edition:
+
+NameIdentifier
+Translation key Llama Spitllama_spit
+entity.minecraft.llama_spit
+Bedrock Edition:
+
+NameIdentifierNumeric ID
+Translation key Llama Spitllama_spit102
+entity.llama_spit.name
+Entity data
+Java Edition:
+
+Main article: Entity format
+Llama spit have entity data associated with them that contain various properties.
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all projectiles see Template:Nbt inherit/projectile/template
+
+Bedrock Edition:
+
+See Bedrock Edition level format/Entity format.
+History
+Java Edition
+Java Edition1.1116w39a
+  Added llama spit.16w41a
+Llama spit now has an entity id: llama_spit.1.1318w02a
+The hitbox of llama spit has been decreased. Previously it had the same size as the player's hitbox.1.1419w05a
+Added trader llamas, which can also spit.1.1721w20a
+Llamas no longer spit at players on peaceful difficulty.1.20.523w51a
+Llama spit is no longer able to destroy armor stands.
+Llama spit now uses the damage type spit instead of mob_projectile.1.21.224w34a
+Llama spit no longer go through the world border if hit.
+Bedrock Edition
+Pocket Edition1.1.0alpha 1.1.0.0
+Newly added llamas can spit.Bedrock Edition1.10.0beta 1.10.0.3
+Added trader llamas, which can spit.
+Legacy Console Edition
+Legacy Console EditionXbox 360Xbox OnePS3PS4PS VitaWii USwitchTU54CU441.521.521.52Patch 241.0.4
+Newly added llamas can spit.
+New Nintendo 3DS Edition
+New Nintendo 3DS Edition1.9.19
+Newly added llamas can spit.
+Issues
+Issues relating to "Llama Spit" are maintained on the bug tracker. Issues should be reported and viewed there.
+
+Gallery
+Screenshots
+
+
+
+			Llamas fighting each other.
+
+
+Navigation

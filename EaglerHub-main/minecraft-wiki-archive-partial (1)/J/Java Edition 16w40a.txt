@@ -1,0 +1,184 @@
+This page covers a development version that has a major issue under certain conditions. 
+The dedicated server for this version has a security vulnerability in the Log4j library that could be used to perform a remote code execution exploit. It can be addressed by appending a certain JVM argument to the server startup command line.
+
+Minecraft 16w40a
+
+Edition
+
+Java Edition
+
+Release date
+
+October 6, 2016
+
+Type
+
+Snapshot
+
+Snapshot for
+
+1.11
+
+Downloads
+
+Client (.json)Server
+
+Protocol version
+
+310
+
+Data version
+
+813
+
+Resource pack format
+
+3
+
+Minimum Java version
+
+Java SE 6
+
+◄◄   1.10.2
+1.11
+  1.11.1 ►►
+
+◄   16w39c
+
+ 16w40a
+
+  16w41a ►
+
+{
+    "title": "Minecraft 16w40a",
+    "images": [
+        "16w40a.png",
+        "Java Edition 16w40a.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "October 6, 2016",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Snapshot article, displayed as Snapshot)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition 1.11 article, displayed as 1.11)",
+            "label": "Snapshot for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/6e5f07830bbd10ab10b6cccdaaef17c6b589a6d7/client.jar Client] ([https://piston-meta.mojang.com/v1/packages/53c8af9aa235a12b623fc6be9e02c4aafc1df3ad/16w40a.json .json])<br />[https://piston-data.mojang.com/v1/objects/64a1a5ba3f347c5e03477b42ac13d10ee193b51c/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "310",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "813",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "3",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_6 Java SE 6]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Java Edition  1.10.2|<span style=\"margin-right:-0.35em\">◄</span>◄   1.10.2]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition 1.11|1.11]]'''</td>\n<td style=\"padding: 0.4em\" >[[Java Edition  1.11.1|  1.11.1 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  16w39c|◄   16w39c]]\n</td>\n<td style=\"padding: 0.4em\">''' 16w40a'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  16w41a|  16w41a ►]]\n</td>\n</tr>\n</table>"
+}
+
+16w40a is the tenth snapshot for Java Edition 1.11, released on October 6, 2016 to fix some bugs from 16w39c.
+
+Contents
+
+1 Changes
+2 Fixes
+3 Videos
+4 Trivia
+5 References
+6 Navigation
+
+Changes
+Vindicators
+
+"Johnny" vindicators are now also created by setting a new byte tag, Johnny, to true, in addition to renaming the vindicator to Johnny. The tag supersedes the name, so a Johnny tag set to 1b allows arbitrary names with the "Johnny" behavior, or a Johnny tag set to 0b allows the name Johnny without the "Johnny" behavior.
+Their axe is now one of their HandItems, whereas before it was purely a visual effect. This means their attack now disables shields.
+Vindicators have been heavily buffed - their attack damage on Easy has been increased from 3HP to 7HP, on Normal 5HP to 13HP × 6.5, and on Hard 7HP to 19HP × 9.5.
+Projectiles
+
+Tags xTile, yTile, zTile, inTile and inGround were removed.
+The life tag is no longer used for anything, but still saved/read.
+This affects ghast fireballs, blaze fireballs, fire charges, dragon fireballs and wither skulls.
+ End portal block
+
+Now uses a screen-fixed starfield, much like end gateways, unlike the position-dependent starfield used earlier.
+Fixes
+34 issues fixed
+From released versions before 1.11
+
+MC-3352 – Arrows fired into a repeater / comparator / jukebox / command block / hopper / daylight sensor that is updating will play the arrow hitting a block noise
+MC-4132 – Piston placement issue past 16777217
+MC-4789 – Gravel And Sand Falling Through Piston
+MC-84566 – Arrows fall off dispensers/droppers when they are powered
+MC-89030 – Pistons warp entities too much (Pistons pull entities in/through blocks)
+MC-93814 – Equipping Pumpkins/Mob Heads through dispenser often play "dispenser failed" sound
+MC-98093 – Distorted pistons
+MC-105096 – shield animation glitch (wiggle)
+MC-107998 – Animals not running away when on fire
+From the 1.11 development versions
+
+MC-106706 – Renamed brewing stand does not drop after being placed
+MC-106765 – Silverfish not moving when mobGriefing is false
+MC-106905 – Rabbits jump extra high on farmland and fence related blocks.
+MC-107168 – Weather changes to clear after sleeping with doWeatherCycle set to false
+MC-107378 – Unable to shift-click items into non-full brewing stand ingredient slot
+MC-107403 – No subtitles for Shulker Box / Llama
+MC-107674 – Evocators & vindicator do not display custom head item or held items
+MC-107884 – stat.talkedToVillager doesn't add the score when right-clicking a villager with no offers.
+MC-107891 – Vindicator axes are not damaged
+MC-107941 – Shooting an arrow and reloading the world gives potion particles.
+MC-108123 – {CanPickUpLoot:1b} Vindicators don't use their better weapon
+From the previous development version
+
+MC-107929 – Typo: "Light Grey Shulker Box"
+MC-107937 – Renamed shulker boxes got unnamed when placed by a dispenser
+MC-107954 – Camera shakes when open shulker box you standing on
+MC-107967 – Falling Sand glitching out
+MC-108021 – Some mobs float above horses when riding them
+MC-108029 – Strange texture behavior of End portal block
+MC-108055 – Leash knot can't be broken sometimes
+MC-108079 – Crash when trading or picking up filled map with invalid data value from furnace
+MC-108084 – When in Creative's "Survival Inventory", dropping an item will not delete item from hand
+MC-108085 – Vindicators and mobs with axes don't disable shields.
+MC-108105 – Llamas in caravan unable to be tamed
+MC-108188 – Spectral arrows not being shot by skeletons
+MC-108225 – Cannot leash multiple mobs to same fence when not holding lead item
+MC-108271 – Unable to untie more than one Llama from a fence
+Videos
+Video made by slicedlime:
+
+
+
+
+Trivia
+The image used for the blog post for this snapshot shows 2 Minecraft characters in shulker boxes. These are Mojang Studios game developers Erik "Grum" Broes and Maria Lemón.
+16w40a was previously removed from the launcher for some time, but was added back in September 2018.
+References
+
+ "Important Message: Security vulnerability in Java Edition"     – Minecraft.net, December 10, 2021.
+
+ "Minecraft Snapshot 16w40a"  (archived)   by LadyAgnes  – Mojang.com, October 6, 2016.
+
+ "@MCKaleb01 @_grum It's actually @_grum  and @MiaLem_n :D"  – @_LadyAgnes (Agnes Larsson) on X (formerly Twitter), October 6, 2016
+
+Navigation

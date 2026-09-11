@@ -1,0 +1,175 @@
+This article is a work in progress. 
+Please help expand and improve it. The talk page may contain suggestions.
+
+
+
+
+
+This article is a stub. 
+You can help by expanding it. The talk page may contain suggestions.
+
+
+
+
+
+This feature is exclusive to China Edition. 
+
+tile.micro_block.name
+
+Renewable
+
+No
+
+Stackable
+
+Yes (64)
+
+Tool
+
+Blast resistance
+
+?
+
+Hardness
+
+?
+
+Luminous
+
+No
+
+Transparent
+
+No
+
+Flammable
+
+No
+
+Catches firefrom lava
+
+No
+
+Note block instrument
+
+Default (Harp)
+
+{
+    "title": "<samp>tile.micro_block.name</samp>",
+    "rows": [
+        {
+            "field": "No",
+            "label": "(link to Renewable resource article, displayed as Renewable)"
+        },
+        {
+            "field": "Yes (64)",
+            "label": "Stackable"
+        },
+        {
+            "field": "<span class=\"sprite-file\" style=\"height:32px;width:32px;--vertical-align:middle\">(link to File:SlotSprite Pickaxe Required.png article, displayed as 32x32px|link=|alt=SlotSprite Pickaxe Required.png: Sprite image for Pickaxe Required in Minecraft|class=pixel-image|This block can be broken with any tool, but a pickaxe is the quickest)</span>",
+            "label": "Tool"
+        },
+        {
+            "field": "(link to Template:blast resistance values#Missing value article, displayed as ?)(link to Category:Missing blast resistance article, displayed as Category:Missing blast resistance)",
+            "label": "(link to Explosion#Blast resistance article, displayed as Blast resistance)"
+        },
+        {
+            "field": "(link to Template:hardness values#Missing value article, displayed as ?)(link to Category:Missing hardness article, displayed as Category:Missing hardness)",
+            "label": "(link to Breaking#Blocks by hardness article, displayed as Hardness)"
+        },
+        {
+            "field": "No",
+            "label": "(link to Light article, displayed as Luminous)"
+        },
+        {
+            "field": "No",
+            "label": "(link to Opacity article, displayed as Transparent)"
+        },
+        {
+            "field": "No",
+            "label": "(link to Fire#Flammable blocks article, displayed as Flammable)"
+        },
+        {
+            "field": "No",
+            "label": "Catches fire<br>from (link to lava article, displayed as lava)"
+        },
+        {
+            "field": "Default (Harp)",
+            "label": "(link to Note Block#Instruments article, displayed as Note block instrument)"
+        }
+    ],
+    "invimages": [
+        "[tile.micro_block.name]Unknown"
+    ],
+    "images": [
+        "Missing Tile.png"
+    ]
+}
+
+tile.micro_block.name is an item used to shrink the shape of blocks in specific areas of the game into smaller individual blocks for display purposes. Currently, only pre-micro blocks are available in the game.
+Pre-micro blocks are generated using the modsdk interface, which creates the corresponding micro block data. Developers can then save this data as a micro block file and integrate it into their mod. After restarting the game, the micro blocks function similarly to the game's native blocks and can be found and used in the item list. Debugging addons are used for customizing block combinations, and it is written in the Python programming language.
+
+Contents
+
+1 Behavior
+2 Obtaining
+3 Sounds
+4 Data values
+
+4.1 ID
+
+5 History
+6 Image
+
+6.1 Screenshots
+
+7 Navigation
+
+Behavior
+When holding the item, its texture is visible; however, upon placing the block, it becomes transparent.
+The handheld texture is an unknown texture, but it is smaller than one pixel compared to the standard unknown texture.
+
+Obtaining
+The block can only be obtained from using /setblock or /fill, by modifying the NBT data, or through addons.
+If this block is mined directly, it will take 13 minutes; however, using a pickaxe will allow the player to obtain it as a dropped item.
+
+Sounds
+tile.micro_block.name uses the sound effect of stone.
+
+v
+t
+e stone sound typeSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitch​Block brokenBlocksOnce the block has brokendig.stonesubtitles.block.generic.break​1.00.8–1.0​Block placedBlocksWhen the block is placedplace.stonesubtitles.block.generic.place​1.00.8–1.0​Block breakingBlocksWhile the block is in the process of being brokenhit.stonesubtitles.block.generic.hit​0.370.5​FootstepsPlayersFalling on the block with fall damagefall.stonesubtitles.block.generic.footsteps​0.41.0​FootstepsPlayersWalking on the blockstep.stonesubtitles.block.generic.footsteps​0.31.0​FootstepsBlocksJumping from the blockjump.stonesubtitles.block.generic.footsteps​0.121.0​FootstepsBlocksFalling on the block without fall damageland.stonesubtitles.block.generic.footsteps​0.221.0
+Data values
+ID
+China Edition:
+
+NameIdentifierNumeric ID FormItem ID
+Translation key tile.micro_block.namemicro_block-9735Block & Giveable ItemIdentical
+tile.micro_block.name
+ ID of block's direct item form, which is used in savegame files and addons.
+
+ Available with /give command.
+
+ The block's direct item form has the same ID as the block.
+
+History
+China Edition1.16
+[verify] Added mod.
+Used to create early addons.
+Image
+Screenshots
+
+
+
+			The appearance when standing on top.
+
+
+
+			Holding the item displays its material.
+
+
+
+			When placed, it is transparent.
+
+
+Navigation

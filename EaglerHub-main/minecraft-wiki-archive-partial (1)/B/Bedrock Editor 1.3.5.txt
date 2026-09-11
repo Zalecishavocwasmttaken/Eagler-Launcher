@@ -1,0 +1,100 @@
+This article would benefit from the addition of more images. 
+Please remove this notice once you have added  suitable images to the article.
+
+v1.3.5
+
+Edition
+
+Bedrock Editor
+
+Release date
+
+April 21, 2026
+
+Client version
+
+26.30.20
+
+◄◄   1.3.0
+1.3.5
+  1.4.0 ►►
+
+◄   1.3.4
+
+  1.3.6 ►
+
+{
+    "title": "v1.3.5",
+    "images": [],
+    "rows": [
+        {
+            "field": "''(link to Bedrock Editor article, displayed as Bedrock Editor)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "April 21, 2026",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Bedrock Edition Preview 26.30.20 article, displayed as 26.30.20)",
+            "label": "Client version"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Bedrock Editor  1.3.0|<span style=\"margin-right:-0.35em\">◄</span>◄   1.3.0]]</td>\n<td rowspan=\"2\" style=\"padding: 0.4em\">'''1.3.5'''</td>\n<td style=\"padding: 0.4em\" >[[Bedrock Editor  1.4.0|  1.4.0 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Bedrock Editor  1.3.4|◄   1.3.4]]\n</td>\n\n<td style=\"padding: 0.4em\">\n[[Bedrock Editor  1.3.6|  1.3.6 ►]]\n</td>\n</tr>\n</table>"
+}
+
+
+
+Other editions with a version "1.3.5": 
+
+Minecraft Launcher
+
+
+Bedrock Editor v1.3.5 is a minor release for the Bedrock Editor released on April 21, 2026.
+
+Contents
+
+1 Additions
+2 Changes
+3 Fixes
+4 References
+5 Navigation
+
+Additions
+Added Cherry, Mangrove, Pale Oak, Crimson, and Warped tree types to the Tree Generator sample tool.
+Added Melon as a crop option in the Farm Generator tool.
+Added tooltip with keyboard shortcut information to the Flood Tool "Apply Flood" button.
+Implemented Jigsaw auto-save for changing structure and weight in pool.
+Implemented auto-save for Prefab template layout changing.
+Added Minimap click and hover interactions.
+Added click-to-teleport on the minimap and markers.
+Added hover tooltips showing block, biome, and coordinate info on the minimap, and label info on markers.
+Improved Minimap architecture and added new features.
+Status bar now displays the biome under the cursor.
+Added three new export types to Export Settings (Project Backup, World Template, Shareable World).
+Project Backup: Creates a packaged backup of the current editor project into the archive folder. (.mcproject file)
+World Template: Creates a packaged World Template (.mctemplate) with all Editor settings and metadata removed into the archive folder.
+Shareable World: Creates a packaged playable world (.mcworld) with all Editor settings and metadata removed into the archive folder.
+Added a new flag to Bedrock Dedicated Server to allow converting standard vanilla worlds to an Editor Project when launching BDS as Editor.
+Changes
+Moved block scanning to a client-driven model with spread-over-frames processing to avoid frame spikes.
+Added marker system with Multiplayer, Location, and Custom marker types.
+Added FollowPlayer and FreeCenter tracking modes.
+Added Y-level control for top-block scanning depth.
+Added client-side block change detection via BlockSourceListener.
+Changed minimap position types from Vec2 to VecXZ.
+Reworked MinimapItem script API with typed marker methods and options-based createMinimap.
+Added comprehensive unit tests for minimap services, cache, and block change tracking.
+Fixes
+Fixed Flood Tool preview placement and movement not supporting Undo and Redo actions.
+Fixed Flood Tool preview being visually displaced by one block when placed at Y coordinate of 0 or lower.
+Fixed a bug where adding a new Jigsaw collection would cause the selected collection to switch to the last one alphabetically instead of staying on the newly created collection.
+The Line Tool with two control points now respects the maximum allowable distance when moving the second point.
+References
+
+ "Release 1.3.5 ( 26.30.20/21)"     – GitHub, April 21, 2026.
+
+ "Minecraft Beta & Preview - 26.30.20/21"     – Minecraft Feedback, April 21, 2026.
+
+Navigation

@@ -1,0 +1,169 @@
+This page covers a release version that has a major issue under certain conditions. 
+The dedicated server for this version has a security vulnerability in the Log4j library that could be used to perform a remote code execution exploit. It can be addressed by appending a certain JVM argument to the server startup command line.
+
+Minecraft 1.9.3
+
+Edition
+
+Java Edition
+
+Release date
+
+May 10, 2016
+
+Development versions
+
+Snapshots (3) Pre-releases (3) (View all)
+
+Downloads
+
+Client (.json)Server
+
+Protocol version
+
+110
+
+Data version
+
+183
+
+Resource pack format
+
+2
+
+Minimum Java version
+
+Java SE 6
+
+◄◄   1.9
+1.9.3
+  1.10 ►►
+
+◄   1.9.2
+
+  1.9.4 ►
+
+{
+    "title": "Minecraft 1.9.3",
+    "images": [
+        "1.9.3 blog post image.png",
+        "Java Edition 1.9.3.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "May 10, 2016",
+            "label": "Release date"
+        },
+        {
+            "field": "<div class=\"hlist\"><span style=\"white-space:nowrap;\">(link to :Category:Java Edition 1.9.3 snapshots article, displayed as '''Snapshots''') (3) </span><br/><span style=\"white-space:nowrap;\">(link to :Category:Java Edition 1.9.3 pre-releases article, displayed as '''Pre-releases''') (3) </span><br/>((link to Java Edition 1.9.3/Development versions article, displayed as View all))</div>",
+            "label": "<span style=\"white-space: normal;\">Development versions</span>"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/b6985b0d3a0520dfb6f17eeb1e8ba58ce9577061/client.jar Client] ([https://piston-meta.mojang.com/v1/packages/e8bab05ecee645e3c9b962f532ca7fd6c52e120e/1.9.3.json .json])<br />[https://piston-data.mojang.com/v1/objects/8e897b6b6d784f745332644f4d104f7a6e737ccf/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "110",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "183",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "2",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_6 Java SE 6]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Java Edition  1.9|<span style=\"margin-right:-0.35em\">◄</span>◄   1.9]]</td>\n<td rowspan=\"2\" style=\"padding: 0.4em\">'''1.9.3'''</td>\n<td style=\"padding: 0.4em\" >[[Java Edition  1.10|  1.10 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  1.9.2|◄   1.9.2]]\n</td>\n\n<td style=\"padding: 0.4em\">\n[[Java Edition  1.9.4|  1.9.4 ►]]\n</td>\n</tr>\n</table>"
+}
+
+
+
+Other editions with a version "1.9.3": 
+
+Education
+Minecraft Dungeons
+
+
+1.9.3 is a minor update to Java Edition released on May 10, 2016, which adds the /stopsound command, limits the Y-value of /tp, and improves Minecraft 's networking libraries. It is not compatible with 1.9.2 servers. However, due to an incorrect snapshot warning when loading a world saved in an older version, 1.9.3 was replaced by 1.9.4 on the same day.
+
+Contents
+
+1 Additions
+
+1.1 Commands
+
+2 Changes
+
+2.1 Commands
+2.2 General
+
+3 Fixes
+4 Videos
+5 References
+6 Navigation
+
+Additions
+Commands
+/stopsound
+
+Permits the player to choose which specific sounds should be stopped from playing.
+Syntax: /stopsound <targets> [<source>] <sound>.
+Changes
+Commands
+/tp
+
+No longer teleports the player to a y-coordinate outside the range −512 to 512.
+General
+Networking
+
+As of the release of this version, the Netty networking library that Minecraft uses, now checks sessionserver.mojang.com/blockedservers when connecting to a multiplayer server, and if the server is on the blocked server list, it reports to the user that the server is unavailable.
+The blocklist consists of servers in violation of the Minecraft EULA (End User License Agreement).
+This affects all versions that depend on the Netty library, back to version 1.7.2 snapshot 13w41a.
+Better memory use of pathfinding and biome caching.
+This prevents memory leaking.
+Fixes
+12 issues fixed
+From released versions before 1.9
+
+MC-17630 – Zombie pathfinding to unreachable targets causes server lag.
+MC-82464 – Colored 'dead' skin template parts cause in-game issues.
+From 1.9
+
+MC-87907 – Endermen do not become aggressive when players look at their head/feet.
+MC-88357 – Crash when going outside height limit or into the void with F3.
+MC-89760 – Skin's jacket parts do not show up under specific conditions.
+MC-94438 – Server: Mob pathfinding induced massive lag in any versions 15w49a and later.
+MC-96526 – Crash caused by StackOverflowError when trading too many items at once.
+MC-98994 – Chunk generation performance regressed by 20–30%.
+From 1.9.1
+
+MC-100692 – Collisions cause extreme lag.
+From 1.9.2
+
+MC-100382 – Pathfinding memory leak.
+MC-100410 – Corrupting world by teleporting to y=±infinity.
+MC-100442 – DEV – navigation listener very slow code.
+Videos
+Video made by slicedlime:
+
+
+
+
+References
+
+ "Important Message: Security vulnerability in Java Edition"     – Minecraft.net, December 10, 2021.
+
+ "Minecraft 1.9.4"   (Archive)  by Searge  – Mojang.com, May 10, 2016.
+
+Navigation

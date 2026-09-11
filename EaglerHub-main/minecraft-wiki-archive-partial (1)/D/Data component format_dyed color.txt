@@ -1,0 +1,12 @@
+[Int] minecraft:dyed_color: The RGB color of the tint applied to a dyed item, typically as a result of combining the item with dyes in a minecraft:crafting_dyed type crafting recipe. More generally, this component is used as the minecraft:dye color provider in item model definitions (so only item models that explicitly use this color provider will be tinted). If present on an item, gray text is added to the tooltip showing either an italic "Dyed" when advanced tooltips is off, or a non-italic "Color: #<hex color code>" instead when advanced tooltips is on. The color is stored as an integer which packs the color's red, green and blue channels using this formula:( Red << 16) + ( Green << 8) +  Blue An interactive widget is being loaded. If this does not work for you, please reload the page or check if JavaScript is working or enabled.
+[NBT List / JSON Array] minecraft:dyed_color: An alternative format. A list of 3 floats, ranging from 0.0 to 1.0 (inclusive), corresponding to the red, green and blue channels of the color. This format is automatically packed into the integer format by multiplying each float by 255, converting them to unsigned bytes (equivalent to taking the floor and then applying modulo 256), then using the formula -16777216 + ( Red << 16) + ( Green << 8) +  Blue due to the alpha channel being implicitly set to 255, resulting in a negative integer..
+
+Notes
+
+ The hexadecimal number is always at least 6 digits (with leading zeroes if needed), with additional digits if the alpha channel is included, despite the alpha channel having no effect on the tint color.
+
+ For positive values larger than 0x00FFFFFF, the most significant byte encodes the alpha channel (opacity), however this is effectively ignored when providing the tint color to the item model, as the tint does not affect opacity.
+
+ Float values outside of this range are accepted, but clamped from 0 to 255 by modulo 256 after being multiplied by 255. For example, -1.0 is equivalent to 0.00392156862 (or 1/255).
+
+ This can result in an item that is not normally obtainable and it affects the hexadecimal code that is shown in the (advanced) tooltip. For example dyed_color=0x000000 shows "#000000" but dyed_color=[0,0,0] shows "#FF000000" despite them both representing the same pure black RGB color.

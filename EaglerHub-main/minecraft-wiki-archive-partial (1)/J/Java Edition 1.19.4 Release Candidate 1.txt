@@ -1,0 +1,152 @@
+Minecraft 1.19.4 Release Candidate 1
+
+Edition
+
+Java Edition
+
+Release date
+
+March 9, 2023
+
+Type
+
+Release Candidate
+
+Release candidate for
+
+1.19.4
+
+Downloads
+
+Client (.json)Server
+
+Obfuscation maps
+
+ClientServer
+
+Protocol version
+
+ dec: 1073741948 hex: 4000007C
+
+Data version
+
+3334
+
+Resource pack format
+
+13
+
+Data pack format
+
+12
+
+Minimum Java version
+
+Java SE 17
+
+◄◄   1.19.3
+1.19.4
+  1.20 ►►
+
+◄   1.19.4 Pre-release 4
+
+ 1.19.4 Release Candidate 1
+
+  1.19.4 Release Candidate 2 ►
+
+{
+    "title": "Minecraft 1.19.4 Release Candidate 1",
+    "images": [
+        "1.19.4-rc1.jpg",
+        "Java Edition 1.19.4 Release Candidate 1.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "March 9, 2023",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Release Candidate article, displayed as Release Candidate)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition 1.19.4 article, displayed as 1.19.4)",
+            "label": "Release candidate for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/d516cfa228f59e4b6f829a1742efe36b72065e8c/client.jar Client] ([https://piston-meta.mojang.com/v1/packages/b580690877105268afffb74f371efc579ae1bdfd/1.19.4-rc1.json .json])<br />[https://piston-data.mojang.com/v1/objects/c41c9653dc18634f52c010040177deabf9a878f2/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/b3937044d212fd2cf0439b6d34fb08726bfeec8b/client.txt Client]<br />[https://piston-data.mojang.com/v1/objects/9aea4cf2285542a205e9fb54562d0cedb0a38fb0/server.txt Server]",
+            "label": "(link to Obfuscation map article, displayed as Obfuscation maps)"
+        },
+        {
+            "field": " <span style=\"font-size:smaller\"><abbr title=\"decimal\">dec</abbr>: </span>1073741948<br /> <span style=\"font-size:smaller\"><abbr title=\"hexadecimal\">hex</abbr>: </span>4000007C",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "3334",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "13",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "12",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Data pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_17_.28LTS.29 Java SE 17]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Java Edition  1.19.3|<span style=\"margin-right:-0.35em\">◄</span>◄   1.19.3]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition 1.19.4|1.19.4]]'''</td>\n<td style=\"padding: 0.4em\" >[[Java Edition  1.20|  1.20 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  1.19.4 Pre-release 4|◄   1.19.4 Pre-release 4]]\n</td>\n<td style=\"padding: 0.4em\">''' 1.19.4 Release Candidate 1'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  1.19.4 Release Candidate 2|  1.19.4 Release Candidate 2 ►]]\n</td>\n</tr>\n</table>"
+}
+
+1.19.4 Release Candidate 1 (known as 1.19.4-rc1 in the launcher) is the first release candidate for Java Edition 1.19.4, released on March 9, 2023, which fixes bugs. This is the first release candidate released in 2023.
+
+Contents
+
+1 Changes
+
+1.1 Non-mob entities
+
+2 Fixes
+3 Videos
+4 References
+5 Navigation
+
+Changes
+Non-mob entities
+Display
+
+Changes to interpolation:
+Interpolation always starts at the beginning on client tick.
+Field interpolation_start is replaced with start_interpolation, with a different meaning.
+start_interpolation describes amount of ticks from the start of next client tick after receiving an update to start of interpolation.
+For example, value 0 means that interpolation starts at the beginning of next client tick after receiving the update.
+start_interpolation is not stored in entity data.
+When using /data commands, if interpolated value is updated, but start_interpolation is not present in modified tag, interpolation continues from the time of previous update, but with new values.
+Fixes
+1 issue fixed
+From the previous development version
+
+MC-260857 – Display entities summoned with initial transformation interpolate incorrectly from default transformation during next transformation.
+Videos
+Video made by slicedlime:
+
+
+
+
+References
+
+ "Minecraft 1.19.4 Release Candidate 1"     – Minecraft.net, March 9, 2023.
+
+Navigation

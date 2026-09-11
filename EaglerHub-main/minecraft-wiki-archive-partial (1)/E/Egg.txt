@@ -1,0 +1,473 @@
+This article is about the chicken egg.   For other uses, see Egg (disambiguation).
+
+Egg
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Rarity tier
+
+  Common
+
+Renewable
+
+Yes
+
+Stackable
+
+Yes (16)
+
+Size
+
+Height: 0.25 blocksWidth: 0.25 blocks
+
+{
+    "title": "Egg",
+    "rows": [
+        {
+            "field": "<span style=\"white-space: nowrap;\"><span style=\"display: inline-block; background-color: #fff; border: 1px solid #888; border-radius: 0.3em; color: transparent; width: 1em; height: 1em; vertical-align: -0.36em; margin-right: -0.1em\"><br></span> </span> Common",
+            "label": "(link to Rarity article, displayed as Rarity tier)"
+        },
+        {
+            "field": "Yes",
+            "label": "(link to Renewable resource article, displayed as Renewable)"
+        },
+        {
+            "field": "Yes (16)",
+            "label": "Stackable"
+        },
+        {
+            "field": "Height: 0.25 blocks<br>Width: 0.25 blocks",
+            "label": "Size"
+        }
+    ],
+    "invimages": [
+        "Egg",
+        "Blue Egg",
+        "Brown Egg"
+    ],
+    "images": [
+        "Egg.png",
+        "Blue Egg.png",
+        "Brown Egg.png"
+    ]
+}
+
+An egg is an item that is dropped by chickens every few minutes while they are still alive. It can be used to craft food items, such as cake, and can be thrown for a chance to spawn baby chickens on impact. They have three variants based on the variant of the corresponding chicken: the standard egg for temperate chickens, brown egg for warm chickens, and blue egg for cold chickens.
+
+Contents
+
+1 Obtaining
+
+1.1 Mob loot
+1.2 Generated loot
+
+2 Usage
+
+2.1 Crafting ingredient
+2.2 Combat
+2.3 Spawning chickens
+
+3 Behavior
+
+3.1 Motion
+
+3.1.1 Thrown by player
+3.1.2 Shot by dispenser
+
+3.2 Collisions
+
+4 Sounds
+5 Data values
+
+5.1 ID
+5.2 Entity data
+
+6 Achievements
+7 Advancements
+8 Videos
+9 History
+
+9.1 Java Edition
+9.2 Bedrock Edition
+9.3 Legacy Console Edition
+9.4 New Nintendo 3DS Edition
+9.5 Java Edition Combat Tests
+9.6 Data history
+
+10 Issues
+11 Gallery
+
+11.1 In other media
+
+12 Trivia
+13 References
+14 Navigation
+
+Obtaining
+Mob loot
+See also: Tutorial:Egg farming
+
+Every adult chicken lays an egg item every 5–10 minutes, except for those that are or were part of chicken jockeys. The theoretical average would be expected at 1 egg every 7.5 minutes (9000 game ticks). The type of egg being laid depends on the chicken variant; temperate chickens lay normal eggs, cold chickens lay blue eggs, and warm chickens lay brown eggs.
+A fox has a 3% chance of spawning with a normal egg in its mouth, which it drops upon death. Alternatively, a player dropping a food item causes the fox to drop the egg.
+
+Generated loot
+
+Item
+
+Structure
+
+Container
+
+Quantity
+
+Chance
+
+Java Edition and Bedrock Edition
+
+Egg
+
+Trial Chambers
+
+Chamber dispenser
+
+4–8
+
+6.9%{ "item": "Egg", "stacksize": "4–8", "chance": 0.06896551724137934, "structure": "Trial Chambers", "container": "Chamber dispenser" }
+
+Village
+
+Fletcher's chest
+
+1–3
+
+23.3%{ "item": "Egg", "stacksize": "1–3", "chance": 0.23252875118681526, "structure": "Village", "container": "Fletcher's chest" }
+
+Usage
+Crafting ingredient
+
+Name
+Ingredients
+Crafting recipe
+Notes
+
+Cake
+
+Milk Bucket +Sugar +Any Egg +Wheat
+
+After crafting the cake, the empty buckets remain in the crafting grid in Java Edition, or are moved to the first available inventory slot in Bedrock Edition.
+
+Pumpkin Pie
+
+Pumpkin +Sugar +Any Egg
+
+Combat
+Players are able to throw eggs and deal knockback to mobs (but not other players‌[JE  only]), but no damage is dealt, similar to a snowball. Likewise, throwing eggs at neutral mobs provokes them. Eggs can also be fired from dispensers and are affected by gravity. Eggs thrown through fire or lava in Bedrock Edition catch fire, and set fire to entities they hit.
+
+Spawning chickens
+When thrown by a dispenser or by pressing the use button, an egg has a 1⁄8 (12.5%) chance of spawning a chick. If this occurs, there is a 1⁄32 (3.125%) chance of spawning three additional chicks (on average, 1 out of every 256 eggs spawns 4 chicks). In other words, whenever an egg is thrown, there is a 31⁄256 chance of spawning 1 chick and a 1⁄256 chance of spawning four chicks.
+The chick variant depends on which egg variant was thrown; regular eggs hatch temperate chicks, blue eggs hatch cold chicks, while brown eggs hatch warm chicks.
+The expected value of the number of chicks an egg produces is 35⁄256 or 13.7%. This means that on average, a chick is spawned every 7.3 eggs, a stack of 16 eggs spawns 2.188 chicks, and a full inventory including the hotbar and off-hand (37 × 16 = 592 eggs) is expected to spawn approximately 81 chicks.
+
+Behavior
+
+Thrown Egg
+
+Hitbox size
+
+Height: 0.25 blocksWidth: 0.25 blocks
+
+Ticking order
+
+Acceleration, Drag, Position
+
+Gravity
+
+0.03 (double)
+
+Drag
+
+0.99 (float)
+
+Terminal velocity
+
+2.97 b/t (59.4 m/s)
+
+Maximum travel
+
+99 blocks per b/t of initial velocity
+
+{
+    "title": "Thrown Egg",
+    "rows": [
+        {
+            "field": "Height: 0.25 blocks<br>Width: 0.25 blocks",
+            "label": "(link to Hitbox article, displayed as Hitbox size)"
+        },
+        {
+            "field": "Acceleration, Drag, Position",
+            "label": "Ticking order"
+        },
+        {
+            "field": "0.03 ([https://en.wikipedia.org/wiki/Double-precision_floating-point_format double])",
+            "label": "Gravity"
+        },
+        {
+            "field": "0.99 ([https://en.wikipedia.org/wiki/Single-precision_floating-point_format float])",
+            "label": "Drag"
+        },
+        {
+            "field": "2.97 b/t (59.4 m/s)",
+            "label": "Terminal velocity"
+        },
+        {
+            "field": "99 blocks per b/t of initial velocity",
+            "label": "Maximum travel"
+        }
+    ],
+    "invimages": [],
+    "images": [
+        "Egg.png"
+    ]
+}
+
+Motion
+Main articles: Entity § Motion and Projectile § Initial conditions
+Thrown by player
+When thrown straight up, eggs travel 27.68993 blocks‌[Java Edition  only] or about 45 blocks‌[Bedrock Edition  only] on average. They travel up to ~51.5 blocks horizontally on even ground when thrown at the optimal launch angle of ~40°.
+Since the thrower's velocity influences the throw, timing a throw with a jump towards the target can increase the throwing range. It increases to about 42 blocks when thrown straight up and 64 blocks forward at a 35° angle. When sprint-jumping and throwing at a 35° angle, the range increases to about 90 blocks. For the same reason, throwing while falling significantly decreases the range.
+A thrown egg experiences initial speed of about 1.5 blocks per tick. Its movement follows acceleration, drag, and position (in subtick order); these variables can be simulated to predict the overall trajectory. Below is a calculator to predict the initial conditions in order to hit a desired coordinate:
+
+thrown egg properties
+
+Drag-H
+
+0.99
+
+Gravity
+
+-0.03 m/tick2
+
+Drag-Y
+
+0.99
+
+Ticking order
+
+6
+
+Launch angle calculator
+
+Given a target coordinate and an initial speed, calculate the thrown egg launch angle to hit the target. Target is hit after  ticks.
+
+X
+
+0 to 51
+
+Yaw
+
+ deg
+
+Y
+
+1.62 to 0
+
+Pitch
+
+ degUnreachable1 Direct hit
+
+Z
+
+0 to 0
+
+Speed
+
+1.5 m/tick
+
+See also: Calculators/Projectile motion
+
+ Yaw and pitch follow the Minecraft's convention, thus zero yaw is directed at +Z (south) and looking upwards corresponds to negative values of pitch.
+
+Shot by dispenser
+Eggs shot by dispensers behave in the exact manner as when they were thrown by a player, with the only difference in their initial conditions. The initial position of eggs when shot by a dispenser offsets exactly 0.7 blocks forward and 0.1 blocks higher from the center of the block. Their initial speed is slightly randomized, which averages to about 1.1 block/tick.
+
+Collisions
+Main article: Projectile § Block collisions
+Thrown eggs collide with blocks according to their collision box. They also collide with entities, but with the entities' collision box inflated to about 0.3 blocks in every direction. They collide with all living entities, including minecarts, boats, end crystals, falling blocks, and TNT.
+
+Sounds
+Java Edition:
+Thrown eggs use the Friendly Creatures sound category for entity-dependent sound events.
+
+SoundsSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitchAttenuationdistance​Egg fliesPlayersWhen an egg is thrownentity.egg.throwsubtitles.entity.egg.throw​0.51⁄3-0.516​Dispensed itemBlocksWhen a dispenser shoots an eggblock.dispenser.launchsubtitles.block.dispenser.dispense​1.01.216​Chicken plopsFriendly MobsWhen an egg is laid by a chickenentity.chicken.eggsubtitles.entity.chicken.egg​1.00.8–1.216
+Bedrock Edition:
+
+SoundsSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitch​Arrow firedPlayersWhen an egg is thrownrandom.bow​ ?0.50.33–0.5​Arrow firedPlayersWhen a dispenser shoots an eggrandom.bow​ ?1.00.83–1.25​Chicken plopsFriendly MobsWhen an egg is laid by a chickenmob.chicken.plop​ ?1.00.8–1.2
+Data values
+ID
+Java Edition:
+
+NameIdentifierForm
+Translation key EggeggItem
+item.minecraft.egg
+ Blue Eggblue_eggItem
+item.minecraft.blue_egg
+ Brown Eggbrown_eggItem
+item.minecraft.brown_egg
+NameIdentifierEntity tags
+Translation key Thrown Eggeggimpact_projectiles
+entity.minecraft.egg
+Bedrock Edition:
+
+NameIdentifierNumeric ID Form
+Translation key Eggegg390Item
+item.egg.name
+ Blue Eggblue_egg749Item
+item.blue_egg.name
+ Brown Eggbrown_egg750Item
+item.brown_egg.name
+NameIdentifierNumeric ID
+Translation key Eggegg82
+entity.egg.name
+Entity data
+Thrown eggs have entity data that define various properties of the entity.
+Java Edition:
+
+Main article: Entity format
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all projectiles see Template:Nbt inherit/projectile/template
+[NBT Compound / JSON Object] Item: The item to render as, may be absent.
+A single item stack see Template:Nbt inherit/itemnoslot/template
+
+Bedrock Edition:
+
+See Bedrock Edition level format/Entity format.
+Achievements
+IconAchievementIn-game descriptionActual requirements (if different)Gamerscore earnedTrophy type (PS)PS4OtherThe LieBake a cake using: wheat, sugar, milk, and eggs.Pick up a cake from a crafting table output.30Bronze
+Advancements
+IconAdvancementIn-game descriptionActual requirements (if different)BullseyeHit the bullseye of a Target block from at least 30 meters awayBe at least 30 blocks away horizontally when the center of a target is shot with a projectile by the player.
+Videos
+Note: This video does not mention blue or brown eggs.
+
+
+
+
+
+History
+
+
+
+This section would benefit from the addition of more sounds. 
+Please remove this notice once you have added  suitable sounds to the section.The specific instructions are: Sounds before RC1
+
+Java Edition
+Java Edition Alphav1.0.14
+ Added eggs.
+
+Eggs currently have no purpose and cannot be thrown.Java Edition Beta1.0
+Eggs now stack to 16 instead of 64.
+Eggs are now throwable at the request of a fan as the result of a Twitter conversation about a man eating his USB flash drive (a Kingston DataTraveler 100), if Notch added egg throwing.1.2
+Eggs are now used to craft cakes.
+
+Eggs can now be launched by dispensers.Java Edition1.0.0Beta 1.9 Prerelease 2
+Breeding has been added, making eggs easier to obtain.RC1
+Thrown eggs now hatch chicks instead of adult chickens.
+
+The egg's throw sound has been changed.1.4.212w37a
+Eggs are now used to craft pumpkin pies.1.915w32a
+Eggs no longer damage the ender dragon.15w36b
+Eggs now produce particles when thrown at an entity.15w49a
+Eggs, like all throwable projectiles, now take the thrower's motion into account when fired.1.1418w43a
+ The texture of eggs has been changed.18w50a
+Eggs can now be found in chests in village fletcher houses.
+
+Therefore, chickens are no longer the only source of eggs.
+
+Thrown egg now have an optional Item tag that can specify a different item stack to render.19w07a
+Added foxes, which sometimes spawn with eggs in their mouths.1.1620w09a
+Thrown eggs can now break chorus flowers.1.16.2pre1
+Eggs are now affected by bubble columns.1.20.3ExperimentUpdate 1.2123w45a
+Eggs can now generate in trial chambers dispensers.1.21.224w34a
+Thrown eggs no longer go through the world border if hit.1.21.525w06a
+  Added blue and brown eggs alongside the chicken variants they come from.
+Bedrock Edition
+Pocket Edition Alphav0.4.0
+ Added eggs. They are only obtainable through inventory editors.
+
+Eggs are throwable, but are unable to spawn chickens.v0.7.0
+Chickens now occasionally lay eggs.
+
+Eggs can be used to craft a cake.
+
+Thrown eggs now have a chance of spawning adult chickens.v0.8.0build 1
+Eggs are now used to craft pumpkin pies.build 3
+Thrown eggs now have a chance of spawning chicks instead of adult chickens.Pocket Edition1.1.0alpha 1.1.0.0
+The entity ID has now been changed from thrownegg to egg.Bedrock Edition1.2.0
+Eggs now deal knockback to players.1.10.0beta 1.10.0.3
+ The texture of eggs has been changed.1.11.0beta 1.11.0.1
+Eggs can now be found in village fletcher chests.beta 1.11.0.4
+Eggs can now be sold to farmer villagers.1.13.0beta 1.13.0.1
+Added foxes, which can drop eggs.1.16.0beta 1.16.0.57
+Trading has now been changed, eggs can no longer be sold to farmer villagers.1.20.60ExperimentUpdate 1.21Preview 1.20.60.20
+Eggs can now generate in trial chambers dispensers.1.21.70ExperimentDrop 1 2025Preview 1.21.70.22
+  Added blue and brown eggs.
+Added item tag minecraft:egg for use in recipes.1.21.70Preview 1.21.70.23
+All features behind the "Drop 1 2025" experimental toggle have now been fully implemented.
+Legacy Console Edition
+Legacy Console EditionXbox 360Xbox OnePS3PS4PS VitaWii USwitchTU1CU11.001.001.00Patch 11.0.1
+ Added eggs.TU7
+Thrown eggs now hatch chicks instead of adult chickens.TU141.04
+Eggs are now used to craft pumpkin pies.TU46CU361.381.381.38Patch 15
+Eggs, like all throwable projectiles, now take the thrower's motion into account when fired.   1.90
+ The texture of eggs has been changed.1.91
+Eggs can now be sold to farmer villagers.
+New Nintendo 3DS Edition
+New Nintendo 3DS Edition0.1.0
+ Added eggs.
+Java Edition Combat Tests
+Java Edition Combat Tests4
+Eggs are no longer rendered for the first 2 ticks to prevent screen flickering.5
+Eggs now do knockback to players.
+Eggs now have a 4-tick use cooldown, now matching the same change made to snowballs in Combat Test 4.
+Data history
+Java Edition1.1116w32a
+The entity ID has now been changed from ThrownEgg to egg.1.1317w47a
+Prior to The Flattening, this item's numeral ID was 344 and the entity's numeral ID was 7.
+
+Issues
+Issues relating to "Egg" are maintained on the bug tracker. Issues should be reported and viewed there.
+
+Gallery
+In other media
+
+
+
+			An egg as seen in Minecraft Earth
+
+
+
+			An egg as it appears in A Minecraft Movie
+
+
+Trivia
+Eggs break mid-fall if hit by another projectile; the chance of spawning a chick is not affected.
+A thrown egg faces toward the player in first-person view, while it appears rotated horizontally in third-person view. This is the case for all throwable items such as ender pearls, snowballs, and all throwable potions.
+References
+
+ MC-3179 – resolved as "Works As Intended".
+
+ "@notch Proof .. http://i.imgur.com/AXblZ.jpg .. Now, where's my throwing eggs .."  – @Wyld  on X (formerly Twitter), December 6, 2010http://i.imgur.com/AXblZ.jpg"@Wyld Adding them right now! They have an 1/8 chance of spawning a chicken when they hit something."  – @notch (Markus Persson) on X (formerly Twitter), December 6, 2010
+
+Navigation

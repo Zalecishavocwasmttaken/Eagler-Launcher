@@ -1,0 +1,105 @@
+Not to be confused with Commands/testforblocks.
+
+
+
+
+This feature is exclusive to Bedrock Edition and Minecraft Education. 
+
+
+
+This page describes content that has been removed from Java Edition. 
+This feature was present in earlier versions of Java Edition, but has since been removed.
+
+
+
+/testforblock
+
+Permission levelrequired
+
+2 ‌[JE  only]
+1 ‌[BE  only]
+
+Restrictions
+
+Cheat only
+
+{
+    "title": "<code>/testforblock</code>",
+    "rows": [
+        {
+            "field": "\n* 2 ‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Java Edition\">(link to Java Edition article, displayed as JE)  only</span></i>]</sup>\n* 1 ‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Bedrock Edition\">(link to Bedrock Edition article, displayed as BE)  only</span></i>]</sup>",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "(link to Cheat article, displayed as Cheat) only<br>",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+Tests whether a certain block is in a specific location.
+
+Contents
+
+1 Syntax
+2 Arguments
+3 Result
+4 Output
+5 Examples
+6 History
+
+6.1 Java Edition
+6.2 Bedrock Edition
+
+7 External links
+8 Navigation
+
+Syntax
+testforblock <position: x y z> <tileName: Block> [blockStates: block states]
+Arguments
+position: x y z : CommandPosition
+
+Specifies the coordinates of the block to test.
+Must be a three-dimensional coordinates composed of <X>, <Y> and <Z>, each of which must be a single-precision floating-point number or tilde and caret notation.
+tileName: Block: enum
+
+Specifies the block to test for.
+Must be a block id.
+blockStates: block states: BlockStateCommandParam
+
+Specifies the block states to match when testfor.
+Must be a blockstate argument as ["<state1>"=<value1>,"<state2>"=<value2>,...]. For example: ["old_leaf_type"="birch","persistent_bit"=true].
+Result
+
+CommandTriggerBedrock Edition
+
+AnyThe command is incomplete, or any argument is not specified correctly. UnparseableThe specified position is unloaded or out of the world. FailedThe block at the specified position does not match the specified block id or states.OtherwiseSuccessful
+Output
+
+CommandEditionSituationSuccess Count
+
+AnyBedrock EditionOn fail0On success1
+Examples
+To test if the block at (0,64,0) is white wool:
+testforblock 0 64 0 wool
+testforblock 0 64 0 white_wool
+To test if the block at (0,64,0) is stone:
+testforblock 0 64 0 stone []
+To test if the block below is a jukebox:
+testforblock ~ ~-1 ~ jukebox
+History
+Java Edition
+Java Edition1.7.213w37a
+Added /testforblock.1.1116w32a
+Added block state support to /testforblock.1.1317w45a
+Removed /testforblock in favor of /execute if.
+Bedrock Edition
+Pocket Edition Alphav0.16.0build 1
+Added /testforblock.Bedrock Edition1.18.0beta 1.18.0.20
+Added block state support.1.19.70Preview 1.19.70.21
+Removed dataValue: int argument.
+External links
+"/testforblock Command"     – Microsoft Learn, July 17, 2024.
+Navigation

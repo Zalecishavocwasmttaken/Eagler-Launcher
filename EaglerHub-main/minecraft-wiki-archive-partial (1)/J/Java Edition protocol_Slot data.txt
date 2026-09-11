@@ -1,0 +1,2984 @@
+The Slot data structure defines how an item is represented when inside an inventory window of any kind, such as a chest or furnace.
+This page presents the new Slot data structure, using structured components. You can find the documentation of the old structure, that utilizes raw NBT data, here.
+
+Contents
+
+1 Format
+2 Hashed format
+3 Structured components
+4 Other types
+
+4.1 Block Predicate
+
+4.1.1 Property
+4.1.2 Exact Data Component Matcher
+4.1.3 Partial Data Component Matcher
+
+4.2 Dye Color
+4.3 Firework Explosion
+4.4 Potion Effect
+4.5 Trim Material
+4.6 Trim Pattern
+4.7 Consume Effect
+4.8 Instrument
+4.9 Jukebox Song
+4.10 Banner Pattern
+
+Format
+
+Name
+
+Type
+
+Meaning
+
+Item Count
+
+VarInt
+
+The item count. Every following field is only present if this value is greater than zero.
+
+Item ID
+
+Optional VarInt
+
+ID in the minecraft:item registry. Item IDs are distinct from block IDs; see Data Generators for more information.
+
+Number of components to add
+
+Optional VarInt
+
+Number of elements present in the first data component array
+
+Number of components to remove
+
+Optional VarInt
+
+Number of elements present in the second data component array. This serve as a way to remove the default component values that are present on some items.
+
+Components to add
+
+Component type
+
+Optional Array
+
+VarInt Enum
+
+ID in the minecraft:data_component_type registry, indicating the type of the component and the format of data to follow.
+
+Component data
+
+Varies
+
+The component-dependent data. See structured components for more detail.
+
+Components to remove
+
+Component type
+
+Optional Array
+
+VarInt Enum
+
+ID in the minecraft:data_component_type registry, indicating the type of the component.
+
+Hashed format
+Similar to the usual slot format, but with the notable difference that data component values are encoded as CRC32C (note: CRC32C is not the same thing as CRC32) checksums. The way the checksum is generated is currently undocumented. It's currently only used in the click container packet.
+
+Name
+
+Type
+
+Meaning
+
+Has Item
+
+Boolean
+
+Every following field is only present if this value is true.
+
+Item ID
+
+Optional VarInt
+
+ID in the minecraft:item registry. Item IDs are distinct from block IDs; see Data Generators for more information.
+
+Item Count
+
+Optional VarInt
+
+The item count.
+
+Components to add
+
+Component type
+
+Optional Prefixed Array
+
+VarInt Enum
+
+ID in the minecraft:data_component_type registry, indicating the type of the component.
+
+Component data hash
+
+Int
+
+A CRC32C (note: CRC32C is not the same thing as CRC32) checksum of the component data. Currently undocumented.
+
+Components to remove
+
+Component type
+
+Optional Prefixed Array
+
+VarInt Enum
+
+ID in the minecraft:data_component_type registry, indicating the type of the component.
+
+Structured components
+The complete list of available components is described below.
+For a more in-depth description, and information on how the items below are encoded with the NBT format, see Data component format.
+
+Name
+
+Description
+
+Data
+
+minecraft:custom_data
+
+Customizable data that doesn't fit any specific component.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Data
+
+NBT
+
+Always a Compound Tag.
+
+minecraft:max_stack_size
+
+Maximum stack size for the item.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Max Stack Size
+
+VarInt
+
+Ranges from 1 to 99.
+
+minecraft:max_damage
+
+The maximum damage the item can take before breaking.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Max Damage
+
+VarInt
+
+minecraft:damage
+
+The current damage of the item.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Damage
+
+VarInt
+
+minecraft:unbreakable
+
+Marks the item as unbreakable.
+
+no fields
+
+minecraft:custom_name
+
+Item's custom name.Normally shown in italic, and changeable at an anvil.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Name
+
+Text Component
+
+minecraft:item_name
+
+Override for the item's default name.Shown when the item has no custom name.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Name
+
+Text Component
+
+minecraft:item_model
+
+Item's model.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Model
+
+Identifier
+
+minecraft:lore
+
+Item's lore.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Lines
+
+Prefixed Array of Text Component
+
+minecraft:rarity
+
+Item's rarity.This affects the default color of the item's name.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Rarity
+
+VarInt Enum
+
+Can be one of the following:
+0 - Common (white)
+1 - Uncommon (yellow)
+2 - Rare (aqua)
+3 - Epic (pink)
+
+minecraft:enchantments
+
+The enchantments of the item.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Enchantment
+
+Type ID
+
+Prefixed Array
+
+VarInt Enum
+
+The ID of the enchantment in the minecraft:enchantment registry.
+
+Level
+
+VarInt
+
+The level of the enchantment.
+
+minecraft:can_place_on
+
+List of blocks this block can be placed on when in adventure mode.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Block Predicates
+
+Prefixed Array of Block Predicate
+
+See Block Predicate.
+
+minecraft:can_break
+
+List of blocks this item can break when in adventure mode.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Block Predicates
+
+Prefixed Array of Block Predicate
+
+See Block Predicate.
+
+minecraft:attribute_modifiers
+
+The attribute modifiers of the item.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Attribute Modifier
+
+Attribute ID
+
+Prefixed Array
+
+VarInt
+
+The attribute to be modified (ID in the minecraft:attribute registry).
+
+Modifier ID
+
+Identifier
+
+The modifier's unique ID.
+
+Value
+
+Double
+
+The modifier's value.
+
+Operation
+
+VarInt Enum
+
+The operation to be applied upon the value. Can be one of the following:
+0 - Add
+1 - Multiply base
+2 - Multiply total
+
+Slot
+
+VarInt Enum
+
+The item slot placement required for the modifier to have effect.Can be one of the following:
+0 - Any
+1 - Main hand
+2 - Off hand
+3 - Hand
+4 - Feet
+5 - Legs
+6 - Chest
+7 - Head
+8 - Armor
+9 - Body
+
+minecraft:custom_model_data
+
+Value for the item predicate when using custom item models.More info can be found here.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Floats
+
+Prefixed Array of Float
+
+Flags
+
+Prefixed Array of Boolean
+
+Strings
+
+Prefixed Array of String
+
+Colors
+
+Prefixed Array of Int
+
+minecraft:tooltip_display
+
+Allows you to hide all or parts of the item tooltip.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Hide tooltip
+
+Boolean
+
+Whether to hide the tooltip entirely.
+
+Hidden components
+
+Prefixed Array of VarInt Enum
+
+The IDs of data components in the minecraft:data_component_type registry to hide.
+
+minecraft:repair_cost
+
+Accumulated anvil usage cost. The client displays "Too Expensive" if the value is greater than 40 and the player is not in creative mode (more specifically, if they don't have the insta-build flag enabled).This behavior can be overridden by setting the level with the Set Container Property packet.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Cost
+
+VarInt
+
+minecraft:creative_slot_lock
+
+Marks the item as non-interactive on the creative inventory (the first 5 rows of items).This is used internally by the client on the paper icon in the saved hot-bars tab.
+
+no fields
+
+minecraft:enchantment_glint_override
+
+Overrides the item glint resulted from enchantments
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Has Glint
+
+Boolean
+
+minecraft:intangible_projectile
+
+Marks the projectile as intangible (cannot be picked-up).
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Empty
+
+NBT
+
+Always an empty Compound Tag.
+
+minecraft:food
+
+Makes the item restore the player's hunger bar when consumed.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Nutrition
+
+VarInt
+
+Non-negative
+
+Saturation Modifier
+
+Float
+
+How much saturation will be given after consuming the item.
+
+Can Always Eat
+
+Boolean
+
+Whether the item can always be eaten, even at full hunger.
+
+minecraft:consumable
+
+Makes the item consumable.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Consume seconds
+
+Float
+
+How long it takes to consume the item.
+
+Animation
+
+VarInt Enum
+
+0: none, 1: eat, 2: drink, 3: block, 4: bow, 5: spear, 6: crossbow, 7: spyglass, 8: toot_horn, 9: brush
+
+Sound
+
+ID or Sound Event
+
+ID in the minecraft:sound_event registry, or an inline definition.
+
+Has consume particles
+
+Boolean
+
+Effects
+
+Prefixed Array of Consume Effect
+
+Effects to apply on consumption. See Consume Effect.
+
+minecraft:use_remainder
+
+This specifies the item produced after using the current item. In the Notchian server, this is used for stews, which turn into bowls.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Remainder
+
+Slot
+
+minecraft:use_cooldown
+
+Cooldown to apply on use of the item.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Seconds
+
+Float
+
+Cooldown group
+
+Prefixed Optional Identifier
+
+Group of items to apply the cooldown to. If absent defaults to the item's identifier.
+
+minecraft:use_effects
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Can Sprint
+
+Boolean
+
+Interact Vibrations
+
+Boolean
+
+Speed Multiplier
+
+Float
+
+minecraft:minimum_attack_charge
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Minimum Attack Change
+
+Float
+
+minecraft:damage_type
+
+Type of damage dealt by the item in melee.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Damage Type
+
+VarInt
+
+ID in the minecraft:damage_type
+
+minecraft:damage_resistant
+
+Marks this item as damage resistant.The client won't render the item as being on-fire if this component is present.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Types
+
+ID Set
+
+Damage types the item is immune to.
+
+minecraft:attack_range
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Min Reach
+
+Float
+
+Max Reach
+
+Float
+
+Min Creative Reach
+
+Float
+
+Max Creative Reach
+
+Float
+
+Hitbox Margin
+
+Float
+
+Mob Factor
+
+Float
+
+minecraft:tool
+
+Alters the speed at which this item breaks certain blocks
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Rule
+
+Blocks
+
+Prefixed Array
+
+ID Set
+
+The blocks this rule applies to (IDs in the minecraft:block registry).
+
+Speed
+
+Prefixed Optional Float
+
+The speed at which the tool breaks this rules' blocks.
+
+Correct Drop For Blocks
+
+Prefixed Optional Boolean
+
+Whether items should drop only if this is the correct tool.
+
+Default Mining Speed
+
+Float
+
+The mining speed in case none of the previous rule were matched.
+
+Damage Per Block
+
+VarInt
+
+The amount of damage the item takes per block break.
+
+Can Destroy Blocks In Creative
+
+Boolean
+
+If false, this tool prevents the player from breaking blocks in creative mode.
+
+minecraft:weapon
+
+Item treated as a weapon
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Damage Per Attack
+
+VarInt
+
+Disable Blocking For
+
+Float
+
+In Seconds
+
+minecraft:enchantable
+
+Allows the item to be enchanted by an enchanting table.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Value
+
+VarInt
+
+Opaque internal value controlling how expensive enchantments may be offered.
+
+minecraft:equippable
+
+Allows the item to be equipped by the player.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Slot
+
+VarInt Enum
+
+0: mainhand, 1: feet, 2: legs, 3: chest, 4: head, 5: offhand, 6: body
+
+Equip sound
+
+ID or Sound Event
+
+ID in the minecraft:sound_event registry, or an inline definition.
+
+Model
+
+Prefixed Optional Identifier
+
+Camera overlay
+
+Prefixed Optional Identifier
+
+Allowed entities
+
+Prefixed Optional ID Set
+
+IDs in the minecraft:entity_type registry.
+
+Dispensable
+
+Boolean
+
+Swappable
+
+Boolean
+
+Damage on hurt
+
+Boolean
+
+Can be sheared
+
+Boolean
+
+Shearing sound
+
+ID or SoundEvent
+
+ID in the minecraft:sound_event registry, or an inline definition.
+
+minecraft:repairable
+
+Items that can be combined with this item in an anvil to repair it.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Items
+
+ID Set
+
+IDs in the minecraft:item registry.
+
+minecraft:glider
+
+Makes the item function like elytra.
+
+no fields
+
+minecraft:tooltip_style
+
+Custom textures for the item tooltip.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Style
+
+Identifier
+
+minecraft:death_protection
+
+Makes the item function like a totem of undying.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Effects
+
+Prefixed Array of Consume Effect
+
+Effects to apply on consumption. See Consume Effect.
+
+minecraft:blocks_attacks
+
+Makes the item act like a shield.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Block delay seconds
+
+Float
+
+Disable cooldown scale
+
+Float
+
+Damage reductions
+
+Horizontal blocking angle
+
+Prefixed Array
+
+Float
+
+Type
+
+Prefixed Optional ID Set
+
+IDs in the minecraft:damage_type registry.
+
+Base
+
+Float
+
+Factor
+
+Float
+
+Item damage threshold
+
+Float
+
+Item damage base
+
+Float
+
+Item damage factor
+
+Float
+
+Bypassed by
+
+Prefixed Optional ID Set
+
+IDs in the minecraft:damage_type registry.
+
+Block sound
+
+Prefixed Optional ID Or Sound Event
+
+Disable sound
+
+Prefixed Optional ID Or Sound Event
+
+minecraft:stored_enchantments
+
+The enchantments stored in this enchanted book.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Enchantment
+
+Type ID
+
+Prefixed Array
+
+VarInt Enum
+
+The ID of the enchantment in the minecraft:enchantment registry.
+
+Level
+
+VarInt
+
+The level of the enchantment.
+
+minecraft:dyed_color
+
+Color of dyed leather armor.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Color
+
+Int
+
+The RGB components of the color, encoded as an integer.
+
+minecraft:map_color
+
+Color of the markings on the map item model.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Color
+
+Int
+
+The RGB components of the color, encoded as an integer.
+
+minecraft:map_id
+
+The ID of the map.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+ID
+
+VarInt
+
+minecraft:map_decorations
+
+Icons present on a map.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Data
+
+NBT
+
+Always a Compound Tag.
+
+minecraft:map_post_processing
+
+Used internally by the client when expanding or locking a map. Display extra information on the item's tooltip when the component is present.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Type
+
+VarInt Enum
+
+Type of post processing. Can be either:
+0 - Lock
+1 - Scale
+
+minecraft:charged_projectiles
+
+Projectiles loaded into a charged crossbow.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Projectiles
+
+Prefixed Array of Slot
+
+The projectiles.
+
+minecraft:bundle_contents
+
+Contents of a bundle.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Items
+
+Prefixed Array of Slot
+
+The contained items.
+
+minecraft:potion_contents
+
+Visual and effects of a potion item.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Potion ID
+
+Prefixed Optional VarInt
+
+The ID of the potion type in the minecraft:potion registry. If present, the potion has the default effects associated with the potion type.
+
+Custom Color
+
+Prefixed Optional Int
+
+The RGB components of the color, encoded as an integer. If absent, it uses the default color associated with the potion type.
+
+Custom Effects
+
+Prefixed Array of Potion Effect
+
+Any custom effects the potion might have. See Potion Effect.
+
+Custom Name
+
+Prefixed Optional String
+
+minecraft:potion_duration_scale
+
+A duration multiplier for items that also have the minecraft:potion_contents component.
+
+As follows:
+
+Name
+
+Type
+
+Effect Multiplier
+
+Float
+
+minecraft:suspicious_stew_effects
+
+Effects granted by a suspicious stew.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Effect
+
+Type ID
+
+Prefixed Array
+
+VarInt Enum
+
+The ID of the effect in the minecraft:mob_effect registry.
+
+Duration
+
+VarInt
+
+The duration of the effect.
+
+minecraft:writable_book_content
+
+Content of a writable book.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Page
+
+Raw Content
+
+Prefixed Array (100)
+
+String (1024)
+
+The raw text of the page.
+
+Filtered Content
+
+Prefixed Optional String (1024)
+
+The content after passing through chat filters.
+
+minecraft:written_book_content
+
+Content of a written and signed book.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Raw Title
+
+String (32)
+
+The raw title of the book.
+
+Filtered Title
+
+Prefixed Optional String (32)
+
+The title after going through chat filters.
+
+Author
+
+String
+
+Generation
+
+VarInt
+
+Page
+
+Raw Content
+
+Prefixed Array (100)
+
+TextComponent (1024)
+
+The raw text of the page.
+
+Filtered Content
+
+Prefixed Optional Text Component (1024)
+
+The content after passing through chat filters.
+
+Resolved
+
+Boolean
+
+Whether entity selectors have already been resolved.
+
+minecraft:trim
+
+Armor's trim pattern and color
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Trim Material
+
+ID or Trim Material
+
+ID in the minecraft:trim_material registry, or an inline definition.
+
+Trim Pattern
+
+ID or Trim Pattern
+
+ID in the minecraft:trim_pattern registry, or an inline definition.
+
+minecraft:debug_stick_state
+
+State of the debug stick
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Data
+
+NBT
+
+States of previously interacted blocks. Always a Compound Tag.
+
+minecraft:entity_data
+
+Data for the entity to be created from this item.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Entity Type
+
+VarInt
+
+ID in the minecraft:entity_type registry.
+
+Data
+
+NBT
+
+Always a Compound Tag.
+
+minecraft:bucket_entity_data
+
+Data of the entity contained in this bucket.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Data
+
+NBT
+
+Always a Compound Tag.
+
+minecraft:block_entity_data
+
+Data of the block entity to be created from this item.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Block Entity Type
+
+VarInt
+
+ID in the minecraft:block_entity_type registry.
+
+Data
+
+NBT
+
+Always a Compound Tag.
+
+minecraft:instrument
+
+The sound played when using a goat horn.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Instrument
+
+ID or Instrument
+
+ID in the minecraft:instrument registry, or an inline definition.
+
+minecraft:piercing_weapon
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Deals Knockback
+
+Boolean
+
+Dismounts
+
+Boolean
+
+Sound
+
+Optional Sound Event
+
+Hit Sound
+
+Optional Sound Event
+
+minecraft:kinetic_weapon
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Contact Cooldown Ticks
+
+VarInt
+
+Delay Ticks
+
+VarInt
+
+Dismount Conditions
+
+Optional Kinetic Weapon Conditions
+
+Knockback Conditions
+
+Optional Kinetic Weapon Conditions
+
+Damage Conditions
+
+Optional Kinetic Weapon Conditions
+
+Forward Movement
+
+Float
+
+Damage Multiplier
+
+Float
+
+Sound
+
+Optional Sound Event
+
+Hit Sound
+
+Optional Sound Event
+
+minecraft:swing_animation
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Type
+
+VarInt Enum
+
+0: none, 1: whack, 2: stab
+
+Duration
+
+VarInt
+
+minecraft:additional_trade_cost
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Additional Trade Cost
+
+VarInt
+
+minecraft:dye
+
+Makes the item act like a dye in some contexts.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Color
+
+Dye Color
+
+minecraft:provides_trim_material
+
+Used to make an item into a valid armor trim material.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Material
+
+ID or Trim Material
+
+An ID in the minecraft:trim_material registry or a direct trim material definition.
+
+minecraft:ominous_bottle_amplifier
+
+Amplifier for the effect of an ominous bottle.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Amplifier
+
+VarInt
+
+Between 0 and 4.
+
+minecraft:jukebox_playable
+
+The song this item will play when inserted into a jukebox.
+
+
+The Notchian client assumes that the server will always represent the jukebox song either by name, or reference an entry on its respective registry. Trying to directly specify a jukebox song (when Jukebox Song Type is 0) will cause the client to fail to parse it and subsequently disconnect, which is likely an unintended bug.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Jukebox Song
+
+ID or Jukebox Song
+
+ID in the minecraft:jukebox_song registry or a direct jukebox song.
+
+minecraft:provides_banner_patterns
+
+Used to make an item into a valid banner pattern material.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Key
+
+ID Set
+
+IDs in the minecraft:banner_pattern registry.
+
+minecraft:recipes
+
+The recipes this knowledge book unlocks.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Data
+
+NBT
+
+Always a Compound Tag.
+
+minecraft:lodestone_tracker
+
+The lodestone this compass points to.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Has Global Position
+
+Boolean
+
+Whether this lodestone points to a position, otherwise it spins randomly.
+
+Dimension
+
+Identifier
+
+The dimension the compass points to. Only present if Has Global Position is true.
+
+Position
+
+Position
+
+The position the compass points to. Only present if Has Global Position is true.
+
+Tracked
+
+Boolean
+
+Whether the component is removed when the associated lodestone is broken.
+
+minecraft:firework_explosion
+
+Properties of a firework star.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Explosion
+
+Firework Explosion
+
+See Firework Explosion.
+
+minecraft:fireworks
+
+Properties of a firework.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Flight Duration
+
+VarInt
+
+Explosions
+
+Prefixed Array of Firework Explosion
+
+See Firework Explosion.
+
+minecraft:profile
+
+Game Profile of a player's head.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Profile
+
+Resolvable Profile
+
+minecraft:note_block_sound
+
+Sound played by a note block when this player's head is placed on top of it.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Sound
+
+Identifier
+
+minecraft:banner_patterns
+
+Patterns of a banner or banner applied to a shield.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Layer
+
+Pattern Type
+
+Prefixed Array
+
+ID or Banner Pattern
+
+An ID in the minecraft:banner_pattern registry, or an inline definition.
+
+Color
+
+Dye Color
+
+See Dye Color.
+
+minecraft:base_color
+
+Base color of the banner applied to a shield.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Color
+
+Dye Color
+
+See Dye Color.
+
+minecraft:pot_decorations
+
+Decorations on the four sides of a pot.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Decorations
+
+Prefixed Array (4) of VarInt Enum
+
+The ID of the items in the minecraft:item registry.
+
+minecraft:container
+
+Items inside a container of any type.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Items
+
+Prefixed Array (256) of Slot
+
+minecraft:block_state
+
+State of a block.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Property
+
+Name
+
+Prefixed Array
+
+String
+
+Value
+
+String
+
+minecraft:bees
+
+Bees inside a hive.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Bee
+
+Entity Type
+
+Prefixed Array
+
+VarInt
+
+ID in the minecraft:entity_type registry.
+
+Entity Data
+
+NBT
+
+Custom data for the entity, always a Compound Tag. Same structure as the minecraft:custom_data component.
+
+Ticks In Hive
+
+VarInt
+
+Min Ticks In Hive
+
+VarInt
+
+minecraft:lock
+
+Name of the necessary key to open this container.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Key
+
+NBT
+
+Always a String Tag.
+
+minecraft:container_loot
+
+Loot table for an unopened container.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Data
+
+NBT
+
+Always a Compound Tag.
+
+minecraft:break_sound
+
+Changes the sound that plays when the item breaks.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Sound Event
+
+ID or Sound Event
+
+ID in the minecraft:sound_event registry, or an inline definition.
+
+minecraft:sulfur_cube_content
+
+The item contained in a sulfur cube.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Content
+
+Slot
+
+minecraft:villager/variant
+
+The biome variant of a villager.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Variant
+
+VarInt Enum
+
+An ID in the minecraft:villager_type registry.
+
+minecraft:wolf/variant
+
+The variant of a wolf.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Variant
+
+VarInt Enum
+
+An ID in the minecraft:wolf_variant registry.
+
+minecraft:wolf/sound_variant
+
+The type of sounds that a wolf makes.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Variant
+
+VarInt Enum
+
+An ID in the minecraft:wolf_sound_variant registry.
+
+minecraft:wolf/collar
+
+The dye color of the wolf's collar.
+
+As follows:
+
+Name
+
+Type
+
+Color
+
+Dye Color
+
+minecraft:fox/variant
+
+The variant of a fox.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Variant
+
+VarInt Enum
+
+0: red, 1: snow.
+
+minecraft:salmon/size
+
+The size of a salmon.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Type
+
+VarInt Enum
+
+0: small, 1: medium, 2: large.
+
+minecraft:parrot/variant
+
+The variant of a parrot.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Variant
+
+VarInt Enum
+
+0: red_blue, 1: blue, 2: green, 3: yellow_blue, 4: gray
+
+minecraft:tropical_fish/pattern
+
+The pattern of a tropical fish.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Pattern
+
+VarInt Enum
+
+0: kob, 1: sunstreak, 2: snooper, 3: dasher, 4: brinely, 5: spotty, 6: flopper, 7: stripey, 8: glitter, 9: blockfish, 10: betty, 11: clayfish.
+
+minecraft:tropical_fish/base_color
+
+The base color of a tropical fish.
+
+As follows:
+
+Name
+
+Type
+
+Color
+
+Dye Color
+
+minecraft:tropical_fish/pattern_color
+
+The pattern color of a tropical fish.
+
+As follows:
+
+Name
+
+Type
+
+Color
+
+Dye Color
+
+minecraft:mooshroom/variant
+
+The variant of a mooshroom.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Variant
+
+VarInt Enum
+
+0: red, 1: brown.
+
+minecraft:rabbit/variant
+
+The variant of a rabbit.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Variant
+
+VarInt Enum
+
+0: brown, 1: white, 2: black, 3: white splotched, 4: gold, 5: salt, 6: evil.
+
+minecraft:pig/variant
+
+The variant of a pig.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Variant
+
+VarInt Enum
+
+An ID in the minecraft:pig_variant registry.
+
+minecraft:pig/sound_variant
+
+The type of sounds that a pig makes.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Variant
+
+VarInt
+
+An ID in the minecraft:pig_sound_variant registry.
+
+minecraft:cow/variant
+
+The variant of a cow.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Variant
+
+VarInt Enum
+
+An ID in the minecraft:cow_variant registry.
+
+minecraft:cow/sound_variant
+
+The type of sounds that a cow makes.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Variant
+
+VarInt
+
+An ID in the minecraft:cow_sound_variant registry.
+
+minecraft:chicken/variant
+
+The variant of a chicken.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Variant
+
+VarInt
+
+An ID in the minecraft:chicken_variant registry.
+
+minecraft:chicken/sound_variant
+
+The type of sounds that a chicken makes.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Variant
+
+VarInt
+
+An ID in the minecraft:chicken_sound_variant registry.
+
+minecraft:frog/variant
+
+The variant of a frog.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Variant
+
+VarInt Enum
+
+An ID in the minecraft:frog_variant registry.
+
+minecraft:horse/variant
+
+The variant of a horse.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Variant
+
+VarInt Enum
+
+0: white, 1: creamy, 2: chestnut, 3: brown, 4: black, 5: gray, 6: dark brown.
+
+minecraft:painting/variant
+
+The variant of a painting.
+
+As follows:
+
+Name
+
+Type
+
+Variant
+
+Painting Variant
+
+minecraft:llama/variant
+
+The variant of a llama.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Variant
+
+VarInt Enum
+
+0: creamy, 1: white, 2: brown, 3: gray.
+
+minecraft:axolotl/variant
+
+The variant of an axolotl.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Variant
+
+VarInt Enum
+
+0: lucy, 1: wild, 2: gold, 3: cyan, 4: blue.
+
+minecraft:zombie_nautilus/variant
+
+The variant of a zombie nautilus.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Variant
+
+VarInt
+
+An ID in the minecraft:zombie_nautilus_variant registry.
+
+minecraft:cat/variant
+
+The variant of a cat.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Variant
+
+VarInt Enum
+
+An ID in the minecraft:cat_variant registry.
+
+minecraft:cat/sound_variant
+
+The type of sounds that a cat makes.
+
+As follows:
+
+Name
+
+Type
+
+Description
+
+Variant
+
+VarInt
+
+An ID in the minecraft:cat_sound_variant registry.
+
+minecraft:cat/collar
+
+The dye color of the cat's collar.
+
+As follows:
+
+Name
+
+Type
+
+Color
+
+Dye Color
+
+minecraft:sheep/color
+
+The color of a sheep.
+
+As follows:
+
+Name
+
+Type
+
+Color
+
+Dye Color
+
+minecraft:shulker/color
+
+The color of a shulker.
+
+As follows:
+
+Name
+
+Type
+
+Color
+
+Dye Color
+
+Other types
+Common types used in multiple components are described below.
+
+Block Predicate
+Describes a predicate used when block filtering is necessary. It can be parameterized to account for any combination of the type of block, the values of specific block state properties, or block entities' NBT data or data components.
+
+Name
+
+Type
+
+Description
+
+Blocks
+
+Prefixed Optional ID Set
+
+IDs in the minecraft:block registry. Present only when tied to specific types of blocks.
+
+Properties
+
+Prefixed Optional Prefixed Array of Property
+
+See Property structure below. Present only when tied to specific properties of blocks.
+
+NBT
+
+Prefixed Optional NBT
+
+Data Components
+
+Prefixed Array of Exact Data Component Matcher
+
+A list of data components which must exactly match the target block.
+
+Partial Data Component Predicates
+
+Prefixed Array of Partial Data Component Matcher
+
+A list of predicates to match the block's data components. Max length = 64.
+
+Property
+
+Name
+
+Type
+
+Description
+
+Name
+
+String
+
+Name of the block state property.
+
+Is Exact Match
+
+Boolean
+
+Whether this is an exact value match, as opposed to ranged.
+
+Exact Value
+
+Optional String
+
+Value of the block state property. Only present in exact match mode.
+
+Min Value
+
+Optional String
+
+Minimum value of the block state property range. Only present in ranged match mode.
+
+Max Value
+
+Optional String
+
+Maximum value of the block state property range. Only present in ranged match mode.
+
+Exact Data Component Matcher
+
+Name
+
+Type
+
+Description
+
+Type
+
+VarInt Enum
+
+ID of the data component as listed in the table of data component types above.
+
+Value
+
+Structured Component
+
+Value of the data component.
+
+Partial Data Component Matcher
+
+Name
+
+Type
+
+Description
+
+Type
+
+VarInt Enum
+
+Type of predicate. 0: damage, 1: enchantments, 2: stored_enchantments, 3: potion_contents, 4: custom_data, 5: container, 6: bundle_contents, 7: firework_explosion, 8: fireworks, 9: writable_book_content, 10: written_book_content, 11: attribute_modifiers, 12: trim, 13: jukebox_playable.
+
+Predicate
+
+NBT Compound
+
+Data component predicate encoded as an NBT compound tag.
+
+Dye Color
+A color from one of the 16 dye types.
+
+Name
+
+Type
+
+Description
+
+Color
+
+VarInt Enum
+
+Can be one of the following:
+0 - White
+1 - Orange
+2 - Magenta
+3 - Light Blue
+4 - Yellow
+5 - Lime
+6 - Pink
+7 - Gray
+8 - Light Gray
+9 - Cyan
+10 - Purple
+11 - Blue
+12 - Brown
+13 - Green
+14 - Red
+15 - Black
+
+Firework Explosion
+Represents a firework explosion, consisting of a shape, colors, and extra details.
+
+Name
+
+Type
+
+Description
+
+Shape
+
+VarInt Enum
+
+Can be one of the following:
+0 - Small ball
+1 - Large ball
+2 - Star
+3 - Creeper
+4 - Burst
+
+Colors
+
+Prefixed Array of Int
+
+The RGB components of the color, encoded as an integer.
+
+Fade Colors
+
+Prefixed Array of Int
+
+The RGB components of the color, encoded as an integer.
+
+Has Trail
+
+Boolean
+
+Has Twinkle
+
+Boolean
+
+Potion Effect
+Describes all the aspects of a potion effect.
+
+Name
+
+Type
+
+Description
+
+Type ID
+
+VarInt Enum
+
+The ID of the effect in the minecraft:mob_effect registry.
+
+Details
+
+Detail
+
+See Detail structure below.
+
+The Detail structure is defined as follows:
+
+Name
+
+Type
+
+Description
+
+Amplifier
+
+VarInt
+
+Duration
+
+VarInt
+
+-1 for infinite.
+
+Ambient
+
+Boolean
+
+Produces more translucent particle effects if true.
+
+Show Particles
+
+Boolean
+
+Completely hides effect particles if false.
+
+Show Icon
+
+Boolean
+
+Shows the potion icon in the inventory screen if true.
+
+Hidden Effect
+
+Prefixed Optional Detail
+
+Used to store the state of the previous potion effect when a stronger one is applied. This guarantees that the weaker one will persist, in case it lasts longer.
+
+
+
+This section is missing information about: This behavior seems to be entirely server-sided. Does the presence of this field actually has any noticeable impact on the client? 
+Please expand the section to include this information. Further details may exist on the talk page.
+
+Trim Material
+See also: Minecraft Wiki:Projects/wiki.vg merge/Registry Data § Armor Trim Material
+
+Name
+
+Type
+
+Description
+
+Suffix
+
+String
+
+Overrides
+
+Armor Material Type
+
+Prefixed Array
+
+Identifier
+
+Overriden Asset Name
+
+String
+
+Description
+
+Text Component
+
+Trim Pattern
+See also: Minecraft Wiki:Projects/wiki.vg merge/Registry Data § Armor Trim Pattern
+
+Name
+
+Type
+
+Description
+
+Asset Name
+
+String
+
+Template Item
+
+VarInt
+
+Description
+
+Text Component
+
+Decal
+
+Boolean
+
+Consume Effect
+
+Name
+
+Type
+
+Description
+
+Type
+
+VarInt
+
+The ID of the effect in the minecraft:consume_effect_type registry.
+
+Data
+
+Varies
+
+See below
+
+Type
+
+Name
+
+Data
+
+0
+
+minecraft:apply_effects
+
+Name
+
+Type
+
+Description
+
+Effects
+
+Prefixed Array of Potion Effect
+
+Probability
+
+Float
+
+1
+
+minecraft:remove_effects
+
+Name
+
+Type
+
+Description
+
+Effects
+
+ID Set
+
+2
+
+minecraft:clear_all_effects
+
+no fields
+
+3
+
+minecraft:teleport_randomly
+
+Name
+
+Type
+
+Description
+
+Diameter
+
+Float
+
+4
+
+minecraft:play_sound
+
+Name
+
+Type
+
+Description
+
+Sound
+
+Sound Event
+
+Instrument
+
+Name
+
+Type
+
+Description
+
+Sound Event
+
+ID or Sound Event
+
+The sound to be played.
+
+Use Duration
+
+Float
+
+The time it takes to use the instrument.
+
+Range
+
+Float
+
+The sound range of the instrument.
+
+Description
+
+Text Component
+
+Description shown in the item tooltip.
+
+Jukebox Song
+
+Name
+
+Type
+
+Description
+
+Sound Event
+
+ID or Sound Event
+
+The sound to be played.
+
+Description
+
+Text Component
+
+The description shown in the item lore.
+
+Duration
+
+Float
+
+The duration the songs should play for, in seconds.
+
+Output
+
+VarInt
+
+The output strength given by a comparator. Between 0 and 15.
+
+Banner Pattern
+
+Name
+
+Type
+
+Description
+
+Asset ID
+
+Identifier
+
+Identifier of the asset.
+
+Translation Key
+
+String
+
+
+
+This article is licensed under a Creative Commons Attribution-ShareAlike 3.0 license. 
+This article has been imported from wiki.vg or is a derivative of such a page. Thus, the wiki's usual license does not apply.Derivative works must be licensed using the same or a compatible license.

@@ -1,0 +1,254 @@
+This article is about the unused mob.   For regular zombies, see Zombie.   For the command that can resize any entity, see Commands/attribute.
+
+
+
+This feature is exclusive to Java Edition and Legacy Console Edition. 
+
+Giant
+
+Health points
+
+100HP × 50
+
+Mob type
+
+Monster
+
+Attackstrength
+
+Easy: 26HP × 13Normal: 50HP × 25Hard: 75HP × 37.5
+
+Hitbox size
+
+Height: 12 blocksWidth: 3.6 blocks
+
+Spawn
+
+By commands
+
+{
+    "title": "Giant",
+    "rows": [
+        {
+            "field": "100<span class=\"hidden-alt-text\">HP</span><span class=\"nowrap mc-hearts\"><span class=\"iconbar pixel-image nowrap\" style=\"--icon-offset:-1px;\" title=\"1  heart\">(link to File:Heart (icon).png article, displayed as 9px|link=|alt=❤️)</span> × 50</span>",
+            "label": "(link to Health article, displayed as Health points)"
+        },
+        {
+            "field": "<span class=\"nowrap\"><span class=\"sprite-file\" style=\"\">(link to File:EntitySprite monster.png article, displayed as 16x16px|link=Monster|alt=|class=pixel-image|)</span>(link to Monster article, displayed as <span class=\"sprite-text\">Monster</span>)</span>",
+            "label": "(link to Mob type article, displayed as Mob type)"
+        },
+        {
+            "field": "Easy: 26<span class=\"hidden-alt-text\">HP</span><span class=\"nowrap mc-hearts\"><span class=\"iconbar pixel-image nowrap\" style=\"--icon-offset:-1px;\" title=\"1  heart\">(link to File:Heart (icon).png article, displayed as 9px|link=|alt=❤️)</span> × 13</span><br>Normal: 50<span class=\"hidden-alt-text\">HP</span><span class=\"nowrap mc-hearts\"><span class=\"iconbar pixel-image nowrap\" style=\"--icon-offset:-1px;\" title=\"1  heart\">(link to File:Heart (icon).png article, displayed as 9px|link=|alt=❤️)</span> × 25</span><br>Hard: 75<span class=\"hidden-alt-text\">HP</span><span class=\"nowrap mc-hearts\"><span class=\"iconbar pixel-image nowrap\" style=\"--icon-offset:-1px;\" title=\"1  heart\">(link to File:Heart (icon).png article, displayed as 9px|link=|alt=❤️)</span> × 37.5</span>",
+            "label": "Attack<br/>strength"
+        },
+        {
+            "field": "Height: 12 blocks<br>Width: 3.6 blocks",
+            "label": "(link to Hitbox article, displayed as Hitbox size)"
+        },
+        {
+            "field": "By commands",
+            "label": "(link to Mob spawning article, displayed as Spawn)"
+        }
+    ],
+    "invimages": [],
+    "images": [
+        "Giant.png"
+    ]
+}
+
+A giant is an unused over-sized monster mob in Java and Legacy Console editions that resembles a zombie.
+
+Contents
+
+1 Drops
+2 Spawning
+
+2.1 Commands
+
+3 Behavior
+4 Sounds
+5 Data values
+
+5.1 ID
+5.2 Entity data
+
+6 Advancements
+7 History
+
+7.1 Java Edition
+7.2 Legacy Console Edition
+7.3 Data history
+
+8 Issues
+9 Trivia
+10 Gallery
+
+10.1 Screenshots
+10.2 Mojang screenshots
+10.3 Textures
+10.4 In other media
+
+11 Navigation
+
+Drops
+A giant drops 5XP experience points when killed and has a chance of dropping some of its equipment if it has any.
+
+Spawning
+No biome includes giants on their spawn lists, so they can never spawn naturally. Giants also have no spawn egg.
+
+Commands
+Giants can be spawned using commands such as /summon minecraft:giant.
+
+Behavior
+Giants are close to 12 blocks tall, and they use a six-times-enlarged zombie model. Giants are not undead mobs.
+Because giants are not actually undead, they do not burn in sunlight and they are damaged by potions of Harming and healed by potions of Healing, are attacked by the wither, immune to Smite, affected by Regeneration and Poison, and do not scare armadillos. Iron golems and snow golems attack giants as they attack other monster mobs. Giants do not convert into drowned when submerged in water; instead, they slowly suffocate and die.
+Giants currently have no AI. The consequence of this is that they always face south when summoned, and they always stay that way, never wandering. They cannot turn their head, chase the player, or respond to damage. A giant's viewing direction can be changed only with commands or by shoving it into a minecart that faces a different direction.
+Giants can move if ridden by another mob using NBT tags.
+
+Sounds
+SoundsSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitchAttenuationdistance​DyingHostile MobsWhen a giant diesentity.hostile.deathsubtitles.entity.generic.death​1.00.8–1.216​Something hurtsHostile MobsWhen a giant is damagedentity.hostile.hurtsubtitles.entity.generic.hurt​1.00.8–1.216
+Data values
+ID
+NameIdentifier
+Translation key Giantgiant
+entity.minecraft.giant
+Entity data
+See also: Entity format
+
+Giants have entity data associated with them that contain various properties.
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all mobs see Template:Nbt inherit/mob/template
+
+Advancements
+IconAdvancementIn-game descriptionActual requirements (if different)It SpreadsKill a mob near a Sculk CatalystKill any mob that drops experience near a sculk catalyst, with the sole exception of the ender dragon. Mobs that drop no experience are ignored for this advancement.
+Advancements that apply to all mobs:
+
+IconAdvancementIn-game descriptionActual requirements (if different)AdventureAdventure, exploration and combatKill any mob, or be killed by any living entity.A Throwaway JokeThrow a Trident at something.Note: Throwing away your only weapon is not a good idea.Hit a mob with a thrown trident.Take AimShoot something with an ArrowUsing a bow or a crossbow, shoot a mob with an arrow, tipped arrow, or spectral arrow.Mob KabobHit five mobs in the same Charge attack using the Spear.Armor Stand and Mannequin also count for this advancement.ArbalisticKill five unique mobs with one crossbow shotArmor Stand and Mannequin also count for this advancement.This is a hidden advancement, meaning that it can be viewed by the player only after completing it, regardless of if its child advancement(s), if any, have been completed.Over-OverkillDeal 50 hearts of damage in a single hit using the MaceDamage can be dealt to any mob, even those that do not have 50 hearts of health overall.
+
+History
+Java Edition
+Java Edition Indev0.3120100205-1558
+ Added giants.
+
+Giants act like any normal hostile mob – they walk toward the player until they are touching them. However, the giant is not able to "touch" anything unless standing on top of it, making it hard for them to do combat against opponents.Java Edition Infdev20100227-1414
+ Giants texture are now based on mobs instead of zombies.20100415
+The previous change has been reverted.Java Edition1.0.0RC1
+The hurt sounds that giants make have been changed since they were using the same sound that is used when the player is hurt. Any physical damage now plays a "tick" sound, and damage from falling now plays sounds like that sound like bones breaking, as in previous versions, whenever the giant was damaged, they would make a deep "Ooh!" sound.1.4.212w38a
+The hurt sounds for giants have been changed once again as a result of the player hurt sounds changing.1.7.213w36a
+Giants can now be spawned without mods by using the new /summon command.1.814w06a
+Armor on giants is now rendered. This originated from a bug in 14w05a, which caused all mobs to render worn armor. In repairing this bug, Grum has now allowed giants to render armor.
+
+Giants no longer use any AI.1.1418w43a
+ The texture of giants have been changed as a result of the zombie texture change.18w50a
+Giants now use zombie AI (For instance, they move and burn in the sunlight) and NBT data.
+
+Giants now have the zombie hurt sound effect.
+
+Giants now move twice as fast as zombies.
+
+Giants now attack and infect villagers.
+
+ Giants now also have a baby variant.
+
+ Giants now also have a chicken jockey variant.19w03a
+Reverted changes from 18w50a.
+Legacy Console Edition
+Legacy Console EditionXbox 360Xbox OnePS3PS4PS VitaWii USwitchTU1CU1    1.0.1
+ Added giants.
+
+Giants cannot be spawned without modifying the game.TU51.001.001.00Patch 1
+The hurt sounds that giants make have been changed since they were using the same sound that is used when the player is hurt. Any physical damage now plays a "tick" sound, and damage from falling now plays sounds like that sound like bones breaking, as in previous versions, whenever the giant was damaged, they would make a deep "Ooh!" sound.[verify]TU20??????
+Giants now use the arrow texture and have no AI.TU69 1.761.761.76Patch 38
+The hurt sounds for giants have been changed once again as a result of the player hurt sounds changing.[verify]
+Data history
+Java Edition1.1116w32a
+The entity ID of giants has been changed from Giant to giant.
+Issues
+Giants are an unsupported mob and as such issues relating to them may not be fixed.
+
+Trivia
+Changes made to the zombie model (for example, using a resource pack) change the giant's model as well.
+Notch removed the giants spawning capabilities because "they are too overpowered". He did not remove them entirely because "they are just too cool to remove".
+Players are unable to attack a giant's head and torso unless they are positioned near the bottom of the giant. Projectiles such as arrows can hit these areas as normal.
+Killing a giant cannot give the player the "Monster Hunter" advancement.
+In the April Fools' snapshot 24w14potato, giants were overhauled. They have AI and can spawn naturally (during the battle with mega spud boss). If spawned in the Potato dimension, giants have the skin of Mojang Studios developer Jay Wells.
+Gallery
+Screenshots
+
+
+
+			A giant next to a normal size zombie. Note how the zombie burns in daylight but the giant doesn't.
+
+
+
+			A giant "riding" a minecart in the older versions.
+
+
+
+			A giant in a cave.
+
+
+
+			Two giants summoned one of them wearing equipment.
+
+
+
+			A giant burning in a pool of lava.
+
+
+
+			A giant getting damaged by a splash potion of Harming.
+
+
+
+			A giant in the middle of a plains biome.
+
+
+
+			A giant monster spawner.
+
+
+
+			In 18w50a, a giant using the zombie AI.
+
+
+
+			In 18w50a, a giant chicken jockey
+
+
+
+			A giant that spawned with a chainmail helmet and an iron shovel spawned in 18w50a.
+
+
+
+			A giant from a player’s eye view.
+
+
+Mojang screenshots
+
+
+
+			A giant and an iron golem.
+
+
+Textures
+
+
+
+			Giant texture file similar to zombie.
+
+
+In other media
+
+
+
+			The poisonous potato giant from 24w14potato.
+
+
+
+			Potato giant texture file from 24w14potato.
+
+
+Navigation

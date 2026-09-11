@@ -1,0 +1,87 @@
+This feature is exclusive to Bedrock Edition and Minecraft Education. 
+
+/inputpermission
+
+Permission levelrequired
+
+1
+
+Restrictions
+
+Cheat only
+
+{
+    "title": "<code>/inputpermission</code>",
+    "rows": [
+        {
+            "field": "1",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "(link to Cheat article, displayed as Cheat) only<br>",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+Specify the operation for the player's input permission status, such as player movements, camera movements, and more.
+
+Contents
+
+1 Syntax
+2 Arguments
+3 Results
+4 Output
+5 History
+6 External links
+7 Navigation
+
+Syntax
+inputpermission query <targets: target> <permission: permission> [state: state]
+Queries the status of the specified privilege of the target.
+inputpermission set <targets: target> <permission: permission> <state: state>
+Modifies the status of the specified privilege of the target.
+Arguments
+targets: target: CommandSelector<Player>
+
+Specifies the owner of the permission.
+Must be a player name or a target selector.
+permission: permission: enum
+
+Specifies the authority for the operation.
+Must be one of the following:
+camera — Turn the camera view
+dismount — Dismount
+jump — Jump and fly upward
+lateral_movement — Move
+mount — Mount
+move_backward — Move backward
+move_forward — Move forward
+move_left — Move left
+move_right — Move right
+movement — Move, sneak, jump, and fly
+sneak — Sneak and fly downward
+state: state: enum
+
+The status of the specified permission.
+Must be forenabled (Enable) ordisabled (Disable).
+For... query ..., If not specified, all states are queried.
+Results
+
+CommandTriggerBedrock Edition
+
+Anythe arguments are not specified correctly UnparseableAnyOtherwiseAssigning operations to permission status
+Output
+
+CommandEditionSituationSuccess Count
+
+AnyBedrock EditionOn Fail0On Success1
+History
+Bedrock Edition1.19.80Preview 1.19.80.21
+Added /inputpermission.1.21.50Preview 1.21.50.20
+Now the permission: permission argument of /inputpermission command accepts more values.
+External links
+"/inputpermission Command"     – Microsoft Learn, October 9, 2024.
+Navigation

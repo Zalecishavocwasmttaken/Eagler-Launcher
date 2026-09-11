@@ -1,0 +1,178 @@
+Minecraft 1.21.6 Pre-Release 2
+
+Edition
+
+Java Edition
+
+Release date
+
+June 2, 2025
+
+Type
+
+Pre-release
+
+Pre-release for
+
+1.21.6
+
+Downloads
+
+Client (.json)Server
+
+Obfuscation maps
+
+ClientServer
+
+Protocol version
+
+ dec: 1073742077 hex: 400000FD
+
+Data version
+
+4431
+
+Resource pack format
+
+63
+
+Data pack format
+
+79
+
+Minimum Java version
+
+Java SE 21
+
+◄◄   1.21.5
+1.21.6
+  1.21.7 ►►
+
+◄   1.21.6 Pre-Release 1
+
+ 1.21.6 Pre-Release 2
+
+  1.21.6 Pre-Release 3 ►
+
+{
+    "title": "Minecraft 1.21.6 Pre-Release 2",
+    "images": [
+        "1.21.6-pre2.jpg",
+        "Java Edition 1.21.6 Pre-Release 2.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "June 2, 2025",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Pre-release article, displayed as Pre-release)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition 1.21.6 article, displayed as 1.21.6)",
+            "label": "Pre-release for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/a3fe9f32cd255d468bbf8475b4a91361d69444e2/client.jar Client] ([https://piston-meta.mojang.com/v1/packages/29d6da78733e82db83301bca3da76e8622b91c68/1.21.6-pre2.json .json])<br />[https://piston-data.mojang.com/v1/objects/67fcbd0cf180f7223fa52c58e5c6a7ac05145686/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/cea0929607c4dc6b1df8a72e56215df24db66feb/client.txt Client]<br />[https://piston-data.mojang.com/v1/objects/bee15a718d0dbd098600fd778faf264934488ee8/server.txt Server]",
+            "label": "(link to Obfuscation map article, displayed as Obfuscation maps)"
+        },
+        {
+            "field": " <span style=\"font-size:smaller\"><abbr title=\"decimal\">dec</abbr>: </span>1073742077<br /> <span style=\"font-size:smaller\"><abbr title=\"hexadecimal\">hex</abbr>: </span>400000FD",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "4431",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "63",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "79",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Data pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_21_.28LTS.29 Java SE 21]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Java Edition  1.21.5|<span style=\"margin-right:-0.35em\">◄</span>◄   1.21.5]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition 1.21.6|1.21.6]]'''</td>\n<td style=\"padding: 0.4em\" >[[Java Edition  1.21.7|  1.21.7 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  1.21.6 Pre-Release 1|◄   1.21.6 Pre-Release 1]]\n</td>\n<td style=\"padding: 0.4em\">''' 1.21.6 Pre-Release 2'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  1.21.6 Pre-Release 3|  1.21.6 Pre-Release 3 ►]]\n</td>\n</tr>\n</table>"
+}
+
+1.21.6 Pre-Release 2 (known as 1.21.6-pre2 in the launcher) is the second pre-release for Java Edition 1.21.6, released on June 2, 2025.
+
+Contents
+
+1 Changes
+
+1.1 Gameplay
+1.2 General
+
+2 Fixes
+3 Videos
+4 References
+5 Navigation
+
+Changes
+Gameplay
+Sounds
+
+The following sound categories have been renamed:
+Friendly Creatures -> Friendly Mobs
+Hostile Creatures -> Hostile Mobs
+General
+Dialogs
+
+Input Control Types
+minecraft:text
+Output values:
+As template substitution: contents with special characters escaped to fit in a SNBT literal (note: both ' and " are escaped).
+For multiline field:
+If height field is omitted, but max_lines is present, the height that will be chosen to fit the maximum number of lines can't exceed 512.
+Fixes
+15 issues fixed
+From released versions before 1.21
+
+MC-217887 – Unsigned books written in 1.9-pre1 or earlier don't upgrade properly.
+From 1.21.5
+
+MC-297591 – Ender pearls can unexpectedly come to a halt.
+From the 1.21.6 development versions
+
+MC-297575 – Happy Ghast with nbt NoAI set to true can't be controlled by player.
+MC-298104 – The max_lines field of multiline text input control is unrestricted, lagging the game.
+MC-298144 – The initial value of minecraft:text input type is limited to 32 characters, regardless of max_length field.
+MC-298155 – Dialog command_template using a multiline text input causes player to be kicked out of the server due to illegal characters in chat (which is \n)
+MC-298209 – Player cannot move while touching a happy ghast's body.
+MC-298301 – Blinking the cursor shifts all characters to the right of a multilines text field input in Dialogs.
+MC-298307 – Entering and exiting a pale garden while in Creative mode causes the current music track to remain silent.
+From the previous development version
+
+MC-298315 – Portals take excessive time to teleport players.
+MC-298358 – Riding a mob into powder snow no longer affects the player properly.
+MC-298361 – Happy ghast with player riding, teleports back and forth when exiting nether portal.
+MC-298368 – music_notes.png.mcmeta has an extra index that does not exist, causing a warning.
+MC-298394 – Freezing in Powdered Snow is very inconsistent and jittery.
+MC-298422 – Ghasts and happy ghasts do not take damage from harmful blocks under some circumstances.
+Videos
+Video made by slicedlime:
+
+
+
+
+References
+
+ "Minecraft 1.21.6 Pre-Release 2"     – Minecraft.net, June 2, 2025.
+
+Navigation

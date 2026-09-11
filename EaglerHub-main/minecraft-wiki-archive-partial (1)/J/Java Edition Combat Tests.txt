@@ -1,0 +1,795 @@
+This series of versions is currently on hiatus. 
+These versions were planned to be for a future release, but that has not materialized.
+
+Combat Tests
+
+Edition
+
+Java Edition
+
+Planned release date
+
+?
+
+Development versions
+
+Snapshots (9) (View all)
+
+{
+    "title": "Combat Tests",
+    "images": [
+        "Combat test map banner.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "?",
+            "label": "Planned release date"
+        },
+        {
+            "field": "<div class=\"hlist\"><span style=\"white-space:nowrap;\">(link to :Category:Java Edition Combat Tests snapshots article, displayed as '''Snapshots''') (9) </span><br/>((link to Java Edition Combat Tests/Development versions article, displayed as View all))</div>",
+            "label": "<span style=\"white-space: normal;\">Development versions</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "</tr>\n</table>"
+}
+
+The Combat Tests are a series of snapshots released in 2019 and 2020 for Java Edition with changes related to combat. Currently, nine snapshots, the latest being Combat Test 8c, have been released exclusively on Reddit, and are forks of what was the latest version of Java Edition at the time of their release, with nearly half of them being forks of 1.16.2. Changes and additions from the Combat Tests were stated to be intended to be added to the base game once the new combat system had been finalized.
+It was stated by Jeb in 2020 that development is planned to be done in two phases, with the currently released Combat Test versions being a part of phase 1. When phase 2 begins, the focus will shift from combat system changes to changes related to mob balance and difficulty.
+The latest Combat Test, Combat Test 8c, was released in August 2020. For subsequent developer statements on the Combat Tests, see developer statements.
+
+Contents
+
+1 Changes
+
+1.1 Attacking
+1.2 Healing
+1.3 Melee weapons
+1.4 Shields
+1.5 Ranged weapons
+1.6 Projectiles
+1.7 Enchantments
+1.8 Potions
+1.9 Status effects
+1.10 Mobs
+1.11 Planned changes
+
+2 Additions
+
+2.1 Enchantments
+2.2 Attributes
+2.3 Hitboxes
+2.4 Planned additions
+
+3 Developer statements
+4 History
+5 Trivia
+6 Gallery
+
+6.1 Screenshots
+6.2 Developer statements
+
+7 Notes
+8 References
+9 External links
+10 Navigation
+
+Changes
+Attacking
+Faster weapons giving less attack invulnerability to the target.
+Attack cooldown
+
+Attacking is no longer possible until the attack cooldown has reached 100%.
+In a case where a player attacks after 80% charge but before 100% charge, an attack will be buffered to come out at 100% charge.
+The attack cooldown can now further charge up to 200%, where attacks at 195% or greater charge are given an additional block of reach.
+The damage of attacks remain the same as 100% charge.
+The cooldown requirement for sweep attacks has also been increased, and is dependent on the weapon.
+Sword sweep attacks require 185% or greater charge, while axe sweep attacks require 190% or greater charge.
+Holding down the attack key now attacks automatically 1 game tick (0.05 seconds) slower than optimal timing.
+The attack cooldown is now shorter when missing an attack, at 4 game ticks (0.2 seconds), regardless of weapon attack speed. When using hold-to-attack, the missing cooldown is 5 game ticks (0.25 seconds) instead.
+Weapons with attack cooldowns that are shorter than 10 game ticks (0.5 seconds) now give the target less attack invulnerability time (invincibility frames), to allow the weapon's faster attack speed to connect all of its attacks appropriately.
+The attack cooldown no longer resets when switching items, now only resetting when the player performs an attack.
+The first 100% charge of the attack cooldown no longer displays the attack indicator, and instead the attack indicator is used to indicate 130% to 200% charge.
+The swing animation that is displayed when attacking has been changed to emphasize the new rhythm of attacks.
+The initial swing no longer moves the weapon downwards off the screen as much.
+The swing now lingers out longer visually.
+The slow rising-up animation of the weapon after swinging now begins at 120% charge, rather than immediately.
+The attack cooldown is now repeatedly reset when breaking blocks, rather than only resetting when successfully breaking a block.
+Attack reach
+
+The additional block of reach at 195% or greater attack cooldown charge.
+The distance that players can attack from is now dependent on the attack reach of their weapon.
+Swords have 3 attack reach, tridents and hoes have 3.5, and axes, pickaxes, and shovels have 2.5.
+The default unarmed attack reach of players is now 2.5, down from 3.
+Attack reach is increased by 1 when the attack cooldown percentage is at 195% or greater.
+Weapons now display their attack reach stat.
+Weapons with an attack reach of 2.5 do not display their attack reach stat, such as axes.
+The increased attack reach that was present in Creative has been removed.
+Attack knockback
+
+Attacks dealt against entities that are already in the air now deal additional vertical knockback, rather than no vertical knockback.
+This is similar to how knockback is handled in Bedrock Edition, and how it was handled before the Combat Update.
+Critical hits and sprint-knockback attacks
+
+Can now be performed simultaneously, as it was in older versions and how it is in Bedrock Edition.
+Sweep attacks
+
+A sweep attack activating without directly attacking an entity.
+Are now activated regardless of whether or not an entity is hit directly.
+Now require the Sweeping Edge enchantment to activate.
+This also means sweep attacks can now be performed by any item with the Sweeping Edge enchantment, rather than only swords.
+Now require an attack cooldown charge of 185% or greater for swords and 190% or greater for axes, up from 84.8%.
+Healing
+Hunger
+
+Saturation is no longer used to regenerate quickly, and is instead now only relevant for its purpose of pausing hunger loss.
+Saturation is no longer accumulated by eating multiple instances of food. Instead, saturation is set to the eaten food's saturation value, as long as said saturation value exceeds the player's current saturation.
+Hunger no longer decreases along with saturation. Instead saturation is used first and after being completely used up, the hunger bar begins depleting as normal.
+Starvation damage now damages the player faster, at every 40 game ticks (2 seconds) rather than every 80 game ticks (4 seconds).
+Natural regeneration
+
+Natural regeneration now uses hunger to heal every 40 game ticks (2 seconds) rather than every 80 game ticks (4 seconds).
+Natural regeneration no longer uses saturation before using hunger, and instead ignores saturation.
+The consumption of hunger by natural regeneration is now 1:1, taking 1 () to heal 1HP. This ignores the player's current saturation value, making it so hunger bars can be lost even if food was just consumed.
+The chance of 1 () being consumed when healing 1HP is random, at a 50% chance. This means that the amount of healing players can do during a fight is heavily influenced by the RNG of hunger loss when healing.
+Natural regeneration now continues until a hunger level of 7 () rather than the previous 18 ().
+Eating
+
+Eating being stopped upon getting attacked.
+Eating and drinking consumables is now interrupted and reset when getting attacked.
+Note that this does not take effect when being damaged by all damage types, only when taking damage from mobs and other players.
+Liquids consumables (such as stews, honey bottles, milk buckets, and potions) are now consumed faster than other consumable types (20 ticks rather than the usual 32 ticks).
+
+Melee weapons
+Empty hand
+
+Decreased attack speed to 2.5 (0.4 seconds), was 4 (0.25 seconds).
+Increased attack damage to 2HP, was 1HP.
+Decreased attack reach to 2.5, was 3.
+
+Empty hand
+
+Damage
+Speed
+DPS
+Reach
+
+2HP
+2.5
+5
+2.5
+
+Swords
+
+Increased attack speed for all swords to 3 (0.33 seconds), was 1.6 (0.625 seconds).
+Decreased the attack damage of certain swords.
+Stone: 4HP, was 5HP.
+Iron: 5HP, was 6HP.
+Diamond: 6HP, was 7HP.
+Netherite: 7HP, was 8HP.
+Attack reach is unchanged, remaining at 3.
+
+Sword
+
+Damage
+Speed
+DPS
+Reach
+
+Wood
+
+4HP
+3
+12
+3
+
+Gold
+
+4HP
+3
+12
+3
+
+Stone
+
+4HP
+3
+12
+3
+
+Iron
+
+5HP
+3
+15
+3
+
+Diamond
+
+6HP
+3
+18
+3
+
+Netherite
+
+7HP
+3
+21
+3
+
+Axes
+
+Increased attack speed for all axes to 2 (0.5 seconds), was 0.8 (1.25 seconds) for wooden and stone axes, 0.9 (~1.11 seconds) for iron axes, and 1 (1 second) for golden, diamond, and netherite axes.
+Decreased the attack damage of all axes, making them all deal 1HP more damage than their sword counterparts across all tiers.
+Wooden and golden: 5HP, was 7HP.
+Stone: 5HP, was 9HP.
+Iron: 6HP, was 9HP.
+Diamond: 7HP, was 9HP.
+Netherite: 8HP, was 10HP.
+Decreased attack reach to 2.5, was 3.
+Now disable shields for 1.6 seconds (32 game ticks), down from 5 seconds (100 game ticks).
+Now use 1 durability when attacking instead of 2.
+Can now have the Fire Aspect, Looting, Knockback, and Sweeping Edge enchantments applied to them using an anvil.
+
+Axe
+
+Damage
+Speed
+DPS
+Reach
+
+Wood
+
+5HP
+2
+10
+2.5
+
+Gold
+
+5HP
+2
+10
+2.5
+
+Stone
+
+5HP
+2
+10
+2.5
+
+Iron
+
+6HP
+2
+12
+2.5
+
+Diamond
+
+7HP
+2
+14
+2.5
+
+Netherite
+
+8HP
+2
+16
+2.5
+
+Trident
+
+Increased attack speed to 2 (0.5 seconds), was 1.1 (~0.91 seconds).
+Decreased attack damage to 7HP, was 9HP.
+Increased attack reach to 3.5 blocks, was 3.
+Can now be shot from dispensers.
+
+Trident
+
+Damage
+Speed
+DPS
+Reach
+
+7HP
+2
+14
+3.5
+
+Hoes
+
+Changed the attack speed of all hoes.
+Wooden: 2 (0.5 seconds), was 1 (1 second).
+Golden: 3.5 (~0.29 seconds), was 1 (1 second).
+Stone: 2.5 (0.4 seconds), was 2 (0.5 seconds).
+Diamond and netherite: 3.5 (~0.29 seconds), was 4 (0.25 seconds).
+Increased the attack damage for all hoes.
+Wooden, golden, and stone: 2HP, was 1HP.
+Iron and diamond: 3HP, was 1HP.
+Netherite: 4HP, was 1HP
+Increased attack reach to 3.5, was 3.
+
+Hoe
+
+Damage
+Speed
+DPS
+Reach
+
+Wood
+
+2HP
+2
+4
+3.5
+
+Gold
+
+2HP
+3.5
+7
+3.5
+
+Stone
+
+2HP
+2.5
+5
+3.5
+
+Iron
+
+3HP
+3
+9
+3.5
+
+Diamond
+
+3HP
+3.5
+10.5
+3.5
+
+Netherite
+
+4HP
+3.5
+14
+3.5
+
+Pickaxes
+
+Increased attack speed for all pickaxes to 2.5 (0.4 seconds), was 1.2 (0.83 seconds).
+Increased the attack damage of certain pickaxes.
+Wooden and golden: 3HP, was 2HP.
+Decreased attack reach to 2.5, was 3.
+
+Pickaxe
+
+Damage
+Speed
+DPS
+Reach
+
+Wood
+
+3HP
+2.5
+7.5
+2.5
+
+Gold
+
+3HP
+2.5
+7.5
+2.5
+
+Stone
+
+3HP
+2.5
+7.5
+2.5
+
+Iron
+
+4HP
+2.5
+10
+2.5
+
+Diamond
+
+5HP
+2.5
+12.5
+2.5
+
+Netherite
+
+6HP
+2.5
+15
+2.5
+
+Shovels
+
+Increased attack speed for all shovels to 2 (0.5 seconds), was 1 (1 second).
+Decreased the attack damage for all shovels.
+Wooden and golden: 2HP, was 2.5HP × 1.25.
+Stone: 2HP, was 3.5HP × 1.75.
+Iron: 3HP, was 4.5HP × 2.25.
+Diamond: 4HP, was 5.5HP × 2.75.
+Netherite: 5HP, was 6.5HP × 3.25.
+Decreased attack reach to 2.5, was 3.
+
+Shovel
+
+Damage
+Speed
+DPS
+Reach
+
+Wood
+
+2HP
+2
+4
+2.5
+
+Gold
+
+2HP
+2
+4
+2.5
+
+Stone
+
+2HP
+2
+4
+2.5
+
+Iron
+
+3HP
+2
+6
+2.5
+
+Diamond
+
+4HP
+2
+8
+2.5
+
+Netherite
+
+5HP
+2
+10
+2.5
+
+Shields
+Instantaneous shield blocking with the removal of the 250ms activation delay.
+Now only block up to 5HP of melee damage, down from 100% of melee damage.
+Shields that have banners applied to them block up to 10HP of melee damage, however this is only a temporary change to test different shield types.
+Now only block 50% of knockback from player attacks, down from 100%.
+The knockback resistance of a shield is now displayed as a stat.
+Now fail to block explosions if said explosion was caused by a player.
+Removed the 0.25 seconds (5 game ticks) activation delay.
+Can now be activated by crouching, with different mechanics than when activating by right clicking.
+Crouch shielding prevents the user from doing 200% charge attacks, but allows the user to attack while shielding.
+Crouch shielding cannot be performed with a shield in the main hand, only with one in the offhand.
+Crouch shielding can be enabled or disabled in the accessibility settings, and is enabled by default.
+The arc of shield protection has been decreased to 148 degrees, down from 180 degrees.
+Can now have their status indicated by a new "Shield Indicator" option that has a display similar to the attack indicator.
+Displays when a shield is activated, and if it is currently disabled by an axe.
+Found in video settings and is disabled by default.
+Has the options "OFF," "Crosshair," or "Hotbar."
+Overwrites the crosshair attack indicator.
+The shield disable icon does not display for shields in the main hand, only for shields in the offhand.
+Shield strength
+
+Represents the maximum amount of damage a shield can absorb and uses the translation key attribute.name.generic.shield_strength.
+Default base: 5
+Value is the maximum damage that a given shield can absorb.
+Ranged weapons
+Bows
+
+Arrow inaccuracy value has been lessened from 1 to 0.25, increasing accuracy and lessening randomness.
+Due to fatigue being at 0.5 before dropping, this is practically 0.125 instead of 0.25.
+Now lose accuracy and lose critical charge if held drawn for longer than 3 seconds.
+This is visually indicated by the bow beginning to shake more violently after 3 seconds.
+Crossbows
+
+Arrow inaccuracy value has been lessened from 1 to 0.25, increasing accuracy and lessening randomness.
+Projectiles
+Arrows
+
+All three arrows from Multishot dealing damage to a single target, due to arrows not giving attack invulnerability.
+No longer trigger the attack invulnerability timer of players and mobs.
+This also means that the Multishot enchantment can now deal damage to a single mob with all three arrows.
+Instantaneous effects on tipped arrows are now scaled by 1/8, just like the duration of other effects. For example, an arrow of Harming deals additional 0.75HP × 0.375 magical damage.
+Vertical momentum no longer influences the flight path of fired arrows.
+Eggs and snowballs
+
+No longer trigger the attack invulnerability timer of players and mobs.
+Can now deal knockback to players.
+Now have a cooldown of 4 ticks.
+Increased max stack size of snowballs to 64, was 16.
+Vertical momentum no longer influences the flight path of thrown eggs and snowballs.
+Enchantments
+Sharpness, Smite, Bane of Arthropods, and Impaling
+
+Are now included in the base damage when calculating critical hits and potion effects, increasing their effectiveness.
+Sweeping Edge
+
+Is now required to perform sweep attacks, rather than swords having the ability innately.
+Has had its damage increase reduced to 25% at level 1, 33% at level 2, and 37.5% at level 3, down from the previous 50% at level 1, 66% at level 2, and 75% at level 3.
+Can now be applied to axes.
+Fire Aspect, Looting, and Knockback
+
+Can now be applied to axes.
+Impaling
+
+Impaling increasing damage against a mob in water.
+Now also applies its damage increase to all mobs that are in water or rain.
+Note that Impaling still also increases damage to aquatic mobs, unlike in Bedrock Edition. The damage increase does not apply twice when attacking mobs that are both aquatic and also in water or rain.
+Loyalty
+
+Now returns tridents that fall into the void to their owner.
+Potions
+Increased max stack size of drinkable potions to 16, was 1.
+Splash and lingering potions are unchanged.
+Status effects
+Instant Health
+
+Now heals 6HP per level, up from 4HP.
+Instant Damage
+
+Now deals 6HP per level, up from 4HP.
+Strength
+
+Now increases melee damage by 20% per level, was 3HP.
+Weakness
+
+Now decreases melee damage by 20% per level, was 4HP.
+Attacks that deal 0HP due to Weakness no longer fail to deal knockback.
+Hunger
+
+Now causes 0.005(5(level−1)2+1) exhaustion per tick, or drains 1 saturation point every 40/(5(level−1)2+1) seconds.
+Mobs
+Due to the rebalanced attack damage of equipment, certain mobs have had their attack strengths changed:
+ Zombie / husk / zombie villager
+
+Iron Shovel:
+3HP on Easy, 4HP on Normal, 6HP on Hard, down from 4.25HP × 2.125 on Easy, 6.5HP × 3.25 on Normal, 9.75HP × 4.875 on Hard.
+Iron Sword:
+4HP on Easy, 6HP on Normal, 9HP on Hard, down from 5HP on Easy, 8HP on Normal, 12HP × 6 on Hard.
+Diamond Sword:
+4.5HP × 2.25 on Easy, 7HP on Normal, 10.5HP × 5.25 on Hard, down from 5.5HP × 2.75 on Easy, 9HP on Normal, 13.5HP × 6.75 on Hard.
+ Piglin
+
+Golden Sword:
+4.5HP × 2.25 on Easy, 7HP on Normal, 10.5HP × 5.25 on Hard, down from 5HP on Easy, 8HP on Normal, 12HP × 6 on Hard.
+ Piglin brute
+
+Golden Axe:
+6HP on Easy, 10HP on Normal, 15HP × 7.5 on Hard, down from 7.5HP × 3.75 on Easy, 13HP × 6.5 on Normal, 19.5HP × 9.75 on Hard.
+ Zombified piglin
+
+Golden Sword:
+4.5HP × 2.25 on Easy, 7HP on Normal, 10.5HP × 5.25 on Hard, down from 5HP on Easy, 8HP on Normal, 12HP × 6 on Hard.
+Golden Axe:
+5HP on Easy, 6HP on Normal, 12HP × 6 on Hard, down from 6.5HP × 3.25 on Easy, 11HP × 5.5 on Normal, 16.5HP × 8.25 on Hard.
+ Wither skeleton
+
+Stone Sword:
+4HP on Easy, 6HP on Normal, 9HP on Hard, down from 5HP on Easy, 8HP on Normal, 12HP × 6 on Hard.
+ Vindicator
+
+Iron Axe:
+5.5HP × 2.75 on Easy, 9HP on Normal, 13.5HP × 6.75 on Hard, down from 7.5HP × 3.75 on Easy, 13HP × 6.5 on Normal, 19.5HP × 9.75 on Hard.
+ Vex
+
+Iron Sword:
+4.5HP × 2.25 on Easy, 7HP on Normal, 10.5HP × 5.25 on Hard, down from 5.5HP × 2.75 on Easy, 9HP on Normal, 13.5HP × 6.75 on Hard.
+Planned changes
+Mob rebalance
+
+After the changes to combat mechanics have been finalized, the second phase of the Combat Tests will focus on rebalances to mobs, as stated by Jeb.
+Difficulty rebalance
+
+Also planned for phase 2 of the Combat Tests are changes to the game's difficulties. Jeb has stated that he will need to consult the team and create a philosophy around difficulty before going forward with any changes.
+Hit registration
+
+Jeb plans to further improve Minecraft's server-side hit registration in future Combat Tests, as the current system struggles to keep up with the constant changes in attack reach, causing desyncs and ghost attacks.
+Additions
+Enchantments
+Cleaving
+
+Shield disable time with no Cleaving compared to with Cleaving III.
+Increases attack damage by 2HP at level 1, 3HP at level 2, and 4HP at level 3.
+Increases the length of time that an axe stuns a shield by 0.5 seconds (10 game ticks) per level.
+Exclusive to axes.
+Has 3 levels.
+Is mutually exclusive with Sharpness, Smite, and Bane of Arthropods.
+Accessible from an enchanting table and from enchanted books.
+Attributes
+Attack reach
+
+Represents the attack reach of a player, and uses the ID generic.attack_reach.
+Only used by players.
+Default base: 2.5; minimum: 0.0; maximum: 6.0.
+Value is the number of blocks away that a player can attack from.
+Weapon modifier now modifies generic.attack_reach with operation 0 and UUID 26cb07a3-209d-4110-8e10-1010243614c8.
+The attack reach attribute is visible only on items that do not have a value of 2.5.
+This means that it only shows in the tooltips for swords, hoes, and tridents.
+Hitboxes
+Entities with bounding boxes smaller than 0.9 blocks on their largest dimension (such as rabbits and vexes) now have their hitboxes inflated to reach 0.9 blocks in that dimension when being attacked.
+This means that they still have their normal hitboxes ordinarily, but can be attacked outside of their hitbox within a range of 0.9 blocks.
+For example, a vex whose dimensions are 0.4 x 0.8 will become 0.5 x 0.9 for the purposes of targeting. However, a bat (0.5 x 0.9) will not be inflated at all due to their largest dimension not being smaller than 0.9.
+Entities can now have their hitboxes attacked through certain transparent blocks like short grass or vines.
+This also doesn't destroy the block that is attacked through.
+Planned additions
+New shield types
+
+Banner shields having higher damage absorption than normal shields is a temporary change, as stated by Jeb. The goal is to test the impact of different shield strengths, and make way for different kinds of shields. It was not stated whether this meant tier-based shields, or unique shields not related to tiers.
+Developer statements
+Several statements have been made regarding the Combat Tests since Combat Test 8c released in 2020:
+
+In June 2021, a Q&A in the Minecraft discord server featured developer Ulraf, who revealed that he would be taking up work on the Combat Tests from Jeb.
+In January 2022, developer kingbdogz clarified that it would not be solely developed by Ulraf, and that instead the gameplay design team as a whole would be taking up work on the Combat Tests some time in the future.
+In August 2025, Ulraf made several statements regarding the combat system:
+To address a question about the controversy around the original Combat Update, he explained Jeb's mindset during that update's development, on how the pre-Combat Update combat system was too simple and made it difficult to add meaningful combat challenges. He explained how Bedrock Edition not receiving the Combat Update's attack cooldown mechanic has left the issue of uncomfortable trigger spamming on controllers unresolved. He reiterated that there is a significant portion of the playerbase that likes the current system and another portion that does not, and that while this makes it a difficult topic, they still want to make improvements while listening to the community, to ultimately achieve combat parity between Java and Bedrock editions.
+Later in the stream, in response to a question about the state of the Combat Tests, Ulraf explained that with the gameplay design team taking up work on the Combat Tests, the original code written by Jeb would likely not be used, and instead certain ideas from it would be kept. He specifically mentioned the changes to axes, later mentioning the Cleaving enchantment by name as something he was fond of. Ulraf also specifically mentioned that the feature of being able to swing at entities through foliage was something he would want to add to the game outside the Combat Tests, stating that it was a general improvement, and that there were other general improvements like this. He expressed that he was fond of the direction of the Combat Tests, but that it was not perfect and needed to be resolved further. Lastly, he reiterated that a release date would not be soon, and stated that when they are picked up again they would not necessarily be separate snapshots.
+History
+
+Major update
+Minor/developmental update
+Combat test
+
+Date released
+
+1.14
+1.14.3 Pre-Release 4
+Java Edition 1.14.3 - Combat Test
+
+26 June 2019
+
+1.14.4
+Java Edition Combat Test 2
+
+15 August 2019
+
+Java Edition Combat Test 3
+
+1 November 2019
+
+1.15
+1.15 Pre-release 3
+Java Edition Combat Test 4
+
+29 November 2019
+
+1.15.2 Pre-release 2
+Java Edition Combat Test 5
+
+16 January 2020
+
+1.16
+1.16.2 Pre-release 3
+Java Edition Combat Test 6
+
+7 August 2020
+
+1.16.2
+Java Edition Combat Test 7
+
+12 August 2020
+
+Java Edition Combat Test 7b
+
+13 August 2020
+
+Java Edition Combat Test 7c
+
+14 August 2020
+
+Java Edition Combat Test 8
+
+19 August 2020
+
+Java Edition Combat Test 8b
+
+21 August 2020
+
+Java Edition Combat Test 8c
+
+26 August 2020
+
+Trivia
+Knockback resistance decreasing the knockback taken from attacks rather than giving a random chance to ignore all knockback was first added in the Combat Tests, and then added partially in 20w06a and fully in 22w03a.
+The promotional image for the Combat Tests features stone with a snow layer texture overlay on it, despite this being impossible in-game.
+With the release of Combat Test 3, a custom map was released.
+Gallery
+Screenshots
+
+
+
+			Promotional artwork released by Mojang alongside Combat Test 5
+
+
+
+			A screenshot of the combat test map released by Mojang.
+
+
+Developer statements
+
+
+
+			The statement made by Ulraf in 2021.
+
+
+
+			The statement made by kingbdogz in 2022.
+
+
+Notes
+
+  This change was made in Combat Test 5, however went unmentioned in the changelogs.
+
+ This change was made before Bedrock Edition's unarmed attack damage was lowered from 2HP to 1HP in 1.18.30, which cited parity with Java Edition as a reason.
+
+ Not implemented as an actual attribute modifier, as checking the knockback resistance attribute using /attribute while blocking shows no change to the attribute value.
+
+ As one can see when using /attribute on this version, this is not an actual attribute, but rather is used solely for the purposes of the shield's tooltip.
+
+  The formula for fatigue is min⁡(10.5,max⁡(0.5,0.5+10×(ticksCharged−60)140))
+
+References
+
+  "A custom Java Edition snapshot to test new combat mechanics" – u/jeb_ on Reddit, June 26, 2019
+
+  "Update: Custom Java Edition snapshot to test new combat mechanics (version 2)" – u/jeb_ on Reddit, August 15, 2019
+
+  "Updated Combat Test Snapshot (number 3) and a custom map for combat testing" – u/jeb_ on Reddit, November 1, 2019
+
+  "Since doing something this the last minute on a Friday is a great idea: Combat Test Snapshot Number 4" – u/jeb_ on Reddit, November 30, 2019
+
+  "Experimental Combat Snapshot - version 5" – u/jeb_ on Reddit, January 17, 2020
+
+  "Combat Test version 6" – u/jeb_ on Reddit, August 7, 2020
+
+  "Combat test snapshot version 7c" – u/jeb_ on Reddit, August 14, 2020
+
+  "Here we go again... Combat test snapshot 8b" – u/jeb_ on Reddit, August 21, 2020
+
+ "Yeah that makes sense. I'm still in "phase 1", which means designing systems... "Phase 2" will be more focused on numbers and mobs"  – @jeb_ (Jens Bergensten) on X (formerly Twitter), August 7, 2020
+
+ "Game difficulty will be looked at in "phase 2". I need to discuss with the team how in-depth these changes should be... like an agreement on philosophy around difficulty"  – @jeb_ (Jens Bergensten) on X (formerly Twitter), August 21, 2020
+
+ "Ulraf is going to be taking over the combat snapshots, according to a Q&A thing the devs did on the Official Minecraft Discord Server."  – @triagonalsign  on X (formerly Twitter), January 13, 2022
+
+ "It wouldn't just be Ulraf, and this isn't anytime soon. The only information that is relevant is that the gameplay design team will be taking over the combat snapshots work at some point, but no ETA on when that will happen."  – @kingbdogz  on X (formerly Twitter), January 14, 2022
+
+ https://youtube.com/watch?v=2cxUNoWNy50&t=11003
+
+ https://youtube.com/watch?v=2cxUNoWNy50&t=11579
+
+External links
+Combat Test Map made by Mojang.
+Navigation

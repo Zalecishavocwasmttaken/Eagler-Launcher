@@ -1,0 +1,18 @@
+[NBT Compound / JSON Object] minecraft:blocks_attacks: When present, this item can be used like a shield to block attacks to the holding player.
+[Float] block_delay_seconds: The amount of time (in seconds) that use must be held before successfully blocking attacks. Defaults to 0.
+[Float] disable_cooldown_scale: The multiplier applied to the cooldown time for the item when attacked by a disabling attack (the multiplier for [Float] disable_blocking_for_seconds on the minecraft:weapon component). If set to 0, this item can never be disabled by attacks. Defaults to 1.
+[NBT List / JSON Array] damage_reductions: A set of rules for how much and what kinds damage should be blocked in a given attack. Defaults to [{base:0,factor:1,horizontal_blocking_angle:90}] which blocks all damage within a 90 degree angle.
+[NBT Compound / JSON Object]: A damage reduction field
+[String][NBT List / JSON Array] type: Any number of damage type(s) (an [String] ID, or a [String] tag with #, or an [NBT List / JSON Array] array containing [String] IDs) to block. Defaults to all damage types.
+[Float] base: The constant amount of damage to be blocked. This is a required field.
+[Float] factor: The fraction of the dealt damage to be blocked. This is a required field.
+[Float] horizontal_blocking_angle: strictly positive float — The maximum angle between the users facing direction and the direction of the incoming attack to be blocked. Defaults to 90.
+[NBT Compound / JSON Object] item_damage: Controls how much damage should be applied to the item from a given attack.
+[Float] threshold: The minimum amount of damage dealt by the attack before item damage is applied to the item. Defaults to 0.
+[Float] base: The constant amount of damage applied to the item, if threshold is passed. Defaults to 0.
+[Float] factor: The fraction of the dealt damage that should be applied to the item, if threshold is passed. Defaults to 1.5.
+[String][NBT Compound / JSON Object] block_sound: One server-side sound event (an [String] ID, or a new [NBT Compound / JSON Object] server-side sound event definition) to play when an attack is successfully blocked. Defaults to none.
+A sound event see Template:Nbt inherit/sound event/template
+[String][NBT Compound / JSON Object] disabled_sound: One server-side sound event (an [String] ID, or a new [NBT Compound / JSON Object] server-side sound event definition) to play when the item goes on its disabled cooldown due to an attack. Defaults to none.
+A sound event see Template:Nbt inherit/sound event/template
+[String] bypassed_by: a damage type tag with # of damage types that bypass the blocking. Defaults to none.

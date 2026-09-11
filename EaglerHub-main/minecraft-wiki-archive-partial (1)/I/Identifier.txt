@@ -1,0 +1,655 @@
+Identifiers (also known as resource locations, namespaced IDs, namespaced identifiers, resource identifiers, or namespaced strings) are a way to declare and specify game objects in Minecraft, which can identify built-in and user-defined objects without potential ambiguity or conflicts.
+
+Contents
+
+1 Introduction
+
+1.1 Legal characters
+
+1.1.1 Java Edition
+1.1.2 Bedrock Edition
+
+1.2 Conversion to string
+1.3 Conversion from string
+
+2 Java Edition usage
+
+2.1 Registries and registry objects
+2.2 Pack contents
+
+2.2.1 Locating contents in packs
+2.2.2 Registered pack contents
+
+2.3 Other contents
+
+3 Bedrock Edition usage
+
+3.1 Built-in contents
+3.2 Registried add-on entries
+
+3.2.1 Others
+
+3.3 Script-registered entries
+
+4 Namespaces
+
+4.1 minecraft namespace
+4.2 Custom namespace
+4.3 Other built-in namespaces
+
+5 History
+
+5.1 Java Edition
+5.2 Bedrock Edition
+
+6 See also
+7 References
+8 External links
+9 Navigation
+
+Introduction
+Identifiers are used as plain strings to reference blocks, items, entity types, and various other objects in vanilla Minecraft.
+A valid identifier has a format of namespace:path, where only certain characters can be used.
+
+Legal characters
+Java Edition
+The namespace and the path of an identifier should only contain the following symbols:
+
+0123456789 Numbers
+abcdefghijklmnopqrstuvwxyz Lowercase letters
+_ Underscore
+- Hyphen/minus
+. Dot
+The following characters are illegal in the namespace, but acceptable in the path:
+
+/ Forward slash (directory separator)
+The preferred naming convention for either namespace or path is snake_case.
+.. is not a valid namespace.
+
+Bedrock Edition
+The namespace and the path of a namespaced ID can contain all symbols with the exception of slashes and colons.
+The following characters are illegal in the namespace, but acceptable in the path of loot tables and functions.
+
+/ Forward slash (directory separator)
+The preferred naming convention for either namespace or path is snake_case.
+
+Conversion to string
+An identifier is converted to a string by concatenating its namespace with a : (colon) and its path.
+Examples:
+
+Namespace
+Path
+String representation
+
+minecraft
+diamond
+minecraft:diamond
+
+foo
+bar.baz
+foo:bar.baz
+
+minecraftwiki
+commands/minecraft_wiki
+minecraftwiki:commands/minecraft_wiki
+
+Conversion from string
+All identifiers can be converted to strings; however, not all strings can be converted to identifiers.
+For a string to be converted, it must follow these restrictions:
+
+The string may have at most one : (colon) character
+The rest of the string must fulfill the requirement for legal characters. This includes disallowing / (forward slash) characters before the :, if a : is present
+When the : is present, the part of the string before the : becomes the namespace, and the part of the string after the : becomes the path.
+In Java Edition, and in some cases in Bedrock Edition, when the : is absent, minecraft becomes the namespace and the whole string becomes the path.
+It is recommended to always include a : in the string format of identifiers.
+
+Examples
+
+String
+Resolved namespace
+Resolved path
+What the game converts it back to
+
+bar:code
+bar
+code
+bar:code
+
+minecraft:zombie
+minecraft
+zombie
+minecraft:zombie
+
+diamond
+
+minecraft‌[Java Edition  only]
+None‌[Bedrock Edition  only]
+
+diamond
+
+minecraft:diamond‌[Java Edition  only]
+diamond‌[Bedrock Edition  only]
+
+:dirt
+minecraft
+dirt
+minecraft:dirt[needs testing in Bedrock Edition]
+
+minecraft:
+minecraft
+None
+minecraft:[needs testing in Bedrock Edition]
+
+:
+minecraft
+None
+minecraft:[needs testing in Bedrock Edition]
+
+Empty String
+minecraft
+None
+minecraft:[needs testing in Bedrock Edition]
+
+foo/bar:coal
+Invalid character /
+
+minecraft/villager
+
+minecraft‌[Java Edition  only]
+None‌[Bedrock Edition  only]
+
+minecraft/villager
+
+minecraft:minecraft/villager‌[Java Edition  only]
+minecraft/villager‌[Bedrock Edition  only]
+
+mymap:schrödingers_var
+mymap
+
+Invalid character ö‌[Java Edition  only]
+schrödingers_var‌[Bedrock Edition  only]
+
+mymap:schrödingers_var‌[Bedrock Edition  only]
+
+custom_pack:Capital
+custom_pack
+
+Invalid character C‌[Java Edition  only]
+Capital‌[Bedrock Edition  only]
+
+custom_pack:Capital‌[Bedrock Edition  only]
+
+Java Edition usage
+
+
+
+This section is a work in progress. 
+Please help expand and improve it. The talk page may contain suggestions.
+
+
+In Java Edition, identifiers act mainly as main keys of objects in registries or file paths of contents in data packs and resource packs. Some non-customizable contents also use identifiers to identify them.
+
+Registries and registry objects
+
+All registries and objects therein have identifiers to represent them. At the root of all registries is a registry with the identifier of minecraft:root into which all other registries are registered. Most registries are intended only for use internally by the game and by extension by mods, but some dynamic registries can have content added to them through data packs, marked in the list below with an asterisk (*).
+
+ minecraft:root: Root registry.
+ minecraft:activity: Entity schedule activities.
+ minecraft:attribute: Attributes.
+ minecraft:attribute_type: Attribute types.
+ minecraft:block: Blocks.
+ minecraft:block_entity_type: Block entity types.
+ minecraft:block_predicate_type: Block predicate types.
+ minecraft:chat_type: Chat types.
+ minecraft:chunk_generator: Chunk generators.
+ minecraft:chunk_status: Chunk statuses.
+ minecraft:command_argument_type: Command argument types.
+ minecraft:consume_effect_type: Consume effect types.
+ minecraft:creative_mode_tab: Creative mode tabs.
+ minecraft:custom_stat: Custom statistics.
+ minecraft:data_component_predicate_type: Data component predicate types.
+ minecraft:data_component_type: Data component types.
+ minecraft:damage_type*: Damage types.
+ minecraft:debug_subscription: Debug subscriptions.
+ minecraft:dialog_type: Dialog types.
+ minecraft:dialog_action_type: Dialog action types.
+ minecraft:dialog_body_type: Dialog body types.
+ minecraft:dimension*: Dimensions.
+ minecraft:dimension_type*: Dimension types.
+ minecraft:enchantment*: Enchantments.
+ minecraft:enchantment_effect_component_type: Enchantment effect component types.
+ minecraft:enchantment_entity_effect_type: Enchantment entity effect types.
+ minecraft:enchantment_level_based_value_type: Enchantment level-based value types.
+ minecraft:enchantment_location_based_effect_type: Enchantment location-based effect types.
+ minecraft:enchantment_provider*: Enchantment providers.
+ minecraft:enchantment_provider_type: Enchantment provider types.
+ minecraft:enchantment_value_effect_type: Enchantment value effect types.
+ minecraft:entity_sub_predicate_type: Entity subpredicate types.
+ minecraft:entity_type: Entity types.
+ minecraft:environment_attribute: Environment attributes.
+ minecraft:float_provider_type: Float provider types.
+ minecraft:fluid: Fluids.
+ minecraft:game_event: Game events.
+ minecraft:game_rule: Game rules.
+ minecraft:height_provider_type: Height provider types.
+ minecraft:input_control_type: Input control types.
+ minecraft:int_provider_type: Int provider types.
+ minecraft:item: Items.
+ minecraft:item_modifier: Item modifiers.
+ minecraft:jukebox_song*: Jukebox songs.
+ minecraft:loot_condition_type: Loot condition types.
+ minecraft:loot_function_type: Loot function types.
+ minecraft:loot_nbt_provider_type: Loot NBT provider types.
+ minecraft:loot_number_provider_type: Loot number provider types.
+ minecraft:loot_pool_entry_type: Loot pool entry types.
+ minecraft:loot_score_provider_type: Loot score provider types.
+ minecraft:loot_table: Loot tables.
+ minecraft:map_decoration_type: Map decoration types.
+ minecraft:memory_module_type: Entity memory module types.
+ minecraft:menu: Menu types.
+ minecraft:mob_effect: Mob effects.
+ minecraft:number_format_type: Number format types.
+ minecraft:number_provider: Number providers.
+ minecraft:painting_variant*: Painting variants.
+ minecraft:particle_type: Particle types.
+ minecraft:permission_type: Permission types.
+ minecraft:permission_check_type: Permission check types.
+ minecraft:potion: Potions.
+ minecraft:point_of_interest_type: Point of interest types.
+ minecraft:pool_alias_binding: Pool alias binding types.
+ minecraft:position_source_type: Position source types.
+ minecraft:pos_rule_test: Structure feature position rule test types.
+ minecraft:predicate: Predicates.
+ minecraft:recipe: Recipes.
+ minecraft:recipe_book_category: Recipe book categories.
+ minecraft:recipe_display: Recipe displays.
+ minecraft:recipe_serializer: Recipe serializers.
+ minecraft:recipe_type: Recipe types.
+ minecraft:root: Root registry.
+ minecraft:rule_block_entity_modifier: Rule block entity modifier types.
+ minecraft:rule_test: Structure feature rule test types.
+ minecraft:sensor_type: Entity AI sensor types.
+ minecraft:slot_display: Slot displays.
+ minecraft:slot_source_type: Slot source types.
+ minecraft:slot_source: Slot sources.
+ minecraft:sound_event: Sound events.
+ minecraft:spawn_condition_type: Spawn condition types.
+ minecraft:stat_type: Statistics types.
+ minecraft:structure_piece: Structure piece types.
+ minecraft:structure_placement: Structure placement types.
+ minecraft:structure_pool_element: Structure pool element types.
+ minecraft:structure_processor: Structure processor types.
+ minecraft:structure_set*: Structure sets.
+ minecraft:structure_type: Structure types.
+ minecraft:test_environment: Game test environments.
+ minecraft:test_environment_definition_type: Game test environment definition types.
+ minecraft:test_function: Game test functions.
+ minecraft:test_instance: Game test instances.
+ minecraft:test_instance_type: Game test instance types.
+ minecraft:ticket_type: Ticket types.
+ minecraft:timeline: Timelines for world clocks.
+ minecraft:trade_set*: Trade sets.
+ minecraft:trial_spawner: Trial spawner configurations.
+ minecraft:trigger_type: Advancement criterion trigger types.
+ minecraft:trim_material*: Armor trim materials.
+ minecraft:trim_pattern*: Armor trim patterns.
+ minecraft:villager_profession: Villager professions.
+ minecraft:villager_trade*: Villager trade definitions.
+ minecraft:villager_type: Villager types.
+ minecraft:world_clock*: World clocks.
+ minecraft:worldgen/biome*: Biomes.
+ minecraft:worldgen/biome_source: Biome sources.
+ minecraft:worldgen/block_state_provider_type: Block state provider types.
+ minecraft:worldgen/carver: World carvers.
+ minecraft:worldgen/carver_type: World carver types.
+ minecraft:worldgen/chunk_generator: Chunk generators.
+ minecraft:worldgen/density_function: Density functions.
+ minecraft:worldgen/density_function_type: Density function types.
+ minecraft:worldgen/feature: Features.
+ minecraft:worldgen/feature_size_type: Feature size types.
+ minecraft:worldgen/feature_type: Feature types.
+ minecraft:worldgen/flat_level_generator_preset*: Flat world generator presets.
+ minecraft:worldgen/foliage_placer_type: Foliage placer types.
+ minecraft:worldgen/material_condition: Surface condition sources.
+ minecraft:worldgen/material_condition_type: Surface condition source types.
+ minecraft:worldgen/material_rule: Surface rule sources.
+ minecraft:worldgen/material_rule_type: Surface rule source types.
+ minecraft:worldgen/multi_noise_biome_source_parameter_list*: Multi-noise biome source parameter lists.
+ minecraft:worldgen/noise*: Normal noise.
+ minecraft:worldgen/noise_settings*: Noise generator settings.
+ minecraft:worldgen/placed_feature*: Placed features.
+ minecraft:worldgen/placement_modifier_type: Placement modifier types.
+ minecraft:worldgen/pool_alias_binding: Pool alias binding types.
+ minecraft:worldgen/processor_list*: Structure processor lists.
+ minecraft:worldgen/root_placer_type: Root placer types.
+ minecraft:worldgen/structure*: Configured structures.
+ minecraft:worldgen/structure_piece: Structure piece types.
+ minecraft:worldgen/structure_placement: Structure placement types.
+ minecraft:worldgen/structure_pool_element: Structure pool element types.
+ minecraft:worldgen/structure_processor: Structure processor types.
+ minecraft:worldgen/structure_set*: Structure sets.
+ minecraft:worldgen/structure_type: Structure types.
+ minecraft:worldgen/template_pool*: Structure template pools.
+ minecraft:worldgen/tree_decorator_type: Tree decorator types.
+ minecraft:worldgen/trunk_placer_type: Trunk placer types.
+ minecraft:worldgen/world_preset*: World presets.
+
+Pack contents
+Identifiers are also used to represent file paths in data packs or resource packs.
+
+Data pack
+
+Tags
+Advancements
+Recipes
+Predicates
+Loot tables
+Item modifier
+Functions
+Structure files
+Dimensions
+Dimension types
+World generator contents
+Biomes
+Configured carvers
+Configured features
+Configured structure features
+Placed features
+Structures
+Structure sets
+Processor lists
+Template pools
+Noise
+Noise generator settings
+Density functions
+Flat level generator presets
+World presets
+Resource pack
+
+Block state model definitions
+Models
+Textures
+Sounds
+Fonts
+Font resource files
+Particles
+Shaders
+Locating contents in packs
+Given that objects in resource packs and data packs are files, the identifiers are constructed from their path relative to the data or assets folder.
+Though the locations vary by object type and the pack type the object type belongs to, there is a pattern to follow. In general, the location is in the fashion of pack_type/namespace/object_type/name.suffix, where all the / (forward slash) symbol (may be part of object_type or name) is replaced by operating system-dependent directory separator.
+Given the type of content we want to locate, we can find out the corresponding pack_type, object_type, and suffix. Then, we can substitute in and find out the final file location of the content.
+
+Examples
+
+Identifier
+Content Type
+pack_type
+object_type
+suffix
+Final Location
+
+my_texture_pack:diamonds
+Texture
+assets
+textures
+png
+assets/my_texture_pack/textures/diamonds.png
+
+abc:run_game
+Function
+data
+functions
+mcfunction
+data/abc/functions/run_game.mcfunction
+
+block/torch(same as minecraft:block/torch)
+Model
+assets
+models
+json
+assets/minecraft/models/block/torch.json
+
+load(same as minecraft:load)
+Function Tag
+data
+tags/functions
+json
+data/minecraft/tags/functions/load.json
+
+rocket_pack:industry/start_of_story
+Advancement
+data
+advancements
+json
+data/rocket_pack/advancements/industry/start_of_story.json
+
+Registered pack contents
+A registried pack content refers to pack content that is registered into a registry when the pack is loaded. For a registried pack content, its identifier works as both main key of registry entry and path of its resource file.
+
+List of registered pack contents
+
+Content Type
+Registered into
+Folder
+Suffix
+
+Dimensions
+minecraft:dimension
+data/namespace/dimension
+json
+
+Dimension types
+minecraft:dimension_type
+data/namespace/dimension_type
+json
+
+Configured carvers
+minecraft:worldgen/configured_carver
+data/namespace/worldgen/configured_carver
+json
+
+Configured features
+minecraft:worldgen/configured_feature
+data/namespace/worldgen/configured_feature
+json
+
+Configured structure features
+minecraft:worldgen/structure
+data/namespace/worldgen/structure
+json
+
+Structure sets
+minecraft:worldgen/structure_set
+data/namespace/worldgen/structure_set
+json
+
+Processor lists
+minecraft:worldgen/processor_list
+data/namespace/worldgen/processor_list
+json
+
+Template pools
+minecraft:worldgen/template_pool
+data/namespace/worldgen/template_pool
+json
+
+Placed features
+minecraft:worldgen/placed_feature
+data/namespace/worldgen/placed_feature
+json
+
+Biomes
+minecraft:worldgen/biome
+data/namespace/worldgen/biome
+json
+
+Noise
+minecraft:worldgen/noise
+data/namespace/worldgen/noise
+json
+
+Noise generator settings
+minecraft:worldgen/noise_settings
+data/namespace/worldgen/noise_settings
+json
+
+Density functions
+minecraft:worldgen/density_function
+data/namespace/worldgen/density_function
+json
+
+Flat level generator presets
+minecraft:worldgen/flat_level_generator_preset
+data/namespace/worldgen/flat_level_generator_preset
+json
+
+World presets
+minecraft:worldgen/world_preset
+data/namespace/worldgen/world_preset
+json
+
+Other contents
+Customizable contents
+
+Boss bars
+Command storages
+Hardcoded contents
+
+Cat types for predicates (e.g. textures/entity/cat/tabby.png, textures/entity/cat/jellie.png)
+Criteria triggers
+Item properties (i.e. item predicates in models. e.g. angle, custom_model_data)
+Loot context param sets (i.e. types of loot table. e.g. barter, generic)
+Unaccessible contents:
+Suggestion providers for autocompletion of commands (e.g. summonable_entities, all_recipes)
+Entity models
+Loot context params (e.g. this_entity, origin, tool)
+Bedrock Edition usage
+Unlike Java Edition, where there is a unified standard and handling methods of them, namespaced identifiers are usually treated as normal strings in Bedrock Edition. Moreover, some objects are identified based on their path (e.g. the identifier for recipes and trades) rather than what was defined in their file. In these cases, it is recommended that a folder named after the namespace is parented before the file at hand.
+The following is a list of all places that use namespaced identifiers:
+
+Built-in contents
+Blocks
+Block traits
+Block entities
+Items
+Entities
+Status effects
+Dimensions
+Biomes
+Structures
+Features
+Entity attributes
+Item NBT components
+Item components
+Block components
+Entity components
+JSON schemas
+GameTest script-enabled components
+Registried add-on entries
+A registried add-on entry refers to any add-on content that is registered with an identifier declared within the content's file definition. Custom content under these types are able to be created.
+Here is a list of registried add-on entries whose identifiers are namespaced.
+
+Behavior pack contents
+
+Blocks
+Block states
+Entities
+Entity events
+Items
+Spawn rules
+Biomes
+Features
+Feature rules
+Recipes
+Structures
+GameTests
+Dialog scenes
+Spawn groups
+Structure sets
+Template pools
+Processor lists
+Catalog groups
+Resource pack contents
+
+Attachables
+Cameras
+Entity client definitions
+Particle effects
+Biome client definitions
+Fog settings
+Lighting settings
+Atmosphere settings
+Color grading settings
+Water effect settings
+Some custom fields in add-on files can also be namespaced, such as custom block properties and entity component groups, which aren't listed here.
+
+Others
+Structures saved from a structure block
+Script-registered entries
+Some content may also be registered within the scripts of behavior packs. These are read as the world is generating.
+
+Block components
+Item components
+Commands
+Namespaces
+“This isn't a new concept, but I thought I should reiterate what a "namespace" is. Most things in the game has a namespace, so that if we add something and a mod (or map, or whatever) adds something, they're both different somethings. Whenever you're asked to name something, for example a loot table, you're expected to also provide what namespace that thing comes from. If you don't specify the namespace, we default to minecraft. This means that something and minecraft:something are the same thing.„ — Dinnerbone on namespaces
+A namespace is a domain for content. It is to prevent potential content conflicts or unintentional overrides of objects of the same name.
+For example, two data packs add two minigame mechanisms to Minecraft; both have a function named start. Without namespaces, these two functions would clash and the minigames would be broken. When they have different namespaces of minigame_one and minigame_two, the functions would become minigame_one:start and minigame_two:start, which no longer conflict.
+
+minecraft namespace
+Minecraft reserves the minecraft namespace. When a namespace is not specified, an identifier falls back to minecraft‌[Java Edition  only]. As a result, the minecraft namespace should only be used by content creators when the content needs to overwrite or modify existing Minecraft data, such as adding a function to the minecraft:load function tag.
+
+Custom namespace
+The namespace should be distinct for different projects or content creations (e.g. a data pack, a resource pack, a mod, backing data/resource packs for a custom map, etc.)
+To prevent potential clashes, it is recommended that the namespace should be as specific as possible:
+
+Avoid alphabet soups. For example, a project named "nuclear craft" should not use the namespace nc, as this is too ambiguous.
+Avoid words that are too vague. battle_royale would not be informative to look up as well, but player_name_battle_royale would be much better.
+For add-ons, use a shortened creator name followed by the name of the project in a format like creatorname_packname.
+In either case, these poorly chosen namespaces reduce the exposure of a project and bring difficulties for debugging when there are multiple content creations applied to the game.
+
+Other built-in namespaces
+In Java Edition, the vanilla Minecraft resource pack declares Realms-oriented language files in the realms namespace (located at assets/realms/lang/.json) and game-related language files in the minecraft namespace, even though translation keys are not identifiers. The realms jar itself also declares its en_us.json language file and its various textures in the realms namespace.
+In the IDs of command argument types, a brigadier namespace also appears for command argument types that are native to Brigadier.
+In Bedrock Edition, the internal resource and behavior packs for Bedrock Editor contain some entities and items namespaced with editor.
+
+History
+Java Edition
+Java Edition1.6.113w21a
+Added resource locations alongside the minecraft prefix for identifying assets.1.7.213w37a
+Commands now accept name IDs aside from numerical IDs.1.814w02a
+Item ID format has changed from using numbers (for example, TNT's id was 46) to namespaced IDs of the form minecraft:item_name. (Example: minecraft:tnt)1.1116w32a
+Resource locations now have a character restriction.
+
+Disallowed uppercase characters in resource locations.1.1317w47a
+After the flattening, resource locations are the only accepted form of identifiers.pre4
+Resource locations are now used to identify plugin message channels.1.14.4pre1
+The realms namespace is added to the client jar's builtin resource pack.1.1620w14a
+Attributes are now resource locations.1.21.1125w45a
+ResourceLocation is renamed to Identifier in the game's code.26.1snap6
+.. is no longer a valid namespace.
+Bedrock Edition
+Pocket Edition Alphav0.16.0build 1
+Added commands, which supported string IDs. However, these identifiers were not namespaced yet.build 4
+All entity attributes are now namespaced.Bedrock Edition1.6.0beta 1.6.0.5
+In the save files for worlds, items now use namespaced IDs instead of numeric IDs.1.12.0beta 1.12.0.2
+IDs are now namespaced using the minecraft prefix, to support custom items being added through add-ons.
+See also
+Java Edition data values
+Bedrock Edition data values
+Resource pack
+Data pack
+Add-on
+References
+
+ "Minecraft Snapshot 19w39a"     – Minecraft.net, September 27, 2019.
+
+ DataFixerUpper/NamespacedStringType.java at 8b5f82ab78b30ff5813b3a7f3906cd3f4f732acf · Mojang/DataFixerUpper – GitHub
+
+ "Guidelines for Building Cooperative Add-Ons"     – Minecraft: Bedrock Edition Creator Documentation.
+
+ "Minecraft Snapshot 17w43a"     – Minecraft.net.
+
+External links
+Namespaces, as explained in "Minecraft Snapshot 17w43a"     – Minecraft.net..
+Navigation

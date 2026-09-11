@@ -1,0 +1,8 @@
+This page describes content that has been removed and was only present in earlier versions of Java Edition. 
+In Java Edition 1.20.5, this format has been replaced with the data component format.
+
+[NBT Compound / JSON Object] filtered_pages: Only in Realms. The pages shown to players with the profanity filter turned on instead of some of the regular pages. This compound is automatically given a tag named after the page number and set to "" when a player with the profanity filter turned off closes a book with that specific page containing one or more blocked words, so players with the filter on cannot see the blocked words. If a player with the filter on tries to use blocked words in one or more of the pages, this compound is not given any new tags and the specific page(s) in [NBT List / JSON Array] pages are instead set to "", which makes the page(s) render completely blank. If multiple pages have been edited before the book is closed, only the pages containing blocked words are blanked.
+[NBT List / JSON Array] pages: The list of pages in the book.
+[String]: A single page in the book. Each page is a string and uses the escape sequence \n for a line break. However, the command parser does not accept \n, so line breaks need to be set by a player or using loot tables.
+
+ MC-119659

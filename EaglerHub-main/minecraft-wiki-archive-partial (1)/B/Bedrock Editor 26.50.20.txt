@@ -1,0 +1,76 @@
+This article would benefit from the addition of more images. 
+Please remove this notice once you have added  suitable images to the article.
+
+26.50.20
+
+Edition
+
+Bedrock Editor
+
+Release date
+
+July 21, 2026
+
+Client version
+
+26.50.20
+
+◄◄   26.40.30
+26.50.20
+
+  26.50.22 ►
+
+{
+    "title": "26.50.20",
+    "images": [],
+    "rows": [
+        {
+            "field": "''(link to Bedrock Editor article, displayed as Bedrock Editor)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "July 21, 2026",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Bedrock Edition Preview 26.50.20 article, displayed as 26.50.20)",
+            "label": "Client version"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" rowspan=\"2\">[[Bedrock Editor  26.40.30|<span style=\"margin-right:-0.35em\">◄</span>◄   26.40.30]]</td>\n<td rowspan=\"2\" style=\"padding: 0.4em\">'''26.50.20'''</td>\n<td style=\"padding: 0.4em\" ></td>\n</tr>\n<tr style=\"background: inherit;\">\n\n\n<td style=\"padding: 0.4em\">\n[[Bedrock Editor  26.50.22|  26.50.22 ►]]\n</td>\n</tr>\n</table>"
+}
+
+26.50.20 is a minor release for the Bedrock Editor released on July 21, 2026.
+
+Contents
+
+1 Additions
+2 Changes
+3 Fixes
+4 References
+5 Navigation
+
+Additions
+Added the Color Block List UI to the Custom Mesh Tool so creators can review detected mesh colors, replace suggested blocks, and delete color rows before color-aware placement.
+The Selection Tool's Hollow trim option now uses a dedicated hollow-cube icon.
+Added TransactionHandler API for a better way to track transaction events. Transaction operation handlers will now get created from this object.
+Added PendingTransaction.addVolumeListOperation and VolumeListTransactionOperationHandler APIs for more performant volume transactions.
+Implemented support for relative JSON paths ./ to resolve issues with the Vibrant Visuals Schema.
+Added support to set a tool in a 'staging' mode. Tool in staging mode is not shown in the Tool Rail.
+Changes
+Improved transaction handling for large Selection volumes.
+Enabled Editor Test World reloads via /reload all without a vanilla connection.
+Updated labels for Sort Type Options to '0-9, A-z' and 'z-A, 9-0' in List Pane. Also implemented natural sort algorithm.
+Fixes
+Fixed a bug where images and GIFs shown in Editor tooltips were rendered at a fixed small size instead of scaling to span the full width of the tooltip.
+Fixed a bug in the Flood tool where applying it in an invalid location could continue the previous operation, and it now provides feedback when a valid liquid level has not been set.
+Added missing keycodes to the KeyboardKey enum, enabling them to be selected as shortcuts in Keyboard Settings.
+Mitigated a possible crash scenario where the user unlocks their PC after being idle for > 10 minutes while in a Realm.
+References
+
+ "Preview 26.50.20"     – GitHub, July 21, 2026.
+
+ "Minecraft Beta & Preview - 26.50.20"     – Minecraft Feedback, July 21, 2026.
+
+Navigation

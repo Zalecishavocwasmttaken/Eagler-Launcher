@@ -1,0 +1,233 @@
+Minecraft 1.21.4 Pre-Release 1
+
+Edition
+
+Java Edition
+
+Release date
+
+November 20, 2024
+
+Type
+
+Pre-release
+
+Pre-release for
+
+1.21.4
+
+Downloads
+
+Client (.json)Server
+
+Obfuscation maps
+
+ClientServer
+
+Protocol version
+
+ dec: 1073742047 hex: 400000DF
+
+Data version
+
+4179
+
+Resource pack format
+
+46
+
+Data pack format
+
+60
+
+Minimum Java version
+
+Java SE 21
+
+◄◄   1.21.3
+1.21.4
+  1.21.5 ►►
+
+◄   24w46a
+
+ 1.21.4 Pre-Release 1
+
+  1.21.4 Pre-Release 2 ►
+
+{
+    "title": "Minecraft 1.21.4 Pre-Release 1",
+    "images": [
+        "1.21.4-pre1.jpg",
+        "Java Edition 1.21.4 Pre-Release 1.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "November 20, 2024",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Pre-release article, displayed as Pre-release)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition 1.21.4 article, displayed as 1.21.4)",
+            "label": "Pre-release for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/bf810de3190f639944b40a1c8990ffc41f6d5006/client.jar Client] ([https://piston-meta.mojang.com/v1/packages/5b05b6fb404e54bad9acf953f5563737d519e5dd/1.21.4-pre1.json .json])<br />[https://piston-data.mojang.com/v1/objects/4e5fdbf4ecd53962e72a75d4abfc2455e0ae0c1b/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/025d9cf06dae0932de305e1a7652c8c38753f358/client.txt Client]<br />[https://piston-data.mojang.com/v1/objects/f1325cf376a8abb404ecc476151713547c61869f/server.txt Server]",
+            "label": "(link to Obfuscation map article, displayed as Obfuscation maps)"
+        },
+        {
+            "field": " <span style=\"font-size:smaller\"><abbr title=\"decimal\">dec</abbr>: </span>1073742047<br /> <span style=\"font-size:smaller\"><abbr title=\"hexadecimal\">hex</abbr>: </span>400000DF",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "4179",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "46",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "60",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Data pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_21_.28LTS.29 Java SE 21]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Java Edition  1.21.3|<span style=\"margin-right:-0.35em\">◄</span>◄   1.21.3]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition 1.21.4|1.21.4]]'''</td>\n<td style=\"padding: 0.4em\" >[[Java Edition  1.21.5|  1.21.5 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  24w46a|◄   24w46a]]\n</td>\n<td style=\"padding: 0.4em\">''' 1.21.4 Pre-Release 1'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  1.21.4 Pre-Release 2|  1.21.4 Pre-Release 2 ►]]\n</td>\n</tr>\n</table>"
+}
+
+1.21.4 Pre-Release 1 (known as 1.21.4-pre1 in the launcher) is the first pre-release for Java Edition 1.21.4, released on November 20, 2024, which fixes bugs.
+
+Contents
+
+1 Additions
+
+1.1 General
+
+2 Changes
+
+2.1 Effects
+2.2 Items
+2.3 General
+
+3 Fixes
+4 Videos
+5 References
+6 Navigation
+
+Additions
+General
+Items model definitions
+
+Boolean property
+Added minecraft:view_entity
+When not spectating, returns true if context entity is the local player entity, i.e. one controlled by client.
+When spectating, returns true if context entity is the spectated entity.
+If context entity is not present, returns false.
+No fields.
+Item model type
+Added minecraft:empty
+Does not render anything.
+No fields.
+Property types
+Added minecraft:context_dimension
+Returns the ID of the dimension in context, if any.
+No fields.
+Values: namespaced dimension ID (like minecraft:overworld).
+Tint source type
+Added minecraft:team
+Returns team color of context entity, if any.
+Fields:
+default - RGB value to return when there is no context entity, entity is not in a team or team has no color.
+Changes
+Effects
+Water Breathing and Conduit Power effects now increase the oxygen while underwater instead of only preventing it from decreasing.
+Items
+Spawn eggs
+
+Similar to block items, spawn eggs for entities that could execute operator-only commands now have a warning in tooltip.
+General
+Items model definitions
+
+A new field has been added to the client-side item info format (i.e. files in /assets/*/items/*.json).
+hand_animation_on_swap - boolean field describing if down-and-up animation should be played in first-person view when item stack is changed (either type, count or components)
+Default: true
+Only value from new item is taken into account.
+Does not control "pop" animation in GUI when item is picked or changes count.
+Numeric property types
+minecraft:compass
+Added value none to field target which always returns an invalid target.
+minecraft:time
+Removed field natural_only.
+Added field source - time source, possible values:
+daytime - time of day
+moon_phase - moon phase
+random - random value
+Property types
+minecraft:holder_type was renamed to minecraft:context_entity_type.
+Special model types
+minecraft:head
+Added field animation - float controlling head animation (like Piglin ears or Ender Dragon jaw)
+Default: 0.0
+Fonts
+
+GNU Unifont
+Updated to version 16.0.01.
+Resource pack
+
+The pack format version is now 46.
+Fixes
+16 issues fixed
+From released versions before 1.21
+
+MC-128225 – '/data remove' can't remove the NBT "CustomName".
+MC-138100 – /data remove doesn't work for the Jukebox's RecordItem tag.
+MC-179815 – Data command doesn't remove leash from a mob.
+MC-207605 – /data remove entity [tamed wolf] Owner does not remove ownership of the wolf.
+MC-248264 – /data remove can't remove ArmorItems.
+MC-265788 – The "Start free Snapshot Realm" element can be selected or remain selected causing its tooltip to erroneously be visible when other interfaces are open.
+From 1.21.3
+
+MC-278257 – Oxygen bar animation can be interrupted by applying water breathing.
+From the 1.21.4 development versions
+
+MC-278134 – The TAB key cannot be used to select messages to report after clicking the "X message(s) hidden" element.
+MC-278193 – Baby piglins can't decide between crossbows and golden items.
+MC-278390 – Opening shulkers no longer trigger tripwire or pressure plates.
+From the previous development version
+
+MC-278290 – Using items while swimming or walking underwater doesn't slow the player down.
+MC-278300 – Creakings struck by lightning show visual fire.
+MC-278302 – Bundle always takes out first item and ignores selected item.
+MC-278311 – Respawned creakings from creaking hearts don't persist when the world is reloaded.
+MC-278312 – Creakings spawned from a creaking heart can be name-tagged once again.
+MC-278387 – Creaking respawns when going to the nether and back.
+Videos
+Videos made by slicedlime:
+
+
+
+
+
+
+
+
+References
+
+ "Minecraft 1.21.4 Pre-Release 1"     – Minecraft.net, November 20, 2024.
+
+Navigation

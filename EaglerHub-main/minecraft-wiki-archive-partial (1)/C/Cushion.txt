@@ -1,0 +1,560 @@
+This article describes content that is currently in development. 
+This content has appeared in  development versions for Third Drop 2026, but the full update adding it has not been released yet.
+
+Cushion
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Rarity tier
+
+  Common
+
+Renewable
+
+Yes
+
+Stackable
+
+Yes (16)
+
+Size
+
+Height: 0.249 blocks
+Width: 0.999 blocks
+
+{
+    "title": "Cushion",
+    "rows": [
+        {
+            "field": "<span style=\"white-space: nowrap;\"><span style=\"display: inline-block; background-color: #fff; border: 1px solid #888; border-radius: 0.3em; color: transparent; width: 1em; height: 1em; vertical-align: -0.36em; margin-right: -0.1em\"><br></span> </span> Common",
+            "label": "(link to Rarity article, displayed as Rarity tier)"
+        },
+        {
+            "field": "Yes",
+            "label": "(link to Renewable resource article, displayed as Renewable)"
+        },
+        {
+            "field": "Yes (16)",
+            "label": "Stackable"
+        },
+        {
+            "field": "Height: 0.249 blocks<br>\nWidth: 0.999 blocks<br>",
+            "label": "Size"
+        }
+    ],
+    "invimages": [
+        "White Cushion",
+        "Light Gray Cushion",
+        "Gray Cushion",
+        "Black Cushion",
+        "Brown Cushion",
+        "Red Cushion",
+        "Orange Cushion",
+        "Yellow Cushion",
+        "Lime Cushion",
+        "Green Cushion",
+        "Cyan Cushion",
+        "Light Blue Cushion",
+        "Blue Cushion",
+        "Purple Cushion",
+        "Magenta Cushion",
+        "Pink Cushion"
+    ],
+    "images": [
+        "White Cushion.png",
+        "Light Gray Cushion.png",
+        "Gray Cushion.png",
+        "Black Cushion.png",
+        "Brown Cushion.png",
+        "Red Cushion.png",
+        "Orange Cushion.png",
+        "Yellow Cushion.png",
+        "Lime Cushion.png",
+        "Green Cushion.png",
+        "Cyan Cushion.png",
+        "Light Blue Cushion.png",
+        "Blue Cushion.png",
+        "Purple Cushion.png",
+        "Magenta Cushion.png",
+        "Pink Cushion.png"
+    ]
+}
+
+A cushion is a placeable entity that can be sat on. Cushions can be placed on any surface within any block in the game, excluding fluids and a few invisible blocks, and break shortly after their supporting block is removed.
+
+Contents
+
+1 Obtaining
+
+1.1 Breaking
+1.2 Crafting
+1.3 Natural generation
+1.4 Generated loot
+
+2 Usage
+
+2.1 Fuel
+2.2 Vibration interactions
+
+3 Sounds
+4 Data values
+
+4.1 ID
+4.2 Entity data
+
+5 History
+
+5.1 Java Edition
+5.2 Bedrock Edition
+
+6 Issues
+7 Gallery
+
+7.1 Screenshots
+7.2 Mojang images
+7.3 In other media
+
+8 References
+9 Navigation
+
+Obtaining
+Breaking
+Cushions are entities, meaning that they cannot be mined like a typical block. Instead, cushions immediately break when attacked, including with projectiles, or by non-player entities, even if the damage received is 0. A cushion also breaks when a piston attempts to move it in Java Edition. In Bedrock Edition, cushions can be moved by a piston if there is a block in front of the piston. Cushions always drop themselves when broken.
+Like paintings and item frames, cushions also break if they don't have a support block. The existence of a support block is checked every 100 game ticks (5 seconds), starting when the entity is loaded.
+
+Crafting
+
+Name
+Ingredients
+Crafting recipe
+Notes
+
+Cushion
+
+Matching Wool Slab
+
+​[upcoming: Third Drop 2026]
+
+Cushion
+
+Any Cushion +Matching Dye
+
+​[upcoming: Third Drop 2026]
+
+Natural generation
+Cushions can be found naturally in abandoned camps. They normally spawn within 1~2 blocks of a campfire, assuming the camp generates with one. The color depends on the template, all 16 can be generated. See Abandoned Camp § Components for more details.
+
+Generated loot
+
+Item
+
+Structure
+
+Container
+
+Quantity
+
+Chance
+
+Java Edition 26.3
+
+White Cushion
+
+Abandoned Camp
+
+Barrel
+
+1–2
+
+35.5%{ "item": "White Cushion", "stacksize": "1–2", "chance": 0.35542388369628897, "structure": "Abandoned Camp", "container": "Barrel" }
+
+Usage
+Cushions can be placed on any flat surface, and align horizontally to the grid unless teleported, but vertically sit on top of the supporting surface. They break if their supporting surface is removed or if they are pushed by a piston. Since they are entities with a finite amount of health, they also break after a few seconds if placed in lava.
+They can be sat on by pressing use on them. Players cannot be affected by portals or forms of movement (e.g. knockback, geysers and pistons) while sitting on a cushion, but will become affectable again once they dismount.
+Cushions cannot move, do not have collision, and can overlap with other objects, except for other cushions. This means they can rest properly on top of any surface which is less than one block in height, including snow layers, wildflowers, enchanting tables, slabs, and stairs. Cushions placed on the lower step of stairs are partly obscured by the upper step of the stairs.
+
+Fuel
+Cushions can be used as fuel in furnaces, smelting one item per cushion (burn time of 200 game ticks (10 seconds) when used in a regular furnace).
+
+Vibration interactions
+Unlike other wool-based blocks, cushions do not dampen vibrations from sculk sensors or sculk shriekers. Placing, breaking, walking, sprinting, jumping, sitting on, and getting off a cushion produce detectable vibrations.
+
+Sounds
+Java Edition:
+
+SoundsSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitchAttenuationdistance​Sits on CushionFriendly MobsWhen a player sits on a cushionentity.cushion.sitsubtitles.entity.cushion.sit​1.01.0?​Gets up from CushionFriendly MobsWhen a player gets up from a cushionentity.cushion.get_upsubtitles.entity.cushion.get_up​1.01.0?​Cushion placedBlocksWhen a cushion is placedentity.cushion.placesubtitles.entity.cushion.place​1.01.0?​Cushion breaksFriendly MobsWhen a cushion breaksentity.cushion.breaksubtitles.entity.cushion.break​1.01.0?
+Bedrock Edition:
+
+SoundsSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitch​Sits on CushionFriendly MobsWhen a player sits on a cushionentity.cushion.sitsubtitles.entity.cushion.sit​1.01.0​Gets up from CushionFriendly MobsWhen a player gets up from a cushionentity.cushion.get_upsubtitles.entity.cushion.get_up​1.01.0​Cushion placedBlocksWhen a cushion is placedentity.cushion.placesubtitles.entity.cushion.place​1.01.0​Cushion breaksBlocksWhen a cushion breaksentity.cushion.breaksubtitles.entity.cushion.break​1.01.0
+Data values
+ID
+Java Edition:
+
+NameIdentifierFormItem tags
+Translation key White Cushionwhite_cushionItemcushions
+item.minecraft.white_cushion
+ Orange Cushionorange_cushionItemcushions
+item.minecraft.orange_cushion
+ Magenta Cushionmagenta_cushionItemcushions
+item.minecraft.magenta_cushion
+ Light Blue Cushionlight_blue_cushionItemcushions
+item.minecraft.light_blue_cushion
+ Yellow Cushionyellow_cushionItemcushions
+item.minecraft.yellow_cushion
+ Lime Cushionlime_cushionItemcushions
+item.minecraft.lime_cushion
+ Pink Cushionpink_cushionItemcushions
+item.minecraft.pink_cushion
+ Gray Cushiongray_cushionItemcushions
+item.minecraft.gray_cushion
+ Light Gray Cushionlight_gray_cushionItemcushions
+item.minecraft.light_gray_cushion
+ Cyan Cushioncyan_cushionItemcushions
+item.minecraft.cyan_cushion
+ Purple Cushionpurple_cushionItemcushions
+item.minecraft.purple_cushion
+ Blue Cushionblue_cushionItemcushions
+item.minecraft.blue_cushion
+ Brown Cushionbrown_cushionItemcushions
+item.minecraft.brown_cushion
+ Green Cushiongreen_cushionItemcushions
+item.minecraft.green_cushion
+ Red Cushionred_cushionItemcushions
+item.minecraft.red_cushion
+ Black Cushionblack_cushionItemcushions
+item.minecraft.black_cushion
+EntityIdentifier
+Translation key Cushioncushion
+entity.minecraft.cushion
+Bedrock Edition:
+
+NameIdentifierNumeric ID Form
+Translation key White Cushionwhite_cushion?Item
+item.white_cushion.name
+ Orange Cushionorange_cushion?Item
+item.orange_cushion.name
+ Magenta Cushionmagenta_cushion?Item
+item.magenta_cushion.name
+ Light Blue Cushionlight_blue_cushion?Item
+item.light_blue_cushion.name
+ Yellow Cushionyellow_cushion?Item
+item.yellow_cushion.name
+ Lime Cushionlime_cushion?Item
+item.lime_cushion.name
+ Pink Cushionpink_cushion?Item
+item.pink_cushion.name
+ Gray Cushiongray_cushion?Item
+item.gray_cushion.name
+ Light Gray Cushionlight_gray_cushion?Item
+item.light_gray_cushion.name
+ Cyan Cushioncyan_cushion?Item
+item.cyan_cushion.name
+ Purple Cushionpurple_cushion?Item
+item.purple_cushion.name
+ Blue Cushionblue_cushion?Item
+item.blue_cushion.name
+ Brown Cushionbrown_cushion?Item
+item.brown_cushion.name
+ Green Cushiongreen_cushion?Item
+item.green_cushion.name
+ Red Cushionred_cushion?Item
+item.red_cushion.name
+ Black Cushionblack_cushion?Item
+item.black_cushion.name
+EntityIdentifier
+Translation key Cushioncushion
+entity.cushion.name
+Entity data
+Java Edition:
+
+Main article: Entity format
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+[Int Array] block_pos: The block space the cushion occupies. Stored as 3 ints.
+[String] color: The cushion's color. Defaults to "white". Represents the minecraft:cushion/color component.
+
+Color
+
+Data value
+
+ White
+
+"white"
+
+ Orange
+
+"orange"
+
+ Magenta
+
+"magenta"
+
+ Light Blue
+
+"light_blue"
+
+ Yellow
+
+"yellow"
+
+ Lime
+
+"lime"
+
+ Pink
+
+"pink"
+
+ Gray
+
+"gray"
+
+ Light Gray
+
+"light_gray"
+
+ Cyan
+
+"cyan"
+
+ Purple
+
+"purple"
+
+ Blue
+
+"blue"
+
+ Brown
+
+"brown"
+
+ Green
+
+"green"
+
+ Red
+
+"red"
+
+ Black
+
+"black"
+
+Bedrock Edition:
+
+Main article: Entity format (Bedrock Edition)
+
+[NBT Compound / JSON Object]: The entity's root tag.
+Tags common to all entities  see Template:Bedrock nbt/entity/template
+[Int] Variant: (May not exist) The ID of the variant. Represents the color of the cushion. Defaults to 15.
+
+Color
+
+Data value
+
+ White
+
+15
+
+ Orange
+
+14
+
+ Magenta
+
+13
+
+ Light Blue
+
+12
+
+ Yellow
+
+11
+
+ Lime
+
+10
+
+ Pink
+
+9
+
+ Gray
+
+8
+
+ Light Gray
+
+7
+
+ Cyan
+
+6
+
+ Purple
+
+5
+
+ Blue
+
+4
+
+ Brown
+
+3
+
+ Green
+
+2
+
+ Red
+
+1
+
+ Black
+
+0
+
+History
+Java Edition
+Upcoming Java Edition26.3snap3
+                               Added cushions.snap4
+ Cauldrons, composters, and hoppers now use their collision box for positioning the cushions.
+
+Cushions can now be placed on the highest edge of a lectern.
+
+Cushions are now destroyed in fire.
+
+Cushions now retain their custom name when dropped.snap7
+White cushions now generate as part of abandoned camps in barrels in addition to being naturally generated there.
+
+Cushions now send vibrations to sculk sensors.snap8
+Cushions are now destroyed only when they are fully covered by blocks that cause suffocation.
+
+Cushions now properly send vibrations to sculk shriekers.
+
+Cushions can no longer be destroyed by players in Adventure mode.
+Bedrock Edition
+Bedrock Edition26.40ExperimentDrop 3 of 2026Preview 26.40.30
+                               Added cushions.Upcoming Bedrock Edition26.50Preview 26.50.22
+All features from the "Drop 3 of 2026" experiment have been fully implemented.Preview 26.50.25
+White cushions now generate as part of abandoned camps in barrels in addition to being naturally generated there.
+Cushions can no longer be destroyed by players in Adventure mode.
+Breaking cushions now sends vibrations to sculk sensors and shriekers.Preview 26.50.26
+Cushions can no longer be named using name tags
+Issues
+Issues relating to "Cushion" are maintained on the bug tracker. Issues should be reported and viewed there.
+
+Gallery
+Screenshots
+
+
+
+			Steve sitting on a cushion
+
+
+
+			Steve sitting on a cushion, but with the cushion placed on top of a sculk sensor
+
+
+
+			Cushions at various pixel heights
+
+
+Mojang images
+
+
+
+			Kai and Ari sitting on cushions while Sunny and Efe are on top of a green and white tent
+
+
+
+			Noor in a dappled forest sits on a brown cushion looking at smoker
+
+
+
+			Zuri and Efe sitting on rainbow concrete stairs on top of cushions
+
+
+In other media
+
+
+
+			Steve playing video games on a cushion and leaning
+
+
+
+			A player glowing on a cushion
+
+
+References
+
+ MC-309659
+
+Navigation

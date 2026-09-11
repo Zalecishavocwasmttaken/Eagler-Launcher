@@ -1,0 +1,84 @@
+"village.dat" redirects here.  For the file for a single village, see villages.dat format.
+
+
+
+This page describes content that has been removed and was only present in earlier versions of Java Edition. 
+This format is no longer used in 1.13. They are no longer separate files from chunks, and instead included in chunk files/format.
+
+The Village.dat, Fortress.dat, Temple.dat, Mineshaft.dat, Stronghold.dat, Monument.dat, EndCity.dat, and Mansion.dat files are located in the data folder of a Minecraft level and store information about the generation of villages, Nether fortresses, temples (desert pyramids, jungle pyramids, witch huts and igloos), mineshafts, strongholds, ocean monuments, End cities, and woodland mansions respectively, in the level. The structure data is stored in the chunk data.
+
+NBT structure
+As of Java Edition 1.12.
+Note that many of the tags listed for the structure pieces apply only to specific piece types.
+
+[NBT Compound / JSON Object]: The root tag.
+[NBT Compound / JSON Object] data
+[NBT Compound / JSON Object] Features: List of features.
+[NBT Compound / JSON Object] [X,Z]: A structure. Tag name contains the chunk coordinates of the structure's starting point.
+[String] id: Identifier for the structure type. Typically matches the file name.
+[Int] ChunkX: Chunk X coordinate of the start of the structure.
+[Int] ChunkZ: Chunk Z coordinate of the start of the structure.
+[Int Array] BB: Bounding box of the entire structure. Value is 6 ints: the minimum X, Y, and Z coordinates followed by the maximum X, Y, and Z coordinates.
+[Byte] Valid: (Village only) Whether the village generated at least 3 non-roads. If 0, the village isn't actually generated.
+[NBT List / JSON Array] Processed: (Monument only) List of chunks that have had their piece of the structure created.
+[NBT Compound / JSON Object]
+[Int] X: Chunk X coordinate
+[Int] Z: Chunk Z coordinate
+[NBT List / JSON Array] Children: List of structure pieces making up this structure.
+[NBT Compound / JSON Object]: Structure piece data.
+[String] id: Identifier for the structure piece. Typically a heavily abbreviated code rather than something human-readable.
+[Int] GD: Appears to be some sort of measure of how far this piece is from the start.
+[Int] O: Likely orientation of the structure piece.
+[Int Array] BB: Bounding box of the structure piece. (Does not include the part of a village roof that can overhang the road.) Value is 6 ints: the minimum X, Y, and Z coordinates followed by the maximum X, Y, and Z coordinates.
+[Int] Width: (Temples and huts) Width of the structure (X/Z).
+[Int] Height: (Temples and huts) Height of the structure (Y).
+[Int] Depth: (Temples and huts) Depth of the structure (X/Z).
+[Int] HPos: (Temples and huts) Y level the structure was moved to in order to place it on the surface, or -1 if it hasn't been moved yet.
+[Byte] placedTrap1: (Jungle temple) Whether the hallway arrow trap dispenser was placed.
+[Byte] placedTrap2: (Jungle temple) Whether the chest arrow trap dispenser was placed.
+[Byte] placedMainChest: (Jungle temple) Whether the main chest was placed.
+[Byte] placedHiddenChest: (Jungle temple) Whether the hidden chest was placed.
+[Byte] hasPlacedChest0: (Desert temple) Whether chest was placed.
+[Byte] hasPlacedChest1: (Desert temple) Whether chest was placed.
+[Byte] hasPlacedChest2: (Desert temple) Whether chest was placed.
+[Byte] hasPlacedChest3: (Desert temple) Whether chest was placed.
+[Byte] Witch: (Witch hut) Whether the initial witch has been spawned for the hut.
+[Byte] hr: (Mineshaft "MSCorridor") Whether the corridor has rails.
+[Byte] sc: (Mineshaft "MSCorridor") Whether the corridor has cobwebs.
+[Byte] hps: (Mineshaft "MSCorridor") Whether the corridor has a cave spider spawner.
+[Int] Num: (Mineshaft "MSCorridor") Corridor length.
+[Byte] tf: (Mineshaft "MSCrossing") Whether the crossing is two floors tall.
+[Int] D: (Mineshaft "MSCrossing") Indicates the "incoming" direction for the crossing.
+[NBT List / JSON Array] Entrances: (Mineshaft "MSRoom") List of exits from the room.
+[Int Array]: Bounding box of the exit.
+[Byte] Chest: (Fortress "NeSCLT" and "NeSCRT") Whether this fortress piece should contain a chest but hasn't had one generated yet.
+[Byte] Mob: (Fortress "NeMT") Whether this fortress piece should contain a Blaze spawner but hasn't had one generated yet.
+[Int] Seed: (Fortress "NeBEF") Random seed for the broken-bridge fortress piece.
+[String] EntryDoor: (Stronghold) The type of door at the entry to this piece.
+[Byte] Chest: (Stronghold "SHCC") Whether this chest in this stronghold piece was placed.
+[Int] Steps: (Stronghold "SHFC") Length of the corridor
+[Byte] leftLow: (Stronghold "SH5C") Whether the 5-way crossing has an exit on the lower level on the side with the upward staircase.
+[Byte] rightLow: (Stronghold "SH5C") Whether the 5-way crossing has an exit on the lower level on the side with the downward staircase.
+[Byte] leftHigh: (Stronghold "SH5C") Whether the 5-way crossing has an exit on the upper level on the side with the upward staircase.
+[Byte] rightHigh: (Stronghold "SH5C") Whether the 5-way crossing has an exit on the upper level on the side with the downward staircase.
+[Byte] Tall: (Stronghold "SHLi") Whether the library has an upper level.
+[Byte] Mob: (Stronghold "SHPR") Whether the Silverfish spawner has been placed in this piece.
+[Int] Type: (Stronghold "SHRC") Indicates whether the room contains a pillar with torches, a fountain, an upper level with a chest, or is just empty room.
+[Byte] Source: (Stronghold "SHSD") Whether the spiral staircase is the source of the Stronghold or was randomly generated.
+[Byte] Left: (Stronghold "SHS") Whether the corridor has an opening on the left.
+[Byte] Right: (Stronghold "SHS") Whether the corridor has an opening on the right.
+[Byte] Type: (Village) Village type: 0=plains, 1=desert, 2=savanna, 3=taiga.
+[Byte] Zombie: (Village) Whether this village generated as a zombie village.
+[Int] VCount: (Village) Count of villagers spawned along with this piece.
+[Int] HPos: (Village) Y level the piece was moved to in order to place it on the surface, or -1 if it hasn't been moved yet.
+[Byte] Chest: (Village "ViS") Whether the blacksmith chest has been generated.
+[Int] CA: (Village "ViF" and "ViDF") Crop in the farm plot, as a block ID (59=wheat, 141=carrots, 142=potatoes)
+[Int] CB: (Village "ViF" and "ViDF") Crop in the farm plot.
+[Int] CC: (Village "ViDF") Crop in the farm plot.
+[Int] CD: (Village "ViDF") Crop in the farm plot.
+[Byte] Terrace: (Village "ViSH") Whether the house has a ladder to the roof and fencing.
+[Int] T: (Village "ViSmH") Table: 0 is no table, 1 and 2 place it on either side of the hut.
+[Byte] C: (Village "ViSmH") Hut roof type.
+[Int] Length: (Village "ViSR") Length of the road piece.
+
+Navigation

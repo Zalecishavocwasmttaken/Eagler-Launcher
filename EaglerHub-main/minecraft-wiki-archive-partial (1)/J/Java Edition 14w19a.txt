@@ -1,0 +1,161 @@
+14w19a
+
+Edition
+
+Java Edition
+
+Release date
+
+May 8, 2014
+
+Type
+
+Snapshot
+
+Snapshot for
+
+1.8
+
+Downloads
+
+Client (.json)Server (.exe)
+
+Protocol version
+
+17
+
+Resource pack format
+
+1
+
+Minimum Java version
+
+Java SE 6
+
+◄◄   1.7.10
+1.8
+  1.8.1 ►►
+
+◄   14w18b
+
+ 14w19a
+
+  14w20a ►
+
+{
+    "title": "14w19a",
+    "images": [
+        "Java Edition 14w19a.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "May 8, 2014",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Snapshot article, displayed as Snapshot)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition 1.8 article, displayed as 1.8)",
+            "label": "Snapshot for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/1d498b388c98ec363cfaa19cec3fcc9717d7ac35/client.jar Client] ([https://piston-meta.mojang.com/v1/packages/14bb3b1e4b05852ba81e3fccf55e36cf1b731eef/14w19a.json .json])<br />[https://piston-data.mojang.com/v1/objects/a7df79e00c4d75e3916438658839785a476bd6ac/server.jar Server] ([https://piston-data.mojang.com/v1/objects/d4d240fb82eac62425a8febee305874975ad6c57/windows_server.exe .exe])",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "17",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "1",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_6 Java SE 6]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Java Edition  1.7.10|<span style=\"margin-right:-0.35em\">◄</span>◄   1.7.10]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition 1.8|1.8]]'''</td>\n<td style=\"padding: 0.4em\" >[[Java Edition  1.8.1|  1.8.1 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  14w18b|◄   14w18b]]\n</td>\n<td style=\"padding: 0.4em\">''' 14w19a'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  14w20a|  14w20a ►]]\n</td>\n</tr>\n</table>"
+}
+
+14w19a is the twenty-second snapshot for Java Edition 1.8, released on May 8, 2014.
+
+Contents
+
+1 Changes
+
+1.1 Blocks
+1.2 World generation
+1.3 Gameplay
+
+2 Fixes
+3 Trivia
+4 Gallery
+5 References
+6 Navigation
+
+Changes
+Blocks
+Pistons & slime blocks
+
+Slime blocks can now push entities sideways and downwards when attached to a piston.
+When they are on the ground, entities are pushed less.
+World generation
+World border
+
+The warning, a red-colored aura seen when within a certain distance of the world border.
+Only visible on "Fancy" graphics.
+Outside the border, the warning is at full strength.
+Inside the border, the warning gradually gets stronger as the player approaches the border.
+If the border is stationary, the warning is first seen as the player passes the warning distance, default 5 blocks from the player's location.
+If the border is shrinking quickly enough, the warning is first visible at the warning time, default 15 seconds from the player's location.
+New options:
+/worldborder damage <buffer|amount>
+buffer (default 5) is the distance (in blocks) into the barrier before a player starts to become damaged.
+amount (default 0.2) is the amount (per block) of damage a player takes, for each block-distance the player is past the barrier's buffer.
+/worldborder warning <time|distance>
+time (default 15) is the advance notice given (in seconds) to a player, using the red warning, that a shrinking world border is approaching their location.
+distance (default 5) is the distance (in blocks) at which the red warning starts to appear, as a player approaches the barrier.
+The border in the Nether is now the same size as that of the Overworld.
+Traveling to the Nether now doesn't create new portals outside the boundary.
+It is still possible to emerge at an existing portal outside the boundary.
+Gameplay
+Spectator mode
+
+Spectators now have a UI to teleport to other players.
+Activated by  Middle Mouse Button, or pressing a number key.
+When more than 8 players are available to choose, the sides are replaced by arrows.
+When teams are set up, teams can be selected individually to only display that team's players.
+Both number keys and the 'pick block'-button together with the  Scroll Wheel can be used to control the interface.
+Teleportation works across dimensions.
+"Far from complete".
+Fixes
+5 issues fixed
+From the 1.8 development versions
+
+MC-51109 – mob_spawner.json is missing.
+MC-53555 – Portal in Nether was set outside the border.
+MC-53557 – World border stops growing/shrinking when you exit and re-enter a world.
+MC-54125 – /worldborder set 100 10 says "10000 seconds" instead of 10.
+MC-54358 – Sticky piston break unmovable blocks, such as saplings, crops, leaves, liquids, melons, and pumpkins when pulled.
+Trivia
+14w19a was previously removed from the launcher for some time, but was added back in September 2018.
+Gallery
+
+
+
+
+
+
+References
+
+ "Minecraft snapshot 14w19a"  (archived)   by Dinnerbone  – Mojang.com, May 8, 2014.
+
+Navigation

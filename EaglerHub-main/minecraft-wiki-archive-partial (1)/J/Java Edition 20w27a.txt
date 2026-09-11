@@ -1,0 +1,230 @@
+This page covers a development version that has a major issue under certain conditions. 
+The dedicated server for this version has a security vulnerability in the Log4j library that could be used to perform a remote code execution exploit. It can be addressed by appending a certain JVM argument to the server startup command line.
+
+Minecraft 20w27a
+
+Edition
+
+Java Edition
+
+Release date
+
+July 1, 2020
+
+Type
+
+Snapshot
+
+Snapshot for
+
+1.16.2
+
+Downloads
+
+Client (.json)Server
+
+Obfuscation maps
+
+ClientServer
+
+Protocol version
+
+738
+
+Data version
+
+2569
+
+Resource pack format
+
+5
+
+Data pack format
+
+5
+
+Minimum Java version
+
+Java SE 8
+
+◄◄   1.16.1
+1.16.2
+  1.16.3 ►►
+
+ 20w27a
+
+  20w28a ►
+
+{
+    "title": "Minecraft 20w27a",
+    "images": [
+        "20w27a.jpg",
+        "Java Edition 20w27a.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "July 1, 2020",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Snapshot article, displayed as Snapshot)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition 1.16.2 article, displayed as 1.16.2)",
+            "label": "Snapshot for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/83f30681e76d3438105159c645d9f2f6df88a4d8/client.jar Client] ([https://piston-meta.mojang.com/v1/packages/785300739970907bf41906b0d4a57b590211e2c6/20w27a.json .json])<br />[https://piston-data.mojang.com/v1/objects/40efae0a2412154f44a99f158752b8417b384f06/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/61f5a006a56522f3eaa4faf155088f9dfd081ef5/client.txt Client]<br />[https://piston-data.mojang.com/v1/objects/17e0fd0e37436037b9edf6c34d94f8d2c06c7818/server.txt Server]",
+            "label": "(link to Obfuscation map article, displayed as Obfuscation maps)"
+        },
+        {
+            "field": "738",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "2569",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "5",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "5",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Data pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_8_.28LTS.29 Java SE 8]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" rowspan=\"2\">[[Java Edition  1.16.1|<span style=\"margin-right:-0.35em\">◄</span>◄   1.16.1]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition 1.16.2|1.16.2]]'''</td>\n<td style=\"padding: 0.4em\" >[[Java Edition  1.16.3|  1.16.3 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n\n<td style=\"padding: 0.4em\">''' 20w27a'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  20w28a|  20w28a ►]]\n</td>\n</tr>\n</table>"
+}
+
+20w27a is the first snapshot for Java Edition 1.16.2, released on July 1, 2020, which adds piglin brutes and fixes bugs.
+
+Contents
+
+1 Additions
+
+1.1 Items
+1.2 Mobs
+1.3 General
+
+2 Changes
+
+2.1 Items
+2.2 Mobs
+2.3 World generation
+2.4 Gameplay
+2.5 General
+
+3 Fixes
+4 Videos
+5 References
+6 Navigation
+
+Additions
+Items
+Spawn eggs
+
+ Piglin brute spawn egg
+Mobs
+ Piglin brutes
+
+Stronger variants of piglins that wield golden axes.
+Are always hostile towards players, unlike piglins.
+Have 50HP × 25 health.
+Only spawn during world generation in bastion remnants.
+General
+Tags
+
+Added mushroom_grow_block block tag.
+Contains mycelium, podzol, and crimson and warped nylium.
+Used to determine which blocks mushrooms can be placed on and which blocks huge mushrooms can grow on, even if the light level is high.
+Changes
+Items
+Brown and red mushrooms
+
+Can now be placed and grown on both types of nylium.
+Crimson and warped fungi
+
+Can now be placed on mycelium.
+Still only grow into a huge fungus on the respective nylium.
+Mobs
+Zoglins
+
+Can now be leashed.
+World generation
+Bastion remnants
+
+Now spawn piglin brutes on world generation.
+Normal piglins still spawn.
+Gameplay
+Advancements
+
+Piglin brutes are now used for the "Monster Hunted" advancement and count toward the "Monsters Hunter" advancement.
+General
+Menu
+
+Dropping resource packs into the menu now updates the list of resource packs without needing a reload.
+Data packs can now have a pack.png in the root folder, and will display it in the data pack menu.
+Fixes
+28 issues fixed
+From released versions before 1.16
+
+MC-1058 – A dragon head is invisible if the entity wearing it is not in view.
+MC-2404 – Stepping down while sneaking allows falling off of blocks.
+MC-49476 – NBT HideFlags does not hide "Dyed" on leather armor.
+MC-68487 – Player heads of the same player always have the same skin texture, even if the saved texture data is different.
+MC-97507 – Using item which modifies the held item shows "Gear equips" subtitle.
+MC-145691 – Binding "Open/Close Inventory" to ↹ Tab only opens the inventory.
+MC-150417 – Some items get stuck in soul sand when there is liquid above the soul sand.
+MC-160723 – Bamboo crouch sliding off.
+MC-180447 – Game crashes when placing player head down.
+From 1.16
+
+MC-171739 – Weeping and twisting vines, bamboo, and kelp can be replaced by "saplings" by breaking and placing the block at the same time.
+MC-174762 – Villager iron golem respawn timer is reset when the chunk is reloaded.
+MC-177941 – Twisting and weeping vines always have an age of 0 when placed by a player.
+MC-178729 – Red and brown mushrooms cannot be grown into huge mushrooms on nylium, while they can on all other "grass" blocks.
+MC-182652 – Ruined portals do not always generate with a chest.
+MC-183663 – Farmer villagers do not compost correctly.
+MC-183743 – Iron golem overpopulation bug.
+MC-185274 – Subtitles still show "Gear equips" when eating in snapshot 20w21a or newer.
+MC-188473 – Resource pack screen no longer updates when adding or removing resource packs.
+MC-188969 – Having a suspicious stew in a player’s inventory prevents any type of suspicious stew from going into their inventory when milking a brown mooshroom.
+MC-189909 – player_interacted_with_entity does not trigger if there is only one item and the item gets consumed.
+MC-190021 – Trying to mount a pig or strider while sneaking plays the hand animation.
+MC-190266 – Players and other entities can catch on fire after logging on while riding a strider in lava.
+MC-190274 – Collecting liquids in bottles in creative mode is inconsistent with the new creative mode bucket mechanics.
+MC-190849 – Slime blocks can only push entities 5 blocks high instead of 6 blocks high as in 1.15.2.
+MC-191467 – Resource packs screen is not updated in real time when packs are dropped in the folder.
+From 1.16.1
+
+MC-191915 – While in a boat the elytra does not show as enchanted.
+MC-191953 – End gateway occasionally fails to teleport player to/from the End islands.
+MC-192894 – Transparency layers lose their auxiliary depth buffer ID when resized.
+Videos
+Video made by slicedlime:
+
+
+
+
+References
+
+ "Important Message: Security vulnerability in Java Edition"     – Minecraft.net, December 10, 2021.
+
+ "Minecraft Snapshot 20w27a"     – Minecraft.net, July 1, 2020.
+
+Navigation

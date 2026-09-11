@@ -1,0 +1,290 @@
+This page covers a development version that has a major issue under certain conditions. 
+The dedicated server for this version has a security vulnerability in the Log4j library that could be used to perform a remote code execution exploit. It can be addressed by appending a certain JVM argument to the server startup command line.
+
+Minecraft 17w13a
+
+Edition
+
+Java Edition
+
+Release date
+
+March 30, 2017
+
+Type
+
+Snapshot
+
+Snapshot for
+
+1.12
+
+Downloads
+
+Original:
+Client (.json)
+Server
+Reupload:
+Client (.json)
+Server
+
+Protocol version
+
+318
+
+Data version
+
+1122
+
+Resource pack format
+
+3
+
+Minimum Java version
+
+Java SE 8
+
+◄◄   1.11.2
+1.12
+  1.12.1 ►►
+
+◄   17w06a
+
+ 17w13a
+
+  17w13b ►
+
+{
+    "title": "Minecraft 17w13a",
+    "images": [
+        "17w13a.png",
+        "Java Edition 17w13a.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "March 30, 2017",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Snapshot article, displayed as Snapshot)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition 1.12 article, displayed as 1.12)",
+            "label": "Snapshot for"
+        },
+        {
+            "field": "'''Original:'''<br>\n[https://piston-data.mojang.com/mc/game/17w13a/client/84867afe218d806aee91c2036cbc7b0d1ce19e99/client.jar Client] ([https://vault.omniarchive.uk/versions/java/client/release/1.12/pre/17w13a-0805/17w13a-0805.json .json])<br>\n[https://piston-data.mojang.com/mc/game/17w13a/server/9230038e59d214a2e5764c3c889e23241c183a8e/server.jar Server]<br>\n'''Reupload:'''<br>\n[https://piston-data.mojang.com/v1/objects/8a11edbdd3d8be019b3eb85089f2f5d97ec3ac4e/client.jar Client] ([https://piston-meta.mojang.com/v1/packages/ec0d9ff2917f223b24725b259d7aea1249f4a07c/17w13a.json .json])<br>\n[https://piston-data.mojang.com/v1/objects/d3806f89b9c90cbfb78919a3bcc010ad2e5d6ebb/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "318",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "1122",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "3",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_8_.28LTS.29 Java SE 8]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Java Edition  1.11.2|<span style=\"margin-right:-0.35em\">◄</span>◄   1.11.2]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition 1.12|1.12]]'''</td>\n<td style=\"padding: 0.4em\" >[[Java Edition  1.12.1|  1.12.1 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  17w06a|◄   17w06a]]\n</td>\n<td style=\"padding: 0.4em\">''' 17w13a'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  17w13b|  17w13b ►]]\n</td>\n</tr>\n</table>"
+}
+
+17w13a is the second snapshot for Java Edition 1.12, released on March 30, 2017, which adds parrots, knowledge books, changes textures of some glazed terracotta, and replaces achievements with advancements.
+17w13a was reuploaded an hour and a half after release to fix an issue on macOS.
+
+Contents
+
+1 Additions
+
+1.1 Items
+1.2 Mobs
+1.3 Gameplay
+1.4 Command format
+1.5 General
+
+2 Changes
+
+2.1 Blocks
+2.2 Items
+2.3 General
+
+3 Fixes
+4 Videos
+5 Trivia
+6 References
+7 Navigation
+
+Additions
+Items
+ Knowledge books
+
+A green-colored book.
+Currently obtainable only with the /give @p knowledge_book command.
+A knowledge book with a Recipes tag, which contains a list of item IDs, is consumed and unlocks the specified items' recipes for any player that uses it.
+Especially useful when /gamerule doLimitedCrafting is set to true.
+Spawn eggs
+
+ Parrot spawn egg
+Spawns parrots.
+Mobs
+Parrots
+
+Tamable with cookies.
+Fly around, but sit when "tired".
+Follow and crowd around nearby mobs.
+Imitates sounds of other mobs.
+Using tamed parrots places them on the player's shoulder.
+Let go if the player jumps.
+Can fly with players during elytra flight.
+Have 6HP health.
+Come in red, blue, green and cyan.
+Gameplay
+Gamerules
+
+doLimitedCrafting
+Off by default.
+Enabling only allows players to craft recipes they have unlocked.
+Command format
+/recipe <give|take> [player] <name|*>
+
+Can unlock, or lock, the given recipes for the given player.
+If * is specified, it locks or unlocks all recipes for the player.
+/advancement <grant|revoke|test> <player> <advancement> [criterion]
+
+Can grant, test or revoke advancements, and particular advancement criteria, for a given player.
+General
+Advancement tree in 17w13a.
+Advancements
+
+Replaces achievements.
+Can be customized via JSON files.
+Tab-based UI.
+Currently only has one tab ("Minecraft") with 22 advancements.
+Different background per tab, single texture on repeat for now.
+Data-driven UI, including positioning and layout.
+Advancements in this version include:
+MinecraftIconAdvancementIn-game descriptionParentActual requirements (if different)Resource locationRewards
+MinecraftDescriptions were not added yet.—Have a crafting table in the inventory.story/root—
+Mine stone—MinecraftHave cobblestone in the inventory.story/mine_stone—
+Upgrade tools—Mine stoneHave a stone pickaxe in the inventory.story/upgrade_tools—
+Smelt iron—Upgrade toolsHave an iron ingot in the inventory.story/smelt_iron—
+Obtain armor—Smelt ironHave any piece of iron armor in the inventory.story/obtain_armor—
+Deflect an arrow—Obtain armorBlock incoming damage from a projectile with a shield.story/deflect_arrow—
+Iron tools—Smelt ironHave an iron pickaxe in the inventory.story/iron_tools—
+Diamonds!—Iron toolsHave a diamond in the inventory.story/mine_diamond—
+Shiny gear—Diamonds!Have any piece of diamond armor in the inventory.story/shiny_gear—
+Enchant an item—Diamonds!Enchant an item in an enchanting table.story/enchant_item—
+Bucket of lava—Smelt ironHave a lava bucket in the inventory.story/lava_bucket—
+Form obsidian—Bucket of lavaHave obsidian in the inventory.story/form_obsidian—
+Enter the Nether—Form obsidianEnter the nether portal block.story/enter_the_nether—
+Summon the Wither—Enter the NetherSummon the Wither. Unobtainable without commands.story/summon_wither—
+Create a beacon—Summon the WitherBe near a beacon when it activates.story/create_beacon—
+Create a full beacon—Create a beaconBe near a 4-layer beacon when it activates.story/create_full_beacon—
+Obtain a Blaze Rod—Enter the NetherHave a blaze rod in the inventory.story/obtain_blaze_rod—
+Brew a Potion—Obtain a Blaze RodHave any item with the ID potion in the inventory (water bottle works, but splash/lingering potions don't).story/brew_potion—
+Follow an Ender Eye—Obtain a Blaze RodUse an eye of ender while being within 64 blocks of a stronghold.story/follow_ender_eye—
+Enter the End—Follow an Ender EyeEnter the end portal block.story/enter_the_end—
+Enter a Gateway—Enter the EndEnter the end gateway block.story/enter_end_gateway—
+Learn to Fly—Enter a GatewayHave an elytra in the inventory.story/elytra—
+
+Narrator
+
+⎈ Control + B toggles a text-to-speech engine that automatically reads player chat messages, including the name.
+The narrator doesn't read commands or command outputs, nor it reads messages produced with /me.
+NBT format
+
+ShoulderEntityLeft / ShoulderEntityRight: Contains entity data about an entity on the left and right shoulders of the player.
+seenCredits: Changes to 1 if the player leaves the End through the portal.
+recipeBook: A string containing a list of recipes, formatted as JSON, that the player has seen.
+Recipes: A list of crafting recipes to unlock for the player that right-clicks while holding a knowledge book.
+If this is not specified, the knowledge book is not consumed.
+Recipe books
+
+Catalogs recipes that are unlocked when the criteria are met.
+When a recipe is clicked, it appears in the crafting grid, and can be crafted if materials are available.
+recipes folder added with all item recipes as .json files.
+Languages
+
+Added support for Shakespearean English.
+Changes
+Blocks
+Comparison of the terracotta texture changes.
+Glazed terracotta
+
+Textured changed for cyan, magenta, orange, and white glazed terracotta, to remove unintentional and potentially offensive imagery.
+Beacons
+
+Now display their name when hovering over them.
+Enchantment tables
+
+Now display their name when hovering over them.
+Items
+Fishing rods
+
+Changed the sound of bobbers being thrown.
+General
+Achievements
+
+Removed and replaced by advancements.
+Crafting
+
+Closing the crafting interface with items inside no longer drops the items in front of the player, but sends them instead to the inventory.
+Java version
+
+This is the first snapshot to use, and thus require, Java 8.
+Title screen
+
+The "Old java detected" warning message no longer appears, as the game now requires Java 8.
+Moving backwards
+
+The player's body now entirely faces to the front, when moving backwards.
+Prior to this snapshot, moving backwards would cause the player model to rotate one side, making it look like the player was strafing backwards somewhat.
+Fixes
+3 issues fixed
+From the previous development version
+
+MC-113377 – New block Swastika
+MC-113844 – White Glazed Terracotta symbol (looks like the symbol of the Hungarian Nazi party)
+From the current version, hotfixed
+
+Fixed the game not loading on macOS.
+Videos
+Video made by slicedlime:
+
+
+
+
+Trivia
+17w13a was previously removed from the launcher for some time, but was added back in September 2018.
+17w13a has the longest wait between snapshots on the same development version, with 50 days having elapsed since the release of 17w06a on February 8, 2017.
+Until this point, the longest waits had been those between 14w11b and 14w17a, which spanned 42 days.
+References
+
+ "Important Message: Security vulnerability in Java Edition"     – Minecraft.net, December 10, 2021.
+
+ "Minecraft Snapshot 17w13a"     – Minecraft.net, March 30, 2017.
+
+ "Having reports of it not running on Mac OS - a hotfix will be out in about 7 minutes."  – @Dinnerbone (Nathan Adams) on X (formerly Twitter), March 30, 2017
+
+ https://www.reddit.com/r/Minecraft/comments/5sspmk/minecraft_snapshot_17w06a/ddhjm42/?context=1
+
+ "Heads up modders: This snapshot is the first Minecraft version to require (and therefore use) Java 8. You can now finally use 7/8 features!"  – @Dinnerbone (Nathan Adams) on X (formerly Twitter), January 30, 2017
+
+ MC-114900, resolved as "Works as Intended" – Maria Lemón, April 22, 2017
+
+  "It actually is a bug, it tries to rotate the body to the direction you are walking, but it can only do it so far, that is also why it basically picks a 'random direction'. Now it can actually understand when it is walking backwards and it stopped doing that weird behavior." – u/_Grum on Reddit, April 22, 2017
+
+Navigation

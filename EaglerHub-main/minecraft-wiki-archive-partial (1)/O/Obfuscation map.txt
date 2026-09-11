@@ -1,0 +1,103 @@
+This page describes content that has been removed from Java Edition. 
+This feature was present in earlier versions of Java Edition, but has since been removed.
+
+
+
+ There is a related tutorial page for this topic! 
+See Tutorial:See Minecraft's code.
+
+Obfuscation maps are ProGuard mappings from old (original) names to new (obfuscated) names for classes and class members that have been renamed. They have been exported in the client.json for every snapshot and release available in the Launcher from 19w36a through 1.21.11, and the client.json for 1.14.4 has been updated slightly after 19w36a's release to include obfuscation maps as well.
+
+Contents
+
+1 Usage
+
+1.1 Third-party usages
+
+2 Unobfuscated versions
+
+2.1 Format
+
+3 License
+4 History
+5 Trivia
+6 References
+7 See also
+8 Navigation
+
+Usage
+The obfuscation maps can be used to remap obfuscated stack traces (as in crash reports) to readable stack traces. See Tutorial:Obtaining a crash report for further reading.
+Dinnerbone and Adrian Östergård have suggested that the obfuscation maps may make modding easier. Searge has implied that the obfuscation maps can replace certain third-party programs such as the Mod Coder Pack.
+On August 12th, 2020, Dinnerbone announced that the license for the obfuscation maps would be revised to encourage modding projects to adopt them.
+
+Third-party usages
+
+
+
+The contents of this section are not supported by Mojang Studios or the Minecraft Wiki.
+
+The obfuscation maps include enough information to deobfuscate Minecraft for decompilation, making it possible to reconstruct human-readable Java code. See Tutorial:See Minecraft's code for further reading.
+According to the License, such decompiled source code can only be distributed in a modified version or part of a larger project. This was changed from being available only for internal purposes before August 14th, 2020.
+
+Unobfuscated versions
+Unobfuscated versions were created in preparation for the removal of obfuscation in Java Edition. They are no longer being released separately starting with 26.1 Snapshot 1, as the standard versions are no longer obfuscated. They are variants of versions from 25w45a through 1.21.11.
+
+Format
+Unobfuscated versions are formatted as "<version name> Unobfuscated". The shortened name used in the launcher is "<version ID>_unobfuscated"
+
+License
+Every obfuscation map file starts with a line indicating the license of the maps.
+The current license has been in use since the release of 21w03a.
+
+# (c) 2020 Microsoft Corporation. These mappings are provided "as-is" and you bear the risk of using them. You may copy and use the mappings for development purposes, but you may not redistribute the mappings complete and unmodified. Microsoft makes no warranties, express or implied, with respect to the mappings provided here.  Use and modification of this document or the source code (in any form) of Minecraft: Java Edition is governed by the Minecraft End User License Agreement available at https://account.mojang.com/documents/minecraft_eula.
+
+Obfuscation map files for versions prior to 21w03a have a slightly different license.
+
+# (c) 2020 Microsoft Corporation. All rights reserved. These mappings are provided "as-is" and you bear the risk of using them. You may copy and use the mappings for development purposes, but you may not redistribute the mappings complete and unmodified. Microsoft makes no warranties, express or implied, with respect to the mappings provided here.  Use and modification of source code for Minecraft: Java Edition is governed by the Minecraft End User License Agreement available at https://account.mojang.com/documents/minecraft_eula.
+
+For some missing launcher versions released before August 14, 2020, such as the Combat Tests, their obfuscation maps are available on another older license.
+
+# (c) 2019 Microsoft Corporation.  All rights reserved.  This information is provided "as-is" and you bear the risk of using it. This information does not provide you with any legal rights to any intellectual property in any Microsoft product. You may copy and use this information for your internal, reference purposes. Microsoft makes no warranties, express or implied, with respect to the information provided here.
+According to Dinnerbone, any obfuscation mapping released before the license update on August 14, 2020 would be still available under this older license in addition to being available under the new license.
+
+History
+Java EditionSeptember 3, 2019
+Dinnerbone mentions "a small surprise for modders!" for 19w36a.1.1519w36a
+Downloads to client and server obfuscation maps are now included in client.json.September 4, 2019
+Dinnerbone releases obfuscation mappings for 1.14.4 as well.August 12, 2020
+Dinnerbone indicates the license of the obfuscation maps will be updated and encourages modders to switch to Mojang's obfuscation map, claiming in another tweet that it would "help with compatibility".
+
+He offered a preview of the updated license as well.August 14, 2020
+The license of obfuscation maps was updated.
+
+The version_manifest.json was updated to have client.json entries for 1.14.4 and versions since 19w36a to link to updated obfuscation maps.1.1721w03a
+Altered the wording of the license.October 29, 2025
+It is announced that obfuscation maps would no longer be published starting with the first snapshot after Mounts of Mayhem. This is because the game will be published without any obfuscation.1.21.1125w45a Unobfuscated
+Experimental builds without obfuscation are now released alongside the standard builds, which are currently still obfuscated.26.1snap1
+Obfuscation maps are no longer provided, as the game is no longer obfuscated.
+Trivia
+Before the August 16th, 2020 license update, versions released in year 2020 had # (c) 2019 Microsoft Corporation. in the license notice in the obfuscation map files.
+Despite being published after the license update, Combat Test 8b still uses the old license notice.
+In client obfuscation mappings, one of the first listed functions is called youJustLostTheGame(), an easter egg reference to The Game.
+This function is used to trigger a Java crash after holding the debug key combination ⎈ Control + F3 + C for ten seconds.
+References
+
+ "ProGuard manual | Usage"     – Guardsquare.
+
+ "I've been pushing for this for a while, so I'm really happy that we were finally able to release the obfuscation mappings public. @SeargeDP had a great idea to release the 1.14.4 mappings as comparison, so those are going out right now."  – @Dinnerbone (Nathan Adams) on X (formerly Twitter), September 4, 2019
+
+ "Tools - ReTrace"     – Guardsquare.
+
+ "Tomorrow's snapshot has a small surprise for modders! Should make one or two people happy :)"  – @Dinnerbone (Nathan Adams) on X (formerly Twitter), September 3, 2019
+
+ "Happy modding!"  – @adrian_ivl  on X (formerly Twitter), September 4, 2019
+
+ "This should answer the questions of everyone who kept asking about MCP updates for newer versions of Minecraft. Spoiler: there won't be any, they are finally not necessary anymore."  – @SeargeDP (Michael Stoyke) on X (formerly Twitter), September 4, 2019
+
+ "We would like to see projects start to switch to the official Mojang names, to help bring the entire modding community together and help with compatibility."  – @Dinnerbone (Nathan Adams) on X (formerly Twitter), August 12, 2020
+
+ "Existing mappings will still be available under the old terms, but we will also republish them with the new terms on Friday. All new mappings provided in the future will be under the new terms."  – @Dinnerbone (Nathan Adams) on X (formerly Twitter), August 12, 2020
+
+See also
+Obfuscation (software) on Wikipedia
+Navigation

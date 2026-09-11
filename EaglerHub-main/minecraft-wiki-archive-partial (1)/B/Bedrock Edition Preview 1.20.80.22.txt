@@ -1,0 +1,325 @@
+Preview 1.20.80.22
+
+Edition
+
+Bedrock Edition
+
+Release date
+
+March 14, 2024
+
+Server version
+
+1.20.80.22
+
+Editor version
+
+0.5.9
+
+Build version
+
+22814459
+
+Internal version
+
+Windows, Xbox: 1.20.8022.0Android, iOS, iPadOS: 1.20.80.22
+
+Version code
+
+Android:
+952008022（armeabi-v7a，34）
+962008022（x86，34）
+972008022（arm64-v8a，34）
+982008022（x86_64，34）
+
+Type
+
+Preview
+
+Preview for
+
+1.20.80
+
+Downloads
+
+ ServerWindowsLinux
+
+Protocol version
+
+668
+
+◄◄   1.20.73
+1.20.80
+  1.20.81 ►►
+
+◄   Preview 1.20.80.21
+
+ Preview 1.20.80.22
+
+  Preview 1.20.80.23 ►
+
+{
+    "title": "Preview 1.20.80.22",
+    "images": [
+        "Bedrock 1.20.80.22 PatchNotes.png",
+        "Bedrock 1.20.80.22.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Bedrock Edition article, displayed as Bedrock Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "March 14, 2024",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Bedrock Dedicated Server 1.20.80.22 article, displayed as 1.20.80.22)",
+            "label": "Server version"
+        },
+        {
+            "field": "(link to Bedrock Editor 0.5.9 article, displayed as 0.5.9)",
+            "label": "''(link to Bedrock Editor article, displayed as Editor)'' version"
+        },
+        {
+            "field": "22814459",
+            "label": "Build version"
+        },
+        {
+            "field": "'''Windows, Xbox''': 1.20.8022.0<br>'''Android, iOS, iPadOS''': 1.20.80.22",
+            "label": "Internal version"
+        },
+        {
+            "field": "'''Android''':<br>\n952008022（armeabi-v7a，34）<br>\n962008022（x86，34）<br>\n972008022（arm64-v8a，34）<br>\n982008022（x86_64，34）<br>",
+            "label": "Version code"
+        },
+        {
+            "field": "Preview",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Bedrock Edition 1.20.80 article, displayed as 1.20.80)",
+            "label": "Preview for"
+        },
+        {
+            "field": "'''Server'''<br>[https://minecraft.net/bedrockdedicatedserver/bin-win-preview/bedrock-server-1.20.80.22.zip Windows]<br>[https://minecraft.net/bedrockdedicatedserver/bin-linux-preview/bedrock-server-1.20.80.22.zip Linux]",
+            "label": "Downloads"
+        },
+        {
+            "field": "668",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Bedrock Edition  1.20.73|<span style=\"margin-right:-0.35em\">◄</span>◄   1.20.73]]</td>\n<td style=\"padding: 0.4em\">'''[[Bedrock Edition 1.20.80|1.20.80]]'''</td>\n<td style=\"padding: 0.4em\" >[[Bedrock Edition  1.20.81|  1.20.81 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Bedrock Edition  Preview 1.20.80.21|◄   Preview 1.20.80.21]]\n</td>\n<td style=\"padding: 0.4em\">''' Preview 1.20.80.22'''</td>\n<td style=\"padding: 0.4em\">\n[[Bedrock Edition  Preview 1.20.80.23|  Preview 1.20.80.23 ►]]\n</td>\n</tr>\n</table>"
+}
+
+Beta 1.20.80.22 (Android) or Preview 1.20.80.22 (Windows, iOS, iPadOS, Xbox, PlayStation) is the third beta/Preview version for Bedrock Edition 1.20.80, released on March 14, 2024, which adds the mace, breeze rods, and heavy cores as experiments, and fixes bugs.
+
+Contents
+
+1 Additions
+
+1.1 General
+1.2 Technical
+
+2 Changes
+
+2.1 Command format
+2.2 General
+2.3 Items
+2.4 Mobs
+2.5 Technical
+
+3 Experimental
+
+3.1 Additions
+
+3.1.1 Blocks
+3.1.2 Items
+3.1.3 Technical
+
+3.2 Changes
+
+3.2.1 Blocks
+3.2.2 Mobs
+3.2.3 Technical
+3.2.4 World Generation
+
+4 Fixes
+5 References
+6 Navigation
+
+Additions
+General
+Game Tips
+
+Added hints for jumping, flying, sneaking, and how to use and place a crafting table.
+Added a hint on how to open the inventory on a touch device.
+Edit world
+
+Added a Harcore [sic] switch. It cannot be toggled yet.
+Technical
+Mobs
+
+Added spawn categories, which will be used in the future for mob spawning.
+Spawn categories have been enabled in entity behavior pack files, but are not yet functional.
+Changes
+Command format
+/titleraw and /tellraw
+
+Updated to include support for rendering input key glyphs.
+General
+Graphical
+
+Increased maximum render distance to 36 for Xbox Series X|S consoles.
+Items
+Shield
+
+Shields can now partially block damage dealt by guardians and elder guardians’ laser attack.
+Mobs
+Wolf Armor
+
+Can now partially block damage dealt by guardians and elder guardians’ laser attack.
+Wolves wearing wolf armor now trigger post-hit damage immunity, preventing the item’s rapid destruction by continuous damage sources like lava, slimes, and magma cubes.
+Sounds have been updated.
+Technical
+API
+
+Moved EntityType and EntityTypes from beta to 1.11.0
+Released playMusic, Player.queueMusic, Player.stopMusic from beta to 1.11.0
+Removed BlockAreaSize from beta and replaced usages with Vector3.
+Renamed parameter itemCategory in getItemCooldown and player.startItemCooldown to cooldownCategory.
+Changed type to only EnchantmentType to follow API guidelines.
+Added EnchantmentSlot and slots to beta for determining the enchantable slots of an item.
+Experimental
+These additions and changes are accessible by enabling the "Update 1.21",  "Render Dragon Features for Creators", and "Beta APIs" experimental toggles.
+
+Additions
+Blocks
+Heavy Core
+
+A mysterious, dense block which can be combined with a breeze rod to craft a mace.
+Items
+Breeze Rod
+
+Dropped by the breeze.
+Can be crafted into 4 wind charges.
+Can be used with the heavy core to craft a mace.
+Mace
+
+A new heavy weapon that can be crafted from a breeze rod and a heavy core.
+Using the weapon while falling can increase the damage output. The higher the player falls, the more damage is dealt.
+This can be done by jumping towards the target and hitting them before the player hits the ground.
+Successfully striking a target in this way will negate any damage accumulated from the fall, similar to how a wind charge works.
+Other entities near the struck enemy will receive knockback.
+Can be repaired with breeze rods using an anvil.
+Players can use a mace in combination with wind charges to launch up and deliver devastating smash attacks on their enemies.
+Pottery Sherds
+
+Added 3 new pottery sherds, that can be found on decorated pots inside of trial chambers:
+Flow Pottery Sherd
+Guster Pottery Sherd
+Scrape Pottery Sherd
+Smithing Templates
+
+Added two new smithing templates, that are exclusively obtained from vaults:
+Bolt Armor Trim
+Flow Armor Trim
+Banner Patterns
+
+Added two new banner patterns:
+Flow Banner Pattern
+Guster Banner Pattern
+Technical
+Graphical
+
+Improved texture filtering for renderchunks to smooth the transition between LODs.
+Added a new feature to the Deferred Technical Preview: Sky Reflections.
+This new effect will reflect the sky on surfaces depending on their roughness and other surface properties.
+Scenes without sky light are not affected, such as caves, the Nether, and The End.
+Only supports blocks as of now.
+Changes
+Blocks
+Vault
+
+The loot tables of vaults in trial chambers have been updated to address some inventory management issues.
+One player will now get no more than 1 unstackable item per vault.
+One player will more often get rewards which can stack together.
+Horse armor and saddles have been removed from the loot table.
+Can now eject:
+Wind Charges
+Bolt Armor Trim
+Flow Armor Trim
+Flow Banner Pattern
+Guster Banner Pattern
+Heavy Core
+Honey Bottle
+Arrow
+Arrow of Poison
+Golden Apple
+Mobs
+Breeze
+
+Now breathe with its eyes instead of feet to avoid drowning in water.
+Now drops 1-2 breeze rods instead of wind charges when killed by a player.
+The number of breeze rods dropped is affected by the Looting enchantment.
+Technical
+API
+
+Added minecraft:custom_components block component under the Beta APIs feature flag.
+Added BlockComponentStepOnEvent for beta.
+Added BlockRegistry for beta.
+Added WorldInitializeBeforeEvent.
+Added BlockCustomComponent.
+Dimension:
+Added function getBlocks(volume: BlockVolumeBase, filter: BlockFilter, allowUnloadedChunks?: boolean): ListBlockVolume - Gets the blocks in a volume if it matches the filter.
+Added function containsBlock(volume: BlockVolumeBase, filter: BlockFilter, allowUnloadedChunks?: boolean): boolean - Returns true if the block in volume matches the filter, false otherwise.
+Moved ItemCooldownComponent from beta to 1.10.0
+Added BlockComponentStepOffEvent for beta.
+Added onStepOff to BlockCustomComponent.
+Added BlockComponentRandomTickEvent for beta.
+Added onRandomTick to BlockCustomComponent.
+StructureManager:
+Added getIds(): string - Returns a list of identifiers including all structures saved to memory and the world.
+Changed the default save mode of createEmpty to StructureSaveMode.Memory.
+World Generation
+Trial Chambers
+
+Added new chambers and variations, with new challenges.
+Remade chamber_9, and renamed it to slanted.
+Remade chamber_3, and renamed it to pedestal.
+Added flow, guster, and scrape pottery sherds to the decorated pots in the decor structure pool.
+Now appear more frequently in the corridors.
+Changed the layout of the blocks around vaults.
+Fixes
+16 issues fixed
+From released versions before 1.20.80
+
+MCPE-31389 – Beds that span a chunk border can partially break or become invisible during chunk loading
+MCPE-123455 – Bridging while looking forward causes blocks to most of the time place twice
+MCPE-162190 – /give is slow when no target is found
+MCPE-178442 – Armadillo walking animation is slower and odd compared to Java
+MCPE-179153 – /hud command hides HUD between worlds
+From the previous development version
+
+MCPE-178101 – Day of the week Sunday is incorrectly translated into Russian (in Realms Stories, Timeline)
+MCPE-179254 – Wolf armor can't be repaired on anvil
+MCPE-179255 – Shield rendering become glitchy while holding Wolf Armor
+MCPE-179264 – Breaking a wolf armor produces no particles
+Others
+
+Reduced frame stutter when encountering a Character Creator skin in-game.
+Players no longer crawl after sneaking onto a Bed with a 1.5 block gap above it.
+Fixed instance of singular ‘Realm Stories members’ to plural ‘Realms Stories members’ to be consistent across screens. (Preview only)
+Fixed a softlock that would occur when navigating to Realms Stories from the in-game menu while the Death Screen is active. (Preview only)
+Fixed issue where narration wasn’t reading Medium Realm Event posts as expected.
+Fixed an issue where should_update_bones_and_effects_offscreen and should_update_effects_offscreen were being ignored.
+Fixed a bug where the delete function would not remove structures that were previously saved to the world but not loaded.
+References
+
+ "Minecraft Beta & Preview - 1.20.80.22"     – Minecraft Feedback, March 14, 2024.
+
+ "Minecraft Preview 1.20.80.22"     by Matt Gartzke  – Minecraft.net, March 14, 2024.
+
+Navigation

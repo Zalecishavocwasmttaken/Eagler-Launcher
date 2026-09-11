@@ -1,0 +1,235 @@
+Minecraft 21w06a
+
+Edition
+
+Java Edition
+
+Release date
+
+February 10, 2021
+
+Type
+
+Snapshot
+
+Snapshot for
+
+1.17
+
+Downloads
+
+Client (.json)Server
+
+Obfuscation maps
+
+ClientServer
+
+Protocol version
+
+ dec: 1073741838 hex: 4000000E
+
+Data version
+
+2694
+
+Resource pack format
+
+7
+
+Data pack format
+
+7
+
+Minimum Java version
+
+Java SE 8
+
+◄◄   1.16.5
+1.17
+  1.17.1 ►►
+
+◄   21w05b
+
+ 21w06a
+
+  21w07a ►
+
+{
+    "title": "Minecraft 21w06a",
+    "images": [
+        "21w06a.png",
+        "Java Edition 21w06a.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "February 10, 2021",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Snapshot article, displayed as Snapshot)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition 1.17 article, displayed as 1.17)",
+            "label": "Snapshot for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/50a88791b64547d5325018270e0a5a71f8d4fc03/client.jar Client] ([https://piston-meta.mojang.com/v1/packages/364987686dc2ab82d114bba868760ff8cd8a7ed4/21w06a.json .json])<br />[https://piston-data.mojang.com/v1/objects/6290ba4b475fca4a74de990c7fd8eccffd9654dd/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/2f99b29b39bb18ac67677d7876859c09cc1f85a3/client.txt Client]<br />[https://piston-data.mojang.com/v1/objects/c4e373406d2166580c33b075c2d05d9d2fb18d43/server.txt Server]",
+            "label": "(link to Obfuscation map article, displayed as Obfuscation maps)"
+        },
+        {
+            "field": " <span style=\"font-size:smaller\"><abbr title=\"decimal\">dec</abbr>: </span>1073741838<br /> <span style=\"font-size:smaller\"><abbr title=\"hexadecimal\">hex</abbr>: </span>4000000E",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "2694",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "7",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "7",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Data pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_8_.28LTS.29 Java SE 8]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Java Edition  1.16.5|<span style=\"margin-right:-0.35em\">◄</span>◄   1.16.5]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition 1.17|1.17]]'''</td>\n<td style=\"padding: 0.4em\" >[[Java Edition  1.17.1|  1.17.1 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  21w05b|◄   21w05b]]\n</td>\n<td style=\"padding: 0.4em\">''' 21w06a'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  21w07a|  21w07a ►]]\n</td>\n</tr>\n</table>"
+}
+
+21w06a is the ninth snapshot for Java Edition 1.17, released on February 10, 2021, which adds new cave generation and increased the build height limit to 384.
+Worlds created prior to this snapshot or after 21w15a cannot be loaded and edited in this version without NBT editors, due to there being no upgrade path towards the expanded height limits in this snapshot. However, it is possible to use Combat Test snapshot worlds due to the data version exceeding that of the 1.17 snapshots.
+
+Contents
+
+1 Additions
+
+1.1 World generation
+1.2 General
+
+2 Changes
+
+2.1 Blocks
+2.2 World generation
+2.3 General
+
+3 Fixes
+4 Videos
+5 Trivia
+6 References
+7 Navigation
+
+Additions
+
+World generation
+Caves
+
+Added new noise caves, which come in two types: "spaghetti" and "cheese" caves.
+Added flooded aquifer caves.
+The old "carver" cave generation still generates, combining with the new caves.
+Spaghetti caves
+
+Long, narrow caves.
+Utilize noise generators for generation.
+Can form cave entrances when they intersect with land.
+Cheese caves
+
+Utilize noise generators for generation.
+Often form caverns of various sizes.
+Can form cave entrances when they intersect with land.
+Aquifers
+
+Used to generate bodies of water in new caves.
+Currently only used below Y=31, meaning any noise caves between Y=31 and Y=63 are flooded with water. This is fixed in Java Edition 1.18 Experimental Snapshot 1.
+Magma blocks may generate at the bottom of these new water bodies, creating downward bubble columns.
+Replaces the old underwater cave carvers/canyons.
+Fish spawn in aquifers if it is under an ocean or river.
+General
+Data packs
+
+Added [Boolean] aquifers_enabled and [Boolean] noise_caves_enabled to worldgen/noise_settings/*.json.
+Changes
+Blocks
+Big dripleaf
+
+No longer stops tilting while sneaking on, jumping on, or even jumping off it.
+Now tilts quicker.
+Now tilts when hit with a projectile, instead of being broken.
+Can now be used with redstone.
+Powering a dripleaf now prevents it from tilting down (except for projectiles).
+Powering an already tilted dripleaf tilts it back up.
+Unpowering a dripleaf down allows it to tilt down again.
+Hanging roots
+
+Texture has been changed.
+Lava
+
+No longer replaces air.
+Small dripleaf
+
+Texture has been changed.
+World generation
+Chunks
+
+The Overworld now has a total height of 384 blocks.
+The world has been extended 64 blocks up and 64 blocks down, which means it's now possible to build from layer -64 to layer 319 in the Overworld.
+Ore placement below Y=0 is temporary, and underground lava does not generate properly yet.
+Mineshafts
+
+Mineshaft pieces no longer generate if they were fully floating in the air.
+Corridors now generate with (bark) wood pillars for support if needed.
+Cobwebs no longer generate floating without an adjacent block.
+General
+The warning message attached to old worlds.
+1.16 world loaded in 21w06a by changing the level.dat
+World selection menu
+
+Disabled the loading of old worlds temporarily.
+This can be bypassed by setting the data version in level.dat to 2694 or higher. However, this may cause issues.
+Fixes
+6 issues fixed
+From released versions before 1.17
+
+MC-105035 – Floating mineshafts generating incorrectly in shade.
+From the 1.17 development versions
+
+MC-205227 – Wither Skeletons don't die in powdered snow unless fully submerged.
+MC-213813 – Small dripleaf can destroy any block.
+MC-213941 – Big dripleaf inconsistently play sounds when in the unstable state.
+From the previous development version
+
+MC-214118 – When mobGriefing is disabled, big dripleaves can still be destroyed by projectiles shot by mobs.
+MC-214346 – Big dripleaf can be broken with arrows in spawn protection.
+Videos
+Videos made by slicedlime:
+
+
+
+
+
+
+
+
+Trivia
+This snapshot marks the first time since 12w07a, almost exactly 9 years prior, that the height limit was increased.
+This is also the first time that the build limit has been increased downwards.
+References
+
+ "Minecraft Snapshot 21w06a"     – Minecraft.net, February 10, 2021.
+
+ "We added noise caves, changed world height, and added aquifers (local water levels). Summarized in this pic. Note that the underground biomes don't generate quite yet. Try it, give us feedback!"  – @henrikkniberg  on X (formerly Twitter), February 10, 2021
+
+Navigation

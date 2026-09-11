@@ -1,0 +1,89 @@
+[Float] AbsorptionAmount: The amount of extra health added by the Absorption effect.
+[NBT List / JSON Array] active_effects: The list of status effects on this mob. May not exist.
+[NBT Compound / JSON Object] Each item is a status effect.
+[Boolean] ambient: 1 or 0 (true/false). Whether or not any particles created should be translucent as opposed to opaque. If absent, particles are spawned opaque.
+[Byte] amplifier: Represents the effect level minus 1; that is, 0b corresponds to level 1. If absent, the effect is level 1.
+[Int] duration: The number of game ticks before the effect wears off. -1 means infinite duration.
+[NBT Compound / JSON Object] hidden_effect: An inactive, lower-amplifier effect of the same type. When the enclosing effect wears off, this replaces it. (The duration field of a hidden effect still decreases every tick if greater than 0. To avoid redundancy, the id field is not stored.)
+[String] id: The effect name.
+[Boolean] show_icon: 1 or 0 (true/false). Whether or not an icon is displayed in the top-right corner of the affected player's screen. Defaults to true if not specified.
+[Boolean] show_particles: 1 or 0 (true/false). Whether or not particles are created. If not specified, particles are created.
+[NBT List / JSON Array] attributes: A list of attributes for this mob. These are used for many purposes in internal calculations, and can be considered a mob's "statistics". Valid attributes for a given mob are listed in the main article.
+[NBT Compound / JSON Object] An individual attribute.
+[String] id: The name of this attribute.
+[Double] base: The base value of this attribute.
+[NBT List / JSON Array] modifiers: A list of modifiers acting on this attribute. Modifiers alter the base value in internal calculations, without changing the original copy. Note that a modifier never modifies base to be higher than its maximum or lower than its minimum for a given attribute.
+[NBT Compound / JSON Object] An individual modifier.
+[Double] amount: The amount by which this modifier modifies the base value in calculations.
+[String] id: A resource location unique to this modifier. Used to identify the modifier so that the correct modifier can be added or removed.
+[String] operation: add_value, add_multiplied_base, add_multiplied_total. Defines the operation this modifier executes on the attribute's base value.
+add_value: Increment Xamount.
+add_multiplied_base: YX * amount.
+add_multiplied_total: Set Y = Y * (1 + amount) (equivalent to Increment YY * amount).
+The specified modifiers are applied to the attribute, probably whenever the attribute is modified.​[more information needed] To compute the effective value of the attribute, the game:
+Sets X = Base.
+Executes all add_value modifiers.
+Sets Y = X.
+Executes all add_multiplied_base modifiers.
+Executes all add_multiplied_total modifiers.
+The value Y is the final effective value of the attribute.​[more information needed]
+[NBT Compound / JSON Object] Brain: Everything this mob has to keep in mind.
+[NBT Compound / JSON Object] memories: Used for complex behaviors.​[more information needed] The only mobs that have this tag are described below.
+Allay memories: see Template:Nbt inherit/allay_memories/template
+Axolotl memories: see Template:Nbt inherit/axolotl_memories/template
+Camel memories: see Template:Nbt inherit/camel_memories/template
+Copper Golem memories: see Template:Nbt inherit/copper_golem_memories/template
+Frog memories: see Template:Nbt inherit/frog_memories/template
+Goat memories: see Template:Nbt inherit/goat_memories/template
+Piglin memories: see Template:Nbt inherit/piglin_memories/template
+Piglin Brute memories: see Template:Nbt inherit/piglin_brute_memories/template
+Sniffer memories: see Template:Nbt inherit/sniffer_memories/template
+Villager memories: see Template:Nbt inherit/villager_memories/template
+Warden memories: see Template:Nbt inherit/warden_memories/template
+[Boolean] CanPickUpLoot: 1 or 0 (true/false) - if true, the mob can pick up loot (wear armor it picks up, use weapons it picks up).
+[NBT List / JSON Array] current_explosion_impact_pos: Exists only if the mob is airborne after being hit by a wind charge explosion. Represents the explosion's position. Used for wind charge fall damage reduction.
+[Int] current_impulse_context_reset_grace_time: ​[more information needed]
+Tags common to all mobs with drops from loot tables see Template:Nbt inherit/death_lootable/template
+[Short] DeathTime: Number of ticks the mob has been dead for. Controls death animations. 0 when alive.
+[NBT Compound / JSON Object] drop_chances: A map between equipment slot type and chance value. Each entry specifies the chance that the item in that slot is dropped when the mob dies. If not specified or removed, the chance defaults to 0.085f. A value in the range (0f, 1f] applies a random damage value to the dropped item, and the item is only dropped if the mob is killed by a player or tamed wolf. For values greater than 1f, the item's damage value is preserved when it is dropped, and it drops regardless of what killed the mob. When a mob picks up equipment, the corresponding drop_chances value is set to 2f. Each entry is also used to calculate the chance that the item is dropped when swapped for a more preferred one, but not directly. If the value is 0f or less, the drop chance is 0%, but if it is greater than 0f, the drop chance is the value +10% and the item damage is preserved.
+[Float] head : Chance value for the head item to drop.
+[Float] chest : Chance value for the chest item to drop.
+[Float] legs : Chance value for the legs item to drop.
+[Float] feet : Chance value for the feet item to drop.
+[Float] mainhand : Chance value for the mainhand item to drop.
+[Float] offhand : Chance value for the offhand item to drop.
+[Float] body : Chance value for the body item to drop.
+[Float] saddle : Chance value for the saddle item to drop.
+[NBT Compound / JSON Object] equipment: Map between equipment slot type and item stack. Does not exist if the inventory is empty.
+[NBT Compound / JSON Object] head: The item being held in mob's head slot.
+[NBT Compound / JSON Object] chest: The item being held in the mob's chest slot.
+[NBT Compound / JSON Object] legs: The item being held in the mob's legs slot.
+[NBT Compound / JSON Object] feet: The item being held in the mob's feet slot.
+[NBT Compound / JSON Object] mainhand: The item being held in the mob's main hand.
+[NBT Compound / JSON Object] offhand: The item being held in the mob's off hand.
+[NBT Compound / JSON Object] body: The item being held in the mob's body slot.
+[NBT Compound / JSON Object] saddle: The item being held in the mob's saddle slot.
+A single item stack see Template:Nbt inherit/itemnoslot/template
+[Byte] FallFlying: Whether or not the mob is gliding through the air. Each tick, this value is set to 0b unless the mob is airborne and wearing an item with the minecraft:gilder component. As mobs (excluding players) do not know how to activate such items, this value is always 0b for them unless changed via commands.
+[Float] Health: The mob's health.
+[Int Array] home_pos: The mob's "home" position. Mobs will limit their pathfinding to stay within the indicated area. Some mobs, like bats, slimes, magma cubes, phantoms and ender dragons may ignore it. Interacting with leashes or riding may change the home position of the mob. For creakings, this is the position of their creaking heart.
+[Int] home_radius: Max radius of the data home_pos.
+[Short] HurtTime: Number of ticks the mob turns red for after being hit. 0 when not recently hit.
+[Int Array] last_hurt_by_mob: The UUID of the last mob that attacked this mob. Clears when the attacking mob dies or despawns.
+[Int] ticks_since_last_hurt_by_mob: (when [Int Array] last_hurt_by_mob exists and is valid) The number of game ticks since the last time the mob was attacked by the mob described by [Int Array] last_hurt_by_mob. Clears [Int Array] last_hurt_by_mob when the value reaches 100 game ticks (5 seconds).
+[Int Array] last_hurt_by_player: The UUID of the last player that attacked this mob.
+[Int] last_hurt_by_player_memory_time: (when [Int Array] last_hurt_by_player exists and is valid) Gets set to 100 game ticks (5 seconds) when attacked by a player, and decreases by 1 for every game tick. Clears [Int Array] last_hurt_by_player when the value reaches 0.
+[NBT Compound / JSON Object][Int Array] leash: Information about where this leash connects to. Does not exist if the entity is not leashed.
+The int array form ([Int Array]) represents the block location of the fence post that the leash is attached to (3 integers representing the X, Y, and Z coordinates respectively), or a compound containing information about the entity the leash is attached to.
+The compound form ([NBT Compound / JSON Object]) contains the UUID of the entity that the leash is attached to.
+[Int Array] UUID: This Universally Unique IDentifier of the entity that the leash is attached to.
+[Boolean] LeftHanded: 1 or 0 (true/false) - if true, the mob renders the main hand as being left.
+[NBT Compound / JSON Object] locator_bar_icon: The waypoint's icon visual data in the locator bar.
+[Int] color: The waypoint's color stored as 32-bit signed integer using two's complement, assuming the color is fully opaque.
+[String] style: The waypoint's style name from waypoint_style directory in a resource pack.
+[Boolean] NoAI: 1 or 0 (true/false) - Setting to true disables the mob's AI. The mob does not and cannot move, to the extent of not falling when normally able.
+[Boolean] PersistenceRequired: 1 or 0 (true/false) - if true, the mob must not despawn naturally.
+[Int Array] sleeping_pos: The coordinate of where the entity is sleeping, absent if not sleeping.
+[String] Team: This tag is actually not part of the NBT data of a mob, but instead used when spawning it, so it cannot be tested for. It makes the mob instantly join the team with that name.
+
+ MC-279832 – resolved as "Works As Intended".

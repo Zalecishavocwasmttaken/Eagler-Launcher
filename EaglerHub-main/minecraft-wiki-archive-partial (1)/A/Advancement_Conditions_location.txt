@@ -1,0 +1,30 @@
+[NBT List / JSON Array][String] biomes: (Optional) Any number of biome(s) (an [String] ID, or a [String] tag with #, or an [NBT List / JSON Array] array containing [String] IDs) — The biome at this location.
+[NBT Compound / JSON Object] block: (Optional) The block at the location. Test fails if the location is unloaded.
+[NBT List / JSON Array][String] blocks: (Optional) Any number of block type(s) (an [String] ID, or a [String] tag with #, or an [NBT List / JSON Array] array containing [String] IDs). Test fails if the block is not a matching block type.
+[NBT Compound / JSON Object] state: (Optional) Tests the block state. Test fails if the block doesn't have matching block state properties.
+[String] <key>: Property key and value.
+[NBT Compound / JSON Object] <key>: Property key and value range. If neither [String] min nor [String] max is specified, any value will match.
+[String] min: (Optional) Minimum value. Despite being represented as a string, comparison is done using the property's actual type. Integers use numeric order, and booleans order false before true.
+[String] max: (Optional) Maximum value.
+[NBT Compound / JSON Object][String] nbt: (Optional) An NBT compound, represented either as an object or a string containing SNBT. In JSON files, SNBT form is the only way to test for some NBT types. Test fails if the block doesn't have matching NBT data.
+[NBT Compound / JSON Object] components: (Optional) Data components to match exactly. Each key in this object is a component ID, and its value is a full component of that type. Test fails if the block doesn't have exactly the same value for every provided component.
+See data component format.
+[NBT Compound / JSON Object] predicates: (Optional) Data component predicates to match components loosely. Each key in this object is a component predicate ID, and its value is a component predicate of that type. Test fails if the block's components do not match all predicates.
+See data component predicate.
+[String] dimension: (Optional) One dimension (an [String] ID) — The dimension of the location.
+[NBT Compound / JSON Object] fluid: (Optional) The fluid at the location. Test fails if the location is unloaded.
+[NBT List / JSON Array][String] fluids: (Optional) Any number of fluid(s) (an [String] ID, or a [String] tag with #, or an [NBT List / JSON Array] array containing [String] IDs) — The fluid at this block.
+[NBT Compound / JSON Object] state: (Optional) Tests the fluid state. Test fails if the fluid doesn't have matching state properties.
+[String] <key>: Property key and value.
+[NBT Compound / JSON Object] <key>: Property key and value range. If neither [String] min nor [String] max is specified, any value will match.
+[String] min: (Optional) Minimum value. Despite being represented as a string, comparison is done using the property's actual type. Integers use numeric order, and booleans order false before true.
+[String] max: (Optional) Maximum value.
+[NBT Compound / JSON Object] light: (Optional) The light at the location. Test fails if the location is unloaded.
+[Int][NBT Compound / JSON Object] light: The visible light level. Calculated using max(time_adjusted_sky_light, block_light). Use an object with [Int] min and [Int] max keys to test for a range of values (inclusive).
+[NBT Compound / JSON Object] position: (Optional) Tests for the absolute position of this location. Use an object with [Double] min and/or [Double] max to test for a range of values.
+[Double][NBT Compound / JSON Object] x: (Optional) The x position.
+[Double][NBT Compound / JSON Object] y: (Optional) The y position.
+[Double][NBT Compound / JSON Object] z: (Optional) The z position.
+[Boolean] smokey: (Optional) When true, success if the block is closely above a campfire or soul campfire. When false, success if not.
+[Boolean] can_see_sky: (Optional) When true, success if the block has maximum sky_light (i.e. is under clear sky). When false, success if not.
+[NBT List / JSON Array][String] structures: (Optional) Any number of structure(s) (an [String] ID, or a [String] tag with #, or an [NBT List / JSON Array] array containing [String] IDs) — The structure the location is currently in.

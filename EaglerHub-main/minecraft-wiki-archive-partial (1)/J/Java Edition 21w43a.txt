@@ -1,0 +1,233 @@
+This page covers a development version that has a major issue under certain conditions. 
+The dedicated server for this version has a security vulnerability in the Log4j library that could be used to perform a remote code execution exploit. It can be addressed by appending a certain JVM argument to the server startup command line.
+
+Minecraft 21w43a
+
+Edition
+
+Java Edition
+
+Release date
+
+October 27, 2021
+
+Type
+
+Snapshot
+
+Snapshot for
+
+1.18
+
+Downloads
+
+Client (.json)Server
+
+Obfuscation maps
+
+ClientServer
+
+Protocol version
+
+ dec: 1073741871 hex: 4000002F
+
+Data version
+
+2844
+
+Resource pack format
+
+8
+
+Data pack format
+
+8
+
+Minimum Java version
+
+Java SE 16
+
+◄◄   1.17.1
+1.18
+  1.18.1 ►►
+
+◄   21w42a
+
+ 21w43a
+
+  21w44a ►
+
+{
+    "title": "Minecraft 21w43a",
+    "images": [
+        "21w43a.jpg",
+        "Java Edition 21w43a.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "October 27, 2021",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Snapshot article, displayed as Snapshot)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition 1.18 article, displayed as 1.18)",
+            "label": "Snapshot for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/ad67ea7db46f4ebbb1d8d5f9286401660a26ebbf/client.jar Client] ([https://piston-meta.mojang.com/v1/packages/d70716c04bc31b12276583475629e351f969cbc6/21w43a.json .json])<br />[https://piston-data.mojang.com/v1/objects/5c774a8b4e4407133eec7c4e1449c5f35974c589/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/4e269077dc7847d754cd0a827347f5423798dafe/client.txt Client]<br />[https://piston-data.mojang.com/v1/objects/c8ad3102e97c03cfa15bd7bb3e7c8bff6797e922/server.txt Server]",
+            "label": "(link to Obfuscation map article, displayed as Obfuscation maps)"
+        },
+        {
+            "field": " <span style=\"font-size:smaller\"><abbr title=\"decimal\">dec</abbr>: </span>1073741871<br /> <span style=\"font-size:smaller\"><abbr title=\"hexadecimal\">hex</abbr>: </span>4000002F",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "2844",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "8",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "8",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Data pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_16 Java SE 16]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Java Edition  1.17.1|<span style=\"margin-right:-0.35em\">◄</span>◄   1.17.1]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition 1.18|1.18]]'''</td>\n<td style=\"padding: 0.4em\" >[[Java Edition  1.18.1|  1.18.1 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  21w42a|◄   21w42a]]\n</td>\n<td style=\"padding: 0.4em\">''' 21w43a'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  21w44a|  21w44a ►]]\n</td>\n</tr>\n</table>"
+}
+
+21w43a is the seventh snapshot for Java Edition 1.18, released on October 27, 2021, which adds the old world upgrading and fixes bugs.
+
+Contents
+
+1 Additions
+
+1.1 World generation
+1.2 General
+
+2 Changes
+
+2.1 Blocks
+2.2 World generation
+2.3 General
+
+3 Fixes
+4 Videos
+5 References
+6 Navigation
+
+Additions
+Biome blending in action.
+World generation
+Upgrading of old worlds
+
+Terrain from new chunks now blends with existing terrain from old chunks, preventing glitched borders from occurring.
+The old bedrock layer between Y=0 and Y=4 in old chunks gets replaced with deepslate.
+If there is bedrock at Y=0, lower places in old chunks are filled with deepslate.
+Caves do not generate below Y=0 in old chunks but lava lakes and geodes may generate.
+A new bedrock layer is placed at Y=-64.
+Worlds upgraded in this snapshot have these changes permanently applied.
+General
+Tags
+
+Added block tag big_dripleaf_placeable.
+Contains farmland and the #dirt and #small dripleaf placeable block tags.
+Big dripleaf can be placed on blocks in this tag.
+Changes
+Blocks
+ Big Dripleaf
+
+Restricted big dripleaf placement to clay, coarse dirt, dirt, farmland, grass blocks, moss blocks, mycelium, podzol, and rooted dirt.
+World generation
+Aquifers
+
+Water levels change less often (slightly fewer underground waterfalls).
+Lava aquifers are slightly less common.
+Caves
+
+Reduced the amount of flooded caves near river and ocean coastlines.
+Ocean
+
+Removed deep warm ocean biomes.
+Warm ocean biomes now generate in deep waters.
+Seeds
+
+Have been reshuffled again. Worlds don't look like as they did in previous snapshots.
+General
+Chunk format
+
+Removed chunk’s Level and moved everything it contained up.
+Level.Entities has moved to entities.
+Level.TileEntities has moved to block_entities.
+Level.TileTicks and Level.ToBeTicked have moved to block_ticks.
+Level.LiquidTicks and Level.LiquidsToBeTicked have moved to fluid_ticks.
+Level.Sections has moved to sections.
+Level.Structures has moved to structures.
+Level.Structures.Starts has moved to structures.starts.
+Level.Sections[].block_states has moved to sections[].block_states.
+Level.Sections[].biomes has moved to sections[].biomes.
+Added yPos the minimum section y position in the chunk.
+Added below_zero_retrogen containing data to support below zero generation.
+Added blending_data containing data to support blending new world generation with existing chunks.
+Options
+
+The Priority Updates video setting has been renamed to Chunk Builder, added tooltips to its three options, and renamed them:
+"nearby" renamed to "Fully Blocking".
+"by player" renamed to "Semi Blocking".
+"none" renamed to "Threaded".
+Tick
+
+Changed some internal details of block and fluid ticking to improve save times.
+Fixes
+11 issues fixed
+From released versions before 1.18
+
+MC-49010 – Cloning pressure plates or buttons whilst they're activated keeps them pressed forever.
+MC-131930 – Deep warm ocean generates without coral and sea pickles.
+MC-156616 – Badlands layers not generating properly.
+MC-217379 – Pufferfish don't spawn in deep warm ocean.
+MC-224205 – Cloned big dripleaves remain tilted forever when their tilt value is not equal to "none".
+MC-228745 – Big dripleafs can't be supported by farmland.
+MC-238073 – Decorators are independent of world seed.
+From the 1.18 development versions
+
+MC-236615 – Priority updates setting has improper capitalization.
+MC-236624 – Deep warm oceans don't count towards the "Adventuring Time" advancement.
+MC-236970 – Badlands strata is covered by orange terracotta at Y=160 and above.
+MC-238939 – Stone can generate in the Nether.
+Videos
+Videos made by slicedlime:
+
+
+
+
+
+
+
+
+References
+
+ "Important Message: Security vulnerability in Java Edition"     – Minecraft.net, December 10, 2021.
+
+ "Minecraft Snapshot 21w43a"     – Minecraft.net, October 27, 2021.
+
+ "Unfortunately the seeds have been shuffled again, so worlds will not look like they did in previous snapshots. Hopefully world seeds will be stable after this though, so let the real seed hunt begin!"  – @henrikkniberg  on X (formerly Twitter), October 27, 2021
+
+Navigation

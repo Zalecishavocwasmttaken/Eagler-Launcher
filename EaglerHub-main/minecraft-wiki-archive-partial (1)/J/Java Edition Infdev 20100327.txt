@@ -1,0 +1,222 @@
+This version does not have an official title. 
+This version is referred to only as "Minecraft Infdev" in-game. The current title has not been used by Mojang.Please update the name if confirmed by reliable sources, such as in the launcher.
+
+Minecraft Infdev
+
+Edition
+
+Java Edition
+
+Release date
+
+March 27, 2010
+
+Downloads
+
+Client (.json)
+
+Minimum Java version
+
+Java SE 5
+
+Applet page
+
+minecraft.net/infdev/
+
+Cache ID
+
+1.118
+
+Infdev 20100327
+
+◄   Infdev 20100325-1640
+
+  Infdev 20100330-1203 ►
+
+{
+    "title": "Minecraft Infdev",
+    "images": [
+        "Infdev 20100327.png",
+        "Infdev 20100327 menu.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "March 27, 2010",
+            "label": "Release date"
+        },
+        {
+            "field": "[https://vault.omniarchive.uk/archive/java/client-infdev/inf-20100327.jar Client] ([https://meta.celestia.sh/versions/v1/inf-20100327.json .json])",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_5 Java SE 5]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        },
+        {
+            "field": "minecraft.net/infdev/",
+            "label": "(link to Applet#Hosting article, displayed as Applet page)"
+        },
+        {
+            "field": "1.118",
+            "label": "(link to al_version article, displayed as Cache ID)"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0\" ></td>\n<td rowspan=\"2\" style=\"padding: 0.4em\">'''Infdev 20100327'''</td>\n<td style=\"padding: 0\" ></td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  Infdev 20100325-1640|◄   Infdev 20100325-1640]]\n</td>\n\n<td style=\"padding: 0.4em\">\n[[Java Edition  Infdev 20100330-1203|  Infdev 20100330-1203 ►]]\n</td>\n</tr>\n</table>"
+}
+
+A version of Minecraft Infdev was released on March 27, 2010.
+This version introduced the Alpha level format and reintroduced level saving, allowing worlds created in this version to be opened in versions up to release 1.1 (or 12w06a if including snapshot builds), as loading it in 1.2.1 (12w07a) or later requires initially loading it another time in at least Beta 1.3.
+
+Contents
+
+1 Additions
+
+1.1 General
+
+2 Changes
+
+2.1 Blocks
+2.2 Non-mob entities
+2.3 World generation
+2.4 General
+
+3 Technical
+4 Removals
+
+4.1 World generation
+4.2 General
+
+5 Fixes
+6 Bugs
+7 Gallery
+8 References
+9 Navigation
+
+Additions
+General
+The game now automatically saves while playing.
+Changes
+Blocks
+Furnace
+
+The smelting time of furnaces has been reduced from 8 seconds to 4 seconds.
+Non-mob entities
+Players
+
+The player dying causes the contents of their inventory to drop, and respawns the player at the world spawn, rather than forcing the player to reload the last save.
+Now no longer start with items in new worlds.
+The player always spawns at 0,64,0, then gets shot up to the nearest available space.
+World generation
+The world generation is now responsible of new noise generators that replace the previously used 2D noise maps. These are: "Low Noise", "High Noise", and "Selector Noise". The first two are responsible of generating the Far Lands.
+The sea level has been decreased by one block (65 to 64).
+General
+The level format has been updated from the Indev level format to the Alpha level format.
+The world saving interface has been revamped.
+The "Generate new level..." button has been replaced with a "Single player" button which opens the Select world screen, in which worlds can be loaded, created, and deleted. The "Load level.." button has been replaced with a "Multi player" button, although it is always grayed out.
+The Select world screen displays the file size of the world, based on the [Long] SizeOnDisk value in level.dat. This value is calculated inaccurately, usually underestimating the world size by a large margin.
+Technical
+Performance
+
+Performance improvements.
+Removals
+World generation
+Removed the old 2D noise maps used for world generation.
+Caves and flowers no longer generate, as they are not yet implemented in the new terrain generator.
+Brick pyramid
+
+Removed.
+General
+The defunct map theme, map shape, and map type buttons have been removed from the interface.
+Debug tools are removed from the player's inventory.
+Fixes
+1 bug fixed
+
+The game's performance no longer drastically degrades progressively.
+Bugs
+18 bugs reported
+
+The Far Lands are not an addition itself. Instead, they are the overflow of the new Low and High noise generators, that overflow at 12,550,824 blocks away on the X and Z axes, where the Far Lands generate.
+Naturally-generated places that do not have direct exposure to the sky (e.g. cliff overhangs) are completely dark until given a sky light update.
+Note that block updates on their own have no effect.
+The world above the height limit is always fully lit and can cause blocks near the height limit to be lit up at nighttime with block light if a block update happens. This can temporarily hang the game while it processes the insane amounts of lighting updates, and may crash on older computers.
+The player can place blocks inside themselves.
+If the player is completely inside a block his hand, including the block or item he is holding, will be colored black until he leaves the block.
+In third-person view this shows the entire player as black.
+While breaking multiple blocks, it is possible to open the inventory and the pause menu. While still holding Left click and then closing the inventory or the pause menu (by pressing Escape in this case), the player's hand or tool will remain stuck and will not animate until the breaking stops. (This bug has existed since Minecraft 0.24 survival test).
+After dying, the player's body remains lying where they died.
+The body can be pushed around and still has the idle animation, as if it were still alive.
+Standing on the body causes it to disappear. When the player moves away, it reappears.
+Jumping onto the body can cause the player to slide on it briefly. This works best when the body is in a tight space, such as a 1-block-deep, 3-block-long hole.
+When blocks are placed on the body, completely covering it, the body becomes black — but this isn't visible until one of the blocks is removed. Once all blocks are removed, the body returns to its normal red color.
+If the player dies while on fire (possibly via lava), the body left behind will have either a small single flame particle located at its feet (if the player simply respawns after death), or the standard three flame particles suspended in mid-air at the location of the body (if the player returns to title screen before respawning).
+Pushing the body will cause it to switch from the idle animation to the running animation as long as it is in motion. The arm movement of the body's animation will affect the player's viewmodel arm, too.
+After loading an existing world, ores and trees regenerate if the conditions are correct (e.g. the place where ore would generate is filled with stone).
+Ore regenerates if it is replaced with stone.
+Trees regenerate if the block underneath is dirt or grass, and the tree has enough space to grow
+The regeneration of trees can cause non-solid blocks to be replaced (e.g. the leaf block of a regenerated tree can replace a nearby torch).
+Interestingly, this phenomenon occurs even under unnatural conditions: creating a large, flat, dirt platform in the sky will cause trees to generate on it.
+Wheat crops, fire, farmland, torches and saplings preserve their data values in the occupied space, resulting in newly-placed blocks to take on the data value of the block previously occupying that space allowing for any block from this version to obtain a damage value between 0-15 (Though the item form has to be obtained with silk touch in a later version.).
+Containers (i.e. chests and furnaces) do not save if the chunk is not updated since.
+In order to save their contents, a chunk update must occur in the same chunk as the container. Containers in that chunk will not save until an update occurs.
+When generating a new world, the game may stop responding on some laptops.
+Non-full solid blocks (such as slabs and farmland) have broken lighting.
+Pressing the respawn button multiple times creates clones of the player, and when the player touches/attacks any clone, the player's hand goes crazy.
+After relogging onto a world the player is raised by 1 block up.
+When loading a world, the "world name" button remains clickable. Rapidly clicking the button during the loading screen will cause the player to be moved into the air for 1 block for each click.
+Opening a furnace that has no item in its fuel slot while it is smelting may sometimes crash the game.​[more information needed]
+Furnace smelting time can sometimes be cut in half, or doubled.​[more information needed]
+On very rare occasions, taking items out of a furnace output slot crashes the game.​[more information needed]
+Sand becomes invisible when dropped into water. (This bug may have been in an earlier Infdev version.)
+Gallery
+
+
+
+			A lighting glitch with slabs.
+
+
+
+			The Far Lands in Infdev 20100327.
+
+
+
+			Player's body remaining there after dying.
+
+
+
+			A player’s body, partially uncovered to reveal the black coloration.
+
+
+
+			The new 'Select World' screen.
+
+
+
+			An image posted by Notch accompanying this version's release.
+
+
+
+			An image posted on Notch's blog teasing the new worldgen.
+
+
+
+			Spamming "Respawn" after dying creates Steve mobs at the spawnpoint.
+
+
+
+			Lighting glitch at the height limit.
+
+
+
+			Mountaintop
+
+
+References
+
+ "Infdev's been updated with saving and new terrain" (archived) – The Word of Notch, Tumblr, March 27, 2010.
+
+Navigation

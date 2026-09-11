@@ -1,0 +1,141 @@
+Not to be confused with Commands/immutableworld.
+
+ For other uses, see Border (disambiguation).
+
+
+
+This feature is exclusive to Java Edition. 
+
+/worldborder
+
+Permission levelrequired
+
+2
+
+Restrictions
+
+None
+
+{
+    "title": "<code>/worldborder</code>",
+    "rows": [
+        {
+            "field": "2",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "None",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+These commands control the world border. They only affect the world border of the dimension in which the command is executed.
+
+Contents
+
+1 Syntax
+2 Arguments
+3 Result
+4 Output
+5 History
+6 References
+7 Navigation
+
+Syntax
+worldborder add <distance> [<time>]
+
+Increases or decreases the world border size. Optionally, a <time> may be specified such that the border grows or shrinks from the previous size to that being set over the specified time in seconds. The border still grows or shrinks and the animation displays even if the game is paused. If <time> is not specified, the world border changes immediately. Initial size is 59,999,968.
+worldborder center <pos>
+
+Recenters the world border. Sets the center of the world border to the specified coordinates. Initial center is (0, 0).
+worldborder damage amount <damagePerBlock>
+
+Sets the world border damage amount to the specified value. Any player outside the world border buffer takes this amount of damage per second per block outside from the world border buffer distance. Initial value is 0.2 damage per second per block.
+worldborder damage buffer <distance>
+
+Sets the world border buffer distance to the specified value. Players won't take damage until they move outside this distance from the world border. Initial value is 5 blocks.
+worldborder get
+
+Gets the current size of the world border.
+worldborder set <distance> [<time>]
+
+Sets the world border region size with the specified distance in blocks as the width and length. Optionally, a <time> may be specified such that the border grows or shrinks from the previous size to that being set over the specified time in seconds. The border still grows or shrinks and the animation displays even if the game is paused. If <time> is not specified, the world border changes immediately. Initial size is 59,999,968.
+worldborder warning distance <distance>
+
+Sets the world border warning distance to the specified value. Causes the screen to be tinted red when the player is within the specified number of blocks from the world border. Initial value is 5 blocks. The tint does not display if the user is using fast graphics.
+worldborder warning time <time>
+
+Sets the world border warning time to the specified value. Causes the screen to be tinted red when a contracting world border reaches the player within the specified time. Initial value is 15 seconds. The tint does not display if the user is using fast graphics.
+Arguments
+<distance>: double (in add mode)
+
+Specifies the number of blocks to add to the world border diameter.
+Must be a [Double]Double-precision floating-point number (from -(2-2-52)×21023 (≈-1.8×10308) to (2-2-52)×21023 (≈1.8×10308) ). It must be between -59,999,968 and 59,999,968 (inclusive).
+<time>: integer (in add and set mode)
+
+Specifies the number of seconds it should take for the world border to move from its current diameter to the new diameter. If not specified, defaults to 0.
+Must be a [Int]32-bit integer number (from -2147483648 (-231) to 2147483647 (231-1) ). And it must be between 0 and 2147483647 (inclusive).
+<pos>: vec2
+
+Specifies the horizontal coordinates of the world border's center.
+Must be two-dimensional coordinates with double-precision floating-point number elements. Accepts tilde notations. And it's X and Z should be between ±29999984 (inclusive).
+<damagePerBlock>: float
+
+Specifies the damage a player takes per second per block past the world border buffer. For example, if <damagePerBlock> is 0.1, a player 5 blocks outside the world border buffer takes 0.5 damage per second (damage less than half a heart might not change the visual health display, but still accumulates). Initially set to 0.2.
+Must be a [Float]Single-precision floating-point number (from -(2-2-23)×2127 (≈-3.4×1038) to (2-2-23)2×127 (≈3.4×1038) ). And it must be greater than or equal to 0.0.
+<distance>: float (in damage buffer mode)
+
+Specifies the distance outside the world buffer a player must be before they start taking damage. Initially set to 5.0.
+Must be a [Float]Single-precision floating-point number (from -(2-2-23)×2127 (≈-3.4×1038) to (2-2-23)2×127 (≈3.4×1038) ). And it must be greater than or equal to 0.0.
+<distance>: double (in set mode)
+
+Specifies the new diameter for the world border.
+Must be a [Double]Double-precision floating-point number (from -(2-2-52)×21023 (≈-1.8×10308) to (2-2-52)×21023 (≈1.8×10308) ). It must be between -59,999,968 and 59,999,968 (inclusive).
+<distance>: integer (in warning distance mode)
+
+Specifies the distance from the world border at which players begins to see a visual warning of the world border's proximity. Initially set to 5.
+Must be a [Int]32-bit integer number (from -2147483648 (-231) to 2147483647 (231-1) ). And it must be between 0 and 2147483647 (inclusive).
+<time>: integer (in warning time mode)
+
+Specifies the number of seconds that a player begins to see a visual warning before a moving world border passes their position. Initially set to 15.
+Must be a [Int]32-bit integer number (from -2147483648 (-231) to 2147483647 (231-1) ). And it must be between 0 and 2147483647 (inclusive).
+Result
+
+CommandTriggerJava Edition
+
+Anythe arguments are not specified correctly Unparseable/worldborder add .../worldborder set ...the size is unchanged Failedthe new size is less than 1.0 or greater than 59,999,968/worldborder center ...the center is unchangedthe specified X or Z is not between ±29999984./worldborder damage amount ...the damage amount is unchanged/worldborder damage buffer ...the damage buffer is unchanged/worldborder warning distance ...the warning distance is unchanged/worldborder warning time ...the warning time is unchangedAnyOtherwiseSuccessful
+Output
+
+CommandEditionSituationSuccess Count/execute store success .../execute store result ...
+
+AnyJava EditionOn fail000/worldborder add ...On success11the specified <distance>/worldborder center ...On success110/worldborder damage amount ...On success11the specified <damagePerBlock>/worldborder damage buffer ...On success11the specified <distance>/worldborder getOn success11the size of the world border after rounding to the nearest integer/worldborder set ...On success11the amount of change in the width of the world border(a positive number means an increase, a negative number means a decrease)./worldborder warning distance ...On success11the specified <distance>/worldborder warning time ...On success11the specified <time>
+History
+
+
+
+This section is missing information about: the update for the world border's radius that controlled by float replaced by double 
+Please expand the section to include this information. Further details may exist on the talk page.
+
+Java Edition1.814w17a
+Added /worldborder.14w19a
+Added /worldborder damage.
+
+Added /worldborder warning.14w26a
+Added /worldborder add.14w29a
+Added /worldborder get.1.1721w17a
+The arguments about world border size now require a double instead of a float.
+
+The max world border size has been shrunk to 59,999,968 from 60,000,000.1.18pre2
+The center's X and Z now must be between ±29999984 (inclusive).1.21.925w36a
+The command now only affects the world border of the dimension it is executed in.1.21.1125w43a
+The time argument is now given in ticks instead of seconds.25w44a
+The time argument for setting the size can now also specify seconds or in-game days using an s or d suffix.
+The time argument for setting the warning distance now specifies ticks by default but can also specify seconds or in-game days using an s or d suffix.
+References
+
+ MC-187664
+
+Navigation

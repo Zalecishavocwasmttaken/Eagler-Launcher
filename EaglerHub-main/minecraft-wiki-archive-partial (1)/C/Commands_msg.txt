@@ -1,0 +1,102 @@
+Not to be confused with Commands/tellraw or Commands/say.
+
+/msg
+
+Aliases
+
+/tell
+/w
+
+Permission levelrequired
+
+0
+
+Restrictions
+
+None
+
+{
+    "title": "<code>/msg</code>",
+    "rows": [
+        {
+            "field": "\n* <!-- Command --><code ><span>/tell</span></code><!-- /Command -->\n* <!-- Command --><code ><span>/w</span></code><!-- /Command -->",
+            "label": "Aliases"
+        },
+        {
+            "field": "\n* 0",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "None",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+Sends a private message to one or more players.
+
+Contents
+
+1 Syntax
+2 Arguments
+3 Result
+4 Output
+5 Examples
+6 History
+
+6.1 Java Edition
+6.2 Bedrock Edition
+
+7 See also
+8 External links
+9 References
+10 Navigation
+
+Syntax
+Java Edition
+/msg <targets> <message>
+Bedrock Edition
+/msg <target: target> <message: message>
+Arguments
+JE: <targets>: entityBE: target: target: CommandSelector<Player>
+
+Specifies the player(s) to send the message to.
+Must be a player name, a target selector or a UUID‌[Java Edition  only].  And the target selector must‌[JE  only]/should‌[BE  only] be of player type. In Bedrock Edition, the target selector should be of player type.
+JE: <message>: messageBE: message: message: CommandMessage
+
+Specifies the message to tell.
+It is a greedy phrase string argument (taking the rest of the command as the string argument). Can include spaces as well as target selectors. The game replaces entity selectors in the message with the list of selected entities' names, which is formatted as "name1 and name2" for two entities, or "name1, name2, ... and namen" for n entities. In Bedrock Edition, @<player name> can be used to mention a player; @here can be used to mention all players.
+Result
+
+CommandTriggerJava EditionBedrock Edition
+
+AnyThe command is incomplete, or any argument is not specified correctly. Unparseable Unparseableplayer: target is a target selector that is not of player type. N/A Failed<targets> or player: target fails to resolve to one or more online players. FailedOtherwiseSuccessful
+Output
+
+CommandEditionSituationSuccess Count/execute store success .../execute store result ...
+
+AnyJava EditionOn fail000On success11the number of targeted playersBedrock EditionOn fail0N/AN/AOn successthe number of targeted playersN/AN/A
+Examples
+To privately tell Steve to start the game: /tell Steve Start the game!
+To say "Hi" to all online players: /msg @a Hi
+To whisper to Makena instructions to trap Zuri: /w Makena Trap Zuri now!
+History
+Java Edition
+Java Edition Alphav1.0.16_02server 0.1.3
+Added /msg, /tell, and /w.Java Edition1.16.2Pre-release 2
+This command now displays the message to the sender even if /gamerule sendCommandFeedback is disabled.
+Bedrock Edition
+Pocket Edition Alphav0.16.0build 1
+Added /msg, /tell, and /w.Bedrock Edition1.21.120
+Due to MCPE-230568, /msg, /tell, and /w require operator permissions to use
+See also
+/tellraw — send a JSON message to players.
+External links
+"/tell Command"     – Microsoft Learn, October 11, 2023.
+References
+
+ MC-134084 – resolved as "Fixed".
+
+Navigation

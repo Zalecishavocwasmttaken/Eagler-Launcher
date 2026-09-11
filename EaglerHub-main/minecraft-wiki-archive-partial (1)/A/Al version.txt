@@ -1,0 +1,368 @@
+This page describes content that has been removed from Java Edition. 
+This feature was present in earlier versions of Java Edition, but has since been removed. This feature has never been present in other editions of the game.
+
+al_version (AppletLoader version), saved on disc as version, is a number formerly used in versions as a caching identifier, to uniquely identify .jar files to be cached.
+It is needed because the game used to be hosted on the Minecraft website as an applet.
+The al_version value was used to tell the LWJGL AppletLoader when to clear its cache so LWJGL and client jars could be updated automatically.
+
+Contents
+
+1 Usage
+2 Storage location
+3 List
+
+3.1 Classic
+3.2 Indev
+3.3 Infdev
+3.4 Alpha
+3.5 Beta
+3.6 Release
+
+4 History
+5 See also
+6 References
+7 External links
+8 Navigation
+
+Usage
+al_version is a number given as a parameter to the LWJGL AppletLoader in the HTML code of the applet page.
+It is used to specify a unique version for each jar file to cache them for re-use. (To save on downloads, the site would used a cached version on disc if the game is marked as being the same as the last time it was downloaded.)
+If the stored al_version matches the latest jar files, those jar files are re-used; otherwise the previously saved jars are removed from the cache and new ones are downloaded.
+From Classic through most of Infdev, the al_version was a positive floating point number. Starting from Infdev 20100629, al_version proper was no longer used, however a caching ID still remained, taking the form of the current timestamp of the version's release.
+
+Storage location
+The al_version may be found in the HTML of the game's web applet, as <param name="al_version" value="[al_version_id]" />
+In Classic through Infdev, the al_version may be found on disc in the temporary directory as version. The subpath differs based on the applet page the game is being played on. See Applet § Storage locations.
+Starting from Infdev 20100629, with the change from float al_version to a timestamped cache ID, it is now located on disc at %appdata%/.minecraft/bin/ (used by minecraft.net/game/ and the offline launcher).
+
+List
+[edit]
+
+Classic
+
+ Game version
+ al_version
+
+ Classic mc-161607 Unknown
+ Classic mc-161616 Unknown
+ Classic mc-161625 Unknown
+ Classic mc-161648 Unknown
+ Classic 0.0.2a Unknown
+ Classic 0.0.3a Unknown
+ Classic 0.0.9a 0.9
+ Classic 0.0.10a Unknown
+ Classic 0.0.11a Unknown
+ Classic 0.0.12a Unknown
+ Classic 0.0.12a_01 Unknown
+ Classic 0.0.12a_02 Unknown
+ Classic 0.0.12a_03 3.14
+ Classic 0.0.13a Unknown
+ Classic 0.0.13a_03 5.17
+ Classic 0.0.14a Unknown
+ Classic 0.0.14a_01 Unknown
+ Classic 0.0.14a_03 5.27
+ Classic 0.0.14a_04 Unknown
+ Classic 0.0.14a_05 Unknown
+ Classic 0.0.14a_06 Unknown
+ Classic 0.0.14a_07 5.345.35
+ Classic 0.0.14a_08 5.365.375.385.39
+ Classic 0.0.15a (Multiplayer Test 1) N/A
+ Classic 0.0.15a (Multiplayer Test 2) Unknown
+ Classic 0.0.15a (Multiplayer Test 3) Unknown
+ Classic 0.0.15a (Multiplayer Test 4) Unknown
+ Classic 0.0.15a (Multiplayer Test 5) Unknown
+ Classic 0.0.15a (Multiplayer Test 6) Unknown
+ Classic 0.0.15a (Multiplayer Test 7) Unknown
+ Classic 0.0.15a (Multiplayer Test 8) Unknown
+ Classic 0.0.15a_01 Unknown
+ Classic 0.0.15a_02 Unknown
+ Classic 0.0.15a_03 Unknown
+ Classic 0.0.16a Unknown
+ Classic 0.0.16a_01 Unknown
+ Classic 0.0.16a_02 5.51&?×Unknown
+ Classic 0.0.17a 6.05
+ Classic 0.0.18a 6.06
+ Classic 0.0.18a_01 6.07
+ Classic 0.0.18a_02 6.08
+ Classic 0.0.19a 6.09
+ Classic 0.0.19a_01 6.1
+ Classic 0.0.19a_02 6.11
+ Classic 0.0.19a_03 6.12
+ Classic 0.0.19a_04 6.13
+ Classic 0.0.19a_05 6.14
+ Classic 0.0.19a_06 6.15 (Original)6.16, 6.17, 6.18, 6.19, 6.20 (Reupload)
+ Classic 0.0.20a 6.21
+ Classic 0.0.20a_01 6.22
+ Classic 0.0.20a_02 6.236.24
+ Classic 0.0.21a 6.256.26
+ Classic 0.0.21a_01 6.27
+ Classic 0.0.22a Unknown
+ Classic 0.0.22a_01 Unknown
+ Classic 0.0.22a_02 Unknown
+ Classic 0.0.22a_03 Unknown
+ Classic 0.0.22a_04 Unknown
+ Classic 0.0.22a_05 6.36
+ Classic 0.0.23a 6.37
+ Classic 0.0.23a_01 6.386.50
+ Classic 0.24 SURVIVAL TEST Unknown
+ Classic 0.24 SURVIVAL TEST 01 Unknown
+ Classic 0.24 SURVIVAL TEST 02 Unknown
+ Classic 0.24 SURVIVAL TEST 03 6.47
+ Classic 0.25 SURVIVAL TEST Unknown
+ Classic 0.25 SURVIVAL TEST 2 Unknown
+ Classic 0.25 SURVIVAL TEST 3 Unknown
+ Classic 0.25 SURVIVAL TEST 4 Unknown
+ Classic 0.25_05 SURVIVAL TEST 6.52
+ Classic 0.26 SURVIVAL TEST Unknown
+ Classic 0.27 SURVIVAL TEST 6.56
+ Classic 0.28 Unknown
+ Classic 0.28_01 7.12
+ Classic 0.29 7.13
+ Classic 0.29_01 7.14
+ Classic 0.29_02 7.15
+ Classic 0.30 6.8 (Survival)7.21 (Creative)
+Indev
+
+ Game version
+ al_version
+
+ Indev 0.31 20091223-0040 Unknown
+ Indev 0.31 20091223-1459 UnknownUnknown
+ Indev 0.31 20091231-1856 Unknown
+ Indev 0.31 20091231-2004 Unknown
+ Indev 0.31 20091231-2013 Unknown
+ Indev 0.31 20091231-2033 Unknown
+ Indev 0.31 20091231-2147 Unknown
+ Indev 0.31 20091231-2255 Unknown
+ Indev 0.31 20100104-2154 Unknown
+ Indev 0.31 20100104-2258 Unknown
+ Indev 0.31 20100106-1655 Unknown
+ Indev 0.31 20100106-2158 Unknown
+ Indev 0.31 20100106-2220 Unknown
+ Indev 0.31 20100107-1851 Unknown
+ Indev 0.31 20100107-1947 Unknown
+ Indev 0.31 20100107-2010 Unknown
+ Indev 0.31 20100109-1939 Unknown
+ Indev 0.31 20100109-2000 Unknown
+ Indev 0.31 20100110 1.033
+ Indev 0.31 20100111-2207 1.034
+ Indev 0.31 20100111-2210 1.035
+ Indev 0.31 20100112-0826 1.036
+ Indev 0.31 20100112-1949 1.037
+ Indev 0.31 20100113-2015 1.038
+ Indev 0.31 20100113-2015#Creative 1.039
+ Indev 0.31 20100113-2243 1.04
+ Indev 0.31 20100114 1.041
+ Indev 0.31 20100122-1708 1.042
+ Indev 0.31 20100122-2251 1.043
+ Indev 0.31 20100124-2119 1.044
+ Indev 0.31 20100124-2134 1.045
+ Indev 0.31 20100124-2310 1.046
+ Indev 0.31 20100125 1.047
+ Indev 0.31 20100128-2200 1.048
+ Indev 0.31 20100128-2304 1.049
+ Indev 0.31 20100129-1447 1.05
+ Indev 0.31 20100129-1452 1.051
+ Indev 0.31 20100129-2129 Unknown
+ Indev 0.31 20100129-2134 Unknown
+ Indev 0.31 20100129-2138 Unknown
+ Indev 0.31 20100129-2158 Unknown
+ Indev 0.31 20100129-2209 Unknown
+ Indev 0.31 20100129-2332 Unknown
+ Indev 0.31 20100130 1.059
+ Indev 0.31 20100131-2156 Unknown
+ Indev 0.31 20100131-2241 Unknown
+ Indev 0.31 20100131-2244 Unknown
+ Indev 0.31 20100201-0025 Unknown
+ Indev 0.31 20100201-0038 Unknown
+ Indev 0.31 20100201-2227 Unknown
+ Indev 0.31 20100202 1.075
+ Indev 0.31 20100204-1541 1.077
+ Indev 0.31 20100204-2027 1.078
+ Indev 0.31 20100204-2153 1.079
+ Indev 0.31 20100205-1558 1.08
+ Indev 0.31 20100205-2241 1.081
+ Indev 0.31 20100206-1437 1.082
+ Indev 20100206-2034 1.083
+ Indev 20100206-2103 1.084
+ Indev 20100207-1057 1.085
+ Indev 20100207-1101 1.086
+ Indev 20100207-1647 1.092
+ Indev 20100207-1703 1.093
+ Indev 20100211-2327 1.096
+ Indev 20100211-2333 1.097
+ Indev 20100211-2340 1.098
+ Indev 20100212-1210 1.099
+ Indev 20100212-1622 1.1001.101
+ Indev 20100213 1.102
+ Indev 20100214 1.103
+ Indev 20100218-0011 1.104
+ Indev 20100218-0016 1.105
+ Indev 20100219 1.106
+ Indev 20100223 1.107
+Infdev
+
+ Game version
+ al_version
+
+ Infdev 20100227-1414 Unknown
+ Infdev 20100227-1433 1.108
+ Infdev 20100313 1.109
+ Infdev 20100316 1.111
+ Infdev 20100320 1.112
+ Infdev 20100321 1.114
+ Infdev 20100325-1545 1.115
+ Infdev 20100325-1640 1.116
+ Infdev 20100327 1.118
+ Infdev 20100330-1203 1.119
+ Infdev 20100330-1611 1.12
+ Infdev 20100413-1951 1.121
+ Infdev 20100413-1953 1.122
+ Infdev 20100414 1.123
+ Infdev 20100415 1.124
+ Infdev 20100420 1.125
+ Infdev 20100607 1.126
+ Infdev 20100608 1.127
+ Infdev 20100611 1.128
+ Infdev 20100615 1.129
+ Infdev 20100616-1808 1.13
+ Infdev 20100616-2210 1.13
+ Infdev 20100617-1205 1.13
+ Infdev 20100617-1531 1.131
+ Infdev 20100618 1.132
+ Infdev 20100624 1.133
+ Infdev 20100625-0922 1.134
+ Infdev 20100625-1917 1.135
+ Infdev 20100627 1.136
+ Infdev 20100629 1.137
+Alpha
+
+ Game version
+ ID
+
+ Infdev 20100629 1277837875000
+ Infdev 20100630-1340 1277901606000
+ Infdev 20100630-1835 1277919303000
+ Alpha v1.0.1 Unknown
+ Alpha v1.0.1_01 1278109196000
+ Alpha v1.0.2 Unknown
+ Alpha v1.0.2_01 1278419244000
+ Alpha v1.0.2_02 1278438272000
+ Alpha v1.0.3 1278525565000
+ Alpha v1.0.4 1278684774000
+ Alpha v1.0.5 Unknown (Original)1279054191000 (Reupload)
+ Alpha v1.0.5_01 1279136788000
+ Alpha v1.0.6 1279276166000
+ Alpha v1.0.6_01 1279382604000
+ Alpha v1.0.6_02 Unknown
+ Alpha v1.0.6_03 1279387500000
+ Alpha v1.0.7 Unknown
+ Alpha v1.0.8 Unknown
+ Alpha v1.0.8_01 1279579238000
+ Alpha v1.0.9 1279708233000
+ Alpha v1.0.10 1279814234000
+ Alpha v1.0.11 1279892199000
+ Alpha v1.0.12 1280156937000
+ Alpha v1.0.13 1280331003000
+ Alpha v1.0.13_01 1280396296000 (Original)1280411092000 (Reupload)
+ Alpha v1.0.14 1280502204000 (Original)1280505555000 (Reupload)
+ Alpha v1.0.15 1280861245000
+ Alpha v1.0.16 Unknown
+ Alpha v1.0.16_01 1281632406000
+ Alpha v1.0.16_02 1281688214000
+ Alpha v1.0.17 Unknown
+ Alpha v1.0.17_01 Unknown
+ Alpha v1.0.17_02 1282307028000
+ Alpha v1.0.17_03 1282576951000
+ Alpha v1.0.17_04 1282595057000
+ Alpha v1.1.0 Unknown (Original)1284140847000 (Reupload 1)1284402811000 (Reupload 2)
+ Alpha v1.1.1 1284827396000
+ Alpha v1.1.2 Unknown (Original)1284842028000 (Reupload)
+ Alpha v1.1.2_01 1285241960000
+ Alpha v1.2.0 1288468289000 (Original)1288468646000 (Reupload)
+ Alpha v1.2.0_01 1288471650000
+ Alpha v1.2.0_02 1288533147000
+ Alpha v1.2.1 Unknown
+ Alpha v1.2.1_01 1288951302000
+ Alpha v1.2.2 Unknown (Original)1289406252000 (Reupload 1)1289417910000 (Reupload 2)
+ Alpha v1.2.3 1290590583000
+ Alpha v1.2.3_01 Unknown (Original)1290592709000 (Reupload)
+ Alpha v1.2.3_02 1290701545000
+ Alpha v1.2.3_04 1290776384000
+ Alpha v1.2.3_05 1291140413000
+ Alpha v1.2.4_01 1291142542000
+ Alpha v1.2.5 1291216127000
+ Alpha v1.2.6 12913858980001292492918000
+Beta
+
+ Game version
+ ID
+
+ Beta 1.0 1292866137000
+ Beta 1.0_01 1292869768000
+ Beta 1.0.2 1292920590000 (Original)1292920904000 (Reupload)
+ Beta 1.1 1293021910000 (Original)unknown (Reupload)
+ Beta 1.1_01 Unknown
+ Beta 1.1_02 1293023696000
+ Beta 1.2 1294935268000
+ Beta 1.2_01 129501160000012950116620001295383684000
+ Beta 1.2_02 1295618277000
+ Beta 1.3 Unknown (Original)Unknown (Reupload)1298397074000 (Reupload 2)
+ Beta 1.3_01 1298470263000
+ Beta 1.4 Unknown (Original)1301589316000 (Reupload)
+ Beta 1.4_01 1301991999000
+ Beta 1.5 1303219754000 (Original)1303220253000 (Reupload)
+ Beta 1.5_01 1303302694000
+ Beta 1.6 1306400389000
+ Beta 1.6.1 Unknown
+ Beta 1.6.2 1306402345000
+ Beta 1.6.3 Unknown
+ Beta 1.6.4 1306418981000
+ Beta 1.6.5 1306595612000
+ Beta 1.6.6 1306845669000
+ Beta 1.7 1309441055000
+ Beta 1.7_01 1309444501000
+ Beta 1.7.2 1309520900000
+ Beta 1.7.3 1310111031000
+ Beta 1.8 1315993659000
+ Beta 1.8.1 1316075312000
+Release
+
+ Game version
+ ID
+
+ 1.0.0 1321653290000
+ 1.1 1326382442000
+ 1.2.1 1330609273000
+ 1.2.2 1330611617000
+ 1.2.3 1330677677000
+ 1.2.4 1332432053000
+ 1.2.5 1333544508000
+ 1.3.1 1343825972000
+ 1.3.2 1345124077000
+ 1.4.2 1351157607000
+ 1.4.4 1352902011000
+ 1.4.5 1353414733000
+ 1.4.6 1355999243000
+ 1.4.7 1357737036000
+ 1.5 1363184671000
+ 1.5.1 1363862534000
+ 1.5.2 13675029650001374223516000
+
+History
+Java Edition Classic?
+Added al_version in order to run Minecraft as an applet.
+It takes the form of an increasing positive floating point number.Java Edition Indev?
+Reset al_version back to 1.0.Java Edition Infdev20100629
+Removed al_version proper, as the game now uses the launcher and not AppletLoader. The caching ID now takes the form of an integer timestamp instead of floating point number.Java Edition1.5.2
+This is the last version to have a cache ID.
+See also
+Protocol version
+Data version
+References
+
+ Minecraft.net/play.jsp (source) – Wayback Machine, May 25, 2009. "<param name="al_version" value="5.17">".
+
+External links
+AppletLoader documentation – Legacy LWJGL Javadocs
+Navigation

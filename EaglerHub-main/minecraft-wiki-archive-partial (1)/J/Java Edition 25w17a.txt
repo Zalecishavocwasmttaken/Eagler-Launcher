@@ -1,0 +1,266 @@
+Minecraft 25w17a
+
+Edition
+
+Java Edition
+
+Release date
+
+April 22, 2025
+
+Type
+
+Snapshot
+
+Snapshot for
+
+1.21.6
+
+Downloads
+
+Client (.json)Server
+
+Obfuscation maps
+
+ClientServer
+
+Protocol version
+
+ dec: 1073742071 hex: 400000F7
+
+Data version
+
+4425
+
+Resource pack format
+
+58
+
+Data pack format
+
+74
+
+Minimum Java version
+
+Java SE 21
+
+◄◄   1.21.5
+1.21.6
+  1.21.7 ►►
+
+◄   25w16a
+
+ 25w17a
+
+  25w18a ►
+
+{
+    "title": "Minecraft 25w17a",
+    "images": [
+        "25w17a.jpg",
+        "Java Edition 25w17a.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "April 22, 2025",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Snapshot article, displayed as Snapshot)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition 1.21.6 article, displayed as 1.21.6)",
+            "label": "Snapshot for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/213e49c5ad5361ba89e4e35529fb36ec46617fc3/client.jar Client] ([https://piston-meta.mojang.com/v1/packages/b0b639d40ca10ef21f714eb801222e033680e17d/25w17a.json .json])<br />[https://piston-data.mojang.com/v1/objects/575756f90e54e5c2cd78997dd9e3579936aa9d6d/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/abbf58ef2c8c9400a40b8ad6272aba27f9a4f6ea/client.txt Client]<br />[https://piston-data.mojang.com/v1/objects/78bbaacb166117d8b2f3afad82fccf8448602193/server.txt Server]",
+            "label": "(link to Obfuscation map article, displayed as Obfuscation maps)"
+        },
+        {
+            "field": " <span style=\"font-size:smaller\"><abbr title=\"decimal\">dec</abbr>: </span>1073742071<br /> <span style=\"font-size:smaller\"><abbr title=\"hexadecimal\">hex</abbr>: </span>400000F7",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "4425",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "58",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "74",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Data pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_21_.28LTS.29 Java SE 21]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Java Edition  1.21.5|<span style=\"margin-right:-0.35em\">◄</span>◄   1.21.5]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition 1.21.6|1.21.6]]'''</td>\n<td style=\"padding: 0.4em\" >[[Java Edition  1.21.7|  1.21.7 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  25w16a|◄   25w16a]]\n</td>\n<td style=\"padding: 0.4em\">''' 25w17a'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  25w18a|  25w18a ►]]\n</td>\n</tr>\n</table>"
+}
+
+25w17a is the third snapshot for Java Edition 1.21.6 released on April 22, 2025, which makes the locator bar available in normal gameplay and fixes bugs.
+
+Contents
+
+1 Additions
+
+1.1 Gameplay
+1.2 General
+
+2 Changes
+
+2.1 Blocks
+2.2 Items
+2.3 World generation
+2.4 Command format
+2.5 Gameplay
+2.6 General
+
+3 Technical
+4 Experimental
+5 Fixes
+6 Videos
+7 References
+8 Navigation
+
+Additions
+Gameplay
+Locator bar
+
+Added waypoint style for changing waypoints' icon on specific distances in a resource pack.
+Setting the style of a waypoint is possible using the new /waypoint modify ... style arguments.
+The default implementation is as such:{
+  "near_distance": 128,
+  "far_distance": 332,
+  "sprites": [
+    "minecraft:default_0",
+    "minecraft:default_1",
+    "minecraft:default_2",
+    "minecraft:default_3"
+  ]
+}
+
+near_distance and far_distance are optional and default to the values 128 and 332 respectively.
+far_distance distance must be greater than near_distance
+Each sprite is searched within the prefix of hud/locator_bar_dot/ (the directory textures/gui/sprites/hud/locator_bar_dot).
+General
+Options
+
+Added new video setting "Cloud Distance" to reduce the cloud range.
+Tag
+
+Added the #happy_ghast_avoids block tag.
+Contains blocks that happy ghasts avoid getting close to.
+Added the #triggers_ambient_dried_ghast_block_sounds block tag.
+Contains blocks that can trigger ambient dried ghast sounds to play when a dried ghast block is placed on them.
+Changes
+Blocks
+Dried Ghast
+
+Dried ghast's rarity has been changed from Uncommon to Common.
+Items
+Harness
+
+Can now be equipped on a happy ghast using a dispenser.
+World generation
+Woodland Mansion
+
+The room "1x1_b5.nbt" generates again.
+Command format
+/waypoint
+
+Replaced fade argument by style: For changing the icon spriteset and selection distances.
+set <waypoint_style/resource> changes the style to a specific asset under waypoint_style/
+reset will restore the default icon behavior of the Locator Bar.
+Gameplay
+Locator Bar
+
+Waypoints' icon now use different sprites based on how far away the player is to their locations instead of the fade effects previously implemented.
+General
+Game rule
+
+Renamed game rule useLocatorBar to locatorBar, consistent with Bedrock Edition.
+Realms
+
+Changed the layout of the Realms configuration screen to use tabs.
+A Worlds tab containing changes to any of the world slots, creating new worlds and changing their settings.
+A Players tab to manage the players that have access and their level of access to the Realm.
+A Subscription tab to manage the Realms subscription.
+A Settings tab to change the settings of the Realm.
+Introduced a Region Preference setting that allows for more granular control over what region a Realm is started.
+Changed the wording for Close/Open Realm to Temporarily close/Reopen Realm.
+Technical
+Data pack
+
+The pack format version is now 74.
+Resource pack
+
+The pack format version is now 58.
+Shaders
+
+Added two new core shaders; stars, and sky which are used to render the stars and upper portion of the sky respectively.
+Post-process effects
+Fog uniform block.
+FOG_IS_SKY has been removed in favor of splitting up the sky shader.
+Experimental
+All features previously behind the "Locator Bar" experimental toggle have been de-experimentified and are now available during normal gameplay.
+
+Fixes
+28 issues fixed
+From released versions before 1.21
+
+MC-240121 – "1x1_b5.nbt" piece does not generate in woodland mansions.
+From the 1.21.6 development versions
+
+MC-296369 – Dispensers cannot equip harnesses onto happy ghasts.
+MC-296421 – Right-clicking a happy ghast equipped with a harness while crouching will play hand animation.
+MC-296438 – The "display" field on Attribute Modifiers is not optional, despite the changelog saying it is.
+MC-296443 – Happy ghasts don’t avoid pathfinding into dangerous blocks.
+MC-296511 – Gamemode Switcher icons become invisible when using resource pack with opaque or translucent selection.png.
+MC-296516 – Tooltips are incorrectly rendered below nearby elements when holding your mouse cursor over players that are online on realms.
+MC-296538 – Rarity of Dried Ghast is inconsistent with its crafting ingredients.
+MC-296542 – Waypoints on locator bar do not adjust to 3rd person front camera.
+MC-296567 – Waypoints on locator bar do not respect team colors.
+MC-296583 – Applying the waypoint_transmit_range attribute to an entity at the same time it is summoned makes it not show on the locator bar.
+From the previous development version
+
+MC-296750 – The game crashes after startup on some systems (predominantly Linux systems) with AMD graphics.
+MC-296755 – Resource Packs: The panorama overlay now renders in front of everything in the title screen.
+MC-296756 – Clouds do not render at render distance 2 & 3.
+MC-296764 – The text cursor renders behind command auto-complete text.
+MC-296766 – GUIs of rideable mobs are missing their slots as of 25w16a.
+MC-296770 – Strikethrough text in the villager interface is rendered behind characters.
+MC-296774 – Player messages within the "Select Chat Messages to Report" menu aren’t rendered while selected.
+MC-296775 – Some elements within the "Select Chat Messages to Report" menu are rendered darker while player messages are selected.
+MC-296777 – Lead shift right-clicking doesn't work on Boats with Chests.
+MC-296779 – The social interactions menu is rendered darker than normal.
+MC-296782 – Player models within the “Report Player Skin” menu are rendered darker and lower than normal.
+MC-296794 – Furnaces, blast furnaces, and smokers sometimes do not show the burn progress and lit progress animations.
+MC-296805 – The game crashes when holding your mouse cursor over players that are online on realms.
+MC-296806 – Cloud rendering has a considerable impact on performance as of 25w16a.
+MC-296807 – The titles of selected tabs within the "Create New World" menu are rendered behind the background.
+MC-296808 – The titles of lists within the resource pack and data pack menus are rendered behind the background.
+MC-296984 – The "No pending invites!" text within the realms invitation menu is rendered behind the background.
+Videos
+Video made by slicedlime:
+
+
+
+
+References
+
+ "Minecraft Snapshot 25w17a"     – Minecraft.net, April 22, 2025.
+
+Navigation

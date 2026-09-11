@@ -1,0 +1,85 @@
+/deop
+
+Permission levelrequired
+
+3 ‌[JE  only]
+2 ‌[BE  only]
+
+Restrictions
+
+Dedicated server only‌[JE  only]
+
+{
+    "title": "<code>/deop</code>",
+    "rows": [
+        {
+            "field": "\n* 3 ‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Java Edition\">(link to Java Edition article, displayed as JE)  only</span></i>]</sup>\n* 2 ‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Bedrock Edition\">(link to Bedrock Edition article, displayed as BE)  only</span></i>]</sup>",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "Dedicated server only‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Java Edition\">(link to Java Edition article, displayed as JE)  only</span></i>]</sup>",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+Revokes operator status from a player.
+
+Contents
+
+1 Syntax
+2 Arguments
+3 Result
+4 Output
+5 Examples
+6 See also
+7 History
+
+7.1 Java Edition
+7.2 Bedrock Edition
+
+8 External links
+9 Navigation
+
+Syntax
+Java Edition
+deop <targets>
+Bedrock Edition
+deop <player: target>
+Arguments
+JE: <targets>: game_profileBE: player: target: CommandSelector<Player>
+
+Specifies the player to be deopped.
+In Java Edition, specifies one or more game profiles (player profiles). Must be a player name (should be a real one if the server is in online mode) or a player-type target selector.
+In Bedrock Edition, must be a player name or a target selector.
+Result
+
+CommandTriggerJava EditionBedrock Edition
+
+AnyThe command is incomplete, or any argument is not specified correctly. Unparseable Unparseable<targets> fails to resolve to one or more player profiles. Failed N/Aplayer: target is a target selector that is not in player type. N/A Failedplayer: target fails to resolve to one or more online players.All selected players meet one or both of the following conditions:
+Not an op.
+Has permission level of 4 or higher.‌[Bedrock Edition  only] FailedOtherwiseSuccessful
+Output
+
+CommandEditionSituationSuccess Count/execute store success .../execute store result ...
+
+AnyJava EditionOn failN/A00On successN/A1the number of players whose op status is revoke
+Examples
+To remove Steve from the list of operators: deop Steve
+See also
+/op — gives operator status to a player.
+History
+Java Edition
+Java Edition Classic0.0.16a
+Added /deop.Java Edition Indev0.31
+Due to Indev's lack of support for servers, commands are no longer usable.Java Edition Alphav1.0.16
+Re-added /deop.Java Edition1.3.112w18a
+The message "You are no longer op!" is no longer displayed to the player being de-opped.[is this the correct version?]
+Bedrock Edition
+Pocket Edition Alphav0.16.0build 1
+Added /deop.
+External links
+"/deop Command"     – Microsoft Learn, October 11, 2023.
+Navigation

@@ -1,0 +1,229 @@
+15w43c
+
+Edition
+
+Java Edition
+
+Release date
+
+October 23, 2015
+
+Type
+
+Snapshot
+
+Snapshot for
+
+1.9
+
+Downloads
+
+Client (.json)Server (.exe)
+
+Protocol version
+
+82
+
+Data version
+
+141
+
+Resource pack format
+
+2
+
+Minimum Java version
+
+Java SE 6
+
+◄◄   1.8.9
+1.9
+  1.9.1 ►►
+
+◄   15w43b
+
+ 15w43c
+
+  15w44a ►
+
+{
+    "title": "15w43c",
+    "images": [
+        "15w43a.png",
+        "Java Edition 15w43c.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "October 23, 2015",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Snapshot article, displayed as Snapshot)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition 1.9 article, displayed as 1.9)",
+            "label": "Snapshot for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/f0437e3ac44089f3e604308041179ab2d3ed639b/client.jar Client] ([https://piston-meta.mojang.com/v1/packages/57b03175602261e9f2787cd513e05fe6ee0c8b6d/15w43c.json .json])<br />[https://piston-data.mojang.com/v1/objects/e514e7107639d2e8b285ceff5eaa114379dafba7/server.jar Server] ([https://piston-data.mojang.com/v1/objects/8865d9f952d967bff93cfb75a260518cb20a0a6a/windows_server.exe .exe])",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "82",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "141",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "2",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_6 Java SE 6]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Java Edition  1.8.9|<span style=\"margin-right:-0.35em\">◄</span>◄   1.8.9]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition 1.9|1.9]]'''</td>\n<td style=\"padding: 0.4em\" >[[Java Edition  1.9.1|  1.9.1 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  15w43b|◄   15w43b]]\n</td>\n<td style=\"padding: 0.4em\">''' 15w43c'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  15w44a|  15w44a ►]]\n</td>\n</tr>\n</table>"
+}
+
+
+15w43c is the thirty-sixth snapshot for Java Edition 1.9, released on October 23, 2015 to make some changes to the loot table system, as well as fix some bugs and crashes.
+
+Contents
+
+1 Changes
+
+1.1 Mobs
+1.2 Non-mob entities
+1.3 World generation
+1.4 Gameplay
+1.5 General
+
+2 Fixes
+3 Videos
+4 Trivia
+5 References
+6 Navigation
+
+Changes
+Mobs
+General
+
+Fixed mobs never dropping equipment.
+Endermen
+
+Drop the block they are carrying again.
+Pigs
+
+If equipped with saddle, they drop the saddle again.
+Non-mob entities
+Boats
+
+Remapped. They now have a separate texture per oar and per side of the boat.
+World generation
+Igloos
+
+The glass bottle in the brewing stand was removed.
+A cobweb generates in the corner of the basement.
+The sign in the igloo dungeon has changed.
+Previously:
+
+
+
+  --->
+
+  <---
+
+
+
+Now:
+
+  ****- ***--
+
+  --** *-*
+
+  *-** -**
+
+  --*** ***--
+
+when translated in morse code, it reads 4 3 Z R L D 7 3.
+Gameplay
+Fishing
+
+The Lure enchantment no longer affects the chances of catching things, only the delay.
+The Luck of the Sea enchantment is broken due to a typo in the new fishing loot table.
+Fished junk is less damaged (0%–90% durability remaining) while treasure is more damaged (0%–25% durability remaining).
+Ink sacs now are caught singly with weight 10 (formerly a stack of 10 with weight 1).
+General
+Loot tables
+
+The format is updated, so that rather than a 'items' node containing 'item' entries, it is an 'entries' node containing 'type' and 'name' entries.
+Type entries can be 'item', 'loot_table', or 'empty'.
+Name entries can either be item identifier for items, or the location and name of the loot table.
+Example:
+"type": "loot_table",
+"name": "minecraft:gameplay/fishing/treasure",.
+This allows for easier nested loot tables.
+The fishing tables are now available, along with loot for skeleton horses, zombie horses, and sheep without wool.
+Added the function 'set_damage', which is used to change the durability of a tool.
+Fixed some loot tables.
+Guardians and elder guardians have their rare drop of fishing loot again, though it includes fishing junk and fishing treasure as well.
+Elder guardians only drop sponges when killed by the player.
+Horses drop 1 leather. Skeleton and zombie horses drop 1 bone and 1 rotten flesh, respectively.
+Squid reverted back to dropping 1–3 ink sacs (was changed to 0–2 in 15w43b).
+Wither skeleton coal drop chance reverted back to earlier behavior: drops −1–1 (i.e. a 66% chance of 0 and a 33% chance of 1) with the amount increased as usual by Looting.
+Spider and cave spider eye drop chance adjusted, now drops −1–1 (i.e. a 66% chance of 0 and a 33% chance of 1) with the amount increased as usual by Looting.
+Fixes
+20 issues fixed
+From released versions before 1.9
+
+MC-162 – Ghost boats.
+MC-5120 – Fireworks pushed by water/fired horizontally out of loaded chunks cause client to hang.
+MC-32778 – Cannot assign keypad 5 key to motion any longer.
+MC-62159 – Broken graphic for breaking piston arms/Extended piston head breaking texture is wrong.
+MC-68666 – Block breaking uses nearby textures from stitched terrain when using cubes/planes larger than 16px.
+MC-73261 – Couldn't jump on an anvil if I directly stand in front of the anvil.(Only in Multiplayer).
+MC-73401 – Hopper texture issue.
+From the 1.8.2 development versions
+
+MC-76352 – Rain under bedrock/in void.
+From the 1.9 development versions
+
+MC-88324 – Minecraft freezes after x times of relogging.
+MC-89926 – Elytra can't be set to Chestplate Slot w/ /replaceitem, but can be set to head slot.
+MC-89935 – New chunks don't render until they are updated.
+MC-90213 – Head has 360 degrees of vertical rotation when using elytra.
+MC-91147 – Mobs no longer drop equipment.
+MC-91148 – Killing a sheared sheep still drops wool.
+MC-91149 – Horses no longer drop leather/bones/rotten flesh.
+MC-91151 – Endermen no longer drop carried blocks.
+MC-91152 – Guardians and Elder Guardians no longer rarely drop fish/salmon/clownfish/pufferfish.
+MC-91156 – Mobs drop different amount of common items than before.
+From the previous development version
+
+MC-91185 – Loot tables affect mobs drops/held items.
+MC-91203 – Loot table function "set_data" doesn't work with tools.
+Videos
+Video made by slicedlime:
+
+
+
+
+Trivia
+15w43c was previously removed from the launcher for some time, but was added back in September 2018.
+15w43c is the last version to have a crafting recipe for the enchanted golden apple.
+References
+
+ https://web.archive.org/web/20151030024227/https://www.mojang.com/2015/10/minecraft-snapshot-15w43a/
+
+ https://www.reddit.com/r/Minecraft/comments/3px30m/snapshot_14w43c/cwa5z2n
+
+Navigation

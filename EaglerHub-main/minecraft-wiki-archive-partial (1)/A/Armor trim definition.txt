@@ -1,0 +1,46 @@
+This feature is exclusive to Java Edition. 
+
+Trim materials and trim patterns define the tooltip and appearance of trimmed armor items.
+
+Contents
+
+1 Definition
+2 JSON format
+
+2.1 Trim material
+2.2 Trim pattern
+
+3 Navigation
+
+Definition
+Trim materials and patterns can be defined in data packs, as part of the directory structure below, or inline in the trim and provides_trim_material data components.
+
+ data pack name.zip or  data pack name
+ pack.mcmeta
+ data
+ namespace
+ trim_material
+ <name>.json
+ trim_pattern
+ <name>.json
+More directories…
+
+JSON format
+Trim material
+Trim materials have the following format:
+
+[NBT Compound / JSON Object] The root object.
+[String] asset_name: Suffix to be used in sprite names and translation keys.
+[NBT Compound / JSON Object] override_armor_assets: Asset name overrides for specific armor materials. Used in vanilla to select darker variants when the trim and armor have the same material.
+[String] <equipment asset id>: Suffix to be used in sprite names and translation keys for armor items with the corresponding asset_id specified in the equippable data component.
+[String][NBT List / JSON Array][NBT Compound / JSON Object] description: Text component to use as the trim material's name. See Text component format.
+
+Trim pattern
+Trim patterns have the following format:
+
+[NBT Compound / JSON Object] The root object.
+[String] asset_id: A resource location used as a prefix in sprite names and translation keys.
+[Boolean] decal: False for all vanilla trim patterns.
+[String][NBT List / JSON Array][NBT Compound / JSON Object] description: Text component to use as the trim pattern's name. See Text component format.
+
+Navigation

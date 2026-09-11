@@ -1,0 +1,138 @@
+This page describes content that has been removed from Minecraft. 
+This feature was present in earlier versions of Minecraft, but has since been removed.
+
+Invalid data value Wool
+
+Rarity tier
+
+  Common
+
+Renewable
+
+Yes
+
+Stackable
+
+Yes (64)
+
+{
+    "title": "Invalid data value Wool",
+    "rows": [
+        {
+            "field": "<span style=\"white-space: nowrap;\"><span style=\"display: inline-block; background-color: #fff; border: 1px solid #888; border-radius: 0.3em; color: transparent; width: 1em; height: 1em; vertical-align: -0.36em; margin-right: -0.1em\"><br></span> </span> Common",
+            "label": "(link to Rarity article, displayed as Rarity tier)"
+        },
+        {
+            "field": "Yes",
+            "label": "(link to Renewable resource article, displayed as Renewable)"
+        },
+        {
+            "field": "Yes (64)",
+            "label": "Stackable"
+        }
+    ],
+    "invimages": [],
+    "images": [
+        "Placeholder Block JE1 BE1.png",
+        "Wool 16n JE4.png",
+        "Missing Model JE3.png"
+    ]
+}
+
+Invalid data value wool is a specific item form of wool with damage values outside of the usual range which wool can usually be obtained in, resulting in an unusual appearance.
+
+Contents
+
+1 Obtaining
+2 Properties
+
+2.1 Placement
+
+3 History
+
+3.1 Java Edition
+3.2 Bedrock Edition
+3.3 Legacy Console Edition
+
+4 Issues
+5 Trivia
+6 Gallery
+7 References
+8 Navigation
+
+Obtaining
+Invalid data value wool is currently not known to be obtainable without the use of commands, inventory editors or other such tools, in any version.
+
+Properties
+Invalid data value wool is particularly notable due to its use of block textures in unexpected ways. From Beta 1.2 to Beta 1.8.1, as well as in early versions of Xbox 360 Edition, the item used the block placeholder texture, a texture only very rarely encountered in the unmodified game without the use of texture packs. From Beta 1.9 Prerelease to 13w01b, the item used the texture of newly-planted Nether wart.
+This bizarre texture usage can be easily be explained via analysis of terrain.png, a texture atlas used to store the texture of all blocks in the game prior to 1.5. All 15 textures used by colored wool blocks can be found in a 2×8 rectangle at the bottom left. This rectangle, however, contained a sixteenth texture that was initially unused. Wool with a damage value of 0 is white, and white wool's texture is located above this rectangle somewhat, and the game's code regards a damage value of 0 as a special case. However, if a wool item with a metadata value of ±16, ±32, ±48, ±64, ... is obtained as an item, which cannot be done in normal Survival gameplay or in Creative without commands, the game does not special-case these values due to them not being intentionally obtainable, resulting in this sixteenth texture in the rectangle being selected as the item's texture.
+In Beta 1.9's development, the then-new Nether wart required a texture to be used in-game. Where exactly a texture is in terrain.png is ultimately arbitrary, as the game's code can be made to point at any desired region. Ultimately, the textures used by Nether wart were placed at a position in terrain.png which resulted in the first stage's texture being within the 2×8 rectangle used by most wool items, resulting in the invalid cases using the newly-planted Nether wart texture as if it were any other texture.
+
+The terrain.png used inBeta 1.8.1
+
+The terrain.png used inBeta 1.9 Prerelease
+
+Placement
+When placed, invalid data value wool will place normal white wool blocks. As these placed blocks are proper white wool, they will drop white wool when broken, rather than invalid data values of wool.
+
+History
+Java Edition
+Java Edition Indev0.3120100131-2156
+ Durability has been introduced. It can be assigned to cloth items via an inventory editor, but is functionally meaningless in this case. A durability bar will be displayed on the item.20100201-2227
+ All 3D items now appear slightly darker on the left.?
+ All 3D items now appear much brighter.Java Edition InfdevMinecraft Infdev20100611
+ All 3D items now appear slightly darker.20100624
+ 15 IDs relating to prior cloth/wool colors have been removed. Numeric ID 35, the only remaining wool block, has been changed from light gray to white.Java Edition Alphav1.0.1
+ All 3D items now appear very slightly darker.Java Edition Beta1.2
+ Values for damage on wool are now processed as variants. The durability bar has been removed. As a result, the item now uses the placeholder texture.1.6Test Build 3
+ All 3D items now appear much brighter and are rotated 90 degrees clockwise from their previous positions.1.8Pre-release
+ All 3D items now appear even brighter than previously, with almost no shading.Java Edition1.0.0Beta 1.9 Prerelease
+ Nether wart has been introduced. The texture used for the lowest growth state occupies the position in terrain.png that invalid data value wool uses, resulting in invalid data value wool now using the Nether wart texture on all sides.RC2
+ All 3D items are now shaded more reasonably.1.3.112w22a
+ Most 3D items in the inventory have been rotated 90 degrees anti-clockwise.1.4.212w34a
+ Items appeared slightly darker in the player's inventory than in chests prior to this version.1.513w02a
+Texture handling has been overhauled. As invalid data value wool does not have a texture to point to, it causes a game crash immediately when the game attempts to render it.1.5.113w12~
+ Invalid data value wool no longer causes the game to crash. It now uses the white wool texture.1.814w07a
+ Invalid data value wool now appears as a 2D black wool texture.14w10a
+ Invalid data value wool now appears as 3D-rendered white wool again.14w25a
+ With the introduction of data-driven item models, any item with a data value outside of what is accepted by the game has no model to point to, resulting in use of the missing item model.14w30a
+Invalid data value wool, alongside other invalid data value items, now appears the size of a full block when held in third person or by another player or mob.1.915w31a
+ The missing model's inventory appearance has changed, resulting in the appearance of invalid data value wool also changing.
+
+The items also appear the size of a full block when held in first person and when dropped on the ground, and also appear larger than before in an item frame.1.1116w44a
+Invalid data value wool is now called "White Wool" in the inventory.1.1317w43a
+ The missing texture has changed, resulting in the appearance of invalid data value wool also changing.17w47a
+Numeric IDs for blocks and items have been completely removed from the game. As a result, invalid data value wool has been "removed" as they now convert into white wool.
+Bedrock Edition
+Pocket Editionv0.2.0
+Invalid data value wool exists and uses the Nether wart texture when in 1st or 3rd person perspectives.v0.8.0v0.8.0 alpha build 1
+Invalid data value wool no longer uses the Nether wart texture.
+Legacy Console Edition
+Legacy Console EditionXbox 360Xbox OnePS3PS4PS VitaWii USwitch0.66.0054.0??????
+ Invalid data value wool exists and uses the placeholder texture.TU2
+ 3D item shading has changed very slightly.TU3
+ The game now points to a more modern copy of terrain.png which results in use of the Nether wart texture.TU5
+ 3D item rendering has changed again.
+Issues
+Invalid data value wool items are an issue, and due to their removal, can be considered already fixed.
+
+Trivia
+The first known mention of invalid data value wool is from January 23, 2011, ten days after it properly came into existence in Beta 1.2.
+Gallery
+
+
+
+			Invalid data value wool in Java Edition Beta 1.3
+
+
+
+			Invalid data value wool in TU1
+
+
+References
+
+ MC-11894 – Crash with invalid wool values – resolved as "Fixed".
+
+ Wool on January 23, 2011
+
+Navigation

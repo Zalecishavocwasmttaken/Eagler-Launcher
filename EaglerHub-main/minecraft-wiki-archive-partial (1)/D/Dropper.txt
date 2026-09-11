@@ -1,0 +1,538 @@
+This article is about the block that drops projectiles as an item.   For the block that can fire projectiles, see Dispenser.
+
+Dropper
+
+View all renders
+
+Renewable
+
+Yes
+
+Stackable
+
+Yes (64)
+
+Tool
+
+Blast resistance
+
+3.5
+
+Hardness
+
+3.5
+
+Luminous
+
+No
+
+Transparent
+
+No
+
+Flammable
+
+No
+
+Catches firefrom lava
+
+No
+
+Map color
+
+ 11 STONE
+
+Note block instrument
+
+Bass Drum
+
+{
+    "extratext": "View [[#Renders|all renders]]",
+    "title": "Dropper",
+    "images": [
+        "Dropper.png"
+    ],
+    "rows": [
+        {
+            "field": "Yes",
+            "label": "(link to Renewable resource article, displayed as Renewable)"
+        },
+        {
+            "field": "Yes (64)",
+            "label": "Stackable"
+        },
+        {
+            "field": "<span class=\"sprite-file\" style=\"height:32px;width:32px;--vertical-align:middle\">(link to File:Invicon Wooden Pickaxe.png article, displayed as 32x32px|link=|alt=Invicon Wooden Pickaxe.png: Sprite image for Wooden Pickaxe in Minecraft|class=pixel-image|A wooden pickaxe or better is required to mine this block)</span>",
+            "label": "Tool"
+        },
+        {
+            "field": "3.5",
+            "label": "(link to Explosion#Blast resistance article, displayed as Blast resistance)"
+        },
+        {
+            "field": "3.5",
+            "label": "(link to Breaking#Blocks by hardness article, displayed as Hardness)"
+        },
+        {
+            "field": "No",
+            "label": "(link to Light article, displayed as Luminous)"
+        },
+        {
+            "field": "No",
+            "label": "(link to Opacity article, displayed as Transparent)"
+        },
+        {
+            "field": "No",
+            "label": "(link to Fire#Flammable blocks article, displayed as Flammable)"
+        },
+        {
+            "field": "No",
+            "label": "Catches fire<br>from (link to lava article, displayed as lava)"
+        },
+        {
+            "field": "<span style=\"white-space: nowrap;\"><span style=\"display: inline-block; background-color: rgb(112, 112, 112); border: 1px solid #888; border-radius: 0.3em; color: transparent; width: 1em; height: 1em; vertical-align: -0.36em; margin-right: -0.1em\"><br></span> 11 STONE</span>",
+            "label": "(link to Map item format#Color table article, displayed as Map color)"
+        },
+        {
+            "field": "Bass Drum",
+            "label": "(link to Note Block#Instruments article, displayed as Note block instrument)"
+        }
+    ],
+    "invimages": [
+        "Dropper"
+    ]
+}
+
+A dropper is a low-capacity storage block that can eject its contents into the world or into other containers when given a redstone signal.
+
+Contents
+
+1 Obtaining
+
+1.1 Breaking
+1.2 Crafting
+
+2 Usage
+
+2.1 Container
+2.2 Redstone component
+
+2.2.1 Container interactions
+
+2.3 Crafting ingredient
+
+3 Sounds
+
+3.1 Generic
+3.2 Unique
+
+4 Data values
+
+4.1 ID
+4.2 Block states
+4.3 Block data
+
+5 Videos
+6 History
+
+6.1 Java Edition
+6.2 Bedrock Edition
+6.3 Legacy Console Edition
+6.4 New Nintendo 3DS Edition
+6.5 Data history
+
+7 Issues
+8 Trivia
+9 Gallery
+
+9.1 Renders
+
+9.1.1 Java Edition
+9.1.2 Bedrock Edition
+
+9.2 In other media
+
+10 See also
+11 References
+12 External links
+13 Navigation
+
+Obtaining
+Breaking
+A dropper can be mined with a pickaxe, in which case it drops itself and its contents. If mined without a pickaxe, the dropper drops only its contents.
+
+Block
+
+Dropper
+
+Hardness
+
+3.5
+
+Tool
+
+Breaking time (sec)
+
+Default
+
+17.5
+
+Wooden
+
+2.65
+
+Stone
+
+1.35
+
+Copper
+
+1.05
+
+Iron
+
+0.9
+
+Diamond
+
+0.7
+
+Netherite
+
+0.6
+
+Golden
+
+0.45
+
+OptionsEfficiency000Haste0011JEBE
+
+Legend
+ incorrect tool, drops nothing
+ correct tool, drops nothing or something other than the block itself
+ correct tool, drops the block itself
+italicized can be instant mined
+
+ These durations ignore any other influential factors (e.g., Mining Fatigue) and are measured in seconds. For more information, see Breaking § Mining efficiency.
+
+Crafting
+
+Ingredients
+Crafting recipe
+
+Cobblestone +Redstone Dust
+
+Usage
+A dropper can be used as a container or as a redstone component to move items.
+A dropper can be placed so that its output faces in any direction, including up or down. When placed, the dropper's output faces toward the player. With default textures, the droppers output side looks like a face when positioned for horizontal output. Otherwise, the output side has a square hole.
+In Java Edition, droppers cannot be moved by pistons.
+
+Container
+GUI of the dropper
+A dropper has 9 slots of inventory space.
+To open the dropper GUI, use the Use Item control. To move items between the dropper inventory and the player inventory or hotbar while the dropper GUI is open, drag or shift-click the items. To exit the dropper GUI, use the Esc control.
+By default, the GUI of a dropper is labeled "Dropper". A dropper's GUI label can be changed by naming the dropper in an anvil before placing it. In Java Edition, droppers can also be renamed by using the /data command (for example, to label a dropper at (0,64,0) "Alice's Dropper", use /data merge block 0 64 0 {CustomName:'"Alice's Dropper"'}).
+In Java Edition, a dropper can be "locked" (or subsequently unlocked) by setting the dropper's lock tag with the /data command. If a dropper's lock tag is not blank, the dropper cannot be accessed except by players holding an item that matches the item predicate in the lock tag. For example, to lock a dropper at (0,64,0) so that only players holding an item named "Alice's Key" can access the dropper, use /data merge block 0 64 0 {lock:{components:{"custom_name":"Alice's Key"}}}.
+
+Redstone component
+See also: Redstone circuit
+
+A dropper can be used to eject items, or push items into another container.
+
+Activation
+A dropper can be activated by:
+an adjacent active power component (exceptions: a redstone torch does not turn ON a dropper it is attached to)
+an adjacent powered opaque block (strongly-powered or weakly-powered)
+a powered redstone repeater or redstone comparator facing the dropper
+powered redstone dust configured to point at the dropper, or on top of it; a dropper is not activated by adjacent powered redstone dust that is configured to point in another direction.
+In addition to the methods above, droppers in Java Edition can also be activated by quasi-connectivity. A dropper activates if one of the methods above would activate a mechanism component in the block above the dropper, even if there is no mechanism component there (even if the block above the dropper is air or a transparent block), but only when the dropper receives a block update (including a redstone update within two blocks of the dropper).
+A dropper has a delay of 4 game ticks (0.2 seconds) between activation and a response. During this time, additional inputs are ignored.
+In Bedrock Edition, the dropper can only activate on the input/consumer redstone tick (C-tick).
+Behavior
+See also: Tutorial:Item transportation § Dropper elevator
+
+When activated, a dropper waits 4 game ticks (0.2 seconds) and then ejects one item from its inventory. The dropper does not continue to eject items while activated — ejection occurs only on the initial activation (the rising edge of an input signal). To eject multiple items, repeatedly activate the dropper with a clock circuit.
+If multiple slots are occupied by items, a random occupied slot is chosen for ejection. The slot is chosen when an item is ejected, not when the dropper is initially activated, thus it is possible to move items into or out of a dropper between its activation and item dispensing.
+If the dropper is facing a container, the ejected item is transferred into the container. If the container it is facing is full, or the item cannot be inserted into the container, the dropper does not activate. Examples of containers that items cannot be inserted into include chests that cannot be opened because of a solid block above them, and droppers that are already in an activated state.
+Otherwise, the item is ejected in the direction the dropper is facing, as if a player had used the drop control. Even items that would be treated differently by a dispenser (such as arrows) are simply ejected by a dropper.
+A dropper makes a clicking noise (the random.click sound event) when activated empty or when ejecting items into air. It is silent when it successfully transfers an item into any kind of chest or barrel, or another dropper.
+A dropper is an opaque block, so powering it directly can cause adjacent mechanism components (including other droppers) to activate as well.
+A line of droppers, each pushing items into the next dropper, is known as a dropper pipe. A dropper pipe must be clocked to move items, but can be clocked to move items faster than a hopper pipe's transfer rate. When a dropper pipe pushes items upward, it is known as a droppervator (short for "dropper elevator").
+A dropper that is directly powered by redstone will activate before any adjacent droppers activated during the same game tick. In a droppervator or dropper pipe, this has the effect of moving the item in the directly-powered dropper 2 blocks in one game tick. First, the item is ejected from the directly powered dropper. Then, during the same game tick, this item is ejected from the adjacent dropper.
+Container interactions
+Some containers interact with droppers in specific ways:
+
+Barrel, boat with chest, dispenser, dropper
+Droppers interact normally with barrels, boats with chests, dispensers, and other droppers.
+Brewing stand
+A dropper facing toward a brewing stand from above deposits only into the ingredient slot and it can insert only valid brewing ingredients. A dropper facing toward a brewing stand from the sides or from below can deposit only blaze powder in the fuel slot, or filled bottles into the three brew slots.
+Chest, trapped chest
+Large chests and large trapped chests are treated as a single container: a dropper depositing into a large chest fills up the entire chest. Trapped chests being accessed by a player trigger any adjacent droppers, depositing items into the chest if they are facing toward it.
+Chiseled bookshelf
+A dropper facing toward a chiseled bookshelf from any direction can insert books, books and quills, written books, enchanted books, and knowledge books.
+Crafter
+Droppers can insert ingredients in the crafting grid. Items are distributed in enabled slots, going left to right starting from the first row; if the crafter has all item slots filled then items are added to the lowest count item stack of the same type.
+Composter
+A dropper facing toward a composter from above can push compostable items into the composter, with a chance of increasing the compost level as if the player used the item on the composter.
+Decorated pot
+Droppers can deposit up to a stack of a single type of item into a decorated pot. Items are not inserted if the decorated pot is full or the pot contains a different item.
+Ender chest
+Droppers cannot interact with ender chests in any way.
+Furnace, blast furnace, smoker
+A dropper facing toward a furnace from above deposits only into the ingredient slot. It can insert any item, including items that can't be smelted by the furnace. A dropper facing toward a furnace from the sides or from below deposits only into the fuel slot, and only items that are usable as fuel.
+Hopper
+A dropper facing toward a hopper can insert items even if the hopper is locked by an active redstone signal.
+Shelf
+A dropper facing towards a shelf can insert items into available slots. It will try to add to a stack of the same type, inserting into the first empty slot if it can't, doing so from left to right. The dropper does not activate if the item cannot fit in the shelf.
+Jukebox
+A dropper can insert music discs into a jukebox from any direction. The dropper does not activate if the jukebox is already playing a disc.
+Lectern
+Droppers cannot interact with lecterns in any way.
+Minecart with chest, minecart with hopper
+A dropper can insert items into minecarts with chests and minecarts with hoppers if any part of the entity's hitbox is within the dropper's target block-space. A dropper can fill a minecart with hopper even if the latter has been locked by an activator rail.
+Shulker box
+Droppers cannot put shulker boxes into other shulker boxes. Otherwise, droppers interact with shulker boxes normally.
+Crafting ingredient
+
+Name
+Ingredients
+Crafting recipe
+
+Crafter
+
+Iron Ingot +Crafting Table +Redstone Dust +Dropper
+
+Sounds
+Generic
+Java Edition:
+
+v
+t
+e stone sound typeSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitchAttenuationdistance​Block brokenBlocksOnce the block has brokenblock.stone.breaksubtitles.block.generic.break​1.00.816​Block placedBlocksWhen the block is placedblock.stone.placesubtitles.block.generic.place​1.00.816​Block breakingBlocksWhile the block is in the process of being brokenblock.stone.hitsubtitles.block.generic.hit​0.250.516​Something falls on a blockEntity-DependentFalling on the block with fall damageblock.stone.fallsubtitles.block.generic.fall​0.50.7516​FootstepsEntity-DependentWalking on the blockblock.stone.stepsubtitles.block.generic.footsteps​0.151.016
+Bedrock Edition:
+
+v
+t
+e stone sound typeSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitch​Block brokenBlocksOnce the block has brokendig.stonesubtitles.block.generic.break​1.00.8–1.0​Block placedBlocksWhen the block is placedplace.stonesubtitles.block.generic.place​1.00.8–1.0​Block breakingBlocksWhile the block is in the process of being brokenhit.stonesubtitles.block.generic.hit​0.370.5​FootstepsPlayersFalling on the block with fall damagefall.stonesubtitles.block.generic.footsteps​0.41.0​FootstepsPlayersWalking on the blockstep.stonesubtitles.block.generic.footsteps​0.31.0​FootstepsBlocksJumping from the blockjump.stonesubtitles.block.generic.footsteps​0.121.0​FootstepsBlocksFalling on the block without fall damageland.stonesubtitles.block.generic.footsteps​0.221.0
+Unique
+Java Edition:
+
+SoundsSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitchAttenuationdistance​Dispensed item BlocksWhen a dropper drops an itemblock.dispenser.dispense​​subtitles.block.dispenser.dispense​​​1.01.016​Dispenser fails BlocksWhen a dropper fails to activateblock.dispenser.fail​​subtitles.block.dispenser.fail​​​1.01.216​Chest lockedBlocksWhen a player attempts to open a dropper locked using the [NBT Compound / JSON Object] lock tagblock.chest.locked​​subtitles.block.chest.locked​​​1.01.016
+ The dropper reuses other containers' sound events instead of having its own, see MC-98316.
+
+Bedrock Edition:
+
+SoundsSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitch​ ?BlocksWhen a dropper drops an itemblock.click​ ?1.01.0​ ?BlocksWhen a dropper fails to activateblock.click​ ?1.01.2
+Data values
+ID
+Java Edition:
+
+NameIdentifierForm
+Translation key DropperdropperBlock & Item
+block.minecraft.dropper
+NameIdentifier
+ Block entitydropper
+
+Bedrock Edition:
+
+NameIdentifierNumeric ID FormItem ID
+Translation key Dropperdropper125Block & Giveable ItemIdentical
+tile.dropper.name
+ ID of block's direct item form, which is used in savegame files and addons.
+
+ Available with /give command.
+
+ The block's direct item form has the same ID as the block.
+
+NameSavegame ID
+ Block entityDropper
+
+Block states
+See also: Block states
+
+Java Edition:
+
+  Name
+  Default value
+  Allowed values
+  Description
+  facingnorthdowneastnorthsouthupwestThe direction in which contents are shot or dropped.The opposite from the direction the player faces while placing the block.
+triggeredfalsefalsetrueTrue if this block is activated.
+Bedrock Edition:
+
+  NameMetadata Bits
+  Default value
+  Allowed valuesValues forMetadata Bits
+  Description
+  facing_direction0x10x20x400123456701234567The direction in which contents are shot or dropped.
+0: facing down
+1: facing up
+2: facing north
+3: facing south
+4: facing west
+5: facing east
+triggered_bit0x8falsefalsetrue01True if this block is activated.
+Block data
+A dropper has a block entity associated with it that holds additional data about the block.
+Java Edition:
+
+See also: Block entity format
+
+[NBT Compound / JSON Object] Block entity data
+Tags common to all block entities see Template:Nbt inherit/blockentity/template
+Tags common to all objects that can be renamed see Template:Nbt inherit/nameable/template
+Tags common to all containers that can be locked see Template:Nbt inherit/lockable/template
+Tags common to all objects that use loot tables to produce items see Template:Nbt inherit/lootable/template
+[NBT List / JSON Array] Items: List of items in this container. Represents the minecraft:container component. The component is still present on the block entity, even if the tag does not exist (due to a loot table existing instead).
+[NBT Compound / JSON Object]: An item, including the slot tag. Dropper slots are numbered 0-8 with 0 in the top left corner.
+An item stack in a container slot see Template:Nbt inherit/item/template
+[Byte] Lunar: Exists only in the april fools snapshot 23w13a_or_b. Optional. When set to any full number from -128 to 127, turns it to a lunar base dropper, and placing light or heavy pressure plate on top of it creates the lunar base structure.
+
+Bedrock Edition:
+
+See Bedrock Edition level format/Block entity format.
+Videos
+
+
+
+
+
+
+
+
+
+History
+Java Edition
+Java Edition1.513w03a
+    Added droppers.
+
+Droppers are crafted using 7 cobblestone, one hopper, and one piece of redstone:
+
+Ingredients
+Crafting recipe
+
+Cobblestone +Hopper +Redstone
+
+The top and bottom textures of droppers currently remain fixed regardless of the facing direction.13w04a
+  Droppers can now face all six directions.
+
+The crafting recipe of droppers has now been changed, removing the hopper from the middle.13w10b
+Activated droppers now do not fire if they receive a block update.1.814w25a
+     The models of dropper have been changed.1.9.1pre1
+Droppers can now use loot tables.1.1418w43a
+      The textures of droppers have now been changed.1.19.3ExperimentUpdate 1.2022w44a
+Droppers can now interact with chiseled bookshelves.1.19.423w07a
+Droppers can now interact with jukeboxes.1.20.3ExperimentUpdate 1.2123w42a
+Droppers can now be used to craft crafters.
+Bedrock Edition
+Pocket Edition Alphav0.14.0build 1
+      Added droppers.v0.15.0build 1
+Droppers can now be moved by pistons.Bedrock Edition1.10.0beta 1.10.0.3
+      The textures of droppers have now been changed.1.20.50ExperimentUpdate 1.21Preview 1.20.50.21
+Droppers can now be used to craft crafters.1.21.50Preview 1.21.50.24
+Droppers drop themselves only if mined using a pickaxe, matching Java Edition.
+Legacy Console Edition
+Legacy Console EditionXbox 360Xbox OnePS3PS4PS VitaWii USwitchTU19CU71.121.121.12Patch 1
+    Added droppers.   1.90
+      The textures of droppers have now been changed.
+New Nintendo 3DS Edition
+New Nintendo 3DS Edition0.1.0
+      Added droppers.
+
+
+
+			The first image of droppers (bottom) released by Mojang.
+
+
+
+			The 13w03a banner featuring a dropper and a minecart with hopper.
+
+
+
+			A dropper in action.
+
+
+Data history
+Java Edition1.1317w47a
+Prior to The Flattening, this block's numeral ID was 158.
+Issues
+Issues relating to "Dropper" are maintained on the bug tracker. Issues should be reported and viewed there.
+
+Trivia
+The dropper is similar in appearance with the dispenser in the fact that they both resemble a face when not facing up or down.
+This similarity is pushed further by the fact that the dropper's crafting recipe is the same as the dispenser but without a bow.
+Gallery
+Renders
+Java Edition
+
+
+
+			Facing south
+
+
+
+			Facing west
+
+
+
+			Facing north
+
+
+
+			Facing east
+
+
+
+			Facing up
+
+
+
+			Facing down
+
+
+Bedrock Edition
+
+
+
+			Facing south
+
+
+
+			Facing west
+
+
+
+			Facing north
+
+
+
+			Facing east
+
+
+
+			Facing up
+
+
+
+			Facing down
+
+
+In other media
+
+
+
+			A dropper as it appeared in Minecraft Earth.
+
+
+
+			A dropper as it appeared in MCC x Minecraft 15th Anniversary Party.
+
+
+See also
+Dispenser
+Hopper
+References
+
+External links
+"Block of the Week: Dropper"     by Duncan Geere  – Minecraft.net, October 8, 2020.
+Navigation

@@ -1,0 +1,13 @@
+[NBT Compound / JSON Object][NBT List / JSON Array] minecraft:can_place_on: Determines which blocks that blocks with this component can be placed against in Adventure mode.  If defined as a compound, corresponds to [NBT Compound / JSON Object] A single block predicate. Items are listed in the tooltip in the order specified.
+[NBT Compound / JSON Object]: A single block predicate. If no fields are specified, any block will match.
+[NBT List / JSON Array][String] blocks: (Optional) Any number of block type(s) (an [String] ID, or a [String] tag with #, or an [NBT List / JSON Array] array containing [String] IDs). Test fails if the block is not a matching block type.
+[NBT Compound / JSON Object] state: (Optional) Tests the block state. Test fails if the block doesn't have matching block state properties.
+[String] <key>: Property key and value.
+[NBT Compound / JSON Object] <key>: Property key and value range. If neither [String] min nor [String] max is specified, any value will match.
+[String] min: (Optional) Minimum value. Despite being represented as a string, comparison is done using the property's actual type. Integers use numeric order, and booleans order false before true.
+[String] max: (Optional) Maximum value.
+[NBT Compound / JSON Object][String] nbt: (Optional) An NBT compound, represented either as an object or a string containing SNBT. In JSON files, SNBT form is the only way to test for some NBT types. Test fails if the block doesn't have matching NBT data.
+[NBT Compound / JSON Object] components: (Optional) Data components to match exactly. Each key in this object is a component ID, and its value is a full component of that type. Test fails if the block doesn't have exactly the same value for every provided component.
+See data component format.
+[NBT Compound / JSON Object] predicates: (Optional) Data component predicates to match components loosely. Each key in this object is a component predicate ID, and its value is a component predicate of that type. Test fails if the block's components do not match all predicates.
+See data component predicate.

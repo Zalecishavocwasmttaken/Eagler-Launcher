@@ -1,0 +1,194 @@
+Minecraft 15w32b
+
+Edition
+
+Java Edition
+
+Release date
+
+August 6, 2015
+
+Type
+
+Snapshot
+
+Snapshot for
+
+1.9
+
+Downloads
+
+Client (.json)Server (.exe)
+
+Protocol version
+
+53
+
+Data version
+
+103
+
+Resource pack format
+
+2
+
+Minimum Java version
+
+Java SE 6
+
+◄◄   1.8.9
+1.9
+  1.9.1 ►►
+
+◄   15w32a
+
+ 15w32b
+
+  15w32c ►
+
+{
+    "title": "Minecraft 15w32b",
+    "images": [
+        "15w32a Banner.png",
+        "Java Edition 15w32b.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "August 6, 2015",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Snapshot article, displayed as Snapshot)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition 1.9 article, displayed as 1.9)",
+            "label": "Snapshot for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/1f448b05e56d3b36f0408eecd798b875ec230ef0/client.jar Client] ([https://piston-meta.mojang.com/v1/packages/7b39a2921fd7f29cc0cead1045adc1d08f55d7fb/15w32b.json .json])<br />[https://piston-data.mojang.com/v1/objects/53c13fc634c89d408155553ebc8724f4b900fa1f/server.jar Server] ([https://piston-data.mojang.com/v1/objects/c824439e3d5ee6d6448b5e50fdc7384fdf2b3f9b/windows_server.exe .exe])",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "53",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "103",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "2",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_6 Java SE 6]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Java Edition  1.8.9|<span style=\"margin-right:-0.35em\">◄</span>◄   1.8.9]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition 1.9|1.9]]'''</td>\n<td style=\"padding: 0.4em\" >[[Java Edition  1.9.1|  1.9.1 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  15w32a|◄   15w32a]]\n</td>\n<td style=\"padding: 0.4em\">''' 15w32b'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  15w32c|  15w32c ►]]\n</td>\n</tr>\n</table>"
+}
+
+15w32b is the fifth snapshot for Java Edition 1.9, released on August 6, 2015 to fix some bugs and crashes from 15w32a, along with adding and changing some features.
+
+Contents
+
+1 Additions
+
+1.1 General
+
+2 Changes
+
+2.1 Mobs
+2.2 Command format
+2.3 Gameplay
+2.4 General
+
+3 Fixes
+4 Videos
+5 Trivia
+6 References
+7 Navigation
+
+Additions
+General
+Scoreboard
+
+Added /scoreboard players tag ...
+Players can add and remove tags for any entity based on NBT data of that entity/player.
+For example /scoreboard players tag @a add test {OnGround:0b} adds the tag "test" to all players that are in the air.
+Tags can be accessed by using the parameters after the selector; /give @a[tag=test] stone 1 gives 1 stone to all players that have the tag "test".
+Players can use /scoreboard players tag <player> list to see what tags are on an entity (Note that in this current version, players can't use tab to get "list").
+Tags are stored in the playerdata file as strings, not in the scoreboard files.
+This means that any tag the player binds, has to be bound to an existing online player or an existing entity.
+Unlike objectives, tags cannot be displayed on the sidebar or anywhere else.
+Only via the list subcommand can you see which tags an entity has.
+Added three new objective types: XP, hunger and oxygen.
+"xp" can be used to track the players exact amount of XP points.
+"food" can be used to track the hunger level of the player (ranges from 0 to 20).
+"air" can be used to see for how long the player has been underwater.
+Starts at 300 (out of water) and then decreases 1 per tick as long as the player's head is underwater (resets when the player exits the water).
+The Water Breathing effect freezes the timer and the Respiration enchantment slows down the countdown each time more with each level.
+World selection screen
+
+Now displays a thumbnail per world showing a glimpse of the world (it takes a screenshot when player has just created or opened it for the first time in this snapshot or higher).
+When the world hasn't been opened in snapshot 15w32b or before, or if the game couldn't make a screenshot thumbnail, a gray-scale image is displayed.
+The thumbnail is saved in the world folder under .minecraft/saves with the name "icon.png".
+Changes
+Mobs
+ Ender Dragon
+
+Now flies over the portal and dies if the final hit is applied elsewhere.
+ Shulker
+
+No longer teleport by themselves if NoAI is set to 1.
+Can now be teleported using /tp or /spreadplayers.
+Command format
+NBT format
+
+Entity tags now work on spawn eggs.
+The corresponding mob spawns with the assigned tags.
+Gameplay
+Creative inventory
+
+Removed arrow of Splashing.
+General
+World selection screen
+
+The exclamation mark from last snapshot, indicating that the world has not been played in the current snapshot yet, is now shown on top of the thumbnail.
+It also warns if a world was played in a newer version of Minecraft before, telling the player that the world may corrupt, if they open it in an older version.
+The version number now displays in red if it has been played in a newer version before.
+The player can now click the play arrow on the thumbnail, just like a server, to open the world.
+Fixes
+9 issues fixed
+From the 1.9 development versions
+
+MC-82925 – Potions in new snapshot turn into water bottles with no texture/missing texture.
+MC-82968 – Kicked from server when in certain area: com.google.gson.stream.MalformedJsonException: Use JsonReader.setLenient(true) to accept malformed JSON at line 1 column 1.
+MC-83309 – Unable to open the inventory on riding a horse.
+MC-83448 – Dragon respawns in old world.
+MC-83604 – Shulker teleports despite NoAI:1b.
+MC-83894 – /replaceitem cannot place non-armor items into armor stands' head slot.
+MC-84035 – Ender dragon can't die unless perched on portal.
+From the previous development version
+
+MC-85110 – Crash on shooting ender dragon with an arrow.
+MC-85152 – Command block minecarts despawn after loading world.
+Videos
+Video made by slicedlime:
+
+
+
+
+Trivia
+This version was previously removed from the launcher for some time, but was added back in September 2018.
+References
+
+ https://web.archive.org/web/0/https://www.mojang.com/2015/08/minecraft-snapshot-15w32a/
+
+Navigation

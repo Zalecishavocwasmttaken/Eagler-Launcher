@@ -1,0 +1,210 @@
+15w51a
+
+Edition
+
+Java Edition
+
+Release date
+
+December 17, 2015
+
+Type
+
+Snapshot
+
+Snapshot for
+
+1.9
+
+Downloads
+
+Client (.json)Server (.exe)
+
+Protocol version
+
+93
+
+Data version
+
+154
+
+Resource pack format
+
+2
+
+Minimum Java version
+
+Java SE 6
+
+◄◄   1.8.9
+1.9
+  1.9.1 ►►
+
+◄   15w50a
+
+ 15w51a
+
+  15w51b ►
+
+{
+    "title": "15w51a",
+    "images": [
+        "15w51a.png",
+        "Java Edition 15w51a.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "December 17, 2015",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Snapshot article, displayed as Snapshot)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition 1.9 article, displayed as 1.9)",
+            "label": "Snapshot for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/764384c71c303b3e18146dd90ac8cad2550b6ffb/client.jar Client] ([https://piston-meta.mojang.com/v1/packages/7070c87a526910524cbec04c3e0b76759a0208f3/15w51a.json .json])<br />[https://piston-data.mojang.com/v1/objects/4d5f4d2111272d67f2238b83a552599b9b7ad92f/server.jar Server] ([https://piston-data.mojang.com/v1/objects/10b74066cbbe39e0a829205278402b5d428ded19/windows_server.exe .exe])",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "93",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "154",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "2",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_6 Java SE 6]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Java Edition  1.8.9|<span style=\"margin-right:-0.35em\">◄</span>◄   1.8.9]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition 1.9|1.9]]'''</td>\n<td style=\"padding: 0.4em\" >[[Java Edition  1.9.1|  1.9.1 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  15w50a|◄   15w50a]]\n</td>\n<td style=\"padding: 0.4em\">''' 15w51a'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  15w51b|  15w51b ►]]\n</td>\n</tr>\n</table>"
+}
+
+15w51a is the forty-seventh snapshot for Java Edition 1.9, released on December 17, 2015, which fixes bugs and crashes.
+
+Contents
+
+1 Additions
+
+1.1 Command format
+
+2 Changes
+
+2.1 Blocks
+2.2 Mobs
+2.3 Non-mob entities
+2.4 World generation
+2.5 Command format
+2.6 Gameplay
+
+3 Fixes
+4 Videos
+5 Trivia
+6 References
+7 Navigation
+
+Additions
+Command format
+Gamerules
+
+spawnRadius
+Controls how far from the world spawn point players can spawn.
+Defaults to 10.
+Changes
+Blocks
+Ice
+
+Water produced by melting ice now flows.
+Mobs
+General
+
+AI and pathfinding have been improved.
+Creepers
+
+No longer drop music discs when /gamerule doMobLoot false is set.
+Non-mob entities
+Boats
+
+Will now drop their corresponding wood planks when broken.
+End crystals
+
+End crystals can no longer be placed in Adventure mode.
+World generation
+Terrain
+
+When riding a minecart, boat, pig or horse, terrain will now normally generate.
+Command format
+/gamerule
+
+Using the command to set a game rule will now report the change: "Game rule <gamerule> has been updated to <value>."
+Gameplay
+Frost walker
+
+No longer frosts blocks that do not have an air block above.
+Spectator mode
+
+A spectator is no longer able to open a chest where the loot has not been generated yet.
+They are given the message: "Unable to open. Loot not generated yet."
+Status effects
+
+A comparison of the glowing effect on an ender dragon before and after this snapshot.
+Glowing status effect now outlines players and mobs more exactly, arrows stuck in them or items held and transparencies will now be obeyed.
+Fixes
+22 issues fixed
+From released versions before 1.9
+
+MC-3564 – Debug message "Unable to locate Sign at (x, y, z)" left inside Minecraft client.
+MC-13046 – Certain supported characters glitch out, clearing outlines of text.
+MC-51725 – Gamerule doMobLoot does not affect the dropping of music discs.
+MC-69072 – /worldborder warning distance/time throws an error when used without arguments.
+MC-73886 – Villagers don't recognize blocked doors correctly.
+MC-75256 – spawn-protection is also spawn randomization size.
+MC-93614 – Bats fly from creative players.
+From the 1.9 development versions
+
+MC-85709 – The ender dragon is incorrectly outlined when it has the glowing effect.
+MC-86099 – The outline of the glowing guardian's tail is bigger than the tail itself.
+MC-89246 – When the "glowing" effect finishes on an entity it un-renders things for one frame.
+MC-89915 – Chunks don't load when the player is in a minecart/on a horse/pig.
+MC-89954 – All boat types drop oak wood planks.
+MC-90585 – Navigating on a boat wearing Frost Walker enchantment frosts the water layer below the boat.
+MC-92915 – Items, blocks & XP orbs appear transparent and/or gray when picked up
+MC-93503 – Inner elytra texture doesn't render while holding a skull.
+MC-93532 – Holding items will slightly brighten an elytra being worn.
+MC-93622 – Endermen remain hostile after switching gamemodes.
+MC-93772 – Mobs follow player in Creative and Spectator mode.
+MC-93844 – Transparent hat pixels on skull render opaque.
+MC-93944 – Default resource pack is ordered topmost until closing and re-entering the resource pack dialogue.
+MC-94010 – Wolves joining an attack stay aggressive on the player even after changing gamemode.
+From the previous development version
+
+MC-94295 – Ender dragon respawns on its own in pre-1.9 worlds.
+Videos
+Video made by slicedlime:
+
+
+
+
+Trivia
+Unlike most of the first-of-the-week snapshots, this was released on a Thursday instead of a Wednesday, similar to the snapshots before 14w26a.
+15w51a was previously removed from the launcher for some time but was added back in September 2018.
+As with 15w51b, 15w51a was released on the second latest calendar date out of all snapshots on December 17, only beaten by 23w51a and 23w51b on December 18.
+References
+
+ "Minecraft snapshot 15w51a"   (Archive)  by Searge  – Mojang.com, December 17, 2015.
+
+Navigation

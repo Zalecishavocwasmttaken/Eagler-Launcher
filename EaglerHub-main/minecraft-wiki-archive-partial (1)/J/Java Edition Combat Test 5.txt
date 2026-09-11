@@ -1,0 +1,288 @@
+This page covers a development version that has a major issue under certain conditions. 
+The dedicated server for this version has a security vulnerability in the Log4j library that could be used to perform a remote code execution exploit. It can be addressed by appending a certain JVM argument to the server startup command line.
+
+Minecraft Combat Test 5
+
+Edition
+
+Java Edition
+
+Release date
+
+January 16, 2020
+
+Type
+
+Snapshot
+
+Snapshot for
+
+Combat Tests
+
+Downloads
+
+Client (.json)Server
+
+Obfuscation maps
+
+ClientServer
+
+Protocol version
+
+601
+
+Data version
+
+2321
+
+Resource pack format
+
+5
+
+Data pack format
+
+5
+
+Minimum Java version
+
+Java SE 8
+
+Combat Tests
+
+◄   Combat Test 4
+
+ Combat Test 5
+
+  Combat Test 6 ►
+
+{
+    "title": "Minecraft Combat Test 5",
+    "images": [
+        "Release Combat Test 5.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "January 16, 2020",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Snapshot article, displayed as Snapshot)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition Combat Tests article, displayed as Combat Tests)",
+            "label": "Snapshot for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/0ad80b317873e1f64a9a79af09a02ddef62ce67c/client.jar Client] ([https://piston-data.mojang.com/experiments/combat/52263d42a626b40c947e523128f7a195ec5af76a/1_15_combat-6.zip .json])<br />[https://piston-data.mojang.com/v1/objects/0cc9a1582949297c8f1ca83b937c8d84ad295ffe/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/5c9745ba8db67bcc95e6de65a3a6dd1d4c655726/client.txt Client]<br />[https://piston-data.mojang.com/v1/objects/44b2ca1d4677f3fffaa0333c87a42a9449e0bc52/server.txt Server]",
+            "label": "(link to Obfuscation map article, displayed as Obfuscation maps)"
+        },
+        {
+            "field": "601",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "2321",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "5",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "5",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Data pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_8_.28LTS.29 Java SE 8]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0\" ></td>\n<td style=\"padding: 0.4em\">'''[[Java Edition Combat Tests|Combat Tests]]'''</td>\n<td style=\"padding: 0\" ></td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  Combat Test 4|◄   Combat Test 4]]\n</td>\n<td style=\"padding: 0.4em\">''' Combat Test 5'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  Combat Test 6|  Combat Test 6 ►]]\n</td>\n</tr>\n</table>"
+}
+
+
+Combat Test 5 is the fifth experimental version of a future combat revision. Although it is a development version for a future release, this combat experiment is a fork of 1.15.2 Pre-release 1. This version was released on Reddit and Minecraft.net, but it does not appear in the launcher. This is the first combat test released in 2020.
+
+Contents
+
+1 Additions
+
+1.1 Gameplay
+
+2 Changes
+
+2.1 Items
+2.2 Non-mob entities
+2.3 Gameplay
+
+3 Videos
+4 Notes
+5 References
+6 Navigation
+
+Additions
+Gameplay
+Combat
+
+Added a "Coyote Time" that activates for 6 game ticks (0.3 seconds) after a player aims at something, but attacks outside its bounding box.
+Changes
+Items
+Tools and weapons
+
+Lowered the attack damage of most tools and weapons, as shown in the following table:
+
+Tool
+
+Axe
+
+Pickaxe
+
+Shovel
+
+Sword
+
+Before
+After
+
+Before
+After
+
+Before
+After
+
+Before
+After
+
+Wood
+
+6HP
+5HP
+
+3HP
+3HP
+
+2HP
+2HP
+
+5HP
+4HP
+
+Gold
+
+6HP
+5HP
+
+3HP
+3HP
+
+2HP
+2HP
+
+5HP
+4HP
+
+Stone
+
+7HP
+5HP
+
+4HP
+3HP
+
+3HP
+2HP
+
+6HP
+4HP
+
+Iron
+
+8HP
+6HP
+
+5HP
+4HP
+
+4HP
+3HP
+
+7HP
+5HP
+
+Diamond
+
+9HP
+7HP
+
+6HP
+5HP
+
+5HP
+4HP
+
+8HP
+6HP
+
+Tridents
+
+Now have an attack damage of 7HP, instead of 8HP.
+Non-mob entities
+Thrown eggs
+
+Now have a 4-tick cooldown.
+Gameplay
+Attacking
+
+Increased the attack damage of unarmed attacks from 1HP to 2HP.
+Changed the swing animation to emphasize the rhythm of the attacks.​[more information needed]
+Hunger
+
+Saturation is no longer capped by the hunger level of the player.
+Upon eating food, the player's saturation is always set to the food's provided saturation amount unless their current saturation level exceeds what is obtainable from the food.
+The Hunger mob effect now causes 0.005(5(level−1)2+1) exhaustion per tick, or drains 1 saturation point every 40/(5(level−1)2+1) seconds.
+Saturation boost has been removed.
+Changed food consumption time from 32 game ticks (1.6 seconds) to 40 game ticks (2 seconds).
+The player now naturally regenerates health when above a hunger level of 7 () instead of 18 ( × 9).
+The player now naturally heals every 60 game ticks (3 seconds) instead of every 80 game ticks (4 seconds).
+The player now takes damage from starvation every 60 game ticks (3 seconds) instead of every 80 game ticks (4 seconds) when the hunger bar is empty.
+Natural healing now always drains food points.
+Saturation is not used when healing damage, and is only relevant to other actions that drain the hunger bar.
+The player can now sprint at any hunger value.
+Knockback
+
+Reintroduced upwards knockback when hitting players in the air.
+Players now get knockback from hits that deal less than half a heart of damage, including no damage.
+
+Videos
+Video made by slicedlime:
+
+
+
+
+Notes
+
+ Unzip this file in the .minecraft/versions folder.
+
+ This change was made before Bedrock Edition's unarmed attack damage was lowered from 2HP to 1HP in 1.18.30, which cited parity with Java Edition as a reason.
+
+ This change was made in Combat Test 5, however went unmentioned in the changelogs.
+
+References
+
+ "Important Message: Security vulnerability in Java Edition"     – Minecraft.net, December 10, 2021.
+
+  "Experimental Combat Snapshot - version 5" – u/jeb_ on Reddit, January 16, 2020
+
+ "Experimental Combat Snapshot v5"     – Minecraft.net, January 16, 2020.
+
+Navigation

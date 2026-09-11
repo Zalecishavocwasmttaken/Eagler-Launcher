@@ -1,0 +1,202 @@
+This page covers a development version that has a major issue under certain conditions. 
+The dedicated server for this version has a security vulnerability in the Log4j library that could be used to perform a remote code execution exploit. It can be addressed by appending a certain JVM argument to the server startup command line.
+
+Minecraft Combat Test 4
+
+Edition
+
+Java Edition
+
+Release date
+
+November 29, 2019
+
+Type
+
+Snapshot
+
+Compilation date
+
+November 29, 2019
+
+Snapshot for
+
+Combat Tests
+
+Downloads
+
+Client (.json)Server
+
+Obfuscation maps
+
+ClientServer
+
+Protocol version
+
+600
+
+Data version
+
+2320
+
+Resource pack format
+
+5
+
+Data pack format
+
+5
+
+Minimum Java version
+
+Java SE 8
+
+Combat Tests
+
+◄   Combat Test 3
+
+ Combat Test 4
+
+  Combat Test 5 ►
+
+{
+    "title": "Minecraft Combat Test 4",
+    "images": [
+        "Release Combat Test 4.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "November 29, 2019",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Snapshot article, displayed as Snapshot)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "November 29, 2019",
+            "label": "Compilation date"
+        },
+        {
+            "field": "(link to Java Edition Combat Tests article, displayed as Combat Tests)",
+            "label": "Snapshot for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/af7b75f44fdcf814727c45c2eb6e4acc01000465/client.jar Client] ([https://piston-data.mojang.com/experiments/combat/ac11ea96f3bb2fa2b9b76ab1d20cacb1b1f7ef60/1_15_combat-1.zip .json])<br />[https://piston-data.mojang.com/v1/objects/4914bb3f9ae37dabdcbd68aa05eda1783f605336/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/0f78860aa616f0ac1d044be0db3b7e1ea4eda16f/client.txt Client]<br />[https://piston-data.mojang.com/v1/objects/219ba3c078eb40bea4daaa109c4b10f706e210c7/server.txt Server]",
+            "label": "(link to Obfuscation map article, displayed as Obfuscation maps)"
+        },
+        {
+            "field": "600",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "2320",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "5",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "5",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Data pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_8_.28LTS.29 Java SE 8]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0\" ></td>\n<td style=\"padding: 0.4em\">'''[[Java Edition Combat Tests|Combat Tests]]'''</td>\n<td style=\"padding: 0\" ></td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  Combat Test 3|◄   Combat Test 3]]\n</td>\n<td style=\"padding: 0.4em\">''' Combat Test 4'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  Combat Test 5|  Combat Test 5 ►]]\n</td>\n</tr>\n</table>"
+}
+
+
+Combat Test 4 is the fourth experimental version of a future combat revision. Although it is a version for a future revision, this combat experiment is a fork of 1.15 Pre-release 3. This version was released only on Reddit, so it does not appear in the launcher or in any Minecraft.net blog post. This is the final combat test released in 2019.
+
+Contents
+
+1 Additions
+
+1.1 Gameplay
+
+2 Changes
+
+2.1 Items
+2.2 Non-mob entities
+2.3 Gameplay
+
+3 Videos
+4 Notes
+5 References
+6 Navigation
+
+Additions
+Gameplay
+Enchantments
+
+All sword enchantments can be applied to axes in the enchanting table.
+This includes the enchantments Looting, Sweeping Edge, Knockback and Fire Aspect. Axes could previously only receive Sharpness, Smite or Bane of Arthropods through an anvil. This has been changed so that axes can receive these enchantments naturally in the enchanting table, alongside their exclusive enchantment, Chopping.
+Shields
+
+Added an option to disable shields being activated by pressing crouch.
+Located in the accessibility menu.
+Changes
+Items
+  Shields
+
+Removed the option to hide the shield.
+ Snowballs
+
+Now stack to 64.
+ Tridents
+
+Can be shot from dispensers.
+Channeling still works on dispensed tridents.
+Tridents with Loyalty that fall into the void return to their owner upon breaking in the void.
+Tridents with Impaling now deal enchantment damage to all mobs that are in water or rain.
+Non-mob entities
+ Arrows
+
+Arrow uncertainty value has been decreased from 1.0 to 0.25.
+This means fired arrows from bows and crossbows deviate less from the crosshair, increasing accuracy.
+ Thrown snowballs
+
+Now have 4-tick cooldown.
+Not rendered for the first 2 ticks to prevent screen flickering.
+ Thrown eggs
+
+Not rendered for the first 2 ticks to prevent screen flickering.
+Gameplay
+Combat
+
+The attack timer is now unaffected by switching items, only resetting when the player actually performs an attack.
+Critical attacks now trigger at 100% attack timer charge.
+Sprint-knockback attacks now trigger at 100% attack timer charge.
+Default attack reach has been decreased from 3 blocks to 2.5 blocks.
+Attacking with a 200% charge now adds +1.0 to the attack reach, up from +0.5.
+
+Videos
+Video made by slicedlime:
+
+
+
+
+Notes
+
+ Unzip this file in the .minecraft/versions folder.
+
+References
+
+ "Important Message: Security vulnerability in Java Edition"     – Minecraft.net, December 10, 2021.
+
+  "Since doing something this the last minute on a Friday is a great idea: Combat Test Snapshot Number 4" – u/jeb_ on Reddit, November 30, 2019
+
+Navigation

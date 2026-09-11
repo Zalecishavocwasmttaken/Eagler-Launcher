@@ -1,0 +1,384 @@
+Not to be confused with Bleach or Beach.
+
+Breach
+
+Maximum level
+
+IV
+
+Primary items
+
+Secondary items
+
+None
+
+Enchantment weight
+
+2
+
+Identifier
+
+breach
+
+Incompatible with
+
+Smite
+Bane of Arthropods
+Density
+Sharpness
+Impaling
+
+Overleveling behavior
+
+No practical effect beyond level VI
+
+{
+    "title": "Breach",
+    "rows": [
+        {
+            "field": "IV",
+            "label": "Maximum level"
+        },
+        {
+            "field": "<span class=\"sprite-file\" style=\"\">(link to File:ItemSprite mace.png article, displayed as 16x16px|link=Mace|alt=|class=pixel-image|)</span>",
+            "label": "<span  class=\"explain \" title=\"Items that can receive the enchantment from an enchanting table.\">Primary items</span>"
+        },
+        {
+            "field": "''None''",
+            "label": "<span  class=\"explain \" title=\"Items that cannot receive the enchantment from an enchanting table but can receive it from an enchanted book on an anvil.\">Secondary items</span>"
+        },
+        {
+            "field": "2",
+            "label": "<span  class=\"explain \" title=\"Relative chance of the enchantment being offered.\">Enchantment weight</span>"
+        },
+        {
+            "field": "<code>breach</code>",
+            "label": "(link to Identifier article, displayed as Identifier)"
+        },
+        {
+            "field": "\n* (link to Smite article, displayed as Smite)\n* (link to Bane of Arthropods article, displayed as Bane of Arthropods)\n* (link to Density article, displayed as Density)\n* (link to Sharpness article, displayed as Sharpness)\n* (link to Impaling article, displayed as Impaling)",
+            "label": "Incompatible with"
+        },
+        {
+            "field": "No practical effect beyond level VI",
+            "label": "<abbr class=\"\"   title=\"How the enchantment's behavior scales when exceeding the maximum level via commands or other means.\">Overleveling behavior</abbr>"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+Breach is an enchantment applied to maces that causes melee attacks to partially ignore armor, increasing damage against armored targets. It also affects the natural armor points that certain mobs have innately.
+
+Contents
+
+1 Obtaining
+2 Usage
+
+2.1 Damage per hit
+2.2 Damage comparisons
+2.3 Usecases in singleplayer
+
+3 Incompatibilities
+4 Data values
+
+4.1 ID
+
+5 History
+
+5.1 Java Edition
+5.2 Bedrock Edition
+
+6 Issues
+7 Notes
+8 Navigation
+
+Obtaining
+Breach can be obtained through an enchanting table by enchanting a mace or a book, or by trading with a librarian of any level,​[until: Villager Trade Rebalance] or from fishing. Its enchanted book form can also be found from ominous vaults, as well as any other structures that generate enchanted books.
+
+Usage
+See also: Armor § Damage_protection
+
+Breach reduces the effectiveness of the target's armor points and armor toughness by 15% per level. Specifically, Breach deals damage as though the enemy's damage reduction from armor was 15 percentage points lower per level. For example, if the enemy's armor reduces damage by 50%, and they are hit with a mace with Breach I, their armor reduces the damage by 50% - 15% = 35%. However, this reduces the effectiveness of only the armor itself, which does not include damage reduction from enchantments such as Protection or the Resistance effect.
+Breach works according to this formula:
+
+𝖽𝖺𝗆𝖺𝗀𝖾 𝗍𝖺𝗄𝖾𝗇=𝗐𝖾𝖺𝗉𝗈𝗇 𝖽𝖺𝗆𝖺𝗀𝖾×(1−max⁡(0%,𝖺𝗋𝗆𝗈𝗋 𝖾𝖿𝖿𝖾𝖼𝗍𝗂𝗏𝖾𝗇𝖾𝗌𝗌−𝗅𝖾𝗏𝖾𝗅×15%))
+Damage per hit
+
+Breach extra damage
+
+Type
+Armor type
+Unenchanted
+Breach I
+Breach II
+Breach III
+Breach IV
+
+ Leather Armor
+5.04HP × 2.52
+5.94HP × 2.97
+6HP
+6HP
+6HP
+
+ (critical)
+7.65HP × 3.825
+9HP
+9HP
+9HP
+9HP
+
+ Copper Armor
+4.32HP × 2.16
+5.22HP × 2.61
+6HP
+6HP
+6HP
+
+ (critical)
+6.48HP × 3.24
+7.83HP × 3.915
+9HP
+9HP
+9HP
+
+ Golden Armor
+4.08HP × 2.04
+4.98HP × 2.49
+5.88HP × 2.94
+6HP
+6HP
+
+ (critical)
+6.21HP × 3.105
+7.56HP × 3.78
+8.91HP × 4.455
+9HP
+9HP
+
+ Chainmail Armor
+3.84HP × 1.92
+4.74HP × 2.37
+5.64HP × 2.82
+6HP
+6HP
+
+(critical)
+5.85HP × 2.925
+7.2HP × 3.6
+8.55HP × 4.275
+9HP
+9HP
+
+ Iron Armor
+3.12HP × 1.56
+4.02HP × 2.01
+4.92HP × 2.46
+5.82HP × 2.91
+6HP
+
+ (critical)
+4.77HP × 2.385
+6.12HP × 3.06
+7.47HP × 3.735
+8.82HP × 4.41
+9HP
+
+ Diamond Armor
+1.56HP × 0.78
+2.46HP × 1.23
+3.36HP × 1.68
+4.26HP × 2.13
+5.16HP × 2.58
+
+ (critical)
+2.34HP × 1.17
+3.69HP × 1.845
+4.95HP × 2.475
+6.39HP × 3.195
+7.74HP × 3.87
+
+ Netherite Armor
+1.488HP × 0.744
+2.388HP × 1.194
+3.288HP × 1.644
+4.188HP × 2.094
+5.088HP × 2.544
+
+ (critical)
+2.219HP × 1.1095
+3.589HP × 1.7945
+4.959HP × 2.4795
+6.329HP × 3.1645
+7.699HP × 3.8495
+
+Breach effective attack damage
+
+Type
+Armor type
+Unenchanted
+Breach I
+Breach II
+Breach III
+Breach IV
+
+ Leather Armor
+6HP
+6.919872HP × 3.459936
+6.979992HP × 3.489996
+6.979992HP × 3.489996
+6.979992HP × 3.489996
+
+ (critical)
+9HP
+9.617929HP × 4.8089645
+9.739863HP × 4.8699315
+9.780389HP × 4.8901945
+9.780389HP × 4.8901945
+
+ Copper Armor
+6HP
+7.045408HP × 3.522704
+7.912878HP × 3.956439
+7.912878HP × 3.956439
+7.912878HP × 3.956439
+
+ (critical)
+9HP
+9.964975HP × 4.9824875
+10.3673HP × 5.18365
+10.58808HP × 5.29404
+10.67586HP × 5.33793
+
+ Golden Armor
+6HP
+7.095023HP × 3.5475115
+8.135944HP × 4.067972
+8.271057HP × 4.1355285
+8.271057HP × 4.1355285
+
+ (critical)
+9HP
+10.00521HP × 5.002605
+10.42335HP × 5.211675
+10.87971HP × 5.439855
+10.96998HP × 5.48499
+
+ Chainmail Armor
+6HP
+7.149442HP × 3.574721
+8.236761HP × 4.1183805
+8.656408HP × 4.328204
+8.656408HP × 4.328204
+
+(critical)
+9HP
+10.04886HP × 5.02443
+10.76973HP × 5.384865
+11.05203HP × 5.526015
+11.09876HP × 5.54938
+
+ Iron Armor
+6HP
+7.349352HP × 3.674676
+8.601075HP × 4.3005375
+9.77372HP × 4.88686
+10HP
+
+ (critical)
+9HP
+10.4267HP × 5.21335
+11.44761HP × 5.723805
+12.06808HP × 6.03404
+12.22049HP × 6.110245
+
+ Diamond Armor
+6HP
+8.601075HP × 4.3005375
+10.88061HP × 5.440305
+12.93469HP × 6.467345
+14.81935HP × 7.409675
+
+ (critical)
+9HP
+11.65641HP × 5.828205
+14.57641HP × 7.288205
+17.2672HP × 8.6336
+19.56349HP × 9.781745
+
+ Netherite Armor
+6HP
+8.824868HP × 4.412434
+11.31701HP × 5.658505
+13.57202HP × 6.78601
+15.64694HP × 7.82347
+
+ (critical)
+9HP
+12.09675HP × 6.048375
+15.31636HP × 7.65818
+18.20016HP × 9.10008
+20.83542HP × 10.41771
+
+The strength of -60% armor effectiveness at level 4 Breach is significant enough to make full Protection IV netherite armor and full Protection IV leather armor protect nearly the same amount. Without a smash attack, it takes the same amount of critical hits with a Breach IV mace and Strength II to defeat a player wearing either armor set (4), while without Strength II it takes 7 critical hits to defeat a player wearing the leather set and 8 to defeat a player wearing the netherite set.
+In Bedrock Edition, a Breach IV mace has higher DPS than a Sharpness V netherite sword against targets wearing diamond armor or better. This is due to the absence of the attack cooldown, and it leads to maces outclassing netherite swords in damage for PvP in Bedrock Edition that features diamond or netherite armor.
+
+Damage comparisons
+The amount of hits needed to defeat a player wearing full Protection IV netherite armor from full health are the following:
+
+Breach I mace with Strength 2: 7 critical hits.
+Sharpness V netherite sword with Strength 2: 6 critical hits.
+Sharpness V netherite axe with Strength 2: 5 critical hits.
+Breach II mace with Strength 2: 5 critical hits.
+Breach III mace with Strength 2: 4 critical hits.
+Breach IV mace with Strength 2: 4 critical hits.
+The amount of hits needed to defeat a player wearing full Protection IV iron armor from full health are the following:
+
+Breach I mace with Strength 2: 4 critical hits.
+Breach II mace with Strength 2: 4 critical hits.
+Breach III mace with Strength 2: 4 critical hits.
+Breach IV mace with Strength 2: 4 critical hits.
+Sharpness V netherite sword with Strength 2: 3 critical hits.
+Sharpness V netherite axe with Strength 2: 3 critical hits.
+Usecases in singleplayer
+The Breach enchantment is far more suited for a PvP environment than it is for singleplayer Survival. This is because the only mobs other than piglins that can naturally wear armor are undead mobs like zombies and skeletons, causing a Smite or Density mace to largely outclass a Breach mace for singleplayer Survival. Additionally, because Breach has no effect against the Protection enchantment, it also increases damage less than Smite would against the mobs in ominous events within trial chambers that wear enchanted armor. In terms of effect against natural mob armor points, shulkers that have their shells closed are the most noticeably impacted by the Breach enchantment.
+
+Incompatibilities
+Breach is incompatible with Density, Smite, and Bane of Arthropods. It is also incompatible with Sharpness and Impaling, however in Survival these incompatibilities cannot be encountered, as no weapon types have access to both Breach and Sharpness/Impaling. If commands are used to have two or more of these enchantments on the same item, their effects stack.‌[Java Edition  only]
+
+Data values
+ID
+Java Edition:
+
+NameIdentifier
+Translation keyBreachbreach
+enchantment.minecraft.breach
+Bedrock Edition:
+
+NameIdentifierNumeric ID
+Translation keyBreachbreach40
+enchantment.heavy_weapon.breach
+History
+Java Edition
+Java Edition1.20.5ExperimentUpdate 1.2124w13a
+Added the Breach enchantment.1.2124w18a
+Breach is now available without using the "Update 1.21" experimental data pack.
+
+Breach is now incompatible with Smite and Bane of Arthropods.24w19a
+Breach is now incompatible with Density.
+Bedrock Edition
+Bedrock Edition1.21.0ExperimentUpdate 1.21Preview 1.21.0.21
+Added the Breach enchantment.1.21.0Preview 1.21.0.22
+Breach is now available without using the "Update 1.21" experimental toggle.Preview 1.21.0.24
+Breach is now incompatible with Density, Smite, and Bane of Arthropods.
+Issues
+Issues relating to "Breach" are maintained on the bug tracker. Issues should be reported and viewed there.
+
+Notes
+
+ This incompatibility cannot be encountered in Survival, as no weapon types have access to both Breach and Sharpness.
+
+ This incompatibility cannot be encountered in Survival, as no weapon types have access to both Breach and Impaling.
+
+Navigation

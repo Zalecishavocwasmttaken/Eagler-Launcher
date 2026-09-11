@@ -1,0 +1,239 @@
+This page covers a development version that has a major issue under certain conditions. 
+The dedicated server for this version has a security vulnerability in the Log4j library that could be used to perform a remote code execution exploit. It can be addressed by appending a certain JVM argument to the server startup command line.
+
+Minecraft 21w38a
+
+Edition
+
+Java Edition
+
+Release date
+
+September 23, 2021
+
+Type
+
+Snapshot
+
+Snapshot for
+
+1.18
+
+Downloads
+
+Client (.json)Server
+
+Obfuscation maps
+
+ClientServer
+
+Protocol version
+
+ dec: 1073741866 hex: 4000002A
+
+Data version
+
+2835
+
+Resource pack format
+
+7
+
+Data pack format
+
+8
+
+Minimum Java version
+
+Java SE 16
+
+◄◄   1.17.1
+1.18
+  1.18.1 ►►
+
+◄   21w37a
+
+ 21w38a
+
+  21w39a ►
+
+{
+    "title": "Minecraft 21w38a",
+    "images": [
+        "21w38a.jpg",
+        "Java Edition 21w38a.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "September 23, 2021",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Snapshot article, displayed as Snapshot)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition 1.18 article, displayed as 1.18)",
+            "label": "Snapshot for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/4e7c161ec40c9928ebfcc1f96be407d71de4b50d/client.jar Client] ([https://piston-meta.mojang.com/v1/packages/50e584d16f48df70a9bb069e26ac30a072bc2236/21w38a.json .json])<br />[https://piston-data.mojang.com/v1/objects/1283dff678ee5efb8e52d2fc77ec9d840317c6ca/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/48909520218e7d855af4c88aea724b7cc456899a/client.txt Client]<br />[https://piston-data.mojang.com/v1/objects/eb442d7286b2c4372cd2c6dabf369947e02dd4d2/server.txt Server]",
+            "label": "(link to Obfuscation map article, displayed as Obfuscation maps)"
+        },
+        {
+            "field": " <span style=\"font-size:smaller\"><abbr title=\"decimal\">dec</abbr>: </span>1073741866<br /> <span style=\"font-size:smaller\"><abbr title=\"hexadecimal\">hex</abbr>: </span>4000002A",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "2835",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "7",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "8",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Data pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_16 Java SE 16]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Java Edition  1.17.1|<span style=\"margin-right:-0.35em\">◄</span>◄   1.17.1]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition 1.18|1.18]]'''</td>\n<td style=\"padding: 0.4em\" >[[Java Edition  1.18.1|  1.18.1 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  21w37a|◄   21w37a]]\n</td>\n<td style=\"padding: 0.4em\">''' 21w38a'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  21w39a|  21w39a ►]]\n</td>\n</tr>\n</table>"
+}
+
+21w38a is the second snapshot for Java Edition 1.18, released on September 23, 2021, which make more performance-related tweaks, reimplements telemetry, and fixes bugs, mostly relating to terrain changes that were accidentally removed in the previous snapshot.
+Any worlds from previous versions cannot be opened in this version.
+
+Contents
+
+1 Additions
+
+1.1 General
+
+2 Changes
+
+2.1 World generation
+2.2 General
+
+3 Fixes
+4 Videos
+5 Trivia
+6 Notes
+7 References
+8 Navigation
+
+Additions
+General
+Languages
+
+Added Lombard.
+Added Toki Pona.
+Options
+
+Added "Simulation Distance" video setting, a new slider.
+Entities aren't updated outside of simulation distance.
+Allows higher render distance with less CPU load.
+Subtitles
+
+Added a new subtitle for the crop sound of shears.
+server.properties
+
+Added simulation-distance.
+Telemetry
+
+Readded, previously a part of game known as "snooper" until 18w20c.
+Only implemented in world load event now.
+Sent data when loading singleplayer world or connecting to multiplayer server.
+Contains following information:
+Launcher identifier
+User identitifer (XUID)
+Client session ID (changes on restart)
+World session ID (changes per world load, to be reused for later events)
+Game version
+Operating system name and version
+Java runtime version
+If client or server is modded (same information as on crash logs)
+Server type (single player, Realms or other)
+Game mode
+Cannot be disabled.
+Changes
+World generation
+Ore distribution
+
+Copper ore now generates up to Y=95, and its amount was increased.
+Lapis lazuli ore now generates in blobs, like other ores, instead of spread out.
+General
+Performance
+
+Now, various background tasks including world generation are executed on a background thread pool.
+The size of the thread pool equals Amount of available CPU threads - 1.
+Maximum amount of threads is 255, instead of 7. This limit can be overridden by Java system property max.bg.threads.
+Sprinting
+
+No longer reduced to walking when touching the wall at low angles.
+Fixes
+21 issues fixed
+From released versions before 1.18
+
+MC-44055 – Game fails to switch the audio output from one device to another from the title screen after the game has started.
+MC-128762 – Strongholds do not generate in ocean buffet worlds.
+MC-136288 – Strongholds don't generate in swamp biomes.
+MC-158410 – Strongholds don't generate in beach surface and snowy beaches buffet worlds.
+MC-183184 – Sprinting stops as soon as you touch another block.
+MC-202036 – Adding a biome to a datapack shifts biome IDs in existing chunks.
+From the previous development version
+
+MC-236611 – No sound for using shears on weeping, twisting, cave vines or kelp.
+MC-236618 – Strongholds don't generate in 21w37a.
+MC-236621 – Liquids sometimes do not propagate.
+MC-236633 – Random light level of 0 in sky.
+MC-236656 – Crash when changing render distance: java.lang.ArrayIndexOutOfBoundsException: Index 28084 out of bounds for length 26136.
+MC-236665 – Memory leak in 21w37a.
+MC-236682 – Large and continuous lag spikes sometimes occur when loading or reloading into a world in 21w37a.
+MC-236698 – Big spruce trees don't generate in groves.
+MC-236711 – Starting and stopping JFR profiling multiple times within the same minute overwrites previous JFR results saved during that minute.
+MC-236718 – Dripstone caves generate above the ground.
+MC-236753 – Caves and lakes generating too much in desert surface.
+MC-236795 – Cannot start with alternate JVM due to JFR requirement.
+MC-236873 – Problems with JFR event metadata.
+MC-236967 – Too many aquifers on biome surfaces at Y=63 and below.
+MC-237109 – Aquifers often generate with harsh straight borders.
+Videos
+Videos made by slicedlime:
+
+
+
+
+
+
+
+
+Trivia
+Unlike most of the first-of-the-week snapshots, this was released on a Thursday instead of Wednesday, similar to the snapshots before 14w26a.
+Notes
+
+ Also available for versions since 19w34a.
+
+ Also available for versions since 20w06a.
+
+References
+
+ "Important Message: Security vulnerability in Java Edition"     – Minecraft.net, December 10, 2021.
+
+ "Minecraft Snapshot 21w38a"     – Minecraft.net, September 23, 2021.
+
+ MC-237493 – resolved as "Works As Intended".
+
+Navigation

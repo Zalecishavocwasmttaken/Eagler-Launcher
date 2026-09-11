@@ -1,0 +1,432 @@
+Jigsaw Block
+
+View all renders
+
+Rarity tier
+
+Epic ‌[JE  only]
+Common ‌[BE  only]
+
+Renewable
+
+No
+
+Stackable
+
+Yes (64)
+
+Tool
+
+None
+
+Blast resistance
+
+3,600,000
+
+Hardness
+
+-1
+
+Luminous
+
+No
+
+Transparent
+
+No
+
+Waterloggable
+
+Yes
+
+Flammable
+
+No
+
+Catches firefrom lava
+
+No
+
+Map color
+
+ 22 COLOR_LIGHT_GRAY
+
+Note block instrument
+
+Default (Harp)
+
+{
+    "extratext": "View [[#Gallery|all renders]]",
+    "title": "Jigsaw Block",
+    "images": [
+        "Jigsaw Block.png"
+    ],
+    "rows": [
+        {
+            "field": "\n* Epic ‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Java Edition\">(link to Java Edition article, displayed as JE)  only</span></i>]</sup>\n* Common ‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Bedrock Edition\">(link to Bedrock Edition article, displayed as BE)  only</span></i>]</sup>",
+            "label": "(link to Rarity article, displayed as Rarity tier)"
+        },
+        {
+            "field": "No",
+            "label": "(link to Renewable resource article, displayed as Renewable)"
+        },
+        {
+            "field": "Yes (64)",
+            "label": "Stackable"
+        },
+        {
+            "field": "None",
+            "label": "Tool"
+        },
+        {
+            "field": "3,600,000",
+            "label": "(link to Explosion#Blast resistance article, displayed as Blast resistance)"
+        },
+        {
+            "field": "-1",
+            "label": "(link to Breaking#Blocks by hardness article, displayed as Hardness)"
+        },
+        {
+            "field": "No",
+            "label": "(link to Light article, displayed as Luminous)"
+        },
+        {
+            "field": "No",
+            "label": "(link to Opacity article, displayed as Transparent)"
+        },
+        {
+            "field": "Yes",
+            "label": "(link to Waterlogging article, displayed as Waterloggable)"
+        },
+        {
+            "field": "No",
+            "label": "(link to Fire#Flammable blocks article, displayed as Flammable)"
+        },
+        {
+            "field": "No",
+            "label": "Catches fire<br>from (link to lava article, displayed as lava)"
+        },
+        {
+            "field": "<span style=\"white-space: nowrap;\"><span style=\"display: inline-block; background-color: rgb(153, 153, 153); border: 1px solid #888; border-radius: 0.3em; color: transparent; width: 1em; height: 1em; vertical-align: -0.36em; margin-right: -0.1em\"><br></span> 22 COLOR<wbr/>_LIGHT<wbr/>_GRAY</span>",
+            "label": "(link to Map item format#Color table article, displayed as Map color)"
+        },
+        {
+            "field": "Default (Harp)",
+            "label": "(link to Note Block#Instruments article, displayed as Note block instrument)"
+        }
+    ],
+    "invimages": [
+        "Jigsaw Block"
+    ]
+}
+
+Jigsaw blocks are technical blocks commonly used as a way to construct large structures from smaller sections.
+
+Contents
+
+1 Obtaining
+
+1.1 Natural generation
+
+2 Usage
+
+2.1 Jigsaw connections
+2.2 Debug generation
+2.3 Piston interactivity
+
+3 Sounds
+4 Data values
+
+4.1 ID
+4.2 Block states
+4.3 Block data
+
+5 Videos
+6 History
+
+6.1 Java Edition
+6.2 Bedrock Edition
+
+7 Issues
+8 Gallery
+
+8.1 Renders
+8.2 Screenshots
+
+9 See also
+10 References
+11 Navigation
+
+Obtaining
+Jigsaw blocks can be obtained by using various commands such as /give @s jigsaw. In Java Edition, jigsaw blocks are also available in the Creative inventory when "Operator utilities" is turned on.
+In Java Edition, structure pieces of jigsaw structures loaded using structure blocks or /place template include jigsaw blocks. Structures generated from clicking the "Generate" button in the Jigsaw block interface with the "Keep Jigsaw" setting turned on will also include jigsaw blocks.
+In Bedrock Edition, structures placed using /place jigsaw or /place structure with keepJigsaws set to true include jigsaw blocks.
+
+Natural generation
+Jigsaw blocks do not naturally generate. Some structures rely on jigsaw blocks for generation (e.g. pillager outposts, villages, and ancient cities), but these jigsaw blocks are replaced by other blocks during generation.
+
+Usage
+Jigsaw block interface in Java Edition
+Jigsaw block interface in Bedrock Edition
+Players in Survival mode cannot place jigsaw blocks.
+
+Jigsaw connections
+Main article: Jigsaw structure
+Jigsaw blocks are function blocks used for the generation of jigsaw structures out of smaller templates. Jigsaw structures are used for the generation of pillager outposts, villages, bastion remnants, ancient cities, trail ruins, and trial chambers; other structures use hardcoded generation. The GUI of a jigsaw block can be used to configure its generation settings. Those are:
+
+Target Pool
+Refers to a template pool; or an alias of a template pool. The template pool is used to select the connecting structure piece.
+Name
+Name of the jigsaw block.
+Defaults to minecraft:empty.
+Target name
+The desired name of the jigsaw block in the connecting piece to connect to this jigsaw block.
+Defaults to minecraft:empty.
+Turns into
+What the jigsaw block turns into once the whole feature is generated.
+Defaults to minecraft:air.
+Selection Priority
+Defines the order of jigsaw blocks in a template to generate the connecting piece. If the piece being generated contains multiple jigsaw blocks that are all valid connections to the parent block, the game tries to connect to the one with the highest Selection Priority first. In the case of a tie, the connecting block is selected randomly.
+Placement Priority
+Defines the order of in which the connecting piece is processed to handle its jigsaw blocks during the wider structure generation.
+Joint type
+Appears only when jigsaw block is placed facing up or down.
+Contains two types of joints: Rollable and Aligned
+Rollable: The connecting piece is placed with a random rotation. Defaults to this.
+Aligned: The connecting piece is rotated such that the rotations of the jigsaw blocks match (marked by the white bar on the jigsaw block)
+Debug generation
+See also: Commands/place
+
+
+
+This feature is exclusive to Java Edition. 
+
+Jigsaw blocks can also be used to generate multiple levels of jigsaw blocks in the world. The settings in the 2nd to last row are only used for this purpose and are not saved when leaving the UI.
+
+Levels
+Determines how many jigsaw block "levels" it goes through. (ex. Piece>[Layer 1]>[Layer 2]).
+Can be set to an integer from 0 to 20. Defaults to 0.
+Keep Jigsaw
+Determines if the placed pieces includes the jigsaw blocks it contains or become what its "Turns into" field is set to.
+Defaults to ON
+Generate
+The button to start the generation.
+Piston interactivity
+Jigsaw blocks cannot be pushed by pistons. They also cannot be pushed nor pulled by sticky pistons.
+
+Sounds
+Java Edition:
+
+v
+t
+e stone sound typeSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitchAttenuationdistance​Block brokenBlocksOnce the block has brokenblock.stone.breaksubtitles.block.generic.break​1.00.816​Block placedBlocksWhen the block is placedblock.stone.placesubtitles.block.generic.place​1.00.816​Block breakingBlocksWhile the block is in the process of being brokenblock.stone.hitsubtitles.block.generic.hit​0.250.516​Something falls on a blockEntity-DependentFalling on the block with fall damageblock.stone.fallsubtitles.block.generic.fall​0.50.7516​FootstepsEntity-DependentWalking on the blockblock.stone.stepsubtitles.block.generic.footsteps​0.151.016
+Bedrock Edition:
+
+v
+t
+e normal sound typeSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitch​Block brokenBlocksOnce the block has brokendig.stonesubtitles.block.generic.break​1.00.8–1.0​Block placedBlocksWhen the block is placedplace.stonesubtitles.block.generic.place​1.00.8–1.0​Block breakingBlocksWhile the block is in the process of being brokenhit.stonesubtitles.block.generic.hit​0.27 0.5​FootstepsPlayersFalling on the block with fall damagefall.stonesubtitles.block.generic.footsteps​0.41.0​FootstepsPlayersWalking on the blockstep.stonesubtitles.block.generic.footsteps​0.31.0​FootstepsBlocksJumping from the blockjump.stonesubtitles.block.generic.footsteps​0.121.0​FootstepsBlocksFalling on the block without fall damageland.stonesubtitles.block.generic.footsteps​0.221.0
+ MCPE-169612 – Many blocks make slightly different sounds to stone
+
+Data values
+ID
+Java Edition:
+
+NameIdentifierForm
+Translation key Jigsaw BlockjigsawBlock & Item
+block.minecraft.jigsaw
+NameIdentifier
+ Block entityjigsaw
+
+Bedrock Edition:
+
+NameIdentifierNumeric ID FormItem ID
+Translation key Jigsaw Blockjigsaw466Block & Giveable ItemIdentical
+tile.jigsaw.name
+ ID of block's direct item form, which is used in savegame files and addons.
+
+ Available with /give command.
+
+ The block's direct item form has the same ID as the block.
+
+NameSavegame ID
+ Block entityJigsawBlock
+
+Block states
+See also: Block states
+
+Java Edition:
+
+  Name
+  Default value
+  Allowed values
+  Description
+  orientationnorth_updown_eastdown_northdown_southdown_westeast_upnorth_upsouth_upup_eastup_northup_southup_westwest_upThe direction the jigsaw block is facing.
+Bedrock Edition:
+
+  NameMetadata Bits
+  Default value
+  Allowed valuesValues forMetadata Bits
+  Description
+  facing_directionNot Supported0012345UnsupportedThe direction the jigsaw block is facing.
+rotationNot Supported00123UnsupportedThe rotation around the axis.
+Block data
+A jigsaw block has a block entity associated with it that holds additional data about the block.
+Java Edition:
+
+See also: Block entity format
+
+[NBT Compound / JSON Object] Block entity data
+Tags common to all block entities see Template:Nbt inherit/blockentity/template
+[String] final_state: The block that this jigsaw block becomes.
+[String] joint: The joint option value, either "rollable" or "aligned".
+[String] name: The jigsaw block's name. This jigsaw block gets aligned with another structure's jigsaw block that has this value in the target tag.
+[String] pool: The jigsaw block's target pool to select a structure from.
+[String] target: The jigsaw block's target name. This jigsaw block gets aligned with another structure's jigsaw block that has this value in the name tag.
+[Int] selection_priority: Priority of this jigsaw block being selected for generation. Jigsaw blocks with higher selection priority get selected first.
+[Int] placement_priority: Priority of the piece generated by this jigsaw block to place its children. Pieces with higher placement priority generate their children first.
+
+Bedrock Edition:
+
+See Bedrock Edition level format/Block entity format.
+Videos
+Video by slicedlime on how jigsaw blocks are used to generate villages in the 1.14 (Village & Pillage update):
+
+
+
+
+
+History
+Java Edition
+Java Edition1.1418w46a
+ Added the jigsaw block. It has a GUI, however, they are useless for players at the moment and are used only during world generation (similar to Structure Blocks in data mode).
+
+Jigsaw blocks use the missing texture particle when broken.18w47a
+Jigsaw blocks are now used in the generation of pillager outpost structures.18w48a
+Jigsaw blocks are now used in the generation of plains village structures.18w49a
+Jigsaw blocks are now used in the generation of snowy and savanna village structures.18w50a
+Jigsaw blocks are now used in the generation of taiga and desert village structures.
+
+ The texture of the jigsaw block has been changed.1.1620w13a
+ A locked texture to the jigsaw block has been added.
+
+The interface of the jigsaw block has been changed.20w16a
+A button in the GUI that generates a jigsaw structure starting from the jigsaw block, using a given generation depth has been added. This makes jigsaw blocks now usuable by players.
+
+Jigsaw blocks are now used in the generation of bastion remnants.20w22a
+A new "Keep Jigsaws" option that controls whether jigsaw blocks in the resulting structure after using "Generate" remain jigsaw blocks or be replaced by their "Turns Into" block, which defaults to "on" has been added.1.19Deep Dark Experimental Snapshot 1
+Jigsaw blocks are now used in the generation of ancient city structures.1.19.322w44a
+Jigsaw blocks are now available in the creative inventory, but only if cheats are enabled.22w45a
+Moved jigsaw blocks behind the "Operator Utilities" tab in the creative inventory. The tab is available only if cheats are enabled and the "Operator Items Tab" option in the controls menu is turned on.1.20.323w43a
+Added "Selection Priority" and "Placement Priority" options.23w45a
+"Levels" increased from 7 to 20.
+Bedrock Edition
+Bedrock Edition1.10.0beta 1.10.0.3
+ Added the jigsaw block.
+
+The jigsaw block is currently available only by using inventory editors.
+
+It is unknown whether jigsaw blocks are used for pillager outpost and new village generation or not.1.16.0beta 1.16.0.57
+ The texture of the jigsaw block has been changed.
+
+Jigsaw blocks are now functional in game.
+
+Jigsaw blocks can now be obtained using the /give <player> jigsaw command.1.21.40Preview 1.21.40.22
+Jigsaw block has had its interface changed.1.21.50ExperimentData-Driven Jigsaw StructuresPreview 1.21.50.26
+With the new experimental option it is possible to use the jigsaw block for structures.
+Issues
+Issues relating to "Jigsaw" or "Jigsaw block" are maintained on the bug tracker. Issues should be reported and viewed there.
+
+Gallery
+Renders
+
+
+
+			A translucent image of a jigsaw block, showing all of its faces
+
+
+
+			 South
+
+
+
+			 East
+
+
+
+			 North
+
+
+
+			 West
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Screenshots
+
+
+
+			The interface of a jigsaw block
+
+
+
+			The current interface of a jigsaw block until Java Edition 1.20.2
+
+
+
+			The interface of a jigsaw block before Java Edition 1.16
+
+
+
+			Jigsaw blocks used in the generation of a pillager outpost watchtower
+
+
+
+			Jigsaw blocks are used to generate the outer structures in a pillager outpost.
+
+
+
+			The old UI before Bedrock Edition Preview 1.21.40.22 (Classic UI)
+
+
+
+			The current interface for Bedrock Edition (Classic UI)
+
+
+See also
+Structure Block
+References
+
+ "Minecraft Game"   .
+
+Navigation

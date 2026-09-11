@@ -1,0 +1,569 @@
+This feature is exclusive to Bedrock Edition. 
+
+This page lists NBT structures of block entities in Bedrock Edition.
+A block entity is used by Minecraft to store information about a block that can't be stored in the block's block states.
+
+Contents
+
+1 Block Entity
+2 Additional fields for block entity types
+
+2.1 Banner
+2.2 Beacon
+2.3 Bed
+2.4 Beehive and Bee Nest
+2.5 Bell
+2.6 Brewing Stand
+2.7 Campfire and Soul Campfire
+2.8 Cauldron
+2.9 Chalkboard
+2.10 Chemistry Tables
+2.11 Chests
+2.12 Chiseled Bookshelf
+2.13 Command Blocks
+2.14 Comparator
+2.15 Conduit
+2.16 Copper Golem Statues
+2.17 Crafter
+2.18 Creaking Heart
+2.19 Data Driven
+2.20 Decorated Pot
+2.21 Dispenser and Dropper
+2.22 Enchanting Table
+2.23 End Gateway
+2.24 Flower Pot
+2.25 Furnace
+2.26 Hopper
+2.27 Item Frame
+2.28 Jigsaw Block
+2.29 Jukebox
+2.30 Lectern
+2.31 Lodestone
+2.32 Monster Spawner
+2.33 Moving Block
+2.34 Note Block
+2.35 Nether Reactor Core
+2.36 Piston
+2.37 Sculk Catalyst
+2.38 Sculk Shrieker, Sculk Sensor, and Calibrated Sculk Sensor
+2.39 Shelf
+2.40 Shulker Box
+2.41 Sign and Hanging Sign
+2.42 Skull
+2.43 Structure Block
+2.44 Suspicious Block
+2.45 Trial Spawner
+2.46 Vault
+
+3 History
+
+Block Entity
+
+All block entities share this base:
+
+[NBT Compound / JSON Object]: The block entity's root tag.
+[Int] BlockEntityVersion: Block entity version
+[String] CustomName: (May not exist) The custom name of the block entity.
+[String] id: The savegame ID of the block entity.
+[Int] x: X coordinate of the block entity.
+[Int] y: Y coordinate of the block entity.
+[Int] z: Z coordinate of the block entity.
+
+Additional fields for block entity types
+
+Banner
+Additional fields for banner:
+
+[NBT Compound / JSON Object]: The block entity's root tag.
+[Int] Base: The base color of the banner. See Banner#Block_data.
+[NBT List / JSON Array] Patterns: (May not exist) List of all patterns applied to the banner.
+[NBT Compound / JSON Object]: An individual pattern.
+[Int] Color: The base color of the pattern. See Banner#Block_data.
+[String] Pattern: The pattern ID code. See Banner#Block_data.
+[Int] Type: The type of the block entity. 0 is normal banner. 1 is ominous banner.
+Beacon
+Additional fields for beacon:
+
+[NBT Compound / JSON Object]: The block entity's root tag.
+[Int] primary: The primary effect selected, see Potion effects for IDs. Set to 0 when no effect is selected.
+[Int] secondary: The secondary effect selected, see Potion effects for IDs. Set to 0 when no effect is selected. When set without a primary effect, does nothing. When set to the same as the primary, the effect is given at level 2 (the normally available behavior for 5 effects). When set to a different value than the primary (normally only Regeneration), gives the effect at level 1.[needs testing]
+Bed
+Additional fields for bed:
+
+[NBT Compound / JSON Object]: The block entity's root tag.
+[Byte] color: The data value that determines the color of the half-bed block. When a bed is broken, the color of the block entity at the bed's head becomes the color of the bed item when it drops. See Bed#Metadata.
+Beehive and Bee Nest
+Additional fields for beehive and bee nest:
+
+[NBT Compound / JSON Object]: The block entity's root tag.
+[NBT List / JSON Array] Occupants: (May not exist) Entities currently in the hive.
+[NBT Compound / JSON Object]: An entity in the hive.
+[String] ActorIdentifier: The entity in the hive. Always minecraft:bee<> in vanilla game. ​[more information needed]
+[NBT Compound / JSON Object] SaveData: The NBT data of the entity in the hive.
+entity  see Entity
+Tags unique to this entity type.
+[Int] TicksLeftToStay: The time in ticks until the entity leave the beehive.
+[Byte] ShouldSpawnBees: 1 or 0 (true/false) - true if new bees will be spawned.
+Bell
+Additional fields for bell:
+
+[NBT Compound / JSON Object]: The block entity's root tag.
+[Int] Direction: The direction data of this bell.​[more information needed]
+[Byte] Ringing: 1 or 0 (true/false) - true if it is ringing.
+[Int] Ticks: Unknown.​[more information needed]
+Brewing Stand
+Additional fields for brewing stand:
+
+[NBT Compound / JSON Object]: The block entity's root tag.
+[Short] CookTime: The number of ticks until the potions are finished.
+[Short] FuelAmount: Remaining fuel for the brewing stand.
+[Short] FuelTotal: The max fuel numder for the fuel bar.
+[NBT List / JSON Array] Items: List of items in brewing stand.
+[NBT Compound / JSON Object]: An item in the brewing stand, including the slot tag.
+[Byte] Slot: The slot the item is in.
+item  see Item Stack
+Campfire and Soul Campfire
+Additional fields for campfire and soul campfire:
+
+[NBT Compound / JSON Object]: The block entity's root tag.
+[NBT Compound / JSON Object] Item<num>: (May not exist) An items currently cooking. <num> is 1, 2, 3, and 4.
+item  see Item Stack
+[Int] ItemTime<num>: How long each item has been cooking. <num> is 1, 2, 3, and 4.
+Cauldron
+Additional fields for cauldron:
+
+[NBT Compound / JSON Object]: The block entity's root tag.
+[Int] CustomColor: (May not exist) This tag exists only if the cauldron stores dyed water; stores a 32-bit ARGB encoded color.
+[NBT List / JSON Array] Items: List of items in this container.
+[NBT Compound / JSON Object]: An item, including the slot tag.
+[Byte] Slot: The inventory slot the item is in.
+A single item stack  see Template:Bedrock nbt/itemnoslot/template
+[Short] PotionId: If the cauldron contains a potion, this tag stores the ID of that potion. If there is no potion stored, then this tag is set to -1.
+[Short] PotionType: If the cauldron contains a potion, this tag stores the type of that potion. 0 is normal, 1 is splash, 2 is lingering. If there is no potion stored, then this tag is set to -1.
+Chalkboard
+Additional fields for chalkboard:
+
+[NBT Compound / JSON Object]: The block entity's root tag.
+[Int] BaseX: The X position of its base.
+[Int] BaseY: The Y position of its base.
+[Int] BaseZ: The Z position of its base.
+[Byte] Locked: 1 or 0 (true/false) - true if it is on locked.
+[Byte] OnGround: 1 or 0 (true/false) - true if it is on ground.
+[Long] Owner: The Unique ID of its owner.
+[Int] Size: The size of this chalkboard.
+[String] Text: The text on the chalkboard.
+Chemistry Tables
+Additional fields for chemistry tables (compound creator, element constructor, lab table, material reducer):
+
+[NBT Compound / JSON Object]: The block entity's root tag.
+[Short] itemAux: (Only for Lab Table) The Aux value of the item to be spawned.
+[Int] itemId: (Only for Lab Table) The numeral ID value of the item to be spawned.
+[Byte] itemStack: (Only for Lab Table) The item stack amount of the item to be spawned.
+Chests
+Additional fields for chest, trapped chest, barrel, and ender chest:
+
+[NBT Compound / JSON Object]: The block entity's root tag.
+[Byte] Findable: Unknown.
+[Byte] forceunpair: 1 or 0 (true/false) - (may not exist) true if this chest is unpair with chest next to it.
+[NBT List / JSON Array] Items: List of items in this container.
+[NBT Compound / JSON Object]: An item, including the slot tag.
+[Byte] Slot: The inventory slot the item is in.
+A single item stack  see Template:Bedrock nbt/itemnoslot/template
+[String] LootTable: (May not exist) Loot table to be used to fill the chest when it is next opened, or the items are otherwise interacted with.
+[Int] LootTableSeed: (May not exist) Seed for generating the loot table. 0 or omitted use a random seed.
+[Byte] pairlead: (May not exist) Unknown.
+[Int] pairx: (May not exist) The X position of the chest paired with.
+[Int] pairz: (May not exist) The Z position of the chest paired with.
+Chiseled Bookshelf
+Additional fields for chiseled bookshelf:
+
+[NBT Compound / JSON Object]: The block entity's root tag.
+[NBT List / JSON Array] Items: List of books in the bookshelf.
+[NBT Compound / JSON Object]: An item in the chiseled bookshelf.
+item  see Item Stack
+[Int] LastInteractedSlot: Last interacted slot (1-6), or 0 if no slot has been interacted with yet.
+Command Blocks
+Additional fields for command block:
+
+[NBT Compound / JSON Object]: The block entity's root tag.
+{{{2}}}  see Command Block
+[Byte] auto: 1 or 0 (true/false) - Allows to activate the command without the requirement of a redstone signal.
+[Byte] conditionalMode: (May not exist) Unknown.
+[Byte] conditionMet: 1 or 0 (true/false) - if a conditional command block had its condition met when last activated. True if not a conditional command block.
+[Byte] LPCondionalMode: Unknown.
+[Byte] LPRedstoneMode: Unknown.
+[Byte] LPCommandMode: Unknown.
+[Byte] powered: 1 or 0 (true/false) - true if the command block is powered by redstone.
+Comparator
+Additional fields for comparator:
+
+[NBT Compound / JSON Object]: The block entity's root tag.
+[Int] OutputSignal: Represents the strength of the analog signal output of this redstone comparator.
+Conduit
+Additional fields for conduit:
+
+[NBT Compound / JSON Object]: The block entity's root tag.
+[Byte] Active: 1 or 0 (true/false) - true if it is active.
+[Long] Target: The Unique ID of the hostile mob the conduit is currently attacking. If there's no target, defaults to -1.
+Copper Golem Statues
+Additional fields for copper golem statue:
+
+[NBT Compound / JSON Object]: The block entity's root tag.
+[NBT Compound / JSON Object] Actor: Data for the entity associated with the statue.
+[String] ActorIdentifier: The entity's identifier. Always minecraft:copper_golem<>.
+[NBT Compound / JSON Object] SaveData: The NBT data of the entity (the copper golem) while it is in the statue state.
+entity  see Entity
+[Int] Pose: The current visual pose of the statue from 0 to 3, 0 for standing pose, 1 for sitting pose, 2 for running pose and 3 for star pose.
+Crafter
+Additional fields for crafter:
+
+[NBT Compound / JSON Object]: The block entity's root tag.
+[Short] disabled_slots: Indexes of slots that are disabled.
+[NBT List / JSON Array] Items: List of items in the crafter.
+[NBT Compound / JSON Object]: An item in the crafter, including the slot tag. Crafter slots are numbered 0-8. 0 starts in the top left corner.
+[Byte] Slot: The inventory slot the item is in.
+item  see Item Stack
+Creaking Heart
+Additional fields for creaking heart:
+
+[NBT Compound / JSON Object]: The block entity's root tag.
+[Int] Cooldown: ​[more information needed]
+[Long] SpawnedCreakingID: The unique identifier of the creaking associated with this creaking heart. If there is no linked creaking, this field is absent.
+Data Driven
+Additional fields for custom block-entities:
+
+[NBT Compound / JSON Object]: The block entity's root tag.
+[NBT Compound / JSON Object] BlockEntityDynamicProperties: Stores all the dynamic properties of the block, this only exists when the block-entity has been configured and can receive dynamic properties.
+[NBT Compound / JSON Object] xxxxxxxx-xxxx: It's the add-on's UUID to avoid conflicts.
+[Byte][Double][String]: All dynamic properties created in the add-on, the name and format vary depending on what was done.
+[NBT List / JSON Array] Items​[upcoming: BE 26.50]:  List of items in this container, it only exists when the block entity is configured to be a container.
+[NBT Compound / JSON Object]: An item, including the slot tag.
+A single item stack  see Template:Bedrock nbt/itemnoslot/template
+Decorated Pot
+Additional fields for decorated pot:
+
+[NBT Compound / JSON Object]: The block entity's root tag.
+[String] LootTable: (May not exist) Loot table to be used to fill the decorated pot when it is next opened, or the items are otherwise interacted with.
+[Int] LootTableSeed: (May not exist) Seed for generating the loot table. 0 or omitted use a random seed.
+[Byte] animation: (May not exist) Unknown.
+[NBT Compound / JSON Object] item: The item in the decorated pot.
+item  see Item Stack
+[NBT List / JSON Array] sherds: List of sherds on this decorated pot.
+[String]: Item ID of this face. Defaults to minecraft:brick.
+Dispenser and Dropper
+Additional fields for dispenser and dropper:
+
+[NBT Compound / JSON Object]: The block entity's root tag.
+[NBT List / JSON Array] Items: List of items in this container.
+[NBT Compound / JSON Object]: An item, including the slot tag.
+[Byte] Slot: The inventory slot the item is in.
+item  see Item Stack
+[String] LootTable: (May not exist) Loot table to be used to fill the chest when it is next opened, or the items are otherwise interacted with.
+[Int] LootTableSeed: (May not exist) Seed for generating the loot table. 0 or omitted use a random seed.
+Enchanting Table
+Additional fields for Enchanting table:
+
+[NBT Compound / JSON Object]: The block entity's root tag.
+[String] CustomName: (May not exist) The name of this enchanting table.
+[Float] rott: The clockwise rotation of the book in radians. Top of the book points West when 0.
+End Gateway
+Additional fields for end gateway:
+
+[NBT Compound / JSON Object]: The block entity's root tag.
+[Int] Age: Age of the portal, in ticks. This is used to determine when the beam is rendered.
+[NBT List / JSON Array] ExitPortal: Location entities are teleported to when entering the portal.
+[Int]: X coordinate of target location.
+[Int]: Y coordinate of target location.
+[Int]: Z coordinate of target location.
+Flower Pot
+Additional fields for flower pot:
+
+[NBT Compound / JSON Object]: The block entity's root tag.
+[NBT Compound / JSON Object] PlantBlock: (May not exist) The block in the pot.
+{{{2}}}  see Block
+Furnace
+Additional fields for furnace, smoker, and blast furnace:
+
+[NBT Compound / JSON Object]: The block entity's root tag.
+[Short] BurnDuration: The total time that in ticks that the currently used fuel can burn.
+[Short] BurnTime: Number of ticks left before the current fuel runs out.
+[Short] CookTime: Number of ticks the item has been smelting for. The item finishes smelting when this value reaches 200 (10 seconds). Is reset to 0 if BurnTime reaches 0.[needs testing]
+[NBT List / JSON Array] Items: List of items in this container.
+[NBT Compound / JSON Object]: An item in the furnace, including the slot tag.
+[Byte] Slot: The inventory slot the item is in.
+item  see Item Stack
+[Int] StoredXPInt: The number of experiences it stores.
+Hopper
+Additional fields for hopper:
+
+[NBT Compound / JSON Object]: The block entity's root tag.
+[NBT List / JSON Array] Items: List of items in this container.
+[NBT Compound / JSON Object]: An item, including the slot tag.
+[Byte] Slot: The inventory slot the item is in.
+item  see Item Stack
+[Int] TransferCooldown: Time until the next transfer in game ticks, naturally between 1 and 8 or 0 if there is no transfer.
+Item Frame
+Additional fields for item frame:
+
+[NBT Compound / JSON Object]: The block entity's root tag.
+[NBT Compound / JSON Object] Item: The items in this item frame.
+item  see Item Stack
+[Float] ItemDropChance: (May not exist) The chance of item dropping when the item frame is broken.
+[Float] ItemRotation: (May not exist) The rotation of the item in the item frame.
+Jigsaw Block
+Additional fields for jigsaw block:
+
+[NBT Compound / JSON Object]: The block entity's root tag.
+[String] final_state: The block that this jigsaw block becomes.
+[String] joint: The joint option value, either "rollable" or "aligned".
+[String] name: The jigsaw block's name. This jigsaw block will be aligned with another structure's jigsaw block which has this value in the target tag.
+[String] target: The jigsaw block's target name. This jigsaw block will be aligned with another structure's jigsaw block which has this value in the name tag.
+[String] target_pool: The jigsaw block's target pool to select a structure from.
+Jukebox
+Additional fields for jukebox:
+
+[NBT Compound / JSON Object]: The block entity's root tag.
+[NBT Compound / JSON Object] RecordItem: (May not exist) The record item in it.
+item  see Item Stack
+Lectern
+Additional fields for lectern:
+
+[NBT Compound / JSON Object]: The block entity's root tag.
+[NBT Compound / JSON Object] book: (May not exist) The book item currently on the lectern.
+item  see Item Stack
+[Byte] hasBook: 1 or 0 (true/false) - (may not exist) true if it has a book.
+[Int] page: (May not exist) The page the book is currently on, starting from 0.
+[Int] totalPages: (May not exist) The total pages the book has.
+Lodestone
+Additional fields for lodestone:
+
+[NBT Compound / JSON Object]: The block entity's root tag.
+[Int] trackingHandle: (May not exist) The id of lodestone.
+Monster Spawner
+Additional fields for monster spawner:
+
+[NBT Compound / JSON Object]: The block entity's root tag.
+{{{2}}}  see Monster Spawner
+Moving Block
+Additional fields for moving block:
+
+[NBT Compound / JSON Object]: The block entity's root tag.
+[NBT Compound / JSON Object] movingBlock: The main layer of moving block represented by this block entity.
+{{{2}}}  see Block
+[NBT Compound / JSON Object] movingBlockExtra: The extra moving block layer represented by this block entity.
+{{{2}}}  see Block
+[NBT Compound / JSON Object] movingEntity: (May not exist) The block entity stored in this moving block.
+block  see Block Entity
+[Int] pistonPosX: X coordinate of the piston base.
+[Int] pistonPosY: Y coordinate of the piston base.
+[Int] pistonPosZ: Z coordinate of the piston base.
+Note Block
+Additional fields for note block:
+
+[NBT Compound / JSON Object]: The block entity's root tag.
+[Byte] note: The pitch of the note block.
+Nether Reactor Core
+Additional fields for nether reactor core:
+
+[NBT Compound / JSON Object]: The block entity's root tag.
+[Byte] HasFinished: 1 or 0 (true/false) - true if the reactor has completed its activation phase, and has gone dark.
+[Byte] IsInitialized: 1 or 0 (true/false) - true if the reactor has been activated, and has turned red.
+[Short] Progress: Number of ticks the reactor has been active for. It finishes after 900 game ticks (45 seconds).
+Piston
+Additional fields for piston:
+
+[NBT Compound / JSON Object]: The block entity's root tag.
+[NBT List / JSON Array] AttachedBlocks: The list of positions of blocks it should move.
+[Int]: A block's X coordinate.
+[Int]: A block's Y coordinate.
+[Int]: A block's Z coordinate.
+[Int]: Another block's X coordinate.
+[Int]: Another block's Y coordinate.
+[Int]: Another block's Z coordinate.
+[Int]: etc.
+[NBT List / JSON Array] BreakBlocks: The list of positions of blocks it should break.
+[Int]: A block's X coordinate.
+[Int]: A block's Y coordinate.
+[Int]: A block's Z coordinate.
+[Int]: Another block's X coordinate.
+[Int]: Another block's Y coordinate.
+[Int]: Another block's Z coordinate.
+[Int]: etc.
+[Float] LastProgress: Progress in last tick.
+[Byte] NewState: Next state. Can be 0 (unextended), 1 (pushing), 2 (extended), or 3 (pulling).
+[Float] Progress: How far the block has been moved. Can be 0.0, 0.5, and 1.0.
+[Byte] State: Current state.
+[Byte] Sticky: 1 or 0 (true/false) - true if this piston is sticky.
+Sculk Catalyst
+Additional fields for sculk catalyst:
+
+[NBT Compound / JSON Object]: The block entity's root tag.
+[NBT List / JSON Array] cursors: List of charges associated with the sculk catalyst.
+[NBT Compound / JSON Object]: A charge.
+[Short] charge: How much power is in the charge.
+[Short] decay: Be 1 if the charge was spread from a sculk or sculk vein, 0 otherwise. The charge can spread to any block if this tag is 1. If it is 0, all the powers in the charge disappear when it spreads to a block not in sculk family.[needs testing]
+[Short] facing: ​[more information needed]
+[Short] update: Delay in ticks until the charge begins to travel after being created.[needs testing]
+[Int] x: X coordinate of the charge.
+[Int] y: Y coordinate of the charge.
+[Int] z: Z coordinate of the charge.
+Sculk Shrieker, Sculk Sensor, and Calibrated Sculk Sensor
+Additional fields for sculk shrieker, sculk sensor, and calibrated sculk sensor:
+
+[NBT Compound / JSON Object]: The block entity's root tag.
+[NBT Compound / JSON Object] VibrationListener: The vibration event listener of the sculk shrieker, sculk sensor, and calibrated sculk sensor.
+[Int] event: Unknown.
+[NBT Compound / JSON Object] pending: Unknown.
+[Float] distance: Unknown.
+[Long] source: Unknown.
+[Int] vibration: Unknown.
+[Int] x: Unknown.
+[Int] y: Unknown.
+[Int] z: Unknown.
+[NBT Compound / JSON Object] selector: Unknown.
+[Int] ticks: Unknown.
+Shelf
+Additional fields for shelf:
+
+[NBT Compound / JSON Object]: The block entity's root tag.
+[NBT List / JSON Array] Items: List of items in the shelf. Unlike other containers, the order in the list determines the visual position.
+[NBT Compound / JSON Object]: An item in the shelf.
+item  see Item Stack
+Shulker Box
+Additional fields for shulker box:
+
+[NBT Compound / JSON Object]: The block entity's root tag.
+block  see Chests
+[Float] facing: The facing of this shulker box.​[more information needed]
+Sign and Hanging Sign
+Additional fields for sign and hanging sign:
+
+[NBT Compound / JSON Object]: The block entity's root tag.
+[NBT Compound / JSON Object] BackText: A compound which discribes back text. The same structure as [NBT Compound / JSON Object] FrontText.
+[NBT Compound / JSON Object] FrontText: A compound which discribes front text.
+[Byte] HideGlowOutline: 1 or 0 (true/false) - true if the outer glow of a sign with glowing text does not show.
+[Byte] IgnoreLighting: 1 or 0 (true/false) - true if the sign has been dyed with a glow ink sac.
+[Byte] PersistFormatting: Unknown. Defaults to 1.
+[Int] SignTextColor: The color that has been used to dye the sign. Is a 32-bit encoded color, defaults to -16777216 (black). One of -986896 for "White", -425955 for "Orange", -3715395 for "Magenta", -12930086 for "Light Blue", -75715 for "Yellow", -8337633 for "Lime", -816214 for "Pink", -12103854 for "Gray", -6447721 for "Light Gray", -15295332 for "Cyan", -7785800 for "Purple", -12827478 for "Blue", -8170446 for "Brown", -10585066 for "Green", -5231066 for "Red", and -16777216 for "Black".
+[String] Text: The text on it.
+[String] TextOwner: Unknown.
+[Byte] IsWaxed: 1 or 0 (true/false) - true if the text is locked with honeycomb.
+Skull
+Additional fields for skull:
+
+[NBT Compound / JSON Object]: The block entity's root tag.
+[Byte] MouthMoving: 1 or 0 (true/false) - true if this dragon head's mouth is moving.
+[Int] MouthTickCount: The animation frame of the dragon head's mouth movement.[needs testing]
+[Float] Rotation: The rotation of this skull.​[more information needed]
+[Byte] SkullType: The type of this skull. (unused, only exists for backwards compatibility for flattened IDs) 0 = Skeleton, 1 = Wither Skeleton, 2 = Zombie, 3 = Player, 4 = Creeper, 5 = Ender Dragon, 6 = Piglin.
+Structure Block
+Additional fields for structure block:
+
+[NBT Compound / JSON Object]: The block entity's root tag.
+[Byte] animationMode: The mode of animation.​[more information needed]
+[Float] animationSeconds: The duration of the animation.​[more information needed]
+[Int] data: The mode of the structure block, values for data are the same as the data values for the item. Ex. 0 = Data, 1 = Save, 2 = Load, 3 = Corner, 4 = Inventory, 5 = Export.
+[String] dataField: Unknown.
+[Byte] ignoreEntities: 1 or 0 (true/false) - true if the entities should be ignored in the structure.
+[Float] integrity: How complete the structure is that gets placed.
+[Byte] isPowered: 1 or 0 (true/false) - true if this structure block is being powered by redstone.
+[Byte] mirror: How the structure is mirrored.​[more information needed]
+[Int] redstoneSaveMode: The current redstone mode of this structure block.​[more information needed]
+[Byte] removeBlocks: 1 or 0 (true/false) - true if the blocks should be removed in the structure.
+[Byte] rotation: Rotation of the structure.​[more information needed]
+[Long] seed: The seed to use for the structure integrity, 0 means random.[needs testing]
+[Byte] showBoundingBox: 1 or 0 (true/false) - true if show the structure's bounding box to players in Creative mode.
+[String] structureName: Name of the structure.
+[Int] xStructureOffset: X-offset of the structure.
+[Int] yStructureOffset: Y-offset of the structure.
+[Int] zStructureOffset: Z-offset of the structure.
+[Int] xStructureSize: X-size of the structure.
+[Int] yStructureSize: Y-size of the structure.
+[Int] zStructureSize: Z-size of the structure.
+Suspicious Block
+Additional fields for suspicious sand and suspicious gravel:
+
+[NBT Compound / JSON Object]: The block entity's root tag.
+[Int] brush_count: The number of times the suspicious block is being brushed by the player, from 1 to 10 (the item will be extracted when it reaches 10). If the player stops brushing, it will progressively return to 0. And if it hasn't been brushed yet, defaults to 0.
+[Byte] brush_direction: The direction of the suspicious block that was brushed. 0 = Down, 1 = Up, 2 = North, 3 = South, 4 = West, 5 = East, or 6 if it has not been brushed yet.
+[NBT Compound / JSON Object] item: (May not exist) The item in the suspicious block.
+item  see Item Stack
+[String] LootTable: (May not exist) Loot table to be used to generate the hidden item when brushed.
+[Int] LootTableSeed: (May not exist) Seed for generating the loot table. 0 or omitted use a random seed.
+[String] type: The type of suspicious block. Valid types are minecraft:suspicious_sand and minecraft:suspicious_gravel.
+Trial Spawner
+Additional fields for trial spawner and ominous trial spawner:
+
+[NBT Compound / JSON Object]: The block entity's root tag.
+[Int] required_player_range: Between 1 and 128. Defaults to 14. — Maximum distance in blocks for players to join the battle.
+[NBT Compound / JSON Object] normal_config: Optional, see configuration for defaults. — The configuration to use when not ominous.
+[Int] spawn_range: Between 1 and 128. Defaults to 4. — Maximum distance in blocks that mobs can spawn.
+[Float] total_mobs: Defaults to 6. — Total amount of mobs spawned before cooldown for a single player.
+[Float] simultaneous_mobs: Defaults to 2. — The amount of spawned mobs from this spawner that are allowed to exist simultaneously.
+[Float] total_mobs_added_per_player: Defaults to 2. — Amount of total mobs added for each additional player.
+[Float] simultaneous_mobs_added_per_player: Defaults to 1. — Amount of simultaneous mobs added for each additional player.
+[Int] ticks_between_spawn: Defaults to 20. — Time in ticks between spawn attempts.
+[Int] target_cooldown_length: Defaults to 36000. — Time in ticks of the cooldown period. Includes the time spend dispensing the reward.
+[NBT List / JSON Array] spawn_potentials: List of possible entities to spawn.
+[NBT Compound / JSON Object]: A potential future spawn. After the spawner makes an attempt at spawning, it chooses one of these entries at random and uses it to prepare for the next spawn.
+[Int] weight: The chance that this spawn gets picked in comparison to other spawn weights. Must be positive and at least 1.
+[NBT Compound / JSON Object] data:
+[NBT Compound / JSON Object] entity:
+[String] id: An entity ID.
+[NBT Compound / JSON Object] equipment: Optional. Determines the equipment the entity will wear.
+[String] loot_table: A path to a loot table.
+[NBT Compound / JSON Object] slot_drop_chances: Optional. Chances for the equipment to drop upon death.
+[Float] head: Chance (0.0–1.0) for the head slot item to drop.
+[Float] chest: Chance (0.0–1.0) for the chest slot item to drop.
+[Float] legs: Chance (0.0–1.0) for the legs slot item to drop.
+[Float] feet: Chance (0.0–1.0) for the feet slot item to drop.
+[Float] mainhand: Chance (0.0–1.0) for the main hand item to drop.
+[Float] offhand: Chance (0.0–1.0) for the off hand item to drop.
+[NBT List / JSON Array] loot_tables_to_eject: List of possible loot tables to give as reward.
+[NBT Compound / JSON Object]: A potential loot table.
+[Int] weight: The chance that this loot table gets picked in comparison to other loot table weights. Must be positive and at least 1.
+[String] data: A path to a loot table.
+[String] items_to_drop_when_ominous: Defaults to loot_tables/spawners/trial_chamber/items_to_drop_when_ominous.json — A path to a loot table. Determines the items used by ominous item spawners spawned during the active phase when ominous. Ignored in normal mode.
+[NBT Compound / JSON Object] ominous_config: Optional, defaults to [NBT Compound / JSON Object] normal_config. When individual entries are omitted, they also default to their setting in [NBT Compound / JSON Object] normal_config. — The configuration to use when ominous.
+[NBT List / JSON Array] registered_players: A set of player UUIDs. — All the players that have joined the battle.
+[NBT Compound / JSON Object]: A player UUID.
+[Long] uuid: The UUID.
+[NBT List / JSON Array] current_mobs: A set of mob UUIDs. — The mobs that were spawned by this spawner and are still alive.
+[NBT Compound / JSON Object]: An entity UUID.
+[Long] uuid: The UUID.
+[Long] cooldown_end_at: Gametime in ticks when the cooldown ends. 0 if not currently in cooldown.
+[Long] next_mob_spawns_at: Gametime in ticks when the next spawn attempt happens. 0 if not currently active.
+[NBT Compound / JSON Object] spawn_data: The next mob to attempt to spawn. Selected from [NBT List / JSON Array] spawn_potentials after the last attempt. Determines the mob displayed in the spawner.
+[String] TypeId: An entity ID.
+[Int] Weight: Selection weight for the current active spawn.
+[NBT Compound / JSON Object] equipment: Optional. Same structure as the equipment found in [NBT List / JSON Array] spawn_potentials.
+[String] selected_loot_table: A path to the loot table that is given as reward. Unset if not currently giving rewards. Selected from [NBT List / JSON Array] loot_tables_to_eject after all mobs are defeated.
+Vault
+Additional fields for vault and ominous vault:
+
+[NBT Compound / JSON Object]: The block entity's root tag.
+[NBT Compound / JSON Object] config: Configuration data that does not automatically change. All fields are optional.
+[Float] activation_range: The range in blocks when the vault should activate. Defaults to 4.
+[Float] deactivation_range: The range in blocks when the vault should deactivate. Defaults to 4.5.
+[String] loot_table: A path to the loot table that is ejected when unlocking the vault. Defaults to loot_tables/chests/trial_chambers/reward.json for normal vaults and loot_tables/chests/trial_chambers/reward_ominous.json for ominous vaults.
+[String] override_loot_table_to_display: A path to the loot table that is used to display items in the vault. If not present, the game will use the [String] loot_table field.
+[NBT Compound / JSON Object] key_item: The key item that is used to check for valid keys. Defaults to minecraft:trial_key for normal vaults and minecraft:ominous_trial_key for ominous vaults.
+item  see Item Stack
+[NBT Compound / JSON Object] data: Data that is used to keep track of the current state of the vault.
+[NBT Compound / JSON Object] display_item: The item that is currently being displayed.
+item  see Item Stack
+[NBT List / JSON Array] items_to_eject: List of item stacks that have been rolled by the loot table and are waiting to be ejected.
+[NBT Compound / JSON Object]: An item stack.
+item  see Item Stack
+[NBT List / JSON Array] rewarded_players: A set of player UUIDs that have already received their rewards from this vault.
+[Long]: A UUID.
+[Long] state_updating_resumes_at: The game time when the vault will process block state changes, such as changing from unlocking to ejecting after a delay.
+[Long] total_ejections_needed: The total amount of item stacks that need to be ejected.
+
+History
+Bedrock Edition26.30Preview 26.30.27
+The [Byte] isMovable field has been removed from all block entities.Preview 26.30.28
+The field [Int] BlockEntityVersion has been added to all block entities.
+Added the DataDriven block-entity that controls all custom block entities.26.40Preview 26.40.26
+The DataDriving block-entity's [NBT Compound / JSON Object] BlockEntityDynamicProperties field is now readable, with each field having a type.26.50Preview 26.50.26
+The [NBT List / JSON Array] Items field, which controls the items within the block, has been added to the Data Driving block-entity. This field is added when the custom block-entity is set to be a container.

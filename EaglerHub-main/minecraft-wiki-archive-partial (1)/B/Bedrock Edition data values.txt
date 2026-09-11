@@ -1,0 +1,12377 @@
+This feature is exclusive to Bedrock Edition. 
+
+
+
+This article needs to be updated. 
+Please update this article to reflect recent updates or newly available information. The talk page may contain suggestions.Reason: Alias ID needs update, with multiple changes made during the ongoing Flattening process not reflected.
+
+These data values refer to the different types of blocks and items on Bedrock Edition. They are used in many places in Minecraft. Block IDs are used to define blocks placed in the world and inventory items (including items in chests and items dropped in the world). Item IDs are valid only for items.
+These data values differ greatly from the Java Edition data values.
+
+The block and item IDs, as of version 1.16.20
+Contents
+
+1 IDs
+
+1.1 Block IDs
+1.2 Item IDs
+
+1.2.1 Block items
+1.2.2 Other items
+
+1.3 Biome IDs
+1.4 Entity IDs
+1.5 Effect IDs
+1.6 Enchantment IDs
+
+2 Block states
+
+2.1 active
+2.2 age
+2.3 age_bit
+2.4 attached_bit
+2.5 attachment
+2.6 bamboo_leaf_size
+2.7 bamboo_stalk_thickness
+2.8 big_dripleaf_head
+2.9 big_dripleaf_tilt
+2.10 bite_counter
+2.11 bloom
+2.12 books_stored
+2.13 brewing_stand_slot_a_bit
+2.14 brewing_stand_slot_b_bit
+2.15 brewing_stand_slot_c_bit
+2.16 brushed_progress
+2.17 button_pressed_bit
+2.18 can_summon
+2.19 candles
+2.20 cauldron_liquid
+2.21 cluster_count
+2.22 composter_fill_level
+2.23 conditional_bit
+2.24 coral_direction
+2.25 coral_fan_direction
+2.26 covered_bit
+2.27 cracked_state
+2.28 crafting
+2.29 creaking_heart_state
+2.30 dead_bit
+2.31 deprecated
+2.32 direction
+2.33 disarmed_bit
+2.34 door_hinge_bit
+2.35 drag_down
+2.36 dripstone_thickness
+2.37 end_portal_eye_bit
+2.38 explode_bit
+2.39 extinguished
+2.40 facing_direction
+2.41 fill_level
+2.42 ground_sign_direction
+2.43 growing_plant_age
+2.44 growth
+2.45 hanging
+2.46 head_piece_bit
+2.47 height
+2.48 honey_level
+2.49 huge_mushroom_bits
+2.50 in_wall_bit
+2.51 infiniburn_bit
+2.52 item_frame_map_bit
+2.53 item_frame_photo_bit
+2.54 kelp_age
+2.55 lever_direction
+2.56 liquid_depth
+2.57 lit
+2.58 minecraft:block_face
+2.59 minecraft:cardinal_direction
+2.60 minecraft:connection_down
+2.61 minecraft:connection_east
+2.62 minecraft:connection_north
+2.63 minecraft:connection_south
+2.64 minecraft:connection_west
+2.65 minecraft:corner
+2.66 minecraft:facing_direction
+2.67 minecraft:multi_block_part
+2.68 minecraft:sixteen_way_rotation
+2.69 minecraft:vertical_half
+2.70 moisturized_amount
+2.71 multi_face_direction_bits
+2.72 natural
+2.73 occupied_bit
+2.74 ominous
+2.75 open_bit
+2.76 orientation
+2.77 output_lit_bit
+2.78 output_subtract_bit
+2.79 pale_moss_carpet_side_east
+2.80 pale_moss_carpet_side_north
+2.81 pale_moss_carpet_side_south
+2.82 pale_moss_carpet_side_west
+2.83 persistent_bit
+2.84 pillar_axis
+2.85 portal_axis
+2.86 potent_sulfur_state
+2.87 powered_bit
+2.88 powered_shelf_type
+2.89 propagule_stage
+2.90 rail_data_bit
+2.91 rail_direction
+2.92 redstone_signal
+2.93 rehydration_level
+2.94 repeater_delay
+2.95 respawn_anchor_charge
+2.96 rotation
+2.97 sculk_sensor_phase
+2.98 sea_grass_type
+2.99 stability
+2.100 stability_check
+2.101 structure_block_type
+2.102 suspended_bit
+2.103 tip
+2.104 toggle_bit
+2.105 torch_facing_direction
+2.106 trial_spawner_state
+2.107 triggered_bit
+2.108 turtle_egg_count
+2.109 twisting_vines_age
+2.110 update_bit
+2.111 upper_block_bit
+2.112 upside_down_bit
+2.113 vault_state
+2.114 vine_direction_bits
+2.115 wall_connection_type_east
+2.116 wall_connection_type_north
+2.117 wall_connection_type_south
+2.118 wall_connection_type_west
+2.119 wall_post_bit
+2.120 weeping_vines_age
+2.121 weirdo_direction
+2.122 Deprecated
+
+2.122.1 allow_underwater_bit
+2.122.2 block_light_level
+2.122.3 chemistry_table_type
+2.122.4 chisel_type
+2.122.5 color
+2.122.6 color_bit
+2.122.7 coral_color
+2.122.8 coral_hang_type_bit
+2.122.9 damage
+2.122.10 dead_bit
+2.122.11 dirt_type
+2.122.12 double_plant_type
+2.122.13 flower_type
+2.122.14 monster_egg_type
+2.122.15 new_leaf_type
+2.122.16 new_log_type
+2.122.17 old_leaf_type
+2.122.18 old_log_type
+2.122.19 prismarine_block_type
+2.122.20 sand_stone_type
+2.122.21 sand_type
+2.122.22 sapling_type
+2.122.23 sponge_type
+2.122.24 stone_brick_type
+2.122.25 stone_slab_type
+2.122.26 stone_slab_type_2
+2.122.27 stone_slab_type_3
+2.122.28 stone_slab_type_4
+2.122.29 stone_type
+2.122.30 stripped_bit
+2.122.31 structure_void_type
+2.122.32 tall_grass_type
+2.122.33 top_slot_bit
+2.122.34 wall_block_type
+2.122.35 wood_type
+
+3 Numeric ID Inherit Tree
+4 Notes
+5 References
+6 Navigation
+
+IDs
+ For tables of the legacy metadata and/or damage value combinations for blocks and items respectively, see Bedrock Edition data values/Metadata table.
+
+Block IDs
+You may edit the contents of this section here.
+All blocks have their own direct item forms. Blocks with numeric ID over 255 have item form with numeric ID of 255 - (block ID) to avoid block item IDs being overlapped into the other item ID space.
+The item IDs are the IDs of the block's direct item form, which is used in savegame files and addons. This may, in some cases (e.g. Bed and Sugar Cane) differ from the ID of the item used to place the block, attainable through normal gameplay, the Creative inventory, or the /give command.
+
+Block Table with Numeric ID
+
+Icon
+
+Block ID
+
+Item ID
+
+Resource location
+
+Block
+
+1
+1
+stone
+Stone
+
+2
+2
+grass_block
+Grass Block
+
+3
+3
+dirt
+Dirt
+
+4
+4
+cobblestone
+Cobblestone
+
+5
+5
+oak_planks
+Oak Planks
+
+6
+6
+oak_sapling
+Oak Sapling
+
+7
+7
+bedrock
+Bedrock
+
+8
+8
+flowing_water
+Flowing Water
+
+9
+9
+water
+Water
+
+10
+10
+flowing_lava
+Flowing Lava
+
+11
+11
+lava
+Lava
+
+12
+12
+sand
+Sand
+
+13
+13
+gravel
+Gravel
+
+14
+14
+gold_ore
+Gold Ore
+
+15
+15
+iron_ore
+Iron Ore
+
+16
+16
+coal_ore
+Coal Ore
+
+17
+17
+oak_log
+Oak Log
+
+18
+18
+oak_leaves
+Oak Leaves
+
+19
+19
+sponge
+Sponge
+
+20
+20
+glass
+Glass
+
+21
+21
+lapis_ore
+Lapis Lazuli Ore
+
+22
+22
+lapis_block
+Block of Lapis Lazuli
+
+23
+23
+dispenser
+Dispenser
+
+24
+24
+sandstone
+Sandstone
+
+25
+25
+noteblock
+Note Block
+
+26
+26
+bed
+Bed
+
+27
+27
+golden_rail
+Powered Rail
+
+28
+28
+detector_rail
+Detector Rail
+
+29
+29
+sticky_piston
+Sticky Piston
+
+30
+30
+web
+Cobweb
+
+31
+31
+short_grass
+Short Grass
+
+32
+32
+deadbush
+Dead Bush
+
+33
+33
+piston
+Piston
+
+34
+34
+piston_arm_collision
+Piston Arm Collision
+
+35
+35
+white_wool
+White Wool
+
+36
+36
+element_0
+Unknown Element
+
+37
+37
+dandelion
+Dandelion
+
+38
+38
+poppy
+Poppy
+
+39
+39
+brown_mushroom
+Brown Mushroom
+
+40
+40
+red_mushroom
+Red Mushroom
+
+41
+41
+gold_block
+Block of Gold
+
+42
+42
+iron_block
+Block of Iron
+
+43
+43
+smooth_stone_double_slab
+Double Smooth Stone Slab
+
+44
+44
+smooth_stone_slab
+Smooth Stone Slab
+
+45
+45
+brick_block
+Bricks
+
+46
+46
+tnt
+TNT
+
+47
+47
+bookshelf
+Bookshelf
+
+48
+48
+mossy_cobblestone
+Mossy Cobblestone
+
+49
+49
+obsidian
+Obsidian
+
+50
+50
+torch
+Torch
+
+51
+51
+fire
+Fire
+
+52
+52
+mob_spawner
+Monster Spawner
+
+53
+53
+oak_stairs
+Oak Stairs
+
+54
+54
+chest
+Chest
+
+55
+55
+redstone_wire
+Redstone Dust
+
+56
+56
+diamond_ore
+Diamond Ore
+
+57
+57
+diamond_block
+Block of Diamond
+
+58
+58
+crafting_table
+Crafting Table
+
+59
+59
+wheat
+Wheat
+
+60
+60
+farmland
+Farmland
+
+61
+61
+furnace
+Furnace
+
+62
+62
+lit_furnace
+Lit Furnace
+
+63
+63
+standing_sign
+Oak Sign
+
+64
+64
+wooden_door
+Oak Door
+
+65
+65
+ladder
+Ladder
+
+66
+66
+rail
+Rail
+
+67
+67
+stone_stairs
+Cobblestone Stairs
+
+68
+68
+wall_sign
+Oak Wall Sign
+
+69
+69
+lever
+Lever
+
+70
+70
+stone_pressure_plate
+Stone Pressure Plate
+
+71
+71
+iron_door
+Iron Door
+
+72
+72
+wooden_pressure_plate
+Oak Pressure Plate
+
+73
+73
+redstone_ore
+Redstone Ore
+
+74
+74
+lit_redstone_ore
+Lit Redstone Ore
+
+75
+75
+unlit_redstone_torch
+Unlit Redstone Torch
+
+76
+76
+redstone_torch
+Redstone Torch
+
+77
+77
+stone_button
+Stone Button
+
+78
+78
+snow_layer
+Snow
+
+79
+79
+ice
+Ice
+
+80
+80
+snow
+Snow Block
+
+81
+81
+cactus
+Cactus
+
+82
+82
+clay
+Clay
+
+83
+83
+reeds
+Sugar Cane
+
+84
+84
+jukebox
+Jukebox
+
+85
+85
+oak_fence
+Oak Fence
+
+86
+86
+pumpkin
+Pumpkin
+
+87
+87
+netherrack
+Netherrack
+
+88
+88
+soul_sand
+Soul Sand
+
+89
+89
+glowstone
+Glowstone
+
+90
+90
+portal
+Nether Portal
+
+91
+91
+lit_pumpkin
+Jack o'Lantern
+
+92
+92
+cake
+Cake
+
+93
+93
+unpowered_repeater
+Unpowered Repeater
+
+94
+94
+powered_repeater
+Powered Repeater
+
+95
+95
+invisible_bedrock
+Invisible Bedrock
+
+96
+96
+trapdoor
+Oak Trapdoor
+
+97
+97
+infested_stone
+Infested Stone
+
+98
+98
+stone_bricks
+Stone Bricks
+
+99
+99
+brown_mushroom_block
+Brown Mushroom Block
+
+100
+100
+red_mushroom_block
+Red Mushroom Block
+
+101
+101
+iron_bars
+Iron Bars
+
+102
+102
+glass_pane
+Glass Pane
+
+103
+103
+melon_block
+Melon
+
+104
+104
+pumpkin_stem
+Pumpkin Stem
+
+105
+105
+melon_stem
+Melon Stem
+
+106
+106
+vine
+Vines
+
+107
+107
+fence_gate
+Oak Fence Gate
+
+108
+108
+brick_stairs
+Brick Stairs
+
+109
+109
+stone_brick_stairs
+Stone Brick Stairs
+
+110
+110
+mycelium
+Mycelium
+
+111
+111
+waterlily
+Lily Pad
+
+112
+112
+nether_brick
+Nether Bricks
+
+113
+113
+nether_brick_fence
+Nether Brick Fence
+
+114
+114
+nether_brick_stairs
+Nether Brick Stairs
+
+115
+115
+nether_wart
+Nether Wart
+
+116
+116
+enchanting_table
+Enchanting Table
+
+117
+117
+brewing_stand
+Brewing Stand
+
+118
+118
+cauldron
+Cauldron
+
+119
+119
+end_portal
+End Portal
+
+120
+120
+end_portal_frame
+End Portal Frame
+
+121
+121
+end_stone
+End Stone
+
+122
+122
+dragon_egg
+Dragon Egg
+
+123
+123
+redstone_lamp
+Redstone Lamp
+
+124
+124
+lit_redstone_lamp
+Lit Redstone Lamp
+
+125
+125
+dropper
+Dropper
+
+126
+126
+activator_rail
+Activator Rail
+
+127
+127
+cocoa
+Cocoa
+
+128
+128
+sandstone_stairs
+Sandstone Stairs
+
+129
+129
+emerald_ore
+Emerald Ore
+
+130
+130
+ender_chest
+Ender Chest
+
+131
+131
+tripwire_hook
+Tripwire Hook
+
+132
+132
+trip_wire
+Tripwire
+
+133
+133
+emerald_block
+Block of Emerald
+
+134
+134
+spruce_stairs
+Spruce Stairs
+
+135
+135
+birch_stairs
+Birch Stairs
+
+136
+136
+jungle_stairs
+Jungle Stairs
+
+137
+137
+command_block
+Command Block
+
+138
+138
+beacon
+Beacon
+
+139
+139
+cobblestone_wall
+Cobblestone Wall
+
+140
+140
+flower_pot
+Flower Pot
+
+141
+141
+carrots
+Carrots
+
+142
+142
+potatoes
+Potatoes
+
+143
+143
+wooden_button
+Oak Button
+
+144
+144
+skeleton_skull
+Skeleton Skull
+
+145
+145
+anvil
+Anvil
+
+146
+146
+trapped_chest
+Trapped Chest
+
+147
+147
+light_weighted_pressure_plate
+Light Weighted Pressure Plate
+
+148
+148
+heavy_weighted_pressure_plate
+Heavy Weighted Pressure Plate
+
+149
+149
+unpowered_comparator
+Unpowered Comparator
+
+150
+150
+powered_comparator
+Powered Comparator
+
+151
+151
+daylight_detector
+Daylight Detector
+
+152
+152
+redstone_block
+Block of Redstone
+
+153
+153
+quartz_ore
+Nether Quartz Ore
+
+154
+154
+hopper
+Hopper
+
+155
+155
+quartz_block
+Block of Quartz
+
+156
+156
+quartz_stairs
+Quartz Stairs
+
+157
+157
+oak_double_slab
+Double Oak Slab
+
+158
+158
+oak_slab
+Oak Slab
+
+159
+159
+white_terracotta
+White Terracotta
+
+160
+160
+white_stained_glass_pane
+White Stained Glass Pane
+
+161
+161
+acacia_leaves
+Acacia Leaves
+
+162
+162
+acacia_log
+Acacia Log
+
+163
+163
+acacia_stairs
+Acacia Stairs
+
+164
+164
+dark_oak_stairs
+Dark Oak Stairs
+
+165
+165
+slime
+Slime Block
+
+166
+166
+zzzzz00
+
+166 (unused)
+
+167
+167
+iron_trapdoor
+Iron Trapdoor
+
+168
+168
+prismarine
+Prismarine
+
+169
+169
+sea_lantern
+Sea Lantern
+
+170
+170
+hay_block
+Hay Bale
+
+171
+171
+white_carpet
+White Carpet
+
+172
+172
+hardened_clay
+Terracotta
+
+173
+173
+coal_block
+Block of Coal
+
+174
+174
+packed_ice
+Packed Ice
+
+175
+175
+sunflower
+Sunflower
+
+176
+176
+standing_banner
+Standing Banner
+
+177
+177
+wall_banner
+Wall Banner
+
+178
+178
+daylight_detector_inverted
+Inverted Daylight Detector
+
+179
+179
+red_sandstone
+Red Sandstone
+
+180
+180
+red_sandstone_stairs
+Red Sandstone Stairs
+
+181
+181
+red_sandstone_double_slab
+Double Red Sandstone Slab
+
+182
+182
+red_sandstone_slab
+Red Sandstone Slab
+
+183
+183
+spruce_fence_gate
+Spruce Fence Gate
+
+184
+184
+birch_fence_gate
+Birch Fence Gate
+
+185
+185
+jungle_fence_gate
+Jungle Fence Gate
+
+186
+186
+dark_oak_fence_gate
+Dark Oak Fence Gate
+
+187
+187
+acacia_fence_gate
+Acacia Fence Gate
+
+188
+188
+repeating_command_block
+Repeating Command Block
+
+189
+189
+chain_command_block
+Chain Command Block
+
+190
+190
+hard_glass_pane
+Hardened Glass Pane
+
+191
+191
+hard_white_stained_glass_pane
+Hardened White Stained Glass Pane
+
+192
+192
+chemical_heat
+Heat Block
+
+193
+193
+spruce_door
+Spruce Door
+
+194
+194
+birch_door
+Birch Door
+
+195
+195
+jungle_door
+Jungle Door
+
+196
+196
+acacia_door
+Acacia Door
+
+197
+197
+dark_oak_door
+Dark Oak Door
+
+198
+198
+grass_path
+Dirt Path
+
+199
+199
+frame
+Item Frame
+
+200
+200
+chorus_flower
+Chorus Flower
+
+201
+201
+purpur_block
+Purpur Block
+
+202
+202
+colored_torch_red
+Red Torch
+
+203
+203
+purpur_stairs
+Purpur Stairs
+
+204
+204
+colored_torch_blue
+Blue Torch
+
+205
+205
+undyed_shulker_box
+Shulker Box
+
+206
+206
+end_bricks
+End Stone Bricks
+
+207
+207
+frosted_ice
+Frosted Ice
+
+208
+208
+end_rod
+End Rod
+
+209
+209
+end_gateway
+End Gateway
+
+210
+210
+allow
+Allow
+
+211
+211
+deny
+Deny
+
+212
+212
+border_block
+Border
+
+213
+213
+magma
+Magma Block
+
+214
+214
+nether_wart_block
+Nether Wart Block
+
+215
+215
+red_nether_brick
+Red Nether Bricks
+
+216
+216
+bone_block
+Bone Block
+
+217
+217
+structure_void
+Structure Void
+
+218
+218
+white_shulker_box
+White Shulker Box
+
+219
+219
+purple_glazed_terracotta
+Purple Glazed Terracotta
+
+220
+220
+white_glazed_terracotta
+White Glazed Terracotta
+
+221
+221
+orange_glazed_terracotta
+Orange Glazed Terracotta
+
+222
+222
+magenta_glazed_terracotta
+Magenta Glazed Terracotta
+
+223
+223
+light_blue_glazed_terracotta
+Light Blue Glazed Terracotta
+
+224
+224
+yellow_glazed_terracotta
+Yellow Glazed Terracotta
+
+225
+225
+lime_glazed_terracotta
+Lime Glazed Terracotta
+
+226
+226
+pink_glazed_terracotta
+Pink Glazed Terracotta
+
+227
+227
+gray_glazed_terracotta
+Gray Glazed Terracotta
+
+228
+228
+silver_glazed_terracotta
+Light Gray Glazed Terracotta
+
+229
+229
+cyan_glazed_terracotta
+Cyan Glazed Terracotta
+
+230
+230
+chalkboard
+Chalkboard
+
+231
+231
+blue_glazed_terracotta
+Blue Glazed Terracotta
+
+232
+232
+brown_glazed_terracotta
+Brown Glazed Terracotta
+
+233
+233
+green_glazed_terracotta
+Green Glazed Terracotta
+
+234
+234
+red_glazed_terracotta
+Red Glazed Terracotta
+
+235
+235
+black_glazed_terracotta
+Black Glazed Terracotta
+
+236
+236
+white_concrete
+White Concrete
+
+237
+237
+white_concrete_powder
+White Concrete Powder
+
+238
+238
+compound_creator
+Compound Creator
+
+239
+239
+underwater_torch
+Underwater Torch
+
+240
+240
+chorus_plant
+Chorus Plant
+
+241
+241
+white_stained_glass
+White Stained Glass
+
+242
+242
+camera
+Camera
+
+243
+243
+podzol
+Podzol
+
+244
+244
+beetroot
+Beetroots
+
+245
+245
+stonecutter
+Stonecutter
+
+246
+246
+glowingobsidian
+Glowing Obsidian
+
+247
+247
+netherreactor
+Nether Reactor Core
+
+248
+248
+info_update
+Info Update
+
+249
+249
+info_update2
+Info Update2
+
+250
+250
+moving_block
+Moving Block
+
+251
+251
+observer
+Observer
+
+252
+252
+structure_block
+Structure Block
+
+253
+253
+hard_glass
+Hardened Glass
+
+254
+254
+hard_white_stained_glass
+Hardened White Stained Glass
+
+255
+255
+reserved6
+Reserved6
+
+256
+-1
+zzzzz01
+
+256 (unused)
+
+257
+-2
+prismarine_stairs
+Prismarine Stairs
+
+258
+-3
+dark_prismarine_stairs
+Dark Prismarine Stairs
+
+259
+-4
+prismarine_bricks_stairs
+Prismarine Brick Stairs
+
+260
+-5
+stripped_spruce_log
+Stripped Spruce Log
+
+261
+-6
+stripped_birch_log
+Stripped Birch Log
+
+262
+-7
+stripped_jungle_log
+Stripped Jungle Log
+
+263
+-8
+stripped_acacia_log
+Stripped Acacia Log
+
+264
+-9
+stripped_dark_oak_log
+Stripped Dark Oak Log
+
+265
+-10
+stripped_oak_log
+Stripped Oak Log
+
+266
+-11
+blue_ice
+Blue Ice
+
+267
+-12
+element_1
+Hydrogen
+
+268
+-13
+element_2
+Helium
+
+269
+-14
+element_3
+Lithium
+
+270
+-15
+element_4
+Beryllium
+
+271
+-16
+element_5
+Boron
+
+272
+-17
+element_6
+Carbon
+
+273
+-18
+element_7
+Nitrogen
+
+274
+-19
+element_8
+Oxygen
+
+275
+-20
+element_9
+Fluorine
+
+276
+-21
+element_10
+Neon
+
+277
+-22
+element_11
+Sodium
+
+278
+-23
+element_12
+Magnesium
+
+279
+-24
+element_13
+Aluminum
+
+280
+-25
+element_14
+Silicon
+
+281
+-26
+element_15
+Phosphorus
+
+282
+-27
+element_16
+Sulfur
+
+283
+-28
+element_17
+Chlorine
+
+284
+-29
+element_18
+Argon
+
+285
+-30
+element_19
+Potassium
+
+286
+-31
+element_20
+Calcium
+
+287
+-32
+element_21
+Scandium
+
+288
+-33
+element_22
+Titanium
+
+289
+-34
+element_23
+Vanadium
+
+290
+-35
+element_24
+Chromium
+
+291
+-36
+element_25
+Manganese
+
+292
+-37
+element_26
+Iron
+
+293
+-38
+element_27
+Cobalt
+
+294
+-39
+element_28
+Nickel
+
+295
+-40
+element_29
+Copper
+
+296
+-41
+element_30
+Zinc
+
+297
+-42
+element_31
+Gallium
+
+298
+-43
+element_32
+Germanium
+
+299
+-44
+element_33
+Arsenic
+
+300
+-45
+element_34
+Selenium
+
+301
+-46
+element_35
+Bromine
+
+302
+-47
+element_36
+Krypton
+
+303
+-48
+element_37
+Rubidium
+
+304
+-49
+element_38
+Strontium
+
+305
+-50
+element_39
+Yttrium
+
+306
+-51
+element_40
+Zirconium
+
+307
+-52
+element_41
+Niobium
+
+308
+-53
+element_42
+Molybdenum
+
+309
+-54
+element_43
+Technetium
+
+310
+-55
+element_44
+Ruthenium
+
+311
+-56
+element_45
+Rhodium
+
+312
+-57
+element_46
+Palladium
+
+313
+-58
+element_47
+Silver
+
+314
+-59
+element_48
+Cadmium
+
+315
+-60
+element_49
+Indium
+
+316
+-61
+element_50
+Tin
+
+317
+-62
+element_51
+Antimony
+
+318
+-63
+element_52
+Tellurium
+
+319
+-64
+element_53
+Iodine
+
+320
+-65
+element_54
+Xenon
+
+321
+-66
+element_55
+Cesium
+
+322
+-67
+element_56
+Barium
+
+323
+-68
+element_57
+Lanthanum
+
+324
+-69
+element_58
+Cerium
+
+325
+-70
+element_59
+Praseodymium
+
+326
+-71
+element_60
+Neodymium
+
+327
+-72
+element_61
+Promethium
+
+328
+-73
+element_62
+Samarium
+
+329
+-74
+element_63
+Europium
+
+330
+-75
+element_64
+Gadolinium
+
+331
+-76
+element_65
+Terbium
+
+332
+-77
+element_66
+Dysprosium
+
+333
+-78
+element_67
+Holmium
+
+334
+-79
+element_68
+Erbium
+
+335
+-80
+element_69
+Thulium
+
+336
+-81
+element_70
+Ytterbium
+
+337
+-82
+element_71
+Lutetium
+
+338
+-83
+element_72
+Hafnium
+
+339
+-84
+element_73
+Tantalum
+
+340
+-85
+element_74
+Tungsten
+
+341
+-86
+element_75
+Rhenium
+
+342
+-87
+element_76
+Osmium
+
+343
+-88
+element_77
+Iridium
+
+344
+-89
+element_78
+Platinum
+
+345
+-90
+element_79
+Gold
+
+346
+-91
+element_80
+Mercury
+
+347
+-92
+element_81
+Thallium
+
+348
+-93
+element_82
+Lead
+
+349
+-94
+element_83
+Bismuth
+
+350
+-95
+element_84
+Polonium
+
+351
+-96
+element_85
+Astatine
+
+352
+-97
+element_86
+Radon
+
+353
+-98
+element_87
+Francium
+
+354
+-99
+element_88
+Radium
+
+355
+-100
+element_89
+Actinium
+
+356
+-101
+element_90
+Thorium
+
+357
+-102
+element_91
+Protactinium
+
+358
+-103
+element_92
+Uranium
+
+359
+-104
+element_93
+Neptunium
+
+360
+-105
+element_94
+Plutonium
+
+361
+-106
+element_95
+Americium
+
+362
+-107
+element_96
+Curium
+
+363
+-108
+element_97
+Berkelium
+
+364
+-109
+element_98
+Californium
+
+365
+-110
+element_99
+Einsteinium
+
+366
+-111
+element_100
+Fermium
+
+367
+-112
+element_101
+Mendelevium
+
+368
+-113
+element_102
+Nobelium
+
+369
+-114
+element_103
+Lawrencium
+
+370
+-115
+element_104
+Rutherfordium
+
+371
+-116
+element_105
+Dubnium
+
+372
+-117
+element_106
+Seaborgium
+
+373
+-118
+element_107
+Bohrium
+
+374
+-119
+element_108
+Hassium
+
+375
+-120
+element_109
+Meitnerium
+
+376
+-121
+element_110
+Darmstadtium
+
+377
+-122
+element_111
+Roentgenium
+
+378
+-123
+element_112
+Copernicium
+
+379
+-124
+element_113
+Nihonium
+
+380
+-125
+element_114
+Flerovium
+
+381
+-126
+element_115
+Moscovium
+
+382
+-127
+element_116
+Livermorium
+
+383
+-128
+element_117
+Tennessine
+
+384
+-129
+element_118
+Oganesson
+
+385
+-130
+seagrass
+Seagrass
+
+386
+-131
+tube_coral
+Tube Coral
+
+387
+-132
+tube_coral_block
+Tube Coral Block
+
+388
+-133
+tube_coral_fan
+Tube Coral Fan
+
+389
+-134
+dead_tube_coral_fan
+Dead Tube Coral Fan
+
+390
+-135
+tube_coral_wall_fan
+Tube Coral Wall Fan
+
+391
+-136
+bubble_coral_wall_fan
+Bubble Coral Wall Fan
+
+392
+-137
+horn_coral_wall_fan
+Horn Coral Wall Fan
+
+393
+-138
+kelp
+Kelp
+
+394
+-139
+dried_kelp_block
+Dried Kelp Block
+
+395
+-140
+acacia_button
+Acacia Button
+
+396
+-141
+birch_button
+Birch Button
+
+397
+-142
+dark_oak_button
+Dark Oak Button
+
+398
+-143
+jungle_button
+Jungle Button
+
+399
+-144
+spruce_button
+Spruce Button
+
+400
+-145
+acacia_trapdoor
+Acacia Trapdoor
+
+401
+-146
+birch_trapdoor
+Birch Trapdoor
+
+402
+-147
+dark_oak_trapdoor
+Dark Oak Trapdoor
+
+403
+-148
+jungle_trapdoor
+Jungle Trapdoor
+
+404
+-149
+spruce_trapdoor
+Spruce Trapdoor
+
+405
+-150
+acacia_pressure_plate
+Acacia Pressure Plate
+
+406
+-151
+birch_pressure_plate
+Birch Pressure Plate
+
+407
+-152
+dark_oak_pressure_plate
+Dark Oak Pressure Plate
+
+408
+-153
+jungle_pressure_plate
+Jungle Pressure Plate
+
+409
+-154
+spruce_pressure_plate
+Spruce Pressure Plate
+
+410
+-155
+carved_pumpkin
+Carved Pumpkin
+
+411
+-156
+sea_pickle
+Sea Pickle
+
+412
+-157
+conduit
+Conduit
+
+413
+-158
+air
+Air
+
+414
+-159
+turtle_egg
+Turtle Egg
+
+415
+-160
+bubble_column
+Bubble Column
+
+416
+-161
+barrier
+Barrier
+
+417
+-162
+end_stone_brick_slab
+End Stone Brick Slab
+
+418
+-163
+bamboo
+Bamboo
+
+419
+-164
+bamboo_sapling
+Bamboo Sapling
+
+420
+-165
+scaffolding
+Scaffolding
+
+421
+-166
+mossy_stone_brick_slab
+Mossy Stone Brick Slab
+
+422
+-167
+end_stone_brick_double_slab
+Double End Stone Brick Slab
+
+423
+-168
+mossy_stone_brick_double_slab
+Double Mossy Stone Brick Slab
+
+424
+-169
+granite_stairs
+Granite Stairs
+
+425
+-170
+diorite_stairs
+Diorite Stairs
+
+426
+-171
+andesite_stairs
+Andesite Stairs
+
+427
+-172
+polished_granite_stairs
+Polished Granite Stairs
+
+428
+-173
+polished_diorite_stairs
+Polished Diorite Stairs
+
+429
+-174
+polished_andesite_stairs
+Polished Andesite Stairs
+
+430
+-175
+mossy_stone_brick_stairs
+Mossy Stone Brick Stairs
+
+431
+-176
+smooth_red_sandstone_stairs
+Smooth Red Sandstone Stairs
+
+432
+-177
+smooth_sandstone_stairs
+Smooth Sandstone Stairs
+
+433
+-178
+end_brick_stairs
+End Stone Brick Stairs
+
+434
+-179
+mossy_cobblestone_stairs
+Mossy Cobblestone Stairs
+
+435
+-180
+normal_stone_stairs
+Stone Stairs
+
+436
+-181
+spruce_standing_sign
+Spruce Sign
+
+437
+-182
+spruce_wall_sign
+Spruce Wall Sign
+
+438
+-183
+smooth_stone
+Smooth Stone
+
+439
+-184
+red_nether_brick_stairs
+Red Nether Brick Stairs
+
+440
+-185
+smooth_quartz_stairs
+Smooth Quartz Stairs
+
+441
+-186
+birch_standing_sign
+Birch Sign
+
+442
+-187
+birch_wall_sign
+Birch Wall Sign
+
+443
+-188
+jungle_standing_sign
+Jungle Sign
+
+444
+-189
+jungle_wall_sign
+Jungle Wall Sign
+
+445
+-190
+acacia_standing_sign
+Acacia Sign
+
+446
+-191
+acacia_wall_sign
+Acacia Wall Sign
+
+447
+-192
+darkoak_standing_sign
+Dark Oak Sign
+
+448
+-193
+darkoak_wall_sign
+Dark Oak Wall Sign
+
+449
+-194
+lectern
+Lectern
+
+450
+-195
+grindstone
+Grindstone
+
+451
+-196
+blast_furnace
+Blast Furnace
+
+452
+-197
+stonecutter_block
+Stonecutter
+
+453
+-198
+smoker
+Smoker
+
+454
+-199
+lit_smoker
+Lit Smoker
+
+455
+-200
+cartography_table
+Cartography Table
+
+456
+-201
+fletching_table
+Fletching Table
+
+457
+-202
+smithing_table
+Smithing Table
+
+458
+-203
+barrel
+Barrel
+
+459
+-204
+loom
+Loom
+
+460
+-205
+zzzzz02
+
+460 (unused)
+
+461
+-206
+bell
+Bell
+
+462
+-207
+sweet_berry_bush
+Sweet Berry Bush
+
+463
+-208
+lantern
+Lantern
+
+464
+-209
+campfire
+Campfire
+
+465
+-210
+zzzzz03
+
+465 (unused)
+
+466
+-211
+jigsaw
+Jigsaw
+
+467
+-212
+oak_wood
+Oak Wood
+
+468
+-213
+composter
+Composter
+
+469
+-214
+lit_blast_furnace
+Lit Blast Furnace
+
+470
+-215
+light_block_0
+Light (0)
+
+471
+-216
+wither_rose
+Wither Rose
+
+472
+-217
+sticky_piston_arm_collision
+Sticky Piston Arm Collision
+
+473
+-218
+bee_nest
+Bee Nest
+
+474
+-219
+beehive
+Beehive
+
+475
+-220
+honey_block
+Honey Block
+
+476
+-221
+honeycomb_block
+Honeycomb Block
+
+477
+-222
+lodestone
+Lodestone
+
+478
+-223
+crimson_roots
+Crimson Roots
+
+479
+-224
+warped_roots
+Warped Roots
+
+480
+-225
+crimson_stem
+Crimson Stem
+
+481
+-226
+warped_stem
+Warped Stem
+
+482
+-227
+warped_wart_block
+Warped Wart Block
+
+483
+-228
+crimson_fungus
+Crimson Fungus
+
+484
+-229
+warped_fungus
+Warped Fungus
+
+485
+-230
+shroomlight
+Shroomlight
+
+486
+-231
+weeping_vines
+Weeping Vines
+
+487
+-232
+crimson_nylium
+Crimson Nylium
+
+488
+-233
+warped_nylium
+Warped Nylium
+
+489
+-234
+basalt
+Basalt
+
+490
+-235
+polished_basalt
+Polished Basalt
+
+491
+-236
+soul_soil
+Soul Soil
+
+492
+-237
+soul_fire
+Soul Fire
+
+493
+-238
+nether_sprouts
+Nether Sprouts
+
+494
+-239
+target
+Target
+
+495
+-240
+stripped_crimson_stem
+Stripped Crimson Stem
+
+496
+-241
+stripped_warped_stem
+Stripped Warped Stem
+
+497
+-242
+crimson_planks
+Crimson Planks
+
+498
+-243
+warped_planks
+Warped Planks
+
+499
+-244
+crimson_door
+Crimson Door
+
+500
+-245
+warped_door
+Warped Door
+
+501
+-246
+crimson_trapdoor
+Crimson Trapdoor
+
+502
+-247
+warped_trapdoor
+Warped Trapdoor
+
+503
+-248
+zzzzz04
+
+503–504 (unused)
+
+505
+-250
+crimson_standing_sign
+Crimson Sign
+
+506
+-251
+warped_standing_sign
+Warped Sign
+
+507
+-252
+crimson_wall_sign
+Crimson Wall Sign
+
+508
+-253
+warped_wall_sign
+Warped Wall Sign
+
+509
+-254
+crimson_stairs
+Crimson Stairs
+
+510
+-255
+warped_stairs
+Warped Stairs
+
+511
+-256
+crimson_fence
+Crimson Fence
+
+512
+-257
+warped_fence
+Warped Fence
+
+513
+-258
+crimson_fence_gate
+Crimson Fence Gate
+
+514
+-259
+warped_fence_gate
+Warped Fence Gate
+
+515
+-260
+crimson_button
+Crimson Button
+
+516
+-261
+warped_button
+Warped Button
+
+517
+-262
+crimson_pressure_plate
+Crimson Pressure Plate
+
+518
+-263
+warped_pressure_plate
+Warped Pressure Plate
+
+519
+-264
+crimson_slab
+Crimson Slab
+
+520
+-265
+warped_slab
+Warped Slab
+
+521
+-266
+crimson_double_slab
+Double Crimson Slab
+
+522
+-267
+warped_double_slab
+Double Warped Slab
+
+523
+-268
+soul_torch
+Soul Torch
+
+524
+-269
+soul_lantern
+Soul Lantern
+
+525
+-270
+netherite_block
+Block of Netherite
+
+526
+-271
+ancient_debris
+Ancient Debris
+
+527
+-272
+respawn_anchor
+Respawn Anchor
+
+528
+-273
+blackstone
+Blackstone
+
+529
+-274
+polished_blackstone_bricks
+Polished Blackstone Bricks
+
+530
+-275
+polished_blackstone_brick_stairs
+Polished Blackstone Brick Stairs
+
+531
+-276
+blackstone_stairs
+Blackstone Stairs
+
+532
+-277
+blackstone_wall
+Blackstone Wall
+
+533
+-278
+polished_blackstone_brick_wall
+Polished Blackstone Brick Wall
+
+534
+-279
+chiseled_polished_blackstone
+Chiseled Polished Blackstone
+
+535
+-280
+cracked_polished_blackstone_bricks
+Cracked Polished Blackstone Bricks
+
+536
+-281
+gilded_blackstone
+Gilded Blackstone
+
+537
+-282
+blackstone_slab
+Blackstone Slab
+
+538
+-283
+blackstone_double_slab
+Double Blackstone Slab
+
+539
+-284
+polished_blackstone_brick_slab
+Polished Blackstone Brick Slab
+
+540
+-285
+polished_blackstone_brick_double_slab
+Double Polished Blackstone Brick Slab
+
+541
+-286
+iron_chain
+Iron Chain
+
+542
+-287
+twisting_vines
+Twisting Vines
+
+543
+-288
+nether_gold_ore
+Nether Gold Ore
+
+544
+-289
+crying_obsidian
+Crying Obsidian
+
+545
+-290
+soul_campfire
+Soul Campfire
+
+546
+-291
+polished_blackstone
+Polished Blackstone
+
+547
+-292
+polished_blackstone_stairs
+Polished Blackstone Stairs
+
+548
+-293
+polished_blackstone_slab
+Polished Blackstone Slab
+
+549
+-294
+polished_blackstone_double_slab
+Double Polished Blackstone Slab
+
+550
+-295
+polished_blackstone_pressure_plate
+Polished Blackstone Pressure Plate
+
+551
+-296
+polished_blackstone_button
+Polished Blackstone Button
+
+552
+-297
+polished_blackstone_wall
+Polished Blackstone Wall
+
+553
+-298
+warped_hyphae
+Warped Hyphae
+
+554
+-299
+crimson_hyphae
+Crimson Hyphae
+
+555
+-300
+stripped_crimson_hyphae
+Stripped Crimson Hyphae
+
+556
+-301
+stripped_warped_hyphae
+Stripped Warped Hyphae
+
+557
+-302
+chiseled_nether_bricks
+Chiseled Nether Bricks
+
+558
+-303
+cracked_nether_bricks
+Cracked Nether Bricks
+
+559
+-304
+quartz_bricks
+Quartz Bricks
+
+560
+-305
+unknown
+Unknown
+
+561
+-306
+powder_snow
+Powder Snow
+
+562
+-307
+sculk_sensor
+Sculk Sensor
+
+563
+-308
+pointed_dripstone
+Pointed Dripstone
+
+564
+-309
+zzzzz05
+
+564–565 (unused)
+
+566
+-311
+copper_ore
+Copper Ore
+
+567
+-312
+lightning_rod
+Lightning Rod
+
+568
+-313
+crafter
+Crafter
+
+569
+-314
+vault
+Vault
+
+570
+-315
+trial_spawner
+Trial Spawner
+
+571
+-316
+heavy_core
+Heavy Core
+
+572
+-317
+dripstone_block
+Dripstone Block
+
+573
+-318
+dirt_with_roots
+Rooted Dirt
+
+574
+-319
+hanging_roots
+Hanging Roots
+
+575
+-320
+moss_block
+Moss Block
+
+576
+-321
+spore_blossom
+Spore Blossom
+
+577
+-322
+cave_vines
+Cave Vines
+
+578
+-323
+big_dripleaf
+Big Dripleaf
+
+579
+-324
+azalea_leaves
+Azalea Leaves
+
+580
+-325
+azalea_leaves_flowered
+Flowering Azalea Leaves
+
+581
+-326
+calcite
+Calcite
+
+582
+-327
+amethyst_block
+Block of Amethyst
+
+583
+-328
+budding_amethyst
+Budding Amethyst
+
+584
+-329
+amethyst_cluster
+Amethyst Cluster
+
+585
+-330
+large_amethyst_bud
+Large Amethyst Bud
+
+586
+-331
+medium_amethyst_bud
+Medium Amethyst Bud
+
+587
+-332
+small_amethyst_bud
+Small Amethyst Bud
+
+588
+-333
+tuff
+Tuff
+
+589
+-334
+tinted_glass
+Tinted Glass
+
+590
+-335
+moss_carpet
+Moss Carpet
+
+591
+-336
+small_dripleaf_block
+Small Dripleaf
+
+592
+-337
+azalea
+Azalea
+
+593
+-338
+flowering_azalea
+Flowering Azalea
+
+594
+-339
+glow_frame
+Glow Item Frame
+
+595
+-340
+copper_block
+Block of Copper
+
+596
+-341
+exposed_copper
+Exposed Copper
+
+597
+-342
+weathered_copper
+Weathered Copper
+
+598
+-343
+oxidized_copper
+Oxidized Copper
+
+599
+-344
+waxed_copper
+Waxed Block of Copper
+
+600
+-345
+waxed_exposed_copper
+Waxed Exposed Copper
+
+601
+-346
+waxed_weathered_copper
+Waxed Weathered Copper
+
+602
+-347
+cut_copper
+Cut Copper
+
+603
+-348
+exposed_cut_copper
+Exposed Cut Copper
+
+604
+-349
+weathered_cut_copper
+Weathered Cut Copper
+
+605
+-350
+oxidized_cut_copper
+Oxidized Cut Copper
+
+606
+-351
+waxed_cut_copper
+Waxed Cut Copper
+
+607
+-352
+waxed_exposed_cut_copper
+Waxed Exposed Cut Copper
+
+608
+-353
+waxed_weathered_cut_copper
+Waxed Weathered Cut Copper
+
+609
+-354
+cut_copper_stairs
+Cut Copper Stairs
+
+610
+-355
+exposed_cut_copper_stairs
+Exposed Cut Copper Stairs
+
+611
+-356
+weathered_cut_copper_stairs
+Weathered Cut Copper Stairs
+
+612
+-357
+oxidized_cut_copper_stairs
+Oxidized Cut Copper Stairs
+
+613
+-358
+waxed_cut_copper_stairs
+Waxed Cut Copper Stairs
+
+614
+-359
+waxed_exposed_cut_copper_stairs
+Waxed Exposed Cut Copper Stairs
+
+615
+-360
+waxed_weathered_cut_copper_stairs
+Waxed Weathered Cut Copper Stairs
+
+616
+-361
+cut_copper_slab
+Cut Copper Slab
+
+617
+-362
+exposed_cut_copper_slab
+Exposed Cut Copper Slab
+
+618
+-363
+weathered_cut_copper_slab
+Weathered Cut Copper Slab
+
+619
+-364
+oxidized_cut_copper_slab
+Oxidized Cut Copper Slab
+
+620
+-365
+waxed_cut_copper_slab
+Waxed Cut Copper Slab
+
+621
+-366
+waxed_exposed_cut_copper_slab
+Waxed Exposed Cut Copper Slab
+
+622
+-367
+waxed_weathered_cut_copper_slab
+Waxed Weathered Cut Copper Slab
+
+623
+-368
+double_cut_copper_slab
+Double Cut Copper Slab
+
+624
+-369
+exposed_double_cut_copper_slab
+Double Exposed Cut Copper Slab
+
+625
+-370
+weathered_double_cut_copper_slab
+Double Weathered Cut Copper Slab
+
+626
+-371
+oxidized_double_cut_copper_slab
+Double Oxidized Cut Copper Slab
+
+627
+-372
+waxed_double_cut_copper_slab
+Double Waxed Cut Copper Slab
+
+628
+-373
+waxed_exposed_double_cut_copper_slab
+Double Waxed Exposed Cut Copper Slab
+
+629
+-374
+waxed_weathered_double_cut_copper_slab
+Double Waxed Weathered Cut Copper Slab
+
+630
+-375
+cave_vines_body_with_berries
+Cave Vines Body With Berries
+
+631
+-376
+cave_vines_head_with_berries
+Cave Vines Head With Berries
+
+632
+-377
+smooth_basalt
+Smooth Basalt
+
+633
+-378
+deepslate
+Deepslate
+
+634
+-379
+cobbled_deepslate
+Cobbled Deepslate
+
+635
+-380
+cobbled_deepslate_slab
+Cobbled Deepslate Slab
+
+636
+-381
+cobbled_deepslate_stairs
+Cobbled Deepslate Stairs
+
+637
+-382
+cobbled_deepslate_wall
+Cobbled Deepslate Wall
+
+638
+-383
+polished_deepslate
+Polished Deepslate
+
+639
+-384
+polished_deepslate_slab
+Polished Deepslate Slab
+
+640
+-385
+polished_deepslate_stairs
+Polished Deepslate Stairs
+
+641
+-386
+polished_deepslate_wall
+Polished Deepslate Wall
+
+642
+-387
+deepslate_tiles
+Deepslate Tiles
+
+643
+-388
+deepslate_tile_slab
+Deepslate Tile Slab
+
+644
+-389
+deepslate_tile_stairs
+Deepslate Tile Stairs
+
+645
+-390
+deepslate_tile_wall
+Deepslate Tile Wall
+
+646
+-391
+deepslate_bricks
+Deepslate Bricks
+
+647
+-392
+deepslate_brick_slab
+Deepslate Brick Slab
+
+648
+-393
+deepslate_brick_stairs
+Deepslate Brick Stairs
+
+649
+-394
+deepslate_brick_wall
+Deepslate Brick Wall
+
+650
+-395
+chiseled_deepslate
+Chiseled Deepslate
+
+651
+-396
+cobbled_deepslate_double_slab
+Double Cobbled Deepslate Slab
+
+652
+-397
+polished_deepslate_double_slab
+Double Polished Deepslate Slab
+
+653
+-398
+deepslate_tile_double_slab
+Double Deepslate Tile Slab
+
+654
+-399
+deepslate_brick_double_slab
+Double Deepslate Brick Slab
+
+655
+-400
+deepslate_lapis_ore
+Deepslate Lapis Lazuli Ore
+
+656
+-401
+deepslate_iron_ore
+Deepslate Iron Ore
+
+657
+-402
+deepslate_gold_ore
+Deepslate Gold Ore
+
+658
+-403
+deepslate_redstone_ore
+Deepslate Redstone Ore
+
+659
+-404
+lit_deepslate_redstone_ore
+Lit Deepslate Redstone Ore
+
+660
+-405
+deepslate_diamond_ore
+Deepslate Diamond Ore
+
+661
+-406
+deepslate_coal_ore
+Deepslate Coal Ore
+
+662
+-407
+deepslate_emerald_ore
+Deepslate Emerald Ore
+
+663
+-408
+deepslate_copper_ore
+Deepslate Copper Ore
+
+664
+-409
+cracked_deepslate_tiles
+Cracked Deepslate Tiles
+
+665
+-410
+cracked_deepslate_bricks
+Cracked Deepslate Bricks
+
+666
+-411
+glow_lichen
+Glow Lichen
+
+667
+-412
+candle
+Candle
+
+668
+-413
+white_candle
+White Candle
+
+669
+-414
+orange_candle
+Orange Candle
+
+670
+-415
+magenta_candle
+Magenta Candle
+
+671
+-416
+light_blue_candle
+Light Blue Candle
+
+672
+-417
+yellow_candle
+Yellow Candle
+
+673
+-418
+lime_candle
+Lime Candle
+
+674
+-419
+pink_candle
+Pink Candle
+
+675
+-420
+gray_candle
+Gray Candle
+
+676
+-421
+light_gray_candle
+Light Gray Candle
+
+677
+-422
+cyan_candle
+Cyan Candle
+
+678
+-423
+purple_candle
+Purple Candle
+
+679
+-424
+blue_candle
+Blue Candle
+
+680
+-425
+brown_candle
+Brown Candle
+
+681
+-426
+green_candle
+Green Candle
+
+682
+-427
+red_candle
+Red Candle
+
+683
+-428
+black_candle
+Black Candle
+
+684
+-429
+candle_cake
+Candle Cake
+
+685
+-430
+white_candle_cake
+White Candle Cake
+
+686
+-431
+orange_candle_cake
+Orange Candle Cake
+
+687
+-432
+magenta_candle_cake
+Magenta Candle Cake
+
+688
+-433
+light_blue_candle_cake
+Light Blue Candle Cake
+
+689
+-434
+yellow_candle_cake
+Yellow Candle Cake
+
+690
+-435
+lime_candle_cake
+Lime Candle Cake
+
+691
+-436
+pink_candle_cake
+Pink Candle Cake
+
+692
+-437
+gray_candle_cake
+Gray Candle Cake
+
+693
+-438
+light_gray_candle_cake
+Light Gray Candle Cake
+
+694
+-439
+cyan_candle_cake
+Cyan Candle Cake
+
+695
+-440
+purple_candle_cake
+Purple Candle Cake
+
+696
+-441
+blue_candle_cake
+Blue Candle Cake
+
+697
+-442
+brown_candle_cake
+Brown Candle Cake
+
+698
+-443
+green_candle_cake
+Green Candle Cake
+
+699
+-444
+red_candle_cake
+Red Candle Cake
+
+700
+-445
+black_candle_cake
+Black Candle Cake
+
+701
+-446
+waxed_oxidized_copper
+Waxed Oxidized Copper
+
+702
+-447
+waxed_oxidized_cut_copper
+Waxed Oxidized Cut Copper
+
+703
+-448
+waxed_oxidized_cut_copper_stairs
+Waxed Oxidized Cut Copper Stairs
+
+704
+-449
+waxed_oxidized_cut_copper_slab
+Waxed Oxidized Cut Copper Slab
+
+705
+-450
+waxed_oxidized_double_cut_copper_slab
+Double Waxed Oxidized Cut Copper Slab
+
+706
+-451
+raw_iron_block
+Block of Raw Iron
+
+707
+-452
+raw_copper_block
+Block of Raw Copper
+
+708
+-453
+raw_gold_block
+Block of Raw Gold
+
+709
+-454
+infested_deepslate
+Infested Deepslate
+
+710
+-455
+zzzzz06
+
+710–712 (unused)
+
+713
+-458
+sculk
+Sculk
+
+714
+-459
+sculk_vein
+Sculk Vein
+
+715
+-460
+sculk_catalyst
+Sculk Catalyst
+
+716
+-461
+sculk_shrieker
+Sculk Shrieker
+
+717
+-462
+zzzzz07
+
+717–719 (unused)
+
+720
+-465
+client_request_placeholder_block
+Client Request Placeholder Block
+
+721
+-466
+reinforced_deepslate
+Reinforced Deepslate
+
+722
+-467
+zzzzz08
+
+722 (unused)
+
+723
+-468
+frog_spawn
+Frogspawn
+
+724
+-469
+pearlescent_froglight
+Pearlescent Froglight
+
+725
+-470
+verdant_froglight
+Verdant Froglight
+
+726
+-471
+ochre_froglight
+Ochre Froglight
+
+727
+-472
+mangrove_leaves
+Mangrove Leaves
+
+728
+-473
+mud
+Mud
+
+729
+-474
+mangrove_propagule
+Mangrove Propagule
+
+730
+-475
+mud_bricks
+Mud Bricks
+
+731
+-476
+zzzzz09
+
+731 (unused)
+
+732
+-477
+packed_mud
+Packed Mud
+
+733
+-478
+mud_brick_slab
+Mud Brick Slab
+
+734
+-479
+mud_brick_double_slab
+Double Mud Brick Slab
+
+735
+-480
+mud_brick_stairs
+Mud Brick Stairs
+
+736
+-481
+mud_brick_wall
+Mud Brick Wall
+
+737
+-482
+mangrove_roots
+Mangrove Roots
+
+738
+-483
+muddy_mangrove_roots
+Muddy Mangrove Roots
+
+739
+-484
+mangrove_log
+Mangrove Log
+
+740
+-485
+stripped_mangrove_log
+Stripped Mangrove Log
+
+741
+-486
+mangrove_planks
+Mangrove Planks
+
+742
+-487
+mangrove_button
+Mangrove Button
+
+743
+-488
+mangrove_stairs
+Mangrove Stairs
+
+744
+-489
+mangrove_slab
+Mangrove Slab
+
+745
+-490
+mangrove_pressure_plate
+Mangrove Pressure Plate
+
+746
+-491
+mangrove_fence
+Mangrove Fence
+
+747
+-492
+mangrove_fence_gate
+Mangrove Fence Gate
+
+748
+-493
+mangrove_door
+Mangrove Door
+
+749
+-494
+mangrove_standing_sign
+Mangrove Sign
+
+750
+-495
+mangrove_wall_sign
+Mangrove Wall Sign
+
+751
+-496
+mangrove_trapdoor
+Mangrove Trapdoor
+
+752
+-497
+mangrove_wood
+Mangrove Wood
+
+753
+-498
+stripped_mangrove_wood
+Stripped Mangrove Wood
+
+754
+-499
+mangrove_double_slab
+Double Mangrove Slab
+
+755
+-500
+oak_hanging_sign
+Oak Hanging Sign
+
+756
+-501
+spruce_hanging_sign
+Spruce Hanging Sign
+
+757
+-502
+birch_hanging_sign
+Birch Hanging Sign
+
+758
+-503
+jungle_hanging_sign
+Jungle Hanging Sign
+
+759
+-504
+acacia_hanging_sign
+Acacia Hanging Sign
+
+760
+-505
+dark_oak_hanging_sign
+Dark Oak Hanging Sign
+
+761
+-506
+crimson_hanging_sign
+Crimson Hanging Sign
+
+762
+-507
+warped_hanging_sign
+Warped Hanging Sign
+
+763
+-508
+mangrove_hanging_sign
+Mangrove Hanging Sign
+
+764
+-509
+bamboo_mosaic
+Bamboo Mosaic
+
+765
+-510
+bamboo_planks
+Bamboo Planks
+
+766
+-511
+bamboo_button
+Bamboo Button
+
+767
+-512
+bamboo_stairs
+Bamboo Stairs
+
+768
+-513
+bamboo_slab
+Bamboo Slab
+
+769
+-514
+bamboo_pressure_plate
+Bamboo Pressure Plate
+
+770
+-515
+bamboo_fence
+Bamboo Fence
+
+771
+-516
+bamboo_fence_gate
+Bamboo Fence Gate
+
+772
+-517
+bamboo_door
+Bamboo Door
+
+773
+-518
+bamboo_standing_sign
+Bamboo Sign
+
+774
+-519
+bamboo_wall_sign
+Bamboo Wall Sign
+
+775
+-520
+bamboo_trapdoor
+Bamboo Trapdoor
+
+776
+-521
+bamboo_double_slab
+Double Bamboo Slab
+
+777
+-522
+bamboo_hanging_sign
+Bamboo Hanging Sign
+
+778
+-523
+bamboo_mosaic_stairs
+Bamboo Mosaic Stairs
+
+779
+-524
+bamboo_mosaic_slab
+Bamboo Mosaic Slab
+
+780
+-525
+bamboo_mosaic_double_slab
+Double Bamboo Mosaic Slab
+
+781
+-526
+chiseled_bookshelf
+Chiseled Bookshelf
+
+782
+-527
+bamboo_block
+Block of Bamboo
+
+783
+-528
+stripped_bamboo_block
+Block of Stripped Bamboo
+
+784
+-529
+suspicious_sand
+Suspicious Sand
+
+785
+-530
+cherry_button
+Cherry Button
+
+786
+-531
+cherry_door
+Cherry Door
+
+787
+-532
+cherry_fence
+Cherry Fence
+
+788
+-533
+cherry_fence_gate
+Cherry Fence Gate
+
+789
+-534
+cherry_hanging_sign
+Cherry Hanging Sign
+
+790
+-535
+stripped_cherry_log
+Stripped Cherry Log
+
+791
+-536
+cherry_log
+Cherry Log
+
+792
+-537
+cherry_planks
+Cherry Planks
+
+793
+-538
+cherry_pressure_plate
+Cherry Pressure Plate
+
+794
+-539
+cherry_slab
+Cherry Slab
+
+795
+-540
+cherry_double_slab
+Double Cherry Slab
+
+796
+-541
+cherry_stairs
+Cherry Stairs
+
+797
+-542
+cherry_standing_sign
+Cherry Sign
+
+798
+-543
+cherry_trapdoor
+Cherry Trapdoor
+
+799
+-544
+cherry_wall_sign
+Cherry Wall Sign
+
+800
+-545
+stripped_cherry_wood
+Stripped Cherry Wood
+
+801
+-546
+cherry_wood
+Cherry Wood
+
+802
+-547
+cherry_sapling
+Cherry Sapling
+
+803
+-548
+cherry_leaves
+Cherry Leaves
+
+804
+-549
+pink_petals
+Pink Petals
+
+805
+-550
+zzzzz10
+
+805 (unused)
+
+806
+-551
+decorated_pot
+Decorated Pot
+
+807
+-552
+light_gray_wool
+Light Gray Wool
+
+808
+-553
+gray_wool
+Gray Wool
+
+809
+-554
+black_wool
+Black Wool
+
+810
+-555
+brown_wool
+Brown Wool
+
+811
+-556
+red_wool
+Red Wool
+
+812
+-557
+orange_wool
+Orange Wool
+
+813
+-558
+yellow_wool
+Yellow Wool
+
+814
+-559
+lime_wool
+Lime Wool
+
+815
+-560
+green_wool
+Green Wool
+
+816
+-561
+cyan_wool
+Cyan Wool
+
+817
+-562
+light_blue_wool
+Light Blue Wool
+
+818
+-563
+blue_wool
+Blue Wool
+
+819
+-564
+purple_wool
+Purple Wool
+
+820
+-565
+magenta_wool
+Magenta Wool
+
+821
+-566
+pink_wool
+Pink Wool
+
+822
+-567
+torchflower_crop
+Torchflower Crop
+
+823
+-568
+torchflower
+Torchflower
+
+824
+-569
+spruce_log
+Spruce Log
+
+825
+-570
+birch_log
+Birch Log
+
+826
+-571
+jungle_log
+Jungle Log
+
+827
+-572
+dark_oak_log
+Dark Oak Log
+
+828
+-573
+suspicious_gravel
+Suspicious Gravel
+
+829
+-574
+pitcher_crop
+Pitcher Crop
+
+830
+-575
+acacia_fence
+Acacia Fence
+
+831
+-576
+birch_fence
+Birch Fence
+
+832
+-577
+dark_oak_fence
+Dark Oak Fence
+
+833
+-578
+jungle_fence
+Jungle Fence
+
+834
+-579
+spruce_fence
+Spruce Fence
+
+835
+-580
+calibrated_sculk_sensor
+Calibrated Sculk Sensor
+
+836
+-581
+brain_coral
+Brain Coral
+
+837
+-582
+bubble_coral
+Bubble Coral
+
+838
+-583
+fire_coral
+Fire Coral
+
+839
+-584
+horn_coral
+Horn Coral
+
+840
+-585
+dead_tube_coral
+Dead Tube Coral
+
+841
+-586
+dead_brain_coral
+Dead Brain Coral
+
+842
+-587
+dead_bubble_coral
+Dead Bubble Coral
+
+843
+-588
+dead_fire_coral
+Dead Fire Coral
+
+844
+-589
+dead_horn_coral
+Dead Horn Coral
+
+845
+-590
+granite
+Granite
+
+846
+-591
+polished_granite
+Polished Granite
+
+847
+-592
+diorite
+Diorite
+
+848
+-593
+polished_diorite
+Polished Diorite
+
+849
+-594
+andesite
+Andesite
+
+850
+-595
+polished_andesite
+Polished Andesite
+
+851
+-596
+sniffer_egg
+Sniffer Egg
+
+852
+-597
+orange_carpet
+Orange Carpet
+
+853
+-598
+magenta_carpet
+Magenta Carpet
+
+854
+-599
+light_blue_carpet
+Light Blue Carpet
+
+855
+-600
+yellow_carpet
+Yellow Carpet
+
+856
+-601
+lime_carpet
+Lime Carpet
+
+857
+-602
+pink_carpet
+Pink Carpet
+
+858
+-603
+gray_carpet
+Gray Carpet
+
+859
+-604
+light_gray_carpet
+Light Gray Carpet
+
+860
+-605
+cyan_carpet
+Cyan Carpet
+
+861
+-606
+purple_carpet
+Purple Carpet
+
+862
+-607
+blue_carpet
+Blue Carpet
+
+863
+-608
+brown_carpet
+Brown Carpet
+
+864
+-609
+green_carpet
+Green Carpet
+
+865
+-610
+red_carpet
+Red Carpet
+
+866
+-611
+black_carpet
+Black Carpet
+
+867
+-612
+pitcher_plant
+Pitcher Plant
+
+868
+-613
+orange_shulker_box
+Orange Shulker Box
+
+869
+-614
+magenta_shulker_box
+Magenta Shulker Box
+
+870
+-615
+light_blue_shulker_box
+Light Blue Shulker Box
+
+871
+-616
+yellow_shulker_box
+Yellow Shulker Box
+
+872
+-617
+lime_shulker_box
+Lime Shulker Box
+
+873
+-618
+pink_shulker_box
+Pink Shulker Box
+
+874
+-619
+gray_shulker_box
+Gray Shulker Box
+
+875
+-620
+light_gray_shulker_box
+Light Gray Shulker Box
+
+876
+-621
+cyan_shulker_box
+Cyan Shulker Box
+
+877
+-622
+purple_shulker_box
+Purple Shulker Box
+
+878
+-623
+blue_shulker_box
+Blue Shulker Box
+
+879
+-624
+brown_shulker_box
+Brown Shulker Box
+
+880
+-625
+green_shulker_box
+Green Shulker Box
+
+881
+-626
+red_shulker_box
+Red Shulker Box
+
+882
+-627
+black_shulker_box
+Black Shulker Box
+
+883
+-628
+orange_concrete
+Orange Concrete
+
+884
+-629
+magenta_concrete
+Magenta Concrete
+
+885
+-630
+light_blue_concrete
+Light Blue Concrete
+
+886
+-631
+yellow_concrete
+Yellow Concrete
+
+887
+-632
+lime_concrete
+Lime Concrete
+
+888
+-633
+pink_concrete
+Pink Concrete
+
+889
+-634
+gray_concrete
+Gray Concrete
+
+890
+-635
+light_gray_concrete
+Light Gray Concrete
+
+891
+-636
+cyan_concrete
+Cyan Concrete
+
+892
+-637
+purple_concrete
+Purple Concrete
+
+893
+-638
+blue_concrete
+Blue Concrete
+
+894
+-639
+brown_concrete
+Brown Concrete
+
+895
+-640
+green_concrete
+Green Concrete
+
+896
+-641
+red_concrete
+Red Concrete
+
+897
+-642
+black_concrete
+Black Concrete
+
+898
+-643
+orange_stained_glass_pane
+Orange Stained Glass Pane
+
+899
+-644
+magenta_stained_glass_pane
+Magenta Stained Glass Pane
+
+900
+-645
+light_blue_stained_glass_pane
+Light Blue Stained Glass Pane
+
+901
+-646
+yellow_stained_glass_pane
+Yellow Stained Glass Pane
+
+902
+-647
+lime_stained_glass_pane
+Lime Stained Glass Pane
+
+903
+-648
+pink_stained_glass_pane
+Pink Stained Glass Pane
+
+904
+-649
+gray_stained_glass_pane
+Gray Stained Glass Pane
+
+905
+-650
+light_gray_stained_glass_pane
+Light Gray Stained Glass Pane
+
+906
+-651
+cyan_stained_glass_pane
+Cyan Stained Glass Pane
+
+907
+-652
+purple_stained_glass_pane
+Purple Stained Glass Pane
+
+908
+-653
+blue_stained_glass_pane
+Blue Stained Glass Pane
+
+909
+-654
+brown_stained_glass_pane
+Brown Stained Glass Pane
+
+910
+-655
+green_stained_glass_pane
+Green Stained Glass Pane
+
+911
+-656
+red_stained_glass_pane
+Red Stained Glass Pane
+
+912
+-657
+black_stained_glass_pane
+Black Stained Glass Pane
+
+913
+-658
+hard_orange_stained_glass_pane
+Hardened Orange Stained Glass Pane
+
+914
+-659
+hard_magenta_stained_glass_pane
+Hardened Magenta Stained Glass Pane
+
+915
+-660
+hard_light_blue_stained_glass_pane
+Hardened Light Blue Stained Glass Pane
+
+916
+-661
+hard_yellow_stained_glass_pane
+Hardened Yellow Stained Glass Pane
+
+917
+-662
+hard_lime_stained_glass_pane
+Hardened Lime Stained Glass Pane
+
+918
+-663
+hard_pink_stained_glass_pane
+Hardened Pink Stained Glass Pane
+
+919
+-664
+hard_gray_stained_glass_pane
+Hardened Gray Stained Glass Pane
+
+920
+-665
+hard_light_gray_stained_glass_pane
+Hardened Light Gray Stained Glass Pane
+
+921
+-666
+hard_cyan_stained_glass_pane
+Hardened Cyan Stained Glass Pane
+
+922
+-667
+hard_purple_stained_glass_pane
+Hardened Purple Stained Glass Pane
+
+923
+-668
+hard_blue_stained_glass_pane
+Hardened Blue Stained Glass Pane
+
+924
+-669
+hard_brown_stained_glass_pane
+Hardened Brown Stained Glass Pane
+
+925
+-670
+hard_green_stained_glass_pane
+Hardened Green Stained Glass Pane
+
+926
+-671
+hard_red_stained_glass_pane
+Hardened Red Stained Glass Pane
+
+927
+-672
+hard_black_stained_glass_pane
+Hardened Black Stained Glass Pane
+
+928
+-673
+orange_stained_glass
+Orange Stained Glass
+
+929
+-674
+magenta_stained_glass
+Magenta Stained Glass
+
+930
+-675
+light_blue_stained_glass
+Light Blue Stained Glass
+
+931
+-676
+yellow_stained_glass
+Yellow Stained Glass
+
+932
+-677
+lime_stained_glass
+Lime Stained Glass
+
+933
+-678
+pink_stained_glass
+Pink Stained Glass
+
+934
+-679
+gray_stained_glass
+Gray Stained Glass
+
+935
+-680
+light_gray_stained_glass
+Light Gray Stained Glass
+
+936
+-681
+cyan_stained_glass
+Cyan Stained Glass
+
+937
+-682
+purple_stained_glass
+Purple Stained Glass
+
+938
+-683
+blue_stained_glass
+Blue Stained Glass
+
+939
+-684
+brown_stained_glass
+Brown Stained Glass
+
+940
+-685
+green_stained_glass
+Green Stained Glass
+
+941
+-686
+red_stained_glass
+Red Stained Glass
+
+942
+-687
+black_stained_glass
+Black Stained Glass
+
+943
+-688
+hard_orange_stained_glass
+Hardened Orange Stained Glass
+
+944
+-689
+hard_magenta_stained_glass
+Hardened Magenta Stained Glass
+
+945
+-690
+hard_light_blue_stained_glass
+Hardened Light Blue Stained Glass
+
+946
+-691
+hard_yellow_stained_glass
+Hardened Yellow Stained Glass
+
+947
+-692
+hard_lime_stained_glass
+Hardened Lime Stained Glass
+
+948
+-693
+hard_pink_stained_glass
+Hardened Pink Stained Glass
+
+949
+-694
+hard_gray_stained_glass
+Hardened Gray Stained Glass
+
+950
+-695
+hard_light_gray_stained_glass
+Hardened Light Gray Stained Glass
+
+951
+-696
+hard_cyan_stained_glass
+Hardened Cyan Stained Glass
+
+952
+-697
+hard_purple_stained_glass
+Hardened Purple Stained Glass
+
+953
+-698
+hard_blue_stained_glass
+Hardened Blue Stained Glass
+
+954
+-699
+hard_brown_stained_glass
+Hardened Brown Stained Glass
+
+955
+-700
+hard_green_stained_glass
+Hardened Green Stained Glass
+
+956
+-701
+hard_red_stained_glass
+Hardened Red Stained Glass
+
+957
+-702
+hard_black_stained_glass
+Hardened Black Stained Glass
+
+958
+-703
+zzzzz11
+
+958–963 (unused)
+
+964
+-709
+orange_concrete_powder
+Orange Concrete Powder
+
+965
+-710
+magenta_concrete_powder
+Magenta Concrete Powder
+
+966
+-711
+light_blue_concrete_powder
+Light Blue Concrete Powder
+
+967
+-712
+yellow_concrete_powder
+Yellow Concrete Powder
+
+968
+-713
+lime_concrete_powder
+Lime Concrete Powder
+
+969
+-714
+pink_concrete_powder
+Pink Concrete Powder
+
+970
+-715
+gray_concrete_powder
+Gray Concrete Powder
+
+971
+-716
+light_gray_concrete_powder
+Light Gray Concrete Powder
+
+972
+-717
+cyan_concrete_powder
+Cyan Concrete Powder
+
+973
+-718
+purple_concrete_powder
+Purple Concrete Powder
+
+974
+-719
+blue_concrete_powder
+Blue Concrete Powder
+
+975
+-720
+brown_concrete_powder
+Brown Concrete Powder
+
+976
+-721
+green_concrete_powder
+Green Concrete Powder
+
+977
+-722
+red_concrete_powder
+Red Concrete Powder
+
+978
+-723
+black_concrete_powder
+Black Concrete Powder
+
+979
+-724
+orange_terracotta
+Orange Terracotta
+
+980
+-725
+magenta_terracotta
+Magenta Terracotta
+
+981
+-726
+light_blue_terracotta
+Light Blue Terracotta
+
+982
+-727
+yellow_terracotta
+Yellow Terracotta
+
+983
+-728
+lime_terracotta
+Lime Terracotta
+
+984
+-729
+pink_terracotta
+Pink Terracotta
+
+985
+-730
+gray_terracotta
+Gray Terracotta
+
+986
+-731
+light_gray_terracotta
+Light Gray Terracotta
+
+987
+-732
+cyan_terracotta
+Cyan Terracotta
+
+988
+-733
+purple_terracotta
+Purple Terracotta
+
+989
+-734
+blue_terracotta
+Blue Terracotta
+
+990
+-735
+brown_terracotta
+Brown Terracotta
+
+991
+-736
+green_terracotta
+Green Terracotta
+
+992
+-737
+red_terracotta
+Red Terracotta
+
+993
+-738
+black_terracotta
+Black Terracotta
+
+994
+-739
+spruce_planks
+Spruce Planks
+
+995
+-740
+birch_planks
+Birch Planks
+
+996
+-741
+jungle_planks
+Jungle Planks
+
+997
+-742
+acacia_planks
+Acacia Planks
+
+998
+-743
+dark_oak_planks
+Dark Oak Planks
+
+999
+-744
+tuff_slab
+Tuff Slab
+
+1000
+-745
+tuff_double_slab
+Double Tuff Slab
+
+1001
+-746
+tuff_stairs
+Tuff Stairs
+
+1002
+-747
+tuff_wall
+Tuff Wall
+
+1003
+-748
+polished_tuff
+Polished Tuff
+
+1004
+-749
+polished_tuff_slab
+Polished Tuff Slab
+
+1005
+-750
+polished_tuff_double_slab
+Double Polished Tuff Slab
+
+1006
+-751
+polished_tuff_stairs
+Polished Tuff Stairs
+
+1007
+-752
+polished_tuff_wall
+Polished Tuff Wall
+
+1008
+-753
+chiseled_tuff
+Chiseled Tuff
+
+1009
+-754
+tuff_bricks
+Tuff Bricks
+
+1010
+-755
+tuff_brick_slab
+Tuff Brick Slab
+
+1011
+-756
+tuff_brick_double_slab
+Double Tuff Brick Slab
+
+1012
+-757
+tuff_brick_stairs
+Tuff Brick Stairs
+
+1013
+-758
+tuff_brick_wall
+Tuff Brick Wall
+
+1014
+-759
+chiseled_tuff_bricks
+Chiseled Tuff Bricks
+
+1015
+-760
+chiseled_copper
+Chiseled Copper
+
+1016
+-761
+exposed_chiseled_copper
+Exposed Chiseled Copper
+
+1017
+-762
+weathered_chiseled_copper
+Weathered Chiseled Copper
+
+1018
+-763
+oxidized_chiseled_copper
+Oxidized Chiseled Copper
+
+1019
+-764
+waxed_chiseled_copper
+Waxed Chiseled Copper
+
+1020
+-765
+waxed_exposed_chiseled_copper
+Waxed Exposed Chiseled Copper
+
+1021
+-766
+waxed_oxidized_chiseled_copper
+Waxed Oxidized Chiseled Copper
+
+1022
+-767
+waxed_weathered_chiseled_copper
+Waxed Weathered Chiseled Copper
+
+1023
+-768
+copper_grate
+Copper Grate
+
+1024
+-769
+exposed_copper_grate
+Exposed Copper Grate
+
+1025
+-770
+weathered_copper_grate
+Weathered Copper Grate
+
+1026
+-771
+oxidized_copper_grate
+Oxidized Copper Grate
+
+1027
+-772
+waxed_copper_grate
+Waxed Copper Grate
+
+1028
+-773
+waxed_exposed_copper_grate
+Waxed Exposed Copper Grate
+
+1029
+-774
+waxed_weathered_copper_grate
+Waxed Weathered Copper Grate
+
+1030
+-775
+waxed_oxidized_copper_grate
+Waxed Oxidized Copper Grate
+
+1031
+-776
+copper_bulb
+Copper Bulb
+
+1032
+-777
+exposed_copper_bulb
+Exposed Copper Bulb
+
+1033
+-778
+weathered_copper_bulb
+Weathered Copper Bulb
+
+1034
+-779
+oxidized_copper_bulb
+Oxidized Copper Bulb
+
+1035
+-780
+waxed_copper_bulb
+Waxed Copper Bulb
+
+1036
+-781
+waxed_exposed_copper_bulb
+Waxed Exposed Copper Bulb
+
+1037
+-782
+waxed_weathered_copper_bulb
+Waxed Weathered Copper Bulb
+
+1038
+-783
+waxed_oxidized_copper_bulb
+Waxed Oxidized Copper Bulb
+
+1039
+-784
+copper_door
+Copper Door
+
+1040
+-785
+exposed_copper_door
+Exposed Copper Door
+
+1041
+-786
+weathered_copper_door
+Weathered Copper Door
+
+1042
+-787
+oxidized_copper_door
+Oxidized Copper Door
+
+1043
+-788
+waxed_copper_door
+Waxed Copper Door
+
+1044
+-789
+waxed_exposed_copper_door
+Waxed Exposed Copper Door
+
+1045
+-790
+waxed_weathered_copper_door
+Waxed Weathered Copper Door
+
+1046
+-791
+waxed_oxidized_copper_door
+Waxed Oxidized Copper Door
+
+1047
+-792
+copper_trapdoor
+Copper Trapdoor
+
+1048
+-793
+exposed_copper_trapdoor
+Exposed Copper Trapdoor
+
+1049
+-794
+weathered_copper_trapdoor
+Weathered Copper Trapdoor
+
+1050
+-795
+oxidized_copper_trapdoor
+Oxidized Copper Trapdoor
+
+1051
+-796
+waxed_copper_trapdoor
+Waxed Copper Trapdoor
+
+1052
+-797
+waxed_exposed_copper_trapdoor
+Waxed Exposed Copper Trapdoor
+
+1053
+-798
+waxed_weathered_copper_trapdoor
+Waxed Weathered Copper Trapdoor
+
+1054
+-799
+waxed_oxidized_copper_trapdoor
+Waxed Oxidized Copper Trapdoor
+
+1055
+-800
+spruce_leaves
+Spruce Leaves
+
+1056
+-801
+birch_leaves
+Birch Leaves
+
+1057
+-802
+jungle_leaves
+Jungle Leaves
+
+1058
+-803
+dark_oak_leaves
+Dark Oak Leaves
+
+1059
+-804
+spruce_slab
+Spruce Slab
+
+1060
+-805
+birch_slab
+Birch Slab
+
+1061
+-806
+jungle_slab
+Jungle Slab
+
+1062
+-807
+acacia_slab
+Acacia Slab
+
+1063
+-808
+dark_oak_slab
+Dark Oak Slab
+
+1064
+-809
+spruce_double_slab
+Double Spruce Slab
+
+1065
+-810
+birch_double_slab
+Double Birch Slab
+
+1066
+-811
+jungle_double_slab
+Double Jungle Slab
+
+1067
+-812
+acacia_double_slab
+Double Acacia Slab
+
+1068
+-813
+dark_oak_double_slab
+Double Dark Oak Slab
+
+1069
+-814
+spruce_wood
+Spruce Wood
+
+1070
+-815
+birch_wood
+Birch Wood
+
+1071
+-816
+jungle_wood
+Jungle Wood
+
+1072
+-817
+acacia_wood
+Acacia Wood
+
+1073
+-818
+dark_oak_wood
+Dark Oak Wood
+
+1074
+-819
+stripped_oak_wood
+Stripped Oak Wood
+
+1075
+-820
+stripped_spruce_wood
+Stripped Spruce Wood
+
+1076
+-821
+stripped_birch_wood
+Stripped Birch Wood
+
+1077
+-822
+stripped_jungle_wood
+Stripped Jungle Wood
+
+1078
+-823
+stripped_acacia_wood
+Stripped Acacia Wood
+
+1079
+-824
+stripped_dark_oak_wood
+Stripped Dark Oak Wood
+
+1080
+-825
+spruce_sapling
+Spruce Sapling
+
+1081
+-826
+birch_sapling
+Birch Sapling
+
+1082
+-827
+jungle_sapling
+Jungle Sapling
+
+1083
+-828
+acacia_sapling
+Acacia Sapling
+
+1084
+-829
+dark_oak_sapling
+Dark Oak Sapling
+
+1085
+-830
+blue_orchid
+Blue Orchid
+
+1086
+-831
+allium
+Allium
+
+1087
+-832
+azure_bluet
+Azure Bluet
+
+1088
+-833
+red_tulip
+Red Tulip
+
+1089
+-834
+orange_tulip
+Orange Tulip
+
+1090
+-835
+white_tulip
+White Tulip
+
+1091
+-836
+pink_tulip
+Pink Tulip
+
+1092
+-837
+oxeye_daisy
+Oxeye Daisy
+
+1093
+-838
+cornflower
+Cornflower
+
+1094
+-839
+lily_of_the_valley
+Lily of the Valley
+
+1095
+-840
+brain_coral_fan
+Brain Coral Fan
+
+1096
+-841
+bubble_coral_fan
+Bubble Coral Fan
+
+1097
+-842
+fire_coral_fan
+Fire Coral Fan
+
+1098
+-843
+horn_coral_fan
+Horn Coral Fan
+
+1099
+-844
+dead_brain_coral_fan
+Dead Brain Coral Fan
+
+1100
+-845
+dead_bubble_coral_fan
+Dead Bubble Coral Fan
+
+1101
+-846
+dead_fire_coral_fan
+Dead Fire Coral Fan
+
+1102
+-847
+dead_horn_coral_fan
+Dead Horn Coral Fan
+
+1103
+-848
+fern
+Fern
+
+1104
+-849
+brain_coral_block
+Brain Coral Block
+
+1105
+-850
+bubble_coral_block
+Bubble Coral Block
+
+1106
+-851
+fire_coral_block
+Fire Coral Block
+
+1107
+-852
+horn_coral_block
+Horn Coral Block
+
+1108
+-853
+dead_tube_coral_block
+Dead Tube Coral Block
+
+1109
+-854
+dead_brain_coral_block
+Dead Brain Coral Block
+
+1110
+-855
+dead_bubble_coral_block
+Dead Bubble Coral Block
+
+1111
+-856
+dead_fire_coral_block
+Dead Fire Coral Block
+
+1112
+-857
+dead_horn_coral_block
+Dead Horn Coral Block
+
+1113
+-858
+infested_cobblestone
+Infested Cobblestone
+
+1114
+-859
+infested_stone_bricks
+Infested Stone Bricks
+
+1115
+-860
+infested_mossy_stone_bricks
+Infested Mossy Stone Bricks
+
+1116
+-861
+infested_cracked_stone_bricks
+Infested Cracked Stone Bricks
+
+1117
+-862
+infested_chiseled_stone_bricks
+Infested Chiseled Stone Bricks
+
+1118
+-863
+lilac
+Lilac
+
+1119
+-864
+tall_grass
+Tall Grass
+
+1120
+-865
+large_fern
+Large Fern
+
+1121
+-866
+rose_bush
+Rose Bush
+
+1122
+-867
+peony
+Peony
+
+1123
+-868
+mossy_stone_bricks
+Mossy Stone Bricks
+
+1124
+-869
+cracked_stone_bricks
+Cracked Stone Bricks
+
+1125
+-870
+chiseled_stone_bricks
+Chiseled Stone Bricks
+
+1126
+-871
+zzzzz12
+
+1126 (unused)
+
+1127
+-872
+sandstone_slab
+Sandstone Slab
+
+1128
+-873
+cobblestone_slab
+Cobblestone Slab
+
+1129
+-874
+brick_slab
+Brick Slab
+
+1130
+-875
+stone_brick_slab
+Stone Brick Slab
+
+1131
+-876
+quartz_slab
+Quartz Slab
+
+1132
+-877
+nether_brick_slab
+Nether Brick Slab
+
+1133
+-878
+sandstone_double_slab
+Double Sandstone Slab
+
+1134
+-879
+cobblestone_double_slab
+Double Cobblestone Slab
+
+1135
+-880
+brick_double_slab
+Double Brick Slab
+
+1136
+-881
+stone_brick_double_slab
+Double Stone Brick Slab
+
+1137
+-882
+quartz_double_slab
+Double Quartz Slab
+
+1138
+-883
+nether_brick_double_slab
+Double Nether Brick Slab
+
+1139
+-884
+purpur_slab
+Purpur Slab
+
+1140
+-885
+prismarine_slab
+Prismarine Slab
+
+1141
+-886
+dark_prismarine_slab
+Dark Prismarine Slab
+
+1142
+-887
+prismarine_brick_slab
+Prismarine Brick Slab
+
+1143
+-888
+mossy_cobblestone_slab
+Mossy Cobblestone Slab
+
+1144
+-889
+smooth_sandstone_slab
+Smooth Sandstone Slab
+
+1145
+-890
+red_nether_brick_slab
+Red Nether Brick Slab
+
+1146
+-891
+smooth_red_sandstone_slab
+Smooth Red Sandstone Slab
+
+1147
+-892
+polished_andesite_slab
+Polished Andesite Slab
+
+1148
+-893
+andesite_slab
+Andesite Slab
+
+1149
+-894
+diorite_slab
+Diorite Slab
+
+1150
+-895
+polished_diorite_slab
+Polished Diorite Slab
+
+1151
+-896
+granite_slab
+Granite Slab
+
+1152
+-897
+polished_granite_slab
+Polished Granite Slab
+
+1153
+-898
+smooth_quartz_slab
+Smooth Quartz Slab
+
+1154
+-899
+normal_stone_slab
+Stone Slab
+
+1155
+-900
+cut_sandstone_slab
+Cut Sandstone Slab
+
+1156
+-901
+cut_red_sandstone_slab
+Cut Red Sandstone Slab
+
+1157
+-902
+petrified_oak_slab
+Petrified Oak Slab
+
+1158
+-903
+petrified_oak_double_slab
+Double Petrified Oak Slab
+
+1159
+-904
+brain_coral_wall_fan
+Brain Coral Wall Fan
+
+1160
+-905
+dead_tube_coral_wall_fan
+Dead Tube Coral Wall Fan
+
+1161
+-906
+dead_brain_coral_wall_fan
+Dead Brain Coral Wall Fan
+
+1162
+-907
+fire_coral_wall_fan
+Fire Coral Wall Fan
+
+1163
+-908
+dead_bubble_coral_wall_fan
+Dead Bubble Coral Wall Fan
+
+1164
+-909
+dead_fire_coral_wall_fan
+Dead Fire Coral Wall Fan
+
+1165
+-910
+dead_horn_coral_wall_fan
+Dead Horn Coral Wall Fan
+
+1166
+-911
+purpur_double_slab
+Double Purpur Slab
+
+1167
+-912
+prismarine_double_slab
+Double Prismarine Slab
+
+1168
+-913
+dark_prismarine_double_slab
+Double Dark Prismarine Slab
+
+1169
+-914
+prismarine_brick_double_slab
+Double Prismarine Brick Slab
+
+1170
+-915
+mossy_cobblestone_double_slab
+Double Mossy Cobblestone Slab
+
+1171
+-916
+smooth_sandstone_double_slab
+Double Smooth Sandstone Slab
+
+1172
+-917
+red_nether_brick_double_slab
+Double Red Nether Brick Slab
+
+1173
+-918
+smooth_red_sandstone_double_slab
+Double Smooth Red Sandstone Slab
+
+1174
+-919
+polished_andesite_double_slab
+Double Polished Andesite Slab
+
+1175
+-920
+andesite_double_slab
+Double Andesite Slab
+
+1176
+-921
+diorite_double_slab
+Double Diorite Slab
+
+1177
+-922
+polished_diorite_double_slab
+Double Polished Diorite Slab
+
+1178
+-923
+granite_double_slab
+Double Granite Slab
+
+1179
+-924
+polished_granite_double_slab
+Double Polished Granite Slab
+
+1180
+-925
+smooth_quartz_double_slab
+Double Smooth Quartz Slab
+
+1181
+-926
+normal_stone_double_slab
+Double Stone Slab
+
+1182
+-927
+cut_sandstone_double_slab
+Double Cut Sandstone Slab
+
+1183
+-928
+cut_red_sandstone_double_slab
+Double Cut Red Sandstone Slab
+
+1184
+-929
+light_block_1
+Light (1)
+
+1185
+-930
+light_block_2
+Light (2)
+
+1186
+-931
+light_block_3
+Light (3)
+
+1187
+-932
+light_block_4
+Light (4)
+
+1188
+-933
+light_block_5
+Light (5)
+
+1189
+-934
+light_block_6
+Light (6)
+
+1190
+-935
+light_block_7
+Light (7)
+
+1191
+-936
+light_block_8
+Light (8)
+
+1192
+-937
+light_block_9
+Light (9)
+
+1193
+-938
+light_block_10
+Light (10)
+
+1194
+-939
+light_block_11
+Light (11)
+
+1195
+-940
+light_block_12
+Light (12)
+
+1196
+-941
+light_block_13
+Light (13)
+
+1197
+-942
+light_block_14
+Light (14)
+
+1198
+-943
+light_block_15
+Light (15)
+
+1199
+-944
+chiseled_sandstone
+Chiseled Sandstone
+
+1200
+-945
+cut_sandstone
+Cut Sandstone
+
+1201
+-946
+smooth_sandstone
+Smooth Sandstone
+
+1202
+-947
+dark_prismarine
+Dark Prismarine
+
+1203
+-948
+prismarine_bricks
+Prismarine Bricks
+
+1204
+-949
+red_sand
+Red Sand
+
+1205
+-950
+deprecated_purpur_block_1
+Chiseled Purpur
+
+1206
+-951
+purpur_pillar
+Purpur Pillar
+
+1207
+-952
+deprecated_purpur_block_2
+Smooth Purpur
+
+1208
+-953
+chiseled_quartz_block
+Chiseled Quartz Block
+
+1209
+-954
+quartz_pillar
+Quartz Pillar
+
+1210
+-955
+smooth_quartz
+Smooth Quartz Block
+
+1211
+-956
+chiseled_red_sandstone
+Chiseled Red Sandstone
+
+1212
+-957
+cut_red_sandstone
+Cut Red Sandstone
+
+1213
+-958
+smooth_red_sandstone
+Smooth Red Sandstone
+
+1214
+-959
+chipped_anvil
+Chipped Anvil
+
+1215
+-960
+damaged_anvil
+Damaged Anvil
+
+1216
+-961
+deprecated_anvil
+Deprecated Anvil
+
+1217
+-962
+coarse_dirt
+Coarse Dirt
+
+1218
+-963
+colored_torch_green
+Green Torch
+
+1219
+-964
+colored_torch_purple
+Purple Torch
+
+1220
+-965
+wither_skeleton_skull
+Wither Skeleton Skull
+
+1221
+-966
+zombie_head
+Zombie Head
+
+1222
+-967
+player_head
+Player Head
+
+1223
+-968
+creeper_head
+Creeper Head
+
+1224
+-969
+dragon_head
+Dragon Head
+
+1225
+-970
+piglin_head
+Piglin Head
+
+1226
+-971
+mossy_cobblestone_wall
+Mossy Cobblestone Wall
+
+1227
+-972
+granite_wall
+Granite Wall
+
+1228
+-973
+diorite_wall
+Diorite Wall
+
+1229
+-974
+andesite_wall
+Andesite Wall
+
+1230
+-975
+sandstone_wall
+Sandstone Wall
+
+1231
+-976
+brick_wall
+Brick Wall
+
+1232
+-977
+stone_brick_wall
+Stone Brick Wall
+
+1233
+-978
+mossy_stone_brick_wall
+Mossy Stone Brick Wall
+
+1234
+-979
+nether_brick_wall
+Nether Brick Wall
+
+1235
+-980
+end_stone_brick_wall
+End Stone Brick Wall
+
+1236
+-981
+prismarine_wall
+Prismarine Wall
+
+1237
+-982
+red_sandstone_wall
+Red Sandstone Wall
+
+1238
+-983
+red_nether_brick_wall
+Red Nether Brick Wall
+
+1239
+-984
+wet_sponge
+Wet Sponge
+
+1240
+-985
+underwater_tnt
+Underwater TNT
+
+1241
+-986
+material_reducer
+Material Reducer
+
+1242
+-987
+element_constructor
+Element Constructor
+
+1243
+-988
+lab_table
+Lab Table
+
+1244
+-989
+pale_oak_button
+Pale Oak Button
+
+1245
+-990
+pale_oak_door
+Pale Oak Door
+
+1246
+-991
+pale_oak_fence
+Pale Oak Fence
+
+1247
+-992
+pale_oak_fence_gate
+Pale Oak Fence Gate
+
+1248
+-993
+pale_oak_hanging_sign
+Pale Oak Hanging Sign
+
+1249
+-994
+stripped_pale_oak_log
+Stripped Pale Oak Log
+
+1250
+-995
+pale_oak_log
+Pale Oak Log
+
+1251
+-996
+pale_oak_planks
+Pale Oak Planks
+
+1252
+-997
+pale_oak_pressure_plate
+Pale Oak Pressure Plate
+
+1253
+-998
+pale_oak_slab
+Pale Oak Slab
+
+1254
+-999
+pale_oak_double_slab
+Double Pale Oak Slab
+
+1255
+-1000
+pale_oak_stairs
+Pale Oak Stairs
+
+1256
+-1001
+pale_oak_standing_sign
+Pale Oak Sign
+
+1257
+-1002
+pale_oak_trapdoor
+Pale Oak Trapdoor
+
+1258
+-1003
+pale_oak_wall_sign
+Pale Oak Wall Sign
+
+1259
+-1004
+stripped_pale_oak_wood
+Stripped Pale Oak Wood
+
+1260
+-1005
+pale_oak_wood
+Pale Oak Wood
+
+1261
+-1006
+pale_oak_sapling
+Pale Oak Sapling
+
+1262
+-1007
+pale_oak_leaves
+Pale Oak Leaves
+
+1263
+-1008
+mushroom_stem
+Mushroom Stem
+
+1264
+-1009
+pale_moss_block
+Pale Moss Block
+
+1265
+-1010
+pale_moss_carpet
+Pale Moss Carpet
+
+1266
+-1011
+pale_hanging_moss
+Pale Hanging Moss
+
+1267
+-1012
+creaking_heart
+Creaking Heart
+
+1268
+-1013
+resin_bricks
+Resin Bricks
+
+1269
+-1014
+resin_brick_slab
+Resin Brick Slab
+
+1270
+-1015
+resin_brick_double_slab
+Double Resin Brick Slab
+
+1271
+-1016
+resin_brick_stairs
+Resin Brick Stairs
+
+1272
+-1017
+resin_brick_wall
+Resin Brick Wall
+
+1273
+-1018
+open_eyeblossom
+Open Eyeblossom
+
+1274
+-1019
+closed_eyeblossom
+Closed Eyeblossom
+
+1275
+-1020
+chiseled_resin_bricks
+Chiseled Resin Bricks
+
+1276
+-1021
+resin_block
+Block of Resin
+
+1277
+-1022
+resin_clump
+Resin Clump
+
+1278
+-1023
+bush
+Bush
+
+1279
+-1024
+wildflowers
+Wildflowers
+
+1280
+-1025
+firefly_bush
+Firefly Bush
+
+1281
+-1026
+leaf_litter
+Leaf Litter
+
+1282
+-1027
+dried_ghast
+Dried Ghast
+
+1283
+-1028
+short_dry_grass
+Short Dry Grass
+
+1284
+-1029
+tall_dry_grass
+Tall Dry Grass
+
+1285
+-1030
+cactus_flower
+Cactus Flower
+
+1286
+-1031
+copper_chest
+Copper Chest
+
+1287
+-1032
+exposed_copper_chest
+Exposed Copper Chest
+
+1288
+-1033
+weathered_copper_chest
+Weathered Copper Chest
+
+1289
+-1034
+oxidized_copper_chest
+Oxidized Copper Chest
+
+1290
+-1035
+waxed_copper_chest
+Waxed Copper Chest
+
+1291
+-1036
+waxed_exposed_copper_chest
+Waxed Exposed Copper Chest
+
+1292
+-1037
+waxed_weathered_copper_chest
+Waxed Weathered Copper Chest
+
+1293
+-1038
+waxed_oxidized_copper_chest
+Waxed Oxidized Copper Chest
+
+1294
+-1039
+copper_golem_statue
+Copper Golem Statue
+
+1295
+-1040
+exposed_copper_golem_statue
+Exposed Copper Golem Statue
+
+1296
+-1041
+weathered_copper_golem_statue
+Weathered Copper Golem Statue
+
+1297
+-1042
+oxidized_copper_golem_statue
+Oxidized Copper Golem Statue
+
+1298
+-1043
+waxed_copper_golem_statue
+Waxed Copper Golem Statue
+
+1299
+-1044
+waxed_exposed_copper_golem_statue
+Waxed Exposed Copper Golem Statue
+
+1300
+-1045
+waxed_weathered_copper_golem_statue
+Waxed Weathered Copper Golem Statue
+
+1301
+-1046
+waxed_oxidized_copper_golem_statue
+Waxed Oxidized Copper Golem Statue
+
+1302
+-1047
+oak_shelf
+Oak Shelf
+
+1303
+-1048
+spruce_shelf
+Spruce Shelf
+
+1304
+-1049
+birch_shelf
+Birch Shelf
+
+1305
+-1050
+jungle_shelf
+Jungle Shelf
+
+1306
+-1051
+acacia_shelf
+Acacia Shelf
+
+1307
+-1052
+dark_oak_shelf
+Dark Oak Shelf
+
+1308
+-1053
+mangrove_shelf
+Mangrove Shelf
+
+1309
+-1054
+cherry_shelf
+Cherry Shelf
+
+1310
+-1055
+pale_oak_shelf
+Pale Oak Shelf
+
+1311
+-1056
+bamboo_shelf
+Bamboo Shelf
+
+1312
+-1057
+crimson_shelf
+Crimson Shelf
+
+1313
+-1058
+warped_shelf
+Warped Shelf
+
+1314
+-1059
+exposed_lightning_rod
+Exposed Lightning Rod
+
+1315
+-1060
+weathered_lightning_rod
+Weathered Lightning Rod
+
+1316
+-1061
+oxidized_lightning_rod
+Oxidized Lightning Rod
+
+1317
+-1062
+waxed_lightning_rod
+Waxed Lightning Rod
+
+1318
+-1063
+waxed_exposed_lightning_rod
+Waxed Exposed Lightning Rod
+
+1319
+-1064
+waxed_weathered_lightning_rod
+Waxed Weathered Lightning Rod
+
+1320
+-1065
+waxed_oxidized_lightning_rod
+Waxed Oxidized Lightning Rod
+
+1321
+-1066
+copper_bars
+Copper Bars
+
+1322
+-1067
+exposed_copper_bars
+Exposed Copper Bars
+
+1323
+-1068
+weathered_copper_bars
+Weathered Copper Bars
+
+1324
+-1069
+oxidized_copper_bars
+Oxidized Copper Bars
+
+1325
+-1070
+waxed_copper_bars
+Waxed Copper Bars
+
+1326
+-1071
+waxed_exposed_copper_bars
+Waxed Exposed Copper Bars
+
+1327
+-1072
+waxed_weathered_copper_bars
+Waxed Weathered Copper Bars
+
+1328
+-1073
+waxed_oxidized_copper_bars
+Waxed Oxidized Copper Bars
+
+1329
+-1074
+copper_chain
+Copper Chain
+
+1330
+-1075
+exposed_copper_chain
+Exposed Copper Chain
+
+1331
+-1076
+weathered_copper_chain
+Weathered Copper Chain
+
+1332
+-1077
+oxidized_copper_chain
+Oxidized Copper Chain
+
+1333
+-1078
+waxed_copper_chain
+Waxed Copper Chain
+
+1334
+-1079
+waxed_exposed_copper_chain
+Waxed Exposed Copper Chain
+
+1335
+-1080
+waxed_weathered_copper_chain
+Waxed Weathered Copper Chain
+
+1336
+-1081
+waxed_oxidized_copper_chain
+Waxed Oxidized Copper Chain
+
+1337
+-1082
+copper_torch
+Copper Torch
+
+1338
+-1083
+copper_lantern
+Copper Lantern
+
+1339
+-1084
+exposed_copper_lantern
+Exposed Copper Lantern
+
+1340
+-1085
+weathered_copper_lantern
+Weathered Copper Lantern
+
+1341
+-1086
+oxidized_copper_lantern
+Oxidized Copper Lantern
+
+1342
+-1087
+waxed_copper_lantern
+Waxed Copper Lantern
+
+1343
+-1088
+waxed_exposed_copper_lantern
+Waxed Exposed Copper Lantern
+
+1344
+-1089
+waxed_weathered_copper_lantern
+Waxed Weathered Copper Lantern
+
+1345
+-1090
+waxed_oxidized_copper_lantern
+Waxed Oxidized Copper Lantern
+
+1346
+-1091
+golden_dandelion
+Golden Dandelion
+
+1347
+-1092
+sulfur
+Sulfur
+
+1348
+-1093
+sulfur_slab
+Sulfur Slab
+
+1349
+-1094
+sulfur_double_slab
+Double Sulfur Slab
+
+1350
+-1095
+sulfur_stairs
+Sulfur Stairs
+
+1351
+-1096
+sulfur_wall
+Sulfur Wall
+
+1352
+-1097
+polished_sulfur
+Polished Sulfur
+
+1353
+-1098
+polished_sulfur_slab
+Polished Sulfur Slab
+
+1354
+-1099
+polished_sulfur_double_slab
+Double Polished Sulfur Slab
+
+1355
+-1100
+polished_sulfur_stairs
+Polished Sulfur Stairs
+
+1356
+-1101
+polished_sulfur_wall
+Polished Sulfur Wall
+
+1357
+-1102
+sulfur_bricks
+Sulfur Bricks
+
+1358
+-1103
+sulfur_brick_slab
+Sulfur Brick Slab
+
+1359
+-1104
+sulfur_brick_double_slab
+Double Sulfur Brick Slab
+
+1360
+-1105
+sulfur_brick_stairs
+Sulfur Brick Stairs
+
+1361
+-1106
+sulfur_brick_wall
+Sulfur Brick Wall
+
+1362
+-1107
+chiseled_sulfur
+Chiseled Sulfur
+
+1363
+-1108
+potent_sulfur
+Potent Sulfur
+
+1364
+-1109
+cinnabar
+Cinnabar
+
+1365
+-1110
+cinnabar_slab
+Cinnabar Slab
+
+1366
+-1111
+cinnabar_double_slab
+Double Cinnabar Slab
+
+1367
+-1112
+cinnabar_stairs
+Cinnabar Stairs
+
+1368
+-1113
+cinnabar_wall
+Cinnabar Wall
+
+1369
+-1114
+polished_cinnabar
+Polished Cinnabar
+
+1370
+-1115
+polished_cinnabar_slab
+Polished Cinnabar Slab
+
+1371
+-1116
+polished_cinnabar_double_slab
+Double Polished Cinnabar Slab
+
+1372
+-1117
+polished_cinnabar_stairs
+Polished Cinnabar Stairs
+
+1373
+-1118
+polished_cinnabar_wall
+Polished Cinnabar Wall
+
+1374
+-1119
+cinnabar_bricks
+Cinnabar Bricks
+
+1375
+-1120
+cinnabar_brick_slab
+Cinnabar Brick Slab
+
+1376
+-1121
+cinnabar_brick_double_slab
+Double Cinnabar Brick Slab
+
+1377
+-1122
+cinnabar_brick_stairs
+Cinnabar Brick Stairs
+
+1378
+-1123
+cinnabar_brick_wall
+Cinnabar Brick Wall
+
+1379
+-1124
+chiseled_cinnabar
+Chiseled Cinnabar
+
+1380
+-1125
+sulfur_spike
+Sulfur Spike
+
+1381
+-1126
+poplar_button
+Poplar Button
+
+1382
+-1127
+poplar_door
+Poplar Door
+
+1383
+-1128
+poplar_fence
+Poplar Fence
+
+1384
+-1129
+poplar_fence_gate
+Poplar Fence Gate
+
+1385
+-1130
+poplar_hanging_sign
+Poplar Hanging Sign
+
+1386
+-1131
+stripped_poplar_log
+Stripped Poplar Log
+
+1387
+-1132
+poplar_log
+Poplar Log
+
+1388
+-1133
+poplar_planks
+Poplar Planks
+
+1389
+-1134
+poplar_pressure_plate
+Poplar Pressure Plate
+
+1390
+-1135
+poplar_slab
+Poplar Slab
+
+1391
+-1136
+poplar_double_slab
+Double Poplar Slab
+
+1392
+-1137
+poplar_stairs
+Poplar Stairs
+
+1393
+-1138
+poplar_standing_sign
+Poplar Standing Sign
+
+1394
+-1139
+poplar_trapdoor
+Poplar Trapdoor
+
+1395
+-1140
+poplar_wall_sign
+Poplar Wall Sign
+
+1396
+-1141
+stripped_poplar_wood
+Stripped Poplar Wood
+
+1397
+-1142
+poplar_wood
+Poplar Wood
+
+1398
+-1143
+poplar_sapling
+Poplar Sapling
+
+1399
+-1144
+orange_poplar_leaves
+Orange Poplar Leaves
+
+1400
+-1145
+red_poplar_leaves
+Red Poplar Leaves
+
+1401
+-1146
+yellow_poplar_leaves
+Yellow Poplar Leaves
+
+1402
+-1147
+poplar_shelf
+Poplar Shelf
+
+1403
+-1148
+zzzzz13
+
+1403 (unused)
+
+1404
+-1149
+red_wool_stairs
+Red Wool Stairs
+
+1405
+-1150
+white_wool_stairs
+White Wool Stairs
+
+1406
+-1151
+blue_wool_stairs
+Blue Wool Stairs
+
+1407
+-1152
+orange_wool_stairs
+Orange Wool Stairs
+
+1408
+-1153
+magenta_wool_stairs
+Magenta Wool Stairs
+
+1409
+-1154
+light_blue_wool_stairs
+Light Blue Wool Stairs
+
+1410
+-1155
+yellow_wool_stairs
+Yellow Wool Stairs
+
+1411
+-1156
+lime_wool_stairs
+Lime Wool Stairs
+
+1412
+-1157
+pink_wool_stairs
+Pink Wool Stairs
+
+1413
+-1158
+gray_wool_stairs
+Gray Wool Stairs
+
+1414
+-1159
+light_gray_wool_stairs
+Light Gray Wool Stairs
+
+1415
+-1160
+cyan_wool_stairs
+Cyan Wool Stairs
+
+1416
+-1161
+purple_wool_stairs
+Purple Wool Stairs
+
+1417
+-1162
+green_wool_stairs
+Green Wool Stairs
+
+1418
+-1163
+brown_wool_stairs
+Brown Wool Stairs
+
+1419
+-1164
+black_wool_stairs
+Black Wool Stairs
+
+1420
+-1165
+white_wool_slab
+White Wool Slab
+
+1421
+-1166
+light_gray_wool_slab
+Light Gray Wool Slab
+
+1422
+-1167
+gray_wool_slab
+Gray Wool Slab
+
+1423
+-1168
+black_wool_slab
+Black Wool Slab
+
+1424
+-1169
+brown_wool_slab
+Brown Wool Slab
+
+1425
+-1170
+red_wool_slab
+Red Wool Slab
+
+1426
+-1171
+orange_wool_slab
+Orange Wool Slab
+
+1427
+-1172
+yellow_wool_slab
+Yellow Wool Slab
+
+1428
+-1173
+lime_wool_slab
+Lime Wool Slab
+
+1429
+-1174
+green_wool_slab
+Green Wool Slab
+
+1430
+-1175
+cyan_wool_slab
+Cyan Wool Slab
+
+1431
+-1176
+light_blue_wool_slab
+Light Blue Wool Slab
+
+1432
+-1177
+blue_wool_slab
+Blue Wool Slab
+
+1433
+-1178
+purple_wool_slab
+Purple Wool Slab
+
+1434
+-1179
+magenta_wool_slab
+Magenta Wool Slab
+
+1435
+-1180
+pink_wool_slab
+Pink Wool Slab
+
+1436
+-1181
+white_wool_double_slab
+Double White Wool Slab
+
+1437
+-1182
+light_gray_wool_double_slab
+Double Light Gray Wool Slab
+
+1438
+-1183
+gray_wool_double_slab
+Double Gray Wool Slab
+
+1439
+-1184
+black_wool_double_slab
+Double Black Wool Slab
+
+1440
+-1185
+brown_wool_double_slab
+Double Brown Wool Slab
+
+1441
+-1186
+red_wool_double_slab
+Double Red Wool Slab
+
+1442
+-1187
+orange_wool_double_slab
+Double Orange Wool Slab
+
+1443
+-1188
+yellow_wool_double_slab
+Double Yellow Wool Slab
+
+1444
+-1189
+lime_wool_double_slab
+Double Lime Wool Slab
+
+1445
+-1190
+green_wool_double_slab
+Double Green Wool Slab
+
+1446
+-1191
+cyan_wool_double_slab
+Double Cyan Wool Slab
+
+1447
+-1192
+light_blue_wool_double_slab
+Double Light Blue Wool Slab
+
+1448
+-1193
+blue_wool_double_slab
+Double Blue Wool Slab
+
+1449
+-1194
+purple_wool_double_slab
+Double Purple Wool Slab
+
+1450
+-1195
+magenta_wool_double_slab
+Double Magenta Wool Slab
+
+1451
+-1196
+pink_wool_double_slab
+Double Pink Wool Slab
+
+1452
+-1197
+zzzzz14
+
+1452 (unused)
+
+1453
+-1198
+straw_bed
+Straw Bed
+
+1454
+-1199
+red_concrete_stairs
+Red Concrete Stairs
+
+1455
+-1200
+white_concrete_stairs
+White Concrete Stairs
+
+1456
+-1201
+blue_concrete_stairs
+Blue Concrete Stairs
+
+1457
+-1202
+orange_concrete_stairs
+Orange Concrete Stairs
+
+1458
+-1203
+magenta_concrete_stairs
+Magenta Concrete Stairs
+
+1459
+-1204
+light_blue_concrete_stairs
+Light Blue Concrete Stairs
+
+1460
+-1205
+yellow_concrete_stairs
+Yellow Concrete Stairs
+
+1461
+-1206
+lime_concrete_stairs
+Lime Concrete Stairs
+
+1462
+-1207
+pink_concrete_stairs
+Pink Concrete Stairs
+
+1463
+-1208
+gray_concrete_stairs
+Gray Concrete Stairs
+
+1464
+-1209
+light_gray_concrete_stairs
+Light Gray Concrete Stairs
+
+1465
+-1210
+cyan_concrete_stairs
+Cyan Concrete Stairs
+
+1466
+-1211
+purple_concrete_stairs
+Purple Concrete Stairs
+
+1467
+-1212
+green_concrete_stairs
+Green Concrete Stairs
+
+1468
+-1213
+brown_concrete_stairs
+Brown Concrete Stairs
+
+1469
+-1214
+black_concrete_stairs
+Black Concrete Stairs
+
+1470
+-1215
+white_concrete_slab
+White Concrete Slab
+
+1471
+-1216
+light_gray_concrete_slab
+Light Gray Concrete Slab
+
+1472
+-1217
+gray_concrete_slab
+Gray Concrete Slab
+
+1473
+-1218
+black_concrete_slab
+Black Concrete Slab
+
+1474
+-1219
+brown_concrete_slab
+Brown Concrete Slab
+
+1475
+-1220
+red_concrete_slab
+Red Concrete Slab
+
+1476
+-1221
+orange_concrete_slab
+Orange Concrete Slab
+
+1477
+-1222
+yellow_concrete_slab
+Yellow Concrete Slab
+
+1478
+-1223
+lime_concrete_slab
+Lime Concrete Slab
+
+1479
+-1224
+green_concrete_slab
+Green Concrete Slab
+
+1480
+-1225
+cyan_concrete_slab
+Cyan Concrete Slab
+
+1481
+-1226
+light_blue_concrete_slab
+Light Blue Concrete Slab
+
+1482
+-1227
+blue_concrete_slab
+Blue Concrete Slab
+
+1483
+-1228
+purple_concrete_slab
+Purple Concrete Slab
+
+1484
+-1229
+magenta_concrete_slab
+Magenta Concrete Slab
+
+1485
+-1230
+pink_concrete_slab
+Pink Concrete Slab
+
+1486
+-1231
+white_concrete_double_slab
+Double White Concrete Slab
+
+1487
+-1232
+light_gray_concrete__double_slab
+Double Light Gray Concrete Slab
+
+1488
+-1233
+gray_concrete_double_slab
+Double Gray Concrete Slab
+
+1489
+-1234
+black_concrete_double_slab
+Double Black Concrete Slab
+
+1490
+-1235
+brown_concrete_double_slab
+Double Brown Concrete Slab
+
+1491
+-1236
+red_concrete_double_slab
+Double Red Concrete Slab
+
+1492
+-1237
+orange_concrete_double_slab
+Double Orange Concrete Slab
+
+1493
+-1238
+yellow_concrete_double_slab
+Double Yellow Concrete Slab
+
+1494
+-1239
+lime_concrete_double_slab
+Double Lime Concrete Slab
+
+1495
+-1240
+green_concrete_double_slab
+Double Green Concrete Slab
+
+1496
+-1241
+cyan_concrete_double_slab
+Double Cyan Concrete Slab
+
+1497
+-1242
+light_blue_concrete_double_slab
+Double Light Blue Concrete Slab
+
+1498
+-1243
+blue_concrete_double_slab
+Double Blue Concrete Slab
+
+1499
+-1244
+purple_concrete_double_slab
+Double Purple Concrete Slab
+
+1500
+-1245
+magenta_concrete_double_slab
+Double Magenta Concrete Slab
+
+1501
+-1246
+pink_concrete_double_slab
+Double Pink Concrete Slab
+
+Item IDs
+Block items
+The string IDs of most blocks' direct item forms are the same as IDs of the blocks themselves. However, there are some exceptions:
+
+Block ID
+Block item ID
+
+campfire
+item.campfire
+
+brewing_stand
+item.brewing_stand
+
+cauldron
+item.cauldron
+
+flower_pot
+item.flower_pot
+
+soul_campfire
+item.soul_campfire
+
+wheat
+item.wheat
+
+jungle_door
+item.jungle_door
+
+glow_frame
+item.glow_frame
+
+nether_wart
+item.nether_wart
+
+bed
+item.bed
+
+beetroot
+item.beetroot
+
+spruce_door
+item.spruce_door
+
+cake
+item.cake
+
+camera
+item.camera
+
+frame
+item.frame
+
+crimson_door
+item.crimson_door
+
+warped_door
+item.warped_door
+
+acacia_door
+item.acacia_door
+
+dark_oak_door
+item.dark_oak_door
+
+wooden_door
+item.wooden_door
+
+nether_sprouts
+item.nether_sprouts
+
+reeds
+item.reeds
+
+iron_door
+item.iron_door
+
+kelp
+item.kelp
+
+birch_door
+item.birch_door
+
+hopper
+item.hopper
+
+glow_frame
+item.glow_frame
+
+mangrove_door
+item.mangrove_door
+
+straw_bed
+item.straw_bed
+
+Note that commands like /give use blocks' IDs to specify block items,  instead of block items' IDs.
+There are also some block items that were previously in the game but have since been removed:
+
+Resource Location
+Item ID
+In-game name
+Added
+Removed
+
+item.light_block
+-215
+Light Block
+beta 1.13.0.4
+beta 1.13.0.13
+
+mangrove_propagule_hanging
+-476
+none (tile.mangrove_propagule_hanging.name)
+Preview 1.19.0.21
+Preview 1.19.0.29
+
+item.chain
+-286
+Chain
+beta 1.16.0.57
+Preview 1.21.110.23
+
+Other items
+Other items have values above 255, making it easy to separate the block item IDs from the other item IDs.
+In early versions, items had numeric IDs which had been used in commands and savegame files. However, these numeric IDs are deprecated. The following table lists items with their legacy numeric IDs.
+
+Item Table with Legacy Numeric ID View at: Bedrock Edition data values/Items [edit]
+In current versions, items have numeric runtime IDs which are used internally in the game. The runtime IDs depend on the order in which the item is registered in the code. So when a new item is added, other items' IDs may also change. And some items are exclusive in normal Bedrock Edition, the developer version, or the Education Edition, so items' runtime IDs are not the same in each edition. The following table lists items with their numeric runtime IDs.
+
+Item Table with Numeric Runtime ID View at: Bedrock Edition data values/Items2 [edit]
+Item Table with Numeric Runtime ID in developer version View at: dev=1 [edit]
+Item Table with Numeric Runtime ID in Education Edition View at: edu=1 [edit]
+Note that the boat, dye, banner_pattern, and spawn_egg in the four tables above are not normal items in game. They are used as alias IDs. For backward compatibility, an item has alias ID if its ID was changed:
+
+Alias ID
+Current ID
+
+record_wait
+music_disc_wait
+
+darkoak_sign
+dark_oak_sign
+
+record_mellohi
+music_disc_mellohi
+
+glazedterracotta.blue
+blue_glazed_terracotta
+
+glazedterracotta.light_blue
+light_blue_glazed_terracotta
+
+glazedterracotta.lime
+lime_glazed_terracotta
+
+record_pigstep
+music_disc_pigstep
+
+fish
+cod
+
+melon
+melon_slice
+
+record_far
+music_disc_far
+
+record_ward
+music_disc_ward
+
+muttonraw
+mutton
+
+map
+filled_map
+
+carrotonastick
+carrot_on_a_stick
+
+totem
+totem_of_undying
+
+reeds
+sugar_cane
+
+sign
+oak_sign
+
+horsearmordiamond
+diamond_horse_armor
+
+muttoncooked
+cooked_mutton
+
+glazedterracotta.green
+green_glazed_terracotta
+
+glazedterracotta.pink
+pink_glazed_terracotta
+
+horsearmorleather
+leather_horse_armor
+
+fireball
+fire_charge
+
+record_otherside
+music_disc_otherside
+
+cooked_fish
+cooked_cod
+
+glazedterracotta.black
+black_glazed_terracotta
+
+speckled_melon
+glistering_melon_slice
+
+record_13
+music_disc_13
+
+horsearmorgold
+golden_horse_armor
+
+appleenchanted
+enchanted_golden_apple
+
+glazedterracotta.brown
+brown_glazed_terracotta
+
+record_blocks
+music_disc_blocks
+
+glazedterracotta.cyan
+cyan_glazed_terracotta
+
+record_cat
+music_disc_cat
+
+nametag
+name_tag
+
+glazedterracotta.gray
+gray_glazed_terracotta
+
+record_strad
+music_disc_strad
+
+horsearmoriron
+iron_horse_armor
+
+glazedterracotta.yellow
+yellow_glazed_terracotta
+
+turtle_shell_piece
+scute
+
+netherstar
+nether_star
+
+glazedterracotta.magenta
+magenta_glazed_terracotta
+
+glazedterracotta.orange
+orange_glazed_terracotta
+
+prismarineshard
+prismarine_shard
+
+fireworks
+firework_rocket
+
+emptymap
+empty_map
+
+glazedterracotta.white
+white_glazed_terracotta
+
+chorus_fruit_popped
+popped_chorus_fruit
+
+lodestonecompass
+lodestone_compass
+
+glazedterracotta.purple
+purple_glazed_terracotta
+
+glazedterracotta.silver
+silver_glazed_terracotta
+
+record_mall
+music_disc_mall
+
+record_stal
+music_disc_stal
+
+fireworkscharge
+firework_star
+
+clownfish
+tropical_fish
+
+record_11
+music_disc_11
+
+glazedterracotta.red
+red_glazed_terracotta
+
+record_chirp
+music_disc_chirp
+
+bucket:1
+milk_bucket
+
+bucket:0
+bucket
+
+bucket:3
+salmon_bucket
+
+bucket:2
+cod_bucket
+
+bucket:5
+pufferfish_bucket
+
+bucket:4
+tropical_fish_bucket
+
+bucket:8
+water_bucket
+
+bucket:13
+tadpole_bucket
+
+bucket:12
+axolotl_bucket
+
+bucket:11
+powder_snow_bucket
+
+bucket:10
+lava_bucket
+
+dye:20
+glow_ink_sac
+
+dye:19
+white_dye
+
+dye:18
+blue_dye
+
+dye:14
+orange_dye
+
+dye:15
+bone_meal
+
+dye:1
+red_dye
+
+dye:0
+ink_sac
+
+dye:3
+cocoa_beans
+
+dye:2
+green_dye
+
+dye:5
+purple_dye
+
+dye:4
+lapis_lazuli
+
+dye:7
+light_gray_dye
+
+dye:6
+cyan_dye
+
+dye:9
+pink_dye
+
+dye:8
+gray_dye
+
+dye:16
+black_dye
+
+dye:17
+brown_dye
+
+dye:13
+magenta_dye
+
+dye:12
+light_blue_dye
+
+dye:11
+yellow_dye
+
+dye:10
+lime_dye
+
+spawn_egg:43
+blaze_spawn_egg
+
+spawn_egg:47
+husk_spawn_egg
+
+spawn_egg:37
+slime_spawn_egg
+
+spawn_egg:57
+vindicator_spawn_egg
+
+spawn_egg:112
+cod_spawn_egg
+
+spawn_egg:115
+villager_spawn_egg
+
+spawn_egg:111
+tropical_fish_spawn_egg
+
+spawn_egg:114
+pillager_spawn_egg
+
+spawn_egg:27
+zombie_horse_spawn_egg
+
+spawn_egg:17
+squid_spawn_egg
+
+spawn_egg:13
+sheep_spawn_egg
+
+spawn_egg:33
+creeper_spawn_egg
+
+spawn_egg:23
+horse_spawn_egg
+
+spawn_egg:42
+magma_cube_spawn_egg
+
+spawn_egg:36
+zombie_pigman_spawn_egg
+
+spawn_egg:46
+stray_spawn_egg
+
+spawn_egg:56
+agent_spawn_egg
+
+spawn_egg:122
+bee_spawn_egg
+
+spawn_egg:125
+strider_spawn_egg
+
+spawn_egg:108
+pufferfish_spawn_egg
+
+spawn_egg:129
+glow_squid_spawn_egg
+
+spawn_egg:121
+fox_spawn_egg
+
+spawn_egg:124
+hoglin_spawn_egg
+
+spawn_egg:16
+mooshroom_spawn_egg
+
+spawn_egg:26
+skeleton_horse_spawn_egg
+
+spawn_egg:138
+sniffer_spawn_egg
+
+spawn_egg:139
+camel_spawn_egg
+
+spawn_egg:12
+pig_spawn_egg
+
+spawn_egg:22
+ocelot_spawn_egg
+
+spawn_egg:32
+zombie_spawn_egg
+
+spawn_egg:51
+npc_spawn_egg
+
+spawn_egg:41
+ghast_spawn_egg
+
+spawn_egg:55
+endermite_spawn_egg
+
+spawn_egg:45
+witch_spawn_egg
+
+spawn_egg:35
+spider_spawn_egg
+
+spawn_egg:59
+ravager_spawn_egg
+
+spawn_egg:49
+guardian_spawn_egg
+
+spawn_egg:39
+silverfish_spawn_egg
+
+spawn_egg:29
+llama_spawn_egg
+
+spawn_egg:132
+frog_spawn_egg
+
+spawn_egg:118
+wandering_trader_spawn_egg
+
+spawn_egg:19
+bat_spawn_egg
+
+spawn_egg:25
+mule_spawn_egg
+
+spawn_egg:15
+villager_spawn_egg
+
+spawn_egg:31
+dolphin_spawn_egg
+
+spawn_egg:11
+cow_spawn_egg
+
+spawn_egg:40
+cave_spider_spawn_egg
+
+spawn_egg:50
+elder_guardian_spawn_egg
+
+spawn_egg:54
+shulker_spawn_egg
+
+spawn_egg:34
+skeleton_spawn_egg
+
+spawn_egg:44
+zombie_villager_spawn_egg
+
+spawn_egg:48
+wither_skeleton_spawn_egg
+
+spawn_egg:58
+phantom_spawn_egg
+
+spawn_egg:28
+polar_bear_spawn_egg
+
+spawn_egg:38
+enderman_spawn_egg
+
+spawn_egg:133
+tadpole_spawn_egg
+
+spawn_egg:130
+axolotl_spawn_egg
+
+spawn_egg:75
+cat_spawn_egg
+
+spawn_egg:127
+piglin_brute_spawn_egg
+
+spawn_egg:126
+zoglin_spawn_egg
+
+spawn_egg:105
+vex_spawn_egg
+
+spawn_egg:123
+piglin_spawn_egg
+
+spawn_egg:113
+panda_spawn_egg
+
+spawn_egg:18
+rabbit_spawn_egg
+
+spawn_egg:110
+drowned_spawn_egg
+
+spawn_egg:109
+salmon_spawn_egg
+
+spawn_egg:14
+wolf_spawn_egg
+
+spawn_egg:24
+donkey_spawn_egg
+
+spawn_egg:128
+goat_spawn_egg
+
+spawn_egg:104
+evoker_spawn_egg
+
+spawn_egg:74
+turtle_spawn_egg
+
+spawn_egg:30
+parrot_spawn_egg
+
+spawn_egg:116
+zombie_villager_spawn_egg
+
+spawn_egg:10
+chicken_spawn_egg
+
+coal:1
+charcoal
+
+coal:0
+coal
+
+banner_pattern:1
+skull_banner_pattern
+
+banner_pattern:0
+creeper_banner_pattern
+
+banner_pattern:3
+mojang_banner_pattern
+
+banner_pattern:2
+flower_banner_pattern
+
+banner_pattern:5
+bordure_indented_banner_pattern
+
+banner_pattern:4
+field_masoned_banner_pattern
+
+banner_pattern:7
+globe_banner_pattern
+
+banner_pattern:6
+piglin_banner_pattern
+
+boat:1
+spruce_boat
+
+boat:0
+oak_boat
+
+boat:3
+jungle_boat
+
+boat:2
+birch_boat
+
+boat:5
+dark_oak_boat
+
+boat:4
+acacia_boat
+
+record_5
+music_disc_5
+
+sealantern
+sea_lantern
+
+Biome IDs
+You may edit the contents of this section here.
+Each type of biome has its own Resource Location / IDs, shown in the following tables.
+
+Name
+
+Resource location
+
+Numeric ID
+
+ Ocean
+
+ocean
+
+0
+
+ Legacy Frozen Ocean
+
+legacy_frozen_ocean
+
+10
+
+ Deep Ocean
+
+deep_ocean
+
+24
+
+ Frozen Ocean
+
+frozen_ocean
+
+46
+
+ Deep Frozen Ocean
+
+deep_frozen_ocean
+
+47
+
+ Cold Ocean
+
+cold_ocean
+
+44
+
+ Deep Cold Ocean
+
+deep_cold_ocean
+
+45
+
+ Lukewarm Ocean
+
+lukewarm_ocean
+
+42
+
+ Deep Lukewarm Ocean
+
+deep_lukewarm_ocean
+
+43
+
+ Warm Ocean
+
+warm_ocean
+
+40
+
+ Deep Warm Ocean
+
+deep_warm_ocean
+
+41
+
+ River
+
+river
+
+7
+
+ Frozen River
+
+frozen_river
+
+11
+
+ Beach
+
+beach
+
+16
+
+ Stony Shore
+
+stone_beach
+
+25
+
+ Snowy Beach
+
+cold_beach
+
+26
+
+ Forest
+
+forest
+
+4
+
+ Wooded Hills
+
+forest_hills
+
+18
+
+ Flower Forest
+
+flower_forest
+
+132
+
+ Birch Forest
+
+birch_forest
+
+27
+
+ Birch Forest Hills
+
+birch_forest_hills
+
+28
+
+ Old Growth Birch Forest
+
+birch_forest_mutated
+
+155
+
+ Tall Birch Hills
+
+birch_forest_hills_mutated
+
+156
+
+ Dark Forest
+
+roofed_forest
+
+29
+
+ Dark Forest Hills
+
+roofed_forest_mutated
+
+157
+
+ Pale Garden
+
+pale_garden
+
+193
+
+ Jungle
+
+jungle
+
+21
+
+ Jungle Hills
+
+jungle_hills
+
+22
+
+ Modified Jungle
+
+jungle_mutated
+
+149
+
+ Sparse Jungle
+
+jungle_edge
+
+23
+
+ Modified Jungle Edge
+
+jungle_edge_mutated
+
+151
+
+ Bamboo Jungle
+
+bamboo_jungle
+
+48
+
+ Bamboo Jungle Hills
+
+bamboo_jungle_hills
+
+49
+
+ Taiga
+
+taiga
+
+5
+
+ Taiga Hills
+
+taiga_hills
+
+19
+
+ Taiga Mountains
+
+taiga_mutated
+
+133
+
+ Snowy Taiga
+
+cold_taiga
+
+30
+
+ Snowy Taiga Hills
+
+cold_taiga_hills
+
+31
+
+ Snowy Taiga Mountains
+
+cold_taiga_mutated
+
+158
+
+ Old Growth Pine Taiga
+
+mega_taiga
+
+32
+
+ Giant Tree Taiga Hills
+
+mega_taiga_hills
+
+33
+
+ Old Growth Spruce Taiga
+
+redwood_taiga_mutated
+
+160
+
+ Giant Spruce Taiga Hills
+
+redwood_taiga_hills_mutated
+
+161
+
+ Mushroom Fields
+
+mushroom_island
+
+14
+
+ Mushroom Field Shore
+
+mushroom_island_shore
+
+15
+
+ Swamp
+
+swampland
+
+6
+
+ Swamp Hills
+
+swampland_mutated
+
+134
+
+ Mangrove Swamp
+
+mangrove_swamp
+
+191
+
+ Savanna
+
+savanna
+
+35
+
+ Savanna Plateau
+
+savanna_plateau
+
+36
+
+ Windswept Savanna
+
+savanna_mutated
+
+163
+
+ Shattered Savanna Plateau
+
+savanna_plateau_mutated
+
+164
+
+ Plains
+
+plains
+
+1
+
+ Sunflower Plains
+
+sunflower_plains
+
+129
+
+ Desert
+
+desert
+
+2
+
+ Desert Hills
+
+desert_hills
+
+17
+
+ Desert Lakes
+
+desert_mutated
+
+130
+
+ Snowy Plains
+
+ice_plains
+
+12
+
+ Snowy Mountains
+
+ice_mountains
+
+13
+
+ Ice Spikes
+
+ice_plains_spikes
+
+140
+
+ Windswept Hills
+
+extreme_hills
+
+3
+
+ Windswept Forest
+
+extreme_hills_plus_trees
+
+34
+
+ Windswept Gravelly Hills
+
+extreme_hills_mutated
+
+131
+
+ Gravelly Mountains+
+
+extreme_hills_plus_trees_mutated
+
+162
+
+ Mountain Edge
+
+extreme_hills_edge
+
+20
+
+ Badlands
+
+mesa
+
+37
+
+ Badlands Plateau
+
+mesa_plateau
+
+39
+
+ Modified Badlands Plateau
+
+mesa_plateau_mutated
+
+167
+
+ Wooded Badlands
+
+mesa_plateau_stone
+
+38
+
+ Modified Wooded Badlands Plateau
+
+mesa_plateau_stone_mutated
+
+166
+
+ Eroded Badlands
+
+mesa_bryce
+
+165
+
+ Meadow
+
+meadow
+
+186
+
+ Cherry Grove
+
+cherry_grove
+
+192
+
+ Grove
+
+grove
+
+185
+
+ Snowy Slopes
+
+snowy_slopes
+
+184
+
+ Jagged Peaks
+
+jagged_peaks
+
+182
+
+ Frozen Peaks
+
+frozen_peaks
+
+183
+
+ Stony Peaks
+
+stony_peaks
+
+189
+
+ Lush Caves
+
+lush_caves
+
+187
+
+ Dripstone Caves
+
+dripstone_caves
+
+188
+
+ Deep Dark
+
+deep_dark
+
+190
+
+ Sulfur Caves
+
+sulfur_caves
+
+194
+
+ Dappled Forest​[upcoming: Third Drop 2026]
+
+dappled_forest
+
+195
+
+ Nether Wastes
+
+hell
+
+8
+
+ Crimson Forest
+
+crimson_forest
+
+179
+
+ Warped Forest
+
+warped_forest
+
+180
+
+ Soul Sand Valley
+
+soulsand_valley
+
+178
+
+ Basalt Deltas
+
+basalt_deltas
+
+181
+
+ The End
+
+the_end
+
+9
+
+Entity IDs
+Several entity names do not correlate with entity names from Java Edition. The standard for naming new entities changes with subsequent releases; however, existing entity names have not been changed.
+
+Icon
+Dec
+Hex
+Name
+Entity
+
+1
+1
+undefined_test_only
+Non-existent entity
+
+10
+A
+chicken
+Chicken
+
+11
+B
+cow
+Cow
+
+12
+C
+pig
+Pig
+
+13
+D
+sheep
+Sheep
+
+14
+E
+wolf
+Wolf
+
+15
+F
+villager
+Villager
+
+16
+10
+mooshroom
+Mooshroom
+
+17
+11
+squid
+Squid
+
+18
+12
+rabbit
+Rabbit
+
+19
+13
+bat
+Bat
+
+20
+14
+iron_golem
+Iron Golem
+
+21
+15
+snow_golem
+Snow Golem
+
+22
+16
+ocelot
+Ocelot
+
+23
+17
+horse
+Horse
+
+24
+18
+donkey
+Donkey
+
+25
+19
+mule
+Mule
+
+26
+1A
+skeleton_horse
+Skeleton Horse
+
+27
+1B
+zombie_horse
+Zombie Horse
+
+28
+1C
+polar_bear
+Polar Bear
+
+29
+1D
+llama
+Llama
+
+30
+1E
+parrot
+Parrot
+
+31
+1F
+dolphin
+Dolphin
+
+32
+20
+zombie
+Zombie
+
+33
+21
+creeper
+Creeper
+
+34
+22
+skeleton
+Skeleton
+
+35
+23
+spider
+Spider
+
+36
+24
+zombie_pigman
+Zombified Piglin
+
+37
+25
+slime
+Slime
+
+38
+26
+enderman
+Enderman
+
+39
+27
+silverfish
+Silverfish
+
+40
+28
+cave_spider
+Cave Spider
+
+41
+29
+ghast
+Ghast
+
+42
+2A
+magma_cube
+Magma Cube
+
+43
+2B
+blaze
+Blaze
+
+44
+2C
+zombie_villager
+Zombie Villager
+
+45
+2D
+witch
+Witch
+
+46
+2E
+stray
+Stray
+
+47
+2F
+husk
+Husk
+
+48
+30
+wither_skeleton
+Wither Skeleton
+
+49
+31
+guardian
+Guardian
+
+50
+32
+elder_guardian
+Elder Guardian
+
+51
+33
+npc
+NPC
+
+52
+34
+wither
+Wither
+
+53
+35
+ender_dragon
+Ender Dragon
+
+54
+36
+shulker
+Shulker
+
+55
+37
+endermite
+Endermite
+
+56
+38
+agent
+Agent
+
+57
+39
+vindicator
+Vindicator
+
+58
+3A
+phantom
+Phantom
+
+59
+3B
+ravager
+Ravager
+
+61
+3D
+armor_stand
+Armor stand
+
+62
+3E
+tripod_camera
+Camera
+
+63
+3F
+player
+Player
+
+64
+40
+item
+Dropped item
+
+65
+41
+tnt
+Primed TNT
+
+66
+42
+falling_block
+Falling block
+
+67
+43
+moving_block
+Moving Block
+
+68
+44
+xp_bottle
+Thrown Bottle o' Enchanting
+
+69
+45
+xp_orb
+Experience Orb
+
+70
+46
+eye_of_ender_signal
+Eye of Ender
+
+71
+47
+end_crystal
+End Crystal
+
+72
+48
+fireworks_rocket
+Firework rocket
+
+73
+49
+thrown_trident
+Trident
+
+74
+4A
+turtle
+Turtle
+
+75
+4B
+cat
+Cat
+
+76
+4C
+shulker_bullet
+
+Shulker bullet
+
+77
+4D
+fishing_hook
+Fishing Rod hook
+
+78
+4E
+chalkboard
+Chalkboard
+
+79
+4F
+dragon_fireball
+Dragon fireball
+
+80
+50
+arrow
+Shot arrow
+
+81
+51
+snowball
+Thrown snowball
+
+82
+52
+egg
+Thrown egg
+
+83
+53
+painting
+Painting
+
+84
+54
+minecart
+Minecart
+
+85
+55
+fireball
+Ghast fireball
+
+86
+56
+splash_potion
+Thrown splash potion
+
+87
+57
+ender_pearl
+Thrown Ender Pearl
+
+88
+58
+leash_knot
+Leash knot
+
+89
+59
+wither_skull
+Wither skull
+
+90
+5A
+boat
+Boat
+
+91
+5B
+wither_skull_dangerous
+Blue wither skull
+
+93
+5D
+lightning_bolt
+Lightning Bolt
+
+94
+5E
+small_fireball
+Blaze fireball
+
+95
+5F
+area_effect_cloud
+Area Effect Cloud
+
+96
+60
+hopper_minecart
+Minecart with Hopper
+
+97
+61
+tnt_minecart
+Minecart with TNT
+
+98
+62
+chest_minecart
+Minecart with Chest
+
+100
+64
+command_block_minecart
+Minecart with Command Block
+
+101
+65
+lingering_potion
+Thrown lingering potion
+
+102
+66
+llama_spit
+Llama spit
+
+103
+67
+evocation_fang
+Evocation fangs
+
+104
+68
+evocation_illager
+Evoker
+
+105
+69
+vex
+Vex
+
+106
+6A
+ice_bomb
+Ice Bomb
+
+107
+6B
+balloon
+Balloon
+
+108
+6C
+pufferfish
+Pufferfish
+
+109
+6D
+salmon
+Salmon
+
+110
+6E
+drowned
+Drowned
+
+111
+6F
+tropicalfish
+Tropical Fish
+
+112
+70
+cod
+Cod
+
+113
+71
+panda
+Panda
+
+114
+72
+pillager
+Pillager
+
+115
+73
+villager_v2
+Villager
+
+116
+74
+zombie_villager_v2
+Zombie Villager
+
+117
+75
+shield
+Shield
+
+118
+76
+wandering_trader
+Wandering Trader
+
+120
+78
+elder_guardian_ghost
+Elder Guardian Ghost
+
+121
+79
+fox
+Fox
+
+122
+7A
+bee
+Bee
+
+123
+7B
+piglin
+Piglin
+
+124
+7C
+hoglin
+Hoglin
+
+125
+7D
+strider
+Strider
+
+126
+7E
+zoglin
+Zoglin
+
+127
+7F
+piglin_brute
+Piglin Brute
+
+128
+80
+goat
+Goat
+
+129
+81
+glow_squid
+Glow Squid
+
+130
+82
+axolotl
+Axolotl
+
+131
+83
+warden
+Warden
+
+132
+84
+frog
+Frog
+
+133
+85
+tadpole
+Tadpole
+
+134
+86
+allay
+Allay
+
+135
+87
+firefly
+Firefly (removed)
+
+138
+8A
+camel
+Camel
+
+139
+8B
+sniffer
+Sniffer
+
+140
+8C
+breeze
+Breeze
+
+141
+8D
+breeze_wind_charge_projectile
+Wind Charge
+
+142
+8E
+armadillo
+Armadillo
+
+143
+8F
+wind_charge_projectile
+Wind Charge
+
+144
+90
+bogged
+Bogged
+
+145
+91
+ominous_item_spawner
+Ominous Item Spawner
+
+146
+92
+creaking
+Creaking
+
+147
+93
+happy_ghast
+Happy Ghast
+
+148
+94
+copper_golem
+Copper Golem
+
+149
+95
+nautilus
+Nautilus
+
+150
+96
+zombie_nautilus
+Zombie Nautilus
+
+151
+97
+parched
+Parched
+
+152
+98
+camel_husk
+Camel Husk
+
+157
+9D
+trader_llama
+Trader Llama
+
+218
+86
+chest_boat
+Boat with Chest
+
+Effect IDs
+
+Effect
+ID
+Resource location
+Particle
+
+ Speed
+
+1
+
+speed
+
+ Slowness
+
+2
+
+slowness
+
+ Haste
+
+3
+
+haste
+
+ Mining Fatigue
+
+4
+
+mining_fatigue
+
+ Strength
+
+5
+
+strength
+
+Instant Health
+
+6
+
+instant_health
+
+Instant Damage
+
+7
+
+instant_damage
+
+ Jump Boost
+
+8
+
+jump_boost
+
+ Nausea
+
+9
+
+nausea
+
+ Regeneration
+
+10
+
+regeneration
+
+ Resistance
+
+11
+
+resistance
+
+ Fire Resistance
+
+12
+
+fire_resistance
+
+ Water Breathing
+
+13
+
+water_breathing
+
+ Invisibility
+
+14
+
+invisibility
+
+ Blindness
+
+15
+
+blindness
+
+ Night Vision
+
+16
+
+night_vision
+
+ Hunger
+
+17
+
+hunger
+
+ Weakness
+
+18
+
+weakness
+
+ Poison
+
+19
+
+poison
+
+ Wither
+
+20
+
+wither
+
+ Health Boost
+
+21
+
+health_boost
+
+ Absorption
+
+22
+
+absorption
+
+Saturation
+
+23
+
+saturation
+
+ Levitation
+
+24
+
+levitation
+
+ Fatal Poison
+
+25
+
+fatal_poison
+
+ Conduit Power
+
+26
+
+conduit_power
+
+ Slow Falling
+
+27
+
+slow_falling
+
+ Bad Omen
+
+28
+
+bad_omen
+
+ Hero of the Village
+
+29
+
+village_hero
+
+ Darkness
+
+30
+
+darkness
+
+Enchantment IDs
+
+Enchantment
+
+Resource location
+
+ID
+
+Protection
+
+protection
+
+0
+
+Fire Protection
+
+fire_protection
+
+1
+
+Feather Falling
+
+feather_falling
+
+2
+
+Blast Protection
+
+blast_protection
+
+3
+
+Projectile Protection
+
+projectile_protection
+
+4
+
+Thorns
+
+thorns
+
+5
+
+Respiration
+
+respiration
+
+6
+
+Depth Strider
+
+depth_strider
+
+7
+
+Aqua Affinity
+
+aqua_affinity
+
+8
+
+Sharpness
+
+sharpness
+
+9
+
+Smite
+
+smite
+
+10
+
+Bane of Arthropods
+
+bane_of_arthropods
+
+11
+
+Knockback
+
+knockback
+
+12
+
+Fire Aspect
+
+fire_aspect
+
+13
+
+Looting
+
+looting
+
+14
+
+Efficiency
+
+efficiency
+
+15
+
+Silk Touch
+
+silk_touch
+
+16
+
+Unbreaking
+
+unbreaking
+
+17
+
+Fortune
+
+fortune
+
+18
+
+Power
+
+power
+
+19
+
+Punch
+
+punch
+
+20
+
+Flame
+
+flame
+
+21
+
+Infinity
+
+infinity
+
+22
+
+Luck of the Sea
+
+luck_of_the_sea
+
+23
+
+Lure
+
+lure
+
+24
+
+Frost Walker
+
+frost_walker
+
+25
+
+Mending
+
+mending
+
+26
+
+Curse of Binding
+
+binding
+
+27
+
+Curse of Vanishing
+
+vanishing
+
+28
+
+Impaling
+
+impaling
+
+29
+
+Riptide
+
+riptide
+
+30
+
+Loyalty
+
+loyalty
+
+31
+
+Channeling
+
+channeling
+
+32
+
+Multishot
+
+multishot
+
+33
+
+Piercing
+
+piercing
+
+34
+
+Quick Charge
+
+quick_charge
+
+35
+
+Soul Speed
+
+soul_speed
+
+36
+
+Swift Sneak
+
+swift_sneak
+
+37
+
+Wind Burst
+
+wind_burst
+
+38
+
+Density
+
+density
+
+39
+
+Breach
+
+breach
+
+40
+
+Lunge
+
+lunge
+
+41
+
+Block states
+
+
+
+It has been suggested that this section be merged with Block states. [discuss]
+If this merge affects many pages or may potentially be controversial, do not merge the page until a consensus is reached.
+
+
+After block IDs, block states further define blocks placed, describing for example the height of water or the direction a torch points. These replace the former block data, which was removed from command syntax in 1.19.70. Some of these block states are associated with legacy aux values (also called metadata), which are defined in the form of binary flags. Aux values are intended to be deprecated, with newly added blocks and block states no longer supporting them.
+
+active
+Determines whether the block is active or not.
+
+State Value
+
+Blocks
+
+Boolean (false or true)
+
+Sculk Shrieker
+
+age
+Tracks the age of plants to handle growth and of fire to handle spread.
+
+State Value
+
+Blocks
+
+Integer (0 to 2)
+
+Cocoa
+
+Integer (0 to 3)
+
+Frosted Ice
+Nether Wart
+
+Integer (0 to 5)
+
+Chorus Flower
+
+Integer (0 to 15)
+
+Cactus
+Fire
+Soul Fire
+Sugar Cane
+
+age_bit
+Determines if the sapling should grow.
+
+State Value
+
+Blocks
+
+Boolean (false or true)
+
+Bamboo
+Bamboo Sapling
+Saplings
+
+attached_bit
+Whether the tripwire hook is connected to a valid tripwire circuit or not. For hanging signs, whether the sign is hanging from a single point or not.
+
+State Value
+
+Blocks
+
+Boolean (false or true)
+
+Tripwire Hook
+Tripwire
+Hanging Signs
+
+attachment
+Determines the type of attachment used by a block.
+
+State Value
+
+Blocks
+
+standing
+hanging
+side
+multiple
+
+Bell
+Grindstone
+
+bamboo_leaf_size
+Determines the size of bamboo leaves.
+
+State Value
+
+Blocks
+
+no_leaves
+small_leaves
+large_leaves
+
+Bamboo
+
+bamboo_stalk_thickness
+Determines the thickness of bamboo stalk.
+
+State Value
+
+Blocks
+
+thin
+thick
+
+Bamboo
+
+big_dripleaf_head
+Determines if the block is the leaf part of the plant, or a part of the stem.
+
+State Value
+
+Blocks
+
+Boolean (false or true)
+
+Big Dripleaf
+
+big_dripleaf_tilt
+
+State Value
+
+Blocks
+
+none
+unstable
+partial_tilt
+full_tilt
+
+Big Dripleaf
+
+bite_counter
+
+State Value
+
+Blocks
+
+Integer (0 to 6)
+
+Cake
+
+bloom
+
+State Value
+
+Blocks
+
+Boolean (false or true)
+
+Sculk Catalyst
+
+books_stored
+
+State Value
+
+Blocks
+
+Integer (0 to 63)
+
+Chiseled Bookshelf
+
+brewing_stand_slot_a_bit
+
+State Value
+
+Blocks
+
+Boolean (false or true)
+
+Brewing Stand
+
+brewing_stand_slot_b_bit
+
+State Value
+
+Blocks
+
+Boolean (false or true)
+
+Brewing Stand
+
+brewing_stand_slot_c_bit
+
+State Value
+
+Blocks
+
+Boolean (false or true)
+
+Brewing Stand
+
+brushed_progress
+
+State Value
+
+Blocks
+
+Integer (0 to 3)
+
+Suspicious Gravel
+Suspicious Sand
+
+button_pressed_bit
+
+State Value
+
+Blocks
+
+Boolean (false or true)
+
+Button (any)
+
+can_summon
+Determines if the block can or cannot summon mobs.
+
+State Value
+
+Blocks
+
+Boolean (false or true)
+
+Sculk Shrieker
+
+candles
+How many candles are contained within this block.
+
+State value
+
+Blocks
+
+Integer (0 to 3)
+
+Candle (any)
+
+cauldron_liquid
+What the liquid in the cauldron is.
+
+State Value
+
+Blocks
+
+water
+lava
+powder_snow
+
+Cauldron
+
+cluster_count
+How much is in a cluster
+
+State Value
+
+Blocks
+
+Integer (0 to 3)
+
+Sea Pickle
+
+composter_fill_level
+The fill level of a composter
+
+State Value
+
+Blocks
+
+Integer (0 to 8)
+
+Composter
+
+conditional_bit
+If a command block is conditional
+
+State Value
+
+Blocks
+
+Boolean (false or true)
+
+Command Block (any)
+
+coral_direction
+
+State Value
+
+Blocks
+
+Integer (0 to 3)
+
+Coral Wall Fans (any, including dead)
+
+coral_fan_direction
+
+State Value
+
+Blocks
+
+Integer (0 to 1)
+
+Coral Fans (any, including dead)
+
+covered_bit
+
+State Value
+
+Blocks
+
+Boolean (false or true)
+
+Snow
+
+cracked_state
+
+State Value
+
+Blocks
+
+no_cracks
+cracked
+max_cracked
+
+Turtle Egg
+
+crafting
+
+State Value
+
+Blocks
+
+Boolean (false or true)
+
+Crafter
+
+creaking_heart_state
+
+State Value
+
+Blocks
+
+uprooted
+dormant
+awake
+
+Creaking Heart
+
+dead_bit
+
+State Value
+
+Blocks
+
+Boolean (false or true)
+
+Sea Pickle
+
+deprecated
+
+State Value
+
+Blocks
+
+Integer (0 to 3)
+
+Bone Block
+Hay Bale
+
+direction
+
+State Value
+
+Blocks
+
+Integer (0 to 3)
+
+Bed
+Bee Nest
+Beehive
+Bell
+Chiseled Bookshelf
+Cocoa
+Compound Creator
+Decorated Pot
+Element Constructor
+Grindstone
+Lab Table
+Loom
+Material Reducer
+Trapdoors (any)
+Tripwire Hook
+
+disarmed_bit
+
+State Value
+
+Blocks
+
+Boolean (false or true)
+
+Tripwire
+
+door_hinge_bit
+
+State Value
+
+Blocks
+
+Boolean (false or true)
+
+Door (any)
+
+drag_down
+
+State Value
+
+Blocks
+
+Boolean (false or true)
+
+Bubble Column
+
+dripstone_thickness
+
+State Value
+
+Blocks
+
+tip
+frustum
+middle
+base
+merge
+
+Pointed Dripstone
+
+end_portal_eye_bit
+
+State Value
+
+Blocks
+
+Boolean (false or true)
+
+End Portal Frame
+
+explode_bit
+
+State Value
+
+Blocks
+
+Boolean (false or true)
+
+TNT
+Underwater TNT
+
+extinguished
+
+State Value
+
+Blocks
+
+Boolean (false or true)
+
+Campfire
+Soul Campfire
+
+facing_direction
+
+
+
+This section needs to be updated. 
+Please update this section to reflect recent updates or newly available information. The talk page may contain suggestions.Reason: Please check that these are all correct + add in the shelf mushroom
+
+State Value
+
+Blocks
+
+Integer (0 to 3) (with 4 and 5 unused)
+
+Glazed Terracotta (any)
+Hanging Signs (any)
+Heads (any)
+Ladder
+Melon Stem
+Pumpkin Stem
+Wall Banner
+Wall Signs (any)
+
+Integer (0 to 5)
+
+Buttons (any)
+Barrel
+Command Block (any)
+Dispenser
+Dropper
+End Rod
+Hopper
+Lightning Rod (any)
+Item Frame
+Glow Item Frame
+Jigsaw
+Piston
+Piston Head
+Sticky Piston
+Sticky Piston Head
+
+fill_level
+
+State Value
+
+Blocks
+
+Integer (0 to 6)
+
+Cauldron
+
+ground_sign_direction
+The rotation of standing heads, signs, and banners.
+
+State Value
+
+Blocks
+
+Integer (0 to 15)
+
+Banner (any non-wall variant)
+Hanging Signs
+Signs (any non-wall variant)
+
+growing_plant_age
+
+State Value
+
+Blocks
+
+Integer (0 to 25)
+
+Cave Vines
+Cave Vines Plant with Berries
+Cave Vines with Berries
+
+growth
+Determines the growth level of crops.
+
+State Value
+
+Blocks
+
+Integer (0 to 3) (with 4 to 7 unused)
+
+Leaf Litter
+Pink Petals
+Sweet Berry Bush
+Wildflowers
+
+Integer (0 to 3) (with 5 to 7 unused)
+
+Pitcher Crop
+
+Integer (0 to 1) (with 2 to 7 unused)
+
+Torchflower Crop
+Shelf Mushroom
+
+Integer (0 to 7)
+
+Beetroots
+Carrots
+Melon Stem
+Potatoes
+Pumpkin Stem
+Wheat Crops
+
+hanging
+Determines if a block is hanging or not.
+
+State Value
+
+Blocks
+
+Boolean (false or true)
+
+Hanging Signs (any)
+Lantern (any)
+Mangrove Propagule
+Pointed Dripstone
+Suspicious Gravel
+Suspicious Sand
+
+head_piece_bit
+
+State Value
+
+Blocks
+
+Boolean (false or true)
+
+Bed
+Straw Bed
+
+height
+
+State Value
+
+Blocks
+
+Integer (0 to 7)
+
+Snow
+
+honey_level
+
+State Value
+
+Blocks
+
+Integer (0 to 5)
+
+Bee Nest
+Beehive
+
+huge_mushroom_bits
+
+State Value
+
+Blocks
+
+Integer (0 to 15)
+
+Red Mushroom Block
+Brown Mushroom Block
+Mushroom Stem
+
+in_wall_bit
+
+State Value
+
+Blocks
+
+Boolean (false or true)
+
+Fence Gates
+
+infiniburn_bit
+
+State Value
+
+Blocks
+
+Boolean (false or true)
+
+Bedrock
+
+item_frame_map_bit
+
+State Value
+
+Blocks
+
+Boolean (false or true)
+
+Glow Item Frame
+Item Frame
+
+item_frame_photo_bit
+
+State Value
+
+Blocks
+
+Boolean (false or true)
+
+Glow Item Frame
+Item Frame
+
+kelp_age
+
+State Value
+
+Blocks
+
+Integer (0 to 25)
+
+Kelp
+
+lever_direction
+
+State Value
+
+Blocks
+
+down_east_west
+east
+west
+south
+north
+up_north_south
+up_east_west
+down_north_south
+
+Lever
+
+liquid_depth
+
+State Value
+
+Blocks
+
+Integer (0 to 15)
+
+Flowing Lava
+Flowing Water
+Lava
+Water
+
+lit
+
+State Value
+
+Blocks
+
+Boolean (false or true)
+
+Candle (any)
+Candle Cake (any)
+Copper Bulb (any)
+
+minecraft:block_face
+
+State Value
+
+Blocks
+
+down
+east
+north
+south
+west
+up
+
+Amethyst Cluster
+Large Amethyst Bud
+Medium Amethyst Bud
+Small Amethyst Bud
+
+minecraft:cardinal_direction
+
+State Value
+
+Blocks
+
+east
+north
+south
+west
+
+Anvils
+Big Dripleaf
+Blast Furnace
+Calibrated Sculk Sensor
+Campfire
+Carved Pumpkin
+Chest
+Copper Chests
+Copper Golem Statues
+Doors (any)
+Dried Ghast
+End Portal Frame
+Ender Chest
+Fence Gates
+Furnace
+Jack o'Lantern
+Leaf Litter
+Lectern
+Lit Blast Furnace
+Lit Furnace
+Lit Smoker
+Pink Petals
+Powered Redstone Comparator
+Powered Redstone Repeater
+Pumpkin
+Shelves
+Small Dripleaf
+Smoker
+Soul Campfire
+Stonecutter
+Straw Bed
+Trapped Chest
+Unpowered Redstone Comparator
+Unpowered Redstone Repeater
+Wildflowers
+
+minecraft:connection_down
+
+State Value
+
+Blocks
+
+Boolean false or true
+
+Chorus Plant​[upcoming: BE 26.50]
+Fire​[upcoming: BE 26.50]
+
+minecraft:connection_east
+
+State Value
+
+Blocks
+
+Boolean (false or true)
+
+Chorus Plant​[upcoming: BE 26.50]
+Copper Bars​[upcoming: BE 26.50]
+Fences​[upcoming: BE 26.50]
+Fire​[upcoming: BE 26.50]
+Glass Pane​[upcoming: BE 26.50]
+Iron Bars​[upcoming: BE 26.50]
+Stained Glass Panes​[upcoming: BE 26.50]
+Tripwire​[upcoming: BE 26.50]
+
+minecraft:connection_north
+
+State Value
+
+Blocks
+
+Boolean (false or true)
+
+Chorus Plant​[upcoming: BE 26.50]
+Copper Bars​[upcoming: BE 26.50]
+Fences​[upcoming: BE 26.50]
+Fire​[upcoming: BE 26.50]
+Glass Pane​[upcoming: BE 26.50]
+Iron Bars​[upcoming: BE 26.50]
+Stained Glass Panes​[upcoming: BE 26.50]
+Tripwire​[upcoming: BE 26.50]
+
+minecraft:connection_south
+
+State Value
+
+Blocks
+
+Boolean (false or true)
+
+Chorus Plant​[upcoming: BE 26.50]
+Copper Bars​[upcoming: BE 26.50]
+Fences​[upcoming: BE 26.50]
+Fire​[upcoming: BE 26.50]
+Glass Pane​[upcoming: BE 26.50]
+Iron Bars​[upcoming: BE 26.50]
+Stained Glass Panes​[upcoming: BE 26.50]
+Tripwire​[upcoming: BE 26.50]
+
+minecraft:connection_west
+
+State Value
+
+Blocks
+
+Boolean (false or true)
+
+Chorus Plant​[upcoming: BE 26.50]
+Copper Bars​[upcoming: BE 26.50]
+Fences​[upcoming: BE 26.50]
+Fire​[upcoming: BE 26.50]
+Glass Pane​[upcoming: BE 26.50]
+Iron Bars​[upcoming: BE 26.50]
+Stained Glass Panes​[upcoming: BE 26.50]
+Tripwire​[upcoming: BE 26.50]
+
+minecraft:corner
+Defines the corner shape of a block.
+
+State Value
+
+Blocks
+
+none
+inner_left
+inner_right
+outer_left
+outer_right
+
+Stairs (all)​[upcoming: BE 26.50]
+
+minecraft:facing_direction
+
+State Value
+
+Blocks
+
+down
+up
+east
+north
+south
+west
+
+Observer
+
+minecraft:multi_block_part
+Defines how many block parts this multi block has. Enabled by trait minecraft:multi_block.
+
+State Value
+
+Blocks
+
+Integer (0 to 3
+
+Empty
+
+minecraft:sixteen_way_rotation
+Defines N-way placement rotation for visual geometry rotation. Enabled by trait minecraft:placement_direction with state minecraft:sixteen_way_rotation.
+
+State Value
+
+Blocks
+
+Integer (0 to 15
+
+Empty
+
+minecraft:vertical_half
+
+State Value
+
+Blocks
+
+bottom
+top
+
+Slabs (all)
+Double Slabs (all)
+
+moisturized_amount
+
+State Value
+
+Blocks
+
+Integer (0 to 7)
+
+Farmland
+
+multi_face_direction_bits
+
+State Value
+
+Blocks
+
+Integer (1 to 63) (with 0 unused}}
+
+Glow Lichen
+Resin Clump
+Sculk Vein
+
+natural
+
+State Value
+
+Blocks
+
+Boolean (false or true)
+
+Creaking Heart
+
+occupied_bit
+
+State Value
+
+Blocks
+
+Boolean (false or true)
+
+Bed
+Straw Bed
+
+ominous
+
+State Value
+
+Blocks
+
+Boolean (false or true)
+
+Trial Spawner
+Vault
+
+open_bit
+
+State Value
+
+Blocks
+
+Boolean (false or true)
+
+Doors (any)
+Fence Gates
+Trapdoors (any)
+Barrel
+Lever
+
+orientation
+
+State Value
+
+Blocks
+
+down_east
+down_north
+down_south
+down_west
+up_north
+up_east
+up_south
+up_west
+east_up
+west_up
+south_up
+north_up
+
+Crafter
+
+output_lit_bit
+
+State Value
+
+Blocks
+
+Boolean (false or true)
+
+Powered Redstone Comparator
+Unpowered Redstone Comparator
+
+output_subtract_bit
+
+State Value
+
+Blocks
+
+Boolean (false or true)
+
+Powered Redstone Comparator
+Unpowered Redstone Comparator
+
+pale_moss_carpet_side_east
+
+State Value
+
+Blocks
+
+none
+short
+tall
+
+Pale Moss Carpet
+
+pale_moss_carpet_side_north
+
+State Value
+
+Blocks
+
+none
+short
+tall
+
+Pale Moss Carpet
+
+pale_moss_carpet_side_south
+
+State Value
+
+Blocks
+
+none
+short
+tall
+
+Pale Moss Carpet
+
+pale_moss_carpet_side_west
+
+State Value
+
+Blocks
+
+none
+short
+tall
+
+Pale Moss Carpet
+
+persistent_bit
+
+State Value
+
+Blocks
+
+Boolean (false or true)
+
+Leaves (any)
+
+pillar_axis
+
+State Value
+
+Blocks
+
+x
+y
+z
+
+Basalt
+Block of Bamboo
+Block of Stripped Bamboo
+Block of Quartz
+Bone Block
+Chiseled Purpur
+Chiseled Quartz Block
+Copper Chain (any)
+Creaking Heart
+Deepslate
+Froglights
+Hay Bale
+Infested Deepslate
+Iron Chain
+Logs (any, including stripped)
+Muddy Mangrove Roots
+Polished Basalt
+Purpur Block
+Purpur Pillar
+Smooth Quartz Block
+tile.deprecated_purpur_block_2.name
+Wood (any, including stripped)
+
+portal_axis
+
+State Value
+
+Blocks
+
+unknown
+x
+z
+
+Nether Portal
+
+potent_sulfur_state
+
+State Value
+
+Blocks
+
+dry
+wet
+dormant
+erupting
+continuous
+
+Potent Sulfur
+
+powered_bit
+
+State Value
+
+Blocks
+
+Boolean (false or true)
+
+Copper Bulb (any)
+Lectern
+Lightning Rod (any)
+Shelves
+Observer
+Tripwire
+Tripwire Hook
+
+powered_shelf_type
+
+State Value
+
+Blocks
+
+Integer (0 to 3)
+
+Shelves
+
+propagule_stage
+
+State Value
+
+Blocks
+
+Integer (0 to 4)
+
+Mangrove Propagule
+
+rail_data_bit
+
+State Value
+
+Blocks
+
+Boolean (false or true)
+
+Activator Rail
+Detector Rail
+Powered Rail
+Rail
+
+rail_direction
+
+State Value
+
+Blocks
+
+Integer (0 to 5 with 6 to 9 unused)
+
+Activator Rail
+Detector Rail
+Powered Rail
+
+Integer (0 to 9)
+
+Rail
+
+redstone_signal
+
+State Value
+
+Blocks
+
+Integer (0 to 1 with 2 to 15)
+
+Polished Blackstone Pressure Plate
+Stone Pressure Plate
+Wooden Pressure Plate (any)
+
+Integer (0 to 15)
+
+Daylight Detector
+Heavy Weighted Pressure Plate
+Inverted Daylight Detector
+Light Weighted Pressure Plate
+Redstone Wire
+
+rehydration_level
+
+State Value
+
+Blocks
+
+Integer (0 to 3)
+
+Dried Ghast
+
+repeater_delay
+
+State Value
+
+Blocks
+
+Integer (0 to 3)
+
+Powered Redstone Repeater
+Unpowered Redstone Repeater
+
+respawn_anchor_charge
+
+State Value
+
+Blocks
+
+Integer (0 to 4)
+
+Respawn Anchor
+
+rotation
+
+State Value
+
+Blocks
+
+Integer (0 to 3)
+
+Jigsaw Block
+
+sculk_sensor_phase
+
+State Value
+
+Blocks
+
+Integer (0 to 2)
+
+Calibrated Sculk Sensor
+Sculk Sensor
+
+sea_grass_type
+
+State Value
+
+Blocks
+
+default
+double_top
+double_bot
+
+Seagrass
+
+stability
+
+State Value
+
+Blocks
+
+Integer (0 to 7)
+
+Scaffolding
+
+stability_check
+
+State Value
+
+Blocks
+
+Boolean (false or true)
+
+Scaffolding
+
+structure_block_type
+
+State Value
+
+Blocks
+
+data
+save
+load
+invalid
+export
+
+Structure Block
+
+suspended_bit
+
+State Value
+
+Blocks
+
+Boolean (false or true)
+
+Tripwire
+
+tip
+
+State Value
+
+Blocks
+
+Boolean (false or true)
+
+Pale Hanging Moss
+
+toggle_bit
+
+State Value
+
+Blocks
+
+Boolean (false or true)
+
+Bell
+Hopper
+
+torch_facing_direction
+
+State Value
+
+Blocks
+
+unknown
+west
+east
+north
+south
+up
+
+Blue Torch
+Copper Torch
+Green Torch
+Purple Torch
+Red Torch
+Redstone Torch
+Soul Torch
+Torch
+Underwater Torch
+Unlit Redstone Torch
+
+trial_spawner_state
+
+State Value
+
+Blocks
+
+Integer (0 to 5)
+
+Trial Spawner
+
+triggered_bit
+
+State Value
+
+Blocks
+
+Boolean (false or true)
+
+Crafter
+Dispenser
+Dropper
+
+turtle_egg_count
+
+State Value
+
+Blocks
+
+one_egg
+two_egg
+three_egg
+four_egg
+
+Turtle Egg
+
+twisting_vines_age
+
+State Value
+
+Blocks
+
+Integer (0 to 25)
+
+Twisting Vines
+
+update_bit
+
+State Value
+
+Blocks
+
+Boolean (false or true)
+
+Leaves (any)
+Flower Pot
+
+upper_block_bit
+
+State Value
+
+Blocks
+
+Boolean (false or true)
+
+Doors (any)
+Large Fern
+Lilac
+Pale Moss Carpet
+Peony
+Pitcher Crop
+Pitcher Plant
+Rose Bush
+Small Dripleaf
+Sunflower
+Tall Grass
+
+upside_down_bit
+
+State Value
+
+Blocks
+
+Boolean (false or true)
+
+Stairs (all)
+Trapdoors (any)
+
+vault_state
+
+State Value
+
+Blocks
+
+inactive
+active
+unlocking
+ejecting
+
+Vault
+
+vine_direction_bits
+
+State Value
+
+Blocks
+
+Integer (0 to 15)
+
+Vines
+
+wall_connection_type_east
+
+State Value
+
+Blocks
+
+none
+short
+tall
+
+Walls (any)
+Border
+
+wall_connection_type_north
+
+State Value
+
+Blocks
+
+none
+short
+tall
+
+Walls (any)
+Border
+
+wall_connection_type_south
+
+State Value
+
+Blocks
+
+none
+short
+tall
+
+Walls (any)
+Border
+
+wall_connection_type_west
+
+State Value
+
+Blocks
+
+none
+short
+tall
+
+Walls (any)
+Border
+
+wall_post_bit
+
+State Value
+
+Blocks
+
+Boolean (false or true)
+
+Walls (any)
+Border
+
+weeping_vines_age
+
+State Value
+
+Blocks
+
+Integer (0 to 25)
+
+Weeping Vines
+
+weirdo_direction
+
+State Value
+
+Blocks
+
+Integer (0 to 3)
+
+Stairs (all)
+
+Deprecated
+This is a list of block states deprecated due to the flattening. These block states are still present in the game files, and they can still be used with pre-flattened block IDs in commands. For example, /setblock ~ ~ ~ fence ["wood_type"="acacia"] would place an acacia fence.
+
+allow_underwater_bit
+Deprecated Preview 1.21.30.23.
+
+State Value
+
+Blocks
+
+Boolean (false or true)
+
+TNT
+
+block_light_level
+Deprecated Preview 1.21.20.21.
+
+State Value
+
+Blocks
+
+Integer (0 to 15)
+
+Light
+
+chemistry_table_type
+Deprecated Preview 1.21.30.23.
+
+State Value
+
+Blocks
+
+compound_creator
+material_reducer
+element_constructor
+lab_table
+
+Chemistry Table
+
+chisel_type
+Deprecated Preview 1.21.30.21.
+
+State Value
+
+Blocks
+
+default
+chiseled
+lines
+smooth
+
+Block of Quartz (all types)
+Purpur Block (all types)
+
+color
+Deprecated Preview 1.20.60.24.
+
+State Value
+
+Blocks
+
+white
+orange
+magenta
+light_blue
+yellow
+lime
+pink
+gray
+silver
+cyan
+purple
+blue
+brown
+green
+red
+black
+
+Carpets
+Dyed Shulker Boxes
+Concrete
+Concrete Powder
+Hardened Stained Glass
+Hardened Stained Glass Panes
+Stained Glass
+Stained Glass Panes
+Stained Terracotta
+Wool
+
+color_bit
+Deprecated Preview 1.21.30.22.
+
+State Value
+
+Blocks
+
+Boolean (false or true)
+
+Colored Torches (Red/Green)
+Colored Torches (Blue/Purple)
+
+coral_color
+Deprecated Preview 1.21.0.21.
+
+State Value
+
+Blocks
+
+blue
+pink
+purple
+red
+yellow
+
+Coral
+Coral Block
+Coral Fan
+Dead Coral Fan
+
+coral_hang_type_bit
+Deprecated Preview 1.21.10.21.
+
+State Value
+
+Blocks
+
+Boolean (false or true)
+
+Coral Wall Fan
+Coral Wall Fan (2)
+Coral Wall Fan (3)
+
+damage
+Deprecated Preview 1.21.20.22.
+
+State Value
+
+Blocks
+
+undamaged
+slightly_damaged
+very_damaged
+broken
+
+Anvil
+
+dead_bit
+Deprecated Preview 1.21.10.21.
+
+State Value
+
+Blocks
+
+Boolean (false or true)
+
+Coral
+Coral Block
+Coral Fan
+Coral Wall Fan
+Coral Wall Fan (2)
+Coral Wall Fan (3)
+
+dirt_type
+Deprecated Preview 1.21.20.22.
+
+State Value
+
+Blocks
+
+normal
+coarse
+
+Dirt
+
+double_plant_type
+Deprecated Preview 1.21.0.22.
+
+State Value
+
+Blocks
+
+sunflower
+syringa
+grass
+fern
+rose
+paeonia
+
+Double Plants
+
+flower_type
+Deprecated Preview 1.20.80.23.
+
+State Value
+
+Blocks
+
+poppy
+orchid
+allium
+houstonia
+tulip_red
+tulip_orange
+tulip_white
+tulip_pink
+oxeye
+cornflower
+lily_of_the_valley
+
+Red Flower
+
+monster_egg_type
+Deprecated Preview 1.21.10.20.
+
+State Value
+
+Blocks
+
+stone
+cobblestone
+stone_brick
+mossy_stone_brick
+cracked_stone_brick
+chiseled_stone_brick
+
+Infested Blocks
+
+new_leaf_type
+Deprecated Preview 1.20.70.20.
+
+State Value
+
+Blocks
+
+acacia
+dark_oak
+
+Leaves (2)
+
+new_log_type
+Deprecated Preview 1.20.0.20.
+
+State Value
+
+Blocks
+
+acacia
+dark_oak
+
+Log (2)
+
+old_leaf_type
+Deprecated Preview 1.20.70.20.
+
+State Value
+
+Blocks
+
+oak
+spruce
+birch
+jungle
+
+Leaves
+
+old_log_type
+Deprecated Preview 1.20.0.20.
+
+State Value
+
+Blocks
+
+oak
+spruce
+birch
+jungle
+
+Log
+
+prismarine_block_type
+Deprecated Preview 1.21.10.22.
+
+State Value
+
+Blocks
+
+default
+dark
+bricks
+
+Prismarine
+
+sand_stone_type
+Deprecated Preview 1.21.20.22.
+
+State Value
+
+Blocks
+
+default
+heiroglyphs
+cut
+smooth
+
+Red Sandstone
+Sandstone
+
+sand_type
+Deprecated Preview 1.21.20.22.
+
+State Value
+
+Blocks
+
+normal
+red
+
+Sand
+
+sapling_type
+Deprecated Preview 1.20.80.20.
+
+State Value
+
+Blocks
+
+oak
+spruce
+birch
+jungle
+acacia
+dark_oak
+pale_oak (added after deprecation)
+
+Sapling
+Bamboo Shoot
+
+sponge_type
+Deprecated Preview 1.21.30.22.
+
+State Value
+
+Blocks
+
+dry
+wet
+
+Sponge
+
+stone_brick_type
+Deprecated Preview 1.21.10.20.
+
+State Value
+
+Blocks
+
+default
+mossy
+cracked
+chisled
+smooth
+
+Stone Bricks
+
+stone_slab_type
+Deprecated Preview 1.21.10.20.
+
+State Value
+
+Blocks
+
+smooth_stone
+sandstone
+wood
+cobblestone
+brick
+stone_brick
+quartz
+nether_brick
+
+Stone Slab
+Double Stone Slab
+
+stone_slab_type_2
+Deprecated Preview 1.21.10.22.
+
+State Value
+
+Blocks
+
+red_sandstone
+purpur
+prismarine_rough
+prismarine_dark
+prismarine_brick
+mossy_cobblestone
+smooth_sandstone
+red_nether_brick
+
+Stone Slab (2)
+Double Stone Slab (2)
+
+stone_slab_type_3
+Deprecated Preview 1.21.10.22.
+
+State Value
+
+Blocks
+
+end_stone_brick
+smooth_red_sandstone
+polished_andesite
+andesite
+diorite
+polished_diorite
+granite
+polished_granite
+
+Stone Slab (3)
+Double Stone Slab (3)
+
+stone_slab_type_4
+Deprecated Preview 1.21.10.22.
+
+State Value
+
+Blocks
+
+mossy_stone_brick
+smooth_quartz
+stone
+cut_sandstone
+cut_red_sandstone
+
+Stone Slab (4)
+Double Stone Slab (4)
+
+stone_type
+Deprecated Preview 1.20.50.20.
+
+State Value
+
+Blocks
+
+stone
+granite
+granite_smooth
+diorite
+diorite_smooth
+andesite
+andesite_smooth
+
+Stone
+
+stripped_bit
+Deprecated Preview 1.20.70.22.
+
+State Value
+
+Blocks
+
+Boolean (false or true)
+
+Wood
+
+structure_void_type
+Deprecated Preview 1.21.30.21.
+
+State Value
+
+Blocks
+
+void
+air
+
+Structure Void
+
+tall_grass_type
+Deprecated Preview 1.21.0.20.
+
+State Value
+
+Blocks
+
+default
+tall
+fern
+snow
+
+Short Grass
+
+top_slot_bit
+Deprecated Preview 1.20.20.20.
+
+State Value
+
+Blocks
+
+Boolean (false or true)
+
+Slabs
+Double Slabs
+
+wall_block_type
+Deprecated Preview 1.21.30.21.
+
+State Value
+
+Blocks
+
+cobblestone
+mossy_cobblestone
+granite
+diorite
+andesite
+sandstone
+brick
+stone_brick
+mossy_stone_brick
+nether_brick
+end_brick
+prismarine
+red_sandstone
+red_nether_brick
+
+Wall (except blackstone and deepslate walls)
+
+wood_type
+Deprecated Preview 1.20.70.22.
+
+State Value
+
+Blocks
+
+oak
+spruce
+birch
+jungle
+acacia
+dark_oak
+
+Wooden Fence
+Wood
+
+Numeric ID Inherit Tree
+
+Entity
+Area Effect Cloud
+Balloon
+Boat Rideable
+Chalkboard
+Chest Boat
+End Crystal
+Eye of Ender
+Experience Orb
+Falling Block Entity
+Fishing Hook
+Fireworks Rocket
+Item Entity
+Leash Knot
+Lectern
+Lightning Bolt
+Shield
+Piston
+Primed TNT
+Painting
+Mob
+Agent
+Allay
+Armor Stand
+Bee
+NPC
+Piglin
+Piglin Brute
+Player
+Tripod Camera
+Zoglin
+Ambient
+Bat
+Pathfinder Mob
+Copper Golem
+Iron Golem
+Snow Golem
+Wandering Trader
+Monster
+Blaze
+Breeze
+Creeper
+Creaking
+Elder Guardian
+Elder Guardian Ghost
+Ender Dragon
+Enderman
+Evoker
+Ghast
+Guardian
+Magma Cube
+Pillager
+Ravager
+Slime
+Shulker
+Vex
+Vindicator
+Witch
+Warden
+Undead Mob
+Camel Husk
+Phantom
+Skeleton Horse
+Wither
+Zombie Horse
+Zombie Nautilus
+Zombified Piglin
+Zombie Monster
+Drowned
+Husk
+Old Zombie Villager
+Zombie
+Zombie Villager
+Skeleton Monster
+Bogged
+Parched
+Skeleton
+Stray
+Wither Skeleton
+Arthropod
+Cave Spider
+Endermite
+Silverfish
+Spider
+Animal
+Armadillo
+Axolotl
+Camel
+Camel Husk
+Chicken
+Cow
+Firefly (removed: beta 1.19.10.20)
+Fox
+Frog
+Goat
+Happy Ghast
+Hoglin
+Llama
+Mooshroom
+Panda
+Pig
+Polar Bear
+Rabbit
+Sheep
+Sniffer
+Strider
+Tadpole
+Trader Llama
+Turtle
+Tamable Animal
+Cat
+Nautilus[verify]
+Parrot
+Ocelot
+Wolf
+Zombie Nautilus[verify]
+Equine Animal
+Horse
+Donkey
+Mule
+Skeleton Horse
+Zombie Horse
+Water Animal
+Cod
+Dolphin
+Glow Squid
+Pufferfish
+Salmon
+Squid
+Tropical Fish
+Villager Base
+Old Villager
+Villager
+Minecart
+Minecart Rideable
+Minecart Chest
+Minecart Command Block
+Minecart Hopper
+Minecart TNT
+Projectile
+Arrow
+Experience Potion
+Dragon Fireball
+Evocation Fang
+Ender Pearl
+Ice Bomb
+Large Fireball
+Lingering Potion
+Llama Spit
+Thrown Experience Bottle
+Thrown Trident
+Shulker Bullet
+Small Fireball
+Thrown Egg
+Thrown Snowball
+Thrown Potion
+Wither Skull
+Wither Skull Dangerous
+Abstract Arrow
+Thrown Arrow
+Thrown Trident
+
+Notes
+
+ While 1 is unobtainable without commands or editing, it has its own distinct block model.
+
+References
+
+ Only exists as an ID. There are no Behavior pack files, textures, translation keys, or Resource pack files for this entity.
+
+Navigation

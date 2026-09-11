@@ -1,0 +1,116 @@
+/enchant
+
+Permission levelrequired
+
+2 ‌[JE  only]
+1 ‌[BE  only]
+
+Restrictions
+
+Cheat only‌[BE  only]
+
+{
+    "title": "<code>/enchant</code>",
+    "rows": [
+        {
+            "field": "\n* 2 ‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Java Edition\">(link to Java Edition article, displayed as JE)  only</span></i>]</sup>\n* 1 ‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Bedrock Edition\">(link to Bedrock Edition article, displayed as BE)  only</span></i>]</sup>",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "(link to Cheat article, displayed as Cheat) only‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Bedrock Edition\">(link to Bedrock Edition article, displayed as BE)  only</span></i>]</sup>",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+Adds an enchantment to a player's selected item, subject to the same restrictions as an anvil. Also works on any mob or entity holding a weapon/tool/armor in its main hand.
+
+Contents
+
+1 Syntax
+2 Arguments
+3 Result
+4 Output
+5 Examples
+6 History
+
+6.1 Java Edition
+6.2 Bedrock Edition
+
+7 References
+8 External links
+9 Navigation
+
+Syntax
+Java Edition
+enchant <targets> <enchantment> [<level>]
+Bedrock Edition
+enchant <player: target> <enchantmentId: int> [level: int]
+enchant <player: target> <enchantmentName: Enchant> [level: int]
+Arguments
+JE: <targets>: entityBE: player: target: CommandSelector<Actor>
+
+Specifies the target(s).
+Must be a player name, a target selector or a UUID‌[Java Edition  only].
+JE: <enchantment>: resource
+BE: enchantmentId: int: int or <enchantmentName: Enchant>: enum
+
+Specifies the enchantment to be added to the item held in main hand by the target.
+In Java Edition, must be an existing registered resource location in minecraft:enchantment registry. In Bedrock Edition, must be an ID of an enchantment (without namespace)
+JE: <level>: integerBE: level: int: int
+
+Specifies the enchantment level. Should be not greater than the maximum level for the specified enchantment. If not specified, defaults to 1.
+Must be a [Int]32-bit integer number (from -2147483648 (-231) to 2147483647 (231-1) ). In Java Edition, it must be between 0 and 2147483647 (inclusive). In Bedrock Edition, it should be between 1 and 2147483647 (inclusive).
+Result
+
+CommandTriggerJava EditionBedrock Edition
+
+AnyThe command is incomplete, or any argument is not specified correctly. Unparseable Unparseable<targets> or player: target fails to resolve to one or more entities (named player must be online). Failed Failedlevel: int is lower than 1. N/A<level> or level: int is greater than the maximum level for the specified enchantment. FailedAll the selected entities meet one or more of the following conditions:
+There's no item in its hand.
+The enchantment is not valid for items in its main hand.
+The enchantment conflicts with current enchantments (for example, "Piercing" cannot be given to a crossbow which already has "Multishot", and "Sharpness III" cannot be given to a sword which already has "Sharpness I").
+Items in its main hand already have this enchantment‌[Java Edition  only].
+Items in its main hand already have this enchantment with its maximum level‌[Bedrock Edition  only].OtherwiseSuccessful
+Output
+
+CommandEditionSituationSuccess Count/execute store success .../execute store result ...
+
+AnyJava EditionOn fail000On success11the number of players whose items are successfully enchanted.Bedrock EditionOn fail0N/AN/AOn successthe number of players whose items are successfully enchanted.N/AN/A
+Examples
+To give the Infinity enchantment to all players holding a bow:
+/enchant @a infinity
+To enchant the nearest player's held sword with Sharpness 5:
+/enchant @p sharpness 5
+History
+
+
+
+This section needs expansion. 
+You can help by expanding it.
+
+Java Edition
+Java Edition1.4.4pre
+Added /enchant.1.1317w45a
+Removed /enchant.18w06a
+Re-added /enchant.1.19.322w42a
+<enchantment> now accepts a resource argument, instead of item_enchantment.
+Bedrock Edition
+Pocket Edition Alphav0.16.0build 5
+Added /enchant.Bedrock Edition1.19.20Preview 1.19.20.22
+/enchant command now can be applied on mobs.1.19.50Preview 1.19.50.20
+Using the /enchant command to apply the same level of enchantment no longer results in a higher level being applied.
+References
+
+ MC-261942
+
+ Although /enchant enforces maximum levels and compatibility, other commands (such as /give, /replaceitem, and /data) can bypass these restrictions.
+
+ MCPE-113623 – resolved as "Fixed".
+
+ MCPE-153204 – resolved as "Fixed".
+
+External links
+"/enchant Command"     – Microsoft Learn, October 11, 2023.
+Navigation

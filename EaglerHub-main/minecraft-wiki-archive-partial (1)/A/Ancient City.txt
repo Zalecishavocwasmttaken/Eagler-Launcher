@@ -1,0 +1,1673 @@
+For other uses, see Ancient.
+
+Ancient City
+
+Biomes
+
+Deep Dark
+
+Y-level
+
+-51
+
+Mobs
+
+Warden (from sculk shrieker)
+
+Consists of
+
+See § Blocks
+
+{
+    "title": "Ancient City",
+    "rows": [
+        {
+            "field": "<span class=\"nowrap\"><span class=\"sprite-file\" style=\"\">(link to File:BiomeSprite deep-dark.png article, displayed as 16x16px|link=Deep Dark|alt=|class=pixel-image|)</span>(link to Deep Dark article, displayed as <span class=\"sprite-text\">Deep Dark</span>)</span>",
+            "label": "(link to Biome article, displayed as Biomes)"
+        },
+        {
+            "field": "-51",
+            "label": "<span title=\"The Y-level(s) that generation begins at. The structure is not restricted to these Y-levels.\">Y-level</span>"
+        },
+        {
+            "field": "<span class=\"nowrap\"><span class=\"sprite-file\" style=\"\">(link to File:EntitySprite warden.png article, displayed as 16x16px|link=Warden|alt=|class=pixel-image|)</span>(link to Warden article, displayed as <span class=\"sprite-text\">Warden</span>)</span> (from sculk shrieker)",
+            "label": "(link to Mob article, displayed as Mobs)"
+        },
+        {
+            "field": "\n* See (link to #Blocks article, displayed as <span style=\"white-space: nowrap;\">§ Blocks</span>)",
+            "label": "Consists of"
+        }
+    ],
+    "invimages": [],
+    "images": [
+        "Ancient City SE.png"
+    ]
+}
+
+
+
+ There is a related tutorial page for this topic! 
+See Tutorial:Exploring an ancient city.
+
+An ancient city is a palatial structure found in deep dark biomes at Y=-51, that harbors chests containing items, such as disc fragments, armor trims, and echo shards, that cannot be found anywhere else. It is also one of the only two places where sculk sensors can be found.
+
+Contents
+
+1 Generation
+2 Structure
+
+2.1 Environment aesthetics
+
+2.1.1 Overall view
+2.1.2 Redstone circuits
+
+2.2 File structure
+2.3 Components
+
+2.3.1 Entrance
+2.3.2 Center
+2.3.3 Ruins
+2.3.4 Walls
+
+2.4 Blocks
+
+3 Loot
+
+3.1 Normal
+3.2 Ice boxes
+
+4 Data values
+
+4.1 ID
+
+5 History
+
+5.1 Reveal
+5.2 Java Edition
+5.3 Bedrock Edition
+
+6 Issues
+7 Trivia
+8 Gallery
+
+8.1 Renders
+8.2 Screenshots
+8.3 Mojang images
+8.4 Development images
+8.5 Concept artwork
+8.6 In other media
+
+9 See also
+10 References
+11 External links
+12 Navigation
+
+Generation
+Ancient cities cannot generate overlapping each other; however, they can generate directly adjacent to each other.
+Because they can only generate in the deep dark, they will often be found under mountains and other places with low erosion.
+Ancient cities can be located with ancient city explorer maps, which are found in secret chests in abandoned camps.​[upcoming: Third Drop 2026]
+
+An interactive widget is being loaded. If this does not work for you, please reload the page or check if JavaScript is working or enabled.
+Structure
+   For the technical details behind ancient city structures, see Ancient City/Structure.   For the blueprints of ancient city structures, see Ancient City/Structure/Blueprints.
+
+Environment aesthetics
+An ancient city features a massive palace with a footprint of around 220 blocks on each horizontal axis, stretching throughout a deep dark biome. The floor of the city always generates at Y=-51. The palace is made up of long corridors with 2-block-deep floors of gray wool, with the occasional rugs of blue, light blue, and cyan wool or carpet floors to reduce vibrations. Off to the sides of the main corridors are smaller ruin structures, which often contain one or two loot chests. The city's center features a frame resembling a portal that contains exclusive reinforced deepslate blocks, though these are unobtainable in Survival mode. Other unique blocks such as soul lanterns, candles, and different forms of deepslate and sculk can be found throughout the city. Sculk shriekers generate much more frequently in ancient cities than in the normal deep dark biome. The city always generates at the same position within a chunk (for example, the blocks that make up the center frame structure are always on the western edge of a chunk).
+Some of the city's structures resemble other elements of the game. The city center bears a resemblance to early iterations of the warden's design, and other structures are similar in appearance to pillager outposts, the wool rooms in woodland mansions, and abandoned mineshafts.
+
+Overall view
+The following three renders are of the same individual ancient city.
+
+
+
+			The view from the direction of the entrance
+
+
+
+			Another direction
+
+
+
+			The vertical view (The entrance is in the lower part of this picture)
+
+
+Redstone circuits
+Underneath the frame at the city center lies a series of hidden basement rooms with naturally generating redstone circuitry.
+The secret entrance is located at the base of the structure, underneath the wooden bridge between the city center and the wall. There is a piston door that is controlled by a sculk sensor in the basement's redstone circuits.
+
+
+
+			Basement of city_center_1
+
+
+
+			Basement of city_center_2
+
+
+
+			Basement of city_center_3
+
+
+
+			Piston door circuit in the basement of city_center_3
+
+
+
+			Furnace in the basement of city_center_2
+
+
+For city_center_1, there is a chiseled deepslate block in front of the frame. Making a vibration around it can activate the sculk sensor and then open the piston door. There is also a pulse extender between the sculk sensor and piston door, which makes the piston door close 180 game ticks after the sculk sensor is deactivated.
+The circuit in city_center_2 is similar to the former, but with a signal strength filter. Only vibrations with a frequency equal to 8 (eating or drinking) can activate the piston door. Creating these vibrations on the path in the front of the frame in the city center activates the door.
+For city_center_3, making a vibration on the path in front of the frame on the city center can activate the sculk sensor. Additionally, there is a T flip-flop between the sculk sensor and piston door. After the sculk sensor is activated, the piston door remains open until the sculk sensor is activated again.
+There are three basic redstone circuits in the basement:
+
+
+
+			Circuit of the target block
+
+
+
+			Circuit of the lectern block
+
+
+
+			Circuit to show that some blocks can transfer a signal with a repeater while some cannot
+
+
+File structure
+All ancient city structures found below are located in the folder client.jar/data/minecraft/structures/ancient_city‌[JE  only], data/structures/ancient_city‌[BE  only].
+
+List
+
+ancient_city
+city
+entrance
+entrance_connector.nbt
+entrance_path_1.nbt
+entrance_path_2.nbt
+entrance_path_3.nbt
+entrance_path_4.nbt
+entrance_path_5.nbt
+city_center
+city_center_1.nbt
+city_center_2.nbt
+city_center_3.nbt
+walls
+bottom_1.nbt
+bottom_2.nbt
+bottom_left_corner.nbt
+bottom_right_corner.nbt
+bottom_right_corner_1.nbt
+bottom_right_corner_2.nbt
+left.nbt
+right.nbt
+top_left_corner.nbt
+top_right_corner.nbt
+top.nbt
+structures
+barracks.nbt
+camp_1.nbt
+camp_2.nbt
+camp_3.nbt
+chamber_1.nbt
+chamber_2.nbt
+chamber_3.nbt
+ice_box_1.nbt
+large_pillar_1.nbt
+large_ruin_1.nbt
+medium_pillar_1.nbt
+medium_ruin_1.nbt
+medium_ruin_2.nbt
+sauna_1.nbt
+small_ruin_1.nbt
+small_ruin_2.nbt
+small_statue.nbt
+tall_ruin_1.nbt
+tall_ruin_2.nbt
+tall_ruin_3.nbt
+tall_ruin_4.nbt
+walls
+intact_corner_wall_1.nbt
+intact_horizontal_wall_1.nbt
+intact_horizontal_wall_2.nbt
+intact_horizontal_wall_bridge.nbt
+intact_horizontal_wall_passage_1.nbt
+intact_horizontal_wall_stairs_1.nbt
+intact_horizontal_wall_stairs_2.nbt
+intact_horizontal_wall_stairs_3.nbt
+intact_horizontal_wall_stairs_4.nbt
+intact_intersection_wall_1.nbt
+intact_lshape_wall_1.nbt
+ruined_corner_wall_1.nbt
+ruined_corner_wall_2.nbt
+ruined_horizontal_wall_stairs_1.nbt
+ruined_horizontal_wall_stairs_2.nbt
+ruined_horizontal_wall_stairs_3.nbt
+ruined_horizontal_wall_stairs_4.nbt
+
+Components
+Entrance
+
+Structure name
+
+Description
+
+Consists of
+
+Image
+
+ancient_city/city/entrance/entrance_connector
+
+A path, with a staircase at the end. It is enclosed by arches. There are three pillars on each side of the path.
+
+3 Candle (1 candle in one block)
+6 Candle (2 candles in one block)
+6 Candle (3 candles in one block)
+5 Candle (4 candles in one block)
+72 Chiseled Deepslate
+928 Deepslate
+21 Deepslate Brick Slab
+9 Deepslate Brick Stairs
+96 Deepslate Bricks
+299 Deepslate Tile Stairs
+595 Deepslate Tiles
+138 Polished Basalt
+416 Polished Deepslate
+12 Polished Deepslate Wall
+40 Smooth Basalt
+6 Soul Lantern
+
+ancient_city/city/entrance/entrance_path_1
+
+12 Candle (1 candle in one block)
+5 Candle (2 candles in one block)
+5 Candle (3 candles in one block)
+2 Candle (4 candles in one block)
+78 Chiseled Deepslate
+3 Cobbled Deepslate Slab
+899 Deepslate
+25 Deepslate Brick Slab
+6 Deepslate Brick Stairs
+41 Deepslate Bricks
+305 Deepslate Tile Stairs
+731 Deepslate Tiles
+138 Polished Basalt
+437 Polished Deepslate
+3 Polished Deepslate Slab
+14 Polished Deepslate Wall
+48 Smooth Basalt
+7 Soul Lantern
+
+ancient_city/city/entrance/entrance_path_2
+
+10 Candle (1 candle in one block)
+4 Candle (2 candles in one block)
+4 Candle (3 candles in one block)
+2 Candle (4 candles in one block)
+59 Chiseled Deepslate
+21 Dark Oak Planks
+810 Deepslate
+22 Deepslate Brick Slab
+6 Deepslate Brick Stairs
+39 Deepslate Bricks
+9 Deepslate Tile Slab
+254 Deepslate Tile Stairs
+2,357 Deepslate Tiles
+12 Ladder
+113 Polished Basalt
+348 Polished Deepslate
+15 Polished Deepslate Wall
+39 Smooth Basalt
+7 Soul Lantern
+
+ancient_city/city/entrance/entrance_path_3
+
+8 Candle (1 candle in one block)
+3 Candle (2 candles in one block)
+3 Candle (3 candles in one block)
+2 Candle (4 candles in one block)
+36 Chiseled Deepslate
+4 Cobbled Deepslate
+12 Cobbled Deepslate Wall
+21 Dark Oak Fence
+26 Dark Oak Log
+93 Dark Oak Planks
+566 Deepslate
+20 Deepslate Brick Slab
+4 Deepslate Brick Stairs
+50 Deepslate Bricks
+4 Deepslate Tile Slab
+153 Deepslate Tile Stairs
+2,163 Deepslate Tiles
+18 Ladder
+90 Polished Basalt
+210 Polished Deepslate
+8 Polished Deepslate Wall
+31 Smooth Basalt
+4 Soul Lantern
+4 Torch
+
+ancient_city/city/entrance/entrance_path_4
+
+8 Candle (1 candle in one block)
+3 Candle (2 candles in one block)
+3 Candle (3 candles in one block)
+2 Candle (4 candles in one block)
+28 Chiseled Deepslate
+2 Cobbled Deepslate
+9 Cobbled Deepslate Wall
+13 Dark Oak Fence
+20 Dark Oak Log
+81 Dark Oak Planks
+548 Deepslate
+20 Deepslate Brick Slab
+4 Deepslate Brick Stairs
+56 Deepslate Bricks
+3 Deepslate Tile Slab
+139 Deepslate Tile Stairs
+2,137 Deepslate Tiles
+18 Ladder
+4 Light Blue Carpet
+91 Polished Basalt
+184 Polished Deepslate
+4 Polished Deepslate Wall
+28 Smooth Basalt
+2 Soul Lantern
+1 Torch
+
+ancient_city/city/entrance/entrance_path_5
+
+5 Candle (1 candle in one block)
+3 Candle (2 candles in one block)
+1 Candle (3 candles in one block)
+2 Candle (4 candles in one block)
+13 Chiseled Deepslate
+3 Dark Oak Log
+18 Dark Oak Planks
+373 Deepslate
+13 Deepslate Brick Slab
+2 Deepslate Brick Stairs
+39 Deepslate Bricks
+2 Deepslate Tile Slab
+76 Deepslate Tile Stairs
+1,924 Deepslate Tiles
+12 Ladder
+3 Light Blue Carpet
+72 Polished Basalt
+93 Polished Deepslate
+19 Smooth Basalt
+
+Center
+ "Ancient City portal" redirects here.  For the portal in Minecraft Dungeons II, see Dungeons II: Deep Dark Portal.
+
+Structure name
+
+Description
+
+Consists of
+
+Image
+
+ancient_city/city_center/city_center_1
+
+2 Block of Redstone
+23 Candle (1 candle in one block)
+12 Candle (2 candles in one block)
+13 Candle (3 candles in one block)
+2 Candle (4 candles in one block)
+8 Chiseled Deepslate
+353 Cobbled Deepslate
+6 Cracked Deepslate Bricks
+4 Cracked Deepslate Tiles
+1,476 Deepslate
+29 Deepslate Brick Slab
+9 Deepslate Brick Wall
+3,346 Deepslate Bricks
+69 Deepslate Tile Stairs
+1,731 Deepslate Tiles
+4 Dirt
+1 Glass
+138 Glass Pane
+44 Grass Block
+221 Gray Carpet
+199 Gray Wool
+1 Lectern
+1 Lever
+4 Piston Head
+9 Polished Deepslate Wall
+8 Redstone Comparator
+20 Redstone Lamp
+8 Redstone Repeater
+1 Redstone Wall Torch
+41 Redstone Dust
+56 Reinforced Deepslate
+1 Sculk Sensor (Waterlogged)
+57 Soul Fire
+6 Soul Lantern
+57 Soul Sand
+5 Sticky Piston
+1 Target
+
+ancient_city/city_center/city_center_2
+
+2 Block of Redstone
+23 Candle (1 candle in one block)
+12 Candle (2 candles in one block)
+14 Candle (3 candles in one block)
+3 Candle (4 candles in one block)
+1 Chest (with1 Golden Apple)
+6 Chiseled Deepslate
+350 Cobbled Deepslate
+6 Cracked Deepslate Bricks
+4 Cracked Deepslate Tiles
+1,476 Deepslate
+40 Deepslate Brick Slab
+31 Deepslate Brick Stairs
+9 Deepslate Brick Wall
+3,232 Deepslate Bricks
+11 Deepslate Tile Slab
+74 Deepslate Tile Stairs
+1,751 Deepslate Tiles
+4 Dirt
+1 Furnace (with1 Wooden Shovel24 Deepslateand some xp)
+4 Glass
+136 Glass Pane
+44 Grass Block
+221 Gray Carpet
+158 Gray Wool
+1 Lectern
+4 Piston Head
+2 Polished Deepslate Slab
+9 Polished Deepslate Wall
+9 Redstone Comparator
+19 Redstone Lamp
+8 Redstone Repeater
+3 Redstone Wall Torch
+45 Redstone Dust
+56 Reinforced Deepslate
+1 Sculk Sensor (Waterlogged)
+57 Soul Fire
+6 Soul Lantern
+57 Soul Sand
+5 Sticky Piston
+1 Target
+
+ancient_city/city_center/city_center_3
+
+2 Block of Redstone
+23 Candle (1 candle in one block)
+12 Candle (2 candles in one block)
+13 Candle (3 candles in one block)
+2 Candle (4 candles in one block)
+7 Chiseled Deepslate
+350 Cobbled Deepslate
+6 Cracked Deepslate Bricks
+4 Cracked Deepslate Tiles
+1,476 Deepslate
+29 Deepslate Brick Slab
+9 Deepslate Brick Wall
+3,287 Deepslate Bricks
+65 Deepslate Tile Stairs
+10 Deepslate Tile Wall
+1,704 Deepslate Tiles
+4 Dirt
+2 Glass
+136 Glass Pane
+44 Grass Block
+221 Gray Carpet
+173 Gray Wool
+1 Lectern
+4 Piston Head
+2 Polished Deepslate Slab
+6 Polished Deepslate Stairs
+9 Polished Deepslate Wall
+2 Redstone Comparator
+4 Redstone Lamp
+13 Redstone Repeater
+4 Redstone Torch
+8 Redstone Wall Torch
+52 Redstone Dust
+56 Reinforced Deepslate
+1 Sculk Sensor (Waterlogged)
+57 Soul Fire
+6 Soul Lantern
+57 Soul Sand
+5 Sticky Piston
+1 Target
+
+ancient_city/city_center/walls/bottom_1
+
+117 Chiseled Deepslate
+9 Cracked Deepslate Bricks
+11 Cracked Deepslate Tiles
+12 Dark Oak Fence
+28 Dark Oak Planks
+281 Deepslate
+41 Deepslate Brick Stairs
+669 Deepslate Bricks
+4 Deepslate Tile Slab
+169 Deepslate Tile Stairs
+12 Deepslate Tile Wall
+52 Deepslate Tiles
+493 Gray Wool
+30 Polished Deepslate
+57 Polished Deepslate Stairs
+4 Redstone Lamp
+4 Sculk Sensor (Waterlogged)
+
+ancient_city/city_center/walls/bottom_2
+
+87 Chiseled Deepslate
+9 Cracked Deepslate Bricks
+11 Cracked Deepslate Tiles
+10 Dark Oak Fence
+20 Dark Oak Planks
+260 Deepslate
+40 Deepslate Brick Stairs
+651 Deepslate Bricks
+2 Deepslate Tile Slab
+125 Deepslate Tile Stairs
+12 Deepslate Tile Wall
+52 Deepslate Tiles
+484 Gray Wool
+31 Polished Deepslate
+32 Polished Deepslate Stairs
+3 Redstone Lamp
+1 Sculk Sensor
+2 Sculk Sensor (Waterlogged)
+
+ancient_city/city_center/walls/bottom_left_corner
+
+59 Chiseled Deepslate
+63 Deepslate
+15 Deepslate Brick Stairs
+198 Deepslate Bricks
+1 Deepslate Tile Slab
+109 Deepslate Tile Stairs
+8 Deepslate Tile Wall
+14 Deepslate Tiles
+172 Gray Wool
+
+ancient_city/city_center/walls/bottom_right_corner
+
+63 Chiseled Deepslate
+67 Deepslate
+15 Deepslate Brick Stairs
+223 Deepslate Bricks
+4 Deepslate Tile Slab
+142 Deepslate Tile Stairs
+8 Deepslate Tile Wall
+14 Deepslate Tiles
+247 Gray Wool
+
+ancient_city/city_center/walls/bottom_right_corner_1
+
+43 Chiseled Deepslate
+8 Dark Oak Planks
+36 Deepslate
+15 Deepslate Brick Stairs
+203 Deepslate Bricks
+4 Deepslate Tile Slab
+109 Deepslate Tile Stairs
+6 Deepslate Tile Wall
+20 Deepslate Tiles
+154 Gray Wool
+3 Light Blue Carpet
+
+ancient_city/city_center/walls/bottom_right_corner_2
+
+48 Chiseled Deepslate
+65 Deepslate
+15 Deepslate Brick Stairs
+195 Deepslate Bricks
+4 Deepslate Tile Slab
+121 Deepslate Tile Stairs
+6 Deepslate Tile Wall
+14 Deepslate Tiles
+172 Gray Wool
+
+ancient_city/city_center/walls/left
+
+41 Chiseled Deepslate
+1 Cracked Deepslate Bricks
+120 Deepslate
+16 Deepslate Brick Stairs
+302 Deepslate Bricks
+95 Deepslate Tile Stairs
+6 Deepslate Tile Wall
+7 Deepslate Tiles
+242 Gray Wool
+8 Polished Deepslate Stairs
+
+ancient_city/city_center/walls/right
+
+41 Chiseled Deepslate
+1 Cracked Deepslate Bricks
+130 Deepslate
+16 Deepslate Brick Stairs
+288 Deepslate Bricks
+98 Deepslate Tile Stairs
+6 Deepslate Tile Wall
+7 Deepslate Tiles
+246 Gray Wool
+8 Polished Deepslate Stairs
+
+ancient_city/city_center/walls/top
+
+96 Chiseled Deepslate
+362 Deepslate
+44 Deepslate Brick Stairs
+599 Deepslate Bricks
+270 Deepslate Tile Stairs
+10 Deepslate Tile Wall
+20 Deepslate Tiles
+566 Gray Wool
+7 Polished Deepslate Stairs
+
+ancient_city/city_center/walls/top_left_corner
+
+59 Chiseled Deepslate
+63 Deepslate
+15 Deepslate Brick Stairs
+198 Deepslate Bricks
+113 Deepslate Tile Stairs
+8 Deepslate Tile Wall
+14 Deepslate Tiles
+172 Gray Wool
+
+ancient_city/city_center/walls/top_right_corner
+
+55 Chiseled Deepslate
+72 Deepslate
+14 Deepslate Brick Stairs
+186 Deepslate Bricks
+1 Deepslate Tile Slab
+115 Deepslate Tile Stairs
+8 Deepslate Tile Wall
+14 Deepslate Tiles
+182 Gray Wool
+
+Ruins
+
+Structure name
+
+Description
+
+Consists of
+
+Image
+
+ancient_city/structures/barracks
+
+A large, relatively spacious area containing 2 chests, a statue resembling the warden's head (Built identically to small_statue), and 2 shrine-like structures.
+
+2 Chest (withsome loot: chests/ancient_city)
+3 Chiseled Deepslate
+28 Cobbled Deepslate
+10 Cobbled Deepslate Stairs
+1,140 Deepslate
+7 Deepslate Brick Slab
+45 Deepslate Brick Stairs
+6 Deepslate Bricks
+2 Deepslate Tile Slab
+6 Deepslate Tile Stairs
+205 Deepslate Tiles
+95 Polished Deepslate
+2 Polished Deepslate Wall
+1 Skeleton Skull
+2 Soul Fire
+2 Soul Sand
+7 White Candle (1 white candle in one block)
+10 White Candle (2 white candles in one block)
+5 White Candle (3 white candles in one block)
+
+ancient_city/structures/camp_1
+
+A elevated platform with clumps of blue, cyan, and light blue wool on it with cobbled deepslate ruins scattered around it.
+
+32 Blue Wool
+117 Cobbled Deepslate
+38 Cobbled Deepslate Stairs
+19 Cyan Wool
+3 Deepslate Bricks
+25 Light Blue Wool
+
+ancient_city/structures/camp_2
+
+A more intact version of camp_1 with dark oak logs, a still-lit campfire, and a sort of table in the middle of the platform.
+
+13 Blue Wool
+1 Campfire
+117 Cobbled Deepslate
+44 Cobbled Deepslate Stairs
+13 Cyan Wool
+13 Dark Oak Log
+3 Deepslate Bricks
+16 Light Blue Wool
+
+ancient_city/structures/camp_3
+
+An even more ruined version of camp_1, with most of its wool missing.
+
+3 Blue Carpet
+13 Blue Wool
+1 Campfire
+102 Cobbled Deepslate
+27 Cobbled Deepslate Stairs
+3 Deepslate Bricks
+6 Light Blue Wool
+
+ancient_city/structures/chamber_1
+
+1 Chest (withsome loots: chests/ancient_city)
+10 Chiseled Deepslate
+390 Cobbled Deepslate
+2 Deepslate
+197 Deepslate Bricks
+64 Deepslate Tiles
+
+ancient_city/structures/chamber_2
+
+A basic chamber made from deepslate materials with a chest at the back.
+
+1 Chest (withsome loots: chests/ancient_city)
+5 Chiseled Deepslate
+155 Cobbled Deepslate
+1 Deepslate
+78 Deepslate Bricks
+33 Deepslate Tiles
+
+ancient_city/structures/chamber_3
+
+Another basic chamber with 2 larger pillars near its entrance and a chest in the back.
+
+1 Chest (withsome loots: chests/ancient_city)
+3 Chiseled Deepslate
+85 Cobbled Deepslate
+1 Deepslate
+75 Deepslate Bricks
+40 Deepslate Tiles
+
+ancient_city/structures/ice_box_1
+
+A rarer structure consisting of a room with stairs leading up to it. At the entrance are stone pressure plates that activate note blocks.
+Inside is a chest with loot from a loot table specific to the ice box structure, as well as ice blocks and top snow scattered around the inside of the room.
+
+12 Blue Ice
+1 Chest (withsome loots: chests/ancient_city_ice_box)
+10 Chiseled Deepslate
+384 Cobbled Deepslate
+21 Cracked Deepslate Bricks
+2 Deepslate
+2 Deepslate Brick Stairs
+228 Deepslate Bricks
+150 Deepslate Tiles
+8 Gray Carpet
+9 Ice
+1 Iron Trapdoor
+3 Ladder
+1 Lever
+2 Note Block
+62 Packed Ice
+4 Polished Basalt
+1 Polished Deepslate Slab
+8 Polished Deepslate Stairs
+30 Snow
+3 Soul Lantern
+3 Stone Pressure Plate
+
+ancient_city/structures/large_pillar_1
+
+A large 4×4 pillar with patterns of chiselled and polished deepslate on its sides.
+
+16 Chiseled Deepslate
+135 Deepslate
+64 Deepslate Tile Stairs
+20 Deepslate Tiles
+84 Polished Deepslate
+
+ancient_city/structures/large_ruin_1
+
+A large scattered square frame of small cobbled deepslate piles.
+
+35 Cobbled Deepslate
+3 Deepslate Bricks
+
+ancient_city/structures/medium_pillar_1
+
+A 2x2 pillar with a skeleton skull on its base.
+
+4 Chiseled Deepslate
+87 Deepslate
+2 Deepslate Tile Slab
+20 Deepslate Tile Stairs
+4 Deepslate Tiles
+10 Polished Deepslate
+1 Skeleton Skull
+
+ancient_city/structures/medium_ruin_1
+
+A medium scattered assortment of cobbled deepslate piles.
+
+19 Cobbled Deepslate
+
+ancient_city/structures/medium_ruin_2
+
+A larger scattered assortment of cobbled deepslate piles.
+
+29 Cobbled Deepslate
+
+ancient_city/structures/sauna_1
+
+A rare, larger structure featuring a pool and an elevated heated pool with 3 changing rooms, each containing a chest.
+
+3 Chest (withsome loots: chests/ancient_city)
+46 Chiseled Deepslate
+157 Cracked Deepslate Bricks
+23 Cracked Deepslate Tiles
+73 Deepslate
+1 Deepslate Brick Slab
+1,038 Deepslate Bricks
+3 Deepslate Tile Slab
+69 Deepslate Tile Stairs
+17 Deepslate Tile Stairs (Waterlogged)
+342 Deepslate Tiles
+43 Water
+10 White Candle (1 white candle in one block)
+14 White Candle (2 white candles in one block)
+4 White Candle (3 white candles in one block)
+3 White Candle (4 white candles in one block)
+
+ancient_city/structures/small_ruin_1
+
+Scattered piles of cobbled deepslate.
+
+16 Cobbled Deepslate
+
+ancient_city/structures/small_ruin_2
+
+A few small piles of cobbled deepslate.
+
+16 Cobbled Deepslate
+
+ancient_city/structures/small_statue
+
+A small, slightly elevated altar with a statue resembling the warden's head and white candles in front of it.
+
+22 Cobbled Deepslate
+32 Deepslate
+4 Deepslate Brick Slab
+2 Deepslate Brick Stairs
+2 Deepslate Tile Slab
+2 Deepslate Tiles
+44 Polished Deepslate
+2 Polished Deepslate Wall
+3 White Candle (1 white candle in one block)
+1 White Candle (4 white candles in one block)
+
+ancient_city/structures/tall_ruin_1
+
+A tower with multiple ladder entrances to the second floor, and a 4-sided ladder pillar to the third floor, which has a chest.
+
+1 Chest (withsome loots: chests/ancient_city)
+5 Chiseled Deepslate
+123 Deepslate Bricks
+84 Deepslate Tile Slab
+40 Deepslate Tile Stairs
+4 Deepslate Tile Wall
+199 Deepslate Tiles
+92 Ladder
+43 Polished Basalt
+40 Polished Deepslate Wall
+4 Soul Lantern
+
+ancient_city/structures/tall_ruin_2
+
+A 2-story building containing 2 chests and a staircase to its second floor, lined with gray carpets.
+
+2 Chest (withsome loots: chests/ancient_city)
+336 Deepslate Bricks
+68 Deepslate Tile Stairs
+65 Deepslate Tile Wall
+371 Deepslate Tiles
+66 Gray Carpet
+7 Soul Lantern
+
+ancient_city/structures/tall_ruin_3
+
+A heavily damaged version of tall_ruin_1. It still has a chest on its top floor.
+
+1 Chest (withsome loots: chests/ancient_city)
+87 Deepslate Bricks
+30 Deepslate Tile Slab
+33 Deepslate Tile Stairs
+2 Deepslate Tile Wall
+112 Deepslate Tiles
+1 Ladder
+21 Polished Deepslate Wall
+
+ancient_city/structures/tall_ruin_4
+
+A heavily damaged version of tall_ruin_2, which is missing one chest.
+
+1 Chest (withsome loots: chests/ancient_city)
+230 Deepslate Bricks
+42 Deepslate Tile Stairs
+22 Deepslate Tile Wall
+225 Deepslate Tiles
+24 Gray Carpet
+
+Walls
+
+Structure name
+
+Description
+
+Consists of
+
+Image
+
+ancient_city/walls/intact_corner_wall_1
+
+1 Chiseled Deepslate
+8 Deepslate Brick Stairs
+305 Deepslate Bricks
+157 Deepslate Tiles
+436 Gray Wool
+20 Ladder
+5 Polished Basalt
+89 Polished Deepslate
+9 Soul Lantern
+
+ancient_city/walls/intact_horizontal_wall_1
+
+20 Chiseled Deepslate
+183 Deepslate Bricks
+82 Deepslate Tiles
+216 Gray Wool
+24 Polished Deepslate
+2 Soul Lantern
+
+ancient_city/walls/intact_horizontal_wall_2
+
+18 Chiseled Deepslate
+182 Deepslate Bricks
+79 Deepslate Tiles
+216 Gray Wool
+24 Polished Deepslate
+2 Soul Lantern
+
+ancient_city/walls/intact_horizontal_wall_bridge
+
+2 Chiseled Deepslate
+20 Deepslate Brick Stairs
+319 Deepslate Bricks
+20 Deepslate Tile Slab
+28 Deepslate Tile Stairs
+127 Deepslate Tiles
+176 Gray Wool
+10 Soul Lantern
+
+ancient_city/walls/intact_horizontal_wall_passage_1
+
+13 Chiseled Deepslate
+4 Deepslate Brick Stairs
+161 Deepslate Bricks
+16 Deepslate Tile Stairs
+36 Deepslate Tiles
+112 Gray Wool
+11 Polished Deepslate
+4 Soul Lantern
+
+ancient_city/walls/intact_horizontal_wall_stairs_1
+
+16 Chiseled Deepslate
+166 Deepslate Bricks
+12 Deepslate Tile Stairs
+81 Deepslate Tiles
+226 Gray Wool
+27 Polished Deepslate
+3 Soul Lantern
+
+ancient_city/walls/intact_horizontal_wall_stairs_2
+
+20 Chiseled Deepslate
+3 Deepslate Brick Stairs
+177 Deepslate Bricks
+9 Deepslate Tile Slab
+3 Deepslate Tile Stairs
+79 Deepslate Tiles
+220 Gray Wool
+26 Polished Deepslate
+3 Soul Lantern
+
+ancient_city/walls/intact_horizontal_wall_stairs_3
+
+20 Chiseled Deepslate
+2 Deepslate Brick Stairs
+171 Deepslate Bricks
+11 Deepslate Tile Slab
+3 Deepslate Tile Stairs
+81 Deepslate Tiles
+220 Gray Wool
+22 Polished Deepslate
+5 Soul Lantern
+
+ancient_city/walls/intact_horizontal_wall_stairs_4
+
+12 Chiseled Deepslate
+3 Deepslate Brick Stairs
+4 Deepslate Brick Wall
+100 Deepslate Bricks
+9 Deepslate Tile Slab
+25 Deepslate Tile Stairs
+80 Deepslate Tiles
+182 Gray Wool
+20 Polished Deepslate
+6 Soul Lantern
+
+ancient_city/walls/intact_intersection_wall_1
+
+1 Chiseled Deepslate
+3 Deepslate Brick Stairs
+264 Deepslate Bricks
+127 Deepslate Tiles
+331 Gray Wool
+15 Ladder
+5 Polished Basalt
+80 Polished Deepslate
+8 Soul Lantern
+
+ancient_city/walls/intact_lshape_wall_1
+
+1 Chiseled Deepslate
+189 Deepslate Bricks
+91 Deepslate Tiles
+246 Gray Wool
+10 Ladder
+5 Polished Basalt
+59 Polished Deepslate
+5 Soul Lantern
+
+ancient_city/walls/ruined_corner_wall_1
+
+4 Cobbled Deepslate
+12 Cobbled Deepslate Wall
+16 Dark Oak Fence
+12 Dark Oak Log
+97 Dark Oak Planks
+297 Deepslate Bricks
+149 Deepslate Tiles
+360 Gray Wool
+5 Ladder
+20 Light Blue Carpet
+20 Light Blue Wool
+5 Polished Basalt
+81 Polished Deepslate
+8 Soul Lantern
+4 Torch
+
+ancient_city/walls/ruined_corner_wall_2
+
+1 Cobbled Deepslate
+2 Dark Oak Log
+37 Dark Oak Planks
+250 Deepslate Bricks
+146 Deepslate Tiles
+344 Gray Wool
+15 Light Blue Carpet
+20 Light Blue Wool
+59 Polished Deepslate
+7 Soul Lantern
+
+ancient_city/walls/ruined_horizontal_wall_stairs_1
+
+7 Chiseled Deepslate
+83 Deepslate Bricks
+3 Deepslate Tile Stairs
+67 Deepslate Tiles
+142 Gray Wool
+14 Polished Deepslate
+1 Soul Lantern
+
+ancient_city/walls/ruined_horizontal_wall_stairs_2
+
+10 Blue Carpet
+12 Chiseled Deepslate
+3 Dark Oak Log
+10 Dark Oak Planks
+3 Deepslate Brick Stairs
+111 Deepslate Bricks
+29 Deepslate Tile Slab
+3 Deepslate Tile Stairs
+72 Deepslate Tiles
+177 Gray Wool
+16 Polished Deepslate
+1 Soul Lantern
+
+ancient_city/walls/ruined_horizontal_wall_stairs_3
+
+7 Chiseled Deepslate
+10 Cyan Carpet
+10 Dark Oak Planks
+61 Deepslate Bricks
+3 Deepslate Tile Slab
+1 Deepslate Tile Stairs
+52 Deepslate Tiles
+102 Gray Wool
+11 Polished Deepslate
+3 Soul Lantern
+
+ancient_city/walls/ruined_horizontal_wall_stairs_4
+
+2 Chiseled Deepslate
+15 Deepslate Brick Slab
+6 Deepslate Brick Stairs
+61 Deepslate Bricks
+112 Deepslate Tile Slab
+28 Deepslate Tiles
+30 Gray Wool
+6 Polished Deepslate
+
+Blocks
+
+Main components
+
+Deepslate
+Cobbled Deepslate
+Polished Deepslate
+Deepslate Bricks
+Deepslate Tiles
+Chiseled Deepslate
+Cracked Deepslate Bricks
+Cracked Deepslate Tiles
+Cobbled Deepslate Slab
+Cobbled Deepslate Stairs
+Cobbled Deepslate Wall
+Polished Deepslate Slab
+Polished Deepslate Stairs
+Polished Deepslate Wall
+Deepslate Brick Slab
+Deepslate Brick Stairs
+Deepslate Brick Wall
+Deepslate Tile Slab
+Deepslate Tile Stairs
+Deepslate Tile Wall
+Gray Wool
+Polished Basalt
+Smooth Basalt
+Dark Oak Log
+Dark Oak Planks
+Dark Oak Fence
+Ladder
+Candle
+Soul Lantern
+Torch
+Chest
+
+Blocks unique to some structures
+
+Reinforced Deepslate
+Sculk Sensor
+Redstone Lamp
+Soul Fire
+Soul Sand
+Redstone Dust
+Redstone Comparator
+Redstone Repeater
+Redstone Torch
+Redstone Wall Torch
+Block of Redstone
+Lectern
+Target
+Furnace
+Lever
+Sticky Piston
+Piston Head
+Gray Carpet
+Glass
+Glass Pane
+Dirt
+Grass Block
+Blue Wool
+Cyan Wool
+Light Blue Wool
+Campfire
+Iron Trapdoor
+Ice
+Packed Ice
+Blue Ice
+Snow
+Note Block
+Stone Pressure Plate
+Skeleton Skull
+White Candle
+Water
+Blue Carpet
+Cyan Carpet
+Light Blue Carpet
+
+Loot
+See also: Chest loot
+
+The loot in the chests includes several useful items for exploring the ancient city, such as snowballs and the Swift Sneak enchantment, as well as items that cannot be found anywhere else, such as echo shards and two exclusive armor trims. Ancient city chests also have the second highest chance of any loot table to contain an enchanted golden apple—ominous vaults have a 22.5% chance.
+
+Normal
+In Java Edition and Bedrock Edition, each ancient city chest contains  items drawn from 2 pools,  with the following distribution:
+
+ Item
+  Stack Size
+  Weight
+  Chance
+  Avg.per chest
+  Avg. # cheststo search
+
+5–10×
+1×
+5–10×
+1×
+
+Nothing
+—1—75⁄8093.8%0.9381.1
+
+Coal
+6–15—7⁄84—47.4%6.5622.1
+
+Bone
+1–15—5⁄84—36.5%3.5712.7
+
+Soul Torch
+1–15—5⁄84—36.5%3.5712.7
+
+Book
+3–10—5⁄84—36.5%2.9022.7
+
+Potion of Regeneration
+1–3—5⁄84—36.5%0.8932.7
+
+Enchanted Book
+1—5⁄84—36.5%0.4462.7
+
+Disc Fragment (5)
+1–3—4⁄84—30.4%0.7143.3
+
+Echo Shard
+1–3—4⁄84—30.4%0.7143.3
+
+Amethyst Shard
+1–15—3⁄84—23.7%2.1434.2
+
+Glow Berries
+1–15—3⁄84—23.7%2.1434.2
+
+Sculk
+4–10—3⁄84—23.7%1.8754.2
+
+Candle
+1–4—3⁄84—23.7%0.6704.2
+
+Bottle o' Enchanting
+1–3—3⁄84—23.7%0.5364.2
+
+Sculk Sensor
+1–3—3⁄84—23.7%0.5364.2
+
+Enchanted Book
+1—3⁄84—23.7%0.2684.2
+
+Enchanted Iron Leggings
+1—3⁄84—23.7%0.2684.2
+
+Leather
+1–5—2⁄84—16.5%0.5366.1
+
+Sculk Catalyst
+1–2—2⁄84—16.5%0.2686.1
+
+Compass
+1—2⁄84—16.5%0.1796.1
+
+Music Disc (13)
+1—2⁄84—16.5%0.1796.1
+
+Music Disc (cat)
+1—2⁄84—16.5%0.1796.1
+
+Lead
+1—2⁄84—16.5%0.1796.1
+
+Damaged Enchanted Diamond Hoe
+1—2⁄84—16.5%0.1796.1
+
+Diamond Horse Armor
+1—2⁄84—16.5%0.1796.1
+
+Enchanted Diamond Leggings
+1—2⁄84—16.5%0.1796.1
+
+Enchanted Golden Apple
+1–2—1⁄84—8.6%0.13411.7
+
+Music Disc (otherside)
+1—1⁄84—8.6%0.08911.7
+
+Ward Armor Trim Smithing Template
+—1—4⁄805.0%0.05020.0
+
+Silence Armor Trim Smithing Template
+—1—1⁄801.2%0.01380.0
+{ "chestNames": [ "ancient-city" ], "gameVersion": "Java", "loot": { "ancient-city": { "poolsJava": [ { "items": { "sculk-catalyst": [ 1, 2, 2 ], "diamond-horse-armor": [ 1, 1, 2 ], "potion-of-regeneration": [ 1, 3, 5 ], "disc-otherside": [ 1, 1, 1 ], "coal": [ 6, 15, 7 ], "echo-shard": [ 1, 3, 4 ], "level-enchanted-diamond-leggings-3": [ 1, 1, 2 ], "soul-torch": [ 1, 15, 5 ], "sculk-sensor": [ 1, 3, 3 ], "enchanted-golden-apple": [ 1, 2, 1 ], "compass": [ 1, 1, 2 ], "bone": [ 1, 15, 5 ], "candle": [ 1, 4, 3 ], "book": [ 3, 10, 5 ], "level-enchanted-iron-leggings": [ 1, 1, 3 ], "enchanted-book-rnd": [ 1, 1, 5 ], "disc-fragment-5": [ 1, 3, 4 ], "enchanted-book-rnd-swift-sneak": [ 1, 1, 3 ], "damaged-level-enchanted-diamond-hoe": [ 1, 1, 2 ], "leather": [ 1, 5, 2 ], "amethyst-shard": [ 1, 15, 3 ], "bottle-o'-enchanting": [ 1, 3, 3 ], "sculk": [ 4, 10, 3 ], "glow-berries": [ 1, 15, 3 ], "disc-cat": [ 1, 1, 2 ], "lead": [ 1, 1, 2 ], "disc-13": [ 1, 1, 2 ] }, "rolls": [ 5, 10 ], "totalweight": 84 }, { "items": { "ward-armor-trim-smithing-template": [ 1, 1, 4 ], "empty": [ 1, 1, 75 ], "silence-armor-trim-smithing-template": [ 1, 1, 1 ] }, "rolls": [ 1, 1 ], "totalweight": 80 } ], "poolsBedrockUpcoming": [], "itemDataJava": { "sculk-catalyst": { "itemname": "sculk-catalyst", "sizes": [ "1–2", "—" ], "sortsize": [ 1.5, 0 ], "sortweight": [ 2, 0 ], "weights": [ "<sup>2</sup>&frasl;<sub>84</sub>", "—" ], "avgamount": 0.26785714285714285, "chanceany": 0.16463368182146 }, "diamond-horse-armor": { "sortsize": [ 1, 0 ], "weights": [ "<sup>2</sup>&frasl;<sub>84</sub>", "—" ], "chanceany": 0.16463368182146, "sizes": [ 1, "—" ], "sortweight": [ 2, 0 ], "armor": 0, "material": 4, "avgamount": 0.17857142857142858, "itemname": "diamond-horse-armor" }, "potion-of-regeneration": { "itemname": "potion-of-regeneration", "sizes": [ "1–3", "—" ], "sortsize": [ 2, 0 ], "sortweight": [ 5, 0 ], "weights": [ "<sup>5</sup>&frasl;<sub>84</sub>", "—" ], "avgamount": 0.8928571428571429, "chanceany": 0.36541317641224724 }, "disc-otherside": { "itemname": "disc-otherside", "sizes": [ 1, "—" ], "sortsize": [ 1, 0 ], "sortweight": [ 1, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>84</sub>", "—" ], "avgamount": 0.08928571428571429, "chanceany": 0.08571439167709416 }, "coal": { "itemname": "coal", "sizes": [ "6–15", "—" ], "sortsize": [ 10.5, 0 ], "sortweight": [ 7, 0 ], "weights": [ "<sup>7</sup>&frasl;<sub>84</sub>", "—" ], "avgamount": 6.5625, "chanceany": 0.4735347641052928 }, "echo-shard": { "sortsize": [ 2, 0 ], "weights": [ "<sup>4</sup>&frasl;<sub>84</sub>", "—" ], "chanceany": 0.30403592916292466, "sizes": [ "1–3", "—" ], "sortweight": [ 4, 0 ], "armor": 0, "material": 0, "avgamount": 0.7142857142857143, "itemname": "echo-shard" }, "level-enchanted-diamond-leggings-3": { "sortsize": [ 1, 0 ], "weights": [ "<sup>2</sup>&frasl;<sub>84</sub>", "—" ], "chanceany": 0.16463368182146, "sizes": [ 1, "—" ], "sortweight": [ 2, 0 ], "armor": 3, "material": 4, "avgamount": 0.17857142857142858, "itemname": "level-enchanted-diamond-leggings-3" }, "soul-torch": { "sortsize": [ 8, 0 ], "weights": [ "<sup>5</sup>&frasl;<sub>84</sub>", "—" ], "chanceany": 0.36541317641224724, "sizes": [ "1–15", "—" ], "sortweight": [ 5, 0 ], "armor": 0, "material": 0, "avgamount": 3.5714285714285716, "itemname": "soul-torch" }, "bottle-o'-enchanting": { "sortsize": [ 2, 0 ], "weights": [ "<sup>3</sup>&frasl;<sub>84</sub>", "—" ], "chanceany": 0.23725332720231262, "sizes": [ "1–3", "—" ], "sortweight": [ 3, 0 ], "armor": 0, "material": 0, "avgamount": 0.5357142857142857, "itemname": "bottle-o'-enchanting" }, "bone": { "sortsize": [ 8, 0 ], "weights": [ "<sup>5</sup>&frasl;<sub>84</sub>", "—" ], "chanceany": 0.36541317641224724, "sizes": [ "1–15", "—" ], "sortweight": [ 5, 0 ], "armor": 0, "material": 0, "avgamount": 3.5714285714285716, "itemname": "bone" }, "enchanted-golden-apple": { "itemname": "enchanted-golden-apple", "sizes": [ "1–2", "—" ], "sortsize": [ 1.5, 0 ], "sortweight": [ 1, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>84</sub>", "—" ], "avgamount": 0.13392857142857142, "chanceany": 0.08571439167709416 }, "compass": { "sortsize": [ 1, 0 ], "weights": [ "<sup>2</sup>&frasl;<sub>84</sub>", "—" ], "chanceany": 0.16463368182146, "sizes": [ 1, "—" ], "sortweight": [ 2, 0 ], "armor": 0, "material": 0, "avgamount": 0.17857142857142858, "itemname": "compass" }, "empty": { "itemname": "empty", "sizes": [ "—", 1 ], "sortsize": [ 0, 1 ], "sortweight": [ 0, 75 ], "weights": [ "—", "<sup>75</sup>&frasl;<sub>80</sub>" ], "avgamount": 0.9375, "chanceany": 0.9375 }, "ward-armor-trim-smithing-template": { "itemname": "ward-armor-trim-smithing-template", "sizes": [ "—", 1 ], "sortsize": [ 0, 1 ], "sortweight": [ 0, 4 ], "weights": [ "—", "<sup>4</sup>&frasl;<sub>80</sub>" ], "avgamount": 0.05, "chanceany": 0.050000000000000044 }, "sculk-sensor": { "sortsize": [ 2, 0 ], "weights": [ "<sup>3</sup>&frasl;<sub>84</sub>", "—" ], "chanceany": 0.23725332720231262, "sizes": [ "1–3", "—" ], "sortweight": [ 3, 0 ], "armor": 0, "material": 0, "avgamount": 0.5357142857142857, "itemname": "sculk-sensor" }, "candle": { "itemname": "candle", "sizes": [ "1–4", "—" ], "sortsize": [ 2.5, 0 ], "sortweight": [ 3, 0 ], "weights": [ "<sup>3</sup>&frasl;<sub>84</sub>", "—" ], "avgamount": 0.6696428571428571, "chanceany": 0.23725332720231262 }, "lead": { "sortsize": [ 1, 0 ], "weights": [ "<sup>2</sup>&frasl;<sub>84</sub>", "—" ], "chanceany": 0.16463368182146, "sizes": [ 1, "—" ], "sortweight": [ 2, 0 ], "armor": 0, "material": 0, "avgamount": 0.17857142857142858, "itemname": "lead" }, "disc-cat": { "sortsize": [ 1, 0 ], "weights": [ "<sup>2</sup>&frasl;<sub>84</sub>", "—" ], "chanceany": 0.16463368182146, "sizes": [ 1, "—" ], "sortweight": [ 2, 0 ], "armor": 0, "material": 0, "avgamount": 0.17857142857142858, "itemname": "disc-cat" }, "enchanted-book-rnd": { "itemname": "enchanted-book-rnd", "sizes": [ 1, "—" ], "sortsize": [ 1, 0 ], "sortweight": [ 5, 0 ], "weights": [ "<sup>5</sup>&frasl;<sub>84</sub>", "—" ], "avgamount": 0.44642857142857145, "chanceany": 0.36541317641224724 }, "disc-fragment-5": { "sortsize": [ 2, 0 ], "weights": [ "<sup>4</sup>&frasl;<sub>84</sub>", "—" ], "chanceany": 0.30403592916292466, "sizes": [ "1–3", "—" ], "sortweight": [ 4, 0 ], "armor": 0, "material": 0, "avgamount": 0.7142857142857143, "itemname": "disc-fragment-5" }, "amethyst-shard": { "sortsize": [ 8, 0 ], "weights": [ "<sup>3</sup>&frasl;<sub>84</sub>", "—" ], "chanceany": 0.23725332720231262, "sizes": [ "1–15", "—" ], "sortweight": [ 3, 0 ], "armor": 0, "material": 0, "avgamount": 2.142857142857143, "itemname": "amethyst-shard" }, "book": { "sortsize": [ 6.5, 0 ], "weights": [ "<sup>5</sup>&frasl;<sub>84</sub>", "—" ], "chanceany": 0.36541317641224724, "sizes": [ "3–10", "—" ], "sortweight": [ 5, 0 ], "armor": 0, "material": 0, "avgamount": 2.9017857142857144, "itemname": "book" }, "leather": { "itemname": "leather", "sizes": [ "1–5", "—" ], "sortsize": [ 3, 0 ], "sortweight": [ 2, 0 ], "weights": [ "<sup>2</sup>&frasl;<sub>84</sub>", "—" ], "avgamount": 0.5357142857142857, "chanceany": 0.16463368182146 }, "level-enchanted-iron-leggings": { "sortsize": [ 1, 0 ], "weights": [ "<sup>3</sup>&frasl;<sub>84</sub>", "—" ], "chanceany": 0.23725332720231262, "sizes": [ 1, "—" ], "sortweight": [ 3, 0 ], "armor": 3, "material": 2, "avgamount": 0.26785714285714285, "itemname": "level-enchanted-iron-leggings" }, "sculk": { "sortsize": [ 7, 0 ], "weights": [ "<sup>3</sup>&frasl;<sub>84</sub>", "—" ], "chanceany": 0.23725332720231262, "sizes": [ "4–10", "—" ], "sortweight": [ 3, 0 ], "armor": 0, "material": 0, "avgamount": 1.875, "itemname": "sculk" }, "silence-armor-trim-smithing-template": { "itemname": "silence-armor-trim-smithing-template", "sizes": [ "—", 1 ], "sortsize": [ 0, 1 ], "sortweight": [ 0, 1 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>80</sub>" ], "avgamount": 0.0125, "chanceany": 0.012499999999999956 }, "glow-berries": { "sortsize": [ 8, 0 ], "weights": [ "<sup>3</sup>&frasl;<sub>84</sub>", "—" ], "chanceany": 0.23725332720231262, "sizes": [ "1–15", "—" ], "sortweight": [ 3, 0 ], "armor": 0, "material": 0, "avgamount": 2.142857142857143, "itemname": "glow-berries" }, "damaged-level-enchanted-diamond-hoe": { "sortsize": [ 1, 0 ], "weights": [ "<sup>2</sup>&frasl;<sub>84</sub>", "—" ], "chanceany": 0.16463368182146, "sizes": [ 1, "—" ], "sortweight": [ 2, 0 ], "armor": 0, "material": 4, "avgamount": 0.17857142857142858, "itemname": "damaged-level-enchanted-diamond-hoe" }, "enchanted-book-rnd-swift-sneak": { "sortsize": [ 1, 0 ], "weights": [ "<sup>3</sup>&frasl;<sub>84</sub>", "—" ], "chanceany": 0.23725332720231262, "sizes": [ 1, "—" ], "sortweight": [ 3, 0 ], "armor": 0, "material": 0, "avgamount": 0.26785714285714285, "itemname": "enchanted-book-rnd-swift-sneak" }, "disc-13": { "sortsize": [ 1, 0 ], "weights": [ "<sup>2</sup>&frasl;<sub>84</sub>", "—" ], "chanceany": 0.16463368182146, "sizes": [ 1, "—" ], "sortweight": [ 2, 0 ], "armor": 0, "material": 0, "avgamount": 0.17857142857142858, "itemname": "disc-13" } }, "structID": "ancient city", "poolsJavaUpcoming": [], "structure": "Ancient City", "container": "", "itemDataJavaUpcoming": [], "allRollsJavaUpcoming": [], "itemDataBedrock": { "sculk-catalyst": { "itemname": "sculk-catalyst", "sizes": [ "1–2", "—" ], "sortsize": [ 1.5, 0 ], "sortweight": [ 2, 0 ], "weights": [ "<sup>2</sup>&frasl;<sub>84</sub>", "—" ], "avgamount": 0.26785714285714285, "chanceany": 0.16463368182146 }, "diamond-horse-armor": { "sortsize": [ 1, 0 ], "weights": [ "<sup>2</sup>&frasl;<sub>84</sub>", "—" ], "chanceany": 0.16463368182146, "sizes": [ 1, "—" ], "sortweight": [ 2, 0 ], "armor": 0, "material": 4, "avgamount": 0.17857142857142858, "itemname": "diamond-horse-armor" }, "potion-of-regeneration": { "itemname": "potion-of-regeneration", "sizes": [ "1–3", "—" ], "sortsize": [ 2, 0 ], "sortweight": [ 5, 0 ], "weights": [ "<sup>5</sup>&frasl;<sub>84</sub>", "—" ], "avgamount": 0.8928571428571429, "chanceany": 0.36541317641224724 }, "disc-otherside": { "itemname": "disc-otherside", "sizes": [ 1, "—" ], "sortsize": [ 1, 0 ], "sortweight": [ 1, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>84</sub>", "—" ], "avgamount": 0.08928571428571429, "chanceany": 0.08571439167709416 }, "coal": { "itemname": "coal", "sizes": [ "6–15", "—" ], "sortsize": [ 10.5, 0 ], "sortweight": [ 7, 0 ], "weights": [ "<sup>7</sup>&frasl;<sub>84</sub>", "—" ], "avgamount": 6.5625, "chanceany": 0.4735347641052928 }, "echo-shard": { "sortsize": [ 2, 0 ], "weights": [ "<sup>4</sup>&frasl;<sub>84</sub>", "—" ], "chanceany": 0.30403592916292466, "sizes": [ "1–3", "—" ], "sortweight": [ 4, 0 ], "armor": 0, "material": 0, "avgamount": 0.7142857142857143, "itemname": "echo-shard" }, "level-enchanted-diamond-leggings-3": { "sortsize": [ 1, 0 ], "weights": [ "<sup>2</sup>&frasl;<sub>84</sub>", "—" ], "chanceany": 0.16463368182146, "sizes": [ 1, "—" ], "sortweight": [ 2, 0 ], "armor": 3, "material": 4, "avgamount": 0.17857142857142858, "itemname": "level-enchanted-diamond-leggings-3" }, "soul-torch": { "sortsize": [ 8, 0 ], "weights": [ "<sup>5</sup>&frasl;<sub>84</sub>", "—" ], "chanceany": 0.36541317641224724, "sizes": [ "1–15", "—" ], "sortweight": [ 5, 0 ], "armor": 0, "material": 0, "avgamount": 3.5714285714285716, "itemname": "soul-torch" }, "bottle-o'-enchanting": { "sortsize": [ 2, 0 ], "weights": [ "<sup>3</sup>&frasl;<sub>84</sub>", "—" ], "chanceany": 0.23725332720231262, "sizes": [ "1–3", "—" ], "sortweight": [ 3, 0 ], "armor": 0, "material": 0, "avgamount": 0.5357142857142857, "itemname": "bottle-o'-enchanting" }, "bone": { "sortsize": [ 8, 0 ], "weights": [ "<sup>5</sup>&frasl;<sub>84</sub>", "—" ], "chanceany": 0.36541317641224724, "sizes": [ "1–15", "—" ], "sortweight": [ 5, 0 ], "armor": 0, "material": 0, "avgamount": 3.5714285714285716, "itemname": "bone" }, "enchanted-golden-apple": { "itemname": "enchanted-golden-apple", "sizes": [ "1–2", "—" ], "sortsize": [ 1.5, 0 ], "sortweight": [ 1, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>84</sub>", "—" ], "avgamount": 0.13392857142857142, "chanceany": 0.08571439167709416 }, "compass": { "sortsize": [ 1, 0 ], "weights": [ "<sup>2</sup>&frasl;<sub>84</sub>", "—" ], "chanceany": 0.16463368182146, "sizes": [ 1, "—" ], "sortweight": [ 2, 0 ], "armor": 0, "material": 0, "avgamount": 0.17857142857142858, "itemname": "compass" }, "empty": { "itemname": "empty", "sizes": [ "—", 1 ], "sortsize": [ 0, 1 ], "sortweight": [ 0, 75 ], "weights": [ "—", "<sup>75</sup>&frasl;<sub>80</sub>" ], "avgamount": 0.9375, "chanceany": 0.9375 }, "ward-armor-trim-smithing-template": { "itemname": "ward-armor-trim-smithing-template", "sizes": [ "—", 1 ], "sortsize": [ 0, 1 ], "sortweight": [ 0, 4 ], "weights": [ "—", "<sup>4</sup>&frasl;<sub>80</sub>" ], "avgamount": 0.05, "chanceany": 0.050000000000000044 }, "sculk-sensor": { "sortsize": [ 2, 0 ], "weights": [ "<sup>3</sup>&frasl;<sub>84</sub>", "—" ], "chanceany": 0.23725332720231262, "sizes": [ "1–3", "—" ], "sortweight": [ 3, 0 ], "armor": 0, "material": 0, "avgamount": 0.5357142857142857, "itemname": "sculk-sensor" }, "candle": { "itemname": "candle", "sizes": [ "1–4", "—" ], "sortsize": [ 2.5, 0 ], "sortweight": [ 3, 0 ], "weights": [ "<sup>3</sup>&frasl;<sub>84</sub>", "—" ], "avgamount": 0.6696428571428571, "chanceany": 0.23725332720231262 }, "lead": { "sortsize": [ 1, 0 ], "weights": [ "<sup>2</sup>&frasl;<sub>84</sub>", "—" ], "chanceany": 0.16463368182146, "sizes": [ 1, "—" ], "sortweight": [ 2, 0 ], "armor": 0, "material": 0, "avgamount": 0.17857142857142858, "itemname": "lead" }, "disc-cat": { "sortsize": [ 1, 0 ], "weights": [ "<sup>2</sup>&frasl;<sub>84</sub>", "—" ], "chanceany": 0.16463368182146, "sizes": [ 1, "—" ], "sortweight": [ 2, 0 ], "armor": 0, "material": 0, "avgamount": 0.17857142857142858, "itemname": "disc-cat" }, "enchanted-book-rnd": { "itemname": "enchanted-book-rnd", "sizes": [ 1, "—" ], "sortsize": [ 1, 0 ], "sortweight": [ 5, 0 ], "weights": [ "<sup>5</sup>&frasl;<sub>84</sub>", "—" ], "avgamount": 0.44642857142857145, "chanceany": 0.36541317641224724 }, "disc-fragment-5": { "sortsize": [ 2, 0 ], "weights": [ "<sup>4</sup>&frasl;<sub>84</sub>", "—" ], "chanceany": 0.30403592916292466, "sizes": [ "1–3", "—" ], "sortweight": [ 4, 0 ], "armor": 0, "material": 0, "avgamount": 0.7142857142857143, "itemname": "disc-fragment-5" }, "amethyst-shard": { "sortsize": [ 8, 0 ], "weights": [ "<sup>3</sup>&frasl;<sub>84</sub>", "—" ], "chanceany": 0.23725332720231262, "sizes": [ "1–15", "—" ], "sortweight": [ 3, 0 ], "armor": 0, "material": 0, "avgamount": 2.142857142857143, "itemname": "amethyst-shard" }, "book": { "sortsize": [ 6.5, 0 ], "weights": [ "<sup>5</sup>&frasl;<sub>84</sub>", "—" ], "chanceany": 0.36541317641224724, "sizes": [ "3–10", "—" ], "sortweight": [ 5, 0 ], "armor": 0, "material": 0, "avgamount": 2.9017857142857144, "itemname": "book" }, "leather": { "itemname": "leather", "sizes": [ "1–5", "—" ], "sortsize": [ 3, 0 ], "sortweight": [ 2, 0 ], "weights": [ "<sup>2</sup>&frasl;<sub>84</sub>", "—" ], "avgamount": 0.5357142857142857, "chanceany": 0.16463368182146 }, "level-enchanted-iron-leggings": { "sortsize": [ 1, 0 ], "weights": [ "<sup>3</sup>&frasl;<sub>84</sub>", "—" ], "chanceany": 0.23725332720231262, "sizes": [ 1, "—" ], "sortweight": [ 3, 0 ], "armor": 3, "material": 2, "avgamount": 0.26785714285714285, "itemname": "level-enchanted-iron-leggings" }, "sculk": { "sortsize": [ 7, 0 ], "weights": [ "<sup>3</sup>&frasl;<sub>84</sub>", "—" ], "chanceany": 0.23725332720231262, "sizes": [ "4–10", "—" ], "sortweight": [ 3, 0 ], "armor": 0, "material": 0, "avgamount": 1.875, "itemname": "sculk" }, "silence-armor-trim-smithing-template": { "itemname": "silence-armor-trim-smithing-template", "sizes": [ "—", 1 ], "sortsize": [ 0, 1 ], "sortweight": [ 0, 1 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>80</sub>" ], "avgamount": 0.0125, "chanceany": 0.012499999999999956 }, "glow-berries": { "sortsize": [ 8, 0 ], "weights": [ "<sup>3</sup>&frasl;<sub>84</sub>", "—" ], "chanceany": 0.23725332720231262, "sizes": [ "1–15", "—" ], "sortweight": [ 3, 0 ], "armor": 0, "material": 0, "avgamount": 2.142857142857143, "itemname": "glow-berries" }, "damaged-level-enchanted-diamond-hoe": { "sortsize": [ 1, 0 ], "weights": [ "<sup>2</sup>&frasl;<sub>84</sub>", "—" ], "chanceany": 0.16463368182146, "sizes": [ 1, "—" ], "sortweight": [ 2, 0 ], "armor": 0, "material": 4, "avgamount": 0.17857142857142858, "itemname": "damaged-level-enchanted-diamond-hoe" }, "enchanted-book-rnd-swift-sneak": { "sortsize": [ 1, 0 ], "weights": [ "<sup>3</sup>&frasl;<sub>84</sub>", "—" ], "chanceany": 0.23725332720231262, "sizes": [ 1, "—" ], "sortweight": [ 3, 0 ], "armor": 0, "material": 0, "avgamount": 0.26785714285714285, "itemname": "enchanted-book-rnd-swift-sneak" }, "disc-13": { "sortsize": [ 1, 0 ], "weights": [ "<sup>2</sup>&frasl;<sub>84</sub>", "—" ], "chanceany": 0.16463368182146, "sizes": [ 1, "—" ], "sortweight": [ 2, 0 ], "armor": 0, "material": 0, "avgamount": 0.17857142857142858, "itemname": "disc-13" } }, "poolsBedrock": [ { "items": { "sculk-catalyst": [ 1, 2, 2 ], "diamond-horse-armor": [ 1, 1, 2 ], "potion-of-regeneration": [ 1, 3, 5 ], "disc-otherside": [ 1, 1, 1 ], "coal": [ 6, 15, 7 ], "echo-shard": [ 1, 3, 4 ], "level-enchanted-diamond-leggings-3": [ 1, 1, 2 ], "soul-torch": [ 1, 15, 5 ], "sculk-sensor": [ 1, 3, 3 ], "enchanted-golden-apple": [ 1, 2, 1 ], "compass": [ 1, 1, 2 ], "bone": [ 1, 15, 5 ], "candle": [ 1, 4, 3 ], "book": [ 3, 10, 5 ], "level-enchanted-iron-leggings": [ 1, 1, 3 ], "enchanted-book-rnd": [ 1, 1, 5 ], "disc-fragment-5": [ 1, 3, 4 ], "enchanted-book-rnd-swift-sneak": [ 1, 1, 3 ], "damaged-level-enchanted-diamond-hoe": [ 1, 1, 2 ], "leather": [ 1, 5, 2 ], "amethyst-shard": [ 1, 15, 3 ], "bottle-o'-enchanting": [ 1, 3, 3 ], "sculk": [ 4, 10, 3 ], "glow-berries": [ 1, 15, 3 ], "disc-cat": [ 1, 1, 2 ], "lead": [ 1, 1, 2 ], "disc-13": [ 1, 1, 2 ] }, "rolls": [ 5, 10 ], "totalweight": 84 }, { "items": { "ward-armor-trim-smithing-template": [ 1, 1, 4 ], "empty": [ 1, 1, 75 ], "silence-armor-trim-smithing-template": [ 1, 1, 1 ] }, "rolls": [ 1, 1 ], "totalweight": 80 } ], "allRollsBedrockUpcoming": [], "allRollsBedrock": [ "5–10", 1 ], "itemDataBedrockUpcoming": [], "header": "[[Ancient City]]", "allRollsJava": [ "5–10", 1 ], "link": "[[Ancient City]]" } } }
+
+ The size of stacks (or for unstackable items, number) of this item on any given roll.
+
+ The weight of this item relative to other items in the pool.
+
+ The odds of finding any of this item in a single chest.
+
+ The number of items expected per chest, averaged over a large number of chests.
+
+ The average number of chests the player should expect to search to find any of this item.
+
+ 'Nothing' does not refer to the chance of an empty chest.  Instead, it refers to the chance that the random loot generator does not add any loot on a single roll.
+
+ All enchantments are equally probable, including treasure enchantments (except Soul Speed, Swift Sneak, and Wind Burst), and any level of the enchantment is equally probable.
+
+ Enchanted with a random level of Swift Sneak.
+
+ Enchantment probabilities are the same as a level-20 to level-39 enchantment would be on an enchanting table that had no cap at level 30, and that was able to apply treasure enchantments (except Soul Speed, Swift Sneak, and Wind Burst), and where the chance of multiple enchantments is not reduced.
+
+ Enchantment probabilities are the same as a level-30 to level-50 enchantment would be on an enchanting table that had no cap at level 30, and that was able to apply treasure enchantments (except Soul Speed, Swift Sneak, and Wind Burst), and where the chance of multiple enchantments is not reduced.
+
+ The item has between 80% and 100% of its total durability.
+
+Ice boxes
+In Java Edition and Bedrock Edition, each ancient city ice box chest contains 4–10 item stacks,  with the following distribution:
+
+ Item
+  Stack Size
+  Weight
+  Chance
+  Avg.per chest
+  Avg. # cheststo search
+
+Snowball
+2–64⁄997.0%12.4441.0
+
+Packed Ice
+2–62⁄980.5%6.2221.2
+
+Baked Potato
+1–101⁄954.9%4.2781.8
+
+Golden Carrot
+1–101⁄954.9%4.2781.8
+
+Suspicious Stew
+2–61⁄954.9%3.1111.8
+{ "chestNames": [ "ancient-city-ice-box" ], "gameVersion": "Java", "loot": { "ancient-city-ice-box": { "poolsJava": [ { "items": { "suspicious-stew-2": [ 2, 6, 1 ], "snowball": [ 2, 6, 4 ], "baked-potato": [ 1, 10, 1 ], "packed-ice": [ 2, 6, 2 ], "golden-carrot": [ 1, 10, 1 ] }, "rolls": [ 4, 10 ], "totalweight": 9 } ], "poolsBedrockUpcoming": [], "itemDataJava": { "suspicious-stew-2": { "itemname": "suspicious-stew-2", "sizes": [ "2–6" ], "sortsize": [ 4 ], "sortweight": [ 1 ], "weights": [ "<sup>1</sup>&frasl;<sub>9</sub>" ], "avgamount": 3.111111111111111, "chanceany": 0.549273355504249 }, "snowball": { "itemname": "snowball", "sizes": [ "2–6" ], "sortsize": [ 4 ], "sortweight": [ 4 ], "weights": [ "<sup>4</sup>&frasl;<sub>9</sub>" ], "avgamount": 12.444444444444445, "chanceany": 0.9698808910423039 }, "packed-ice": { "itemname": "packed-ice", "sizes": [ "2–6" ], "sortsize": [ 4 ], "sortweight": [ 2 ], "weights": [ "<sup>2</sup>&frasl;<sub>9</sub>" ], "avgamount": 6.222222222222222, "chanceany": 0.8052527828203967 }, "golden-carrot": { "sortsize": [ 5.5 ], "weights": [ "<sup>1</sup>&frasl;<sub>9</sub>" ], "chanceany": 0.549273355504249, "sizes": [ "1–10" ], "sortweight": [ 1 ], "armor": 0, "material": 3, "avgamount": 4.277777777777778, "itemname": "golden-carrot" }, "baked-potato": { "sortsize": [ 5.5 ], "weights": [ "<sup>1</sup>&frasl;<sub>9</sub>" ], "chanceany": 0.549273355504249, "sizes": [ "1–10" ], "sortweight": [ 1 ], "armor": 0, "material": 0, "avgamount": 4.277777777777778, "itemname": "baked-potato" } }, "structID": "ancient city", "poolsJavaUpcoming": [], "structure": "Ancient City", "container": "Ice box chest", "itemDataJavaUpcoming": [], "allRollsJavaUpcoming": [], "itemDataBedrock": { "suspicious-stew-2": { "itemname": "suspicious-stew-2", "sizes": [ "2–6" ], "sortsize": [ 4 ], "sortweight": [ 1 ], "weights": [ "<sup>1</sup>&frasl;<sub>9</sub>" ], "avgamount": 3.111111111111111, "chanceany": 0.549273355504249 }, "snowball": { "itemname": "snowball", "sizes": [ "2–6" ], "sortsize": [ 4 ], "sortweight": [ 4 ], "weights": [ "<sup>4</sup>&frasl;<sub>9</sub>" ], "avgamount": 12.444444444444445, "chanceany": 0.9698808910423039 }, "packed-ice": { "itemname": "packed-ice", "sizes": [ "2–6" ], "sortsize": [ 4 ], "sortweight": [ 2 ], "weights": [ "<sup>2</sup>&frasl;<sub>9</sub>" ], "avgamount": 6.222222222222222, "chanceany": 0.8052527828203967 }, "golden-carrot": { "sortsize": [ 5.5 ], "weights": [ "<sup>1</sup>&frasl;<sub>9</sub>" ], "chanceany": 0.549273355504249, "sizes": [ "1–10" ], "sortweight": [ 1 ], "armor": 0, "material": 3, "avgamount": 4.277777777777778, "itemname": "golden-carrot" }, "baked-potato": { "sortsize": [ 5.5 ], "weights": [ "<sup>1</sup>&frasl;<sub>9</sub>" ], "chanceany": 0.549273355504249, "sizes": [ "1–10" ], "sortweight": [ 1 ], "armor": 0, "material": 0, "avgamount": 4.277777777777778, "itemname": "baked-potato" } }, "poolsBedrock": [ { "items": { "suspicious-stew-2": [ 2, 6, 1 ], "snowball": [ 2, 6, 4 ], "baked-potato": [ 1, 10, 1 ], "packed-ice": [ 2, 6, 2 ], "golden-carrot": [ 1, 10, 1 ] }, "rolls": [ 4, 10 ], "totalweight": 9 } ], "allRollsBedrockUpcoming": [], "allRollsBedrock": [ "4–10" ], "itemDataBedrockUpcoming": [], "header": "[[Ancient City]]", "allRollsJava": [ "4–10" ], "link": "[[Ancient City]]" } } }
+
+ The size of stacks (or for unstackable items, number) of this item on any given roll.
+
+ The weight of this item relative to other items in the pool.
+
+ The odds of finding any of this item in a single chest.
+
+ The number of items expected per chest, averaged over a large number of chests.
+
+ The average number of chests the player should expect to search to find any of this item.
+
+ The stew grants one of the following effects: in Java Edition, 5-7 seconds of Blindness, or 7-10 seconds of Night Vision; in Bedrock Edition, 7 seconds of Blindness, or 5 seconds of Night Vision.
+
+Data values
+ID
+Java Edition:
+
+Structure typeIdentifier
+ Jigsawjigsaw
+
+StructureIdentifier
+ Ancient Cityancient_city
+
+Bedrock Edition:
+
+StructureIdentifierAlias ID
+Translation key Ancient Cityancient_cityancientcity
+feature.ancient_city
+History
+Reveal
+October 16, 2021
+Ancient cities are revealed at Minecraft Live 2021.
+Java Edition
+Java Edition1.19Deep Dark Experimental Snapshot 1
+Added ancient cities.22w11a
+Ancient cities are not added yet in this non-experimental snapshot.22w13a
+Added ancient cities and revamped with new structures, improvements to already existing structures and an updated loot table.22w14a
+Updated the loot table once again with echo shards, and replaced the golden carrot in city_center_2 with a golden apple.
+
+Removed the following structures (and variants thereof) as they were duplicates of other structures:
+small_portal_statue
+intact_horizontal_wall_stairs_upward
+top_piece
+bottom_piece1.19.4ExperimentUpdate 1.2023w04a
+Ward armor trims are now found in ancient city chests.23w05a
+Increased the chance of ward armor trims from 4.7% to 5%.1.2023w12a
+Silence armor trims are now found in ancient city chests.1.20.2ExperimentVillager Trade Rebalance1.20.2 Pre-release 1
+Mending enchanted books now have a higher chance of generating in ancient city chest loot.1.21.625w20a
+Removed saddles from loot tables, replaced with 1–5 leather.26.1snap11
+Removed the name tag from ancient city loot.Upcoming Java Edition26.3snap7
+Added ancient city explorer maps, which lead to ancient cities, and are found in abandoned camp secret chests.
+Bedrock Edition
+Bedrock Edition1.18.30ExperimentWild UpdatePreview 1.18.30.33
+Added ancient cities behind the "Wild Update" experimental toggle. Currently, it has outdated structure types and loots.1.19.0Preview 1.19.0.21
+Ancient cities are now available without enabling experimental gameplay.Preview 1.19.0.27
+Ancient cities were revamped with new structures, improvements to already existing structures and an updated loot table to match Java Edition.1.19.80ExperimentNext Major UpdatePreview 1.19.80.21
+Ward armor trims are now found in ancient city chests.Preview 1.19.80.22
+Silence armor trims are now found in ancient city chests.1.20.40ExperimentVillager Trade RebalancingPreview 1.20.40.20
+Mending enchanted books now have a higher chance of generating in ancient city chest loot.26.10Preview 26.10.25
+Removed the name tag from ancient city loot.Upcoming Bedrock Edition26.50Preview 26.50.24
+Added ancient city explorer maps, which lead to ancient cities, and are found in abandoned camp secret chests.
+Issues
+Issues relating to "Ancient City" are maintained on the bug tracker. Issues should be reported and viewed there.
+
+Trivia
+In some concept art, it was revealed that the loot in ancient cities was originally going to be stored within jar-shaped pots, "screaming" vases, and stone chests.
+Decorated pots were subsequently added in the Trails & Tales update, but do not generate in ancient cities.
+The intention of the ancient cities was to capture a feeling of something that feels like it was once bustling with life, but is now vacant and lifeless.
+Gallery
+Renders
+
+
+
+			Deep dark structure recreation render from Minecraft Live 2020
+
+
+Screenshots
+
+
+
+			An ancient city intersecting with a lush cave
+
+
+
+			Ancient city center
+
+
+
+			Ancient city piston door
+
+
+
+			Ancient city redstone
+
+
+
+			A corner in an ancient city
+
+
+
+			A path in an ancient city
+
+
+
+			The center of an ancient city
+
+
+
+			Candles in an ancient city
+
+
+
+			The warden in an ancient city
+
+
+
+			Part of an ancient city generated in an aquifer
+
+
+
+			A full look at the entirety of an ancient city
+
+
+Mojang images
+
+
+
+			An ancient city
+
+
+
+			A corridor with lit candles inside an ancient city
+
+
+Development images
+
+
+
+			An ancient city
+
+
+
+			Sneak peek of a warden within an ancient city
+
+
+
+			The teaser image for Deep Dark Experimental Snapshot 1, featuring the ancient city
+
+
+Concept artwork
+
+
+
+			Concept artwork for the ancient city's center
+
+
+
+			Concept artwork for the ancient city
+
+
+
+			Ancient city "atmosphere" concept artwork
+
+
+
+			Pots, vases, and stone chests concept art for the ancient cities
+
+
+
+			Ditto
+
+
+
+			Concept artwork showing the "lifelessness" of the ancient city
+
+
+
+			Ruin layout concept art
+
+
+
+			Ancient city gameplay concept art
+
+
+
+			More ancient city gameplay concept art
+
+
+
+			Ancient city blocks concept art
+
+
+
+			Ancient city walls concept art
+
+
+
+			Stone chest concept art (These would have generated within the ancient cities.)
+
+
+In other media
+
+
+
+			Artwork of the warden in a city
+
+
+
+			Sunny and Efe exploring an ancient city
+
+
+
+			An ancient city as it appears in the Wild Update trailer
+
+
+
+			Efe retrieving a chicken that snuck into the city
+
+
+
+			A warden taking notice
+
+
+
+			The ancient city as it appears in the announcement trailer for Minecraft Live 2023
+
+
+
+			Pixel art of the warden chasing Alex over the silence armor trim
+
+
+
+			An ancient city as it appears in an advertisement for Minecraft Crocs
+
+
+
+			The deep dark portal as it appears in Minecraft Dungeons II
+
+
+
+			Interactive experience based on the deep dark portal at Twitchcon Rotterdam 2026.
+
+
+
+			Twisted Warden battle talking place in the Ancient City
+
+
+See also
+Warden
+Stronghold
+Music Disc
+References
+
+ MC-250776 – Ancient cities can generate directly adjacent to each other – resolved as "Works As Intended".
+
+ "The Secrets of Minecraft's Deep Dark @ 1:07"  – Minecraft on YouTube, June 24, 2022
+
+ "The Secrets of Minecraft's Deep Dark @ 1:21"  – Minecraft on YouTube, June 24, 2022
+
+ https://youtu.be/chuRE9nxLT4
+
+  https://www.youtube.com/shorts/e1AJo7jU5MI
+
+External links
+"Building Blocks: Ancient City"     by Duncan Geere  – Minecraft.net, April 25, 2025.
+Navigation

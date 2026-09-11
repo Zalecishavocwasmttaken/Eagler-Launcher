@@ -1,0 +1,235 @@
+Minecraft 23w46a
+
+Edition
+
+Java Edition
+
+Release date
+
+November 16, 2023
+
+Type
+
+Snapshot
+
+Snapshot for
+
+1.20.3
+
+Downloads
+
+Client (.json)Server
+
+Obfuscation maps
+
+ClientServer
+
+Protocol version
+
+ dec: 1073741987 hex: 400000A3
+
+Data version
+
+3691
+
+Resource pack format
+
+21
+
+Data pack format
+
+25
+
+Minimum Java version
+
+Java SE 17
+
+◄◄   1.20.2
+1.20.3
+  1.20.4 ►►
+
+◄   23w45a
+
+ 23w46a
+
+  1.20.3 Pre-Release 1 ►
+
+{
+    "title": "Minecraft 23w46a",
+    "images": [
+        "23w46a.jpg",
+        "Java Edition 23w46a.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "November 16, 2023",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Snapshot article, displayed as Snapshot)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition 1.20.3 article, displayed as 1.20.3)",
+            "label": "Snapshot for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/9835006343cd8d01d2ce475991f6699046ccfb11/client.jar Client] ([https://piston-meta.mojang.com/v1/packages/5aa744bee6e3452273aee2b62f1f08438105efeb/23w46a.json .json])<br />[https://piston-data.mojang.com/v1/objects/2f30bbf9229e2dcbaf148eb9750df1d19ffa6d19/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/6b63fbd9bd6e378f90fb75fcabc2c236fdd3f4ed/client.txt Client]<br />[https://piston-data.mojang.com/v1/objects/00c014385cb472452c2e20ca6271e318600cceb5/server.txt Server]",
+            "label": "(link to Obfuscation map article, displayed as Obfuscation maps)"
+        },
+        {
+            "field": " <span style=\"font-size:smaller\"><abbr title=\"decimal\">dec</abbr>: </span>1073741987<br /> <span style=\"font-size:smaller\"><abbr title=\"hexadecimal\">hex</abbr>: </span>400000A3",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "3691",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "21",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "25",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Data pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_17_.28LTS.29 Java SE 17]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Java Edition  1.20.2|<span style=\"margin-right:-0.35em\">◄</span>◄   1.20.2]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition 1.20.3|1.20.3]]'''</td>\n<td style=\"padding: 0.4em\" >[[Java Edition  1.20.4|  1.20.4 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  23w45a|◄   23w45a]]\n</td>\n<td style=\"padding: 0.4em\">''' 23w46a'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  1.20.3 Pre-Release 1|  1.20.3 Pre-Release 1 ►]]\n</td>\n</tr>\n</table>"
+}
+
+
+23w46a is the eighth and final snapshot for Java Edition 1.20.3, released on November 16, 2023, which adds individual display names for scoreboard entries, and fixes bugs.
+
+Contents
+
+1 Changes
+
+1.1 Blocks
+1.2 General
+1.3 Command format
+
+2 Experimental
+
+2.1 Changes
+
+2.1.1 Blocks
+2.1.2 Gameplay
+2.1.3 General
+
+3 Fixes
+4 Videos
+5 References
+6 Navigation
+
+Changes
+Blocks
+Decorated pot
+
+Now has new sounds for breaking, shattering, and being stepped on.
+General
+Data pack
+
+The pack format version is now 25.
+Command format
+/scoreboard
+
+New subcommands for changing the display of specific scoreboard entries in the sidebar:
+/scoreboard objectives modify <objective> displayautoupdate (true|false)
+Determines whether the objective should automatically update on every score update (disabled by default)
+/scoreboard players display name <targets> <objective> <text component>
+Changes the display name of the given scoreboard entries.
+/scoreboard players display name <targets> <objective>
+Resets the display name of the given scoreboard entries to their default.
+/scoreboard players display numberformat <targets> <objective> <format>
+Changes the number format of the given scoreboard entries (see below for more information).
+/scoreboard players display numberformat <targets> <objective>
+Resets the number format of the given scoreboard entries.
+/scoreboard objectives modify <objective> numberformat <format>
+Changes the default number format of the given objective (see below for more information).
+/scoreboard objectives modify <objective> numberformat
+Resets the default number format of the given objective.
+Number formats:
+styled <style>
+The score is displayed with the selected style (e.g. {"bold":true}.
+fixed <text component>
+The score is replaced by the given text component.
+blank
+The score is not shown.
+Experimental
+These changes only take effect when the Update 1.21 experimental data pack is enabled.
+
+Changes
+Blocks
+ Copper Bulb
+
+The 1 game tick delay has been removed.
+ Copper Grate
+
+Can now be waterlogged.
+Acts similarly to waterlogged mangrove roots; water doesn't flow out of any of the block's faces.
+ Crafter
+
+Texture changed from .
+Now has the same output speed, a 4 game tick delay, as other redstone blocks, such as dispensers and droppers, instead of having a 1 game tick delay.
+ Tuff Bricks
+
+Changed texture from .
+Gameplay
+Advancements
+
+The breeze now counts for "Monster Hunter", and is now required for "Monsters Hunted".
+General
+Tags
+
+Added trial_spawner into the #features_cannot_replace, and #lava_pool_stone_cannot_replace block tags.
+Fixes
+19 issues fixed
+From released versions before 1.20
+
+MC-129608 – Scoreboard doesn't handle entity UUIDs correctly.
+MC-163943 – Read-only scores can be mutated by swapping.
+MC-259321 – Spawner counts related entities against MaxNearbyEntities.
+From the 1.20.3 development versions
+
+MC-265662 – "Cannot kick server owner in LAN game" message when trying to kick yourself from non-LAN singleplayer world.
+MC-265873 – Narrator Hotkey description mentions the wrong modifier key on macOS.
+MC-265910 – Crafter block has a one game tick cooldown.
+MC-265950 – Crafters will stack items when outputting into chiseled bookshelf.
+MC-266076 – Copper Grates can't be waterlogged.
+MC-266099 – Spectating an entity that takes damage makes the camera shake.
+MC-266120 – Some advancements for 1.21 block recipes are in the regular datapack.
+MC-266148 – Some Crafting recipes for the new copper blocks appear when Experiment is disabled.
+MC-266190 – Tuff blockset color palette is inconsistent with itself.
+MC-266236 – Held button on copper bulb doesn't change state.
+From the previous development version
+
+MC-266437 – Wind charge subtitles are improperly capitalized.
+MC-266445 – Breeze mob doesn't count to Monster Hunter.
+MC-266455 – Breeze spawn eggs are in the incorrect place in the creative inventory.
+MC-266459 – The hitboxes and models of wind charges are misaligned.
+MC-266538 – Trial spawners can be replaced by lava pools and other features.
+MC-266622 – Wind Charges can't switch levers off.
+Videos
+Video made by slicedlime:
+
+
+
+
+References
+
+ "Minecraft Snapshot 23w46a"     – Minecraft.net, November 16, 2023.
+
+Navigation

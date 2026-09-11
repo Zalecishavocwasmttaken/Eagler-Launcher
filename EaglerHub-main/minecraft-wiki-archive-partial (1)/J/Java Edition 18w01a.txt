@@ -1,0 +1,247 @@
+This page covers a development version that has a major issue under certain conditions. 
+Server crashes when an item frame with a map is loaded, and no player has that map in their inventory.
+
+Minecraft 18w01a
+
+Edition
+
+Java Edition
+
+Release date
+
+January 3, 2018
+
+Type
+
+Snapshot
+
+Snapshot for
+
+1.13
+
+Downloads
+
+Client (.json)Server
+
+Protocol version
+
+352
+
+Data version
+
+1459
+
+Resource pack format
+
+4
+
+Data pack format
+
+4
+
+Minimum Java version
+
+Java SE 8
+
+◄◄   1.12.2
+1.13
+  1.13.1 ►►
+
+◄   17w50a
+
+ 18w01a
+
+  18w02a ►
+
+{
+    "title": "Minecraft 18w01a",
+    "images": [
+        "18w01a.png",
+        "Java Edition 18w01a.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "January 3, 2018",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Snapshot article, displayed as Snapshot)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition 1.13 article, displayed as 1.13)",
+            "label": "Snapshot for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/504f07f4a10f295522a57f2b1163298dc4a63103/client.jar Client] ([https://piston-meta.mojang.com/v1/packages/b1f57752ac2e0ead0fdd7434140bf2f5088cff40/18w01a.json .json])<br />[https://piston-data.mojang.com/v1/objects/47a8d2bb4db5b5e3db6b7837c9f0fa17ea660448/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "352",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "1459",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "4",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "4",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Data pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_8_.28LTS.29 Java SE 8]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Java Edition  1.12.2|<span style=\"margin-right:-0.35em\">◄</span>◄   1.12.2]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition 1.13|1.13]]'''</td>\n<td style=\"padding: 0.4em\" >[[Java Edition  1.13.1|  1.13.1 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  17w50a|◄   17w50a]]\n</td>\n<td style=\"padding: 0.4em\">''' 18w01a'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  18w02a|  18w02a ►]]\n</td>\n</tr>\n</table>"
+}
+
+18w01a is the twelfth snapshot for Java Edition 1.13, released on January 3, 2018. This is the first snapshot released in 2018.
+
+Contents
+
+1 Additions
+
+1.1 Command format
+1.2 General
+
+2 Changes
+
+2.1 Command format
+2.2 General
+
+3 Fixes
+4 Videos
+5 Trivia
+6 References
+7 Navigation
+
+Additions
+Command format
+/teleport
+
+Added facing to the command.
+Syntax: /teleport [<targets>] (<location>|<destination>) facing (<facingEntity>|<facingLocation>)
+Rotates an entity to face either an entity or a location.
+/time
+
+Added noon and midnight to /time set.
+General
+Data packs
+
+Added set_name function to loot tables.
+Functions tagged in minecraft:load now run once after a (re)load.
+Added the new block tag minecraft:anvil.
+Contains minecraft:anvil, minecraft:chipped_anvil, and minecraft:damaged_anvil.
+Death messages
+
+Added a death message for when a mob or player causes another player to die in the void.
+"Player didn't want to live in the same world as Player/Mob".
+Changes
+Command format
+Changed all custom names (blocks, items, entities, block entities) to translatable text components.
+Removed the LocName tag. Instead of LocName:"gui.toTitle", use Name:"{\"translate\":\"gui.toTitle\"}".
+Thrower and Owner nbt keys of item entities are no longer strings but are instead compounds with two longs named L and M.
+owner nbt keys of snowballs, eggs and ender pearls are no longer strings but are instead compounds with two longs named L and M.
+General
+Crashes
+
+Crash reports now list what data packs are enabled.
+Data generators
+
+Now exposed, the player can get a dump of all blocks/items/commands/etc. from the game without opening it up.
+Fixes
+63 issues fixed
+From released versions before 1.13
+
+MC-2340 – Redstone torches schedule updates when they should not, causing unreliable timings.
+MC-4381 – Water places behind tall grass.
+MC-9194 – A comparator can lock a repeater, but the repeater doesn't look like it is locked.
+MC-64836 – Mobs "control" the minecart they are riding.
+MC-71401 – Tab list ignores initial display name of players.
+MC-72943 – Game freeze after closing an "Open to LAN" single-player world.
+MC-92255 – Singleplayer freezes instead of kicking a player.
+MC-112693 – Scoreboard team colors use raw § formatting instead of text components.
+MC-112742 – Name of unnamed villager is rendered with TeamColor instead of prefix and suffix of scoreboard team.
+MC-112743 – Glowing outline and spectator GUI use prefix color instead of TeamColor.
+MC-115059 – Narrator reads scoreboard team color codes in player names.
+MC-121719 – Enchantment GUI's book opening and closing animation are rendered at approximately 20fps, even if actual framerate is higher.
+MC-121884 – Server->Client custom payload packets can leak resources.
+MC-122053 –  Scroll Wheel/touchpad scroll amount is ignored.
+MC-123708 – clearCustomName() and hasDisplayName() inconsistent.
+From the 1.13 development versions
+
+MC-121331 – Client crashes when minimizing game while server disconnect window is displayed.
+MC-121379 – Functions, advancements and loot tables allow other filetypes than .mcfunction and .json.
+MC-121719 – Enchantment GUI's book opening and closing animation are rendered at approximately 20fps, even if actual framerate is higher.
+MC-121827 – Selectors and scoreboards not working for signs (works correctly for books, /tellraw, and /title).
+MC-121842 – In a LAN world, all OP players can use commands, but the UI and autocompletion are only accessible by the host player.
+MC-121897 – Gaps in an animation's used frames throws ArrayIndexOutOfBoundsException.
+MC-121913 – Log files are HUGE (5GB) because Brigadier also logs errors continuously.
+MC-121934 – execute sub-commands only run (for each entity), if the next sub-command runs at least one command for each entity.
+MC-122057 – /teleport x_rotation and y_rotation being swapped.
+MC-122118 – /tp @s ~ ~ ~ acts like an absolute teleport, killing all momentum.
+MC-122188 – Vanilla structure files aren't updated yet causing missing/wrong blocks.
+MC-122270 – Pushing blocks with connections does not update them.
+MC-122272 – Game crashes when I start a new world.
+MC-122409 – Players can't open chests under leaves/glowstone/sea lantern/ice/frosted ice.
+MC-122431 – '/scoreboard players get' shows message with '%s' when no score is set.
+MC-122487 – Randomized blockstates do not apply full models.
+MC-122493 – Boats fall through blocks when slightly intersecting with water.
+MC-122503 – /title or /tellraw score component with fake players returns "No entity was found".
+MC-122609 – '/scoreboard players reset * objective' does not work.
+MC-122724 – Blockstates not working properly with two model options.
+MC-122782 – Orange and Yellow Terracotta Animations do not function in 17w48a (1.13 snapshot).
+MC-122828 – 32768 is specified as the maximum allowed area size for the fill command, but is not allowed.
+MC-122894 – Using teleport command without target value in functions does not use original position.
+MC-122897 – Overwriting structure containing signs InvalidArgumentException.
+MC-122915 – The default block/item tags aren't in the tab-completion list.
+MC-123039 – Hitting a key in the creative mode inventory search resets scrollbar.
+MC-123067 – Wall-mounted banners/skulls are treated as full blocks.
+MC-123110 – Bowl can't be used in furnace as fuel.
+From the previous development version
+
+MC-123117 – Strange lighting by slabs/stairs/grass path/farmland.
+MC-123131 – Hopper and hopper minecart item pickup area too small/low.
+MC-123135 – Standing on half block/stairs/grass path/farmland gives "cave effect" to sky.
+MC-123138 – Placing double-grass on the lower half of a double-grass block removes the upper half.
+MC-123159 – Gravity-affected blocks, such as sand, do not fall when the block underneath them is pulled by a piston.
+MC-123162 – Placing a grass path under a block makes the block disappear.
+MC-123168 – advanced tooltips hide map numbers.
+MC-123183 – Cannot eat plantable items when looking at blocks.
+MC-123184 – "Pick Block" on empty flower pots does nothing.
+MC-123222 – Item frames can be placed below Y=0.
+MC-123304 – "Ticking block entity" NullPointerException game crash 64 pistons in 1 chunk.
+MC-123305 – JSON text throws syntax error when JSON is more than 1024 characters long.
+MC-123322 – Structures placed by structure blocks do not update connecting blocks on the outside or inside of the structure.
+MC-123331 – '/execute if/unless score' sets the score to 0 if unset.
+MC-123360 – /teleport tries to center-correct the y-axis.
+MC-123388 – "/execute store" on "double" data types uses only 'float' rather than 'double.' precision in intermediate scale calculation.
+MC-123401 – In commands, block states are attempted to be read after the end of the previous value.
+MC-123459 – Error when reading pack.mcmeta of data or resource packs shows default string representation.
+MC-123562 – Replacing vanilla data (except for tags) simply doesn't work on Apple devices.
+Private issues
+
+MC-121804 – "/publish" can be executed from command blocks.
+Videos
+Video made by slicedlime:
+
+
+
+
+Trivia
+Along with 13w01a, 18w01a was released on the earliest calendar year out of all snapshots, on January 3.
+References
+
+ "Minecraft Snapshot 18w01a"     – Minecraft.net, January 3, 2018.
+
+Navigation

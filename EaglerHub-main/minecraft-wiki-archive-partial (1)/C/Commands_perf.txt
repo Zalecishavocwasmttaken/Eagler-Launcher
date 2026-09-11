@@ -1,0 +1,91 @@
+This feature is exclusive to Java Edition. 
+
+/perf
+
+Permission levelrequired
+
+4
+
+Restrictions
+
+Dedicated server
+
+{
+    "title": "<code>/perf</code>",
+    "rows": [
+        {
+            "field": "4",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "Dedicated server<br>",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+Captures information and metrics about the game such as tick durations, used heap sizes, and other more detailed stats.
+Note that this command can only be executed on a dedicated server; use F3 + L run the performance profiler on a locally hosted world.
+
+Contents
+
+1 Usage
+2 Syntax
+3 Result
+4 Outputs
+5 History
+6 Navigation
+
+Usage
+When a performance profiling session is stopped, a ZIP file is created in .minecraft/debug/profiling with the following structure:
+
+yyyy-MM-dd_HH.mm.ss-<world name>-<game version>.zip
+system.txt
+server
+deviations
+ticktime
+<current tick>@yyyy-MM-dd_HH.mm.ss.SSS.txt
+levels
+<namespace>
+<dimension name>
+block_entities.csv: Contains a list of block entities in the world in the format x,y,z,type.
+chunks.csv: Contains a list of chunk information in the format x,z,level,in_memory,status,full_status,accessible_ready,ticking_ready,entity_ticking_ready,ticket,spawning,entity_count,block_entity_count.
+entities.csv: Contains a list of entities in the world in the format x,y,z,uuid,type,alive,custom_name.
+entity_chunks.csv: Contains a list of loaded chunks in the dimension in the format x,y,z,visibility,load_status,entity_count.
+example_crash.txt: An example crash file.
+stats.txt: Contains some stats.
+metrics
+cpu.csv
+event_loops.csv
+jvm.csv
+mailboxes.csv
+ticking.csv
+classpath.txt: Contains file paths of external jars the game is using.
+gamerules.txt: A plain text file containing a list of game rules and their values (<gamerule>=<value>).
+modules.txt: Contains external modules the game is using.
+profiling.txt: The profiler results.
+server.properties.txt: Current server.properties.
+stats.txt: Contains some stats.
+threads.txt: All running threads.
+
+Syntax
+perf start
+Starts a 10-second performance profiling recording.
+perf stop
+Ends the recording early before 10 seconds have passed.
+Result
+
+CommandTriggerJava Edition
+
+AnyThe command is incomplete. Unparseable/perf startA performance profiling session has already been started. Failed/perf stopNo performance profiling session is running.AnyOtherwiseSuccessful
+Outputs
+
+CommandEditionSituationSuccess Count/execute store success .../execute store result ...
+
+AnyJava EditionOn failN/A00On successN/A10
+History
+Java Edition1.17Pre-release 1
+Added /perf.
+Navigation

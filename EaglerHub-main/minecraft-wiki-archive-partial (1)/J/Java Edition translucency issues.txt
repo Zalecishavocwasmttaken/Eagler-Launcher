@@ -1,0 +1,121 @@
+This article needs to be updated. 
+Please update this article to reflect recent updates or newly available information. The talk page may contain suggestions.Reason: 26.3 translucency overhaul
+
+
+
+This article is an orphan, as no other articles link to it. [links]
+Please link this article on related articles and remove this template.
+
+This page is an attempt to document all remaining issues with the rendering of game elements, particularly with respect to translucent objects, in the current version of Java Edition. Both issues that are and aren't fixed by the Fabulous! graphics setting are included here.
+
+List
+
+
+
+This section is missing information about:
+Fast/Fancy only:
+MC-188203 wf
+MC-193051
+MC-200056 possibly not translucency related?
+MC-210166
+MC-225940
+MC-248849
+MC-248850
+Fabulous! only:
+MC-186241
+MC-233733
+To be tested:
+MC-161898
+MC-191137 wf
+MC-261837
+Boats:
+MC-224242
+MC-224703
+MC-229405
+MC-249040
+MC-249041
+MC-249042
+MC-249043
+MC-249044
+MC-249045
+MC-249046
+MC-249048
+Graphical issues unique to Fabulous!:
+MC-187669
+MC-217515
+Misc:
+MC-118561
+would eye rendering bugs count?
+how about MC-212992?
+or MC-167532? 
+Please expand the section to include this information. Further details may exist on the talk page.
+
+Rendering order issues
+
+Image
+
+Description
+
+Fixed by Fabulous!?
+
+Ticket
+
+Notes
+
+Distant individual chunks don't order translucent elements correctly according to the player's viewpoint.
+
+No
+
+MC-38022
+
+Waterlogged stained glass panes occlude some of the faces of the water they're in.
+
+No
+
+MC-131203MC-167319
+
+Some blocks such as honey blocks and slime blocks may not fully render inner planes.
+
+No
+
+MC-163098
+
+This can be triggered (and fix itself) in response to player movement and rotation.
+
+At high distances (see Java Edition distance effects), translucent planes become disordered and render wrongly.
+
+No
+
+MC-186362
+
+Does not appear to affect Sodium.
+
+The outline when targeting blocks is occluded by translucent items and experience orbs.
+
+No
+
+MC-262088
+
+Translucent items and experience orbs can occlude each other.
+
+No
+
+MC-166359MC-249146
+
+This appears to depend on the order in which the entities spawned: older entities take priority over newer entities and render on top.
+
+Particles, clouds and translucent entities behind one translucent layer and in front of another render behind both.
+
+No
+
+MC-186538
+
+The outer, translucent beam of a beacon or end gateway render behind certain things it is in front of.
+
+No
+
+MC-262087
+
+This issue is much more obvious when using the resource pack provided in the ticket.
+
+References

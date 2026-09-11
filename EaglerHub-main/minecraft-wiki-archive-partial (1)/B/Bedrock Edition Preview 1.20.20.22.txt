@@ -1,0 +1,274 @@
+Preview 1.20.20.22
+
+Edition
+
+Bedrock Edition
+
+Release date
+
+July 20, 2023
+
+Server version
+
+1.20.20.22
+
+Build version
+
+16763275
+
+Internal version
+
+Windows: 1.20.2022.0Android, iOS, iPadOS: 1.20.20.22Xbox One: 1.20.2022.70
+
+Version code
+
+Android:
+952002022（armeabi-v7a，33）
+962002022（x86，33）
+972002022（arm64-v8a，33）
+982002022（x86_64，33）
+
+Type
+
+Preview
+
+Preview for
+
+1.20.30
+
+Downloads
+
+ ServerWindowsLinux
+
+Protocol version
+
+607
+
+◄◄   1.20.15
+1.20.30
+  1.20.31 ►►
+
+◄   Preview 1.20.20.21
+
+ Preview 1.20.20.22
+
+  Preview 1.20.20.23 ►
+
+{
+    "title": "Preview 1.20.20.22",
+    "images": [
+        "Bedrock 1.20.20.22 PatchNotes.jpg",
+        "Bedrock 1.20.20.22.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Bedrock Edition article, displayed as Bedrock Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "July 20, 2023",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Bedrock Dedicated Server 1.20.20.22 article, displayed as 1.20.20.22)",
+            "label": "Server version"
+        },
+        {
+            "field": "16763275",
+            "label": "Build version"
+        },
+        {
+            "field": "'''Windows''': 1.20.2022.0<br>'''Android, iOS, iPadOS''': 1.20.20.22<br>'''Xbox One''': 1.20.2022.70<br>",
+            "label": "Internal version"
+        },
+        {
+            "field": "'''Android''':<br>\n952002022（armeabi-v7a，33）<br>\n962002022（x86，33）<br>\n972002022（arm64-v8a，33）<br>\n982002022（x86_64，33）<br>",
+            "label": "Version code"
+        },
+        {
+            "field": "Preview",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Bedrock Edition 1.20.30 article, displayed as 1.20.30)",
+            "label": "Preview for"
+        },
+        {
+            "field": "'''Server'''<br>[https://minecraft.net/bedrockdedicatedserver/bin-win-preview/bedrock-server-1.20.20.22.zip Windows]<br>[https://minecraft.net/bedrockdedicatedserver/bin-linux-preview/bedrock-server-1.20.20.22.zip Linux]",
+            "label": "Downloads"
+        },
+        {
+            "field": "607",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Bedrock Edition  1.20.15|<span style=\"margin-right:-0.35em\">◄</span>◄   1.20.15]]</td>\n<td style=\"padding: 0.4em\">'''[[Bedrock Edition 1.20.30|1.20.30]]'''</td>\n<td style=\"padding: 0.4em\" >[[Bedrock Edition  1.20.31|  1.20.31 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Bedrock Edition  Preview 1.20.20.21|◄   Preview 1.20.20.21]]\n</td>\n<td style=\"padding: 0.4em\">''' Preview 1.20.20.22'''</td>\n<td style=\"padding: 0.4em\">\n[[Bedrock Edition  Preview 1.20.20.23|  Preview 1.20.20.23 ►]]\n</td>\n</tr>\n</table>"
+}
+
+Beta 1.20.20.22 (Android) or Preview 1.20.20.22 (Windows, iOS, iPadOS, Xbox) is the third beta/Preview version for Bedrock Edition 1.20.30, released on July 20, 2023, which brings more parity from Java Edition and fixes bugs.
+
+Contents
+
+1 Additions
+
+1.1 Technical
+
+2 Changes
+
+2.1 Command format
+2.2 Gameplay
+2.3 General
+2.4 Technical
+
+3 Experimental
+
+3.1 Additions
+
+3.1.1 Technical
+
+3.2 Changes
+
+3.2.1 Technical
+
+4 Fixes
+5 Notes
+6 References
+7 Navigation
+
+Additions
+Technical
+JSON
+
+Released the following components out of experimental in JSON formats 1.20.30 and higher:
+minecraft:wearable item component.
+minecraft:digger item component.
+Exposed DimensionType to scripting.
+Exposed the following feature placement rules:
+minecraft:aggregate_feature.
+minecraft:cave_carver_feature.
+minecraft:fossil_feature.
+minecraft:geode_feature.
+minecraft:growing_plant_feature.
+minecraft:multiface_feature.
+minecraft:nether_cave_carver_feature.
+minecraft:ore_feature.
+minecraft:partially_exposed_blob_feature.
+minecraft:scatter_feature.
+minecraft:search_feature.
+minecraft:sequence_feature.
+minecraft:single_block_feature.
+minecraft:snap_to_surface_feature.
+minecraft:structure_template_feature.
+minecraft:surface_relative_threshold_feature.
+minecraft:tree_feature.
+minecraft:underwater_cave_carver_feature.
+minecraft:vegetation_patch_feature.
+minecraft:weighted_random_feature.
+Changes
+Command format
+/camera
+
+Now is available without using the "Experimental Cameras" experimental toggle.
+/recipe
+
+Changed the victim: target argument to player: target.
+Gameplay
+Crawling
+
+The ability to crawl is now available without using the "Crawling" experimental toggle.
+General
+Experiments
+
+Removed the "Crawling" experimental toggle.
+Settings
+
+Added the "Recipe unlocking" option to the advanced section in the "Create New World" screen. (recipesUnlock game rule)
+"Text to Speech" narrator now read the disconnected message in the game menu when opened without an internet connection.
+Renamed the "Manage" button to "Cancel" in "Options" > "Subscriptions".
+Technical
+JSON
+
+Removed the server-authoritative-sound bool from server.properties.
+Deprecate on_dig parameters from minecraft:digger item component in JSON formats 1.20.20 and higher.
+Experimental
+These additions and changes are accessible by enabling the "Beta APIs" and "Experimental Cameras" experimental toggles.
+
+Additions
+Technical
+API
+
+Added camera scripting APIs for the following APIs:
+setCamera(): to set the camera to a specified preset.
+fade(): to start a camera fade.
+clear(): to clear the current settings on the camera.
+Changes
+Technical
+API
+
+Removed MinecraftBlockTypes defined in @minecraft/server.
+Moved ItemUseBeforeEvent to 1.4.0.
+Moved ItemUseOnBeforeEvent to 1.4.0.
+Moved ItemUseAfterEvent to 1.4.0.
+Moved ItemUseOnAfterEvent to 1.4.0.
+Moved ItemStartUseOnAfterEvent to 1.4.0.
+Moved ItemStopUseAfterEvent to 1.4.0.
+Moved ItemStopUseOnAfterEvent to 1.4.0.
+Moved ItemCompleteUseAfterEvent to 1.4.0.
+Moved ItemReleaseUseAfterEvent to 1.4.0.
+Moved ItemStartUseAfterEvent to 1.4.0.
+Moved DimensionLocation to 1.4.0.
+Renamed PositionInUnloadedChunkError to LocationInUnloadedChunkError and moved it to 1.4.0.
+Renamed PositionOutOfWorldBoundariesError to LocationOutOfWorldBoundariesError and moved it to 1.4.0.
+Moved getSpawnPoint to 1.4.0.
+Moved setSpawnPoint to 1.4.0.
+Moved getDefaultSpawnLocation to 1.4.0.
+Moved setDefaultSpawnLocation to 1.4.0.
+WorldAfterEvents
+Removed projectileHit.
+Added projectileHitBlock.
+Added projectileHitEntity.
+Added class ProjectileHitBlockAfterEvent export class:
+ProjectileHitBlockAfterEvent { readonly dimension: Dimension; readonly hitVector: Vector3; readonly location: Vector3; readonly projectile: Entity; readonly source?: Entity; getBlockHit(): BlockHitInformation; }
+Added class ProjectileHitEntityAfterEvent export class:
+ProjectileHitEntityAfterEvent { readonly dimension: Dimension; readonly hitVector: Vector3; readonly location: Vector3; readonly projectile: Entity; readonly source?: Entity; getEntityHit(): EntityHitInformation; }
+Released Scoreboard API's from beta to 1.4.0.
+Updated Scoreboard.getObjective, getObjectiveAtDisplaySlot, and clearObjectiveAtDisplaySlot to return '| undefined '.
+Released isValid() from beta to 1.4.0 for the following classes:
+Block
+Container
+Entity
+Player
+SimulatedPlayer
+Fixes
+9 issues fixed
+From released versions before 1.20.30
+
+MCPE-159217 – Vignette overlaps hotbar and other HUD elements with "Fancy Graphics" enabled.
+MCPE-166152 – Book and quills text line breaks are erased when previous text is changed [on iOS and iPadOS].
+From 1.20.0
+
+MCPE-168805 – Some brushing sounds missing.
+From 1.20.10
+
+MCPE-170969 – Swimming mechanics have been altered to where you have to look up at the sky to take a breath.
+From the previous development versions
+
+MCPE-172381 – Top snow has inconsistent collision for dropped items.
+MCPE-172402 – /recipe target argument is called "victim".
+MCPE-172429 – Structure void can't be targetted.
+MCPE-172956 – No "Recipes Unlock" option in the "Create New World" screen.
+Others
+
+Xbox: Fixed missing low disk space warning.
+Notes
+
+ Bedrock Edition 1.20.20 is not a version of the game and its betas are instead part of 1.20.30.
+
+References
+
+ "We're actually going to move all the 1.20.20 changes into 1.20.30. More info to come in an upcoming changelog."  – @cornerhardmc  on X (formerly Twitter), August 16, 2023
+
+ https://feedback.minecraft.net/hc/en-us/articles/17785920851725-Minecraft-Beta-Preview-1-20-20-22
+
+Navigation

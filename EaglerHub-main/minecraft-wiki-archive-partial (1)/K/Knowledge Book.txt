@@ -1,0 +1,110 @@
+This article is about the item that unlocks recipes for a player.   For the GUI system used to show previously-unlocked recipes to the player, see Recipe book.
+ For other uses, see Knowledge.
+
+
+
+This feature is exclusive to Java Edition. 
+
+Knowledge Book
+
+Rarity tier
+
+  Epic
+
+Renewable
+
+No
+
+Stackable
+
+No
+
+{
+    "title": "Knowledge Book",
+    "rows": [
+        {
+            "field": "<span style=\"white-space: nowrap;\"><span style=\"display: inline-block; background-color: #f5f; border: 1px solid #888; border-radius: 0.3em; color: transparent; width: 1em; height: 1em; vertical-align: -0.36em; margin-right: -0.1em\"><br></span> </span> Epic",
+            "label": "(link to Rarity article, displayed as Rarity tier)"
+        },
+        {
+            "field": "No",
+            "label": "(link to Renewable resource article, displayed as Renewable)"
+        },
+        {
+            "field": "No",
+            "label": "Stackable"
+        }
+    ],
+    "invimages": [
+        "Knowledge Book"
+    ],
+    "images": [
+        "Knowledge Book.png"
+    ]
+}
+
+A knowledge book is a utility item that reveals available crafting recipes to the player when used.
+
+Contents
+
+1 Obtaining
+2 Usage
+3 Sounds
+4 Data values
+
+4.1 ID
+4.2 Item data
+
+5 History
+
+5.1 Data history
+
+6 Issues
+7 See also
+8 Navigation
+
+Obtaining
+Knowledge books can be obtained only by using commands, as they are not found in the Creative inventory.
+For example, a player can give themselves a knowledge book that reveals the recipes for buckets and flower pots by running the following command in the chat box: /give @s knowledge_book[recipes=[bucket,flower_pot]].
+
+Usage
+Knowledge books reveal recipes to the player who uses it, by adding it to their recipe book. Using a knowledge book consumes it, removing it from the player's inventory.
+Using a chiseled bookshelf while having a knowledge book in the main hand will put the book into the chiseled bookshelf.
+
+Sounds
+SoundsSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitchAttenuationdistance​Book placedBlocksWhen a knowledge book is placed in a chiseled bookshelfblock.chiseled_bookshelf.insertsubtitles.chiseled_bookshelf.insert​0.8varies 16​Book takenBlocksWhen a knowledge book is removed from a chiseled bookshelfblock.chiseled_bookshelf.pickupsubtitles.chiseled_bookshelf.take​0.8varies 16
+ Can be 1.0, 0.85, or 1.1 for each sound
+
+ Can be 1.0, 0.8, or 1.1 for each sound
+
+Data values
+ID
+NameIdentifierForm
+Translation key Knowledge Bookknowledge_bookItem
+item.minecraft.knowledge_book
+Item data
+See also: Data component format
+
+[NBT Compound / JSON Object] components: the item's components tag.
+[NBT List / JSON Array] minecraft:recipes: The recipes that a player unlocks when this knowledge book is used.
+[String]: The ID of a recipe.
+
+History
+Java Edition1.1217w13a
+ Added knowledge books.1.1418w43a
+ The texture of knowledge books has now been changed.1.1721w20a
+The rarity of knowledge books has been changed from "Common" to "Epic".1.20Release Candidate 1
+Knowledge books can now be placed in chiseled bookshelves.
+Data history
+Java Edition1.1317w47a
+Prior to The Flattening, this item's numeral ID was 453.1.20.524w09a
+Knowledge books are no longer used in data packs. The crafting table output has been replaced by an item with custom data.
+Issues
+Issues relating to "Knowledge Book" are maintained on the bug tracker. Issues should be reported and viewed there.
+
+See also
+Book
+Enchanted book
+/recipe command
+Recipe book
+Navigation

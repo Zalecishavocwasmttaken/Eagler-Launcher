@@ -1,0 +1,1023 @@
+This article documents an April Fools' Day joke version. 
+There is no proper release version or development version of Java Edition called the Herdcraft Update or Snapshot 26w14a.
+
+Minecraft 26w14a
+
+Edition
+
+Java Edition
+
+Official name
+
+Herdcraft Update
+
+Release date
+
+April 1, 2026
+
+Type
+
+Snapshot
+
+Downloads
+
+Client (.json)Server
+
+Protocol version
+
+ dec: 1073742129 hex: 40000131
+
+Data version
+
+5000
+
+Resource pack format
+
+84.0
+
+Data pack format
+
+101.1
+
+Minimum Java version
+
+Java SE 25
+
+Cache ID
+
+Unspecified
+
+◄◄   25w14craftmine
+26w14a
+
+{
+    "title": "Minecraft 26w14a",
+    "images": [
+        "26w14a.jpg",
+        "Java Edition 26w14a.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "Herdcraft Update",
+            "label": "Official name"
+        },
+        {
+            "field": "April 1, 2026",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Snapshot article, displayed as Snapshot)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/49040e0696c6ade6606645f0065f7aed34ce53d0/client.jar Client] ([https://piston-meta.mojang.com/v1/packages/9b2672f791fd413098736acfb1fb7d9ae454473b/26w14a.json .json])<br />[https://piston-data.mojang.com/v1/objects/71feef42484d36d0eeba98ffb06f8bb845cbe0fc/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": " <span style=\"font-size:smaller\"><abbr title=\"decimal\">dec</abbr>: </span>1073742129<br /> <span style=\"font-size:smaller\"><abbr title=\"hexadecimal\">hex</abbr>: </span>40000131",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "5000",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "84.0",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "101.1",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Data pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_25_.28LTS.29 Java SE 25]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        },
+        {
+            "field": "Unspecified(link to Category:Pending al_version article, displayed as Category:Pending al_version)",
+            "label": "(link to al_version article, displayed as Cache ID)"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" rowspan=\"2\">[[Java Edition  25w14craftmine|<span style=\"margin-right:-0.35em\">◄</span>◄   25w14craftmine]]</td>\n<td rowspan=\"2\" style=\"padding: 0.4em\">'''26w14a'''</td>\n<td style=\"padding: 0.4em\" rowspan=\"2\"></td>\n</tr>\n<tr style=\"background: inherit;\">\n</tr>\n</table>"
+}
+
+26w14a, supposedly the first and only snapshot for the "Herdcraft Update", is an April Fools' Day joke snapshot released on April 1, 2026. Similar to 22w13oneBlockAtATime, it disables many inventory features. Instead, the player can command "living blocks" using various tools in their hotbar. The blocks act as mobs, meaning they can be hurt, moved, and attacked.
+This snapshot is a fork of 26.1.1.
+
+Contents
+
+1 Additions
+
+1.1 Blocks
+1.2 Items
+1.3 Mobs
+1.4 Non-mob entities
+1.5 General
+1.6 Technical
+
+1.6.1 Block tags
+1.6.2 Item tags
+
+2 Changes
+
+2.1 Gameplay
+2.2 Blocks
+2.3 Items
+2.4 World generation
+2.5 Command format
+2.6 General
+
+3 Removals
+
+3.1 Non-mob entities
+3.2 General
+
+4 Issues
+5 Videos
+6 Trivia
+7 Gallery
+
+7.1 Mojang images
+7.2 Mojang screenshots
+
+8 References
+9 Navigation
+
+Additions
+26w14a block and item additions
+Blocks
+ Copper trap
+
+A full block with the same texture as copper bars.
+Has an item form that stacks up to 64 (observable by luring them into a container).
+Does not appear in the Creative inventory. It can however be obtained in Creative mode using the /item command.
+Has all oxidization stages and waxed variants.
+Appears when 8 copper bars are close together.
+ Iron trap
+
+A full block with the same texture as iron bars.
+Has an item form that stacks up to 64 (observable by luring them into a container).
+Does not appear in the Creative inventory. It can however be obtained in Creative mode using the /item command.
+Appears when 8 iron bars are close together.
+Items
+Added action items, all of these items share these properties:
+
+These items do not appear in the creative inventory.
+When the player dies:
+These items do not drop (other items do if they are somehow in the inventory and the keep_inventory game rule is set to false).
+If the keep_inventory game rule is set to false, they are restored to the inventory in their original order if the player somehow loses or rearranges them.
+If the keep_inventory game rule is set to true, the inventory is not modified.
+Dropping these items doesn't summon anything.
+The item still disappears from the inventory, but nothing appears in its place.
+Other items, in turn, summon a living block of the item or, in some cases like a default spawn eggs, an associated entity.
+However, this item can still be summoned as a living block in other situations, such as via the /give command or by breaking a container.
+These items cannot be removed using the hotbar shortcut key.
+For example, if punch is in slot 1, opening a chest and clicking the number 1 will do nothing. Other items can still be moved this way.
+However, the reverse works. If the punch is outside slot 1 and slot 1 doesn't contain any action items, then clicking on 1 in the punch moves it to slot 1.
+This, along with the items not being in the inventory upon death, makes it difficult to remove them from the hotbar in survival mode, and it was probably intentional to make it impossible to remove these items from the inventory, consequently preventing the player from using other items.
+However, it is possible to remove them from the inventory by interacting with a shelf or item frame.
+It is also possible to remove the item by opening the inventory while mounted on a mob with an inventory, such as horses and llamas, and then simply dropping them. Although to take these animals the player needs to have an empty hand, this is possible by selecting the ninth slot or mounting a mob that has already been taken, such as skeleton horses from traps.
+Using a shelf with a hopper, a living block container plus a hotbar shortcut key, or a flower pot, it's possible to place other items in the hotbar, after removals.
+ Punch
+
+Used to mine and attack (as most other action items prevent this).
+ Follow Me
+
+Use to select living blocks, which begin glowing.
+Hit to leash selected blocks to the player.
+If no blocks are explicitly selected, will use the current group from the Group / Ungroup tool.
+ Move
+
+Same selection functionality.
+Hit to command blocks to move to the targeted location.
+ Attack / Mine
+
+Same selection functionality.
+Hit to command blocks to attack mobs, including other players.
+Hit to command living tools to mine (regular) blocks.
+ Craft
+
+Use to create a 2×2 crafting grid (entity), requires enough flat space.
+ Build
+
+Same selection functionality as Follow Me.
+Hit to command blocks to move to the target location, and then turn back into regular non-living blocks.
+Living items and some living blocks will not respond to this command.
+ Group / Ungroup
+
+Use to cycle group None → Red → Blue → Lime → Yellow → Purple → Aqua → All → Repeat. Hold shift to cycle in reverse order.
+Hit to add living blocks to the selected group.
+Selected group affects which blocks are commanded by other tools if no blocks are explicitly selected first.
+When "None", no blocks are selected.
+When "All", all blocks that are part of a group are selected.
+When a command is issued to a group that doesn't have any members that are within loaded chunks (or "None" is selected), the actionbar shows the message "Selected group contains no blocks in the area".
+Living blocks that are members of a group glow in the corresponding color.
+In multiplayer, each player has their own set of groups.
+Blocks that are members of a player's group appear to glow gray to other players.
+Blocks that are members of one player's group cannot be commanded by another player (blocks that are not part of a group may be commanded by anyone).
+Other players may still interact with them in other ways, such as attacking them, opening containers, crafting, etc.
+ Highlight
+
+Hold it to make all living blocks glow.
+Mobs
+ Living block
+
+Created any time an item would normally appear.
+Can collide with other mobs.
+Hitbox matches the shape of the block if it is a block (but doesn't rotate with the visual tumbling animation).
+Other items use a small cube.
+The player and other mobs can stand on living blocks (but not living items), similar to boats. Special block contact properties are not retained (e.g. the slipperiness of ice).
+Can be damaged and die.
+Max health depends on the hardness of the block. Defaults to 10 health (5 hearts) for non-block items.
+Heal gradually over time.
+Blocks display health using the block breaking animation.
+Won't take knockback from most damage, but can take knockback from explosions, lightning strikes, or if the player obtains a regular item with the knockback enchantment (through Creative mode).
+If struck by lightning, it becomes a shroomlight.
+Depending on which block or item it is, it may have special properties.
+Non-mob entities
+ Crafting grid
+
+Created with the "Craft" tool (2×2) or by living blocks that are crafting tables or crafters (3×3).
+ Hovering item
+
+Created by using the crafting grid.
+Hitting or using it completes the crafting process, converting it into living blocks.
+ Living block command
+
+Created by tools Follow Me, Move, Attack / Mine, and Build to show an icon.
+Used as a target by living blocks.
+General
+Splashes
+This version has unique splashes:
+
+#
+
+Splash text
+
+Explanation
+
+1
+
+Watch out for traps!
+
+Refers to the behavior of iron and copper traps.
+
+2
+
+Biggest herd in town!
+
+3
+
+Cozy dirt house!
+
+4
+
+Have you herd the news? The blocks came alive!
+
+Refers to Sheep, a 1977 song by the British band Pink Floyd from the album Animals. The original line says “Have you heard the news? The dogs are dead!”.
+
+5
+
+They see me rolling!
+
+Refers to Ridin', a 2005 song by Chamillionaire, and the tumbling animation of living blocks. The first line of the song is "They see me rollin', they hatin' ".
+
+6
+
+272 Cobblestone!
+
+Refers to the "nine by nine" structure
+
+7
+
+Nom nom nom!
+
+8
+
+15 minutes 6 seconds!
+
+9
+
+Gooey!
+Possible reference to the update removing all inventory GUIs, which are pronounced "gooey".
+
+10
+
+Don't let your tools loose!
+
+11
+
+What's an item entity?
+
+Reference to the item entity, which was removed in this snapshot.
+
+12
+
+We solved the inventory problem!
+
+13
+
+Several blocks at a time!
+
+Reference to the snapshot 22w13oneBlockAtATime, where the inventory was also removed.
+
+14
+
+What's that mysterious clicking noise?
+
+Refers to the behavior of living levers
+Reference to a 2007 "Potter Puppet Pals" video by Neil Cicierega.
+
+15
+
+Why, you stuck-up, half-witted, scruffy-looking block herder!
+
+Reference to Star Wars Episode V: The Empire Strikes Back, in which Leia Organa says to Han Solo, "Why, you stuck-up, half-witted, scruffy-looking nerf herder!"
+
+16
+
+What is the collective noun for a group of blocks?
+
+17
+
+A blockade.
+
+Answers the question posed by the previous splash in the list.
+
+18
+
+Marching Cubes!
+
+Might be a reference to the marching cubes algorithm used in computer graphics.
+
+19
+
+Moving Block Entities!
+
+20
+
+Beautiful Block Balloons
+
+21
+
+Don't let the wool float away
+
+These two refer to the behavior of living wool, which floats upward, and looks like balloons when leashed to the player by the Follow Me tool.
+
+22
+
+Pogo Tools
+
+Refers to the hopping animation of living mining tools.
+
+23
+
+Cute Cuboid Companions
+
+24
+
+Slice some blocks into the lime group
+
+Might be a reference to Java Edition technical lead Mikael Hedberg, better known as Slicedlime.
+
+25
+
+Large block the size of a small block
+
+Reference to an X post by the San Miguel sheriff stating that a "Large boulder the size of a small boulder is completely blocking east-bound lane Highway 145 mm78 at Silverpick Rd".
+
+26
+
+Anything can be an entity if you try hard enough
+
+Refers to the fact that living blocks are entities
+
+27
+
+Blocked.
+
+28
+
+The true meaning of block game
+
+Modified version of the existing splash, "The true meaning of covfefe"
+
+29
+
+Hungry, hungry chests
+
+Refers to the ability of chests to pick up other living blocks
+Might also be a reference to the tabletop game Hungry Hungry Hippos.
+
+30
+
+Auto-Assembling Automata
+
+May refer to the behavior of the crafter.
+
+31
+
+Like sleeping in a tumble dryer
+
+Refers to the ability to sleep in a living bed that is rolling.
+
+32
+
+It's alive!
+Reference to Tiny Agnes's dialogue in the Mob Vote 2022 trailer.
+
+33
+
+Fifteen years of ... whatever this is!
+
+Modified version of the existing splash, "15 years of Mining and Crafting!"
+
+34
+
+26w14a!
+
+35
+
+Enough balloons make you walk on water
+
+Reference to Jesus
+Refers to the behavior of living wool
+
+36
+
+Wool is lighter than air
+
+Refers to the behavior of living wool
+
+37
+
+Flashes make so much light
+
+38
+
+Lightning for the miners
+
+39
+
+Who Let the Blocks Out?
+
+Might be a reference to the Baha Men song "Who Let the Dogs Out?".
+
+40
+
+This portal is not going to build itself
+
+This splash is stored as "This portal is §mnot §rgoing to build itself" in splashes.txt. Refers to the behavior of obsidian/flint and steel and End portal frames
+
+ This is the line number of the splash in the splashes.txt; splashes are not actually numbered in any way in the files themselves.
+
+Advancements
+Added the "HerdCraft" tab:
+
+ HerdCraftIconAdvancementIn-game descriptionParentActual requirements (if different)Resource locationRewards
+HerdCraftHerding and crafting your world—Join the world.adventure/root—
+Mine a BlockPunch a block until it comes aliveHerdCraftSpawn any living block entity (including those that represent a non-block item).adventure/mine_a_block—
+Integrated Crafting EnvironmentCraft a Crafting TableMine a BlockHave a living crafting table in the world.adventure/craft_table—
+Seek ShelterCraft a DoorIntegrated Crafting EnvironmentHave a living door of any type in the world.adventure/door—
+You require additional...Mine some ObsidianIntegrated Crafting EnvironmentHave a living obsidian in the world.adventure/obsidian—
+Random Access MaterialCraft a Chest to keep track of your blocksIntegrated Crafting EnvironmentHave a living chest in the world.adventure/craft_chest—
+Time to Fight!Craft a SwordIntegrated Crafting EnvironmentHave a living sword of any type in the world.adventure/craft_sword—
+Craft a MinerCraft a tool that can mine for youIntegrated Crafting EnvironmentHave a living wooden pickaxe in the world.adventure/wooden_pickaxe—
+Tiny House, Assemble!Watch 23 blocks and a door combine into a tiny houseSeek ShelterHave 23 blocks and a door combine into a house.adventure/build_house—
+Nether-field CraftingWatch twelve Obsidian and a Flint and Steel combine into a Nether PortalYou require additional...Have 12 obsidian and a flint and steel combine into a Nether portal.adventure/craft_nether_portal—
+Do a Barrel Roll!Make a barrel rollRandom Access Material—adventure/barrel_roll—
+Monster Hunter (With Friends)Have your sword kill any hostile monsterTime to Fight!
+Kill one of these 41 monsters:
+
+Other mobs may be killed, but are ignored for this advancement.adventure/kill_a_mob—
+You're Cookin'Make a furnace that can smelt things for youCraft a MinerHave a living furnace in the world.adventure/furnace—
+A Terrible FortressBreak your way into a Nether FortressNether-field CraftingEnter a Nether fortress.adventure/find_fortress—
+Do a Barrel Roll! Do it! Do it! Do it in the Nether!Do it! Do it now!Do a Barrel Roll!Make a barrel roll in the Nether.adventure/nether_barrel_roll—
+Monsters HuntedCommand an army of weapons to kill one of every hostile monsterMonster Hunter (With Friends)
+Kill each of these 41 monsters:
+
+Other mobs may be killed, but are ignored for this advancement.adventure/kill_all_mobs100XP experience
+Ferrocious FerrousMake your way to the iron ageYou're Cookin'Have a living iron ingot in the world.adventure/iron_ingot—
+Into FireRelieve a Blaze of its rodA Terrible FortressHave a living blaze rod in the world.adventure/obtain_blaze_rod—
+Never Give Up! Trust Your Instincts!Roll a barrel to the ends of the universeDo a Barrel Roll! Do it! Do it! Do it in the Nether!Make a barrel roll in the End.adventure/end_barrel_roll—
+Large Living Blocks ModelAutomate your crafting with a CrafterFerrocious FerrousHave a living crafter in the world.adventure/crafter—
+Suit UpProtect yourself with a piece of iron armorFerrocious FerrousHave a living iron armor of any type in the world.adventure/obtain_armor—
+You Played YourselfWatch out for 8 iron (or copper) bars, they're dangerous in groups. When you least expect it!Ferrocious FerrousHave 8 iron or copper bars combine into a trap.adventure/build_trap—
+Eye SpyFollow an Eye of EnderInto FireEnter a stronghold.adventure/follow_ender_eye—
+Unifying Eye-Frame InteractionMove an Eye of Ender close enough to an End Portal Frame for them to combineEye Spy—adventure/eye_frame_combination—
+End of LineWatch twelve End Portal Frames with Eyes of Ender inserted combine into an End PortalUnifying Eye-Frame InteractionHave 12 End portal frames that have eyes of ender combine into an End portal.adventure/craft_end_portal—
+The End?Gather enough Eyes of Ender, find some End Portal Frames and enter the EndEnd of LineEnter the End dimension.adventure/enter_the_end—
+Free the EndGood luckThe End?Kill the ender dragon.If multiple players are involved in the dragon fight, only the player that deals the final blow to the dragon receives the advancement.adventure/kill_dragon—
+
+Structures
+
+Nine by Nine
+Created by combining 272 living cobblestone, 16 living glass, and 4 living torches (see above)
+Has variants for copper and soul torches
+Technical
+Block tags
+Some properties of living blocks are defined by block tags. Although living blocks are not technically blocks, they are associated with items which in turn can be associated with blocks. Living blocks that are not associated with a block are, by default, treated as if the block were air.
+builds_into_house
+Living blocks in this tag can be combined with a door to form a house. By default, it contains a variety of common terrain blocks and building blocks.
+
+[NBT List / JSON Array] #minecraft:builds_into_house (180 values)
+
+#minecraft:logs
+#minecraft:planks
+minecraft:amethyst_block
+minecraft:andesite
+minecraft:bamboo
+minecraft:bamboo_mosaic
+minecraft:basalt
+minecraft:black_concrete
+minecraft:black_glazed_terracotta
+minecraft:black_terracotta
+minecraft:blackstone
+minecraft:blue_concrete
+minecraft:blue_glazed_terracotta
+minecraft:blue_ice
+minecraft:blue_terracotta
+minecraft:bone_block
+minecraft:bricks
+minecraft:brown_concrete
+minecraft:brown_glazed_terracotta
+minecraft:brown_mushroom_block
+minecraft:brown_terracotta
+minecraft:calcite
+minecraft:chiseled_copper
+minecraft:chiseled_deepslate
+minecraft:chiseled_nether_bricks
+minecraft:chiseled_polished_blackstone
+minecraft:chiseled_quartz_block
+minecraft:chiseled_red_sandstone
+minecraft:chiseled_resin_bricks
+minecraft:chiseled_sandstone
+minecraft:chiseled_stone_bricks
+minecraft:chiseled_tuff
+minecraft:chiseled_tuff_bricks
+minecraft:clay
+minecraft:coarse_dirt
+minecraft:cobbled_deepslate
+minecraft:cobblestone
+minecraft:copper_block
+minecraft:copper_grate
+minecraft:cracked_deepslate_bricks
+minecraft:cracked_deepslate_tiles
+minecraft:cracked_nether_bricks
+minecraft:cracked_polished_blackstone_bricks
+minecraft:cracked_stone_bricks
+minecraft:crimson_nylium
+minecraft:cut_copper
+minecraft:cut_red_sandstone
+minecraft:cut_sandstone
+minecraft:cyan_concrete
+minecraft:cyan_glazed_terracotta
+minecraft:cyan_terracotta
+minecraft:dark_prismarine
+minecraft:deepslate
+minecraft:deepslate_bricks
+minecraft:deepslate_tiles
+minecraft:diorite
+minecraft:dirt
+minecraft:dripstone_block
+minecraft:end_stone
+minecraft:end_stone_bricks
+minecraft:exposed_chiseled_copper
+minecraft:exposed_copper
+minecraft:exposed_copper_grate
+minecraft:exposed_cut_copper
+minecraft:gilded_blackstone
+minecraft:granite
+minecraft:gray_concrete
+minecraft:gray_glazed_terracotta
+minecraft:gray_terracotta
+minecraft:green_concrete
+minecraft:green_glazed_terracotta
+minecraft:green_terracotta
+minecraft:ice
+minecraft:infested_chiseled_stone_bricks
+minecraft:infested_cobblestone
+minecraft:infested_cracked_stone_bricks
+minecraft:infested_deepslate
+minecraft:infested_mossy_stone_bricks
+minecraft:infested_stone
+minecraft:infested_stone_bricks
+minecraft:light_blue_concrete
+minecraft:light_blue_glazed_terracotta
+minecraft:light_blue_terracotta
+minecraft:light_gray_concrete
+minecraft:light_gray_glazed_terracotta
+minecraft:light_gray_terracotta
+minecraft:lime_concrete
+minecraft:lime_glazed_terracotta
+minecraft:lime_terracotta
+minecraft:magenta_concrete
+minecraft:magenta_glazed_terracotta
+minecraft:magenta_terracotta
+minecraft:mossy_cobblestone
+minecraft:mossy_stone_bricks
+minecraft:mud
+minecraft:mud_bricks
+minecraft:mycelium
+minecraft:nether_bricks
+minecraft:netherrack
+minecraft:orange_concrete
+minecraft:orange_glazed_terracotta
+minecraft:orange_terracotta
+minecraft:oxidized_chiseled_copper
+minecraft:oxidized_copper
+minecraft:oxidized_copper_grate
+minecraft:oxidized_cut_copper
+minecraft:packed_ice
+minecraft:packed_mud
+minecraft:pink_concrete
+minecraft:pink_glazed_terracotta
+minecraft:pink_terracotta
+minecraft:podzol
+minecraft:polished_andesite
+minecraft:polished_basalt
+minecraft:polished_blackstone
+minecraft:polished_blackstone_bricks
+minecraft:polished_deepslate
+minecraft:polished_diorite
+minecraft:polished_granite
+minecraft:polished_tuff
+minecraft:prismarine
+minecraft:prismarine_bricks
+minecraft:purple_concrete
+minecraft:purple_glazed_terracotta
+minecraft:purple_terracotta
+minecraft:purpur_block
+minecraft:purpur_pillar
+minecraft:quartz_block
+minecraft:quartz_bricks
+minecraft:quartz_pillar
+minecraft:red_concrete
+minecraft:red_glazed_terracotta
+minecraft:red_mushroom_block
+minecraft:red_nether_bricks
+minecraft:red_sandstone
+minecraft:red_terracotta
+minecraft:resin_brick_wall
+minecraft:resin_bricks
+minecraft:rooted_dirt
+minecraft:sandstone
+minecraft:smooth_basalt
+minecraft:smooth_quartz
+minecraft:smooth_red_sandstone
+minecraft:smooth_sandstone
+minecraft:smooth_stone
+minecraft:snow_block
+minecraft:soul_sand
+minecraft:soul_soil
+minecraft:stone
+minecraft:stone_bricks
+minecraft:terracotta
+minecraft:tuff
+minecraft:tuff_bricks
+minecraft:warped_nylium
+minecraft:waxed_chiseled_copper
+minecraft:waxed_copper_block
+minecraft:waxed_copper_grate
+minecraft:waxed_cut_copper
+minecraft:waxed_exposed_chiseled_copper
+minecraft:waxed_exposed_copper
+minecraft:waxed_exposed_copper_grate
+minecraft:waxed_exposed_cut_copper
+minecraft:waxed_oxidized_chiseled_copper
+minecraft:waxed_oxidized_copper
+minecraft:waxed_oxidized_copper_grate
+minecraft:waxed_oxidized_cut_copper
+minecraft:waxed_weathered_chiseled_copper
+minecraft:waxed_weathered_copper
+minecraft:waxed_weathered_copper_grate
+minecraft:waxed_weathered_cut_copper
+minecraft:weathered_chiseled_copper
+minecraft:weathered_copper
+minecraft:weathered_copper_grate
+minecraft:weathered_cut_copper
+minecraft:white_concrete
+minecraft:white_glazed_terracotta
+minecraft:white_terracotta
+minecraft:yellow_concrete
+minecraft:yellow_glazed_terracotta
+minecraft:yellow_terracotta
+
+living_block_takes_fall_damage
+Living blocks in this tag can takes fall damage. By default, it contains all glass and glass panes.
+
+[NBT List / JSON Array] #minecraft:living_block_takes_fall_damage (35 values)
+
+minecraft:black_stained_glass
+minecraft:black_stained_glass_pane
+minecraft:blue_stained_glass
+minecraft:blue_stained_glass_pane
+minecraft:brown_stained_glass
+minecraft:brown_stained_glass_pane
+minecraft:cyan_stained_glass
+minecraft:cyan_stained_glass_pane
+minecraft:glass
+minecraft:glass_pane
+minecraft:gray_stained_glass
+minecraft:gray_stained_glass_pane
+minecraft:green_stained_glass
+minecraft:green_stained_glass_pane
+minecraft:light_blue_stained_glass
+minecraft:light_blue_stained_glass_pane
+minecraft:light_gray_stained_glass
+minecraft:light_gray_stained_glass_pane
+minecraft:lime_stained_glass
+minecraft:lime_stained_glass_pane
+minecraft:magenta_stained_glass
+minecraft:magenta_stained_glass_pane
+minecraft:orange_stained_glass
+minecraft:orange_stained_glass_pane
+minecraft:pink_stained_glass
+minecraft:pink_stained_glass_pane
+minecraft:purple_stained_glass
+minecraft:purple_stained_glass_pane
+minecraft:red_stained_glass
+minecraft:red_stained_glass_pane
+minecraft:tinted_glass
+minecraft:white_stained_glass
+minecraft:white_stained_glass_pane
+minecraft:yellow_stained_glass
+minecraft:yellow_stained_glass_pane
+
+cow_food
+Living blocks in this tag can be used to tempt cows and mooshrooms.
+
+[NBT List / JSON Array] #minecraft:cow_food (2 values)
+
+minecraft:hay_block
+minecraft:wheat
+
+pig_food
+Living blocks in this tag can be used to tempt pigs.
+
+[NBT List / JSON Array] #minecraft:pig_food (3 values)
+
+minecraft:beetroots
+minecraft:carrots
+minecraft:potatoes
+
+sheep_food
+Living blocks in this tag can be used to tempt sheep.
+
+[NBT List / JSON Array] #minecraft:sheep_food (2 values)
+
+minecraft:hay_block
+minecraft:wheat
+
+chicken_food
+Living blocks in this tag can be used to tempt chicken.
+
+[NBT List / JSON Array] #minecraft:chicken_food (0 values)
+Empty in vanilla.
+
+horse_food
+Living blocks in this tag can be used to tempt donkeys, horses and mules
+
+[NBT List / JSON Array] #minecraft:horse_food (0 values)
+Empty in vanilla.
+
+llama_tempt_items
+Living blocks in this tag can be used to tempt llamas and trader llamas.
+
+[NBT List / JSON Array] #minecraft:llama_tempt_items (0 values)
+Empty in vanilla.
+
+zombie_horse_food
+Living blocks in this tag can be used to tempt zombie horses.
+
+[NBT List / JSON Array] #minecraft:zombie_horse_food (0 values)
+Empty in vanilla.
+
+panda_food
+Living blocks in this tag can be used to tempt pandas.
+
+[NBT List / JSON Array] #minecraft:panda_food (0 values)
+Empty in vanilla.
+
+turtle_food
+Living blocks in this tag can be used to tempt turtles.
+
+[NBT List / JSON Array] #minecraft:turtle_food (0 values)
+Empty in vanilla.
+
+strider_tempt_items
+Living blocks in this tag can be used to tempt striders.
+
+[NBT List / JSON Array] #minecraft:strider_tempt_items (0 values)
+Empty in vanilla.
+
+cat_food
+Living blocks in this tag can be used to tempt cats.
+
+[NBT List / JSON Array] #minecraft:cat_food (0 values)
+Empty in vanilla.
+
+rabbit_food
+Living blocks in this tag can be used to tempt rabbits.
+
+[NBT List / JSON Array] #minecraft:rabbit_food (0 values)
+Empty in vanilla.
+
+Item tags
+block_placers
+Living blocks of items in this tag are treated as items and not blocks. Only items that already have an associated block can be treated as blocks; therefore, adding items that are not associated with blocks has no effect.
+
+[NBT List / JSON Array] #minecraft:block_placers (15 values)
+
+minecraft:beetroot_seeds
+minecraft:carrot
+minecraft:glow_berries
+minecraft:melon_seeds
+minecraft:nether_wart
+minecraft:pitcher_pod
+minecraft:potato
+minecraft:powder_snow_bucket
+minecraft:pumpkin_seeds
+minecraft:redstone
+minecraft:resin_clump
+minecraft:string
+minecraft:sweet_berries
+minecraft:torchflower_seeds
+minecraft:wheat_seeds
+
+Changes
+Gameplay
+Inventory
+
+Opening the inventory in any mode except Creative mode only shows crafting recipes.
+Selecting a crafting recipe will fill it into a nearby 2x2 crafting grid entity.
+An "i" icon appears above the recipes. When clicked, it opens the advancements.
+The inventory can be opened as normal in Creative mode.
+The hotbar will appear empty except on the "Survival Inventory" tab, which accurately shows the inventory contents (by default the 8 special tools added with this update).
+This functions completely normally, including allowing the special tools to be moved, removed and/or replaced.
+Other items work normally when moved into the hotbar this way.
+In Creative mode, loading the 9th saved hotbar does not work, perhaps because the key bind for the 9th hotbar slot is disabled, but the other 8 do work; however, see Issues below.
+The inventory can be opened when mounted on a mob with an internal inventory.
+The mob's inventory renders normally; the bottom part of the player's inventory does not render and remains invisible, although the items are still visible. The ninth slot in the hotbar is rendered.
+Unlike the creative inventory, when the player holds an item with the mouse it is automatically dropped, and they cannot organize items with the mouse.
+It's possible to drop action items, which are then deleted, freeing up space in one of the first 8 slots of the hotbar.
+Using the hotbar shortcut buttons, it's possible to remove items from hotbar and place them in the player's internal inventory, and vice versa.
+However, it's not possible to move items to a slot that already has an action item in that way, but it is possible to move action items to a slot that doesn't have an action item. This way it is possible to move the action items to slot 9, which is empty by default, and re-register the action items, also freeing up a space without having to drop an action item.
+Non-action items can be moved from the hotbar to the internal inventory, and items from the internal inventory can be moved to a hotbar slot that does not contain action items.
+The ninth hotbar slot is invisible and cannot be accessed by controls (e.g., mouse roll or number 9)
+It is still possible to select using  Middle Mouse Button on an entity (such as a boat, minecart, mob, end crystal).
+If in Creative mode, slot 9 is empty and slots 1 to 8 are occupied with different items of the entity, slot 9 will be selected.
+If slot 9 is the first to contain the item corresponding to the entity (in the case of mobs, the spawn egg), it will be selected.
+Selecting a block will have no effect, as instead of adding it to the inventory it summons the corresponding living block (in Creative mode) or does nothing in Survival mode.
+Living crafting tables and crafters can be used to create 3x3 crafting grids.
+Interacting will open the recipe list, including recipes that require a 3x3 grid.
+Selecting a recipe will fill it into the grid.
+For crafting tables, the ingredients must be commanded into place with the Move tool. Once this is done, a hovering item entity appears showing the result of the recipe, and punching it completes the recipe (converting the hovering item into living blocks).
+For living crafters but not crafting tables, other living blocks nearby will automatically start to position themselves to complete the recipe. Once all are positioned correctly, the recipe will be completed automatically as well. Recipes can still be done manually as with crafting tables.
+General
+
+The off hand key bind has been removed.
+Using pick block on a block in Creative mode will clone the block toward the player.
+Recipe unlocking
+
+All recipe unlocks that previously required an inventory update have changed and now require summoning a living block of the same item.
+Note that adding items to the inventory, Creative mode, or using /item for example, does not unlock recipes.
+The chest recipe is unlocked by summoning a plank. Previously, it was unlocked by having ten slots occupied in the inventory.
+Blocks
+Interactable blocks
+
+Interactable blocks with menus have been modified to prevent access to the internal inventory. However, some of these blocks have replaced their interaction with block behavior such as living blocks.
+Furnaces, blast furnaces, smokers, barrels, chests, trapped chests, copper chests, crafters, and shulker boxes have their interaction completely removed.
+It is still possible, for example, to use honeycomb and axes on copper chests, as this behavior is controlled by the item and not the block.
+Anvils, beacons, brewing stands, cartography tables, dispensers, droppers, enchanting tables, grindstones, hoppers, lecterns, looms, smithing tables, and stonecutters no longer open their menus.
+It's still possible to interact by increasing specific stats, activating the advancement triggers, and moving the hand.
+The crafting table's menu now only shows the recipe book.
+When interacting with ender chests, the game still tries to create a menu based on the player, but it fails to do so, making it seem as if there is no menu​[more information needed].
+It is still possible to access players' ender chest slots by /item.
+Chest
+
+The blast resistance has changed to 6.0, previously it was 2.5.
+The trapped chest's blast resistance has remained at 2.5.
+Items
+Using a boat now won't fail if the hitbox intersects with a block or entity, making it easier to place.
+This is the behavior of using the item as a living block that was maintained for the normal item.
+Bows and fishing rods no longer have durability and can be stacked up to 64.
+World generation
+Stronghold
+
+End portal rooms no longer contain end portal frames.
+Instead, the silverfish spawner is replaced with one that spawns living end portal frames.
+The spawner functions until it contains living 12 end portal frames around it. However, it is possible to move the end portal frames far away or place them in a container, causing the spawner to continue functioning.
+Command format
+/give
+
+Now spawns living blocks instead of putting items in the player's inventory.
+/loot
+
+/loot spawn ... spawns living blocks instead of items.
+/loot give ..., /loot insert ..., and /loot replace ... still add items to the inventory.
+Block containers can still receive items even if they can't be accessed via the menu, with /loot insert ... and /loot replace block .... It's still possible to access them by breaking them, using commands, etc.
+Living container blocks cannot receive items with /loot command, because the container does not belong to the entity itself but its contained item stack.
+General
+Loot tables
+
+Instead of controlling item drops, they now control dropped living blocks.
+If a dropped living block is of the same block type as the broken block, it copies the block state of the broken block.
+Many loot tables have been modified:
+Leaf litter doesn't drop anything.
+All slabs, pink petals, sculk veins, sea pickles, wildflowers, composters, all candles, resin clumps, and glow lichen, which previously could drop multiple items in certain states, now only drop a single living block of themselves. Sculk veins only drop with Silk Touch, glow lichen only drops with shears, all the rest have no additional conditions on the loot table.
+Note that when breaking a block with 4 candles, for example, only one living candle block is dropped. However, this block has the block state of 4 candles. If the old loot table were maintained, 4 living blocks with 4 candles would be dropped.
+Some loot tables now ignore the item count, for example minecraft:carve/pumpkin, which when interacting with shears on a pumpkin only generates one living block of pumpkin seed and not 4.
+If minecraft:carve/pumpkin is modified to produce more than one item entry, carving a pumpkin will result in one item from each entry, regardless of the count of each entry.
+Using the command /loot give @s loot minecraft:carve/pumpkin, for example, still works normally. The items are added to the inventory (and not as living blocks) and with the correct count.
+Added loot tables for iron traps and copper traps, which drop themselves as living blocks, without any additional conditions.
+Removals
+Non-mob entities
+Item
+
+Completely removed and replaced with living blocks.
+General
+Advancements
+
+Removed all vanilla advancements, except recipe unlock advancements.
+Splashes
+
+Removed all regular splashes.
+Issues
+26w14a is not supported due to being an April Fools' joke, and therefore issues affecting it get closed as "Invalid" in the issue tracker.
+
+Loading any saved hotbar in Creative mode will most likely crash the game with the error message java.lang.ArrayIndexOutOfBoundsException: Index 8 out of bounds for length 8 due to the removal of the 9th hotbar slot.
+It occasionally works; restarting Minecraft and reentering the world may show the new hotbar contents.
+Saved hotbars are also shown incorrectly in their tab in the creative inventory — for each row with data, the 9th item is missing, causing all of the rows below to be shifted. Empty rows still correctly take up 9 slots.
+Summoning a living block of air or other block with no model crashes the game when attempting to animate it.
+When holding wool blocks and jumping, then killing the wool blocks (for example being blown up by a creeper), the player retains the slow falling and higher jump effect, but take normal fall damage upon landing.
+Videos
+
+
+
+
+
+Trivia
+This is the first and only version to use the YYwWWn snapshot naming format since 25w46a.
+This is the second April Fools' Day jokes version to regularly use the YYwWWn snapshot naming format (i.e., with n as a single letter). The first was 15w14a.
+Since 2020 (20w14∞), all versions of April Fools' Day jokes version have used this format.
+Since 2019 (3D Shareware v1.34), all April Fools' Day jokes version have either added a new dimension or featured a change to the hotbar. This was the third release to have a change to the hotbar, after 3D Shareware v1.34 and 22w13oneBlockAtATime.
+This version was released on the same day as 26.1.1.
+This version contains the advancement with the longest name: "Do a Barrel Roll! Do It! Do It! Do It In the Nether!". This advancement name is 52 characters long, including spaces and punctuation, and surpasses the block with the longest name, the Quadruple Compressed Poisonous Potato Block, at 43 characters long.
+In the official trailer, the player seems to have nine inventory slots, one empty, but in the final version there are only eight.
+There also seems to be a pre-release texture of the Punch item.
+The ninth inventory slot can still be selected using external editors or using pick block on a mob to get their spawn egg.
+The selected slot border will display off to the right, but the slot itself remains invisible (both the background and the held item).
+In Creative mode, other items can be moved into this slot and will function normally.
+There seems to be unused item textures for signalling_arrow and attack_signalling_arrow.
+The main menu panorama textures are not quite in the usual location: instead of assets\minecraft\textures\gui\title\background, they are one layer deeper in assets\minecraft\textures\gui\title\background\af. af likely stands for "April Fools".
+The random toggling behavior of living levers is called AnnoyingClickClackBehavior in the code.
+The iron and copper traps are a reference to the Cage Trap in the mod SecurityCraft. The developer of the mod, bl4ckscor3, eventually joined Mojang Studios.
+The data version is 5000, considerably higher than that of the chronologically preceding version, Java Edition 26.1.1, which had a version date of 4788.
+Twenty-one versions with lower version dates were released after it (Java Edition 26.1.2 and Java Edition 26.2, including all their development versions, and the first two snapshots of Java Edition 26.3).
+The version Java Edition 26.3 Snapshot 3, released on July 7, 2026, is the first with a higher data version, at 5001
+Gallery
+Mojang images
+
+
+
+			Herdcraft Logo
+
+
+
+
+
+
+Mojang screenshots
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+References
+
+ "THE HERDCRAFT UPDATE"     by Cristina Anderca  – Minecraft.net, April 1, 2026. "Goodbye inventory, hello ingenuity!"
+
+ "Potter Puppet Pals: The Mysterious Ticking Noise"  – Neil Cicirega on YouTube, March 23, 2007
+
+ "Large boulder the size of a small boulder is completely blocking east-bound lane Highway 145 mm78 at Silverpick Rd. Please use caution and watch for emergency vehicles in the area."  – @SheriffAlert  on X (formerly Twitter), January 27, 2020
+
+ MC-199994 – Advancement "Free the End" is granted only to one player
+
+ "Fun fact for those of you who played the April Fools' Day snapshot 26w14a and got imprisoned by an iron or copper trap: Those are a reference to the Cage Trap in the mod SecurityCraft that I've been a part of the dev team of since long before I joined Mojang. Did you notice it?"  – @bl4ckscor3  on X (formerly Twitter), April 3, 2026
+
+Navigation

@@ -1,0 +1,2679 @@
+For the type of update, see Game drop.   For falls, see Damage § Fall damage.  For the entity, see Item (entity).  For other uses, see Drop (disambiguation).
+
+ "Loot" redirects here.  For the command, see Commands/loot.  For the JSON table, see Loot table.  For loot generated naturally in structures, see Generated loot.  For the enchantment, see Looting.
+ "Block drops", "Entity drops" and "Mob drops" redirect here.  For the game rules, see Game rule.
+Drops from a skeleton: an experience orb, arrow, and bone.
+Drops are items that appear when mobs and some other entities die or when most kinds of blocks are broken.
+
+Contents
+
+1 Types of drops
+
+1.1 Common drops
+
+1.1.1 Looting
+
+1.2 Rare drops
+1.3 Equipped items
+1.4 Experience orbs
+
+2 Mob drops
+
+2.1 Animals and miscellaneous
+2.2 Monsters
+2.3 Player kills
+
+3 Entity drops
+
+3.1 Projectiles
+3.2 Stationary
+3.3 Vehicles
+
+4 Block drops
+
+4.1 Materials and building blocks
+4.2 Ores
+4.3 Plants, corals and mushrooms
+4.4 Other
+
+5 Videos
+6 History
+
+6.1 Java Edition
+6.2 Legacy Console Edition
+6.3 New Nintendo 3DS Edition
+
+7 Issues
+8 See also
+9 References
+10 Navigation
+
+Types of drops
+Mobs do not drop any of the following if the game rule mob_drops‌[JE  only] or domobloot‌[BE  only] is set to false.
+
+Common drops
+Common drops may appear at the location of a mob at the moment it receives fatal damage. Most mobs have certain items that they may drop when killed. Some common drops, such as leather, don't always drop, but have a large chance (at least 50%, depending on the drop range) to do so. Some common drops, such as blaze rods, don't drop at all if the mob was not killed by the player.
+Each of these items has a drop range, which is a random uniform distribution of numbers of items that drop. For example, a cow drops 0–2 leather items and 1–3 raw beef items. Because the range for leather includes 0, there is a 1⁄3 chance of no leather being dropped.
+A baby animal does not drop any common drops upon death.
+
+Looting
+Some common and uncommon drops are affected by the Looting enchantment. At most, a number of additional items equal to enchantment level are dropped.
+More specifically, the game generates a fractional number ranging from 0 to the Looting level, which is then rounded to the nearest integer. This causes the numbers in the middle of drop range to occur twice as often. The probabilities are as follows:
+
+Looting extra items
+
+Looting level
+
+No items
+
+1 item
+
+2 items
+
+3 items
+
+Looting I
+
+1⁄2
+
+1⁄2
+
+--
+
+--
+
+Looting II
+
+1⁄4
+
+1⁄2
+
+1⁄4
+
+--
+
+Looting III
+
+1⁄6
+
+1⁄3
+
+1⁄3
+
+1⁄6
+
+A stray's tipped arrow is a special case: while Looting can attempt to increase arrow drop amount, the final number of dropped arrows is capped at 1. So, Looting effectively increases arrow dropping odds, up to 11⁄12 with Looting III.
+
+Rare drops
+Rare drops normally appear if the monster is killed by a player (see § Player kills below), although some rare drops can also be obtained by other means. Rare drops are always a single item, but may appear in conjunction with other common drops. A drop is considered rare if they are accompanied by the random_chance_with_looting condition in the mob's loot table.
+Rare drops typically have a 2.5% chance of dropping, plus 1 percentage point per level of Looting on the weapon used (up to a maximum of 5.5% with Looting III). An exception to this is that a rabbit drops a rabbit's foot with a 10% chance, plus 3 percentage points per level of Looting (to a maximum of 19% with Looting III). In Bedrock Edition, there are other exceptions: a wither skeleton drops a wither skeleton skull with a 2.5% chance plus 2 percentage points per level of Looting (to a maximum of 8.5% with Looting III), and a drowned drops a copper ingot with an 11% chance plus 2 percentage points per level of looting (to a maximum of 17% with Looting III).
+Note that in case of multiple rare drops (guardian and zombie types) the 2.5% chance is split between them, instead of being rolled for each item.
+The shulker shell is technically also a rare drop, only ever dropping in singles from shulkers, although they don't require a player kill, have a 50% base chance, and increase by 6.25% per Looting level.‌[JE  only]
+
+Equipped items
+An enchanted bow received from a skeleton's drops.
+When killed by a player or a tamed wolf, a mob can drop equipment and armor that it spawned with. Each piece of equipment the mob was spawned with is dropped with an 8.5% chance in Java Edition or 25% chance in Bedrock Edition. Potions and milk buckets temporarily held by witches or wandering traders also have a 8.5% chance of dropping if the mob is killed while holding one; a vex's iron sword, and carved pumpkins and jack o'lanterns worn during Halloween in Java Edition have a 0% chance instead. This value is determined by the mob's drop_chances tag.
+The Looting enchantment increases this chance by 1% per level (up to 11.5% in Java Edition or 28% in Bedrock Edition with Looting III). The chance is rolled for each piece of equipment, so it is possible for a mob to drop more than one piece of equipment upon death.
+If the item has durability, its damage is defined by the formula: MaxDamage – randomInt(1+ randomInt(Max(MaxDamage–3,1))) where MaxDamage is the item's maximum damage and randomInt(x) is an random integer between 0 and x–1. Thus the damage varies between 4 and the maximum damage, being more likely to have greater damage (if the maximum damage is less than 4, the damage is always equal to the maximum damage). More specifically, the chance of having durability 0≤d≤M, where M = Max(MaxDamage–3,1), is given by the formula 1⁄M(HM–Hd), where Hn= 1+1/2+1/3+...+1/n, which would be the harmonic number n, with H0=0.
+There are also some equipped items that are guaranteed to drop. In all of these cases, the items are dropped even if the mob is not killed by a player or a tamed wolf.
+
+All items a mob picks up after spawning are always dropped, even when it isn't killed by a player and even if it is a baby zombie.
+This is not the case for villagers.
+The item a fox spawns with is always dropped.
+A drowned spawned with a nautilus shell in the off-hand always drops it.
+An ominous banner is always dropped by illagers wearing it.
+Horses, donkeys, mules, llamas, camels, happy ghasts, pigs, and striders drop any items equipped to them by players, like saddles, carpets or chests.
+Experience orbs
+Main article: Experience
+Experience orbs drop only if a mob dies less than five seconds (100 game ticks) after being attacked (melee, bow, snowballs, eggs, and potions causing instant damage) by a player or by a player's pet wolf, though not by a player-activated dispenser. Their total value is the specific amount of experience granted by killing that mob. They are also dropped from a thrown bottle o' enchanting. Collected experience accumulates into levels which can be used for enchanting or repairing, or is split equally between accumulating levels and repairing the held tool if said tool is enchanted with mending.
+Unlike other drops, such as items, experience orbs appear at the location of the mob's corpse at the moment it disappears in a puff of smoke.‌[BE  only] Experience orbs move toward any nearby players.
+
+Mob drops
+Animals and miscellaneous
+
+Mob
+
+Exp
+
+Common drops
+
+Rare drops
+
+Equipped and worn items
+
+Notes
+
+Affected by the Looting enchantment
+
+Agent‌[BE & edu  only]
+
+0
+
+None
+
+None
+
+None
+
+N/A
+
+Allay
+
+0
+
+None
+
+None
+
+Any item
+
+Drops the items it is holding.
+
+No
+
+Armadillo
+
+1–3
+
+None
+
+None
+
+None
+
+Brushing drops 1 Armadillo Scute. Also drops 1 Armadillo Scute every 5–10 minutes.
+
+No
+
+Axolotl
+
+1–3
+
+None
+
+None
+
+None
+
+N/A
+
+Bat
+
+0
+
+None
+
+None
+
+None
+
+N/A
+
+Bee
+
+1–3
+
+None
+
+None
+
+None
+
+N/A
+
+Camel
+
+1–3
+
+None
+
+None
+
+1 Saddle if saddled
+
+If sheared when it has the saddle, the saddle drops.
+
+No
+
+Cat
+
+1–3
+
+0–2 String
+
+None
+
+None
+
+Tamed cat can also give player gift at morning after player sleeps:
+Feather
+Phantom membrane
+Rabbit's foot
+Rabbit hide
+Rotten flesh
+Raw chicken
+String
+
+No
+
+Chicken
+
+1–3
+
+0–2 Feather1 Raw Chicken or 1 Cooked Chicken
+
+None
+
+None
+
+Meat is cooked if killed while on fire.Feather and meat drops are both affected by Looting.Also lays an Egg every 5–10 minutes.
+
+Yes
+
+Cod
+
+1–3
+
+1 Raw Cod or 1 Cooked Cod
+
+Bone (25%) ‌[BE  only]Bone Meal (5%) ‌[JE  only]
+
+None
+
+Fish is cooked if killed while on fire.
+
+Bone and bone meal drops only
+
+Copper Golem
+
+0
+
+1–3 Copper Ingot
+
+None
+
+None
+
+Drops the item it is holding when turning into a Copper Golem Statue.If it has a Poppy on its head, it drops it if sheared or if it turns into a statue.
+
+No
+
+Cow
+
+1–3
+
+0–2 Leather1–3 Raw Beef or 1–3 Steak
+
+None
+
+None
+
+Meat is cooked if killed while on fire.Gives Milk Bucket when pressing use with an empty bucket on it.
+
+Yes
+
+Dolphin
+
+1-3
+
+0–1 Raw Cod  or 0–1 Cooked Cod
+
+None
+
+None
+
+Fish is cooked if died while on fire.
+
+Yes
+
+DonkeyMule
+
+1–3
+
+0–2 Leather
+
+None
+
+1 Saddle if saddled1 Chest if equipped
+
+Also drops all of the chest's contents, if sheared when it has the saddle, the saddle drops.
+
+Yes
+
+Fox
+
+1–3
+
+None
+
+None
+
+EggEmeraldFeather
+Leather
+Rabbit Hide
+Rabbit's Foot
+Wheat
+
+All naturally spawned items have 8.5%‌[JE  only] or 100%‌[BE  only] to drop, except cooked porkchop, which can be eaten by foxes.
+
+Increases chance of drop‌[JE  only]
+
+Frog
+
+1–3
+
+None
+
+None
+
+None
+
+N/A
+
+Goat
+
+1–3
+
+None
+
+None
+
+1 Goat Horn if they ram into solid blocks
+
+"Ponder", "Sing", "Seek" and "Feel" for normal goat."Admire", "Call", "Yearn" and "Dream" for screaming goat.
+
+N/A
+
+Glow Squid
+
+1–3
+
+1–3 Glow Ink Sac
+
+None
+
+None
+
+Yes
+
+Happy Ghast
+
+1–3
+
+None
+
+None
+
+1 Harness if equipped
+
+If sheared when it has the harness, the harness drops.
+
+No
+
+Horse
+
+1–3
+
+0–2 Leather
+
+None
+
+1 Saddle if saddled1 Horse Armor if equipped
+
+If sheared when it has the saddle, the saddle drops.
+
+Yes
+
+Iron Golem
+
+0
+
+3–5 Iron Ingot0–2 Poppy
+
+None
+
+None
+
+No
+
+LlamaTrader Llama
+
+1–3
+
+0–2 Leather
+
+None
+
+1 Carpet if equipped1 Chest if equipped
+
+Also drops all of the chest's contents, if sheared when it has the carpet and chest. It drops.
+
+Yes
+
+Mooshroom
+
+1–3
+
+0–2 Leather1–3 Raw Beef or 1–3 Steak
+
+None
+
+None
+
+Meat is cooked if killed while on fire.Shearing drops 5 corresponding  Mushroom, converting it to a normal cow, a process that cannot be reverted.Gives Milk Bucket when pressing use with an empty bucket.Gives Mushroom Stew when pressing use with an empty bowl on it. If a brown mooshroom is fed a flower, then it produces suspicious stew if milked with a bowl, but only once.
+
+Yes
+
+Nautilus
+
+1–3
+
+None
+
+0–1 Nautilus Shell
+
+1 Saddle if saddled1 Nautilus Armor if equipped
+
+If sheared when it has the saddle, the saddle drops.
+
+Yes
+
+NPC‌[BE & edu  only]
+
+0
+
+None
+
+None
+
+None
+
+N/A
+
+Ocelot
+
+1–3
+
+None
+
+None
+
+None
+
+N/A
+
+Panda
+
+1–3
+
+0–2 Bamboo‌[BE  only] 1 Bamboo‌[JE  only]
+
+None
+
+None
+
+Weak and baby pandas can sneeze, which drops a slimeball.
+
+No‌[JE  only]Yes‌[BE  only]
+
+Parrot
+
+1–3
+
+1–2 Feather
+
+None
+
+None
+
+Yes
+
+Polar Bear
+
+1–3
+
+0–2 Raw Cod or 0–2 Cooked Cod (3⁄4 chance)0–2 Raw Salmon or 0–2 Cooked Salmon(1⁄4 chance)
+
+None
+
+None
+
+Fish is cooked if died while on fire.
+
+Yes
+
+Pig
+
+1–3
+
+1–3 Raw Porkchop or 1–3 Cooked Porkchop
+
+None
+
+1 Saddle if saddled
+
+Meat is cooked if died while on fire, if sheared when it has the saddle, the saddle drops.
+
+Yes
+
+Pufferfish
+
+1–3
+
+1 Pufferfish
+
+Bone (25%) ‌[BE  only]Bone Meal (5%) ‌[JE  only]
+
+None
+
+Bone and bone meal drops only
+
+Rabbit
+
+1–3
+
+1 Raw Rabbit or 1 Cooked Rabbit0–1 Rabbit Hide
+
+Rabbit's Foot (10%)
+
+None
+
+Meat is cooked if died while on fire.
+
+Yes
+
+Salmon
+
+1–3
+
+1 Raw Salmon or 1 Cooked Salmon
+
+Bone (25%) ‌[BE  only]Bone Meal (5%) ‌[JE  only]
+
+None
+
+Small and normal salmon drop 0–2 bone while large salmon drop 1–2 bones.‌[BE  only] Fish is cooked if died while on fire.
+
+Bone and bone meal drops only
+
+Sheep
+
+1–3
+
+1 Wool if not sheared1–2 Raw Mutton or 1–2 Cooked Mutton
+
+None
+
+None
+
+Shearing drops 1–3 Wool.Wool is colored if the sheep was spawned colored or dyed.Meat is cooked if died while on fire.
+
+Meat drop only
+
+Sniffer
+
+1–3
+
+None
+
+None
+
+None
+
+Digs up torchflower seeds and pitcher pods.
+
+No
+
+Snow Golem
+
+0
+
+0–15 Snowball
+
+None
+
+None
+
+Shearing the snow golem that has carved pumpkin drops 1 carved pumpkin.
+
+No
+
+Squid
+
+1–3
+
+1–3 Ink Sac
+
+None
+
+None
+
+Yes
+
+Strider
+
+1–3
+
+0–5 String
+
+None
+
+1 Saddle if saddled
+
+If sheared when it has the saddle, the saddle drops.
+
+Yes‌[JE  only]No‌[BE  only]
+
+Sulfur Cube
+
+1-2
+
+None
+
+None
+
+The block they absorbed.
+
+No
+
+Tadpole
+
+0
+
+None
+
+None
+
+None
+
+N/A
+
+Tropical Fish
+
+1–3
+
+1 Tropical Fish
+
+Bone (25%) ‌[BE  only]Bone Meal (5%) ‌[JE  only]
+
+None
+
+Bone and bone meal drops only
+
+Turtle
+
+1–3
+
+0–2 Seagrass 1 bowl if killed by lightning.
+
+None
+
+None
+
+Drops a single turtle scute when grows up to an adult.
+
+Seagrass only
+
+Villager
+
+0
+
+None
+
+None
+
+None
+
+A villager can throw food to other villagers when sharing, which can be picked up:
+Bread, Carrot, Potato, Beetroot
+Also in Java Edition, villagers give player gift after completing raids with possible drops depend on profession
+
+View possible drops
+
+ armorer:
+
+Chainmail Helmet
+Chainmail Chestplate
+Chainmail Leggings
+Chainmail Boots
+ butcher:
+
+Cooked Chicken
+Cooked Mutton
+Cooked Porkchop
+Cooked Rabbit
+Steak
+ cartographer:
+
+Paper
+Empty Map
+ cleric:
+
+Lapis Lazuli
+Redstone Dust
+ farmer:
+
+Bread
+Cookie
+Pumpkin Pie
+ fisherman:
+
+Raw Cod
+Raw Salmon
+ fletcher:
+
+Arrow
+Arrow of Fire Resistance
+Arrow of Harming
+Arrow of Healing
+Arrow of Invisibility
+Arrow of Leaping
+Arrow of Night Vision
+Arrow of Poison
+Arrow of Regeneration
+Arrow of Slowness
+Arrow of Strength
+Arrow of Swiftness
+Arrow of Water Breathing
+Arrow of Weakness
+ leatherworker:
+
+Leather
+ librarian:
+
+Book
+ mason:
+
+Clay
+ shepherd:
+
+Wool
+ toolsmith:
+
+Stone Axe
+Stone Hoe
+Stone Pickaxe
+Stone Shovel
+ weaponsmith:
+
+Stone Axe
+Iron Axe
+Golden Axe
+ baby:
+
+Poppy
+ nitwit:
+
+Wheat Seeds
+ unemployed:
+
+Wheat Seeds
+
+No
+
+Wandering Trader
+
+0
+
+None
+
+None
+
+Potion of Invisibility,Milk Bucket, any tradable item‌[BE  only] (8.5% chance of dropping if drinking when killed)
+
+Potion of Invisibility, milk, and tradable items can be obtained only by killing the wandering trader while it is drinking the potion or milk.Also drops 2 lead when killed or if detached from trader llama.
+
+Increases chance of drop
+
+Wolf
+
+1–3
+
+None
+
+None
+
+1 Wolf Armor if equipped
+
+If sheared when it has the wolf armor, its wolf armor drops.
+
+No
+
+Monsters
+Weapons, tools, and armor dropped by mobs have at least 25 durability remaining, which is also the most common. Less-damaged items are increasingly rare.
+Except for gold swords and tools, items always have at least 26 points of damage taken. Gold items can be dropped un-damaged.
+
+Mob
+
+Exp
+
+Common drops
+
+Rare drops
+
+Equipped and worn items
+
+Notes
+
+Affected by the Looting enchantment
+
+Blaze
+
+10
+
+0–1 Blaze Rod if killed by a player or a tamed wolf
+
+None
+
+None
+
+Yes
+
+Breeze
+
+10
+
+1–2 Breeze Rod if killed by a player or a tamed wolf
+
+None
+
+None
+
+Yes
+
+Camel Husk
+
+1–3
+
+2–3 Rotten Flesh
+
+None
+
+1 Saddle if saddled
+
+If sheared when it has the saddle, the saddle drops.
+
+Yes
+
+Cave SpiderSpider
+
+5
+
+0–2 String0–1 Spider Eye if killed by a player
+
+None
+
+None
+
+Yes
+
+Creaking
+
+0
+
+None
+
+None
+
+None
+
+N/A
+
+Creeper
+
+5
+
+0–2 Gunpowder1 Music Disc if killed by any skeleton-type mob1 Creeper Head if killed by a charged creeper's explosion
+
+None
+
+None
+
+Creepers never drop Music Disc Pigstep, Music Disc Otherside, Music Disc 5, Music Disc Relic, Music Disc Creator, Music Disc Creator (Music Box), Music Disc Precipice, Music Disc Tears, Music Disc Lava Chicken, or Music Disc Bounce
+
+Gunpowder only
+
+Drowned
+
+5+ 1–3 if has equipment+ 7 if is a baby
+
+0–2 Rotten Flesh
+
+11% chance to drop:Copper Ingot
+
+Trident if equipped and killed by a playerFishing RodNautilus Shell (offhand only)Random ArmorDiamond Sword if a zombie spawns from a trial spawner and it drowns.
+
+Random armor dropped only if converted from zombies.Always drop nautilus shell in offhand.
+
+Yes
+
+Elder Guardian
+
+10
+
+0–2 Prismarine Shard0–1 Prismarine Crystals(1⁄3 chance)0–1 Raw Cod (1⁄2 chance) or0–1 Cooked Cod (1⁄2 chance) if killed by fire‌[JE  only]1 Wet Sponge if killed by the player0–1 Tide Armor Trim
+
+Raw Cod (1.5%) or
+Cooked Cod (1.5%) if killed by fire‌[JE  only]Raw Salmon(0.625%) or
+Cooked Salmon(0.625%) if kill by fire‌[JE  only]Pufferfish (0.325%)Tropical fish (0.05%) if killed by the player
+
+None
+
+Prismarine crystals drop only if raw cod fails.Raw cod is both a common drop and a rare drop.Raw cod common drop is cooked if died while on fire.‌[JE  only]
+
+All except the sponge and armor trim
+
+Elder Guardian Ghost‌[BE  only]
+
+0
+
+None
+
+None
+
+None
+
+N/A
+
+Ender Dragon
+
+12,000 or 500
+
+None
+
+None
+
+None
+
+12000 experience is dropped if it's the first ender dragon.Only 500 experience drops for subsequent ender dragons.Activates portal in exit portal:Generates 4 torch, 16 end stone at exit portal and 1 Dragon Egg if it's the first (or second‌[BE  only]) ender dragon. Generates an end gateway if it's one of the first 20 ender dragons.
+
+N/A
+
+Enderman
+
+5
+
+0–1 Ender Pearl
+
+None
+
+None
+
+Also drops the block it is holding.
+
+Yes
+
+Endermite
+
+3
+
+None
+
+None
+
+None
+
+N/A
+
+Evoker
+
+10
+
+Totem of Undying 0–1 Emerald if killed by the player
+
+None
+
+1  Ominous Banner if a raid captain‌[JE  only]
+
+A totem of undying is always dropped by evokers when killed.An ominous banner is always dropped by the evoker when killed, but only if a raid captain.
+
+Emeralds only
+
+Ghast
+
+5
+
+0–1 Ghast Tear0–2 Gunpowder1 Music Disc Tears if killed by a deflected fireball
+
+None
+
+None
+
+All except music disc
+
+Giant‌[JE  only]
+
+5
+
+None
+
+None
+
+None
+
+N/A
+
+Guardian
+
+10
+
+0–2 Prismarine Shard0–1 Prismarine Crystals(2⁄5 chance)0–1 Raw Cod (2⁄5 chance) or0–1 Cooked Cod (2⁄5 chance) if killed by fire‌[JE  only] or if killed by the player
+
+Raw Cod (1.5%) or
+Cooked Cod (1.5%) if killed by fire‌[JE  only]Raw Salmon(0.625%) or
+Cooked Salmon(0.625%) if kill by fire‌[JE  only]Pufferfish (0.325%)Tropical fish (0.05%) if killed by the player
+
+None
+
+Prismarine crystals drop only if raw fish fails.Raw cod is both a common drop and a rare drop.Raw cod common drop is cooked if died while on fire.‌[JE  only]
+
+Yes
+
+Hoglin
+
+5
+
+2–4 Raw Porkchop or Cooked Porkchop0–1 Leather
+
+None
+
+None
+
+Meat is cooked if died while on fire.
+
+Yes
+
+Illusioner‌[JE  only]
+
+5
+
+None
+
+None
+
+BowOminous Bannerif a raid captain
+
+An ominous banner is always dropped by the illusioner when killed, but only if a raid captain.
+
+Increases chance for dropping bow only
+
+Magma Cube
+
+1, 2, or 4
+
+0–1 Magma Cream if size > 1 1 Froglight if killed by a frog
+
+None
+
+None
+
+Magma cream only
+
+Phantom
+
+5
+
+0–1 Phantom Membrane if killed by a player
+
+None
+
+None
+
+Yes
+
+Piglin
+
+5
+
+1 Piglin Head if killed by a charged creeper's explosion
+
+None
+
+Golden SwordCrossbowGolden SpearGolden Armor
+
+Piglins always drop picked-up equipment and golden items (except gold ingots) upon death.
+
+All except piglin head
+
+Piglin Brute
+
+20
+
+None
+
+None
+
+Golden Axe
+
+Axe may be enchanted.‌[JE  only].
+
+Yes
+
+Pillager
+
+5+ 1–3 if has equipment
+
+0–2 Arrow‌[BE  only]1 Ominous Bottle if a raid captain
+
+None
+
+Crossbow1  Ominous Banner if a raid captain
+
+Crossbow may be enchanted.An ominous banner is always dropped by the pillager when killed, but only if a raid captain.Looting enchantment increase chance of dropping crossbow by 12% per level. In Bedrock Edition pillager spawn from raids can drop:
+
+0–1 Emerald
+And an additional drop depends on difficulty, 65% chance of dropping on Easy and Normal, while 80% chance of dropping on Hard:
+
+0–1 Emerald (10⁄39 chance)
+2–3 Emerald (5⁄39 chance)
+4–5 Emerald (2⁄39 chance)
+1 Enchanted Book (2⁄39 chance)
+1 Iron Axe (5⁄78 chance)
+1 Iron Shovel (5⁄78 chance)
+1 Iron Sword (5⁄78 chance)
+1 Iron Helmet (5⁄78 chance)
+1 Iron Chestplate (5⁄78 chance)
+1 Iron Leggings (5⁄78 chance)
+1 Iron Boots (5⁄78 chance)
+Iron equipment from raider drops has 50% chance of being enchanted with random enchantment, and are always badly damaged. An emerald is both a regular raider drop and an additional raider drop. Looting increases the amount of emerald or chance for drop equipment. An additional emerald drops only if the drop of an enchanted book or iron equipment fails.
+
+
+
+All including raider drops‌[BE  only], but not for ominous banner and ominous bottle
+
+Ravager
+
+20
+
+1 Saddle if killed by a player
+
+None
+
+None
+
+No
+
+Shulker
+
+5
+
+0–1 Shulker Shell‌[Bedrock Edition  only]
+
+Shulker Shell (50%)‌[Java Edition  only]
+
+None
+
+On Java edition the shulker shell drop is rare, with looting increasing the chance of a drop.
+On Bedrock edition 0–1 shells are dropped, with looting increasing the number of shells dropped.
+
+Increases chance of dropping‌[JE  only]Increases quantity of shells dropped‌[BE  only]
+
+Silverfish
+
+5
+
+None
+
+None
+
+None
+
+N/A
+
+SkeletonStrayBoggedParched
+
+5+ 1–3 if has equipment
+
+0–2 Arrow0–2 Bone1 Skeleton Skull if killed by a charged creeper's explosion (normal skeleton only)0–1 Arrow of Slowness if a Stray0–1 Arrow of Poison if a Bogged0–1 Arrow of Weakness if a Parched
+
+None
+
+BowRandom Armor
+
+Gear may be enchanted.A bogged drops 2 Mushroom (either both red/brown or one of each) when sheared.
+
+Bone and arrow drops only
+
+Skeleton Horse
+
+1–3
+
+0–2 Bone
+
+None
+
+1 Saddle if saddled ‌[JE  only]
+
+If sheared when it has the saddle, the saddle drops.
+
+Yes
+
+Slime
+
+1, 2, or 4
+
+0–2 Slimeball if size = 11 Slimeball if killed by a frog
+
+None
+
+None
+
+Yes
+
+Vex
+
+5+ 1–3 if has equipment
+
+None
+
+None
+
+None
+
+Iron sword never drops, even with Looting.
+
+N/A
+
+Vindicator
+
+5+ 1–3 if has equipment
+
+0–1 Emerald
+
+None
+
+Iron Axe Ominous Banner if a raid captain
+
+Drops loot only if killed by the player.Iron axe may be enchanted.An ominous banner is always dropped by the vindicator when killed, but only if a raid captain.In Bedrock Edition, vindicators spawn from raids can drop:
+
+0–1 Emerald
+And an additional drop depends on difficulty, 65% chance of dropping on Easy and Normal, while 80% chance of dropping on Hard:
+
+0–1 Emerald (10⁄39 chance)
+2–3 Emerald (5⁄39 chance)
+4–5 Emerald (2⁄39 chance)
+1 Enchanted Book (2⁄39 chance)
+1 Iron Axe (5⁄78 chance)
+1 Iron Shovel (5⁄78 chance)
+1 Iron Sword (5⁄78 chance)
+1 Iron Helmet (5⁄78 chance)
+1 Iron Chestplate (5⁄78 chance)
+1 Iron Leggings (5⁄78 chance)
+1 Iron Boots (5⁄78 chance)
+Iron equipment from raider drops has 50% chance of being enchanted with random enchantment, and are always badly damaged. An emerald is both a regular raider drop and an additional raider drop. Looting increases the amount of emerald or chance for drop equipment. An additional emerald drops only if the drop of an enchanted book or iron equipment fails.
+
+All including from raider drops‌[BE  only], but not for ominous banner
+
+Warden
+
+5
+
+1 Sculk Catalyst
+
+None
+
+None
+
+No
+
+Witch
+
+5+ 1–3 if has equipment
+
+0–6 Glass Bottle0–6 Glowstone Dust0–6 Gunpowder
+4–8 Redstone Dust
+0–6 Spider Eye0–6 Stick0–6 Sugar
+
+None
+
+Potion of HealingPotion of Fire ResistancePotion of SwiftnessPotion of Water Breathing (Have a 8.5% chance of dropping if drinking when killed)
+
+On death, witches drop redstone and 1–3 other item types, each 0–2 times. The same type can be chosen multiple times, therefore it is possible to get 6 of one item. Sticks are twice as likely to be dropped as the other common drops. Potions can be obtained only by killing the witch while it is drinking the potion.
+
+Yes
+
+Wither
+
+50
+
+1 Nether Star
+
+None
+
+None
+
+The Nether Star takes 10 minutes (as opposed to 5 minutes normally) to despawn‌[JE  only]  The Nether Star never despawns‌[BE  only]
+
+No
+
+Wither Skeleton
+
+5+ 1–3 if has equipment
+
+0–1 Coal0–2 Bone Wither Skeleton Skull if killed by a charged creeper's explosion
+
+Wither Skeleton Skull (2.5%) if killed by player
+
+Stone Sword
+
+Yes
+
+Zoglin
+
+5
+
+1–3 Rotten Flesh
+
+None
+
+Yes
+
+ZombieZombie VillagerHusk
+
+5+ 1–3 if has equipment+ 7 if is a baby
+
+0–2 Rotten Flesh1 Zombie Head if killed by a charged creeper's explosion (normal zombie only)1 Music Disc Lava Chicken if killed by a player, the zombie is a baby, and it is riding a chicken (normal zombie only)0–1 Red Mushroom Only if riding a zombie horse (normal zombie only)0–1 Rabbit's Foot Only if riding a camel husk (husk only)
+
+2.5% chance to drop;Iron Ingot orCarrot orPotato (Baked Potato if killed by fire) ‌[JE  only]
+
+Iron ShovelIron SwordIron Spear (occasionally or always being part of zombie horsemen, and camel husk jockey)Random ArmorDiamond Sword if spawned from a trial spawner.
+
+Gear may be enchanted. Zombie villagers do not spawn with equipment in Bedrock Edition.
+
+All except music disc and zombie head
+
+Zombie Horse
+
+1–3
+
+2–3 Rotten Flesh
+
+None
+
+1 Saddle if saddled1 Horse Armor if equipped
+
+If sheared when it has the saddle, the saddle drops.
+
+Yes
+
+Zombie Nautilus
+
+1–3
+
+0–3 Rotten Flesh
+
+None
+
+1 Saddle if saddled1 Nautilus Armor if equipped
+
+If sheared when it has the saddle, the saddle drops.
+
+Yes
+
+Zombified Piglin
+
+5+ 1–3 if has equipment + 7 if is a baby
+
+0–1 Rotten Flesh0–1 Gold Nugget
+
+Gold Ingot (2.5%) if killed by player
+
+Golden SwordGolden SpearCrossbow if zombified from a piglin with crossbowGolden Axe if zombified from a piglin bruteWarped Fungus on a Stick if a strider jockeyGolden Armor if zombified from a piglin with armor.
+
+Golden sword may be enchanted.
+
+Yes
+
+Player kills
+For most mobs, only one of the items below can drop in a single death. With the exception of items that have a 100% drop chance, the sponge of an elder guardian and the music disc lava chicken of a baby zombie rinding a chicken, in these cases there the item drops always and has a chance of at least one additional different item dropping. Another exception is the poisonous potato zombie, which has a chance of dropping simultaneously the poision potato plant and the poisonous potato headpiece.
+
+Java Edition:
+
+				MobItemQuantity / Chance / AverageDefaultLooting ILooting IILooting IIIZombieIron Ingot0–10.83%0.010–11.17%0.010–11.50%0.010–11.83%0.02ZombieCarrot0–10.83%0.010–11.17%0.010–11.50%0.010–11.83%0.02ZombiePotato0–10.83%0.010–11.17%0.010–11.50%0.010–11.83%0.02ZombieBaked Potato0–10.83%0.010–11.17%0.010–11.50%0.010–11.83%0.02ZombieMusic Disc Lava Chicken1100.00%1.001100.00%1.001100.00%1.001100.00%1.00SpiderSpider Eye0–133.33%0.330–266.67%0.830–383.33%1.330–488.89%1.83Zombified PiglinGold Ingot0–12.50%0.030–13.50%0.040–14.50%0.040–15.50%0.06Cave SpiderSpider Eye0–133.33%0.330–266.67%0.830–383.33%1.330–488.89%1.83BlazeBlaze Rod0–150.00%0.500–275.00%1.000–387.50%1.500–491.67%2.00Zombie VillagerIron Ingot0–10.83%0.010–11.17%0.010–11.50%0.010–11.83%0.02Zombie VillagerCarrot0–10.83%0.010–11.17%0.010–11.50%0.010–11.83%0.02Zombie VillagerPotato0–10.83%0.010–11.17%0.010–11.50%0.010–11.83%0.02Zombie VillagerBaked Potato0–10.83%0.010–11.17%0.010–11.50%0.010–11.83%0.02Wither SkeletonWither Skeleton Skull0–12.50%0.030–13.50%0.040–14.50%0.040–15.50%0.06RabbitRabbit's Foot0–110.00%0.100–113.00%0.130–116.00%0.160–119.00%0.19GuardianRaw Cod0–240.90%0.410–341.26%0.620–441.62%0.830–541.98%1.03GuardianCooked Cod0–240.90%0.410–341.26%0.620–441.62%0.830–541.98%1.03GuardianRaw Salmon0–10.62%0.010–10.88%0.010–11.12%0.010–11.38%0.01GuardianCooked Salmon0–10.62%0.010–10.88%0.010–11.12%0.010–11.38%0.01GuardianPufferfish0–10.33%0.000–10.46%0.000–10.58%0.010–10.71%0.01GuardianTropical Fish0–10.05%0.000–10.07%0.000–10.09%0.000–10.11%0.00Elder GuardianWet Sponge1100.00%1.001100.00%1.001100.00%1.001100.00%1.00Elder GuardianRaw Cod0–250.75%0.520–351.05%0.770–451.35%1.030–551.65%1.28Elder GuardianCooked Cod0–250.75%0.520–351.05%0.770–451.35%1.030–551.65%1.28Elder GuardianRaw Salmon0–10.62%0.010–10.88%0.010–11.12%0.010–11.38%0.01Elder GuardianCooked Salmon0–10.62%0.010–10.88%0.010–11.12%0.010–11.38%0.01Elder GuardianPufferfish0–10.33%0.000–10.46%0.000–10.58%0.010–10.71%0.01Elder GuardianTropical Fish0–10.05%0.000–10.07%0.000–10.09%0.000–10.11%0.00HuskIron Ingot0–10.83%0.010–11.17%0.010–11.50%0.010–11.83%0.02HuskCarrot0–10.83%0.010–11.17%0.010–11.50%0.010–11.83%0.02HuskPotato0–10.83%0.010–11.17%0.010–11.50%0.010–11.83%0.02HuskBaked Potato0–10.83%0.010–11.17%0.010–11.50%0.010–11.83%0.02StrayArrow of Slowness0–150.00%0.500–175.00%0.750–187.50%0.880–191.67%0.92EvokerEmerald0–150.00%0.500–275.00%1.000–387.50%1.500–491.67%2.00VindicatorEmerald0–150.00%0.500–275.00%1.000–387.50%1.500–491.67%2.00PhantomPhantom Membrane0–150.00%0.500–275.00%1.000–387.50%1.500–491.67%2.00DrownedCopper Ingot0–111.00%0.110–113.00%0.130–115.00%0.150–117.00%0.17NautilusNautilus Shell0–15.00%0.050–16.00%0.060–17.00%0.070–18.00%0.08BreezeBreeze Rod1–2100.00%1.502–4100.00%3.003–6100.00%4.504–8100.00%6.00BoggedArrow of Poison0–150.00%0.500–175.00%0.750–187.50%0.880–191.67%0.92Toxifin SlabToxic Beam0–11000.00%10.000–11500.00%15.000–12000.00%20.000–12500.00%25.00Poisonous Potato ZombiePoisonous Potato Plant0–133.33%0.330–133.33%0.330–133.33%0.330–133.33%0.33Poisonous Potato ZombiePoisonous Potato Headpiece0–10.83%0.010–11.16%0.010–11.49%0.010–11.82%0.02Zombie NautilusRotten Flesh0–375.00%1.500–487.50%2.000–593.75%2.500–695.83%3.00ParchedArrow of Weakness0–150.00%0.500–175.00%0.750–187.50%0.880–191.67%0.92
+
+
+				MobItemQuantity / Chance / AverageDefaultLooting ILooting IILooting IIIZombieIron Ingot0–11⁄1201⁄1200–17⁄6007⁄6000–13⁄2003⁄2000–111⁄60011⁄600ZombieCarrot0–11⁄1201⁄1200–17⁄6007⁄6000–13⁄2003⁄2000–111⁄60011⁄600ZombiePotato0–11⁄1201⁄1200–17⁄6007⁄6000–13⁄2003⁄2000–111⁄60011⁄600ZombieBaked Potato0–11⁄1201⁄1200–17⁄6007⁄6000–13⁄2003⁄2000–111⁄60011⁄600ZombieMusic Disc Lava Chicken111111111111SpiderSpider Eye0–11⁄31⁄30–22⁄35⁄60–35⁄64⁄30–48⁄911⁄6Zombified PiglinGold Ingot0–11⁄401⁄400–17⁄2007⁄2000–19⁄2009⁄2000–111⁄20011⁄200Cave SpiderSpider Eye0–11⁄31⁄30–22⁄35⁄60–35⁄64⁄30–48⁄911⁄6BlazeBlaze Rod0–11⁄21⁄20–23⁄410–37⁄83⁄20–411⁄122Zombie VillagerIron Ingot0–11⁄1201⁄1200–17⁄6007⁄6000–13⁄2003⁄2000–111⁄60011⁄600Zombie VillagerCarrot0–11⁄1201⁄1200–17⁄6007⁄6000–13⁄2003⁄2000–111⁄60011⁄600Zombie VillagerPotato0–11⁄1201⁄1200–17⁄6007⁄6000–13⁄2003⁄2000–111⁄60011⁄600Zombie VillagerBaked Potato0–11⁄1201⁄1200–17⁄6007⁄6000–13⁄2003⁄2000–111⁄60011⁄600Wither SkeletonWither Skeleton Skull0–11⁄401⁄400–17⁄2007⁄2000–19⁄2009⁄2000–111⁄20011⁄200RabbitRabbit's Foot0–11⁄101⁄100–113⁄10013⁄1000–14⁄254⁄250–119⁄10019⁄100GuardianRaw Cod0–2409⁄100083⁄2000–32063⁄5000621⁄10000–42081⁄5000827⁄10000–52099⁄50001033⁄1000GuardianCooked Cod0–2409⁄100083⁄2000–32063⁄5000621⁄10000–42081⁄5000827⁄10000–52099⁄50001033⁄1000GuardianRaw Salmon0–11⁄1601⁄1600–17⁄8007⁄8000–19⁄8009⁄8000–111⁄80011⁄800GuardianCooked Salmon0–11⁄1601⁄1600–17⁄8007⁄8000–19⁄8009⁄8000–111⁄80011⁄800GuardianPufferfish0–113⁄400013⁄40000–191⁄2000091⁄200000–1117⁄20000117⁄200000–1143⁄20000143⁄20000GuardianTropical Fish0–11⁄20001⁄20000–17⁄100007⁄100000–19⁄100009⁄100000–111⁄1000011⁄10000Elder GuardianWet Sponge111111111111Elder GuardianRaw Cod0–2203⁄400103⁄2000–31021⁄2000771⁄10000–41027⁄20001027⁄10000–51033⁄20001283⁄1000Elder GuardianCooked Cod0–2203⁄400103⁄2000–31021⁄2000771⁄10000–41027⁄20001027⁄10000–51033⁄20001283⁄1000Elder GuardianRaw Salmon0–11⁄1601⁄1600–17⁄8007⁄8000–19⁄8009⁄8000–111⁄80011⁄800Elder GuardianCooked Salmon0–11⁄1601⁄1600–17⁄8007⁄8000–19⁄8009⁄8000–111⁄80011⁄800Elder GuardianPufferfish0–113⁄400013⁄40000–191⁄2000091⁄200000–1117⁄20000117⁄200000–1143⁄20000143⁄20000Elder GuardianTropical Fish0–11⁄20001⁄20000–17⁄100007⁄100000–19⁄100009⁄100000–111⁄1000011⁄10000HuskIron Ingot0–11⁄1201⁄1200–17⁄6007⁄6000–13⁄2003⁄2000–111⁄60011⁄600HuskCarrot0–11⁄1201⁄1200–17⁄6007⁄6000–13⁄2003⁄2000–111⁄60011⁄600HuskPotato0–11⁄1201⁄1200–17⁄6007⁄6000–13⁄2003⁄2000–111⁄60011⁄600HuskBaked Potato0–11⁄1201⁄1200–17⁄6007⁄6000–13⁄2003⁄2000–111⁄60011⁄600StrayArrow of Slowness0–11⁄21⁄20–13⁄43⁄40–17⁄87⁄80–111⁄1211⁄12EvokerEmerald0–11⁄21⁄20–23⁄410–37⁄83⁄20–411⁄122VindicatorEmerald0–11⁄21⁄20–23⁄410–37⁄83⁄20–411⁄122PhantomPhantom Membrane0–11⁄21⁄20–23⁄410–37⁄83⁄20–411⁄122DrownedCopper Ingot0–111⁄10011⁄1000–113⁄10013⁄1000–13⁄203⁄200–117⁄10017⁄100NautilusNautilus Shell0–11⁄201⁄200–13⁄503⁄500–17⁄1007⁄1000–12⁄252⁄25BreezeBreeze Rod1–213⁄22–4133–619⁄24–816BoggedArrow of Poison0–11⁄21⁄20–13⁄43⁄40–17⁄87⁄80–111⁄1211⁄12Toxifin SlabToxic Beam0–110100–115150–120200–12525Poisonous Potato ZombiePoisonous Potato Plant0–11⁄31⁄30–11⁄31⁄30–11⁄31⁄30–11⁄31⁄3Poisonous Potato ZombiePoisonous Potato Headpiece0–183⁄1000083⁄100000–129⁄250029⁄25000–1149⁄10000149⁄100000–191⁄500091⁄5000Zombie NautilusRotten Flesh0–33⁄43⁄20–47⁄820–515⁄165⁄20–623⁄243ParchedArrow of Weakness0–11⁄21⁄20–13⁄43⁄40–17⁄87⁄80–111⁄1211⁄12
+
+
+				MobItemAmountProbabilityDefaultLooting ILooting IILooting IIIZombieIron Ingot0119⁄120 (99.17%)593⁄600 (98.83%)197⁄200 (98.50%)589⁄600 (98.17%)11⁄120 (0.83%)7⁄600 (1.17%)3⁄200 (1.50%)11⁄600 (1.83%)Average1⁄120 (0.01)7⁄600 (0.01)3⁄200 (0.01)11⁄600 (0.02)ZombieCarrot0119⁄120 (99.17%)593⁄600 (98.83%)197⁄200 (98.50%)589⁄600 (98.17%)11⁄120 (0.83%)7⁄600 (1.17%)3⁄200 (1.50%)11⁄600 (1.83%)Average1⁄120 (0.01)7⁄600 (0.01)3⁄200 (0.01)11⁄600 (0.02)ZombiePotato0119⁄120 (99.17%)593⁄600 (98.83%)197⁄200 (98.50%)589⁄600 (98.17%)11⁄120 (0.83%)7⁄600 (1.17%)3⁄200 (1.50%)11⁄600 (1.83%)Average1⁄120 (0.01)7⁄600 (0.01)3⁄200 (0.01)11⁄600 (0.02)ZombieBaked Potato0119⁄120 (99.17%)593⁄600 (98.83%)197⁄200 (98.50%)589⁄600 (98.17%)11⁄120 (0.83%)7⁄600 (1.17%)3⁄200 (1.50%)11⁄600 (1.83%)Average1⁄120 (0.01)7⁄600 (0.01)3⁄200 (0.01)11⁄600 (0.02)ZombieMusic Disc Lava Chicken11 (100.00%)1 (100.00%)1 (100.00%)1 (100.00%)Average1 (1.00)1 (1.00)1 (1.00)1 (1.00)SpiderSpider Eye02⁄3 (66.67%)1⁄3 (33.33%)1⁄6 (16.67%)1⁄9 (11.11%)11⁄3 (33.33%)1⁄2 (50.00%)5⁄12 (41.67%)5⁄18 (27.78%)201⁄6 (16.67%)1⁄3 (33.33%)1⁄3 (33.33%)3001⁄12 (8.33%)2⁄9 (22.22%)40001⁄18 (5.56%)Average1⁄3 (0.33)5⁄6 (0.83)4⁄3 (1.33)11⁄6 (1.83)Zombified PiglinGold Ingot039⁄40 (97.50%)193⁄200 (96.50%)191⁄200 (95.50%)189⁄200 (94.50%)11⁄40 (2.50%)7⁄200 (3.50%)9⁄200 (4.50%)11⁄200 (5.50%)Average1⁄40 (0.03)7⁄200 (0.04)9⁄200 (0.04)11⁄200 (0.06)Cave SpiderSpider Eye02⁄3 (66.67%)1⁄3 (33.33%)1⁄6 (16.67%)1⁄9 (11.11%)11⁄3 (33.33%)1⁄2 (50.00%)5⁄12 (41.67%)5⁄18 (27.78%)201⁄6 (16.67%)1⁄3 (33.33%)1⁄3 (33.33%)3001⁄12 (8.33%)2⁄9 (22.22%)40001⁄18 (5.56%)Average1⁄3 (0.33)5⁄6 (0.83)4⁄3 (1.33)11⁄6 (1.83)BlazeBlaze Rod01⁄2 (50.00%)1⁄4 (25.00%)1⁄8 (12.50%)1⁄12 (8.33%)11⁄2 (50.00%)1⁄2 (50.00%)3⁄8 (37.50%)1⁄4 (25.00%)201⁄4 (25.00%)3⁄8 (37.50%)1⁄3 (33.33%)3001⁄8 (12.50%)1⁄4 (25.00%)40001⁄12 (8.33%)Average1⁄2 (0.50)1 (1.00)3⁄2 (1.50)2 (2.00)Zombie VillagerIron Ingot0119⁄120 (99.17%)593⁄600 (98.83%)197⁄200 (98.50%)589⁄600 (98.17%)11⁄120 (0.83%)7⁄600 (1.17%)3⁄200 (1.50%)11⁄600 (1.83%)Average1⁄120 (0.01)7⁄600 (0.01)3⁄200 (0.01)11⁄600 (0.02)Zombie VillagerCarrot0119⁄120 (99.17%)593⁄600 (98.83%)197⁄200 (98.50%)589⁄600 (98.17%)11⁄120 (0.83%)7⁄600 (1.17%)3⁄200 (1.50%)11⁄600 (1.83%)Average1⁄120 (0.01)7⁄600 (0.01)3⁄200 (0.01)11⁄600 (0.02)Zombie VillagerPotato0119⁄120 (99.17%)593⁄600 (98.83%)197⁄200 (98.50%)589⁄600 (98.17%)11⁄120 (0.83%)7⁄600 (1.17%)3⁄200 (1.50%)11⁄600 (1.83%)Average1⁄120 (0.01)7⁄600 (0.01)3⁄200 (0.01)11⁄600 (0.02)Zombie VillagerBaked Potato0119⁄120 (99.17%)593⁄600 (98.83%)197⁄200 (98.50%)589⁄600 (98.17%)11⁄120 (0.83%)7⁄600 (1.17%)3⁄200 (1.50%)11⁄600 (1.83%)Average1⁄120 (0.01)7⁄600 (0.01)3⁄200 (0.01)11⁄600 (0.02)Wither SkeletonWither Skeleton Skull039⁄40 (97.50%)193⁄200 (96.50%)191⁄200 (95.50%)189⁄200 (94.50%)11⁄40 (2.50%)7⁄200 (3.50%)9⁄200 (4.50%)11⁄200 (5.50%)Average1⁄40 (0.03)7⁄200 (0.04)9⁄200 (0.04)11⁄200 (0.06)RabbitRabbit's Foot09⁄10 (90.00%)87⁄100 (87.00%)21⁄25 (84.00%)81⁄100 (81.00%)11⁄10 (10.00%)13⁄100 (13.00%)4⁄25 (16.00%)19⁄100 (19.00%)Average1⁄10 (0.10)13⁄100 (0.13)4⁄25 (0.16)19⁄100 (0.19)GuardianRaw Cod0591⁄1000 (59.10%)2937⁄5000 (58.74%)2919⁄5000 (58.38%)2901⁄5000 (58.02%)1403⁄1000 (40.30%)521⁄2500 (20.84%)227⁄2000 (11.35%)158⁄1875 (8.43%)23⁄500 (0.60%)1⁄5 (20.00%)1973⁄10000 (19.73%)1967⁄15000 (13.11%)3021⁄5000 (0.42%)1027⁄10000 (10.27%)2⁄15 (13.33%)40027⁄10000 (0.27%)1033⁄15000 (6.89%)500011⁄5000 (0.22%)Average83⁄200 (0.41)621⁄1000 (0.62)827⁄1000 (0.83)1033⁄1000 (1.03)GuardianCooked Cod0591⁄1000 (59.10%)2937⁄5000 (58.74%)2919⁄5000 (58.38%)2901⁄5000 (58.02%)1403⁄1000 (40.30%)521⁄2500 (20.84%)227⁄2000 (11.35%)158⁄1875 (8.43%)23⁄500 (0.60%)1⁄5 (20.00%)1973⁄10000 (19.73%)1967⁄15000 (13.11%)3021⁄5000 (0.42%)1027⁄10000 (10.27%)2⁄15 (13.33%)40027⁄10000 (0.27%)1033⁄15000 (6.89%)500011⁄5000 (0.22%)Average83⁄200 (0.41)621⁄1000 (0.62)827⁄1000 (0.83)1033⁄1000 (1.03)GuardianRaw Salmon0159⁄160 (99.38%)793⁄800 (99.12%)791⁄800 (98.88%)789⁄800 (98.62%)11⁄160 (0.62%)7⁄800 (0.88%)9⁄800 (1.12%)11⁄800 (1.38%)Average1⁄160 (0.01)7⁄800 (0.01)9⁄800 (0.01)11⁄800 (0.01)GuardianCooked Salmon0159⁄160 (99.38%)793⁄800 (99.12%)791⁄800 (98.88%)789⁄800 (98.62%)11⁄160 (0.62%)7⁄800 (0.88%)9⁄800 (1.12%)11⁄800 (1.38%)Average1⁄160 (0.01)7⁄800 (0.01)9⁄800 (0.01)11⁄800 (0.01)GuardianPufferfish03987⁄4000 (99.67%)19909⁄20000 (99.54%)19883⁄20000 (99.41%)19857⁄20000 (99.28%)113⁄4000 (0.33%)91⁄20000 (0.46%)117⁄20000 (0.58%)143⁄20000 (0.71%)Average13⁄4000 (0.00)91⁄20000 (0.00)117⁄20000 (0.01)143⁄20000 (0.01)GuardianTropical Fish01999⁄2000 (99.95%)9993⁄10000 (99.93%)9991⁄10000 (99.91%)9989⁄10000 (99.89%)11⁄2000 (0.05%)7⁄10000 (0.07%)9⁄10000 (0.09%)11⁄10000 (0.11%)Average1⁄2000 (0.00)7⁄10000 (0.00)9⁄10000 (0.00)11⁄10000 (0.00)Elder GuardianWet Sponge11 (100.00%)1 (100.00%)1 (100.00%)1 (100.00%)Average1 (1.00)1 (1.00)1 (1.00)1 (1.00)Elder GuardianRaw Cod0197⁄400 (49.25%)979⁄2000 (48.95%)973⁄2000 (48.65%)967⁄2000 (48.35%)11⁄2 (50.00%)1021⁄4000 (25.52%)1081⁄8000 (13.51%)233⁄2400 (9.71%)23⁄400 (0.75%)1⁄4 (25.00%)1973⁄8000 (24.66%)1967⁄12000 (16.39%)3021⁄4000 (0.53%)1027⁄8000 (12.84%)1⁄6 (16.67%)40027⁄8000 (0.34%)1033⁄12000 (8.61%)500011⁄4000 (0.27%)Average103⁄200 (0.52)771⁄1000 (0.77)1027⁄1000 (1.03)1283⁄1000 (1.28)Elder GuardianCooked Cod0197⁄400 (49.25%)979⁄2000 (48.95%)973⁄2000 (48.65%)967⁄2000 (48.35%)11⁄2 (50.00%)1021⁄4000 (25.52%)1081⁄8000 (13.51%)233⁄2400 (9.71%)23⁄400 (0.75%)1⁄4 (25.00%)1973⁄8000 (24.66%)1967⁄12000 (16.39%)3021⁄4000 (0.53%)1027⁄8000 (12.84%)1⁄6 (16.67%)40027⁄8000 (0.34%)1033⁄12000 (8.61%)500011⁄4000 (0.27%)Average103⁄200 (0.52)771⁄1000 (0.77)1027⁄1000 (1.03)1283⁄1000 (1.28)Elder GuardianRaw Salmon0159⁄160 (99.38%)793⁄800 (99.12%)791⁄800 (98.88%)789⁄800 (98.62%)11⁄160 (0.62%)7⁄800 (0.88%)9⁄800 (1.12%)11⁄800 (1.38%)Average1⁄160 (0.01)7⁄800 (0.01)9⁄800 (0.01)11⁄800 (0.01)Elder GuardianCooked Salmon0159⁄160 (99.38%)793⁄800 (99.12%)791⁄800 (98.88%)789⁄800 (98.62%)11⁄160 (0.62%)7⁄800 (0.88%)9⁄800 (1.12%)11⁄800 (1.38%)Average1⁄160 (0.01)7⁄800 (0.01)9⁄800 (0.01)11⁄800 (0.01)Elder GuardianPufferfish03987⁄4000 (99.67%)19909⁄20000 (99.54%)19883⁄20000 (99.41%)19857⁄20000 (99.28%)113⁄4000 (0.33%)91⁄20000 (0.46%)117⁄20000 (0.58%)143⁄20000 (0.71%)Average13⁄4000 (0.00)91⁄20000 (0.00)117⁄20000 (0.01)143⁄20000 (0.01)Elder GuardianTropical Fish01999⁄2000 (99.95%)9993⁄10000 (99.93%)9991⁄10000 (99.91%)9989⁄10000 (99.89%)11⁄2000 (0.05%)7⁄10000 (0.07%)9⁄10000 (0.09%)11⁄10000 (0.11%)Average1⁄2000 (0.00)7⁄10000 (0.00)9⁄10000 (0.00)11⁄10000 (0.00)HuskIron Ingot0119⁄120 (99.17%)593⁄600 (98.83%)197⁄200 (98.50%)589⁄600 (98.17%)11⁄120 (0.83%)7⁄600 (1.17%)3⁄200 (1.50%)11⁄600 (1.83%)Average1⁄120 (0.01)7⁄600 (0.01)3⁄200 (0.01)11⁄600 (0.02)HuskCarrot0119⁄120 (99.17%)593⁄600 (98.83%)197⁄200 (98.50%)589⁄600 (98.17%)11⁄120 (0.83%)7⁄600 (1.17%)3⁄200 (1.50%)11⁄600 (1.83%)Average1⁄120 (0.01)7⁄600 (0.01)3⁄200 (0.01)11⁄600 (0.02)HuskPotato0119⁄120 (99.17%)593⁄600 (98.83%)197⁄200 (98.50%)589⁄600 (98.17%)11⁄120 (0.83%)7⁄600 (1.17%)3⁄200 (1.50%)11⁄600 (1.83%)Average1⁄120 (0.01)7⁄600 (0.01)3⁄200 (0.01)11⁄600 (0.02)HuskBaked Potato0119⁄120 (99.17%)593⁄600 (98.83%)197⁄200 (98.50%)589⁄600 (98.17%)11⁄120 (0.83%)7⁄600 (1.17%)3⁄200 (1.50%)11⁄600 (1.83%)Average1⁄120 (0.01)7⁄600 (0.01)3⁄200 (0.01)11⁄600 (0.02)StrayArrow of Slowness01⁄2 (50.00%)1⁄4 (25.00%)1⁄8 (12.50%)1⁄12 (8.33%)11⁄2 (50.00%)3⁄4 (75.00%)7⁄8 (87.50%)11⁄12 (91.67%)Average1⁄2 (0.50)3⁄4 (0.75)7⁄8 (0.88)11⁄12 (0.92)EvokerEmerald01⁄2 (50.00%)1⁄4 (25.00%)1⁄8 (12.50%)1⁄12 (8.33%)11⁄2 (50.00%)1⁄2 (50.00%)3⁄8 (37.50%)1⁄4 (25.00%)201⁄4 (25.00%)3⁄8 (37.50%)1⁄3 (33.33%)3001⁄8 (12.50%)1⁄4 (25.00%)40001⁄12 (8.33%)Average1⁄2 (0.50)1 (1.00)3⁄2 (1.50)2 (2.00)VindicatorEmerald01⁄2 (50.00%)1⁄4 (25.00%)1⁄8 (12.50%)1⁄12 (8.33%)11⁄2 (50.00%)1⁄2 (50.00%)3⁄8 (37.50%)1⁄4 (25.00%)201⁄4 (25.00%)3⁄8 (37.50%)1⁄3 (33.33%)3001⁄8 (12.50%)1⁄4 (25.00%)40001⁄12 (8.33%)Average1⁄2 (0.50)1 (1.00)3⁄2 (1.50)2 (2.00)PhantomPhantom Membrane01⁄2 (50.00%)1⁄4 (25.00%)1⁄8 (12.50%)1⁄12 (8.33%)11⁄2 (50.00%)1⁄2 (50.00%)3⁄8 (37.50%)1⁄4 (25.00%)201⁄4 (25.00%)3⁄8 (37.50%)1⁄3 (33.33%)3001⁄8 (12.50%)1⁄4 (25.00%)40001⁄12 (8.33%)Average1⁄2 (0.50)1 (1.00)3⁄2 (1.50)2 (2.00)DrownedCopper Ingot089⁄100 (89.00%)87⁄100 (87.00%)17⁄20 (85.00%)83⁄100 (83.00%)111⁄100 (11.00%)13⁄100 (13.00%)3⁄20 (15.00%)17⁄100 (17.00%)Average11⁄100 (0.11)13⁄100 (0.13)3⁄20 (0.15)17⁄100 (0.17)NautilusNautilus Shell019⁄20 (95.00%)47⁄50 (94.00%)93⁄100 (93.00%)23⁄25 (92.00%)11⁄20 (5.00%)3⁄50 (6.00%)7⁄100 (7.00%)2⁄25 (8.00%)Average1⁄20 (0.05)3⁄50 (0.06)7⁄100 (0.07)2⁄25 (0.08)BreezeBreeze Rod11⁄2 (50.00%)00021⁄2 (50.00%)1⁄4 (25.00%)00301⁄2 (50.00%)1⁄8 (12.50%)0401⁄4 (25.00%)3⁄8 (37.50%)1⁄12 (8.33%)5003⁄8 (37.50%)1⁄4 (25.00%)6001⁄8 (12.50%)1⁄3 (33.33%)70001⁄4 (25.00%)80001⁄12 (8.33%)Average3⁄2 (1.50)3 (3.00)9⁄2 (4.50)6 (6.00)BoggedArrow of Poison01⁄2 (50.00%)1⁄4 (25.00%)1⁄8 (12.50%)1⁄12 (8.33%)11⁄2 (50.00%)3⁄4 (75.00%)7⁄8 (87.50%)11⁄12 (91.67%)Average1⁄2 (0.50)3⁄4 (0.75)7⁄8 (0.88)11⁄12 (0.92)Toxifin SlabToxic Beam0-9 (-900.00%)-14 (-1400.00%)-19 (-1900.00%)-24 (-2400.00%)110 (1000.00%)15 (1500.00%)20 (2000.00%)25 (2500.00%)Average10 (10.00)15 (15.00)20 (20.00)25 (25.00)Poisonous Potato ZombiePoisonous Potato Plant02⁄3 (66.67%)2⁄3 (66.67%)2⁄3 (66.67%)2⁄3 (66.67%)11⁄3 (33.33%)1⁄3 (33.33%)1⁄3 (33.33%)1⁄3 (33.33%)Average1⁄3 (0.33)1⁄3 (0.33)1⁄3 (0.33)1⁄3 (0.33)Poisonous Potato ZombiePoisonous Potato Headpiece09917⁄10000 (99.17%)2471⁄2500 (98.84%)9851⁄10000 (98.51%)4909⁄5000 (98.18%)183⁄10000 (0.83%)29⁄2500 (1.16%)149⁄10000 (1.49%)91⁄5000 (1.82%)Average83⁄10000 (0.01)29⁄2500 (0.01)149⁄10000 (0.01)91⁄5000 (0.02)Zombie NautilusRotten Flesh01⁄4 (25.00%)1⁄8 (12.50%)1⁄16 (6.25%)1⁄24 (4.17%)11⁄4 (25.00%)1⁄4 (25.00%)3⁄16 (18.75%)1⁄8 (12.50%)21⁄4 (25.00%)1⁄4 (25.00%)1⁄4 (25.00%)5⁄24 (20.83%)31⁄4 (25.00%)1⁄4 (25.00%)1⁄4 (25.00%)1⁄4 (25.00%)401⁄8 (12.50%)3⁄16 (18.75%)5⁄24 (20.83%)5001⁄16 (6.25%)1⁄8 (12.50%)60001⁄24 (4.17%)Average3⁄2 (1.50)2 (2.00)5⁄2 (2.50)3 (3.00)ParchedArrow of Weakness01⁄2 (50.00%)1⁄4 (25.00%)1⁄8 (12.50%)1⁄12 (8.33%)11⁄2 (50.00%)3⁄4 (75.00%)7⁄8 (87.50%)11⁄12 (91.67%)Average1⁄2 (0.50)3⁄4 (0.75)7⁄8 (0.88)11⁄12 (0.92)
+
+
+				Killed1MobItemExpected DropsDefaultLooting ILooting IILooting IIIZombieIron Ingot0.010.010.010.02ZombieCarrot0.010.010.010.02ZombiePotato0.010.010.010.02ZombieBaked Potato0.010.010.010.02ZombieMusic Disc Lava Chicken1.001.001.001.00SpiderSpider Eye0.330.831.331.83Zombified PiglinGold Ingot0.030.040.040.06Cave SpiderSpider Eye0.330.831.331.83BlazeBlaze Rod0.501.001.502.00Zombie VillagerIron Ingot0.010.010.010.02Zombie VillagerCarrot0.010.010.010.02Zombie VillagerPotato0.010.010.010.02Zombie VillagerBaked Potato0.010.010.010.02Wither SkeletonWither Skeleton Skull0.030.040.040.06RabbitRabbit's Foot0.100.130.160.19GuardianRaw Cod0.410.620.831.03GuardianCooked Cod0.410.620.831.03GuardianRaw Salmon0.010.010.010.01GuardianCooked Salmon0.010.010.010.01GuardianPufferfish0.000.000.010.01GuardianTropical Fish0.000.000.000.00Elder GuardianWet Sponge1.001.001.001.00Elder GuardianRaw Cod0.520.771.031.28Elder GuardianCooked Cod0.520.771.031.28Elder GuardianRaw Salmon0.010.010.010.01Elder GuardianCooked Salmon0.010.010.010.01Elder GuardianPufferfish0.000.000.010.01Elder GuardianTropical Fish0.000.000.000.00HuskIron Ingot0.010.010.010.02HuskCarrot0.010.010.010.02HuskPotato0.010.010.010.02HuskBaked Potato0.010.010.010.02StrayArrow of Slowness0.500.750.880.92EvokerEmerald0.501.001.502.00VindicatorEmerald0.501.001.502.00PhantomPhantom Membrane0.501.001.502.00DrownedCopper Ingot0.110.130.150.17NautilusNautilus Shell0.050.060.070.08BreezeBreeze Rod1.503.004.506.00BoggedArrow of Poison0.500.750.880.92Toxifin SlabToxic Beam10.0015.0020.0025.00Poisonous Potato ZombiePoisonous Potato Plant0.330.330.330.33Poisonous Potato ZombiePoisonous Potato Headpiece0.010.010.010.02Zombie NautilusRotten Flesh1.502.002.503.00ParchedArrow of Weakness0.500.750.880.92
+
+ Only when killed by a player or a tamed wolf.
+
+ Only when not on fire and not killed with a weapon enchanted with Fire Aspect.
+
+ Only when on fire or killed with a weapon enchanted with Fire Aspect.
+
+ Only if it is a baby and is riding a chicken.
+
+ Only when killed by a player.
+
+Bedrock Edition:
+
+				MobItemQuantity / Chance / AverageDefaultLooting ILooting IILooting IIIZombieIron Ingot0–10.83%0.010–11.17%0.010–11.50%0.010–11.83%0.02ZombieCarrot0–10.83%0.010–11.17%0.010–11.50%0.010–11.83%0.02ZombiePotato0–10.83%0.010–11.17%0.010–11.50%0.010–11.83%0.02ZombieMusic Disc Lava Chicken1100.00%1.001100.00%1.001100.00%1.001100.00%1.00SpiderSpider Eye0–150.00%0.500–250.00%0.750–350.00%1.000–450.00%1.25Zombified PiglinGold Ingot0–12.50%0.030–13.50%0.040–14.50%0.040–15.50%0.06Cave SpiderSpider Eye0–150.00%0.500–250.00%0.750–350.00%1.000–450.00%1.25BlazeBlaze Rod0–150.00%0.500–250.00%0.750–350.00%1.000–450.00%1.25Zombie VillagerIron Ingot0–10.83%0.010–11.17%0.010–11.50%0.010–11.83%0.02Zombie VillagerCarrot0–10.83%0.010–11.17%0.010–11.50%0.010–11.83%0.02Zombie VillagerPotato0–10.83%0.010–11.17%0.010–11.50%0.010–11.83%0.02Zombie VillagerMusic Disc Lava Chicken1100.00%1.001100.00%1.001100.00%1.001100.00%1.00Wither SkeletonWither Skeleton Skull0–12.50%0.030–14.50%0.040–16.50%0.070–18.50%0.09RabbitRabbit's Foot0–110.00%0.100–113.00%0.130–116.00%0.160–119.00%0.19Elder GuardianWet Sponge1100.00%1.001100.00%1.001100.00%1.001100.00%1.00HuskIron Ingot0–10.83%0.010–11.17%0.010–11.50%0.010–11.83%0.02HuskCarrot0–10.83%0.010–11.17%0.010–11.50%0.010–11.83%0.02HuskPotato0–10.83%0.010–11.17%0.010–11.50%0.010–11.83%0.02HuskMusic Disc Lava Chicken1100.00%1.001100.00%1.001100.00%1.001100.00%1.00StrayArrow of Slowness0–150.00%0.500–250.00%0.750–350.00%1.000–450.00%1.25VindicatorEmerald0–150.00%0.500–250.00%0.750–350.00%1.000–450.00%1.25VindicatorEmerald0–780.00%1.440–1080.00%2.040–1380.00%2.640–1680.00%3.24VindicatorEmerald0–781.15%1.540–1081.15%2.170–1381.15%2.790–1681.15%3.41PhantomPhantom Membrane0–150.00%0.500–250.00%0.750–350.00%1.000–450.00%1.25DrownedCopper Ingot0–111.00%0.110–113.00%0.130–115.00%0.150–117.00%0.17NautilusNautilus Shell0–15.00%0.050–16.00%0.060–17.00%0.070–18.00%0.08RavagerSaddle1100.00%1.001100.00%1.001100.00%1.001100.00%1.00BreezeBreeze Rod1–2100.00%1.502–4100.00%3.003–6100.00%4.504–8100.00%6.00BoggedArrow of Poison0–150.00%0.500–250.00%0.750–350.00%1.000–450.00%1.25ParchedArrow of Weakness0–150.00%0.500–250.00%0.750–350.00%1.000–450.00%1.25
+
+
+				MobItemQuantity / Chance / AverageDefaultLooting ILooting IILooting IIIZombieIron Ingot0–11⁄1201⁄1200–17⁄6007⁄6000–13⁄2003⁄2000–111⁄60011⁄600ZombieCarrot0–11⁄1201⁄1200–17⁄6007⁄6000–13⁄2003⁄2000–111⁄60011⁄600ZombiePotato0–11⁄1201⁄1200–17⁄6007⁄6000–13⁄2003⁄2000–111⁄60011⁄600ZombieMusic Disc Lava Chicken111111111111SpiderSpider Eye0–11⁄21⁄20–21⁄23⁄40–31⁄210–41⁄25⁄4Zombified PiglinGold Ingot0–11⁄401⁄400–17⁄2007⁄2000–19⁄2009⁄2000–111⁄20011⁄200Cave SpiderSpider Eye0–11⁄21⁄20–21⁄23⁄40–31⁄210–41⁄25⁄4BlazeBlaze Rod0–11⁄21⁄20–21⁄23⁄40–31⁄210–41⁄25⁄4Zombie VillagerIron Ingot0–11⁄1201⁄1200–17⁄6007⁄6000–13⁄2003⁄2000–111⁄60011⁄600Zombie VillagerCarrot0–11⁄1201⁄1200–17⁄6007⁄6000–13⁄2003⁄2000–111⁄60011⁄600Zombie VillagerPotato0–11⁄1201⁄1200–17⁄6007⁄6000–13⁄2003⁄2000–111⁄60011⁄600Zombie VillagerMusic Disc Lava Chicken111111111111Wither SkeletonWither Skeleton Skull0–11⁄401⁄400–19⁄2009⁄2000–113⁄20013⁄2000–117⁄20017⁄200RabbitRabbit's Foot0–11⁄101⁄100–113⁄10013⁄1000–14⁄254⁄250–119⁄10019⁄100Elder GuardianWet Sponge111111111111HuskIron Ingot0–11⁄1201⁄1200–17⁄6007⁄6000–13⁄2003⁄2000–111⁄60011⁄600HuskCarrot0–11⁄1201⁄1200–17⁄6007⁄6000–13⁄2003⁄2000–111⁄60011⁄600HuskPotato0–11⁄1201⁄1200–17⁄6007⁄6000–13⁄2003⁄2000–111⁄60011⁄600HuskMusic Disc Lava Chicken111111111111StrayArrow of Slowness0–11⁄21⁄20–21⁄23⁄40–31⁄210–41⁄25⁄4VindicatorEmerald0–11⁄21⁄20–21⁄23⁄40–31⁄210–41⁄25⁄4VindicatorEmerald0–74⁄5173⁄1200–104⁄549⁄240–134⁄5317⁄1200–164⁄5389⁄120VindicatorEmerald0–7211⁄260301⁄1950–10211⁄26013⁄60–13211⁄260544⁄1950–16211⁄2601331⁄390PhantomPhantom Membrane0–11⁄21⁄20–21⁄23⁄40–31⁄210–41⁄25⁄4DrownedCopper Ingot0–111⁄10011⁄1000–113⁄10013⁄1000–13⁄203⁄200–117⁄10017⁄100NautilusNautilus Shell0–11⁄201⁄200–13⁄503⁄500–17⁄1007⁄1000–12⁄252⁄25RavagerSaddle111111111111BreezeBreeze Rod1–213⁄22–4133–619⁄24–816BoggedArrow of Poison0–11⁄21⁄20–21⁄23⁄40–31⁄210–41⁄25⁄4ParchedArrow of Weakness0–11⁄21⁄20–21⁄23⁄40–31⁄210–41⁄25⁄4
+
+
+				MobItemAmountProbabilityDefaultLooting ILooting IILooting IIIZombieIron Ingot0119⁄120 (99.17%)593⁄600 (98.83%)197⁄200 (98.50%)589⁄600 (98.17%)11⁄120 (0.83%)7⁄600 (1.17%)3⁄200 (1.50%)11⁄600 (1.83%)Average1⁄120 (0.01)7⁄600 (0.01)3⁄200 (0.01)11⁄600 (0.02)ZombieCarrot0119⁄120 (99.17%)593⁄600 (98.83%)197⁄200 (98.50%)589⁄600 (98.17%)11⁄120 (0.83%)7⁄600 (1.17%)3⁄200 (1.50%)11⁄600 (1.83%)Average1⁄120 (0.01)7⁄600 (0.01)3⁄200 (0.01)11⁄600 (0.02)ZombiePotato0119⁄120 (99.17%)593⁄600 (98.83%)197⁄200 (98.50%)589⁄600 (98.17%)11⁄120 (0.83%)7⁄600 (1.17%)3⁄200 (1.50%)11⁄600 (1.83%)Average1⁄120 (0.01)7⁄600 (0.01)3⁄200 (0.01)11⁄600 (0.02)ZombieMusic Disc Lava Chicken11 (100.00%)1 (100.00%)1 (100.00%)1 (100.00%)Average1 (1.00)1 (1.00)1 (1.00)1 (1.00)SpiderSpider Eye01⁄2 (50.00%)1⁄2 (50.00%)1⁄2 (50.00%)1⁄2 (50.00%)11⁄2 (50.00%)1⁄4 (25.00%)1⁄8 (12.50%)1⁄12 (8.33%)201⁄4 (25.00%)1⁄4 (25.00%)1⁄6 (16.67%)3001⁄8 (12.50%)1⁄6 (16.67%)40001⁄12 (8.33%)Average1⁄2 (0.50)3⁄4 (0.75)1 (1.00)5⁄4 (1.25)Zombified PiglinGold Ingot039⁄40 (97.50%)193⁄200 (96.50%)191⁄200 (95.50%)189⁄200 (94.50%)11⁄40 (2.50%)7⁄200 (3.50%)9⁄200 (4.50%)11⁄200 (5.50%)Average1⁄40 (0.03)7⁄200 (0.04)9⁄200 (0.04)11⁄200 (0.06)Cave SpiderSpider Eye01⁄2 (50.00%)1⁄2 (50.00%)1⁄2 (50.00%)1⁄2 (50.00%)11⁄2 (50.00%)1⁄4 (25.00%)1⁄8 (12.50%)1⁄12 (8.33%)201⁄4 (25.00%)1⁄4 (25.00%)1⁄6 (16.67%)3001⁄8 (12.50%)1⁄6 (16.67%)40001⁄12 (8.33%)Average1⁄2 (0.50)3⁄4 (0.75)1 (1.00)5⁄4 (1.25)BlazeBlaze Rod01⁄2 (50.00%)1⁄2 (50.00%)1⁄2 (50.00%)1⁄2 (50.00%)11⁄2 (50.00%)1⁄4 (25.00%)1⁄8 (12.50%)1⁄12 (8.33%)201⁄4 (25.00%)1⁄4 (25.00%)1⁄6 (16.67%)3001⁄8 (12.50%)1⁄6 (16.67%)40001⁄12 (8.33%)Average1⁄2 (0.50)3⁄4 (0.75)1 (1.00)5⁄4 (1.25)Zombie VillagerIron Ingot0119⁄120 (99.17%)593⁄600 (98.83%)197⁄200 (98.50%)589⁄600 (98.17%)11⁄120 (0.83%)7⁄600 (1.17%)3⁄200 (1.50%)11⁄600 (1.83%)Average1⁄120 (0.01)7⁄600 (0.01)3⁄200 (0.01)11⁄600 (0.02)Zombie VillagerCarrot0119⁄120 (99.17%)593⁄600 (98.83%)197⁄200 (98.50%)589⁄600 (98.17%)11⁄120 (0.83%)7⁄600 (1.17%)3⁄200 (1.50%)11⁄600 (1.83%)Average1⁄120 (0.01)7⁄600 (0.01)3⁄200 (0.01)11⁄600 (0.02)Zombie VillagerPotato0119⁄120 (99.17%)593⁄600 (98.83%)197⁄200 (98.50%)589⁄600 (98.17%)11⁄120 (0.83%)7⁄600 (1.17%)3⁄200 (1.50%)11⁄600 (1.83%)Average1⁄120 (0.01)7⁄600 (0.01)3⁄200 (0.01)11⁄600 (0.02)Zombie VillagerMusic Disc Lava Chicken11 (100.00%)1 (100.00%)1 (100.00%)1 (100.00%)Average1 (1.00)1 (1.00)1 (1.00)1 (1.00)Wither SkeletonWither Skeleton Skull039⁄40 (97.50%)191⁄200 (95.50%)187⁄200 (93.50%)183⁄200 (91.50%)11⁄40 (2.50%)9⁄200 (4.50%)13⁄200 (6.50%)17⁄200 (8.50%)Average1⁄40 (0.03)9⁄200 (0.04)13⁄200 (0.07)17⁄200 (0.09)RabbitRabbit's Foot09⁄10 (90.00%)87⁄100 (87.00%)21⁄25 (84.00%)81⁄100 (81.00%)11⁄10 (10.00%)13⁄100 (13.00%)4⁄25 (16.00%)19⁄100 (19.00%)Average1⁄10 (0.10)13⁄100 (0.13)4⁄25 (0.16)19⁄100 (0.19)Elder GuardianWet Sponge11 (100.00%)1 (100.00%)1 (100.00%)1 (100.00%)Average1 (1.00)1 (1.00)1 (1.00)1 (1.00)HuskIron Ingot0119⁄120 (99.17%)593⁄600 (98.83%)197⁄200 (98.50%)589⁄600 (98.17%)11⁄120 (0.83%)7⁄600 (1.17%)3⁄200 (1.50%)11⁄600 (1.83%)Average1⁄120 (0.01)7⁄600 (0.01)3⁄200 (0.01)11⁄600 (0.02)HuskCarrot0119⁄120 (99.17%)593⁄600 (98.83%)197⁄200 (98.50%)589⁄600 (98.17%)11⁄120 (0.83%)7⁄600 (1.17%)3⁄200 (1.50%)11⁄600 (1.83%)Average1⁄120 (0.01)7⁄600 (0.01)3⁄200 (0.01)11⁄600 (0.02)HuskPotato0119⁄120 (99.17%)593⁄600 (98.83%)197⁄200 (98.50%)589⁄600 (98.17%)11⁄120 (0.83%)7⁄600 (1.17%)3⁄200 (1.50%)11⁄600 (1.83%)Average1⁄120 (0.01)7⁄600 (0.01)3⁄200 (0.01)11⁄600 (0.02)HuskMusic Disc Lava Chicken11 (100.00%)1 (100.00%)1 (100.00%)1 (100.00%)Average1 (1.00)1 (1.00)1 (1.00)1 (1.00)StrayArrow of Slowness01⁄2 (50.00%)1⁄2 (50.00%)1⁄2 (50.00%)1⁄2 (50.00%)11⁄2 (50.00%)1⁄4 (25.00%)1⁄8 (12.50%)1⁄12 (8.33%)201⁄4 (25.00%)1⁄4 (25.00%)1⁄6 (16.67%)3001⁄8 (12.50%)1⁄6 (16.67%)40001⁄12 (8.33%)Average1⁄2 (0.50)3⁄4 (0.75)1 (1.00)5⁄4 (1.25)VindicatorEmerald01⁄2 (50.00%)1⁄2 (50.00%)1⁄2 (50.00%)1⁄2 (50.00%)11⁄2 (50.00%)1⁄4 (25.00%)1⁄8 (12.50%)1⁄12 (8.33%)201⁄4 (25.00%)1⁄4 (25.00%)1⁄6 (16.67%)3001⁄8 (12.50%)1⁄6 (16.67%)40001⁄12 (8.33%)Average1⁄2 (0.50)3⁄4 (0.75)1 (1.00)5⁄4 (1.25)VindicatorEmerald01⁄5 (20.00%)1⁄5 (20.00%)1⁄5 (20.00%)1⁄5 (20.00%)1101⁄240 (42.08%)101⁄480 (21.04%)101⁄960 (10.52%)101⁄1440 (7.01%)2121⁄480 (25.21%)53⁄192 (27.60%)73⁄320 (22.81%)257⁄1728 (14.87%)35⁄96 (5.21%)89⁄640 (13.91%)2689⁄15360 (17.51%)8969⁄51840 (17.30%)417⁄480 (3.54%)71⁄768 (9.24%)1107⁄10240 (10.81%)13997⁄103680 (13.50%)511⁄480 (2.29%)67⁄1920 (3.49%)2633⁄30720 (8.57%)1735⁄20736 (8.37%)61⁄80 (1.25%)47⁄1920 (2.45%)449⁄10240 (4.38%)1927⁄25920 (7.43%)71⁄240 (0.42%)13⁄960 (1.35%)731⁄30720 (2.38%)1709⁄34560 (4.95%)805⁄768 (0.65%)159⁄10240 (1.55%)2863⁄103680 (2.76%)901⁄480 (0.21%)53⁄6144 (0.86%)139⁄8640 (1.61%)1001⁄1920 (0.05%)121⁄30720 (0.39%)1109⁄103680 (1.07%)110047⁄30720 (0.15%)637⁄103680 (0.61%)12007⁄15360 (0.05%)1⁄324 (0.31%)13001⁄15360 (0.01%)47⁄34560 (0.14%)1400053⁄103680 (0.05%)150007⁄51840 (0.01%)160001⁄51840 (0.00%)Average173⁄120 (1.44)49⁄24 (2.04)317⁄120 (2.64)389⁄120 (3.24)VindicatorEmerald049⁄260 (18.85%)49⁄260 (18.85%)49⁄260 (18.85%)49⁄260 (18.85%)1157⁄390 (40.26%)157⁄780 (20.13%)157⁄1560 (10.06%)157⁄2340 (6.71%)2197⁄780 (25.26%)167⁄624 (26.76%)913⁄4160 (21.95%)803⁄5616 (14.30%)35⁄78 (6.41%)37⁄260 (14.23%)2149⁄12480 (17.22%)7079⁄42120 (16.81%)417⁄390 (4.36%)31⁄312 (9.94%)927⁄8320 (11.14%)869⁄6480 (13.41%)511⁄390 (2.82%)67⁄1560 (4.29%)2273⁄24960 (9.11%)1465⁄16848 (8.70%)61⁄65 (1.54%)47⁄1560 (3.01%)419⁄8320 (5.04%)1657⁄21060 (7.87%)71⁄195 (0.51%)1⁄60 (1.67%)731⁄24960 (2.93%)1529⁄28080 (5.45%)805⁄624 (0.80%)159⁄8320 (1.91%)341⁄10530 (3.24%)901⁄390 (0.26%)53⁄4992 (1.06%)139⁄7020 (1.98%)1001⁄1560 (0.06%)121⁄24960 (0.48%)1109⁄84240 (1.32%)110047⁄24960 (0.19%)49⁄6480 (0.76%)12007⁄12480 (0.06%)4⁄1053 (0.38%)13001⁄12480 (0.01%)47⁄28080 (0.17%)1400053⁄84240 (0.06%)150007⁄42120 (0.02%)160001⁄42120 (0.00%)Average301⁄195 (1.54)13⁄6 (2.17)544⁄195 (2.79)1331⁄390 (3.41)PhantomPhantom Membrane01⁄2 (50.00%)1⁄2 (50.00%)1⁄2 (50.00%)1⁄2 (50.00%)11⁄2 (50.00%)1⁄4 (25.00%)1⁄8 (12.50%)1⁄12 (8.33%)201⁄4 (25.00%)1⁄4 (25.00%)1⁄6 (16.67%)3001⁄8 (12.50%)1⁄6 (16.67%)40001⁄12 (8.33%)Average1⁄2 (0.50)3⁄4 (0.75)1 (1.00)5⁄4 (1.25)DrownedCopper Ingot089⁄100 (89.00%)87⁄100 (87.00%)17⁄20 (85.00%)83⁄100 (83.00%)111⁄100 (11.00%)13⁄100 (13.00%)3⁄20 (15.00%)17⁄100 (17.00%)Average11⁄100 (0.11)13⁄100 (0.13)3⁄20 (0.15)17⁄100 (0.17)NautilusNautilus Shell019⁄20 (95.00%)47⁄50 (94.00%)93⁄100 (93.00%)23⁄25 (92.00%)11⁄20 (5.00%)3⁄50 (6.00%)7⁄100 (7.00%)2⁄25 (8.00%)Average1⁄20 (0.05)3⁄50 (0.06)7⁄100 (0.07)2⁄25 (0.08)RavagerSaddle11 (100.00%)1 (100.00%)1 (100.00%)1 (100.00%)Average1 (1.00)1 (1.00)1 (1.00)1 (1.00)BreezeBreeze Rod11⁄2 (50.00%)00021⁄2 (50.00%)1⁄4 (25.00%)00301⁄2 (50.00%)1⁄8 (12.50%)0401⁄4 (25.00%)3⁄8 (37.50%)1⁄12 (8.33%)5003⁄8 (37.50%)1⁄4 (25.00%)6001⁄8 (12.50%)1⁄3 (33.33%)70001⁄4 (25.00%)80001⁄12 (8.33%)Average3⁄2 (1.50)3 (3.00)9⁄2 (4.50)6 (6.00)BoggedArrow of Poison01⁄2 (50.00%)1⁄2 (50.00%)1⁄2 (50.00%)1⁄2 (50.00%)11⁄2 (50.00%)1⁄4 (25.00%)1⁄8 (12.50%)1⁄12 (8.33%)201⁄4 (25.00%)1⁄4 (25.00%)1⁄6 (16.67%)3001⁄8 (12.50%)1⁄6 (16.67%)40001⁄12 (8.33%)Average1⁄2 (0.50)3⁄4 (0.75)1 (1.00)5⁄4 (1.25)ParchedArrow of Weakness01⁄2 (50.00%)1⁄2 (50.00%)1⁄2 (50.00%)1⁄2 (50.00%)11⁄2 (50.00%)1⁄4 (25.00%)1⁄8 (12.50%)1⁄12 (8.33%)201⁄4 (25.00%)1⁄4 (25.00%)1⁄6 (16.67%)3001⁄8 (12.50%)1⁄6 (16.67%)40001⁄12 (8.33%)Average1⁄2 (0.50)3⁄4 (0.75)1 (1.00)5⁄4 (1.25)
+
+
+				Killed1MobItemExpected DropsDefaultLooting ILooting IILooting IIIZombieIron Ingot0.010.010.010.02ZombieCarrot0.010.010.010.02ZombiePotato0.010.010.010.02ZombieMusic Disc Lava Chicken1.001.001.001.00SpiderSpider Eye0.500.751.001.25Zombified PiglinGold Ingot0.030.040.040.06Cave SpiderSpider Eye0.500.751.001.25BlazeBlaze Rod0.500.751.001.25Zombie VillagerIron Ingot0.010.010.010.02Zombie VillagerCarrot0.010.010.010.02Zombie VillagerPotato0.010.010.010.02Zombie VillagerMusic Disc Lava Chicken1.001.001.001.00Wither SkeletonWither Skeleton Skull0.030.040.070.09RabbitRabbit's Foot0.100.130.160.19Elder GuardianWet Sponge1.001.001.001.00HuskIron Ingot0.010.010.010.02HuskCarrot0.010.010.010.02HuskPotato0.010.010.010.02HuskMusic Disc Lava Chicken1.001.001.001.00StrayArrow of Slowness0.500.751.001.25VindicatorEmerald0.500.751.001.25VindicatorEmerald1.442.042.643.24VindicatorEmerald1.542.172.793.41PhantomPhantom Membrane0.500.751.001.25DrownedCopper Ingot0.110.130.150.17NautilusNautilus Shell0.050.060.070.08RavagerSaddle1.001.001.001.00BreezeBreeze Rod1.503.004.506.00BoggedArrow of Poison0.500.751.001.25ParchedArrow of Weakness0.500.751.001.25
+
+ Only when killed by a player or a tamed wolf.
+
+ Only if it is a baby and is riding a chicken.
+
+ Only when killed by a player.
+
+ Zombie villagers and husks unintentionally drop the Lava Chicken Music Disc due to MCPE-224103, as they use the zombie.json loot table.
+
+ Only if not spawned in a raid.
+
+ Only if spawned in a raid and the difficulty is easy or normal.
+
+ Only if spawned in a raid and the difficulty is hard.
+
+Entity drops
+Projectiles
+
+Entity
+
+Drops
+
+Notes
+
+Bottle o' Enchanting
+
+3–11 Experience
+
+Egg
+
+0–4 Baby Chicken spawned
+
+Eggs have a 1⁄8 chance of spawning one baby chicken. If that were to happen, there is an additional 1⁄32 chance of the egg spawning four baby chickens instead of one.
+
+Ender Pearl
+
+0–1 Endermite
+
+Ender pearls have a 5% chance of spawning endermite.
+
+Stationary
+
+Entity
+
+Drops
+
+Notes
+
+Armor Stand
+
+0–1 Armor Stand
+
+Drops itself, armor it wears, and the item it holds. In Bedrock Edition, if destroyed by fire, lava, campfires or the Instant Damage or Wither status effect, it yields no armor stand item and any equipped items are counted as 'naturally-spawned equipment' and have a 8.5% chance of dropping and if the equipped item is a weapon, tool, or armor piece, it is badly damaged.
+
+Cushion​[upcoming: Third Drop 2026]
+
+Cushion
+
+Same color and custom name.
+
+End Crystal
+
+None
+
+Creates an explosion when destroyed, 50% more powerful than TNT.
+
+Item Frame‌[JE  only]
+
+1 Item Frame
+
+Drops itself and the item it contains.
+
+Glow Item Frame‌[JE  only]
+
+1 Glow Item Frame
+
+Drops itself and the item it contains.
+
+Painting
+
+1 Painting
+
+Player
+
+The player's inventory and experience
+
+Only 7XP experience points are dropped per level, and a maximum of 100XP can be dropped.
+
+Vehicles
+
+Entity
+
+Drops
+
+Notes
+
+Boat
+
+1  Boat or raft of the corresponding type
+
+Boat with Chest
+
+(1  Boat or raft of the corresponding type 1 Chest‌[BE  only]) 1  Boat or raft of the corresponding type‌[JE  only]
+
+Also drops all of the chest's contents.
+
+Minecart
+
+1 Minecart
+
+Minecart with Chest
+
+1 Minecart with Chest
+
+Also drops all of the chest's contents.
+
+Minecart with Command Block
+
+1 Minecart
+
+Minecart with Furnace‌[JE  only]
+
+1 Minecart with Furnace
+
+Minecart with Hopper
+
+1 Minecart with Hopper
+
+Also drops all of its contents.
+
+Minecart with Monster Spawner‌[JE  only]
+
+1 Minecart
+
+Minecart with TNT
+
+1 Minecart with TNT
+
+Drops nothing when activated or destroyed by an explosion.
+
+Block drops
+Most blocks drop themselves when broken - sometimes Silk Touch enchantment or a specific tool is required. All other cases, when blocks drop something different (or don't drop anything), are listed below. Unbreakable blocks, like bedrock, are not listed. "Obtainable with Silk Touch" column indicates if the block can be collected using the Silk Touch enchantment. See Silk Touch#Obtainable blocks for more information. Fortune enchantment can affect number of block drops and probabilities (but not the type) as well, see Fortune#Usage for more information.
+
+Materials and building blocks
+
+Block
+
+Exp
+
+Normal drops
+
+Obtainable with Silk Touch
+
+Affected by the Fortune enchantment
+
+Notes
+
+Amethyst Cluster
+
+—
+
+4 Amethyst Shard if broken with pickaxe. 2 Amethyst Shard if broken with hand or other tool.
+
+Yes
+
+Yes
+
+Small Amethyst BudMedium Amethyst BudLarge Amethyst Bud
+
+—
+
+None
+
+Yes
+
+No
+
+Bookshelf
+
+—
+
+3 Book
+
+Yes
+
+No
+
+Budding Amethyst
+
+—
+
+None
+
+No
+
+No
+
+Calibrated Sculk Sensor
+
+5
+
+None
+
+Yes
+
+No
+
+Campfire
+
+—
+
+2 Charcoal
+
+Yes
+
+No
+
+Also drops the food on the campfire.
+
+Clay
+
+—
+
+4 Clay Ball
+
+Yes
+
+No
+
+Chiseled Bookshelf
+
+—
+
+None
+
+Yes
+
+No
+
+Also drops the books in the chiseled bookshelf.
+
+Cobweb
+
+—
+
+1 String if broken with a sword, affected by water, or pushed by a piston1 Cobweb if broken with shears
+
+Partial
+
+No
+
+Cobweb drops itself when broken with shears or a Silk Touch sword.
+
+Composter
+
+—
+
+1 Composter +1 Bone Meal if composter was at level=8
+
+No
+
+No
+
+Creaking Heart
+
+20–24
+
+1–3 Resin Clump
+
+Yes
+
+Yes
+
+The Fortune enchantment increases the maximum by 1 per level up to a maximum of 6, with Fortune III increasing the chance of larger drops.Natural-generated Creaking Heart always drops 20–24 experience points, even when mined with a Silk Touch tool.
+
+Decorated Pot
+
+—
+
+4 Pottery Sherd(s)/Brick(s) if mined with a non-Silk Touch tool or hit by projectiles  1Decorated Pot otherwise
+
+Yes
+
+No
+
+Also drops its contents.
+
+DeepslateT
+
+—
+
+1 Cobbled Deepslate
+
+Yes
+
+No
+
+Dirt Path
+
+—
+
+1 Dirt
+
+No
+
+No
+
+Yes‌[BE  only]
+
+No
+
+Double Slab
+
+—
+
+2 Slab
+
+No
+
+No
+
+Farmland
+
+—
+
+1 Dirt
+
+No
+
+No
+
+Frosted Ice
+
+—
+
+None
+
+No
+
+No
+
+If there is another (solid or liquid) block directly underneath the block, it reverts to water when broken. This doesn't work in the Nether.
+
+Gilded BlackstoneT
+
+—
+
+1 Gilded Blackstone or 2–5 Gold Nugget
+
+Yes
+
+Increases chance of dropping gold nugget
+
+Gold nugget is dropped with 10% chance without Fortune.The Fortune enchantment increases this chance to 14.29% at Fortune I, 25% at Fortune II, and 100% at Fortune III.Using Silk Touch gets 100% chance of dropping gilded blackstone.
+
+Glowstone
+
+—
+
+2–4 Glowstone Dust
+
+Yes
+
+Yes, capped at 4
+
+GlassStained GlassGlass PaneStained Glass Pane
+
+—
+
+None
+
+Yes
+
+No
+
+Grass BlockMyceliumPodzol
+
+—
+
+1 Dirt
+
+Yes
+
+No
+
+Gravel
+
+—
+
+1 Gravel or 1 Flint
+
+Yes
+
+Increases chance of dropping flint instead of gravel
+
+Flint is dropped with 10% chance without Fortune.The Fortune enchantment increases this chance to 14% (or 1/7) at Fortune I, 25% at Fortune II, and 100% at Fortune III.Using Silk Touch gets 100% chance of dropping gravel.
+
+Crimson/Warped NyliumT
+
+—
+
+1 Netherrack
+
+Yes
+
+No
+
+Reinforced Deepslate
+
+—
+
+None
+
+No
+
+No
+
+Sea Lantern
+
+—
+
+2–3 Prismarine Crystals
+
+Yes
+
+Yes
+
+The Fortune enchantment increases the maximum by 1 per level up to a maximum of 5, with Fortune III increasing the chance of larger drops.
+
+Sculk
+
+1
+
+None
+
+Yes
+
+No
+
+Sculk Catalyst
+
+5
+
+None
+
+Yes
+
+No
+
+Sculk Sensor
+
+5
+
+None
+
+Yes
+
+No
+
+Sculk Shrieker
+
+5
+
+None
+
+Yes
+
+No
+
+When broken, it loses the ability to summon the warden, even if mined with Silk Touch.
+
+Sculk Vein
+
+—
+
+None
+
+Yes
+
+No
+
+SnowT
+
+—
+
+1–8 Snowball if broken by a shovel
+
+Partial
+
+No
+
+1 Snowball per layer without Silk Touch.1 Snow per layers in layer(s) 1–7 with Silk Touch.1 Snow block in layers 8 with Silk Touch.
+
+Snow BlockT
+
+—
+
+4 Snowball if broken by a shovel
+
+Yes
+
+No
+
+Soul Campfire
+
+—
+
+1 Soul Soil
+
+Yes
+
+No
+
+Also drops the food on campfire.
+
+StoneT
+
+—
+
+1 Cobblestone
+
+Yes
+
+No
+
+Ores
+
+Block
+
+Exp
+
+Normal drops
+
+Obtainable with Silk Touch
+
+Affected by the Fortune enchantment
+
+Coal OreT, Deepslate Coal OreT
+
+0–2
+
+1 Coal
+
+Yes
+
+Yes
+
+Copper OreT, Deepslate Copper OreT
+
+—
+
+2–5 Raw Copper
+
+Yes
+
+Yes
+
+Diamond OreT, Deepslate Diamond OreT
+
+3–7
+
+1 Diamond
+
+Yes
+
+Yes
+
+Emerald OreT, Deepslate Emerald OreT
+
+3–7
+
+1 Emerald
+
+Yes
+
+Yes
+
+Iron OreT, Deepslate Iron OreT
+
+—
+
+1 Raw Iron
+
+Yes
+
+Yes
+
+Gold OreT, Deepslate Gold OreT
+
+—
+
+1 Raw Gold
+
+Yes
+
+Yes
+
+Lapis Lazuli OreT, Deepslate Lapis Lazuli OreT
+
+2–5
+
+4–9 Lapis Lazuli
+
+Yes
+
+Yes
+
+Nether Quartz OreT
+
+2–5
+
+1 Nether Quartz
+
+Yes
+
+Yes
+
+Nether Gold OreT
+
+0–1
+
+2–6 Gold Nugget
+
+Yes
+
+Yes
+
+Redstone OreT, Deepslate Redstone OreT
+
+1–5
+
+4–5 Redstone Dust
+
+Yes
+
+Yes
+
+Plants, corals and mushrooms
+
+Block
+
+Exp
+
+Normal drops
+
+Obtainable with Silk Touch
+
+Affected by the Fortune enchantment
+
+Notes
+
+Beetroots
+
+—
+
+1 Beetroot Seeds if premature0–3 Beetroot Seeds if fully grown1 Beetroot if fully grown
+
+No
+
+Affects seeds only if fully grown
+
+Carrots
+
+—
+
+1 Carrot if premature1–4 Carrot if fully grown
+
+No
+
+Affects only if fully grown
+
+Cave Vines
+
+—
+
+1 Glow Berries if have berries
+
+Partial‌[BE  only]
+
+No
+
+Also, using the cave vines or fox harvest yield same amount.In Bedrock Edition, using a tool with Silk Touch on cave vines always yields a glow berry, even if the vine appears empty.
+
+Chorus Plant
+
+—
+
+0–1 Chorus Fruit
+
+No
+
+No
+
+Cocoa
+
+—
+
+1 Cocoa Beans if premature3 Cocoa Beans if fully grown
+
+No
+
+No
+
+Coral BlocksT
+
+—
+
+1 Dead Coral Block
+
+Yes
+
+No
+
+Dead Bush
+
+—
+
+0–2 Stick
+
+No
+
+No
+
+An original block is dropped when broken using shears.
+
+Short GrassTall GrassFernLarge Fern
+
+—
+
+0–1 Wheat Seeds
+
+No
+
+Yes
+
+In case of grass and ferns, an original block is dropped instead when broken using shears. Tall grass and large fern drop their respective smaller variant. Seeds are dropped with 12.5% chance. Fortune increases drop by 2 per level.
+
+Mushroom Block
+
+—
+
+0–2 Mushrooms
+
+Partial
+
+No
+
+There is 80% chance that no mushroom is dropped, and 10% for both one and two mushrooms. On average that gives 0.3 mushrooms per block.Silk Touch drops a block with all sides the default mushroom face, red with spots or brown.
+
+Mushroom Stem
+
+—
+
+None
+
+Partial
+
+No
+
+Silk Touch drops a block with all sides the default mushroom stem face.
+
+Leaves
+
+—
+
+0–1 Saplings0–1 Azalea from azalea leaves0–2 Stick0–1 Apple from oak and dark oak leaves0–1 Mangrove Propagule from mangrove leaves
+
+Yes
+
+Yes
+
+When broken using shears, the original block is dropped along with the normal drops.Jungle sapling is dropped with 2.5% chance; all other saplings and azalea are dropped with 5% chance.An apple is dropped with 0.5% chance.
+
+Melon
+
+—
+
+9 Melon Slice if broken with shears‌[BE  only]3–7 Melon Slice otherwise
+
+Yes
+
+Yes, capped at 9
+
+Melon Stem
+
+—
+
+0–3 Melon Seeds
+
+No
+
+No
+
+Every one of three possible seeds is dropped with a chance dependent on growth stage, ranging from 7% (just planted) to 53% (fully grown).
+
+Pitcher Crop
+
+—
+
+1 Pitcher Pod if premature1 Pitcher Plant if fully grown
+
+No
+
+No
+
+Potatoes
+
+—
+
+1 Potato if premature1–4 Potato if fully grown0–1 Poisonous Potato if fully grown
+
+No
+
+Affects only if fully grown
+
+Poisonous potato is dropped with 2% chance.
+
+Pumpkin Stem
+
+—
+
+0–3 Pumpkin Seeds
+
+No
+
+Yes
+
+Every one of three possible seeds is dropped with a chance dependent on growth stage, ranging from 7% (just planted) to 53% (fully grown).
+
+Sweet Berries
+
+—
+
+1–2 Sweet Berries if at age=3 1–2 Sweet Berries if fully grown
+
+No
+
+Affects only if third or fully grown
+
+Also, using the cave vines or fox harvest yield same amount.Each Fortune level can increase the amount of drops by 1.
+
+Torchflower Crop
+
+—
+
+1 Torchflower Seeds if premature1 Torchflower if fully grown
+
+No
+
+No
+
+Wheat
+
+—
+
+1 Wheat Seeds if premature0–4 Wheat Seeds if fully grown1 Wheat if fully grown
+
+No
+
+Affects seeds only if fully grown
+
+Other
+
+Block
+
+Exp
+
+Normal drops
+
+Obtainable with Silk Touch
+
+Affected by the Fortune enchantment
+
+Notes
+
+Cake
+
+—
+
+None
+
+No
+
+No
+
+Candle Cake
+
+—
+
+1 Candle
+
+No
+
+No
+
+Ender Chest
+
+—
+
+8 Obsidian
+
+Yes
+
+No
+
+Does not drop its contents when broken.
+
+FireSoul Fire
+
+—
+
+None
+
+No
+
+No
+
+Frogspawn
+
+—
+
+None
+
+No
+
+No
+
+Infested Blocks
+
+—
+
+1 Silverfish
+
+Partial
+
+No
+
+When an infested block is destroyed by a tool with Silk Touch enchantment, it drops the type of block that the infested block is disguised as (i.e. stone, cobblestone, stone brick...), and silverfish does not spawn.
+
+Inverted Daylight Detector
+
+—
+
+1 Daylight Detector
+
+No
+
+No
+
+Monster SpawnerT
+
+15–43
+
+None
+
+No
+
+No
+
+Powder Snow
+
+—
+
+None
+
+No
+
+No
+
+Can get it only with a bucket, but not in block form.
+
+Suspicious GravelSuspicious Sand
+
+—
+
+None
+
+No
+
+No
+
+Drop itself if it falls for more than 30 seconds, which can be achieved by falling into an upward bubble column, or through two cobwebs stacked on top of each other ‌[JE  only]. Items in suspicious gravel and suspicious sand don't drop when being broken even with Silk Touch. Instead, a brush is needed to get those items.
+
+Trial SpawnerOminous Trial Spawner
+
+—
+
+None
+
+No
+
+No
+
+VaultOminous Vault
+
+—
+
+None
+
+No
+
+No
+
+Notes:
+
+Blocks marked with "T" need to be broken with a specific tool to drop anything (including experience). The Silk Touch enchantment doesn't remove this requirement.
+Where noted, Fortune can increase the number of dropped items or multiply it. Increase simply gives 0-lvl extra items. Multiplication happen with the following chances:
+Fortune I: 33% * 2 (33% more on average)
+Fortune II: 25% * 2, 25% * 3 (75% more on average)
+Fortune III: 20% * 2, 20% * 3, 20% * 4 (120% more on average)
+Container blocks (barrels, blast furnaces, brewing stands, campfires, chests, chiseled bookshelves, decorated pots, dispensers, droppers, flower pots, furnaces, glow item frames‌[BE  only], hoppers, item frames‌[BE  only], jukeboxes, lecterns, smokers, soul campfires, and trapped chests) drop themselves when broken along with their content.
+Videos
+Note: This video is from Java Edition 1.5, so not all changes apply.
+
+
+
+
+History
+
+
+
+This article needs to be updated. 
+Please update this article to reflect recent updates or newly available information. The talk page may contain suggestions.Reason: Please update the Bedrock Edition part of this section
+
+Java Edition
+Java Edition Classic0.25 SURVIVAL TEST
+Pigs drop mushrooms.
+
+Killing skeletons made arrows drop.0.28
+Added sheep, which drop red cloth and mushrooms.Java Edition Indev20100219
+Sheep now drop nothing.
+
+Pigs drop raw porkchops instead of mushrooms.
+
+Creepers drop gunpowder.
+
+Spiders drop string.
+
+Zombies drop feathers.Java Edition Alphav1.1.0
+Sheep now drop between 1–3 cloth instead of always dropping 2.Java Edition Beta1.2
+Bones drop from skeletons.
+
+New gray, light gray, and black sheep drop the correspondingly colored wool.
+
+Squid added, which drops the new item ink sac.1.5
+Pigs that die by burning now drop cooked porkchops upon death.1.7
+Sheep no longer drop wool from being punched. Sheep now have to be sheared with shears or killed to obtain wool.1.8Pre-release
+Zombies drop rotten flesh instead of feathers.
+
+Mobs killed by players drop tiny flashing experience orbs that add to your experience bar.
+
+Added ender pearls along with endermen.Java Edition1.0.0Beta 1.9 Prerelease
+Blaze rods have been added as a drop from blazes.
+
+Ghast tears have been added, which drop from ghasts.
+
+Gold nuggets have been added as a drop from zombie pigmen.
+
+Snow golems added, which drop snowballs.Beta 1.9 Prerelease 2
+Spiders now drop spider eyes.Beta 1.9 Prerelease 4
+Looting, Fortune, and Silk Touch enchantments added, increasing the amount dropped when killing mobs, breaking blocks, or dropping the block itself, respectively.1.111w50a
+All music discs except for 11 can be obtained if a skeleton kills a creeper. Before that, it was just 13 and cat.release
+Magma cubes can now drop magma cream on death.1.2.112w06a
+Zombies have a rare chance to drop an iron ingot, iron helmet, iron shovel, or iron sword.
+
+Skeletons have a rare chance to drop a bow, which may be enchanted.
+
+Zombie pigmen have a rare chance to drop a golden helmet, gold ingot, or a golden sword, which may be enchanted.12w08a
+Iron golems added, which dropped iron ingots and roses.1.3.112w25a
+Pigs now drop 1–3 porkchops instead of 0–2.1.4.212w32a
+New /gamerule command allows toggling whether or not mobs drop loot with the doMobLoot game rule.
+
+Zombies, skeletons, and zombie pigmen can sometimes wear armor, which has a rare chance of being dropped.12w34a
+Zombies have a chance to drop carrots and potatoes.12w36a
+The wither drops a nether star on death.
+
+Wither skeletons added, which drop bones, coal and rarely stone swords and wither skeleton skulls when killed by players.
+
+Saddled pigs now always drop saddles on death.12w38a
+Witches added, which rarely drop potions of Instant Health and Fire Resistance.12w38b
+Witches can now drop potion ingredients, sticks and have a chance of dropping what they're holding at the time of death.1.4.41.4.3-pre
+The music disc 11 is now dropped by creepers in the same way as the other discs.1.814w04a
+The Looting enchantment now increases the chance of rare drops by 1% per level instead of 0.5%.14w25a
+Added guardians and elder guardians, which drop prismarine shards and prismarine crystals, and rarely drop fish and wet sponges.14w27a
+Added rabbits, which have a chance of dropping rabbit hide, raw rabbit (cooked rabbit when on fire) and rarely rabbit feet.
+
+Sheep now drop raw mutton on death (cooked mutton if on fire) along with wool.1.915w47a
+Shulkers now drop experience.1.1016w20a
+Added polar bears, which drop raw fish and raw salmon.
+
+Added strays. In addition to normal skeleton drops, strays have a 50% chance to drop a tipped arrow of Slowness.1.1116w39a
+Added llamas, which drop leather, and anything they have equipped.
+
+Added vindicators, which rarely drop emeralds, and sometimes their iron axe.
+
+Added evokers, which always drop a totem of undying, and rarely emeralds.
+
+Added vexes, which have a small chance of dropping their iron sword if the player uses the Looting enchantment.
+
+Shulkers can now drop shulker shells upon death.1.1217w13a
+Added parrots, which drop 1 or 2 feathers.17w16a
+Added the illusioner, which has a small chance of dropping their bow.1.1318w07a
+Added turtles, which drop seagrass upon death and also drop a scute when a baby grows into an adult.
+
+Added phantoms, which drop leather upon death.18w08b
+Added 3 fish mobs: cod, salmon and puffer fish. They drop raw cod, raw salmon and pufferfish upon death, respectively.18w10a
+Added tropical fish. They drop tropical fish upon death, respectively.18w14a
+Phantoms now may drop a phantom membrane upon death, and no longer drop leather.18w15a
+Added dolphins, which may drop raw cod upon death.1.1418w43a
+Added pandas, which drop bamboo upon death.
+
+Added pillagers, which drop crossbows and emeralds upon death.
+
+Added ravagers, which drop a saddle upon death.
+
+Creepers now drop music discs when killed by strays.18w46a
+Pillagers no longer drop emeralds.19w05a
+Added wandering traders, which have a chance of dropping a milk bucket or a potion of Invisibility if killed while holding or before finishing drinking.1.1620w06a
+Added hoglins, which drop rotten flesh upon death.20w07a
+Hoglins now drop raw porkchops and leather upon death.
+
+Added piglins, which have a chance of dropping naturally-spawning equipment including a golden sword, a crossbow and random golden armor upon death.20w13a
+Added striders, which drop string upon death.1.16.220w27a
+Added piglin brutes, which may drop a golden axe upon death.1.1721w03a
+Added glow squids, which drop glow ink sacs upon death.21w05a
+Drowned now drop copper ingots instead of gold ingots.21w13a
+Added goats, which don’t drop anything.
+
+Zombies now drop baked potatoes when on fire.1.19Deep Dark Experimental Snapshot 1
+Added wardens, which don’t drop anything.
+
+Sculk sensors now drop experience when broken without Silk Touch.22w11a
+Removed wardens.
+
+Magma cubes now drop froglights if killed by a frog.22w12a
+Re-added wardens, they still don’t drop anything.22w17a
+Wardens now drop sculk catalysts upon death.
+
+Goats now drop goat horns if they ram into coal ore, emerald ore, iron ore, logs, packed ice, or stone.Pre-release 2
+Goat horns now drop when goats ram into copper ore.1.19.1Pre-release 6
+Sculk catalysts now drop 5 experience instead of 20 when broken without Silk Touch.1.19.322w42a
+Rabbits now have a 100% chance to drop raw rabbit when killed.1.19.4ExperimentUpdate 1.2023w04a
+Elder guardians now drop 0–1 tide armor trim smithing templates upon death.23w07a
+Sniffers now drop 0–1 moss block(s) upon death.
+
+Bricks and pottery shards now drop when mining a decorated pot with a tool on the main hand.1.2023w13a
+Sniffers no longer drop moss blocks upon death.1.20.323w41a
+Decorated pots now also drop their contents.
+
+Decorated pots now drop bricks, pottery sherds, and pots' contents when hit by projectiles.1.20.3ExperimentUpdate 1.2123w45a
+Added breezes, which drop nothing upon death.1.20.523w51a
+Added armadillos, which drop 1–3 experience upon death, 1 armadillo scute when brushed, 1 armadillo scute every 5 to 10 minutes.1.20.5ExperimentUpdate 1.2124w06a
+Breezes now drop 4–6 wind charges upon death.24w07a
+Added bogged, which drop 0–2 bone, 0–2 arrows on death, 0–1 arrow of poison when killed by a player.24w09a
+Bogged now drop 2 mushrooms (either both red/brown or one of each) when sheared.24w11a
+Breezes no longer drop wind charges, and instead drop 1–2 breeze rods upon death.1.21.2ExperimentWinter Drop24w40a
+Added creaking hearts, which drop nothing without Silk Touch.1.21.424w44a
+Naturally generated creaking hearts now drop 20 to 24 experience when broken by a player, with or without Silk Touch.
+
+Breaking a creaking heart without Silk Touch now drops 1 to 3 resin clumps.
+
+Ender chests now drop 8 obsidian with incorrect tool.
+Legacy Console Edition
+Legacy Console EditionXbox 360Xbox OnePS3PS4PS VitaWii USwitchTU1CU11.001.001.00Patch 11.0.1
+Added all mobs from and prior to Java Edition Beta 1.6.6 with all of their drops.TU3
+Sheep no longer drop wool from being punched. Sheep now have to be sheared with shears or killed to obtain wool.TU5
+Added ender pearls along with endermen.
+Zombies drop rotten flesh instead of feathers.TU7
+Blaze rods have been added as a drop from blazes.
+Magma cubes can now drop magma cream on death.
+Snow golems added, which drop snowballs.TU8
+Blazes now drop 0–2 glowstone dust when killed.TU12
+Iron golems added, which dropped iron ingots and roses.TU31CU191.221.221.22Patch 3
+Added rabbits, which have a chance of dropping rabbit hide, raw rabbit (cooked rabbit when on fire) and rarely rabbit feet.
+Sheep now drop raw mutton on death (cooked mutton if on fire) along with wool.
+Added guardians and elder guardians, which drop prismarine shards and prismarine crystals, and rarely drop fish and wet sponges.TU43CU331.361.361.36Patch 13
+Added polar bears, which drop raw fish and raw salmon.TU46CU361.381.381.38Patch 15
+Added strays. In addition to normal skeleton drops, strays have a 50% chance to drop a tipped arrow of Slowness.
+Added Shulkers, which currently only drop experience.
+Blazes no longer drop 0–2 glowstone dust when killed.TU48CU381.411.411.41Patch 17
+Blazes drop 0–2 glowstone dust when killed again.TU53CU431.491.501.49Patch 231.0.3
+Shulkers can now drop shulker shells upon death.TU54CU441.521.521.52Patch 241.0.4
+Added llamas, which drop leather, and anything they have equipped.
+Added vindicators, which rarely drop emeralds, and sometimes their iron axe.
+Added evokers, which always drop a totem of undying, and rarely emeralds.TU69 1.761.761.76Patch 38
+Added turtles, which drop seagrass upon death and also drop a scute when a baby grows into an adult.
+Added phantoms, which drop phantom membrane upon death.
+Added 4 fish mobs: cod, salmon, puffer fish, and tropical fish. They drop raw cod, raw salmon, pufferfish, and tropical fish upon death, respectively.
+Added dolphins, which may drop raw cod upon death.  1.83
+Added pandas, which drop bamboo upon death.1.90
+Added pillagers, which drop crossbows and arrows upon death.
+Creepers now drop music discs when killed by strays.1.91
+Added ravagers, which drop a saddle upon death.
+New Nintendo 3DS Edition
+New Nintendo 3DS Edition0.1.0
+Added all mobs with all of their drops from and prior to Pocket Edition Alpha 0.15.0.1.3.12
+Added guardians, elder guardians, which drop prismarine shards and prismarine crystals, and drop fish and sponges
+Added the wither, which drops a nether star.1.7.10
+Added polar bears, which drop fish shulkers, which drop shulker shells.1.9.19
+Added llamas, which drop leather.
+Added vindicators, which drop emeralds, and sometimes their iron axe.
+Added evokers, which always drop a totem of undying, and sometimes emeralds.
+Issues
+Issues relating to "Drops" are maintained on the bug tracker. Issues should be reported and viewed there.
+
+See also
+Item (entity)
+Chest loot
+References
+
+ MCPE-24341
+
+ MC-96449 – resolved as "Fixed".
+
+Navigation

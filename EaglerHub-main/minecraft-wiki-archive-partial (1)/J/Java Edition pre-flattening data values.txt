@@ -1,0 +1,5011 @@
+This feature is exclusive to Java Edition. 
+
+
+
+This page describes content that has been removed and was only present in earlier versions of Java Edition. 
+Most numeric IDs only exist in outdated versions of Minecraft. The change happened in 17w47a
+
+These data values refer to the different types of blocks and items on Java Edition before the flattening in Java Edition 1.13. They are used in many places in Minecraft. Block IDs are used to define blocks placed in the world and inventory items (including items in chests and items dropped in the world). Item IDs are only valid for items. There are also Entity IDs for entities such as mobs and projectiles. Block data further defines blocks placed, describing for example the height of water or the direction a torch points.
+
+The list of blocks and items in Java Edition 1.12.2.
+Contents
+
+1 IDs
+
+1.1 Block IDs
+1.2 Item IDs
+1.3 Entity IDs
+
+1.3.1 Horse variants
+
+1.4 Biome IDs
+1.5 Enchantment IDs
+1.6 Status effects
+1.7 Key codes
+
+1.7.1 Keyboard
+1.7.2 Mouse
+
+2 Data
+
+2.1 Wood Planks
+2.2 Stone
+2.3 Dirt
+2.4 Saplings
+2.5 Water and Lava
+2.6 Sand
+2.7 Wood
+2.8 Leaves
+2.9 Wool, terracotta, stained glass and carpet
+2.10 Torches and Redstone Torches
+2.11 Slabs
+
+2.11.1 Double Stone Slabs
+2.11.2 Stone Slabs
+2.11.3 Double Wooden Slabs
+2.11.4 Wooden Slabs
+
+2.12 Fire
+2.13 Sandstone
+2.14 Red Sandstone
+2.15 Beds
+2.16 Grass
+2.17 Flowers
+2.18 Double Plants
+2.19 Piston
+2.20 Piston Extension
+2.21 Stairs
+2.22 Redstone Wire
+2.23 Daylight Sensor
+2.24 Crops
+2.25 Farmland
+2.26 Banner
+
+2.26.1 Standing
+2.26.2 Wall
+
+2.27 Door
+
+2.27.1 Minecraft 1.1 and Earlier
+2.27.2 Starting at Minecraft 1.2 (from weekly snapshot 12w06a)
+2.27.3 Starting at Minecraft 14w04a
+
+2.28 Rails
+
+2.28.1 Activator Rails, Detector Rails, and Powered Rails
+
+2.29 Ladders, Furnaces, Chests, Trapped Chests
+2.30 Sign
+
+2.30.1 Standing
+2.30.2 Wall
+
+2.31 Dispenser and Dropper
+2.32 Hopper
+2.33 Levers
+2.34 Pressure Plates
+2.35 Buttons
+2.36 Snow
+2.37 Cacti and Sugar Canes
+2.38 Jukebox
+2.39 Pumpkins and Jack o'Lanterns
+2.40 Cake
+2.41 Redstone Repeater
+2.42 Redstone Comparator
+2.43 Trapdoors
+2.44 Monster Egg
+2.45 Stone Bricks
+2.46 Prismarine
+2.47 Sponge
+2.48 Brown and red mushroom blocks
+2.49 Pumpkin Stem and Melon stem
+2.50 Vines
+2.51 Fence Gates
+2.52 Nether Wart
+2.53 Brewing Stand
+2.54 Cauldron
+2.55 Nether Portal
+2.56 End Portal Frame
+2.57 Cocoa
+2.58 Tripwire Hook
+2.59 Tripwire
+2.60 Cobblestone Walls
+2.61 Flower Pots
+2.62 Heads
+2.63 Block of Quartz
+2.64 Coal
+2.65 Dyes
+2.66 Fish
+2.67 Anvil
+2.68 Observer
+2.69 Potions
+
+2.69.1 "Potion name" bits
+2.69.2 "Potion effect" bits
+2.69.3 "Tier" bit
+2.69.4 "Extended duration" bit
+2.69.5 "Splash potion" bit
+
+2.70 Maps
+2.71 Golden Apple
+2.72 Structure Block
+2.73 Chorus Flower
+2.74 End Rod
+2.75 Glazed Terracotta
+
+3 Navigation
+
+IDs
+Key
+
+I
+
+Has a different ID as an inventory item.
+
+D
+
+Use the item's Damage field to define its durability.
+
+S
+
+Requires additional data from the saved game's Data array to fully define the block.
+
+B
+
+Requires additional data in the item's Damage field to fully define the inventory item.
+
+N
+
+Requires additional data in the item's NBT data to fully define the inventory item.
+
+E
+
+Requires a block entity to store additional data.
+
+Red
+
+Cannot be legitimately obtained. Only available using the /give command or via inventory editors.
+
+Light Blue
+
+Cannot be obtained as an item. (Can only be placed using block-placement commands such as /setblock or /fill.)
+
+Blue
+
+Available in the Creative mode inventory by item list.
+
+Purple
+
+Available in Creative mode by block picking.
+
+Teal
+
+Can be obtained by trading with villagers or in the Creative mode inventory.
+
+Green
+
+Only available by having Enchanted tools or in the Creative mode inventory.
+
+Lime Green
+
+Only available by having Enchanted tools or via use of /give or inventory editors, but unobtainable in the Creative mode inventory.
+
+Gray
+
+Unused data.
+
+Block IDs
+Main article: Java Edition pre-flattening data values/Block IDs[edit]
+
+Item IDs
+Main article: Java Edition pre-flattening data values/Item IDs[edit]
+
+Entity IDs
+Main article: Java Edition pre-flattening data values/Entity IDs[edit]
+
+Horse variants
+Horse entities have variant fields that determine the markings on the horse.  Below is a list of Variant values that determine the variant of horses.
+
+White
+Creamy
+Chestnut
+Brown
+Black
+Gray
+Dark Brown
+
+None
+
+0
+1
+2
+3
+4
+5
+6
+
+White
+
+256
+257
+258
+259
+260
+261
+262
+
+White Field
+
+512
+513
+514
+515
+516
+517
+518
+
+White Dots
+
+768
+769
+770
+771
+772
+773
+774
+
+Black Dots
+
+1024
+1025
+1026
+1027
+1028
+1029
+1030
+
+Variant names taken from the names of the texture file they correspond to.
+Summoning a horse entity without specifying the Variant value, or using a Variant value that is not a true ID (all true IDs are displayed on the chart above), will result in a white horse.
+
+Biome IDs
+See also: Biome/ID
+
+Each type of biome has its own biome id, shown in the following table. Main biomes have a numeric ID from 0 to 127, while biome variations normally have a numeric ID of 128 + <original biome number>. Extreme Hills Edge and Frozen Ocean biomes did not generate anymore.
+
+Icon
+Dec
+Hex
+Identifier
+Biome
+Color
+
+0
+
+0
+
+minecraft:ocean
+
+Ocean
+
+000070
+
+1
+
+1
+
+minecraft:plains
+
+Plains
+
+8DB360
+
+2
+
+2
+
+minecraft:desert
+
+Desert
+
+FA9418
+
+3
+
+3
+
+minecraft:extreme_hills
+
+Extreme Hills
+
+606060
+
+4
+
+4
+
+minecraft:forest
+
+Forest
+
+056621
+
+5
+
+5
+
+minecraft:taiga
+
+Taiga
+
+0B6659
+
+6
+
+6
+
+minecraft:swampland
+
+Swampland
+
+07F9B2
+
+7
+
+7
+
+minecraft:river
+
+River
+
+0000FF
+
+8
+
+8
+
+minecraft:hell
+
+Hell
+
+FF0000
+
+9
+
+9
+
+minecraft:sky
+
+The End
+
+8080FF
+
+10
+
+A
+
+minecraft:frozen_ocean
+
+FrozenOcean
+
+9090A0
+
+11
+
+B
+
+minecraft:frozen_river
+
+FrozenRiver
+
+A0A0FF
+
+12
+
+C
+
+minecraft:ice_flats
+
+Ice Plains
+
+FFFFFF
+
+13
+
+D
+
+minecraft:ice_mountains
+
+Ice Mountains
+
+A0A0A0
+
+14
+
+E
+
+minecraft:mushroom_island
+
+MushroomIsland
+
+FF00FF
+
+15
+
+F
+
+minecraft:mushroom_island_shore
+
+MushroomIslandShore
+
+A000FF
+
+16
+
+10
+
+minecraft:beaches
+
+Beach
+
+FADE55
+
+17
+
+11
+
+minecraft:desert_hills
+
+DesertHills
+
+D25F12
+
+18
+
+12
+
+minecraft:forest_hills
+
+ForestHills
+
+22551C
+
+19
+
+13
+
+minecraft:taiga_hills
+
+TaigaHills
+
+163933
+
+20
+
+14
+
+minecraft:smaller_extreme_hills
+
+Extreme Hills Edge
+
+72789A
+
+21
+
+15
+
+minecraft:jungle
+
+Jungle
+
+537B09
+
+22
+
+16
+
+minecraft:jungle_hills
+
+JungleHills
+
+2C4205
+
+23
+
+17
+
+minecraft:jungle_edge
+
+JungleEdge
+
+628B17
+
+24
+
+18
+
+minecraft:deep_ocean
+
+Deep Ocean
+
+000030
+
+25
+
+19
+
+minecraft:stone_beach
+
+Stone Beach
+
+A2A284
+
+26
+
+1A
+
+minecraft:cold_beach
+
+Cold Beach
+
+FAF0C0
+
+27
+
+1B
+
+minecraft:birch_forest
+
+Birch Forest
+
+307444
+
+28
+
+1C
+
+minecraft:birch_forest_hills
+
+Birch Forest Hills
+
+1F5F32
+
+29
+
+1D
+
+minecraft:roofed_forest
+
+Roofed Forest
+
+40511A
+
+30
+
+1E
+
+minecraft:taiga_cold
+
+Cold Taiga
+
+31554A
+
+31
+
+1F
+
+minecraft:taiga_cold_hills
+
+Cold Taiga Hills
+
+243F36
+
+32
+
+20
+
+minecraft:redwood_taiga
+
+Mega Taiga
+
+596651
+
+33
+
+21
+
+minecraft:redwood_taiga_hills
+
+Mega Taiga Hills
+
+545F3E
+
+34
+
+22
+
+minecraft:extreme_hills_with_trees
+
+Extreme Hills+
+
+507050
+
+35
+
+23
+
+minecraft:savanna
+
+Savanna
+
+BDB25F
+
+36
+
+24
+
+minecraft:savanna_rock
+
+Savanna Plateau
+
+A79D64
+
+37
+
+25
+
+minecraft:mesa
+
+Mesa
+
+D94515
+
+38
+
+26
+
+minecraft:mesa_rock
+
+Mesa Plateau F
+
+B09765
+
+39
+
+27
+
+minecraft:mesa_clear_rock
+
+Mesa Plateau
+
+CA8C65
+
+127
+
+7F
+
+minecraft:void
+
+The Void
+
+129
+
+81
+
+minecraft:mutated_plains
+
+Sunflower Plains
+
+B5DB88
+
+130
+
+82
+
+minecraft:mutated_desert
+
+Desert M
+
+FFBC40
+
+131
+
+83
+
+minecraft:mutated_extreme_hills
+
+Extreme Hills M
+
+888888
+
+132
+
+84
+
+minecraft:mutated_forest
+
+Flower Forest
+
+2d8e48
+
+133
+
+85
+
+minecraft:mutated_taiga
+
+Taiga M
+
+596651
+
+134
+
+86
+
+minecraft:mutated_swampland
+
+Swampland M
+
+2FFFDA
+
+140
+
+8C
+
+minecraft:mutated_ice_flats
+
+Ice Plains Spikes
+
+B4DCDC
+
+149
+
+95
+
+minecraft:mutated_jungle
+
+Jungle M
+
+7BA331
+
+151
+
+97
+
+minecraft:mutated_jungle_edge
+
+JungleEdge M
+
+8AB33F
+
+155
+
+9B
+
+minecraft:mutated_birch_forest
+
+Birch Forest M
+
+589C6C
+
+156
+
+9C
+
+minecraft:mutated_birch_forest_hills
+
+Birch Forest Hills M
+
+47875A
+
+157
+
+9D
+
+minecraft:mutated_roofed_forest
+
+Roofed Forest M
+
+687942
+
+158
+
+9E
+
+minecraft:mutated_taiga_cold
+
+Cold Taiga M
+
+597D72
+
+160
+
+A0
+
+minecraft:mutated_redwood_taiga
+
+Mega Spruce Taiga
+
+818e79
+
+161
+
+A1
+
+minecraft:mutated_redwood_taiga_hills
+
+Redwood Taiga Hills M
+
+6d7766
+
+162
+
+A2
+
+minecraft:mutated_extreme_hills_with_trees
+
+Extreme Hills+ M
+
+789878
+
+163
+
+A3
+
+minecraft:mutated_savanna
+
+Savanna M
+
+E5DA87
+
+164
+
+A4
+
+minecraft:mutated_savanna_rock
+
+Savanna Plateau M
+
+CFC58C
+
+165
+
+A5
+
+minecraft:mutated_mesa
+
+Mesa (Bryce)
+
+FF6D3D
+
+166
+
+A6
+
+minecraft:mutated_mesa_rock
+
+Mesa Plateau F M
+
+D8BF8D
+
+167
+
+A7
+
+minecraft:mutated_mesa_clear_rock
+
+Mesa Plateau M
+
+F2B48D
+
+Enchantment IDs
+
+
+
+This section needs cleanup to comply with the style guide. [discuss]
+Please help improve this section. The talk page may contain suggestions.Reason: for consistency, the numbers really should be on the left
+
+Used in commands such as /enchant, /give and /replaceitem.
+
+Enchantment
+Resource location
+ID
+
+Protection
+protection
+0
+
+Fire Protection
+fire_protection
+1
+
+Feather Falling
+feather_falling
+2
+
+Blast Protection
+blast_protection
+3
+
+Projectile Protection
+projectile_protection
+4
+
+Respiration
+respiration
+5
+
+Aqua Affinity
+aqua_affinity
+6
+
+Thorns
+thorns
+7
+
+Depth Strider
+depth_strider
+8
+
+Frost Walker
+frost_walker
+9
+
+Curse of Binding
+binding_curse
+10
+
+Sharpness
+sharpness
+16
+
+Smite
+smite
+17
+
+Bane of Arthropods
+bane_of_arthropods
+18
+
+Knockback
+knockback
+19
+
+Fire Aspect
+fire_aspect
+20
+
+Looting
+looting
+21
+
+Sweeping Edge
+sweeping
+22
+
+Efficiency
+efficiency
+32
+
+Silk Touch
+silk_touch
+33
+
+Unbreaking
+unbreaking
+34
+
+Fortune
+fortune
+35
+
+Power
+power
+48
+
+Punch
+punch
+49
+
+Flame
+flame
+50
+
+Infinity
+infinity
+51
+
+Luck of the Sea
+luck_of_the_sea
+61
+
+Lure
+lure
+62
+
+Mending
+mending
+70
+
+Curse of Vanishing
+vanishing_curse
+71
+
+Status effects
+Used in /effect command.
+
+Icon
+Value
+Resource location
+Effect type
+Translation key
+Particle color
+
+1
+speed
+Speed
+effect.moveSpeed
+ #7CAFC6
+
+2
+slowness
+Slowness
+effect.moveSlowdown
+ #5A6C81
+
+3
+haste
+Haste
+effect.digSpeed
+ #D9C043
+
+4
+mining_fatigue
+Mining Fatigue
+effect.digSlowDown
+ #4A4217
+
+5
+strength
+Strength
+effect.damageBoost
+ #932423
+
+—
+6
+instant_health
+Instant Health
+effect.heal
+ #F82423
+
+—
+7
+instant_damage
+Instant Damage
+effect.harm
+ #430A09
+
+8
+jump_boost
+Jump Boost
+effect.jump
+ #786297
+
+9
+nausea
+Nausea
+effect.confusion
+ #551D4A
+
+10
+regeneration
+Regeneration
+effect.regeneration
+ #CD5CAB
+
+11
+resistance
+Resistance
+effect.resistance
+ #99453A
+
+12
+fire_resistance
+Fire Resistance
+effect.fireResistance
+ #E49A3A
+
+13
+water_breathing
+Water Breathing
+effect.waterBreathing
+ #2E5299
+
+14
+invisibility
+Invisibility
+effect.invisibility
+ #7F8392
+
+15
+blindness
+Blindness
+effect.blindness
+ #1F1F23
+
+16
+night_vision
+Night Vision
+effect.nightVision
+ #1F1FA1
+
+17
+hunger
+Hunger
+effect.hunger
+ #587653
+
+18
+weakness
+Weakness
+effect.weakness
+ #484D48
+
+19
+poison
+Poison
+effect.poison
+ #4E9331
+
+20
+wither
+Wither
+effect.wither
+ #352A27
+
+21
+health_boost
+Health Boost
+effect.healthBoost
+ #F87D23
+
+22
+absorption
+Absorption
+effect.absorption
+ #2552A5
+
+—
+23
+saturation
+Saturation
+effect.saturation
+ #F82423
+
+24
+glowing
+Glowing
+effect.glowing
+ #94A061
+
+25
+levitation
+Levitation
+effect.levitation
+ #CEFFFF
+
+26
+luck
+Luck
+effect.luck
+ #339900
+
+27
+unluck
+Bad Luck
+effect.unluck
+ #C0A44D
+
+Key codes
+
+
+
+This section needs cleanup to comply with the style guide. [discuss]
+Please help improve this section. The talk page may contain suggestions.Reason: I took this from the "key codes" page, but it could do with some reformatting to fit the other tables on this page better
+
+Keyboard
+
+Value
+Name
+Description
+
+0
+NONE
+
+1
+ESCAPE
+Escape
+
+2
+1
+
+3
+2
+
+4
+3
+
+5
+4
+
+6
+5
+
+7
+6
+
+8
+7
+
+9
+8
+
+10
+9
+
+11
+0
+
+12
+MINUS
+-
+
+13
+EQUALS
+=
+
+14
+BACK
+Backspace
+
+15
+TAB
+Tab
+
+16
+Q
+
+17
+W
+
+18
+E
+
+19
+R
+
+20
+T
+
+21
+Y
+
+22
+U
+
+23
+I
+
+24
+O
+
+25
+P
+
+26
+LBRACKET
+[
+
+27
+RBRACKET
+]
+
+28
+RETURN
+Enter
+
+29
+LCONTROL
+Left Control
+
+30
+A
+
+31
+S
+
+32
+D
+
+33
+F
+
+34
+G
+
+35
+H
+
+36
+J
+
+37
+K
+
+38
+L
+
+39
+SEMICOLON
+;
+
+40
+APOSTROPHE
+'
+
+41
+GRAVE
+`
+
+42
+LSHIFT
+Left Shift
+
+43
+BACKSLASH
+\
+
+44
+Z
+
+45
+X
+
+46
+C
+
+47
+V
+
+48
+B
+
+49
+N
+
+50
+M
+
+51
+COMMA
+,
+
+52
+PERIOD
+.
+
+53
+SLASH
+/
+
+54
+RSHIFT
+Right Shift
+
+55
+MULTIPLY
+
+56
+LMENU
+Left Menu/Alt
+
+57
+SPACE
+
+58
+CAPITAL
+Caps Lock
+
+59
+F1
+
+60
+F2
+
+61
+F3
+
+62
+F4
+
+Value
+Name
+Description
+
+63
+F5
+
+64
+F6
+
+65
+F7
+
+66
+F8
+
+67
+F9
+
+68
+F10
+
+69
+NUMLOCK
+Number Lock
+
+70
+SCROLL
+Scroll Lock
+
+71
+NUMPAD7
+
+72
+NUMPAD8
+
+73
+NUMPAD9
+
+74
+SUBTRACT
+
+75
+NUMPAD4
+
+76
+NUMPAD5
+
+77
+NUMPAD6
+
+78
+ADD
+
+79
+NUMPAD1
+
+80
+NUMPAD2
+
+81
+NUMPAD3
+
+82
+NUMPAD0
+
+83
+DECIMAL
+
+87
+F11
+
+88
+F12
+
+100
+F13
+
+101
+F14
+
+102
+F15
+
+112
+KANA
+
+121
+CONVERT
+
+123
+NOCONVERT
+
+125
+YEN
+¥
+
+141
+NUMPADEQUALS
+
+144
+CIRCUMFLEX
+^
+
+145
+AT
+@
+
+146
+COLON
+:
+
+147
+UNDERLINE
+_
+
+148
+KANJI
+
+149
+STOP
+
+150
+AX
+
+151
+UNLABLED
+
+156
+NUMPADENTER
+
+157
+RCONTROL
+Right Control
+
+179
+NUMPADCOMMA
+
+181
+DIVIDE
+
+183
+SYSRQ
+
+184
+RMENU
+Right Menu/Alt
+
+197
+PAUSE
+
+199
+HOME
+
+200
+UP
+Up Arrow
+
+201
+PRIOR
+Page Up
+
+203
+LEFT
+Left Arrow
+
+205
+RIGHT
+Right Arrow
+
+207
+END
+
+208
+DOWN
+Down Arrow
+
+209
+NEXT
+Page Down
+
+210
+INSERT
+
+211
+DELETE
+
+219
+LMETA
+Left Meta/Super
+
+LWIN
+
+220
+RMETA
+Right Meta/Super
+
+RWIN
+
+221
+APPS
+
+222
+POWER
+
+223
+SLEEP
+
+Mouse
+LWJGL supports a maximum of 16 mouse buttons.[verify]​[until: JE 26.3] The Minecraft game settings screen translates button 0 to "Button 1", button 1 to "Button 2", et cetera.
+
+Value
+LWJGL  Name
+Description
+
+LWJGL
+Minecraft
+
+0
+-100
+BUTTON0
+Left Click
+
+1
+-99
+BUTTON1
+Right Click
+
+2
+-98
+BUTTON2
+Middle Click
+
+3
+-97
+BUTTON3
+
+4
+-96
+BUTTON4
+
+5
+-95
+BUTTON5
+
+6
+-94
+BUTTON6
+
+7
+-93
+BUTTON7
+
+Value
+LWJGL  Name
+Description
+
+LWJGL
+Minecraft
+
+8
+-92
+BUTTON8
+
+9
+-91
+BUTTON9
+
+10
+-90
+BUTTON10
+
+11
+-89
+BUTTON11
+
+12
+-88
+BUTTON12
+
+13
+-87
+BUTTON13
+
+14
+-86
+BUTTON14
+
+15
+-85
+BUTTON15
+
+Data
+
+
+
+This section is missing information about: Name of block states, correlated with each data. Like variant and axis for log (block 17) 
+Please expand the section to include this information. Further details may exist on the talk page.
+
+
+Up to 4 bits of special data are used for certain block and item types. Blocks that need more than 4 bits of data beyond the block ID use a block entity or are split into two blocks. Storage differs according to level format.
+
+Block
+dec
+hex
+Use
+
+Wood
+0-15
+0-F
+Wood Texture/Rotation
+
+Fire
+0-15
+0-F
+Age in ticks (1/20th of a second)
+
+Leaves
+0-15
+0-F
+Leaves texture, decay counter
+
+Jukebox
+0-1
+0-1
+Disc in jukebox or not
+
+Saplings
+0-15
+0-F
+Age / Tree Type
+
+Cactus
+0-15
+0-F
+Age
+
+Sugar Cane
+0-15
+0-F
+Age
+
+Water and Lava
+0-15
+0-F
+Fluid level
+
+Sand
+0-1
+0-1
+Color of sand
+
+Soil/Farmland
+0-8
+0-8
+Wetness
+
+Crops
+0-7
+0-7
+Crop size
+
+Nether Wart
+0-3
+0-3
+Nether Wart Size
+
+Pumpkin and melon stem
+0-7
+0-7
+Growth stage
+
+Wool, Stained Clay, Stained Glass and Carpet
+0-15
+0-F
+Color
+
+Dyes
+0-15
+0-F
+Dye Color
+
+Fish
+0-3
+0-3
+Type of fish
+
+Command block
+0-1
+0-1
+Commands
+
+Torches and Redstone Torches
+0-5
+0-5
+Torch orientation
+
+Rails (reg, powered, detect)
+0-9
+0-9
+Rail slope, orientation, power
+
+Stairs
+0-7
+0-7
+Stair orientation
+
+Levers
+0-15
+0-F
+Lever orientation and thrown state
+
+Door
+0-15
+0-F
+Hinge corner position and swing state
+
+Buttons
+0-15
+0-F
+Button orientation, whether it's pressed
+
+Sign Posts
+0-15
+0-F
+Sign orientation
+
+Ladders, Wall Signs, Furnaces, Chests
+2-5
+2-5
+Orientation
+
+Dispensers, Droppers, and Hoppers
+0-15
+0-F
+Orientation
+
+Pumpkins and Jack-O-Lanterns
+0-3
+0-3
+Pumpkin orientation
+
+Pressure Plates
+0-1
+0-1
+Whether it's pressed
+
+Coal
+0-1
+0-1
+Type of coal (mined coal or charcoal)
+
+Tools and Armor
+varies
+Damage level
+
+Slabs
+0-15
+0-F
+Type of slab
+
+Snow
+0-7
+0-7
+Block height
+
+Cake
+0-5
+0-5
+Pieces eaten
+
+Bed
+0-15
+0-F
+Orientation, whether it's occupied
+
+Redstone Comparator
+0-15
+0-F
+Orientation, mode and power
+
+Redstone Repeater
+0-15
+0-F
+Orientation and delay
+
+Redstone Wire
+0-15
+0-F
+Power level
+
+Daylight sensor
+0-15
+0-F
+Power level
+
+Grass
+0-2
+0-2
+Appearance (grass, fern, shrub)
+
+Flowers
+0-8
+0-8
+Type of flower
+
+Double Plants
+0-5, 8-13
+0-5, 8-D
+Type of plant
+
+Trapdoors
+0-7
+0-7
+Orientation and "swung" state
+
+Piston
+0-5, 8-13
+0-5, 8-D
+Orientation and "extended" state
+
+Piston Extension
+0-5, 8-13
+0-5, 8-D
+Orientation and "sticky" state
+
+Stone Brick
+0-3
+0-3
+Stronghold texture
+
+Huge brown and red mushroom
+0-10
+0-A
+Texture
+
+Vines
+0-15
+0-F
+Attached Surface
+
+Fence Gates
+0-7
+0-7
+Open/Closed, and direction
+
+Potions
+0-65535
+0-FFFF
+Potion Type
+
+Brewing Stand
+0-7
+0-7
+Slots used
+
+Cauldron
+0-3
+0-3
+Amount of water
+
+Nether Portal
+1-2
+1-2
+Orientation
+
+End Portal Frame
+0-7
+0-7
+Orientation, broken/fixed state
+
+Cobblestone Wall
+0-1
+0-1
+Cobblestone or Moss Stone
+
+Flower Pot
+0-11
+0-B
+Plant inside flower pot
+
+Heads
+0-4
+0-4
+Type of head
+
+Anvil
+0-2
+0-2
+Damage value
+
+Golden Apple
+0-1
+0-1
+Type of Golden Apple (regular or enchanted)
+
+Wood Planks
+0-5
+0-5
+Wood Planks texture
+
+Block of Quartz
+0-4
+0-4
+Block of Quartz texture/rotation
+
+Wood Planks
+
+
+   DV
+   Description
+
+
+0
+Oak Wood Planks
+
+1
+Spruce Wood Planks
+
+2
+Birch Wood Planks
+
+3
+Jungle Wood Planks
+
+4
+Acacia Wood Planks
+
+5
+Dark Oak Wood Planks
+
+Stone
+
+
+   DV
+   Description
+
+
+0
+Stone
+
+1
+Granite
+
+2
+Polished Granite
+
+3
+Diorite
+
+4
+Polished Diorite
+
+5
+Andesite
+
+6
+Polished Andesite
+
+Dirt
+
+
+   DV
+   Description
+
+
+0
+Dirt
+
+1
+Coarse Dirt
+
+2
+Podzol
+
+Saplings
+The data value is split in half. The bottom three bits determine the type of sapling (and thus the eventual tree type), according to the following table:
+
+Bits
+Values
+
+0x10x20x4
+A three-bit field storing a value of 0 to 5 specifying the type of sapling:
+0:  Oak Sapling
+1:  Spruce Sapling
+2:  Birch Sapling
+3:  Jungle Sapling
+4:  Acacia Sapling
+5:  Dark Oak Sapling
+
+0x8
+Set if sapling is ready to grow into a tree.
+
+The 0x8 bit functions as the counter. The counter is cleared when a sapling is dropped as an item.
+
+Water and Lava
+If bit 0x8 is set, this liquid is "falling" and only spreads downward. At this level, the lower bits are essentially ignored, since this block is then at its highest fluid level.
+The lower three bits are the fluid block's level. 0x0 is the highest fluid level (not necessarily filling the block - this depends on the neighboring fluid blocks above each upper corner of the block). Data values increase as the fluid level of the block drops: 0x1 is next highest, 0x2 lower, on through 0x7, the lowest fluid level. Along a line on a flat plane, water drops one level per meter from the source, lava drops one in the nether and two everywhere else.
+The stationary versions of each fluid are "stable" and currently not being checked by the engine for further level changes. Oddly the in-code names for stationary water and lava are "water" and "lava" and the regular versions are "flowing_water" and "flowing_lava".
+
+Sand
+
+
+   DV
+   Description
+
+
+0
+Sand
+
+1
+Red sand
+
+Wood
+Block 17
+
+Bits
+Values
+
+0x10x2
+A two-bit field storing a value of 0 to 3 specifying the type of wood:
+0:  Oak Wood
+1:  Spruce Wood
+2:  Birch Wood
+3:  Jungle Wood
+
+0x40x8
+A two-bit field storing a value of 0 to 3 specifying the orientation of the wood:
+0:  Facing Up/Down
+1:  Facing East/West
+2:  Facing North/South
+3:  Only bark
+
+Block 162
+
+Bits
+Values
+
+0x10x2
+A two-bit field storing a value of 0 to 1 specifying the type of wood:
+0:  Acacia Wood
+1:  Dark Oak Wood
+
+0x40x8
+A two-bit field storing a value of 0 to 3 specifying the orientation of the wood:
+0:  Facing Up/Down
+1:  Facing East/West
+2:  Facing North/South
+3:  Only bark
+
+Leaves
+If bit 0x4 is set, the leaves are permanent and will never decay. This bit is set on player-placed leaf blocks and overrides the meaning of bit 0x8.
+If bit 0x8 is set, the leaves will be checked for decay. The bit will be cleared after the check if the leaves do not decay. The bit will be set again whenever a block adjacent to the leaves is changed.
+Block 18
+
+
+   DV
+   Description
+
+
+0
+Oak Leaves
+
+1
+Spruce Leaves
+
+2
+Birch Leaves
+
+3
+Jungle Leaves
+
+4
+Oak Leaves (no decay)
+
+5
+Spruce Leaves (no decay)
+
+6
+Birch Leaves (no decay)
+
+7
+Jungle Leaves (no decay)
+
+8
+Oak Leaves (check decay)
+
+9
+Spruce Leaves (check decay)
+
+10
+Birch Leaves (check decay)
+
+11
+Jungle Leaves (check decay)
+
+12
+Oak Leaves (no decay and check decay)
+
+13
+Spruce Leaves (no decay and check decay)
+
+14
+Birch Leaves (no decay and check decay)
+
+15
+Jungle Leaves (no decay and check decay)
+
+Block 161
+
+
+   DV
+   Description
+
+
+0
+Acacia Leaves
+
+1
+Dark Oak Leaves
+
+4
+Acacia Leaves (no decay)
+
+5
+Dark Oak Leaves (no decay)
+
+8
+Acacia Leaves (check decay)
+
+9
+Dark Oak Leaves (check decay)
+
+12
+Acacia Leaves (no decay and check decay)
+
+13
+Dark Oak Leaves (no decay and check decay)
+
+Wool, terracotta, stained glass and carpet
+These values specify the color of the wool, stained terracotta, stained glass and carpet. This data is stored in block metadata for placed wool, stained clay, stained glass or carpet, and as the "damage" for the item in the inventory.
+
+Carpet
+
+
+   DV
+   Description
+
+
+0
+White Carpet
+
+1
+Orange Carpet
+
+2
+Magenta Carpet
+
+3
+Light Blue Carpet
+
+4
+Yellow Carpet
+
+5
+Lime Carpet
+
+6
+Pink Carpet
+
+7
+Gray Carpet
+
+8
+Light Gray Carpet
+
+9
+Cyan Carpet
+
+10
+Purple Carpet
+
+11
+Blue Carpet
+
+12
+Brown Carpet
+
+13
+Green Carpet
+
+14
+Red Carpet
+
+15
+Black Carpet
+
+Wool
+
+Data value
+
+Description
+
+Color Code
+
+Dec
+Hex
+
+old
+new
+
+0
+0x0
+
+White wool
+
+#DDDDDD
+#E9ECEC
+
+1
+0x1
+
+Orange wool
+
+#DB7D3E
+#F07613
+
+2
+0x2
+
+Magenta wool
+
+#B350BC
+#BD44B3
+
+3
+0x3
+
+Light blue wool
+
+#6B8AC9
+#3AAFD9
+
+4
+0x4
+
+Yellow wool
+
+#B1A627
+#F8C627
+
+5
+0x5
+
+Lime wool
+
+#41AE38
+#70B919
+
+6
+0x6
+
+Pink wool
+
+#D08499
+#ED8DAC
+
+7
+0x7
+
+Gray wool
+
+#404040
+#3E4447
+
+8
+0x8
+
+Light gray wool
+
+#9AA1A1
+#8E8E86
+
+9
+0x9
+
+Cyan wool
+
+#2E6E89
+#158991
+
+10
+0xA
+
+Purple wool
+
+#7E3DB5
+#792AAC
+
+11
+0xB
+
+Blue wool
+
+#2E388D
+#35399D
+
+12
+0xC
+
+Brown wool
+
+#4F321F
+#724728
+
+13
+0xD
+
+Green wool
+
+#35461B
+#546D1B
+
+14
+0xE
+
+Red wool
+
+#963430
+#A12722
+
+15
+0xF
+
+Black wool
+
+#191616
+#141519
+
+ Wool has a mottled pattern. These are the average RGB color values for the default texture.
+
+Terracotta
+
+
+   DV
+   Description
+
+
+0
+White terracotta
+
+1
+Orange terracotta
+
+2
+Magenta terracotta
+
+3
+Light blue terracotta
+
+4
+Yellow terracotta
+
+5
+Lime terracotta
+
+6
+Pink terracotta
+
+7
+Gray terracotta
+
+8
+Light gray terracotta
+
+9
+Cyan terracotta
+
+10
+Purple terracotta
+
+11
+Blue terracotta
+
+12
+Brown terracotta
+
+13
+Green terracotta
+
+14
+Red terracotta
+
+15
+Black terracotta
+
+Stained glass
+
+
+   DV
+   Description
+
+
+0
+White Stained Glass
+
+1
+Orange Stained Glass
+
+2
+Magenta Stained Glass
+
+3
+Light Blue Stained Glass
+
+4
+Yellow Stained Glass
+
+5
+Lime Stained Glass
+
+6
+Pink Stained Glass
+
+7
+Gray Stained Glass
+
+8
+Light Gray Stained Glass
+
+9
+Cyan Stained Glass
+
+10
+Purple Stained Glass
+
+11
+Blue Stained Glass
+
+12
+Brown Stained Glass
+
+13
+Green Stained Glass
+
+14
+Red Stained Glass
+
+15
+Black Stained Glass
+
+Torches and Redstone Torches
+
+
+   DV
+   Description
+
+
+0
+(unused)
+
+1
+Facing east (attached to a block to its west)
+
+2
+Facing west (attached to a block to its east)
+
+3
+Facing south (attached to a block to its north)
+
+4
+Facing north (attached to a block to its south)
+
+5
+Facing up (attached to a block beneath it)
+
+Slabs
+
+
+
+This section is missing information about: stone_slab2 and purpur_slab, and their double variants 
+Please expand the section to include this information. Further details may exist on the talk page.
+
+Single slabs can be either "right-side-up" or "upside-down"; this information is stored in the most significant metadata bit 0x8 as follows:
+
+0: Slab is right-side-up, occupying the bottom half of its voxel.
+1: Slab is upside-down, occupying the top half of its voxel.
+Thus a right-side-up birch wood slab has metadata value 0x2 (binary 0010), while an upside-down birch slab is represented by metadata 0xA (binary 1010).
+Double slabs with the high-order bit set render the top texture on all six sides.
+The wooden slab in the stone slabs has the properties of stone, and the texture of oak wood planks. They are unavailable in game and can only be obtained through commands.
+
+Double Stone Slabs
+Block 43
+
+
+   DV
+   Description
+
+
+0
+Double Stone Slab
+
+1
+Double Sandstone Slab
+
+2
+Double (Stone) Wooden Slab
+
+3
+Double Cobblestone Slab
+
+4
+Double Bricks Slab
+
+5
+Double Stone Bricks Slab
+
+6
+Double Nether Brick Slab
+
+7
+Double Quartz Slab
+
+The full stone, quartz, sandstone, and red sandstone Slabs have a top texture on all sides.
+
+Stone Slabs
+Block 44
+
+
+   DV
+   Description
+
+
+0
+Stone Slab
+
+1
+Sandstone Slab
+
+2
+(Stone) Wooden Slab
+
+3
+Cobblestone Slab
+
+4
+Bricks Slab
+
+5
+Stone Bricks Slab
+
+6
+Nether Brick Slab
+
+7
+Quartz Slab
+
+8
+Upper Stone Slab
+
+9
+Upper Sandstone Slab
+
+10
+Upper (Stone) Wooden Slab
+
+11
+Upper Cobblestone Slab
+
+12
+Upper Bricks Slab
+
+13
+Upper Stone Bricks Slab
+
+14
+Upper Nether Brick Slab
+
+15
+Upper Quartz Slab
+
+Block 182
+
+
+   DV
+   Description
+
+
+0
+Red Sandstone Slab
+
+8
+Upper Red Sandstone Slab
+
+Double Wooden Slabs
+Block 125
+
+
+   DV
+   Description
+
+
+0
+Double Oak Slab
+
+1
+Double Spruce Slab
+
+2
+Double Birch Slab
+
+3
+Double Jungle Slab
+
+4
+Double Acacia Slab
+
+5
+Double Dark Oak Slab
+
+Wooden Slabs
+Block 126
+
+
+   DV
+   Description
+
+
+0
+Oak Wood Slab
+
+1
+Spruce Wood Slab
+
+2
+Birch Wood Slab
+
+3
+Jungle Wood Slab
+
+4
+Acacia Wood Slab
+
+5
+Dark Oak Wood Slab
+
+8
+Upper Oak Wood Slab
+
+9
+Upper Spruce Wood Slab
+
+10
+Upper Birch Wood Slab
+
+11
+Upper Jungle Wood Slab
+
+12
+Upper Acacia Wood Slab
+
+13
+Upper Dark Oak Wood Slab
+
+Fire
+0x0 is a placed or spread fire. Once it reaches 0xF the eternal fire-trick will work since there will be no further updates of the block.
+
+Sandstone
+For normal sandstone the bottom has a cracked pattern. The other types of sandstone have bottom faces
+same as the tops.
+
+
+   DV
+   Description
+
+
+0
+Sandstone
+
+1
+Chiseled sandstone
+
+2
+Smooth sandstone
+
+Red Sandstone
+
+
+   DV
+   Description
+
+
+0
+Red Sandstone
+
+1
+Chiseled Red Sandstone
+
+2
+Smooth Red Sandstone
+
+Beds
+
+Lowest two bits value
+Facing
+
+0
+Head facing South
+
+1
+Head facing West
+
+2
+Head facing North
+
+3
+Head facing East
+
+Bit flag
+Meaning
+
+0x4
+When 0, the bed is emptyWhen 1, the bed is occupied
+
+0x8
+When 0, the foot of the bedWhen 1, the head of the bed
+
+Grass
+
+
+   DV
+   Description
+
+
+0
+Shrub
+
+1
+Grass
+
+2
+Fern
+
+Flowers
+
+
+   DV
+   Description
+
+
+0
+Poppy
+
+1
+Blue Orchid
+
+2
+Allium
+
+3
+Azure Bluet
+
+4
+Red Tulip
+
+5
+Orange Tulip
+
+6
+White Tulip
+
+7
+Pink Tulip
+
+8
+Oxeye Daisy
+
+Double Plants
+Double plants take up two vertical blocks. The bottom block defines the type, while the top defines the direction it faces (unused). When the most significant bit (0x8) is set, the plant is the top.
+
+
+   DV
+   Description
+
+
+0
+Sunflower
+
+1
+Lilac
+
+2
+Double Tallgrass
+
+3
+Large Fern
+
+4
+Rose Bush
+
+5
+Peony
+
+8
+Top (South)
+
+9
+Top (West)
+
+10
+Top (North)
+
+11
+Top (East)
+
+Piston
+The top bit (0x8) is a status bit that determines whether the piston is pushed out or not. 1 for pushed out, 0 for retracted.
+The bottom three bits are a value from 0 to 5, indicating the direction of the piston (the direction the piston head is pointing)
+
+0: Down
+1: Up
+2: north
+3: south
+4: west
+5: east
+Piston Extension
+The top bit (0x8) is a status bit that determines whether the head is sticky or not (note that the Piston Body actually has completely different block types for Sticky and Regular). 1 is sticky, 0 is regular.
+The bottom three bits are a value from 0 to 5, indicating the direction of the piston (the direction the piston head is pointing).
+
+0: Down
+1: Up
+2: north
+3: south
+4: west
+5: east
+Stairs
+
+Bits
+Description
+
+0x10x2
+A two-bit field containing a value from 0 to 3 specifying the direction of the stairs' full-block side:
+0: East
+1: West
+2: South
+3: North
+
+0x4
+Set if stairs are upside-down
+
+0x8
+
+(unused)
+
+Redstone Wire
+
+Bits
+Values
+
+0x10x20x40x8
+A four-bit field storing a value from 0 to 15 specifying the redstone dust's current redstone power level.
+
+Daylight Sensor
+
+Bits
+Values
+
+0x10x20x40x8
+Four bits storing a value from 0 to 15 representing the daylight sensor's current redstone power level.
+
+Crops
+Crops grow from values 0 to 7. Carrots, beetroot and potatoes appear to have 4 stages, but actually grow identically to wheat, merely using the same texture for multiple stages.
+
+Wheat
+
+Icon
+Value
+
+0
+
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+7
+
+Carrot
+
+Icon
+Value
+
+0, 1
+
+2, 3
+
+4, 5, 6
+
+7
+
+Potato
+
+Icon
+Value
+
+0, 1
+
+2, 3
+
+4, 5, 6
+
+7
+
+Beetroot
+
+Icon
+Value
+
+0
+
+1
+
+2
+
+3
+
+Farmland
+
+Value
+Meaning
+
+0
+Dry land
+
+1 to 7
+Increasing levels of wetness.The wetness value counts down to 0 while the farmlanddoes not have access to water. The wet texture is only used on level 7.
+
+Banner
+Standing
+
+Bits
+Description
+
+0x10x20x40x8
+A four-bit field storing a value from 0 to 15 specifying the block's orientation:
+0: south
+1: south-southwest
+2: southwest
+3: west-southwest
+4: west
+5: west-northwest
+6: northwest
+7: north-northwest
+8: north
+9: north-northeast
+10: northeast
+11: east-northeast
+12: east
+13: east-southeast
+14: southeast
+15: south-southeast
+
+Wall
+
+Bits
+Description
+
+0x10x20x4
+A three-bit field storing a value from 2 to 5 specifying the block's orientation:
+2: north
+3: south
+4: west
+5: east
+
+0x8
+
+(unused)
+
+Door
+Minecraft 1.1 and Earlier
+The two least significant bits are the orientation of the door, that is, the corner in which its hinge is positioned:
+
+0x0: north-west corner
+0x1: north-east corner
+0x2: south-west corner
+0x3: south-east corner
+The two bits above are flags:
+
+0x8: If this bit is set, this is the top half of a door (else the lower half).
+0x4: If this bit is set, the door has swung counterclockwise around its hinge.
+For example, the bottom half of a door with its hinge on the south-west corner, which is swung so that it is closed when viewed from the west, will have a data value of (3 | 4) = (3 + 4) = 7.
+
+Starting at Minecraft 1.2 (from weekly snapshot 12w06a)
+Graphic of possible door data values in 12w06a
+The total data needed to accurately describe a single door tile is now contained in both door tiles, so both data values have to be inspected.
+Common to both door tiles, the top bit (0x8) is as follows:
+
+0: The bottom half of the door
+1: The top half of the door
+Top Sections
+
+The least-significant bit (0x1) is as follows, assuming you're facing the same direction the door faces while closed:
+0: Hinge is on the right (this is the default for single doors)
+1: Hinge is on the left (this will be used for the other half of a double-door combo)
+
+The other two bits (0x2 and 0x4) are always zero.
+
+The only valid values for a top section, therefore, are 8 (binary 1000) and 9 (binary 1001).
+Bottom Sections
+
+The second bit (0x4) determines the door's state:
+0: Closed
+1: Open
+
+The bottom two bits determine which direction the door faces (these directions given for which direction the door faces while closed)
+0: Facing east
+1: Facing south
+2: Facing west
+3: Facing north
+Starting at Minecraft 14w04a
+The second bit for the top half of the door (0x2) determines whether the door is Powered or Unpowered.
+0: Door is Unpowered
+1: Door is Powered
+
+Which means the top section, now uses values 8, 9, 10, and 11.
+Rails
+
+Value
+Description
+
+0
+Straight rail connecting to the north and south.
+
+1
+Straight rail connecting to the east and west.
+
+2
+Sloped rail ascending to the east.
+
+3
+Sloped rail ascending to the west.
+
+4
+Sloped rail ascending to the north.
+
+5
+Sloped rail ascending to the south.
+
+6
+Curved rail connecting to the south and east.
+
+7
+Curved rail connecting to the south and west.
+
+8
+Curved rail connecting to the north and west.
+
+9
+Curved rail connecting to the north and east.
+
+Activator Rails, Detector Rails, and Powered Rails
+
+Bits
+Values
+
+0x10x20x4
+A three-bit field storing a value from 0 to 5:
+0: flat track going north-south
+1: flat track going west-east
+2: sloped track ascending to the east
+3: sloped track ascending to the west
+4: sloped track ascending to the north
+5: sloped track ascending to the south
+
+0x8
+Set if rail is active.
+
+Ladders, Furnaces, Chests, Trapped Chests
+Ladder
+
+Bits
+Values
+
+0x10x20x4
+A three-bit field storing a value from 2 to 5:
+2: Ladder facing north
+3: Ladder facing south
+4: Ladder facing west
+5: Ladder facing east
+Invalid values default to 2.
+
+0x8
+Unused.
+
+Furnace
+
+Bits
+Values
+
+0x10x20x4
+
+A three-bit field storing a value from 2 to 5:
+2: Furnace facing north
+3: Furnace facing south
+4: Furnace facing west
+5: Furnace facing east
+Invalid values default to 2.
+
+0x8
+Unused.
+
+Chest
+
+Bits
+Values
+
+0x10x20x4
+A three-bit field storing a value from 2 to 5:
+2: Chest facing north
+3: Chest facing south
+4: Chest facing west
+5: Chest facing east
+Invalid values default to 2.
+
+0x8
+Unused.
+
+Trapped Chest
+
+Bits
+Values
+
+0x10x20x4
+A three-bit field storing a value from 2 to 5:
+2: Trapped chest facing north
+3: Trapped chest facing south
+4: Trapped chest facing west
+5: Trapped chest facing east
+Invalid values default to 2.
+
+0x8
+Unused.
+
+Sign
+Standing
+
+Bits
+Description
+
+0x10x20x40x8
+A four-bit field storing a value from 0 to 15 specifying the block's orientation:
+0: south
+1: south-southwest
+2: southwest
+3: west-southwest
+4: west
+5: west-northwest
+6: northwest
+7: north-northwest
+8: north
+9: north-northeast
+10: northeast
+11: east-northeast
+12: east
+13: east-southeast
+14: southeast
+15: south-southeast
+
+Wall
+
+Bits
+Description
+
+0x10x20x4
+A three-bit field storing a value from 2 to 5 specifying the block's orientation:
+2: north
+3: south
+4: west
+5: east
+
+0x8
+
+(unused)
+
+Dispenser and Dropper
+Dropper
+
+Bits
+Values
+
+0x10x20x4
+A three-bit field storing a value from 0 to 5 specifying which direction the dropper is facing:
+0: Dropper facing down
+1: Dropper facing up
+2: Dropper facing north
+3: Dropper facing south
+4: Dropper facing west
+5: Dropper facing east
+
+0x8
+Set if dropper is activated.
+
+Dispenser
+
+Bits
+Values
+
+0x10x20x4
+Three bits storing a value from 0 to 5:
+0: Dispenser facing down
+1: Dispenser facing up
+2: Dispenser facing north
+3: Dispenser facing south
+4: Dispenser facing west
+5: Dispenser facing east
+
+0x8
+If set, the dispenser is activated.
+
+Hopper
+
+Bits
+Values
+
+0x10x20x4
+A three-bit field storing a value from 0 to 5:
+0: Output facing down
+1: (unused)
+2: Output facing north
+3: Output facing south
+4: Output facing west
+5: Output facing east
+
+0x8
+Set if activated/disabled.
+
+Levers
+
+Bits
+Values
+
+0x10x20x4
+A three-bit field storing a value from 0 to 7:
+0: Lever on block bottom points east when off.
+1: Lever on block side facing east
+2: Lever on block side facing west
+3: Lever on block side facing south
+4: Lever on block side facing north
+5: Lever on block top points south when off.
+6: Lever on block top points east when off.
+7: Lever on block bottom points south when off.
+
+0x8
+If this bit is set, the lever is active.
+
+Pressure Plates
+Stone or wooden pressure plate
+
+Bits
+Values
+
+0x1
+If this bit is set, the pressure plate is active.
+
+0x20x40x8
+Unused.
+
+Weighted pressure plate
+
+Bits
+Values
+
+0x10x20x40x8
+A four-bit field storing a value from 0 to 15 representing the weighted pressure plate's current redstone power level.
+
+Buttons
+
+Bits
+Values
+
+0x10x20x4
+Three bits storing a value from 0 to 5:
+0: Button on block bottom facing down
+1: Button on block side facing east
+2: Button on block side facing west
+3: Button on block side facing south
+4: Button on block side facing north
+5: Button on block top facing up
+
+0x8
+If this bit is set, the button is currently active.
+
+Snow
+Heights of snow from 0-7, going from left to right
+
+
+   DV
+   Description
+
+
+0
+One layer, 2 pixels thick
+
+1
+Two layers, 4 pixels thick
+
+2
+Three layers, 6 pixels thick
+
+3
+Four layers, 8 pixels thick
+
+4
+Five layers, 10 pixels thick
+
+5
+Six layers, 12 pixels thick
+
+6
+Seven layers, 14 pixels thick
+
+7
+Eight layers, 16 pixels thick
+
+Cacti and Sugar Canes
+Cactus
+
+Value
+Meaning
+
+0
+Freshly planted cactus.
+
+1 to 15
+The data value is incremented at random intervals.When it becomes 15, a new cactus block is created on top as long as the total height does not exceed 3.
+
+Sugar Canes
+
+Value
+Meaning
+
+0
+Freshly planted sugar cane.
+
+1 to 15
+The data value is incremented at random intervals.When it becomes 15, a new sugar cane block is created on top as long as the total height does not exceed 3.
+
+Jukebox
+
+
+   DV
+   Description
+
+
+0
+No disc inserted
+
+1
+Contains a disc
+
+The associated block entity is used to identify which record has been inserted.
+
+Pumpkins and Jack o'Lanterns
+Pumpkin
+
+Lowest two bits value
+Facing
+
+0
+Pumpkin facing south
+
+1
+Pumpkin facing west
+
+2
+Pumpkin facing north
+
+3
+Pumpkin facing east
+
+Jack o'Lantern
+
+Lowest two bits value
+Facing
+
+0
+Jack o'lantern facing south
+
+1
+Jack o'lantern facing west
+
+2
+Jack o'lantern facing north
+
+3
+Jack o'lantern facing east
+
+Cake
+
+Value
+Stage
+
+0
+Whole intact cake
+
+1
+1 piece eaten
+
+2
+2 pieces eaten
+
+3
+3 pieces eaten
+
+4
+4 pieces eaten
+
+5
+5 pieces eaten
+
+6
+6 pieces eaten
+
+Redstone Repeater
+
+Bits
+Values
+
+0x10x2
+A two-bit field storing a value from 0 to 3 specifying the direction the redstone repeater is facing:
+0: Facing north.
+1: Facing east.
+2: Facing south.
+3: Facing west.
+
+0x40x8
+A two-bit field storing a value from 0 to 3 specifying the redstone repeater's delay:
+0: Delay of 1 redstone tick.
+1: Delay of 2 redstone tick.
+2: Delay of 3 redstone tick.
+3: Delay of 4 redstone tick.
+
+Effectively, add the repeater's facing value (0 to 3) to 4×(delay-1). For example, a repeater facing west with a delay of 3 redstone ticks would have a block data value of 3 + 4×(3-1) = 11.
+
+Redstone Comparator
+A redstone comparator's block data specifies its orientation, mode, and powered status.
+
+Bits
+Values
+
+0x10x2
+A two-bit field storing a value from 0 to 3 specifying the redstone comparator's orientation:
+0: Facing north.
+1: Facing east.
+2: Facing south.
+3: Facing west.
+
+0x4
+Set if in subtraction mode (front torch up and powered).
+
+0x8
+Set if powered (at any power level).
+
+Trapdoors
+
+Bits
+Values
+
+0x10x2
+A two-bit field storing a value from 0 to 3:
+0: Trapdoor on the south side of a block
+1: Trapdoor on the north side of a block
+2: Trapdoor on the east side of a block
+3: Trapdoor on the west side of a block
+
+0x4
+If this bit is set, the trapdoor is open.
+
+0x8
+If this bit is set, the trapdoor is on the top half of a block. Otherwise, it is on the bottom half.
+
+Monster Egg
+
+
+   DV
+   Description
+
+
+0
+Stone Monster Egg
+
+1
+Cobblestone Monster Egg
+
+2
+Stone Brick Monster Egg
+
+3
+Mossy Stone Brick Monster Egg
+
+4
+Cracked Stone Brick Monster Egg
+
+5
+Chiseled Stone Brick Monster Egg
+
+Stone Bricks
+
+
+   DV
+   Description
+
+
+0
+Stone brick
+
+1
+Mossy stone brick
+
+2
+Cracked stone brick
+
+3
+Chiseled stone brick
+
+Prismarine
+
+
+   DV
+   Description
+
+
+0
+Prismarine
+
+1
+Prismarine Bricks
+
+2
+Dark Prismarine
+
+Sponge
+
+
+   DV
+   Description
+
+
+0
+Sponge
+
+1
+Wet Sponge
+
+Brown and red mushroom blocks
+Mushroom blocks consist of the same blocks throughout their structure, the data value of each block decides the texture. The default texture on all sides is porous flesh. The cap texture can be either the brown mushroom or red mushroom texture, the textures for porous and stem sides are identical. Although data values 11-13 are unused they have the same texture as data value 0 as placeholders (to keep people from destroying their maps).
+
+
+   DV
+   Description
+
+
+0
+Pores on all sides
+
+1
+Cap texture on top, west and north
+
+2
+Cap texture on top and north
+
+3
+Cap texture on top, north and east
+
+4
+Cap texture on top and west
+
+5
+Cap texture on top
+
+6
+Cap texture on top and east
+
+7
+Cap texture on top, south and west
+
+8
+Cap texture on top and south
+
+9
+Cap texture on top, east and south
+
+10
+Stem texture on all four sides, pores on top and bottom
+
+14
+Cap texture on all six sides
+
+15
+Stem texture on all six sides
+
+Pumpkin Stem and Melon stem
+
+Value
+Stage
+
+0
+Freshly planted stem
+
+1
+First stage of growth
+
+2
+Second stage of growth
+
+3
+Third stage of growth
+
+4
+Fourth stage of growth
+
+5
+Fifth stage of growth
+
+6
+Sixth stage of growth
+
+7
+Seventh stage of growthIn this stage a stem can generate a melon or pumpkin next toit on an empty dirt, grass or farmland block
+
+Vines
+Determines the face against which the vine is anchored. Note that (except for Top) these are testable as bit flags, unlike most of the other directional data for other block types. Multiple sides can contain vines. The "top" attachment is assumed to be present if data is 0 or there is solid block above.
+
+1: south
+2: west
+4: north
+8: east
+Fence Gates
+The left circle was opened from the outside, the right one from the inside. Facing directions: Red = North; Green = East; Yellow = South; Blue = West
+
+Bits
+Description
+
+0x10x2
+Two bits storing a value from 0 to 3 specifying the direction the gate is facing:
+0: Facing south
+1: Facing west
+2: Facing north
+3: Facing east
+
+0x4
+0 if the gate is closed, 1 if open.
+
+Nether Wart
+Like Crops, the data value is related to the size of the Nether Wart. There are three distinct visual stages to Nether Wart's growth (the associated data values are given):
+
+Icon
+Value
+
+0
+
+1-2
+
+3
+
+Brewing Stand
+The bottom three bits are bit flags for which bottle slots actually contain bottles.
+
+Bits
+Values
+
+0x1
+The slot pointing east
+
+0x2
+The slot pointing northwest
+
+0x4
+The slot pointing southwest
+
+Cauldron
+The data value stores the amount of water kept in the cauldron, in units of glass bottles that can be filled.
+
+DV
+Description
+
+0
+Empty
+
+1
+⅓ filled
+
+2
+⅔ filled
+
+3
+Fully filled
+
+Nether Portal
+Nether portals created in version 1.6.4 and earlier automatically determined their orientation based on neighboring blocks. When version 13w37a added the ability to create larger portals, they started using data values to keep track of their orientation, and old portals with a data value of 0 would randomly close when upgrading to 1.7.
+
+DV
+Orientation
+
+0
+Automatic, 1.6.4 and earlier
+
+1
+Facing North/South (obsidian to east and west)
+
+2
+Facing East/West (obsidian to north and south)
+
+End Portal Frame
+The bottom two bits determine which "side" of the whole portal frame this block is a part of. To make the frame activate, each of the portal frame blocks in the pattern must "face" toward the middle. Since the image is near-symmetrical, it is difficult to tell which direction an individual block is actually facing, but if the block isn't facing in that direction and that is the last frame block where the Eye of Ender is placed, the frame won't activate.
+Direction vectors for the blocks are the following:
+
+0: To the south
+1: To the west
+2: To the north
+3: To the east
+0x4 is a bit flag: 0 is an "empty" frame block, 1 is a block with an Eye of Ender inserted.
+
+Cocoa
+
+Bits
+Values
+
+0x10x2
+A two-bit field storing a value from 0 to 4 specifying the direction the pod is attached to:
+0: Attached to the north
+1: Attached to the east
+2: Attached to the south
+3: Attached to the west
+
+0x40x8
+A two-bit field storing a value from 0 to 3 specifying the stage of growth of the plant:
+0: First stage
+1: Second stage
+2: Final stage
+
+Tripwire Hook
+
+Bits
+Values
+
+0x10x2
+A two-bit field storing a value from 0 to 3:
+0: Tripwire hook on block side facing south
+1: Tripwire hook on block side facing west
+2: Tripwire hook on block side facing north
+3: Tripwire hook on block side facing east
+
+0x4
+If set, the tripwire hook is connected and ready to trip ("middle" position).
+
+0x8
+If set, the tripwire hook is currently activated ("down" position)
+
+Tripwire
+
+Bits
+Description
+
+0x1
+Set if tripwire is activated (an entity is intersecting its collision mask).
+
+0x2
+Unused
+
+0x4
+Set if tripwire is attached to a valid tripwire circuit.
+
+0x8
+Set if tripwire is disarmed.
+
+Cobblestone Walls
+
+
+   DV
+   Description
+
+
+0
+Cobblestone Wall
+
+1
+Mossy Cobblestone Wall
+
+Flower Pots
+For Flower Pot blocks placed from Minecraft version 1.7 on, the plant contained in the pot is stored in the associated Tile Entity. See Block entity format for details. The absence of a tile entity indicates either an empty Flower Pot, or one whose block was placed prior to version 1.7.
+For Flower Pot blocks placed before version 1.7 the plant contained in the pot is indicated by the data value, according to the following table:
+
+
+   DV
+   Description
+
+
+0
+Empty Flower Pot
+
+1
+Poppy Flower Pot
+
+2
+Dandelion Flower Pot
+
+3
+Oak sapling Flower Pot
+
+4
+Spruce sapling Flower Pot
+
+5
+Birch sapling Flower Pot
+
+6
+Jungle sapling Flower Pot
+
+7
+Red mushroom Flower Pot
+
+8
+Brown mushroom Flower Pot
+
+9
+Cactus Flower Pot
+
+10
+Dead bush Flower Pot
+
+11
+Fern Flower Pot
+
+12
+Acacia sapling Flower Pot
+
+13
+Dark oak sapling Flower Pot
+
+Heads
+For the block, data values determine the block placement:
+
+
+   DV
+   Description
+
+
+0
+(unused)
+
+1
+On the floor (rotation is stored in the tile entity)
+
+2
+On a wall, facing north
+
+3
+On a wall, facing south
+
+4
+On a wall, facing west
+
+5
+On a wall, facing east
+
+For the item and for the tile entity, data values determine the skull type:
+
+
+   DV
+   Description
+
+
+0
+Skeleton Skull
+
+1
+Wither Skeleton Skull
+
+2
+Zombie Head
+
+3
+Head
+
+4
+Creeper Head
+
+5
+Dragon Head
+
+Block of Quartz
+
+
+   DV
+   Description
+
+
+0
+Block of Quartz
+
+1
+Chiseled Quartz Block
+
+2
+Pillar Quartz Block (vertical)
+
+3
+Pillar Quartz Block (east-west)
+
+4
+Pillar Quartz Block (north-south)
+
+Coal
+
+
+   DV
+   Description
+
+
+0
+Coal
+
+1
+Charcoal
+
+Dyes
+
+DV
+Description
+
+0
+Ink Sac
+
+1
+Rose Red
+
+2
+Cactus Green
+
+3
+Cocoa Beans
+
+4
+Lapis Lazuli
+
+5
+Purple Dye
+
+6
+Cyan Dye
+
+7
+Light Gray Dye
+
+8
+Gray Dye
+
+9
+Pink Dye
+
+10
+Lime Dye
+
+11
+Dandelion Yellow
+
+12
+Light Blue Dye
+
+13
+Magenta Dye
+
+14
+Orange Dye
+
+15
+Bone Meal
+
+Fish
+Both raw and cooked fish use the same data values. Note that clownfish and pufferfish cannot be cooked, though if cooked versions are spawned in with commands, they will use the appropriate item name.
+
+
+   DV
+   Description
+
+
+0
+Raw Fish
+
+1
+Raw Salmon
+
+2
+Clownfish
+
+3
+Pufferfish
+
+
+   DV
+   Description
+
+
+0
+Cooked Fish
+
+1
+Cooked Salmon
+
+2
+Clownfish
+
+3
+Pufferfish
+
+Anvil
+Anvil data values differ between the item and block.
+Item
+
+
+   DV
+   Description
+
+
+0
+Anvil
+
+1
+Slightly Damaged Anvil
+
+2
+Very Damaged Anvil
+
+Block
+
+
+   DV
+   Description
+
+
+0
+Anvil (North/South)
+
+1
+Anvil (East/West)
+
+2
+Anvil (South/North)
+
+3
+Anvil (West/East)
+
+4
+Slightly Damaged Anvil (North/South)
+
+5
+Slightly Damaged Anvil (East/West)
+
+6
+Slightly Damaged Anvil (South/North)
+
+7
+Slightly Damaged Anvil (West/East)
+
+8
+Very Damaged Anvil (North/South)
+
+9
+Very Damaged Anvil (East/West)
+
+10
+Very Damaged Anvil (South/North)
+
+11
+Very Damaged Anvil (West/East)
+
+For an anvil in the world, 0x1 is the bit that determines whether the anvil is orientated in a north-south (0) or a west-east (1) direction. 0x4 and 0x8 are bits which determine whether the anvil is a regular (0x4 & 0x8 = 0), a slightly damaged (0x4 = 1) or a very damaged (0x8 = 1) one.
+For an anvil in the inventory, the data value is a counter of how damaged it is.
+
+Observer
+
+Bits
+Values
+
+0x10x20x4
+Three bits storing a value from 0 to 5:
+0: Observer facing down
+1: Observer facing up
+2: Observer facing north
+3: Observer facing south
+4: Observer facing west
+5: Observer facing east
+
+0x8
+If set, the observer is powered.
+
+Potions
+A glass bottle filled with a potion. Potion type is stored in item's damage value as a 16-bit number. Potion effect, name, and other flags are encoded on bits. Effect duration itself isn't there, but can be calculated from other values.
+Current meaning of bits is described below. Note that potion name overlaps with potion effect and tier.
+
+Bit
+
+Dec
+Hex
+
+Meaning
+
+0
+
+1
+0001
+
+Potion effect
+
+Potion name
+
+1
+
+2
+0002
+
+2
+
+4
+0004
+
+3
+
+8
+0008
+
+4
+
+16
+0010
+
+5
+
+32
+0020
+
+Tier
+
+6
+
+64
+0040
+
+Extended duration
+
+7
+
+128
+0080
+
+(ignored)
+
+8
+
+256
+0100
+
+9
+
+512
+0200
+
+10
+
+1024
+0400
+
+11
+
+2048
+0800
+
+12
+
+4096
+1000
+
+13
+
+8192
+2000
+
+Can become splash potion
+
+14
+
+16384
+4000
+
+Splash potion
+
+15
+
+32768
+8000
+
+(ignored)
+
+To calculate damage value of potion with desired effect use the following formula:
+
+DV = potion_effect + tier_bit + extended_bit + splash_bit
+
+for example:
+
+potion with "Instant Health" effect has damage value 5 (= 5 + 0 + 0 + 0);
+potion with extended "Slowness" effect has value 74 (= 10 + 0 + 64 + 0);
+splash potion with tier II "Strength" effect has value 16425 (= 9 + 32 + 0 + 16384).
+To get potion with certain name, use the following formula:
+
+DV = potion_name + extended_bit + splash_bit
+
+for example:
+
+Splash version of "Charming Potion" has damage value 16423 (= 39 + 0 + 16384)
+"Potion name" bits
+
+Dec
+Hex
+Potion
+
+0
+
+00
+Water Bottle / Mundane Potion
+
+1
+
+01
+Potion of Regeneration
+
+2
+
+02
+Potion of Swiftness
+
+3
+
+03
+Potion of Fire Resistance
+
+4
+
+04
+Potion of Poison
+
+5
+
+05
+Potion of Healing
+
+6
+
+06
+Potion of Night Vision
+
+7
+
+07
+Clear Potion
+
+8
+
+08
+Potion of Weakness
+
+9
+
+09
+Potion of Strength
+
+10
+
+0a
+Potion of Slowness
+
+11
+
+0b
+Potion of Leaping
+
+12
+
+0c
+Potion of Harming
+
+13
+
+0d
+Potion of Water Breathing
+
+14
+
+0e
+Potion of Invisibility
+
+15
+
+0f
+Thin Potion
+
+Dec
+Hex
+Potion
+
+16
+
+10
+Awkward Potion
+
+17
+
+11
+Potion of Regeneration
+
+18
+
+12
+Potion of Swiftness
+
+19
+
+13
+Potion of Fire Resistance
+
+20
+
+14
+Potion of Poison
+
+21
+
+15
+Potion of Healing
+
+22
+
+16
+Potion of Night Vision
+
+23
+
+17
+Bungling Potion
+
+24
+
+18
+Potion of Weakness
+
+25
+
+19
+Potion of Strength
+
+26
+
+1a
+Potion of Slowness
+
+27
+
+1b
+Potion of Leaping
+
+28
+
+1c
+Potion of Harming
+
+29
+
+1d
+Potion of Water Breathing
+
+30
+
+1e
+Potion of Invisibility
+
+31
+
+1f
+Debonair Potion
+
+Dec
+Hex
+Potion
+
+32
+
+20
+Thick Potion
+
+33
+
+21
+Potion of Regeneration
+
+34
+
+22
+Potion of Swiftness
+
+35
+
+23
+Potion of Fire Resistance
+
+36
+
+24
+Potion of Poison
+
+37
+
+25
+Potion of Healing
+
+38
+
+26
+Potion of Night Vision
+
+39
+
+27
+Charming Potion
+
+40
+
+28
+Potion of Weakness
+
+41
+
+29
+Potion of Strength
+
+42
+
+2a
+Potion of Slowness
+
+43
+
+2b
+Potion of Leaping
+
+44
+
+2c
+Potion of Harming
+
+45
+
+2d
+Potion of Water Breathing
+
+46
+
+2e
+Potion of Invisibility
+
+47
+
+2f
+Sparkling Potion
+
+Dec
+Hex
+Potion
+
+48
+
+30
+Potent Potion
+
+49
+
+31
+Potion of Regeneration
+
+50
+
+32
+Potion of Swiftness
+
+51
+
+33
+Potion of Fire Resistance
+
+52
+
+34
+Potion of Poison
+
+53
+
+35
+Potion of Healing
+
+54
+
+36
+Potion of Night Vision
+
+55
+
+37
+Rank Potion
+
+56
+
+38
+Potion of Weakness
+
+57
+
+39
+Potion of Strength
+
+58
+
+3a
+Potion of Slowness
+
+59
+
+3b
+Potion of Leaping
+
+60
+
+3c
+Potion of Harming
+
+61
+
+3d
+Potion of Water Breathing
+
+62
+
+3e
+Potion of Invisibility
+
+63
+
+3f
+Stinky Potion
+
+Note: potion with name set to 0 is called "Water Bottle" only if no other bit is set. Otherwise, it is called "Mundane Potion".
+Note: potions with an effect and splash potion bit set have additional "Splash " prefix.
+
+"Potion effect" bits
+
+Dec
+
+Hex
+Effect
+Potion suffix
+Duration
+
+Bottles
+Icon
+Effect color
+Tier II?
+
+0
+
+0
+-
+-
+-
+
+-
+-
+-
+
+1
+
+1
+Regeneration
+Regeneration
+0:45
+
+ Pink
+Yes
+
+2
+
+2
+Speed
+Swiftness
+3:00
+
+ Sky blue
+Yes
+
+3
+
+3
+Fire Resistance
+Fire Resistance
+3:00
+
+ Orange
+No
+
+4
+
+4
+Poison
+Poison
+0:45
+
+ Green
+Yes
+
+5
+
+5
+Instant Health
+Healing
+instant
+
+-
+-
+Yes
+
+6
+
+6
+Night Vision
+Night Vision
+3:00
+
+ Navy blue
+No
+
+7
+
+7
+-
+-
+-
+
+-
+-
+-
+
+8
+
+8
+Weakness
+Weakness
+1:30
+
+ Gray
+No
+
+9
+
+9
+Strength
+Strength
+3:00
+
+ Dark red
+Yes
+
+10
+
+a
+Slowness
+Slowness
+1:30
+
+ Blue-gray
+No
+
+11
+
+b
+Jump Boost
+Leaping
+3:00
+
+ Bright green
+Yes
+
+12
+
+c
+Instant Damage
+Harming
+instant
+
+-
+-
+Yes
+
+13
+
+d
+Water Breathing
+Water Breathing
+3:00
+
+ Blue
+No
+
+14
+
+e
+Invisibility
+Invisibility
+3:00
+
+ Light gray
+No
+
+15
+
+f
+-
+-
+-
+
+-
+-
+-
+
+"Tier" bit
+
+Dec
+Hex
+Meaning
+
+0
+
+0000
+Tier I effect.
+
+32
+
+0020
+Tier II effect. Multiply duration by 1/2.
+
+Note: Fire Resistance, Weakness and Slowness effects have no second tier. Their strength and duration are unaffected by this bit.
+
+"Extended duration" bit
+
+Dec
+Hex
+Meaning
+
+0
+
+0000
+Base duration.
+
+64
+
+0040
+Multiply duration by 8/3.
+
+"Splash potion" bit
+
+Dec
+Hex
+Meaning
+
+0
+
+0000
+Drinkable potion.
+
+16384
+
+4000
+Splash potion. Multiply duration by 3/4.
+
+Maps
+Each map item's damage value corresponds to the map ID saved in each world's NBT data. The map's parameters, such as the scale of the map, its location in the world and what areas are explored are saved in separate .dat files, unlike written books or fireworks which store their additional data directly into the item itself. If a map is cloned they will both share the same damage value and newly explored areas will appear on both instances.
+
+Golden Apple
+
+
+   DV
+   Description
+
+
+0
+Golden Apple
+
+1
+Enchanted Golden Apple
+
+Structure Block
+
+
+   DV
+   Description
+
+
+0
+Data
+
+1
+Save
+
+2
+Load
+
+3
+Corner
+
+Chorus Flower
+The data value denotes its age, it will not grow anymore when data value is 0x5.
+
+End Rod
+
+
+   DV
+   Description
+
+
+0
+Facing down
+
+1
+Facing up
+
+2
+Facing north
+
+3
+Facing south
+
+4
+Facing west
+
+5
+Facing east
+
+Glazed Terracotta
+
+Bits
+Values
+
+0x10x2
+A 2-bit field storing a value from 0 to 3:
+0: south (the player was facing north when this block was placed)
+1: west
+2: north
+3: east
+
+0x40x8
+Unused.
+
+Navigation
+
+ LWJGL returns key code 0 when a key is pressed but it doesn't know what key.
+
+  LWJGL maps the menu key and the alt key to the same value.
+
+ The use of the names "LWIN" and "RWIN" are officially deprecated and the names "LMETA" and "RMETA" should be used instead.

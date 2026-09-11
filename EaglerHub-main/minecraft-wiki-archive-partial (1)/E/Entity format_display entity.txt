@@ -1,0 +1,38 @@
+[String] billboard: Controls if this entity should pivot to face player when rendered. It can be fixed (both vertical and horizontal angles are fixed), vertical (faces player around vertical axis), horizontal (pivots around horizontal axis), and center (pivots around center point). Defaults to fixed.
+[NBT Compound / JSON Object] brightness: If present, overrides light values used for rendering. Omitted by default (which means rendering uses values from entity position).
+[Int] block: (Required) The block-light level, with values from 0-15.
+[Int] sky: (Required) The skylight level, with values from 0-15.
+[Int] glow_color_override: Overrides the glow border color. If -1, uses the color of the team that the display entity is in. Defaults to -1. Is not preserved when removed. Glowing does not work on text displays.
+[Float] height: The maximum height of the entity. Rendering culling bounding box spans vertically y to y+height, and the part beyond will be culled. If set to 0, no culling on both vertical and horizontal directions. Defaults to 0.
+[Float] width: The maximum width of the entity. Rendering culling bounding box spans horizontally width/2 from entity position, and the part beyond will be culled. If set to 0, no culling on both vertical and horizontal directions. Defaults to 0.
+[Int] interpolation_duration: Interpolation duration in ticks.
+[Int] teleport_duration: Interpolation duration in ticks for teleportation. Values are clamped between 0 and 59 (inclusive).
+[Int] start_interpolation: Delay before starting interpolation. If 0, interpolation starts immediately. (Not saved to entity, but can be set by commands.)
+[Float] shadow_radius: Shadow radius. Value is treated as 64 when higher than 64. If less than or equal to 0, the entity has no shadow. Defaults to 0. Interpolated.
+[Float] shadow_strength: Controls the opacity of the shadow as a function of distance to block below. Defaults to 1. Interpolated.
+[Float] view_range: Maximum view range of the entity. When the distance is more than <view_range>×<entityDistanceScaling>×64, the entity is not rendered. Defaults to 1.0.
+[NBT List / JSON Array][NBT Compound / JSON Object] transformation: The rendering transformation applied to model after normal entity orientation, taking the position of the entity as the origin. Defaults to no transformation. Interpolated.
+This tag has matrix form ([NBT List / JSON Array]) and decomposed form ([NBT Compound / JSON Object]). Only decomposed form is used when saving entities.
+If the matrix form is used, this tag is a list of float numbers with 16 elements, describing a row-major affine transformation matrix, with its last element diving the matrix:
+[Float]: A value in the matrix.
+If the decomposed form is used, this tag is a compound tag with all of the following sub-tags, and each of them is applied sequentially in the order listed below:
+[NBT List / JSON Array][NBT Compound / JSON Object] right_rotation: (Required) Initial rotation. This tag corresponds to the right-singular vector matrix after the matrix singular value decomposition.
+This tag has quaternion form ([NBT List / JSON Array]) and angle-axis form ([NBT Compound / JSON Object]). Only quaternion form are used when saving entities.
+If quaternion form is used to represent rotation (note that non-unit quaternion also scales the model), this tag is a list of float numbers with 4 elements, real component last:
+[Float]: An element in the quaternion.
+If axis-angle form is used to represent rotation, this tag is a compound tag with all of the following tags:
+[Float] angle: (Required) The angle of rotation, in radians.
+[NBT List / JSON Array] axis: (Required) Axis vector with 3 elements.
+[Float]: An element of the vector.
+[NBT List / JSON Array] scale: (Required) Scale the model centered on the origin. This tag corresponds to the singular values of the matrix after singular value decomposition. This tag is a list of float numbers with 3 elements:
+[Float]: An element of the vector.
+[NBT List / JSON Array][NBT Compound / JSON Object] left_rotation: (Required) Rotates the model again. This tag corresponds to the left-singular vector matrix after the matrix singular value decomposition.
+This tag has quaternion form ([NBT List / JSON Array]) and angle-axis form ([NBT Compound / JSON Object]). Only quaternion form are used when saving entities.
+If quaternion form is used to represent rotation (note that non-unit quaternion also scales the model), this tag is a list of float numbers with 4 elements, real component last:
+[Float]: An element in the quaternion.
+If axis-angle form is used to represent rotation, this tag is a compound tag with all of the following tags:
+[Float] angle: (Required) The angle of rotation, in radians.
+[NBT List / JSON Array] axis: (Required) Axis vector with 3 elements.
+[Float]: An element of the vector.
+[NBT List / JSON Array] translation: (Required) Translation transformation. This tag corresponds to the last column in the matrix form. This tag is a list of float numbers with 3 elements:
+[Float]: An element of the vector.

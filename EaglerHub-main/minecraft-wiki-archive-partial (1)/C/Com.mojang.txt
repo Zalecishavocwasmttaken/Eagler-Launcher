@@ -1,0 +1,289 @@
+For the Java Edition directory, see .minecraft.
+
+ Not to be confused with Mojang.com.
+
+
+
+This feature is exclusive to Bedrock Edition and Minecraft Education. 
+
+ com.mojang is a game directory which contains the player's save data, such as worlds, custom resource packs and behavior packs, screenshots, game settings, and more.
+
+Contents
+
+1 Location
+
+1.1 Windows
+1.2 Android
+
+2 Directory structure
+
+2.1 Root directory
+
+3 History
+4 See also
+5 Notes
+6 References
+7 Navigation
+
+Location
+Below is a table showing the default path of  com.mojang.
+
+Platform
+
+Path
+
+Windows
+
+ %appdata%\Minecraft Bedrock\Users\user ID\games\com.mojang
+
+Windows (Preview)
+
+ %appdata%\Minecraft Bedrock Preview\Users\user ID\games\com.mojang
+
+Android and Fire OS
+
+Internal: /data/user/user ID/com.mojang.minecraftpe/games/com.mojang
+External: /storage/emulated/user ID/Android/data/com.mojang.minecraftpe/files/games/com.mojang
+
+iOS and iPadOS
+
+On My iPhone/Minecraft/games/com.mojang
+
+Windows
+On Windows, every signed in user has its own  com.mojang directory, located in the Users directory. A shared  com.mojang directory for all players and signed out players is stored in Users\Shared\games.
+This means that worlds, options, and add-ons are stored separately for every player. User data in the directory of a signed in user is not visible for signed out players or different accounts.
+Each player's data is synchronized with the Xbox cloud storage. The game synchronizes with the cloud during startup.
+
+Android
+On Android, there are two distinct  com.mojang directories - internal and external. If the File Storage Location option is set to Application, all data is stored in the internal directory. If it's set to External, some data (such as worlds) is stored in the external directory, but the internal directory is still used for other data.
+The external directory can be viewed and edited by users, though it might require workarounds in newer Android versions. The internal directory cannot be viewed or edited without root access. It's not possible to migrate worlds and other data between those directories without root access.
+The user ID is usually 0, but differs if the user is a secondary user. /storage/emulated/user ID is often presented as Internal storage or similar by file managers, or when you access the device via MTP (connected to a Linux, macOS or Windows computer).
+
+Directory structure
+
+ com.mojang
+ archive: Contains exported world files, presumably those with a failed export.​[more information needed]
+ behavior_packs: Contains imported behavior packs.
+ custom_skins: Contains imported skin files.
+ development_behavior_packs: Contains custom-made behavior packs.
+ development_resource_packs: Contains custom-made resource packs.
+ development_skin_packs: Contains custom-made skin packs.
+ ClientCorrelation<ID>.dat​[more information needed]
+ editor: Data related to Bedrock Editor
+ persistance/client
+ global
+ editor
+ blockpalettes/0
+ custom_blockpalettes.json: Contains all saved hotbars.
+ tutorial/0
+ Editor.Tutorial.Presented.json: JSON file containing one value byte, whether the startup tutorial has been shown or not.
+ ui_settings/0
+ ui_settings.json: Stores all states of the windows in Tool Mode (expanded or not, size), and all buttons in the action bar.
+ group_manifest.json: Contains some information about the contents of this directory.
+ projects
+ project ID: Matches the ID of the world in  minecraftWorlds.
+ editor
+ blockpalettes/0
+ active_blockpalette_id.json: The ID of the currently selected hotbar in the global file.
+ selected_palette_item_index.json: Which hotbar slot is currently selected.
+ group_manifest.json: Contains some information about the contents of this directory.
+ structuredb: Contains saved structure files.[verify]
+ minecraftpe
+ editor
+ editoroptions.txt: Contains certain options related to Bedrock Editor.
+ catalog_info.json: Some information about Marketplace content.​[more information needed]
+ clientId.txt: An ID of the client.​[more information needed]
+ external_servers.txt: Contains all external servers added in the server list, with their address and port.
+ custom.png: Contains a custom skin.[verify]
+ global_resource_packs.json: Determines which resource packs are globally activated.
+ hs
+ invalid_known_packs.json: Shows all packs that can't be activated in-game.
+ NonAssertErrorLog.txt
+ NotificationCenterSettings.dat
+ options.txt
+ splitscreen_appearance.json
+ storage_object
+ telemetry_info.json
+ valid_known_packs.json: Shows all internal packs.​[more information needed]
+ minecraftWorlds: Contains worlds.
+ internal world ID: See World § Directory structure for contents.
+ resource_packs: Contains imported resource packs.
+ skin_packs: Contains imported skin packs.
+ Screenshots [sic]: Contains screenshots.
+ XUID: Contains screenshots made on a specific Xbox account. The XUID is the ID of the player's Xbox account.
+ YYYY-MM-DD_HH.mm.ss[sequence].jpeg: Screenshot in JPEG format.
+ YYYY-MM-DD_HH.mm.ss[sequence].mc: Additional file of unknown format and not generated on every platform.
+ <UUID>.jpeg: Screenshot in JPEG format.
+ <UUID>.json: Contains screenshot capture time.
+ <UUID>.mc: Additional file of unknown format and not generated on every platform.
+ udid.dat (there may be more than one)
+ world_templates: Contains world templates.
+ xal[verify]​[more information needed][verify]
+
+Root directory
+On Windows devices, the root directory for Minecraft user data is  Minecraft Bedrock or  Minecraft Bedrock Preview. This directory contains some data outside of user-specific data in  com.mojang, such as Marketplace content.
+ Minecraft Bedrock
+ cdn: Contains a resource pack for the SoulSteel button on the main menu.
+ Flighting
+ currentProgressions: Contains some settings for features that may not be rolled out to all players. These are refreshed when the game connects to the internet.
+ currentTreatments: Toggles some player flows, such as new menu screens. These are refreshed when the game connects to the internet.
+ games\com.mojang
+ uwpMigration.dat: Related to the migration of user data from the UWP app to the GDK app (empty by default).​[more information needed]
+ logs: Stores all content logs.
+ ClientCorrelationID.dat: ​[more information needed]
+ ContentLogYYYY-MM-DD_HH-MM-SS_1.txt: A content log file, formatted like chat messages with the time, type, and level. Content logging is also visible and managable in-game in the Creator settings tab or as messages on the top of the screen.
+ premium_cache: Contains Marketplace packs.
+ behavior_packs
+ persona: Contains Marketplace Character Creator items and capes.
+ internal ID: A character creator "pack", with the persona_piece type.
+ personaCatalogItemCache.json: Stores data (including URLs, authors, and UUIDs) related to character creator items.
+ resource_packs
+ skin_packs
+ world_templates
+ treatments: Stores internal packs relating to some resource packs, likely deprecated.​[more information needed]
+ treatment_packs: Stores a pack containing resources for a summer sale.
+ treatment_associations.json
+ treatment_packs2: Stores another pack.
+ treatment_associations.json
+ treatment_metadata.json: Stores an activation date for a pack
+ treatment_tags.json: Contains a list of tags, likely related to the  currentTreatments file.
+ Users: Contains folders for each user with the  com.mojang folder inside, storing user data.
+ ID.ent: Unknown file, may contain multiple files.​[more information needed]
+ PackManifestFactoryCache: Contains some data related to the packs.​[more information needed]
+ purchase_cache: ​[more information needed]
+
+History
+Pocket Edition Alphav0.1.0
+Added the  com.mojang directory at the path /storage/emulated/<user ID>/games/com.mojang.
+
+The file hierarchy of com.mojang is as follows:
+
+ com.mojang
+ minecraftWorlds
+ world name
+ chunks.dat: Stores chunk data.
+ level.dat: Stores information about the world.
+ player.dat: Stores player data.
+
+v0.2.0
+Added  entities.dat under  world name, which stores entity data.
+
+ player.dat is no longer created nor used by the game and the data previously in there has been moved to  level.dat. Existing  player.dat files still remain.v0.3.3
+This version creates unused duplicate directories under com.mojang/../games/com.mojang/minecraftWorlds.  minecraftWorlds does not have any additional files.v0.5.0
+Added  level.dat_old under  world name, which is a backup of  level.dat.v0.7.0
+Added the  minecraftpe directory under  com.mojang.
+
+ minecraftpe contains two files:  clientId.txt and  options.txt.
+
+Added the  players directory under  world name.v0.7.3
+Added the  _LevelCache directory under  minecraftWorlds, whose usage is not currently known.v0.9.0build 1
+
+Due to the switch to the LevelDB level format, the file hierarchy of com.mojang is now as follows, with temporary files from worlds using the previous level format being struck through:
+
+ com.mojang
+ minecraftpe
+ clientId.txt
+ options.txt
+ minecraftWorlds
+ _LevelCache
+ world name
+ db
+ ######.ldb
+ ######.log
+ CURRENT: The content of this file is MANIFEST-######.
+ LOCK: An empty file.
+ MANIFEST-######
+ chunks.dat
+ entities.dat
+ importedchunks.dat: Lets the game know which chunks have been converted to the new level format.
+ level.dat
+
+ level.dat_old files are no longer created nor updated by the game, but any existing ones are still functional.build 4
+Added  LOG and  LOG.old files under  db.build 8
+Removed the  _LevelCache directory.v0.11.0build 1
+Added the  snooper directory under  minecraftpe.
+
+ snooper contains at least one file named  bundle#.txt, and a file named  meta.txt.
+
+For newly-created worlds, the directory name is now  internal world ID instead of  world name.
+
+Added  levelname.txt under  internal world ID.
+
+level.dat_old is now created if the player goes to a given world's edit menu and changes any settings in it. Doing this also deletes the world's level.dat file, though it is created again upon world reentry.v0.13.0build 1
+The snooper directory has been moved from com.mojang/minecraftpe/snooper to com.mojang/snooper. The old snooper directory still remains, but is no longer updated.v0.14.2
+snooper is no longer created nor updated by the game.v0.15.0build 1
+Added r.txt file under minecraftpe. The content of this file is Vanilla.
+
+LOG and LOG.old files are no longer generated by the game.build 2
+Added r2.txt file under minecraftpe. The content of this file is Minecraft.
+
+r.txt is no longer created by the game.
+
+level.dat_old is once again created by the game whenever the player exits a world.release
+Added resource_packs.txt file under minecraftpe. The content of this file is Minecraft.
+
+r2.txt is no longer created by the game.v0.16.0build 1
+resource_packs.txt is now an empty file by default.
+
+resource_packs.txt files are now created for each individual world under <internal world ID>.build 4
+Added global_resource_packs.txt file under minecraftpe. This file is empty by default.build 5
+Added two directories under com.mojang: behavior_packs and resource_packs. Both are empty by default.
+
+Added Perf_Log.csv file under com.mojang.
+
+Replaced global_resource_packs.txt with global_resource_packs.json.
+
+Added two directories under <internal world ID>: behavior_packs and resource_packs. Both are empty by default.
+
+Added two files under <internal world ID>: world_behavior_packs.json and world_resource_packs.json.
+
+resource_packs.txt files are no longer generated by the game.
+
+The file hierarchy of com.mojang is now as follows:
+
+ com.mojang
+ behavior_packs
+ minecraftpe
+ clientId.txt
+ global_resource_packs.json
+ options.txt
+ minecraftWorlds
+ <internal world ID>
+ behavior_packs
+ db
+ ######.ldb
+ ######.log
+ CURRENT
+ LOCK
+ MANIFEST-######
+ resource_packs
+ chunks.dat
+ entities.dat
+ importedchunks.dat
+ level.dat
+ levelname.txt
+ world_behavior_packs.json
+ world_resource_packs.json
+ resource_packs
+ Perf_Log.csv
+
+Bedrock Edition1.18.0beta 1.18.0.21
+Changed the path of the  com.mojang directory on Android due to API changes.
+
+New path: /data/user/<user ID>/com.mojang.minecraftpe/games/com.mojang (internal) and /storage/emulated/<user ID>/Android/data/com.mojang.minecraftpe/files/games/com.mojang (external).1.20.0Preview 1.20.0.22
+The files  .nomedia and  udid.dat, and directories  logs,  minecraftpe and  xal in the external  com.mojang directory on Android are no longer used.1.20.10Preview 1.20.10.20
+The directory  logs in the external  com.mojang directory on Android is once again used.1.20.70Preview 1.20.70.20
+The directory  minecraftpe, and the files  .nomedia and  udid.dat in the external  com.mojang directory on Android are once again used.1.21.120
+On Windows, the game is now GDK-based, rather than UWP-based, changing the location of  com.mojang from %localappdata%\Packages\Microsoft.MinecraftUWP_8wekyb3d8bbwe\LocalState\games\com.mojang to %appdata%\Minecraft Bedrock\Users\user ID\games\com.mojang.
+See also
+Bedrock Edition installation files, the directory which stores all vanilla resources and app assets.
+Bedrock Edition cache files, the storage of temporary cache.
+Notes
+
+ This file has no extension. It is a plaintext list of UUIDs, separated by newlines.​[more information needed]
+
+References
+
+ MCPE-176675 – Settings lost because some files and folders are no longer generated within external storage
+
+Navigation

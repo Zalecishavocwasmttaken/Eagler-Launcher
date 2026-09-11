@@ -1,0 +1,241 @@
+Preview 1.20.10.21
+
+Edition
+
+Bedrock Edition
+
+Release date
+
+June 1, 2023
+
+Server version
+
+1.20.10.21
+
+Build version
+
+15791949
+
+Internal version
+
+Windows: 1.20.1021.0Android, iOS, iPadOS: 1.20.10.21Xbox One: 1.20.1021.70
+
+Version code
+
+Android:
+952001021（armeabi-v7a，33）
+962001021（x86，33）
+972001021（arm64-v8a，33）
+982001021（x86_64，33）
+
+Type
+
+Preview
+
+Preview for
+
+1.20.10
+
+Downloads
+
+ ServerWindowsLinux
+
+Protocol version
+
+593
+
+◄◄   1.20.1
+1.20.10
+  1.20.12 ►►
+
+◄   Preview 1.20.10.20
+
+ Preview 1.20.10.21
+
+  Preview 1.20.10.23 ►
+
+{
+    "title": "Preview 1.20.10.21",
+    "images": [
+        "Bedrock 1.20.10.21 PatchNotes.jpg",
+        "Bedrock 1.20.10.21.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Bedrock Edition article, displayed as Bedrock Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "June 1, 2023",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Bedrock Dedicated Server 1.20.10.21 article, displayed as 1.20.10.21)",
+            "label": "Server version"
+        },
+        {
+            "field": "15791949",
+            "label": "Build version"
+        },
+        {
+            "field": "'''Windows''': 1.20.1021.0<br>'''Android, iOS, iPadOS''': 1.20.10.21<br>'''Xbox One''': 1.20.1021.70<br>",
+            "label": "Internal version"
+        },
+        {
+            "field": "'''Android''':<br>\n952001021（armeabi-v7a，33）<br>\n962001021（x86，33）<br>\n972001021（arm64-v8a，33）<br>\n982001021（x86_64，33）<br>",
+            "label": "Version code"
+        },
+        {
+            "field": "Preview",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Bedrock Edition 1.20.10 article, displayed as 1.20.10)",
+            "label": "Preview for"
+        },
+        {
+            "field": "'''Server'''<br>[https://minecraft.net/bedrockdedicatedserver/bin-win-preview/bedrock-server-1.20.10.21.zip Windows]<br>[https://minecraft.net/bedrockdedicatedserver/bin-linux-preview/bedrock-server-1.20.10.21.zip Linux]",
+            "label": "Downloads"
+        },
+        {
+            "field": "593",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Bedrock Edition  1.20.1|<span style=\"margin-right:-0.35em\">◄</span>◄   1.20.1]]</td>\n<td style=\"padding: 0.4em\">'''[[Bedrock Edition 1.20.10|1.20.10]]'''</td>\n<td style=\"padding: 0.4em\" >[[Bedrock Edition  1.20.12|  1.20.12 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Bedrock Edition  Preview 1.20.10.20|◄   Preview 1.20.10.20]]\n</td>\n<td style=\"padding: 0.4em\">''' Preview 1.20.10.21'''</td>\n<td style=\"padding: 0.4em\">\n[[Bedrock Edition  Preview 1.20.10.23|  Preview 1.20.10.23 ►]]\n</td>\n</tr>\n</table>"
+}
+
+Beta 1.20.10.21 (Android) or Preview 1.20.10.21 (Windows, iOS, iPadOS, Xbox) is the second beta/Preview version for Bedrock Edition 1.20.10, released on June 1, 2023, which adds a new recipe unlocking system, brings more parity from Java Edition, and fixes bugs.
+
+Contents
+
+1 Additions
+
+1.1 General
+1.2 Technical
+
+2 Changes
+
+2.1 General
+2.2 Items
+2.3 Technical
+
+3 Experimental
+
+3.1 Additions
+
+3.1.1 Command format
+
+3.2 Changes
+
+3.2.1 Gameplay
+3.2.2 Command format
+3.2.3 Technical
+
+4 Fixes
+5 References
+6 Navigation
+
+Additions
+General
+Experiments
+
+Added "Recipe Unlocking" experimental toggle.
+Enable the new recipe unlocking system and the /recipe command.
+Splashes
+
+Added a new splash text:
+Joule is neat too!
+Technical
+JSON
+
+Released the minecraft:max_stack_size item component out of experimental in JSON formats 1.20.10 and higher.
+Released the minecraft:block_placer item component out of experimental in JSON formats 1.20.10 and higher.
+Released the minecraft:record item component out of experimental in JSON formats 1.20.10 and higher.
+Changes
+General
+Fog
+
+Underwater and fog effects are now based on camera position rather than player position.
+Items
+Bamboo Raft
+
+Recipe no longer needs a shovel to match Java Edition.
+Technical
+JSON
+
+Converted "properties" to "states" for custom blocks.
+Items with the minecraft:block_placer component will now place blocks with correct orientation.
+Custom items with minecraft:block_placer will no longer place certain blocks in the wrong location.
+Experimental
+These additions and changes are accessible by enabling the "Experimental Cameras", "Recipe Unlocking", and "Beta APIs" experimental toggles.
+
+Additions
+Command format
+/recipe
+
+A new command that gives or takes (unlocks or locks) recipes for a player.
+Syntax:
+/recipe <victim: target> give <recipe: string>
+Gives (unlocks) a specified recipe to a player.
+/recipe <victim: target> take <recipe: string>
+Takes (locks) a specified recipe from a player.
+If * is specified in recipe: string, it will unlock or lock all recipes for the player.
+Changes
+Gameplay
+Recipe book
+
+Recipes are now unlocked when the player collect materials for it.
+Picking up an item teaches the player how to craft that item.
+A new notification appears when the player find a new crafting material.
+Command format
+/camera
+
+Limit free cam JSON to not pitch camera beyond plus or minus 90 degrees.
+Rendering of experimental minecraft:free camera no longer affected by player state like night vision.
+Technical
+API
+
+System
+Replaced events with system.beforeEvents and system.afterEvents.
+Renamed event beforeWatchdogTerminate to watchdogTerminate and moved it to beforeEvents.
+Moved scriptEventReceive to afterEvents.
+MessageReceiveAfterEvent
+Removed property sourceType.
+ScriptEventSource
+Replaced enum MessageSourceTypewith a new enum ScriptEventSource.
+ScriptEventCommandMessageAfterEvent
+Changed property sourceType from MessageSourceType to ScriptEventSource.
+Increased maximum message length from 256 to 2048 characters.
+Fixes
+18 issues fixed
+From released versions before 1.20.10
+
+MCPE-123608 – Transparent leaves overlap with opaque leaves.
+MCPE-166566 – Camels don't play their walking animations when they are damaged.
+MCPE-169313 – Freshly generated chunks cause boats and chestboats to disappear when riding in them.
+MCPE-170208 – 30 second despawn immunity is broken again.
+MCPE-170645 – Game crashes when changing a mob's scale would make it collide with blocks.
+From the previous development version
+
+MCPE-170832 – Hand position/size in first-person view are FOV dependent, making them look too small or stretched.
+MCPE-170836 – Players unable to open trapdoors when being inside of a composter/cauldron.
+MCPE-170858 – Game crashes when end crystal is placed on bedrock.
+MCPE-170882 – Player hitbox doesn't update after gliding with an elytra.
+MCPE-170896 – Bamboo rafts are still crafted with a shovel.
+Others
+
+The paper doll will now show up properly when crawling.
+Suspicious blocks now display correctly on maps.
+Shield no longer clips inside the armor stand model while in the riposte pose.
+Sniffer can no longer dig up seeds in the air.
+Fixed a crash that could happen when running the go_and_give_items_to_noteblock goal.
+Custom items with minecraft:block_placer will no longer place certain blocks in the wrong location.
+Fixed /camerashake command to shake camera without also shaking player.
+Reordered the gamepad tooltips for UI screens so that the buttons align with the same side as a controller.
+References
+
+ "Minecraft Beta & Preview - 1.20.10.21"     – Minecraft Feedback, June 1, 2023.
+
+Navigation

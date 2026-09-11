@@ -1,0 +1,222 @@
+This page covers a development version that has a major issue under certain conditions. 
+The dedicated server for this version has a security vulnerability in the Log4j library that could be used to perform a remote code execution exploit. It can be addressed by appending a certain JVM argument to the server startup command line.
+
+Minecraft 1.18 experimental snapshot 3
+
+Edition
+
+Java Edition
+
+Release date
+
+August 10, 2021
+
+Type
+
+Experimental Snapshot
+
+Experimental snapshot for
+
+1.18
+
+Downloads
+
+Client (.json)Server
+
+Obfuscation maps
+
+ClientServer
+
+Protocol version
+
+ dec: 1073741867 hex: 4000002B
+
+Data version
+
+2827
+
+Resource pack format
+
+7
+
+Data pack format
+
+7
+
+Minimum Java version
+
+Java SE 16
+
+◄◄   1.17.1
+1.18
+  1.18.1 ►►
+
+◄   1.18 experimental snapshot 2
+
+ 1.18 experimental snapshot 3
+
+  1.18 experimental snapshot 4 ►
+
+{
+    "title": "Minecraft 1.18 experimental snapshot 3",
+    "images": [
+        "1.18 Experimental Snapshot 1 banner.jpg",
+        "1.18 experimental snapshot 3 reddit.png",
+        "Java Edition 1.18 experimental snapshot 3 menu.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "August 10, 2021",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Experimental Snapshot article, displayed as Experimental Snapshot)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition 1.18 article, displayed as 1.18)",
+            "label": "Experimental snapshot for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/7d7acdf4165867cd7334bfa5f3f00af742c5ce16/client.jar Client] ([https://piston-data.mojang.com/v1/objects/846648ff9fe60310d584061261de43010e5c722b/1_18_experimental-snapshot-3.zip .json])<br />[https://piston-data.mojang.com/v1/objects/cbe106c19f5072222ce54039aa665a8aaf97097d/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/6685e6de966b4970d947302f55376913454cf512/client.txt Client]<br />[https://piston-data.mojang.com/v1/objects/7751261f6f27641bd605b579bc00598fc4afd556/server.txt Server]",
+            "label": "(link to Obfuscation map article, displayed as Obfuscation maps)"
+        },
+        {
+            "field": " <span style=\"font-size:smaller\"><abbr title=\"decimal\">dec</abbr>: </span>1073741867<br /> <span style=\"font-size:smaller\"><abbr title=\"hexadecimal\">hex</abbr>: </span>4000002B",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "2827",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "7",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "7",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Data pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_16 Java SE 16]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Java Edition  1.17.1|<span style=\"margin-right:-0.35em\">◄</span>◄   1.17.1]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition 1.18|1.18]]'''</td>\n<td style=\"padding: 0.4em\" >[[Java Edition  1.18.1|  1.18.1 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  1.18 experimental snapshot 2|◄   1.18 experimental snapshot 2]]\n</td>\n<td style=\"padding: 0.4em\">''' 1.18 experimental snapshot 3'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  1.18 experimental snapshot 4|  1.18 experimental snapshot 4 ►]]\n</td>\n</tr>\n</table>"
+}
+
+
+1.18 Experimental Snapshot 3 (known as 1_18_experimental-snapshot-3 in the launcher) is the third experimental snapshot for Java Edition 1.18, released on August 10, 2021, which makes numerous changes to world generation and fixes bugs from previous experimental snapshots.
+
+Contents
+
+1 Additions
+
+1.1 World generation
+
+2 Changes
+
+2.1 Mobs
+2.2 World generation
+
+3 Fixes
+4 Issues
+5 Videos
+6 Notes
+7 References
+8 Navigation
+
+Additions
+World generation
+Stony Peaks
+
+A new mountains biome that is a variant of lofty/snowcapped peaks that uses stone and strips of gravel, instead of snow and ice.
+Is used to avoid temperature clashes.
+Changes
+Mobs
+General
+
+Mob spawning is now consistent throughout all altitudes increasing spawn rates in higher altitudes and decreasing spawn rates in lower altitudes.
+The spawning rates are similar to 1.17's spawning rate at Y=64.
+World generation
+Aquifers
+
+Aquifers can go deeper and are more likely to connect with cave systems further down.
+Added more high-frequency variation to aquifers, to reduce the risk of massively huge areas with waterfilled caves everywhere.
+Underground lakes and flooded regions are more likely to be spread out instead of concentrated in one region.
+Badlands
+
+Tweaked badlands so they sometimes show up in flat areas next to plateaus, and made the red sand generate higher up (to account for the generally higher terrain).
+Eroded badlands no longer create floating pillars on top of the water surface.
+Biomes
+
+Tweaked biome placement to reduce the chance of temperature clashes.
+Tweaked biome placement to allow for more noisiness and diversity.
+This allows for the reintroduction of microbiomes.
+Beaches
+
+Tweaked beaches a bit, to make them more inclined to show up on flat coastlines rather than hilly areas.
+Reduced the amount of stone shores.
+Desert temples
+
+Desert temples spawn on the surface rather than at a fixed y-level.
+Mountains
+
+Made peak biomes and meadows less likely to generate in flat low elevation areas.
+Snowy slopes and snowcapped peaks no longer place dirt under the snow.
+Pillager outposts
+
+Now generate in all the new mountain biomes.
+Swamps
+
+Swamps are less likely to overlap cold or dry biomes, and they no longer place hanging water.
+Villages
+
+Now generate in meadows.
+General
+
+Smoothed out the cliffs in shattered terrain a bit.
+Coastlines and river banks are less likely to be intersected by aquifers.
+Local water levels are mostly used in terrain that doesn't border a river or ocean.
+Cave openings and ravines that intersect an ocean or river mostly use sea level.
+Inland low-elevation areas are less likely to have flooded caves everywhere.
+Grass no longer generates underwater.
+Reduced the chance of incorrect surface placement.
+Reduced the chance of river biome generating in dry mountain gorges.
+Fixes
+Fixed goats not spawning in the new mountain biomes.
+Fixed an issue where players in multiplayer can face far more or far fewer enemies than intended, particularly when other players are flying.
+MC-30560 was fixed by this version, although it was not marked as such due to the bug tracker not handling experimental snapshots.
+Issues
+This version is not supported on the bug tracker, and therefore issues affecting it will be resolved as "Invalid".
+
+Videos
+Video made by slicedlime:
+
+
+
+
+Notes
+
+ Unzip this file in the .minecraft/versions folder.
+
+References
+
+ "Important Message: Security vulnerability in Java Edition"     – Minecraft.net, December 10, 2021.
+
+ "New world generation in Java available for testing"     by Henrik Kniberg  – Minecraft.net, August 10, 2021.
+
+  "Minecraft 1.18 experimental snapshot 3 is out!" – u/MrHenrik2 on Reddit, August 10, 2021
+
+ MC-231984
+
+Navigation

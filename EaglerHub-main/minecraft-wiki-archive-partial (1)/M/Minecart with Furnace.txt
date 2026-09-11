@@ -1,0 +1,269 @@
+This feature is exclusive to Java Edition and Legacy Console Edition. 
+
+Minecart with Furnace
+
+Rarity tier
+
+  Common
+
+Renewable
+
+Yes
+
+Stackable
+
+No
+
+Size
+
+Height: 0.7 blocksWidth: 0.98 blocks
+
+Drops
+
+1 Minecart with Furnace
+
+Health points
+
+6HP
+
+{
+    "title": "Minecart with Furnace",
+    "rows": [
+        {
+            "field": "<span style=\"white-space: nowrap;\"><span style=\"display: inline-block; background-color: #fff; border: 1px solid #888; border-radius: 0.3em; color: transparent; width: 1em; height: 1em; vertical-align: -0.36em; margin-right: -0.1em\"><br></span> </span> Common",
+            "label": "(link to Rarity article, displayed as Rarity tier)"
+        },
+        {
+            "field": "Yes",
+            "label": "(link to Renewable resource article, displayed as Renewable)"
+        },
+        {
+            "field": "No",
+            "label": "Stackable"
+        },
+        {
+            "field": "Height: 0.7 blocks<br>Width: 0.98 blocks",
+            "label": "Size"
+        },
+        {
+            "field": "1 <span class=\"nowrap\"><span class=\"sprite-file\" style=\"\">(link to File:ItemSprite minecart-with-furnace.png article, displayed as 16x16px|link=Minecart with Furnace|alt=|class=pixel-image|)</span>(link to Minecart with Furnace article, displayed as <span class=\"sprite-text\">Minecart with Furnace</span>)</span>",
+            "label": "(link to Drops#Common drops article, displayed as Drops)"
+        },
+        {
+            "field": "6<span class=\"hidden-alt-text\">HP</span><span class=\"nowrap mc-hearts\"><span class=\"iconbar pixel-image nowrap\" style=\"--icon-offset:-1px;\" title=\"3  hearts\">(link to File:Heart (icon).png article, displayed as 9px|link=|alt=❤️)(link to File:Heart (icon).png article, displayed as 9px|link=|alt=❤️)(link to File:Heart (icon).png article, displayed as 9px|link=|alt=❤️)</span></span>",
+            "label": "(link to Health article, displayed as Health points)"
+        }
+    ],
+    "invimages": [
+        "Minecart with Furnace"
+    ],
+    "images": [
+        "Minecart with Furnace.png"
+    ]
+}
+
+
+
+ There is a related tutorial page for this topic! 
+See Tutorial:Furnace minecarts.
+
+A minecart with furnace is a furnace inside a minecart. It can be powered with exclusively coal or charcoal to propel it across a rail line for a limited time, which can be used to move other minecarts.
+
+Contents
+
+1 Obtaining
+
+1.1 Crafting
+
+2 Usage
+
+2.1 Train mechanics
+2.2 Corralling many minecarts
+
+3 Properties
+4 Sounds
+5 Data values
+
+5.1 ID
+5.2 Entity data
+
+6 History
+
+6.1 Java Edition
+6.2 Legacy Console Edition
+6.3 Data history
+
+7 Issues
+8 Trivia
+9 Gallery
+
+9.1 Screenshots
+
+10 References
+11 Navigation
+
+Obtaining
+Crafting
+
+Ingredients
+Crafting recipe
+
+Furnace +Minecart
+
+Similarly to other forms of minecart, minecarts with furnaces can be destroyed by attacking them, and doing so drops them as an item. Despite the appearance of the relevant particles, critical hits are not applied to them.
+
+Usage
+Minecarts with furnaces are placed in the same way as other minecarts. They do not have a GUI, unlike a furnace. Also unlike a furnace, furnace minecarts can only be powered with coal and charcoal. Other fuel sources, such as blocks of coal or blaze rods, cannot be used.
+Minecarts with furnaces can be powered, done by feeding fuel into the furnace minecart with the use button. It cannot be powered by a dispenser. The fuel is consumed immediately and it starts to move in the same direction the player clicked toward. Pressing use while not holding coal or charcoal plays the hand animation and is supposed to turn it to that direction, but a bug prevents this from happening. Adding fuel increases the duration by an additional 3600 ticks (equal to 180 seconds or 3 minutes). The upper limit is 32767 ticks, approximately 27 minutes.
+When powered, minecarts with furnaces cover 240m per minute (about 4 m/s, slightly slower than walking speed) or 720m per piece of fuel. They do not accelerate beyond this speed when going downhill or on active powered rails, and as long as they remain powered, they do not slow down when going uphill, on inactive powered rails, or when pushing or pulling other minecarts.
+If a powered furnace minecart is derailed and then pushed back onto a rail, it starts moving again in the direction it came from, so they are not easily turned around in this state unless a player is nearby to redirect it with use.
+When a minecart with furnace bumps into another minecart or multiple minecarts, the other minecarts are pushed forward with great speed. The furnace minecart continues on with its own speed. Because of this speed difference, some of the minecarts may end up inside unloaded chunks on straight tracks.
+
+Train mechanics
+
+Weakly-shunted 1-cart train, one cart was used only to push the train together and is left behind
+
+Creating a strongly-shunted 1-cart train. The sloped rail must be replaced with a horizontal rail before powering.
+A minecart train powered by a furnace minecart
+A furnace minecart can be made to pull up to four other minecarts. All minecarts in this train move at the constant speed of the furnace minecart. Trains are formed when a minecart is pushed into the back of a powered furnace minecart or a short-enough train. These shunts are fragile at best and easily come undone, but some methods are stronger than others. For example, pushing a minecart into a furnace minecart and then powering the furnace gives a weaker shunt than pushing the furnace minecart into the other minecart against a wall, and then powering the furnace in the other direction.
+Minecarts with furnaces can climb up steep inclines while pushing other minecarts as long as they have fuel. If a minecart with furnace reaches a slope while pulling another minecart, the pulled minecart is switched to the forward position so that it can be pushed along the slope instead of pulled.
+A high-speed minecart running into the back of a furnace minecart going in the same direction automatically creates a weak shunt with it, pulling it along.
+Pulling a minecart with TNT causes it to explode.
+
+Pulled minecart/Shunt behavior
+
+Condition
+
+Result
+
+Furnace loses power/speed
+Shunt comes undone
+
+Entity bumping besides those part of the train
+Jettisoned forward
+
+Upward sloped track
+Jettisoned forward
+
+Downward sloped track
+Jettisoned forward (strong shunt) or shunt comes undone (weak shunt)
+
+90° turn in track
+Jettisoned backward
+
+Turn toward north/south or east/west that is not the direction the train was shunted in
+Train derails
+
+When a train comes to a turn, the shunt comes undone with the pulled minecart jettisoned backward. The correct way to make such a turn is having the shunt undone before a turn, and then make the two rejoin on a straight rail later by having the pulled cart catch up with the minecart with furnace.
+Since the train runs slower on a fully powered track than a normal minecart (~5 m/s compared to 8m/s), a train pulled by an unpowered furnace minecart is ideal for AFK farms involving breaking or placing blocks like nether wart.
+
+ The case of this happening when the minecart is not on a rail is tracked in MC-200544.
+
+Corralling many minecarts
+Unlike other carts, minecart with furnace does not get pushed backwards nor forwards because of any collision mechanics. This means they can be useful to move longer "trains" of carts forward, even in conjunction with powered rails. See Tutorial:Minecarts § Moving mobs - minecart with furnace for more details.
+Tutorial:Minecart trains brings up multiple use-cases where this gives the player more effective control over a train.
+
+Properties
+Fuel is not stored as an item in the entity, but in the object data in the fuel property as a time in ticks. Fuel is a short value, i.e. a maximum of 32767 ticks, which is about 27 minutes. However, /summon furnace_minecart ~ ~ ~ {Fuel:32000} alone doesn't make it go since it doesn't have a direction. It can be right-clicked on a track to give it a direction, or it can be summoned with the properties PushX and PushZ set, which are responsible for the direction. The Motion property of every entity allows for movement of the minecart, but it does not direct the minecart to move on its own.
+
+Sounds
+Java Edition:
+Minecarts with furnaces use the Friendly Creatures sound category for entity-dependent sound events.
+
+SoundsSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitchAttenuationdistance​Minecart rollsFriendly Mobs While a minecart with furnace is movingentity.minecart.ridingsubtitles.entity.minecart.riding​0.0–0.35 0.0–1.0 16
+ MC-42132
+
+ Relates linearly with horizontal velocity (max 0.5)
+
+ Increases by 0.0025 per tick if the minecart's horizontal velocity is more than 0.01
+
+Data values
+ID
+Java Edition: ItemIdentifierForm
+Translation key Minecart with Furnacefurnace_minecartItem
+item.minecraft.furnace_minecart
+EntityIdentifier
+Translation key Minecart with Furnacefurnace_minecart
+entity.minecraft.furnace_minecart
+Bedrock Edition (unused): ItemIdentifierFormItem ID
+Translation key Minecart with Furnacefurnace_minecartItem—
+item.minecartFurnace.name
+ ID of block's direct item form, which is used in savegame files and addons.
+
+EntityIdentifier
+Translation key Minecart with Furnacefurnace_minecart
+entity.furnace_minecart.name
+Entity data
+Minecarts with furnace have entity data associated with them that contain various properties of the entity.
+Java Edition:
+
+Main article: Entity format
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+Tags common to all minecarts see Template:Nbt inherit/vehicle/template
+[Short] Fuel: The number of ticks until the minecart runs out of fuel.
+[Double] PushX: Force along X axis, used for smooth acceleration/deceleration.
+[Double] PushZ: Force along Z axis, used for smooth acceleration/deceleration.
+
+History
+Java Edition
+Java Edition Alphav1.0.14
+  Minecarts with furnace were added.
+
+Since no in-game name was indicated, they were referred to by names such as "powered minecart" or "furnace minecart".
+
+No matter how much fuel was added to the minecart, it would never move for more than 3 minutes after the last fuel.Java Edition Beta1.2
+ The texture of the minecart with furnace has been changed.Java Edition1.0.0?
+Each piece of coal now powers a minecart with furnace for 3 minutes (3600 game ticks), so that adding another piece of coal at any time increases the total range by another 3 minutes. A full stack of 64 coal now powers it for 192 minutes (230400 game ticks).
+
+Minecarts with furnace on a level track cover 204 meters per minute.1.3.112w15a
+Using a minecart with furnace in Creative mode now acts as if the player gave it coal.1.814w11a
+Minecarts with furnace now give a much greater boost to other minecarts.
+
+When powered, minecarts with furnace now move on non-powered rails without decelerating.14w17a
+Minecarts with furnace's behavior has been reverted, so that no change was released in Java Edition 1.8.1.1418w43a
+  The texture of the minecart with furnace has been changed.1.1519w38a
+ The furnace now appears dark, like suffocating mobs.19w39a
+The furnace texture is now colored correctly.1.15.2pre1
+Furnace minecarts can now navigate around any corner.1.1922w13a
+The crafting recipe for a minecart with furnace is now shapeless.
+
+Breaking a minecart with furnace now drops the item instead of the minecart and furnace separately.
+Legacy Console Edition
+Legacy Console EditionXbox 360Xbox OnePS3PS4PS VitaWii USwitchTU1CU11.001.001.00Patch 11.0.1
+  Added minecart with furnace.TU21CU91.141.141.14
+The minecart limit has been increased.   1.90
+  The texture of the minecart with furnace has been changed.
+Data history
+Java Edition1.1116w32a
+The entity ID of the minecart with furnace has been changed from MinecartFurnace to furnace_minecart.1.1317w47a
+Prior to The Flattening, the item's numeral ID was 343 and the entity's was 44.
+Issues
+Issues relating to "Minecart with Furnace" are maintained on the bug tracker. Issues should be reported and viewed there.
+
+Trivia
+The minecart with furnace was excluded from Bedrock Edition on purpose. In a tweet, Jeb considered removing it from Java Edition.
+When converting a Legacy Console Edition world to a Bedrock Edition world, any present minecarts with furnaces are converted into a normal minecart.
+Despite the above-described poor standing of the minecart, it was most recently briefly featured in an animation in the Minecraft Live 2022, where one was depicted as moving a train of about 20 minecarts at a higher than normal speed.
+Gallery
+Screenshots
+
+
+
+			A powered minecart in action.
+
+
+References
+
+ MC-122011 – resolved as "Works As Intended".
+
+ MC-304078
+
+ "Why The Furnace Minecart Isn't As Useless As You Think"  – ilmango on YouTube, August 22, 2018
+
+ MC-249493 – Breaking a minecart with chest/furnace/TNT/hopper separates the minecart and the block it contains – resolved as "Fixed".
+
+ "I think we will phase out the furnace minecraft (sic)"  – @jeb_ (Jens Bergensten) on X (formerly Twitter), February 15, 2016
+
+Navigation

@@ -1,0 +1,267 @@
+This article documents an April Fools' Day joke. 
+This feature was exclusively part of a joke version and is not currently planned for addition to regular Minecraft.
+
+Floatater
+
+Renewable
+
+Yes
+
+Stackable
+
+Yes (64)
+
+Tool
+
+Blast resistance
+
+0.5
+
+Hardness
+
+0.5
+
+Luminous
+
+No
+
+Transparent
+
+No
+
+Flammable
+
+No
+
+Catches firefrom lava
+
+No
+
+Note block instrument
+
+Bass Drum
+
+{
+    "title": "Floatater",
+    "rows": [
+        {
+            "field": "Yes",
+            "label": "(link to Renewable resource article, displayed as Renewable)"
+        },
+        {
+            "field": "Yes (64)",
+            "label": "Stackable"
+        },
+        {
+            "field": "<span class=\"sprite-file\" style=\"height:32px;width:32px;--vertical-align:middle\">(link to File:Invicon Wooden Pickaxe.png article, displayed as 32x32px|link=|alt=Invicon Wooden Pickaxe.png: Sprite image for Wooden Pickaxe in Minecraft|class=pixel-image|A wooden pickaxe or better is required to mine this block)</span>",
+            "label": "Tool"
+        },
+        {
+            "field": "0.5",
+            "label": "(link to Explosion#Blast resistance article, displayed as Blast resistance)"
+        },
+        {
+            "field": "0.5",
+            "label": "(link to Breaking#Blocks by hardness article, displayed as Hardness)"
+        },
+        {
+            "field": "No",
+            "label": "(link to Light article, displayed as Luminous)"
+        },
+        {
+            "field": "No",
+            "label": "(link to Opacity article, displayed as Transparent)"
+        },
+        {
+            "field": "No",
+            "label": "(link to Fire#Flammable blocks article, displayed as Flammable)"
+        },
+        {
+            "field": "No",
+            "label": "Catches fire<br>from (link to lava article, displayed as lava)"
+        },
+        {
+            "field": "Bass Drum",
+            "label": "(link to Note Block#Instruments article, displayed as Note block instrument)"
+        }
+    ],
+    "invimages": [
+        "Floatater"
+    ],
+    "images": [
+        "Floatater (S).png"
+    ]
+}
+
+A floatater is a joke block only present in 24w14potato used to move large amounts of blocks.
+
+Contents
+
+1 Obtaining
+
+1.1 Breaking
+1.2 Crafting
+
+2 Usage
+
+2.1 Floating
+
+3 Sounds
+4 Data values
+
+4.1 ID
+4.2 Block states
+
+5 Issues
+6 Gallery
+
+6.1 Renders
+
+7 Navigation
+
+Obtaining
+Breaking
+A floatater drops itself only when mined with a pickaxe; otherwise, it drops nothing.
+
+Block
+
+Floatater
+
+Hardness
+
+0.5
+
+Tool
+
+Breaking time (sec)
+
+Default
+
+2.5
+
+Wooden
+
+0.4
+
+Stone
+
+0.2
+
+Iron
+
+0.15
+
+Diamond
+
+0.1
+
+Netherite
+
+0.1
+
+Golden
+
+0.1
+
+OptionsEfficiency000Haste0011JEBE
+
+Legend
+ incorrect tool, drops nothing
+ correct tool, drops nothing or something other than the block itself
+ correct tool, drops the block itself
+italicized can be instant mined
+
+ These durations ignore any other influential factors (e.g., Mining Fatigue) and are measured in seconds. For more information, see Breaking § Mining efficiency.
+
+Crafting
+
+Ingredients
+Crafting recipe
+
+Poisonous Potato +Floatato +Hot potato
+
+Usage
+When receiving a redstone signal, the floatater adjusts its triggered state immediately. 1 gametick after becoming triggered, it pushes all blocks connected via its sticky side. It does not check redstone signals when placed by a player.
+
+Floating
+Floatater pushing a pillager outpost
+Unlike pistons, it does not have a standard max-number of pushable blocks, but rather a distance limit of 30 blocks (cubic range rather than spherical). If the stickied blocks are connected to a block that is 31 or more blocks from the floatater, the structure does not move. This means the maximum number of blocks movable by the Floatater is 32,768 (including itself), as long as it's built in a 32×32×32 cube with the Floatater itself at any place inside that area. An activated floatater structure can be prevented from taking off by "grounding" it, or connecting enough length of blocks to it.
+Floataters can move blocks that are normally broken by piston pushing or that cannot be moved, i.e., melons and redstone dust not inclusive of tile entities such as shulker boxes and comparators, which break off when pushed. Blocks can be connected with floataters in the following ways:
+
+An irreplaceable block is pushed if it is in front of another block being pushed by the floatater.
+A block is considered connected if its interaction box is touching that of a block being pushed, neither being a floatater unless the other's on the sticky side. A piston and its head are not connected in this way, but a sticky piston is connected with its head through its sticky side.
+On their sticky sides, sticky pistons (on the front, whether extended or not, excluding piston heads), slime blocks (all sides), honey blocks (all sides) and floataters (on the back) are always connected with their adjacent blocks, including air and fluids.
+A floatater creates a "super extra magic" entity (minecraft:grid_carrier) storing moved blocks when starting to float. Block entities placed as a part of the floatater structure break off when the floatater begins moving, even if not pushed by anything, and blocks connected to them are still moved. Waterlogged blocks are pushed without water.
+Moved blocks are deleted after the "super extra magic" is created. Fluids are not deleted. When waterlogged blocks are deleted, water is kept. Deletion of tripwire may be rolled back if its hook is notified to update the attached state of the tripwire. Blocks in a floatater structure are stored in order, but the order in which moved blocks are deleted depends on location. This process sends general neighbor changed updates after all blocks are deleted and no post placement updates. Additional updates are sent immediately after deletion of each block. Updates from a block deleted earlier can cause attached blocks to drop, even if they have been stored in the "super extra magic" and should be deleted later. A floatater structure, when moving, cannot be destroyed.
+When multiple floatater blocks facing the same direction are connected together, and all are powered simultaneously, the floatater moves faster.
+It can transport redstone contraptions, including extended pistons, but freezes all redstone activity until it comes to a stop.
+A floatater structure floats until a block in it collides with another block, where both blocks must be irreplaceable, and the one in the floatater structure must be behind a replaceable block or at the front of the floatater structure. Non-air blocks in the floatater structure replace existing blocks, sending neighbor changed updates and no post placement updates (those from the floatater may be detected as it becomes unactivated), which can be rolled back by tripwire notifying its hook to update its attached state.
+
+Sounds
+
+
+
+This section uses a sound table which may not accurately represent the sounds associated with this feature. 
+Because of MC-177082, subtitles for falling on blocks may not have existed at this point in development, so a dedicated sound table accounting for this may be required.
+
+v
+t
+e stone sound typeSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitchAttenuationdistance​Block brokenBlocksOnce the block has brokenblock.stone.breaksubtitles.block.generic.break​1.00.816​Block placedBlocksWhen the block is placedblock.stone.placesubtitles.block.generic.place​1.00.816​Block breakingBlocksWhile the block is in the process of being brokenblock.stone.hitsubtitles.block.generic.hit​0.250.516​Something falls on a blockEntity-DependentFalling on the block with fall damageblock.stone.fallsubtitles.block.generic.fall​0.50.7516​FootstepsEntity-DependentWalking on the blockblock.stone.stepsubtitles.block.generic.footsteps​0.151.016
+Data values
+ID
+NameIdentifier
+Translation key Floataterfloatater
+block.minecraft.floatater
+Block states
+See also: Block states
+
+  Name
+  Default value
+  Allowed values
+  Description
+  facingnortheastnorthsouthwestThe direction this floatater is facing.
+triggeredfalsefalsetrueTrue if this block is activated.
+Issues
+Issues relating to "Floatater" are not maintained on the bug tracker because it is an April Fools' joke, and is therefore not in the newest stable version or snapshot. Issues reported there are closed as "Invalid".
+
+Gallery
+Renders
+
+
+
+			Facing south
+
+
+
+			Facing south, triggered
+
+
+
+			Facing west
+
+
+
+			Facing north
+
+
+
+			Facing east
+
+
+
+			Facing east, triggered
+
+
+
+			Facing up
+
+
+
+			Facing up, triggered
+
+
+
+			Facing down
+
+
+Navigation

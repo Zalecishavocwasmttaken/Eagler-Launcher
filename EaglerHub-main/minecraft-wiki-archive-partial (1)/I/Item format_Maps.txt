@@ -1,0 +1,15 @@
+This page describes content that has been removed and was only present in earlier versions of Java Edition. 
+In Java Edition 1.20.5, this format has been replaced with the data component format.
+
+[Int] map: The map number.
+[Int] map_scale_direction: Only internally used when scaling a map, after that directly removed: The amount to increase the current map scale by when crafting. Always 1.
+[Byte] map_to_lock: 1 or 0 (true/false) - true if the map should be locked after being taken out of the cartography table. Only internally used when locking a map, after that directly removed.
+[NBT List / JSON Array] Decorations: A list of optional icons to display on the map. Decorations that are removed or modified do not update until the world is reloaded.
+[NBT Compound / JSON Object] An individual decoration.
+[String] id: An arbitrary unique string identifying the decoration.
+[Byte] type: The ID of the map icon to display.
+[Double] x: The world X position of the decoration.
+[Double] z: The world Z position of the decoration.
+[Double] rot: The rotation of the symbol, ranging from 0.0 to 360.0, measured clockwise. A rotation of 0 displays the icon upside-down compared to its appearance in the icon texture.
+[NBT Compound / JSON Object] display: The display tag.
+[Int] MapColor: The color of the markings on the item's texture.

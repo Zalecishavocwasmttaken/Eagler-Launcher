@@ -1,0 +1,485 @@
+This article is about the block that plays music discs.   For the block that makes music when hit, see Note Block.
+
+Jukebox
+
+Renewable
+
+No (except via vault)
+
+Stackable
+
+Yes (64)
+
+Tool
+
+Blast resistance
+
+6
+
+Hardness
+
+2
+
+Luminous
+
+No
+
+Transparent
+
+No
+
+Flammable
+
+No
+
+Catches firefrom lava
+
+Yes
+
+Map color
+
+ 10 DIRT
+
+Note block instrument
+
+Bass
+
+{
+    "title": "Jukebox",
+    "rows": [
+        {
+            "field": "No ((link to Renewable resource#Vault article, displayed as except via vault))",
+            "label": "(link to Renewable resource article, displayed as Renewable)"
+        },
+        {
+            "field": "Yes (64)",
+            "label": "Stackable"
+        },
+        {
+            "field": "<span class=\"sprite-file\" style=\"height:32px;width:32px;--vertical-align:middle\">(link to File:SlotSprite Axe Required.png article, displayed as 32x32px|link=|alt=SlotSprite Axe Required.png: Sprite image for Axe Required in Minecraft|class=pixel-image|This block can be broken with any tool, but an axe is the quickest)</span>",
+            "label": "Tool"
+        },
+        {
+            "field": "6",
+            "label": "(link to Explosion#Blast resistance article, displayed as Blast resistance)"
+        },
+        {
+            "field": "2",
+            "label": "(link to Breaking#Blocks by hardness article, displayed as Hardness)"
+        },
+        {
+            "field": "No",
+            "label": "(link to Light article, displayed as Luminous)"
+        },
+        {
+            "field": "No",
+            "label": "(link to Opacity article, displayed as Transparent)"
+        },
+        {
+            "field": "No",
+            "label": "(link to Fire#Flammable blocks article, displayed as Flammable)"
+        },
+        {
+            "field": "Yes",
+            "label": "Catches fire<br>from (link to lava article, displayed as lava)"
+        },
+        {
+            "field": "<span style=\"white-space: nowrap;\"><span style=\"display: inline-block; background-color: rgb(151, 109, 77); border: 1px solid #888; border-radius: 0.3em; color: transparent; width: 1em; height: 1em; vertical-align: -0.36em; margin-right: -0.1em\"><br></span> 10 DIRT</span>",
+            "label": "(link to Map item format#Color table article, displayed as Map color)"
+        },
+        {
+            "field": "Bass",
+            "label": "(link to Note Block#Instruments article, displayed as Note block instrument)"
+        }
+    ],
+    "invimages": [
+        "Jukebox"
+    ],
+    "images": [
+        "Jukebox.png"
+    ]
+}
+
+A jukebox is a block used to insert and play music discs. Playing a disc causes it to produce a redstone signal and allows nearby allays to duplicate when given amethyst shards.
+
+Contents
+
+1 Obtaining
+
+1.1 Breaking
+1.2 Crafting
+
+2 Usage
+
+2.1 Playback
+
+2.1.1 Allay duplication
+
+2.2 Redstone component
+
+2.2.1 Looping
+
+2.3 Fuel
+2.4 Piston interactivity
+
+3 Sounds
+4 Data values
+
+4.1 ID
+4.2 Block states
+4.3 Block data
+
+5 Achievements
+6 Advancements
+7 History
+
+7.1 Java Edition
+7.2 Bedrock Edition
+7.3 Legacy Console Edition
+7.4 Data history
+
+8 Issues
+9 Trivia
+10 Gallery
+
+10.1 Mojang screenshots
+10.2 In other media
+
+11 See also
+12 References
+13 External links
+14 Navigation
+
+Obtaining
+Breaking
+A jukebox can be broken using any tool, but an axe is the fastest. Jukeboxes also drop all of their contents.
+
+Block
+
+Jukebox
+
+Hardness
+
+2
+
+Tool
+
+Breaking time (sec)
+
+Default
+
+3
+
+Wooden
+
+1.5
+
+Stone
+
+0.75
+
+Copper
+
+0.6
+
+Iron
+
+0.5
+
+Diamond
+
+0.4
+
+Netherite
+
+0.35
+
+Golden
+
+0.25
+
+OptionsEfficiency000Haste0011JEBE
+
+Legend
+ incorrect tool, drops nothing
+ correct tool, drops nothing or something other than the block itself
+ correct tool, drops the block itself
+italicized can be instant mined
+
+ These durations ignore any other influential factors (e.g., Mining Fatigue) and are measured in seconds. For more information, see Breaking § Mining efficiency.
+
+Crafting
+
+Ingredients
+Crafting recipe
+
+Any Planks +Diamond
+
+Usage
+Playback
+Using a music disc on a jukebox inserts the disc and plays music or other audio corresponding to the type of music disc used. Pressing use on the jukebox again ejects the disc and stops any music playing. Music discs play only once before they must be ejected and reinserted. Note particles emit out the top when sound is playing. Audio being played by a jukebox can be heard from up to 64 blocks away.
+Hoppers and droppers and crafters (via crafting disc fragments into music disc 5) can be used to insert discs into a jukebox.
+Tamed parrots and allays dance while in a 3 block radius from a jukebox that is playing a disc.
+
+Allay duplication
+An allay duplicating.
+If an amethyst shard is used on an allay dancing next to a playing jukebox, the allay splits in two (itself and a new allay) and the amethyst shard is consumed. Both allays have a 5-minute cooldown before they can be duplicated again.
+
+Redstone component
+See also: Redstone circuits
+
+A jukebox can act as a redstone power source. A redstone signal of strength 15 is emitted while music from a disc is playing, powering any adjacent redstone wire, redstone repeaters, and mechanism components. The signal turns off when the music track ends or if the disc is removed before the track ends. Being a power source, a jukebox redirects adjacent redstone wires to point to itself.
+A redstone comparator can read a jukebox to produce a signal that varies in strength based on which disc is inserted. The comparator emits power as long as the music disc is stored in the jukebox, even if it has stopped playing. The following table shows the redstone signal strength output for each disc.
+
+Disc
+
+Intensity
+
+(no disc)
+ 0
+
+13
+ 1
+
+cat
+ 2
+
+blocks
+ 3
+
+chirp
+ 4
+
+far
+ 5
+
+mall
+ 6
+
+mellohi
+ 7
+
+stalBounce
+ 8
+
+stradLava Chicken
+
+ 9
+
+wardTears
+
+ 10
+
+11Creator (Music Box)
+
+ 11
+
+waitCreator
+
+ 12
+
+PigstepPrecipice
+
+ 13
+
+othersideRelic
+
+ 14
+
+5
+ 15
+
+Looping
+Jukeboxes disable adjacent hoppers while a music disc is playing inside them, due to them emitting a redstone signal even without using a comparator. When the song ends, the hopper placed below the jukebox is re-enabled, so the disc is automatically pulled out and stored in the hopper. To pull out the disc before the song ends, a minecart with hopper can be used, since it is not affected by the jukebox's redstone impulse.
+A system of hoppers and droppers can then be used to automatically re-insert the disc, causing it to loop. Multiple different discs can be inserted into a system to create music playlists.
+If a hopper under the jukebox is powered by anything else, it does not eject the disc, allowing systems to be paused once the current disc stops playing.
+
+Fuel
+Jukeboxes can be used as a fuel in furnaces, smelting 1.5 items per block.
+
+Piston interactivity
+Jukeboxes cannot be pushed by pistons. They also cannot be pushed or pulled by sticky pistons.
+
+Sounds
+Music discs are not included here.
+Java Edition:
+
+v
+t
+e wood sound typeSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitchAttenuationdistance​Block brokenBlocksOnce the block has brokenblock.wood.breaksubtitles.block.generic.break​1.00.816​Block placedBlocksWhen the block is placedblock.wood.placesubtitles.block.generic.place​1.00.816​Block breakingBlocksWhile the block is in the process of being brokenblock.wood.hitsubtitles.block.generic.hit​0.250.516​Something falls on a blockEntity-DependentFalling on the block with fall damageblock.wood.fallsubtitles.block.generic.fall​0.50.7516​FootstepsEntity-DependentWalking on the blockblock.wood.stepsubtitles.block.generic.footsteps​0.151.016
+Bedrock Edition:
+
+v
+t
+e wood sound typeSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitch​Block brokenBlocksOnce the block has brokendig.woodsubtitles.block.generic.break​1.00.8–1.0​Block placedBlocksWhen the block is placedplace.woodsubtitles.block.generic.place​1.00.8​Axe stripsBlocksWhen an axe strips a log or wood block use.woodsubtitles.block.generic.hit​1.00.8​Block breakingBlocksWhile the block is in the process of being brokenhit.woodsubtitles.block.generic.hit​0.230.5​FootstepsPlayersFalling on the block with fall damagefall.woodsubtitles.block.generic.footsteps​0.41.0​FootstepsPlayersWalking on the blockstep.woodsubtitles.block.generic.footsteps​0.31.0​FootstepsBlocksJumping from the blockjump.woodsubtitles.block.generic.footsteps​0.121.0​FootstepsBlocksFalling on the block without fall damageland.woodsubtitles.block.generic.footsteps​0.181.0
+ MCPE-189879
+
+Data values
+ID
+Java Edition:
+
+NameIdentifierForm
+Translation key JukeboxjukeboxBlock & Item
+block.minecraft.jukebox
+NameIdentifier
+ Block entityjukebox
+
+Bedrock Edition:
+
+NameIdentifierNumeric ID FormItem ID
+Translation key Jukeboxjukebox84Block & Giveable ItemIdentical
+tile.jukebox.name
+ ID of block's direct item form, which is used in savegame files and addons.
+
+ Available with /give command.
+
+ The block's direct item form has the same ID as the block.
+
+NameSavegame ID
+ Block entityJukebox
+
+Block states
+See also: Block states
+
+Java Edition:
+
+  Name
+  Default value
+  Allowed values
+  Description
+  has_recordfalsefalsetrueTrue when the jukebox contains a music disc.
+Block data
+A jukebox has a block entity associated with it that holds additional data about the block.
+Java Edition:
+
+See also: Block entity format
+
+[NBT Compound / JSON Object] Block entity data
+Tags common to all block entities see Template:Nbt inherit/blockentity/template
+[NBT Compound / JSON Object] RecordItem: The single item stack stored in this jukebox. Does not exist if the jukebox is empty. The item must have a jukebox_playable component in order to be placed into here by a player. Represents the container.0 (or contents) slot.
+A single item stack see Template:Nbt inherit/itemnoslot/template
+[Long] ticks_since_song_started: The number of ticks since the song started playing. Automatically stops the sound event of the song once it reaches the song's length in ticks, and controls when particles are created. Does not exist when there is no song playing or no item.
+
+Bedrock Edition:
+
+See Bedrock Edition level format/Block entity format.
+Achievements
+IconAchievementIn-game descriptionActual requirements (if different)Gamerscore earnedTrophy type (PS)PS4OtherMusic to my EarsPlay a music disc in a Jukebox.——BronzeSound of MusicMake the Meadows come alive with the sound of music from a jukebox.Use a music disc on a jukebox in the Meadow biome.10Bronze
+Advancements
+IconAdvancementIn-game descriptionActual requirements (if different)Sound of MusicMake the Meadows come alive with the sound of music from a JukeboxUse a music disc on a jukebox that stands within a meadow biome.
+History
+
+
+
+This section would benefit from the addition of more sounds. 
+Please remove this notice once you have added  suitable sounds to the section.The specific instructions are: Sounds before 23w33a
+
+Java Edition
+Java Edition Alphav1.0.14
+ Added jukeboxes.
+
+Jukeboxes support up to 15 music discs, using their data values: 0 being empty, 1 meaning it contained disc "13", and 2 meaning it contained disc "cat". Values 3–15 support any additional discs, though only "13" and "cat" were available in the vanilla game at the time.Java Edition Beta1.6Test Build 3
+The jukebox now supports more than 15 different music discs, because jukeboxes now have a block entity, which keeps track of the music disc by its item id, instead of using the block's data values. However, this potential wouldn't be used until Java Edition 1.20 added the 16th music disc well over a decade later.Java Edition1.0.0Beta 1.9 Prerelease 6
+Jukeboxes are now broken faster using an axe.1.2.4release
+Spruce planks, birch planks, and jungle planks can now be used to craft jukeboxes.1.513w04a
+Active jukeboxes now emit a redstone signal when a comparator is placed behind it; its strength (1–12) depends on which disc is inserted.1.7.21.7.1
+Acacia planks and dark oak planks can now be used to craft jukeboxes.1.814w10a
+  Jukeboxes no longer have a model when playing music.14w10b
+Jukeboxes no longer lose their texture when playing music.1.1217w14a
+Parrots now dance to playing jukeboxes.1.1418w43a
+ The texture of jukeboxes has been changed.1.1620w06a
+Crimson planks and warped planks can now be used to craft jukeboxes.1.1922w11a
+Mangrove planks can now be used to craft jukeboxes.1.19.122w24a
+Allays now dance near jukeboxes that are playing music.1.19.3ExperimentUpdate 1.2022w42a
+Bamboo planks can now be used to craft jukeboxes.1.19.423w06a
+Jukeboxes now emit a note particle above them while playing a music disc, to match Bedrock Edition.23w07a
+Jukeboxes now emit a redstone signal when any music disc is played, matching Bedrock Edition.
+
+Jukeboxes now redirect adjacent redstone wire to point toward themselves.
+
+Droppers, hoppers, and minecarts with hopper can now interact with a jukebox.1.19.4ExperimentUpdate 1.2023w07a
+Cherry planks can now be used to craft jukeboxes.1.2023w18a
+Jukeboxes have been added to the "Redstone Blocks" tab in the Creative inventory.1.20.223w33a
+Jukeboxes now use wood sounds instead of stone sounds.
+Bedrock Edition
+Bedrock Edition1.2.0beta 1.2.0.2
+ Added jukeboxes.1.10.0beta 1.10.0.3
+ The texture of jukeboxes has now been changed.1.19.10Preview 1.19.10.22
+Allays now dance near jukeboxes that are playing music.1.20.30Preview 1.20.20.21
+Increased the hardness of jukeboxes from 0.8 to 2.
+
+Increased the blast resistance of jukeboxes from 0.8 to 6.
+Legacy Console Edition
+Legacy Console EditionXbox 360Xbox OnePS3PS4PS VitaWii USwitchTU1CU11.001.001.00Patch 11.0.1
+ Added jukeboxes.
+
+Jukeboxes spit out the music disc when done playing.[verify]TU9
+The distance jukeboxes can be heard from has now been increased.TU19CU71.121.121.12
+Active jukeboxes now emit a redstone signal when a comparator is placed behind it; its strength (1–12) depends on which disc is inserted.TU54CU441.521.521.52Patch 241.0.4
+Added parrots, which dance to playing jukeboxes.   1.90
+ The texture of jukeboxes has now been changed.
+
+
+
+			A jukebox.
+
+
+
+			First image of a jukebox in Bedrock Edition.
+
+
+Data history
+Java Edition1.814w06a
+Jukeboxes now use the newly-implemented model json file models/block/cube.json; previously the geometry was defined in the game code itself.1.1116w32a
+The block entity ID has been changed from RecordPlayer to jukebox.1.1317w47a
+Prior to The Flattening, this block's numeral ID was 84.1.19.122w24a
+Added block entity tags IsPlaying, RecordStartTick, and TickCount.1.2124w21a
+Changed jukebox block entity data: removed [Boolean] IsPlaying, [Long] RecordStartTick, and [Long] TickCount; added [Long] ticks_since_song_started.
+Issues
+Issues relating to "Jukebox" are maintained on the bug tracker. Issues should be reported and viewed there.
+
+Trivia
+C418's skin
+C418 has a Steve skin with a jukebox for a head, as a visual gag alluding to his role as lead musician at the time.
+In real life, a phonograph can use a diamond-tipped stylus. Similarly, the jukebox uses a diamond as a crafting ingredient. It is unknown if this was a coincidence or a deliberate choice.
+
+Gallery
+Mojang screenshots
+
+
+
+			A jukebox playing in a crimson forest
+
+
+
+			Jukebox in lush caves
+
+
+
+			"Steve is playing around with a Jukebox in the center of a Village. A Nether Star can be seen on top of the Jukebox."
+
+
+In other media
+
+
+
+			A group of jukeboxes
+
+
+
+			A parrot dancing on a jukebox
+
+
+See also
+Music
+References
+
+ MC-50226
+
+ MC-200484 – resolved as "Fixed".
+
+ "Minecraft Java Edition 1.21"     – Minecraft.net, June 13, 2024.
+
+External links
+Block of the Week: Jukebox – Minecraft.net on May 26, 2017
+Navigation

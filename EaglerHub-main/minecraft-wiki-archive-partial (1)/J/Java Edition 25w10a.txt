@@ -1,0 +1,257 @@
+Minecraft 25w10a
+
+Edition
+
+Java Edition
+
+Release date
+
+March 5, 2025
+
+Type
+
+Snapshot
+
+Snapshot for
+
+1.21.5
+
+Downloads
+
+Client (.json)Server
+
+Obfuscation maps
+
+ClientServer
+
+Protocol version
+
+ dec: 1073742062 hex: 400000EE
+
+Data version
+
+4319
+
+Resource pack format
+
+54
+
+Data pack format
+
+70
+
+Minimum Java version
+
+Java SE 21
+
+◄◄   1.21.4
+1.21.5
+  1.21.6 ►►
+
+◄   25w09b
+
+ 25w10a
+
+  1.21.5 Pre-Release 1 ►
+
+{
+    "title": "Minecraft 25w10a",
+    "images": [
+        "25w10a.jpg",
+        "Java Edition 25w10a.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "March 5, 2025",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Snapshot article, displayed as Snapshot)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition 1.21.5 article, displayed as 1.21.5)",
+            "label": "Snapshot for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/77fd403d0e8e091571f914891ec359db196a4252/client.jar Client] ([https://piston-meta.mojang.com/v1/packages/2129cf8d425f8f4ac7210b908683723811c37040/25w10a.json .json])<br />[https://piston-data.mojang.com/v1/objects/0177c3a044813dc7d10b43b14b7f47224bd43067/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/78b6ff754335c4c3dba82ab3f94471d076578d47/client.txt Client]<br />[https://piston-data.mojang.com/v1/objects/218c144d03dfb0db51a15e4a05ff793703e5a54a/server.txt Server]",
+            "label": "(link to Obfuscation map article, displayed as Obfuscation maps)"
+        },
+        {
+            "field": " <span style=\"font-size:smaller\"><abbr title=\"decimal\">dec</abbr>: </span>1073742062<br /> <span style=\"font-size:smaller\"><abbr title=\"hexadecimal\">hex</abbr>: </span>400000EE",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "4319",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "54",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "70",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Data pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_21_.28LTS.29 Java SE 21]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Java Edition  1.21.4|<span style=\"margin-right:-0.35em\">◄</span>◄   1.21.4]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition 1.21.5|1.21.5]]'''</td>\n<td style=\"padding: 0.4em\" >[[Java Edition  1.21.6|  1.21.6 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  25w09b|◄   25w09b]]\n</td>\n<td style=\"padding: 0.4em\">''' 25w10a'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  1.21.5 Pre-Release 1|  1.21.5 Pre-Release 1 ►]]\n</td>\n</tr>\n</table>"
+}
+
+25w10a is the tenth and final snapshot for Java Edition 1.21.5, released on March 5, 2025.
+
+Contents
+
+1 Additions
+
+1.1 General
+
+2 Changes
+
+2.1 Blocks
+2.2 Mobs
+2.3 General
+
+3 Fixes
+4 Videos
+5 References
+6 Navigation
+
+Additions
+General
+Game rule
+
+Added the tntExplodes game rule. Previously, that was only avaliable on Legacy Console Edition and Bedrock Edition.
+When false, TNT will not explode and cannot be primed by any means.
+Trying to do so directly, like with a flint and steel, will show a message on the action bar.
+Powering a TNT block with redstone makes it simply vanish, as does blowing it up with a creeper.
+A TNT block on fire can burn up as if it was a plank.
+Default value: true
+Tag
+
+Added #flowers item tag.
+Corresponds to the #flowers block tag.
+Changes
+Blocks
+Cactus flower
+
+Can now be placed on farmland.
+Can now be picked up and carried by endermen.
+Test block and test instance block
+
+Their textures have been updated.
+Mobs
+Cow
+
+The new models have been tweaked so the horn placement and leg positioning now match the model on Bedrock Edition.
+The textures of temperate cow legs no longer have harsh borders due to a mirroring issue.
+The heads of baby cows are now positioned correctly.
+Sheep
+
+Its wool texture has been tweaked to remove the stark line at the back.
+General
+Data pack
+
+The pack format version is now 70.
+Entity data
+
+Custom data (previously present only on markers) is now available on all entities.
+It is exposed as a minecraft:custom_data component, so it can be set by spawning items and matched by predicates.
+The component is currently stored in a field called data.
+It is stored only if it's non-empty.
+Predicates
+
+Block predicates
+New optional fields have been added to block predicates: components and predicates.
+Their functionality and format are identical to the fields components and predicates on item predicates, but they operate on block entity components (when present).
+When present, components will match exact contents of block entity components.
+When present, predicates will match partial contents of block entity components.
+Entity predicates
+A new optional field has been added to entity predicates: predicates.
+Its functionality and format is identical to the field predicates on item predicates, but they operate on entity components.
+When present, predicates will match partial contents of entity components.
+Resource pack
+
+The version is now 54.
+"Global" uniforms may now be defined in any shader, and the game will attempt to fill it.
+Currently, these are: ModelViewMat, ProjMat, TextureMat, ScreenSize, ColorModulator, Light0_Direction, Light1_Direction, GlintAlpha, FogStart, FogEnd, FogColor, FogShape, LineWidth, GameTime, ModelOffset.
+The type of the uniform must match what it would normally be, or it'll be undefined behavior.
+SNBT format
+
+SNBT now also supports following operations:
+bool(arg) - converts argument to boolean.
+If argument is a boolean value, returns value directly.
+If argument is a number value, returns true if it is non-zero.
+uuid(str) - converts string representation of UUID to integer array.
+Implicit infinite float values (like 1e1000) are now rejected.
+Sounds
+
+Blocks that are broken by a piston now play their breaking sound.
+Tag
+
+Added cactus_flower to #enderman_holdable block tag.
+Removed blocks that mine instantly without a tool from the #mineable/axe, and #sword_efficient block tags.
+Title screen
+
+The panorama was changed to showcase the Spring to Life.
+Fixes
+26 issues fixed
+From released versions before 1.21
+
+MC-203550 – Blocks broken by pistons do not play breaking sounds.
+MC-269386 – Flow Pottery Sherd is not in the correct spot in the creative inventory.
+MC-270043 – Reduced armor glint applies to tridents.
+From the 1.21.5 development versions
+
+MC-279414 – Flying far away in spectator mode and switching to creative softlocks the game for a while.
+MC-279920 – Beacons play the deactivation sound every game tick while on the death screen.
+MC-279967 – Temperate cows have strange mapping/harsh borders because of the leg texture becoming mirrored.
+MC-279993 – Baby cows' heads are incorrectly positioned.
+MC-280050 – The mule saddle texture is missing in the Programmer Art resource pack.
+MC-280061 – Test instance block has flipped lighting direction.
+MC-280063 – crafting_transmute recipes don't give an output if the output stack has the same count as the stack in the crafting grid.
+MC-280106 – Cactus flowers cannot be held by endermen.
+MC-280109 – Leash all frog variants advancement is not deterministic in data generation.
+MC-280113 – Shears no longer consume durability when used on insta-mined blocks.
+MC-280143 – Monster spawner and trial spawner tooltip no longer displays the "Interact with Spawn Egg" hint.
+MC-280159 – New cow model does not match Bedrock Edition.
+MC-280242 – Not all ambient sounds have been moved to the "Ambient/Environment" category.
+MC-280244 – Temperate cow model in Java does not have its new horn placement from Bedrock Edition.
+MC-280285 – Some game events can crash the game when attempting to create vibration resonance with an amethyst block.
+MC-280315 – Crash when listing suggestions with invalid Unicode escapes.
+From the previous development version
+
+MC-280325 – The player hand flickers in first-person mode.
+MC-280337 – Slimes freeze the game.
+MC-280360 – The game stops updating frames while loading chunks.
+MC-280379 – Frozen screen when entering any UI or after a few minutes of playing.
+MC-280383 – Items in inventories sometimes do not render.
+MC-280423 – Block textures flicker randomly.
+MC-280439 – Values out of bounds for float and double parse successfully in SNBT resulting in storing the value Infinity.
+Videos
+Videos made by slicedlime:
+
+
+
+
+
+
+
+
+References
+
+ "Minecraft Snapshot 25w10a"     – Minecraft.net, March 5, 2025.
+
+Navigation

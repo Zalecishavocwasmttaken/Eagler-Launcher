@@ -1,0 +1,994 @@
+This article is about the screen.   For debug hotkeys, see Debug hotkey.   For other uses, see Debug.
+
+
+
+This feature is exclusive to Java Edition. 
+
+Screenshot of the debug menu with default settings
+Screenshot showing detailed debug information
+The debug screen, debug overlay or F3 screen functions as a menu for accessing debugging information, but it also provides useful in-game information like player coordinates. It is triggered when F3 is pressed.
+The debug screen consists of info text lines and six toggleable graphs: profiler, frame rate, tick rate, bandwidth, ping time, and lightmap graphs.
+
+Contents
+
+1 Information lines
+2 Graphs
+
+2.1 Profiler graph
+2.2 FPS graph
+2.3 TPS graph
+2.4 Bandwidth graph
+2.5 Ping graph
+2.6 Lightmap graph
+
+3 History
+
+3.1 Pre-1.8 legend
+
+4 Issues
+5 Trivia
+6 Gallery
+
+6.1 Historical screenshots
+
+7 Notes
+8 References
+9 External links
+10 Navigation
+
+Information lines
+The debug options menu, used to toggle debug screen text and debug renderers
+The debug screen consists of 28 elements (referred to as "debug screen text" in the debug options menu). Each of these elements can be individually disabled through the debug options menu, which is accessed by pressing F3 + F6:
+
+"OFF" removes the given element from the debug overlay.
+"In Overlay" adds the given element to the debug overlay.
+"Always" causes the element to display on-screen even when the debug overlay is not open.
+There are 2 built-in configurations: "Default Profile" and "Performance Profile".
+The scale of the debug screen can be changed with "GUI Scale" setting:​[upcoming: JE 26.3]
+
+"Auto" tries to stay at a higher resolution than normal.
+"1"
+"2"
+"3"
+"4"
+"Unchanged" matches the regular GUI scale.
+Setting the reduced_debug_info game rule to true prevents some elements from being displayed, even if the player has toggled them to "In Overlay" or "Always".
+
+Name
+
+Line syntax
+
+Description
+
+Built-in profiles
+
+Visible when reduced_debug_info is set to true
+
+Defaultprofile
+
+Performanceprofile
+
+biome
+
+Biome: biome
+
+Displays in which biome the player is.
+biome: the biome identifier.
+
+OFF
+
+OFF
+
+No
+
+chunk_generation_stats
+
+NoiseRouter T: T V: V C: C E: E D: D W: W PV: PV PS: PS N: NBiome builder PV: PV C: C E: E T: T H: H
+
+The NoiseRouter line displays the noise values used to generate the terrain.
+T: the temperature value.
+V: the humidity value.
+C: the continentalness value.
+E: the erosion value.
+D: the depth value.
+W: the weirdness (or ridges) value.
+PV: the peaks and valleys (or ridges folded) value (1−|(3|weirdness|)−2|).
+PS: the initial density without jaggedness value.
+N: the final density value.
+The Biome builder line displays categories for the noise values.
+
+PV:
+"Valley" if PV<0.05.
+"Low" if 0.05≤PV<415.
+"Mid" if 415≤PV<0.4.
+"High" if 0.4≤PV<1730.
+"Peak" if PV≥1730.
+C:
+"Mushroom fields" if C<−1.05.
+"Deep ocean" if −1.05≤C<−0.455.
+"Ocean" if −0.455≤C<−0.19.
+"Coast" if −0.19≤C<−0.11.
+"Near inland" if −0.11≤C<0.03.
+"Mid inland" if 0.03≤C<0.3.
+"Far inland" if C≥0.3.
+E: a number between 0 and 6 (both included), where a lower number corresponds to a lower corresponding value.
+T: a number between 0 and 4 (both included), where a lower number corresponds to a lower corresponding value.
+H: a number between 0 and 4 (both included), where a lower number corresponds to a lower corresponding value.
+
+OFF
+
+OFF
+
+No
+
+chunk_render_stats
+
+C: C (s) D: D, pC: pC, pU: pU, aB: aB
+
+Displays information about loaded chunks.
+C: the number of chunks rendered over the total number of chunks in the loaded area.
+D: the effective client-side render distance.
+pC: the number of pending chunks to be batched.
+pU: the number of pending uploads to the video card.
+aB: the number of available buffers to use in the batching process.
+
+OFF
+
+OFF
+
+Yes
+
+chunk_source_stats
+
+Chunks[C] W: W1, W2 E: E1,E2,E3
+
+Displays information about client-side chunks.
+W1: the number of slots in the client chunk cache, which is a square grid whose width is calculated as (server render distance * 2 + 7) chunks.
+W2: the number of loaded chunks.
+E1: the number of loaded entities.
+E2: the number of entity sections.[verify]
+E3: the number of entity ticking chunks.[verify]
+
+OFF
+
+OFF
+
+Yes
+
+day_count
+
+Day #DAY
+
+Displays the number of days that have elapsed in the world.
+DAY: the number of in-game whole days the player has been in the world.
+
+OFF
+
+OFF
+
+No
+
+detailed_memory
+
+Memory (heap): i=I u=U c=C m=MMemory (non-heap): i=nI u=nU c=nC m=nM
+
+Displays in-depth information about the memory usage of the game.
+I: initial size of the heap.
+U: heap currently in use.
+C: committed size of the heap.
+M: maximum size that can be committed to the heap.
+nI: sum of the initial sizes of most non-heaps.
+nU: sum of the in-use sizes of all non-heaps.
+nC: sum of the committed sizes of all non-heaps.
+nM: sum of the maximum sizes of most non-heaps.
+
+OFF
+
+OFF
+
+Yes
+
+entity_render_stats
+
+E: E/T, SD: SD
+
+Displays information about loaded entities.
+E: the number of entities in the player's FOV.
+T: the number of entities in the loaded area.
+SD: the simulation distance.
+
+OFF
+
+OFF
+
+Yes
+
+entity_spawn_counts
+
+SC: SC, M: M, C: C, AM: A1, AX: A2, U: U, W: W1, W: W2, M: M
+
+Displays the amount of entities that count toward the mob cap.
+SC: the total amount of loaded mob-spawning chunks (usually 289).
+M: the total amount of monsters (hostile mobs).
+C: the total amount of creatures (passive mobs).
+A1: the total amount of ambient mobs (bats).
+A2: the total amount of axolotls.
+U: the total amount of underground water mobs (glow squids).
+W1: the total amount of water mobs (squids, dolphins and nautiluses).
+W2: the total amount of water ambient mobs (fishes).
+M: the total amount of miscellaneous entities.
+
+OFF
+
+OFF
+
+No
+
+fps
+
+FPS fps T: T (present mode) @refresh rate​[upcoming: JE 26.3]
+
+Displays the framerate.
+FPS: the current framerate.
+T: the max framerate value ("inf" if set to unlimited).
+present mode: the current presentation mode, this can vary depending on vsync, the renderer and hardware support
+immediate
+mailbox
+fifo
+fifo relaxed
+refresh rate: the display refresh rate.​[upcoming: JE 26.3]
+
+In overlay
+
+Always
+
+Yes
+
+game_version
+
+Minecraft V (V/M/S)
+
+Displays the game version.
+V: the game version.
+M:
+"vanilla" if using a vanilla version.
+the mod or mod loader name if using a modded version.
+S:
+"snapshot" if playing in a snapshot, pre-release, or release candidate.
+else nothing.
+
+In overlay
+
+OFF
+
+Yes
+
+gpu_utilization
+
+GPU: GPU%
+
+Displays the GPU utilization.
+GPU: the percentage of GPUs' processing power being used.
+
+OFF
+
+In overlay
+
+Yes
+
+heightmap
+
+CH S: S M: M ML: MLSH S: S O: O M: M ML: ML
+
+The CH line displays values of the corresponding client-side heightmaps at the player's position.The SH line displays values of the corresponding server-side heightmaps at the player's position.
+S: the WORLD_SURFACE value.
+M: the MOTION_BLOCKING value.
+ML: the MOTION_BLOCKING_NO_LEAVES value.
+O: the OCEAN_FLOOR value.
+
+OFF
+
+OFF
+
+No
+
+light_levels
+
+Client Light: L (S sky, B block)
+
+Displays the client-side light values at the player's feet.
+L: the total light level (max⁡(S,B), not to be confused with the internal light level).
+S: the sky light level.
+B: the block light level.
+
+OFF
+
+OFF
+
+No
+
+local_difficulty
+
+Local Difficulty: D // C
+
+Displays local difficulty-related values.
+D: the local difficulty of the chunk the player is in.
+C: the clamped local difficulty
+
+OFF
+
+OFF
+
+No
+
+looking_at_block_state
+
+Targeted Block: CBS
+
+Displays information about the targeted block.
+C: the coordinates of the block.
+B: the identifier of the block.
+S: the list of block states of the block (one line per state property).
+
+OFF
+
+OFF
+
+No
+
+looking_at_block_tags
+
+T
+
+Displays the list of tags containing the targeted block (one line per tag).
+
+OFF
+
+OFF
+
+No
+
+looking_at_entity
+
+Targeted EntityE
+
+Displays the identifier of the targeted entity.
+
+OFF
+
+OFF
+
+No
+
+looking_at_entity_tags
+
+T
+
+Displays the list of tags containing the targeted entity (one line per tag).
+
+OFF
+
+OFF
+
+No
+
+looking_at_fluid_state
+
+Targeted Fluid: CBS
+
+Displays information about the targeted fluid.
+C: the coordinates of the fluid.
+B: the identifier of the fluid.
+S: the list of block states of the fluid (one line per state property).
+
+OFF
+
+OFF
+
+No
+
+looking_at_fluid_tags
+
+T
+
+Displays the list of tags containing the targeted fluid (one line per tag).
+
+OFF
+
+OFF
+
+No
+
+memory
+
+Mem: P% RMBAllocation rate: AMB/sAllocated: AP% ARMB
+
+Displays information about the memory being actively used by Minecraft and the allocated memory to Minecraft.
+P: the percentage of used memory.
+R: the amount of used of memory over the total amount of memory, in MiB.
+A: the rate of heap memory that the game allocates, in MiB/s.
+AP: the percentage of memory the game has allocated from the maximum it can use.
+AR: the amount of allocated memory, in MiB.
+
+In overlay
+
+In overlay
+
+Yes
+
+particle_render_stats
+
+P: EG EG IP IP NR NR SQ SQ T T
+
+Displays the number of particles for each group and the total amount.
+EG: the Elder Guardian group.
+IP: the Item Pickup group.
+NR: the No Render group.
+SQ: the Single Quad group.
+T: the total amount.
+
+OFF
+
+OFF
+
+No
+
+player_position
+
+XYZ: PX / PY / PZBlock: BX BY BZChunk: CX CY CZ [RX RZ in F]Facing: D (Towards T) (Y P)DIM FC: FC
+
+PX, PY, PZ: the coordinates of the player's feet (respectively X, Y Z).
+BX, BY, BZ: the coordinates of the block the player's feet are in (respectively X, Y Z).
+CX, CY, CZ: the chunk coordinates of the chunk the player is in (respectively X, Y Z).
+RX, RZ: the coordinates of the chunk within the file it is stored in.
+F: the name of the file the chunk is stored in.
+D: the cardinal direction the player is facing.
+T:
+"negative Z" if the player is facing north.
+"positive Z" if the player is facing south.
+"positive X" if the player is facing east.
+"negative X" if the player is facing west.
+Y, P: the player's yaw and pitch.
+DIM: the identifier of the dimension the player is in.
+FC: the amount of force loaded chunks.
+
+In overlay
+
+OFF
+
+No
+
+player_section_position
+
+Section-relative: X Y Z
+
+Displays the relative coordinates of the block the player's feet are in within the chunk.
+
+In overlay
+
+OFF
+
+Yes
+
+player_speed​[upcoming: JE 26.3]
+
+Speed: #.### blocks/tick
+
+Displays the player's speed in blocks per tick.
+
+OFF
+
+OFF
+
+No
+
+post_effect
+
+Post: post effect
+
+Displays the current post effects
+when spectating a mob.
+added with the /posteffect command.​[upcoming: JE 26.3]
+post effect: name of the post effect.
+"minecraft:creeper" when specating a creeper.
+"minecraft:invert" when specating an enderman.
+"minecraft:spider" when spectating a spider.
+"minecraft:blur"​[upcoming: JE 26.3]
+else nothing.
+
+OFF
+
+OFF
+
+No
+
+simple_performance_impactors
+
+C B: BFiltering: F
+
+Displays various video setting options.
+C: the way clouds are rendered.
+"fancy-clouds" if set to fancy.
+"fast-clouds" if set to fast.
+else nothing.
+B: the biome blend value.
+F: the texture filtering option.
+"None".
+"RGSS".
+"Anisotropic 2x".
+"Anisotropic 4x".
+"Anisotropic 8x".
+
+In overlay
+
+In overlay
+
+Yes
+
+sound_mood
+
+Sounds: S1 + S2 (Mood M%)
+
+Displays how many sounds are being played and the mood value.
+S1: the number of "static" sounds (e.g. breaking or placing a block, moving or burning fire) playing over the maximum number of static sounds that can be played (usually 247).
+S2: the number of "streaming" sounds (i.e. music, music from music discs, and ambience sounds) playing over the maximum number of streaming sounds that can be played (usually 8).
+M: the mood value.
+
+OFF
+
+OFF
+
+No
+
+system_specs
+
+Java: JAVA VERSIONCPU: THREAD NAME CORES SPEEDDisplay: RES (VENDOR)GRAPHICS CARD GRAPHICS CARD INFOOpenGL OPENGL VERSION RENDERER
+
+Displays various computer specifications.
+JAVA VERSION: the Java version currently being used.
+THREAD: the amount of threads on the player's CPU.
+NAME: the name of the CPU, including its brand.
+CORES: the amount of cores on the player's CPU. This appears only with AMD CPU's.
+SPEED: the base clock speed of the player's CPU (in GHz). This appears only with Intel CPU's.
+RES: the resolution of Minecraft.
+VENDOR: the display vendor.
+GRAPHICS CARD: the graphics card name, including its brand.
+GRAPHICS CARD INFO: additional information if the players has an AMD GPU.
+OPENGL VERSION: the OpenGL version currently being used.
+RENDERER: information about the renderer.
+
+In overlay
+
+OFF
+
+Yes
+
+tps
+
+BRAND server @ MST ms, UP tx, DOWN rx
+
+Displays information about the server.
+BRAND: the server brand ("Integrated" when in singleplayer).
+MST: the time it takes for a game tick to be processed (only in singleplayer)
+UP: the average number of packets sent by the client during a game tick.
+DOWN: the average number of packets received by the client during a game tick.
+
+In overlay
+
+In overlay
+
+Yes
+
+Graphs
+Profiler graph
+
+
+
+This section is missing information about: the chart contents; decription of colors 
+Please expand the section to include this information. Further details may exist on the talk page.
+
+The profiler graph, known informally as the pie chart, can be toggled using F3 + 1 (previously ⇧ Shift + F3) and displays profiling information. To access a sub-section, press ⇧ Shift + N, which N is the section number within square brackets under the pie chart.
+While the profiler graph is open, clicking a number on the keyboard results in going into that profiler category. Where 0 is used to traverse back. It's currently impossible to navigate to numbers past 9. Traversal is limited to KeyCode 48 to 57, where input -- 48 results into the number category to traverse into.
+While the chart is open, any entry that gets added into the chart may not disappear unless the chart is reopened by re-toggling F3, thus giving the player a refreshed result. For instance, if inspecting the blockRenderer, if the player were in the range of a specific block and went out of it, the block may still be visible in the chart while actually not being rendered anymore; to have better results, the player would have to open the Debug Screen.
+
+FPS graph
+
+The frame rate graph (or simply FPS graph) displays on the left side of the screen when enabled with F3 + 2 (previously ⌥ Alt + F3). It shows the last 240 frames of gameplay. The height of each bar is proportional to the time a frame took to generate.
+The minimum, average, and maximum frame times for the last 240 frames are shown on top.
+The colors are on a gradient from neon green (good) ( #00FF00) through yellow ( #FFFF00) to neon red (bad) ( #FF0000).
+
+TPS graph
+
+The tick rate graph (or simply TPS graph) displays on the right side of the screen when enabled with F3 + 2 if in singleplayer or playing as an operator on a server. It shows the last 240 ticks of gameplay. The height of each bar is proportional to the time a tick took to process.
+The minimum, average, and maximum tick times for the last 240 ticks are shown on top.
+The colors stack. From top to bottom:
+
+Light green/yellow/red: Idling, waiting for next tick (color gradient like the FPS graph above)
+Purple: Miscellaneous (all other code during the tick)
+Light brown: Scheduled tasks
+Dark red: Main logic of the server tick
+Bandwidth graph
+
+The bandwidth graph displays on the left side of the screen when enabled with F3 + 3. It shows the last 240 packets. Higher the bar is, the higher the bandwidth it uses. The minimum, average, and maximum size is shown on top, typically in KiB.
+The colors are cyan for small-sized packets and light purple for larger ones.
+
+Ping graph
+
+The ping graph displays on the right side of the screen when enabled with F3 + 3. It shows the last 240 ping times. Higher is longer time. The minimum, average and maximum are shown on top.
+The colors are on a gradient from neon green (good) ( #00FF00) through yellow ( #FFFF00) to neon red (bad) ( #FF0000).
+
+Lightmap graph
+
+The lightmap graph displays on the right side of the screen when enabled with F3 + 4. It shows the lightmap texture in real-time. The color of each pixel represents the resulting color that will be applied to blocks and entities lit with the corresponding block and sky light levels.
+The horizontal axis represents block light levels (0-15 from left to right).
+The vertical axis represents sky light levels (0-15 from bottom to top).
+
+History
+The debug information from Indev, Infdev, and early Alpha
+Java Edition Classic0.0.2a
+The version number is now displayed in the top-left corner.
+
+Includes the fps and chunk updates.0.0.23a
+Added a Show FPS option to toggle current framerate being displayed. It is on by default.Java Edition Indev0.3120100202
+Added "E" entities value, "P" particles value, and "LT" value.
+
+Upon placing chests, the second value of "LT" would go up upon every chest placed.
+
+The first value seemingly is unaffected by this.20100206-2034
+Removed "LT" value.
+
+FPS and chunk updates have been moved next to the version number and are now contained within parentheses.
+
+Moved "E" value below "C" value, and moved "P" value below "E" value.
+
+"C", "F", "O", "B", "I", and "T" values have been added.
+
+"C" values cover rendered/total chunks, "F" values are chunks outside the field of view, "O" values are chunks culled by occlusion culling, "B" values are culled entities that are hidden in a chunk and can't be seen, "I" values are individually culled entities, and "T" values are terrain and lighting data.20100212-1210
+Added "L" lighting updates value.20100212-1622
+Added Free memory and Allocated memory.
+
+Displayed in §8 (dark gray) color code.
+
+It always displays even when the option to turn on the debug screen is disabled.20100213
+Free memory and Allocated memory now display in §7 (light gray) color code.
+
+Displays only when the option is enabled.Java Edition Infdev20100227-1414
+Removed "L" value.
+
+"T" value no longer displays a value.
+
+"O", "E", "B", and "I" values no longer function.20100316
+"E" and "I" values now function again.20100413-1951
+Added "All" and "Counted" values.
+
+"All" displays the total number of loaded entities.
+
+"Counted" seemingly serves the same function as "All".20100420
+Removed slash from "All" value.
+
+Removed "Counted" value.20100624
+Added second "E" value.
+
+Second "E" is located right next to "O" value.
+
+Second "E" displays number of empty chunk sections that may be skipped due to not yet being loaded and rendered, or has nothing to draw in the current render pass; all render passes are counted.
+
+Lagometer added (initially separate, requires F6).20100627
+Changed Free memory to Used memory.
+
+Now displays MB in parentheses right next to the value percentage.Java Edition Alphav1.1.1
+The debug screen is no longer listed as an option and now requires F3 to be held down to activate.v1.2.0?
+The lagometer is now part of the debug screen.v1.2.3
+The coordinates have been added to the debug screen.Java Edition Beta1.3
+The debug screen, along with other function key controls, has now become a toggle.
+
+When the debug screen is open, it now shows numbers above every mob; these numbers being the mob's Entity ID. These numbers are visible through blocks.1.7
+The "f" coordinate has been made visible in the debug screen (facing direction).1.8Pre-release
+The ability to see the level's seed has been added to the debug screen.
+
+Entity numbers being shown above a mob's head have been removed from the debug screen.Java Edition1.0.0October 2, 2011
+The first images of a runtime performance profiler with a pie chart is revealed.Beta 1.9 Prerelease 3
+The profiler has been added to the debug screen.1.2.11.2
+Information about the biome and light level of the player's location have been added to the debug screen.
+
+The seed in multiplayer has been made hidden from the debug screen and now shows as "0".1.2.4
+Pressing F3 (Fn + F3 on Mac and some laptops) brings up the debug screen, but without the graphs. The graph appears upon pressing ⇧ Shift + F3 (Fn + ⇧ Shift + F3 on Mac and some laptops).1.3.112w18a
+Information about the player's speed and whether the player is touching the ground have added to the debug screen.
+
+Coordinates within the debug screen are now rounded to 5 digits.12w21a
+Information about the world's seed has been removed from the debug screen, seen instead by pressing the chat key and typing /seed.
+
+The frame time graph has been removed from the debug screen.12w30a
+The y coordinate now shows both the feet level and the eye level.1.4.212w39a
+Fl, x and z chunk coordinates, and more rotation (f) information have been added to the debug screen.12w41a
+⇧ Shift + F3 now shows the profiler graph in the debug screen.1.814w02a
+The debug screen now shows which axis the player is facing after the cardinal direction: "Toward positive/negative X/Z".14w04a
+The x coordinate line in the debug screen now appears bold when looking east/west, similarly the z coordinate line now appears bold when looking south/north.
+
+The 3d_crosshair debug renderer is now active when the debug screen is open.14w05a
+Text within the debug screen now has a background.
+
+X, y, z, b, bl and other labels within the debug screen have been replaced with more understandable labels.
+
+"Light" is now the light levels at feet, not eyes.14w06a
+X, Y, and Z title in the debug screen has been changed from 'Feet' in the previous snapshot, to 'XYZ'.
+
+A day counter, which increases by 1 every dawn, has been added to the debug screen.
+
+The debug screen now displays regional difficulty: Peaceful starts at 0.00, Easy starts at 0.75, Normal starts at 1.50, and Hard starts at 2.25.
+
+The debug screen now displays player rotation in degrees and quadrants.14w11a
+On the right-hand side of the debug screen, a display now shows up if the player is looking at a block, showing its ID and block states.14w17a
+All blocks now have their info displayed on the right-hand side of the debug screen.
+
+The "Facing negative/positive x/z" from the debug screen has been removed.14w20a
+The "Facing negative/positive x/z" has been readded to the debug screen.14w25b
+The line on the right-hand side that had displayed the name of the block model the player was looking at has been removed from the debug screen.14w29a
+A 'Reduced Debug Info' toggle now exists within multiplayer settings to enable/disable reduced information on the debug screen.
+
+The reducedDebugInfo gamerule allows the player to enable/disable reduced information on the debug screen. This overrides all 'reduced debug info' settings in clients.14w30a
+The debug screen now displays how many chunk sections are being rendered currently and how many chunk sections are out of view in percent, the OpenGL version, display size, vendor and GPU.
+
+"Vanilla" has been added to the version number within the debug screen.1.8.2pre1
+The frame time graph within the debug screen has been readded and redesigned, so that it can now be activated using ⌥ Alt + F3.1.915w43a
+The debug screen now shows more information.
+
+The debug screen now shows if the pie chart and fps chart are shown on screen.
+
+The debug screen now shows text in chat when the player reloads chunks, sounds, etc. using other F3 hotkeys.
+
+The debug screen is now toggled when the F3 key is released, instead of when it is pressed.1.1318w14a
+Holding F3 + C now gives a warning before a debug crash happens.18w22c
+The debug overlay now shows the fluid the player is looking at, separately from blocks.pre6
+Added information about the time it takes for a tick on the integrated server, number of packets sent by the client (tx), and number of packets received by the client (rx).pre7
+Added "Looking at liquid" row, which displays the targeted fluid's coordinates.
+
+"Looking at" row within the debug screen has been renamed to "Looking at block".
+
+"Targeted Block" information now targets through fluids. It displays information for blocks up to 16 blocks away.
+
+Added "Targeted Entity", which displays information for entities up to 16 blocks away.1.13.118w31a
+Added new fields for the current dimension and the related force loaded chunks.1.1418w43c
+Pressing ⌥ Alt + F3 now shows TPS (ticks per second).
+
+Added min/avg/max tick times to help find stutters.1.1519w38a
+The chunk update counter has been removed from the debug screen.1.1620w18a
+The "Looking at block" and "Looking at fluid" were integrated into "Targeted block" and "Targeted fluid" located on the right side of the debug screen.
+
+Added a new line detailing mob spawning in different categories.1.18Experimental Snapshot 1
+Added two new lines: Multinoise and Terrain.1.18.222w03a
+Now contains the chunk position in the region file, and the name of this region file that player is currently in, in the end of the "Chunk" row.
+
+Moved the location of the player within a chunk from "Chunk" row, into the new square brackets at the end of the "Block" row.22w07a
+Merged the "Terrain" and "Multinoise" row into the "NoiseRouter" row.1.1922w11a
+Added estimated GPU utilization percentage to performance profiling metrics and F3 debug screen, available only for graphics devices that support GPU timer queries.
+
+Added "Blending" row, above the "Noise Router" row.
+
+The H for "humidity" has been changed for a V for "vegetation".22w12a
+Removed debug hotkey cycling render distance (F3 + F).22w16a
+Added "Allocation Rate" row, which shows heap memory allocation rate.1.19.1Release Candidate 1
+The "Blending" row now disappears when the chunk that the player is in uses the new method, instead of displaying "Blending: New".1.20.223w31a
+Values in the SH row now appear as question marks when playing on a server, instead of wrong values.23w32a
+Opening it with ⎈ Control + F3 now shows charts for ping and received network traffic.23w33a
+The hotkeys for debug charts have changed.
+Profiler graph: ⇧ Shift + F3 → F3 + 1
+FPS/TPS graph: ⌥ Alt + F3 → F3 + 2
+Bandwidth/ping: ⎈ Control + F3 → F3 + 3
+ 1.20.524w04a
+Updated the TPS graph (bottom right graph) shown via F3 + 2.1.21.224w33a
+The unused value "B" in the row "E" has been removed as being redundant.1.21.925w31a
+The player can now use F3 when in menus.
+Minimized default debug screen to display less information.
+
+Added debug screen configure menu shown via F3 + F5 with separation of debug information into parts that can be individually configured to display in debug screen and are classified into two categories: Debug Screen Text and Debug Renderers.
+
+"Biome: biome" changed to "Biome:biome" (biome) as the space between title and displayed biome name disappeared.
+
+"Chunk-relative: relative" renamed to "Section-relative: relative" (player_section_position) with the relative 3-integer coordinates being fixed to always show 2 digits. It can now be showned on screen even without reducedDebugInfo enabled, therefore replacing "[relative]" section in Block line, making the line changed from "Block: coordinates [relative]" to "Block: coordinates".
+
+Removed redundant total entities attribute from (particle_render_stats), changing "P: particles. T: total entities" to "P: particles".
+
+"Chunks[S] W: chunks E: entities,visible,sections,chunks,ticking,load,unload" line is now merged with "Chunks[C] W: cached, loadedC E: loadedE,sections,ticking" under (chunk_source_stats), making information about server-side chunks available with reducedDebugInfo enabled.
+
+particle_render_stats is no longer available with reducedDebugInfo enabled.
+
+Help line text changed from "For help: press F3 + Q" to "For help: press F3 + Q. To edit: press F3 + F5". Debug charts with help information becomes visible when debug screen is opened and has at least one text part not turned off in configuration options.Pre-Release 4
+The Debug Options screen is now accessible using F3 + F6 instead of F3 + F5.26.1snap1
+The looking_at_block and looking_at_fluid debug entries no longer show tags.
+New debug entries have been added: looking_at_block_tags, looking_at_fluid_tags, and looking_at_entity_tags.
+Renamed debug entries: looking_at_block -> looking_at_block_state, looking_at_fluid -> looking_at_fluid_state.
+Added the lightmap graph.snap3
+The local_difficulty debug entry no longer shows the day count.
+Added the day_count debug entry.snap8
+Added the detailed_memory debug entry.26.2snap1
+The entity_spawn_counts debug entry now refers to the ambient mob count as AM and the axolotl mob count as AX instead of referring to both as A.snap2
+Thefps entry now reports which type of present mode is used, as opposed to just vsync.pre4
+The particle_render_stats entry now includes the counts of different particle groups (SQ for single quads, NR for no render, EG for elder guardians, and IP for item pickup) in addition to the total.Upcoming Java Edition26.3snap4
+Added the player_speed debug entry.
+The fps debug entry now shows the display refresh rate.
+Added "GUI Scale" setting to the debug options menu.
+Pre-1.8 legend
+
+
+
+This section describes content that has been removed from Minecraft. 
+This feature was present in earlier versions of Minecraft, but has since been removed.
+
+Name
+
+Description
+
+C
+
+Number of chunk sections rendered over total number of chunks. Counts all render passes: if a chunk section is rendered twice (because it contains both water and normal blocks, for example) then it is counted twice.
+
+F
+
+Number of chunk sections loaded outside the viewing distance. Counts all render passes.
+
+O
+
+Number of chunk sections removed through occlusion culling. Counts all render passes.
+
+E (first row)
+
+Number of empty chunk sections. These sections are skipped for one of two reasons: Either the chunk has not yet been loaded and rendered into polygons, or the section has nothing to draw in the current render pass. Counts all render passes.
+
+E (second row)
+
+Number of rendered entities over total entities
+
+B
+
+Unused, always 0.
+
+I
+
+Number of invisible entities
+
+P
+
+Number of particles on screen
+
+T
+
+Displays the player's max framerate
+
+ALL
+
+Displays the total number of loaded entities (including mobs and dropped items)
+
+ServerChunkCache ChunkCache
+
+The most chunks that can be loaded
+
+x
+
+Player's location in blocks East of 0,0 (negative values are to the West) and after the // is the player's chunk number with the block within the chunk in ()
+
+y
+
+Player's altitude in blocks (63 (62.9) is Overworld sea level, 11 (10.9) is Overworld lava flood level, 32 (31.9) is Nether lava sea).
+
+z
+
+Player's location in blocks South of 0,0 (negative values are to the North) and after the // is the player's chunk number with the block within the chunk in ()
+
+f
+
+The direction in which a player is facing (south=0, west=1, north=2, east=3) and if the player walks toward x or z respectively
+
+lc
+
+Max section height for the chunk the player is in (uses cubic chunk sections, so heights display in multiples of 16 minus 1).
+
+b
+
+Shows the player what biome they are in.
+
+bl
+
+(for "block light") The amount of light from other blocks (e.g. torches) at the block the player's head is in. If the player stands on top of a torch, this field shows a light level of 13 instead of the expected 14, due to the player's head being one block away from it.
+
+sl
+
+(for sky light) The amount of light from the sky at the block the player's head is in. Note that the number shown here is accurate only during the day. It shows the light level the block would get from the sun in full daylight, but does not account for the lower light levels at night or during a storm.
+
+rl
+
+(for raw light) The total light level where the player's head is, equal to max (bl,sl). Note that because the "sl" field is factored in here, this field has the same caveats as that one.
+
+ws
+
+Walking speed.
+
+fs
+
+Flying speed.
+
+g
+
+On ground, Boolean value, true if the player touches the ground.
+
+fl
+
+The y-coordinate of the highest block where the player is able to stand, rounded up when standing on half-blocks, such as slabs. When above the void (where there is no block), it equals 0.
+
+shader
+
+The file path of the currently-active shader (within the "assets" directory of minecraft.jar). Displayed only if a shader is active.
+
+Issues
+Issues relating to "Debug screen" or "F3" are maintained on the bug tracker. Issues should be reported and viewed there.
+
+Trivia
+The biome and lighting values do not display when the player is outside of the build limits.
+Deeper into the profiler (⇧ Shift + F3), some tasks have numbers higher than 9 and can't be accessed. Pressing the two keys simultaneously does not open the task.
+The warning stating that the Debug Options is for testing purposes contains a joke possibility as the last item in the list. This joke is changed depending on the game language.
+Gallery
+Historical screenshots
+Most of these screenshots show debug screen exclusively used by the developers of Minecraft.
+
+
+
+			Image from Notch showing an "unlicensed copy" message on the top corner of the screen
+
+
+
+			A sneak peek of the performance profiler shown on Notch's Twitter on October 2, 2011
+
+
+
+			Jeb using the debug screen
+
+
+
+			Ditto
+
+
+
+			Dinnerbone using the debug screen
+
+
+
+			Rockenroll4life using the debug screen
+
+
+
+			Ditto
+
+
+
+			Door block data in the debug screen
+
+
+
+			Redstone block data in the debug screen
+
+
+
+			Tripwire hook block data in the debug screen
+
+
+Notes
+
+ This is the maximum number of chunks that the client would allow the server to keep loaded. The vanilla server always asks the client to unload chunks whenever they leave its circular view range, so the actual number of chunks that may be loaded at a time in a vanilla game is smaller.
+
+ Displayed as "MB" in the game instead of "MiB"
+
+ Previously used as the number of entities removed due to hidden chunks during Indev. It was removed in snapshot 24w33a as being considered to be completely redundant.
+
+References
+
+ https://www.minecraft.net/en-us/article/minecraft-snapshot-24w04a
+
+ http://gaming.stackexchange.com/questions/14990/minecraft-debug-screen
+
+ http://www.minecraftforum.net/viewtopic.php?f=35&t=13231
+
+ "Very useful runtime performance profiling with PIE CHARTS: http://i.imgur.com/ZuJXC.png"  – @notch (Markus Persson) on X (formerly Twitter), October 2, 2011
+
+External links
+What is in the Debug Menu in Minecraft: Java Edition? – Minecraft Help Center
+Navigation

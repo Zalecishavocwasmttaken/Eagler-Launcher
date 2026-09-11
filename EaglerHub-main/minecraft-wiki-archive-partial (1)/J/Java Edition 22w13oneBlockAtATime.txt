@@ -1,0 +1,2807 @@
+This article is about the April Fool's joke snapshot.   For the actual snapshot released that week, see Java Edition 22w13a.
+
+
+
+This article documents an April Fools' Day joke version. 
+There is no proper release version or development version of Java Edition called the One Block at a Time Update.
+
+Minecraft 22w13oneBlockAtATime
+
+Edition
+
+Java Edition
+
+Official name
+
+One Block at a Time Update
+
+Release date
+
+April 1, 2022
+
+Type
+
+Snapshot
+
+Downloads
+
+Client (.json)Server
+
+Obfuscation maps
+
+ClientServer
+
+Protocol version
+
+ dec: 1073741901 hex: 4000004D
+
+Data version
+
+3076
+
+Resource pack format
+
+8
+
+Data pack format
+
+9
+
+Minimum Java version
+
+Java SE 17
+
+Cache ID
+
+Unspecified
+
+◄◄   20w14∞
+22w13oneBlockAtATime
+  23w13a_or_b ►►
+
+{
+    "title": "Minecraft 22w13oneBlockAtATime",
+    "images": [
+        "22w13oneBlockAtATime.jpg",
+        "Java Edition 22w13oneBlockAtATime.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "One Block at a Time Update",
+            "label": "Official name"
+        },
+        {
+            "field": "April 1, 2022",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Snapshot article, displayed as Snapshot)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/6548ac25265c2726a2cd24dec3820c07ee2b0b4b/client.jar Client] ([https://piston-meta.mojang.com/v1/packages/4d8a0179f99f9f20909eb3bbfa1fc4e622693ab8/22w13oneblockatatime.json .json])<br />[https://piston-data.mojang.com/v1/objects/5f48eea55c7fd1881d9c63835b15dfb5bbcd3a67/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/b1bbd68dbf48041dd994f1a4c1a3eacfa46e344b/client.txt Client]<br />[https://piston-data.mojang.com/v1/objects/2c55055b906935ffe1e7e7cb80d1a8b031eb9f95/server.txt Server]",
+            "label": "(link to Obfuscation map article, displayed as Obfuscation maps)"
+        },
+        {
+            "field": " <span style=\"font-size:smaller\"><abbr title=\"decimal\">dec</abbr>: </span>1073741901<br /> <span style=\"font-size:smaller\"><abbr title=\"hexadecimal\">hex</abbr>: </span>4000004D",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "3076",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "8",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "9",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Data pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_17_.28LTS.29 Java SE 17]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        },
+        {
+            "field": "Unspecified(link to Category:Pending al_version article, displayed as Category:Pending al_version)",
+            "label": "(link to al_version article, displayed as Cache ID)"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" rowspan=\"2\">[[Java Edition  20w14∞|<span style=\"margin-right:-0.35em\">◄</span>◄   20w14∞]]</td>\n<td rowspan=\"2\" style=\"padding: 0.4em\">'''22w13oneBlockAtATime'''</td>\n<td style=\"padding: 0.4em\" rowspan=\"2\">[[Java Edition  23w13a_or_b|  23w13a_or_b <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n</tr>\n</table>"
+}
+
+22w13oneBlockAtATime (known as 22w13oneblockatatime in the launcher) is an April Fools' joke snapshot, supposedly the first and only snapshot for the "One Block at a Time Update", released on April 1, 2022, which overhauled the player's inventory as well as the game logic for blocks, items and entities, and redesigned relevant gameplay aspects such as breaking, crafting, and controls. This version is a fork of a commit between Deep Dark Experimental Snapshot 1 and 22w11a, as it contains several incomplete blocks from the deep dark biome.
+
+Contents
+
+1 Additions
+
+1.1 Blocks
+1.2 Gameplay
+1.3 General
+
+2 Changes
+
+2.1 Blocks
+2.2 Items
+2.3 Mobs
+2.4 Entities
+2.5 Gameplay
+2.6 World generation
+2.7 General
+2.8 Trading
+
+2.8.1 Armorer
+2.8.2 Butcher
+2.8.3 Cartographer
+2.8.4 Cleric
+2.8.5 Farmer
+2.8.6 Fisherman
+2.8.7 Fletcher
+2.8.8 Leatherworker
+2.8.9 Librarian
+2.8.10 Mason
+2.8.11 Shepherd
+2.8.12 Toolsmith
+2.8.13 Weaponsmith
+2.8.14 Wandering trader
+
+3 Issues
+4 Videos
+5 Trivia
+6 Gallery
+
+6.1 Screenshots
+6.2 Official images
+
+7 Notes
+8 References
+9 Navigation
+
+Additions
+22w13oneBlockAtATime block and item additions
+Blocks
+How did we get here?
+
+Attempting to get an item in any way instead gives you this block
+All items are converted into item blocks.
+Has ID minecraft:generic_item_block
+Has an item block state that specifies the internal ID of the item to display with (0-1104).
+ item=0 uses the model of white carpets.
+Waterloggable.
+In debug mode, all items and their waterlogged versions can be found.
+Gameplay
+Advancements
+
+Added a new advancement:
+Ride the End
+Description reads "Extra Good luck"
+Obtained for punching the ender dragon, causing the player to ride it; this is only possible once all end crystals are destroyed or with a dragon spawned by /summon.
+The End and the Nether
+
+Riding the ender dragon into the void teleports the player to the build limit in the Overworld.
+General
+Particles
+
+Added footstep particle, generated when player walks holding anything.
+Splashes
+
+All regular splashes have been removed.
+Possible splashes are now "One!", "Block!", "At!", "A!", "Time!", or any possible arrangement of the words "One block at a time!".
+The special "<PLAYERNAME> IS YOU" splash has been changed to "<PLAYERNAME> IS ONE AT A TIME".
+Sounds
+
+2 new sounds were added
+nothingtoseeheremovealong:awesome_intro which is the intro sound.
+Has 2 variations, one higher pitch and one normal pitch.
+These sounds are located in the assets/nothingtoseeheremovealong/ananas folder and are called papaya.ogg () and papapaya.ogg ().
+nothingtoseeheremovealong:ooof which is the old hurt sound.
+These sounds are bundled in the .jar file.
+Changes
+Blocks
+General
+
+Blocks do not drop in item form.
+When exploded, blocks are launched instead of dropped.
+Bedrock
+
+Now breakable and obtainable in Survival.
+Takes 15 minutes to break with empty hands without a Haste effect applied (12 minutes 30 seconds with Haste I or 10 minutes 43 seconds with Haste II).
+Chest
+
+When loot chests generated in structures are broken, they emit explosion sound effects and particles, and explode out the loot items in falling block forms.
+Dispenser
+
+When powered with a redstone signal, the block it's facing gets dispensed with velocity in the direction of the dispenser as a falling block.
+If the block is a fluid source, it turns into the form of buckets, and becomes fluid again when landing.
+Dripstone
+
+Plays trident sound when thrown.
+Dropper
+
+When powered with a redstone signal, the block it's facing gets dispensed as a falling block.
+Unlike dispensers, the converted falling block drops straight downwards, with no velocity.
+If the block is a fluid source, it turns into the form of buckets, and becomes fluid again when landing.
+End portal frame
+
+Now breakable and obtainable in Survival.
+Takes 37 seconds to break with empty hands and without Haste.
+Can be found in chests inside nether fortresses.
+They can either be orientated vertically or horizontally.
+When placed in a stronghold, it points up, like in normal versions, which allows to build end portals.
+When placed outside a stronghold, it points to a stronghold.
+When placed in a dimension without a stronghold, it points to a random direction.
+Has an eye of ender in place at all times.
+Fire
+
+Converts nearby smeltable blocks to their smelted form, such as coal ore to coal.
+As special cases, mushroom blocks “smelt” to shroomlight. Short and tall grass spread fire.
+Blocks that are orthogonally adjacent to the fire block (up, down, north, south, east, or west, but not diagonals), are considered in range.
+Soul fire does not do this.
+Can be picked up, though it is invisible when held by the player.
+Glass and glass panes (including tinted and stained)
+
+When thrown, they may break upon landing.
+This applies to all blocks with #minecraft:fragile tag.
+Grass and fern
+
+When thrown on a block that is not a grass block, they lay horizontally and change their variant to a gray one.
+Gravel
+
+When thrown, it ignites grass, leaves and vines adjacent to where it lands.
+Ice
+
+When thrown into lava, fire or onto magma blocks, they directly become water.
+Iron ore
+
+Becomes a block of iron when thrown into soul fire.
+Lava
+
+When a smeltable item or block is thrown onto a lava block, it is converted into its smelted counterpart which overrides the lava it was thrown onto.
+Mushroom block
+
+Becomes a shroomlight when thrown into fire.
+Pumpkin
+
+Becomes a carved pumpkin when thrown near a cactus.
+Seagrass
+
+When thrown on a block that is not a leaf block, seagrass is placed as normal and generates a water block on them.
+Vines
+
+When thrown, vines lay horizontally and change their variant to a gray one.
+Items
+General
+
+All items can be placed on the ground as blocks.
+When trying to place an item anywhere that's not a block, it is thrown instead.
+Throwing an item directly on the player's head equips it in the helmet slot.
+Throwing any smeltable item into lava or placing it near fire or lava smelts it.
+Thrown items are implemented as falling_block entities.
+Thrown items (or indeed any falling_block) can be caught in midair by hitting it.
+Items that do not have a block form are converted to generic_item_block with the appropriate data.
+Items can be crafted by placing a recipe above at least one crafting table, throwing the last item (recipe patterns top facing away from the player, but defaulting to north when not thrown by a player)
+Alternatively, the recipe can be placed and a crafting table can then be thrown to land on the recipe.
+Tools may be used but break with one use.
+Tools break even in situations when they would not lose any durability.
+Certain items (e.g. top of the door, tall grass, etc) have "invalid" block data and disappear when they land (as an item). It is still possible to place them, however.
+Food items cannot be eaten, even in Creative mode, since using them on a block places them, and using them otherwise throws them.
+However, there exist special cases in the code for bamboo, carrots, and potatoes (see below).
+Bamboo
+
+When a player is named "Ulraf", bamboo can now be eaten at any time.
+When a player is not named "Ulraf", bamboo can now be eaten while in the offhand slot of the player, when the player is looking at the side of a bamboo block.
+When bamboo is eaten, the player gains Absorption IV for 2 minutes, Regeneration II for 20 seconds, Fire Resistance for 5 minutes and Resistance for 5 minutes.
+Carrot
+
+Can now only be eaten in Creative mode (not Survival since the hunger bar is always full), from the player's offhand slot, if the player is looking at carrots placed on farmland.
+Ender pearl
+
+Can no longer teleport the player, as they cannot be thrown normally.
+Eye of ender
+
+Can no longer lead the player to the nearest stronghold, as they cannot be thrown normally.
+Potato
+
+Can now only be eaten in Creative mode (not Survival since the hunger bar is always full), from the player's offhand slot, if the player is looking at potatoes placed on farmland.
+Potion
+
+Any potion held uses the bottle texture.​[more information needed]
+Any thrown potion uses the uncraftable potion texture.
+Any potion placed on ground uses the potion of Slow Falling's texture.
+Powder snow bucket
+
+Thrown as a powder snow block when thrown.
+Water bucket and lava bucket
+
+Make water and lava when thrown, with the bucket disappearing.
+Mobs
+General
+
+When trying to damage a mob, the player picks up the mob instead.
+When falling, the player holds onto the mob that they picked up.
+Some mobs like the ender dragon behave like rideable entities.
+Some mobs like the wither cannot be ridden or picked up.
+To damage mobs, the player has to:
+Throw the mob
+Throw any block, item or entity at the mob
+Different blocks deal different amounts of damage based on their blast resistance and speed; the formula is speed*10*blast resistance.
+Different mobs also deal different amounts of damage based on their height and speed; the formula is speed*5*height.
+However, taller mobs fly slower when thrown
+Killing a player or tamed mob in this manner gives a new death message:"<target>was pummelled by <player>"
+Release them in a stacked group of two or more.
+Some mobs like the ender dragon cannot take damage from any block, item or entity.
+Mobs that can hold items, like zombies, skeletons, etc. can steal the player's held item when damaging them, playing nothingtoseeheremovealong:ooof.
+Mobs can also be made to wear carved pumpkins or barrels when the blocks are thrown at them.
+Bee
+
+When held by the player, bees cause the player to keep the momentum from when they picked up the bee, albeit a lot slower.
+If the player was completely still before picking up the bee, the player cannot move up or down.
+The player is unable to jump while doing so.
+Spider and Cave spider
+
+When held by the player, the player can climb blocks vertically.
+Chicken
+
+When held by the player, chickens cause the player to float down slowly after jumping, similar to the Slow Falling effect.
+When jumping repeatedly, the player can float upwards.
+Ender dragon
+
+Now rideable by attacking it.
+Only 30 health points are displayed in the HUD.
+When riding, the player can control it by looking around.
+When flying down to the void of the End or the Nether (at Y=-32), it descends to the build limit of the Overworld.
+Flying down to the void of a custom dimension also descends the player to the build limit of the Overworld.
+When there is an end crystal nearby, the player is forced off.
+Enderman
+
+Every single enderman is now holding a random block. The random block can be any block in the game, including unobtainable blocks such as command blocks.
+Each can have random properties, including being waterlogged.
+Endermen can place waterlogged blocks in the Nether without the water disappearing.
+All of them are stuck in a holding pose if not holding any blocks.
+If an enderman holding a block attacks a player, the sound nothingtoseeheremovealong:ooof plays, and the block is given to the player.
+When held by the player, the player and the enderman teleports simultaneously.
+Illusioner
+
+When held by the player, Illusioners shoot arrows in the direction of the player.
+Iron golem
+
+ Appearance changes when named "billyballong", causing it to hold its hands in the air.
+Gives flowers to players named "maria", "alva", "neo", "hidetaka" or "miyazaki" (case-insensitive).
+Magma cube
+
+When held by the player, the player is immune to fire and lava damage.
+Pig
+
+When held by the player, the pig is rendered upside-down and the holder is magnetized to any block higher than two blocks above their head.
+This causes them to bounce up and down on the bottom side of the block.
+Piglin
+
+When held by the player, they shoot arrows in the direction of the player. If held by the player while the arrow is fired, their crossbows breaks after firing. When hostile, they damage the player even while held.
+Pillager
+
+When held by the player, they shoot arrows in the direction of the player. If held by the player while the arrow is fired, their crossbows breaks after firing. Without their crossbows they stare at the player harmlessly and try to stay in crossbow range, despite not having a crossbow.
+Player
+
+
+
+This section would benefit from the addition of more images. 
+Please remove this notice once you have added  suitable images to the article.The specific instructions are: how the player looks when the barrel is made invisible (the player's head and arms are not rendered)
+
+Leaves a trail of footprints while holding anything.
+When a player throws a block at another entity, the entity gets damaged.
+When a player throws a block at another player's head, the block goes into the helmet slot of the receiving player. Taking damage has a chance to remove it.
+When the block on the player's head is snow, a snow block, ice, packed ice, or blue ice, the player begins freezing.
+When the block on the player's head is a magma block, it sets the player on fire.
+ When the block on the player's head is a barrel, their vision becomes largely obstructed, leaving only a narrow window; and their model appears as if they are hiding under it and moving only with their legs visible.​[more information needed]
+ Sneaking while under a barrel disguises the player as a barrel block.
+The hunger bar does not deplete, meaning the player is always able to sprint and regenerate health.
+In Spectator mode, the two hands of the player are visible.
+Sheep
+
+Are now sheared when they take damage or are thrown, dropping wool.
+When with wool, when thrown a wool block, the wool color of the sheep gets replaced, dropping the wool of the previous color.
+When without wool, when thrown a wool block, the wool is put on the sheep.
+Skeleton
+
+ Skeletons can spawn with two spyglasses with unknown chance.​[more information needed] They can also wear spyglasses when thrown, up to two.
+When held by the player, they shoot arrows in the direction the player is looking.
+Based on Xilefian's idea.
+Stray
+
+When held by the player, they shoot arrows in the direction the player is looking.
+Villager
+
+Now have different trades, detailed below.
+They have multiple trades, based on their profession and level.
+They gain more trades by leveling up through trading, and all trades up to their current level are available. Four times more XP is given to villagers per trade, so they level up faster.
+Each trade includes an emerald ore block for either buying or selling.
+Mobs can now also be traded.
+The player trades with them by right clicking on the villager, while holding the wanted block, item, or mob.
+Their normal trading GUI is now inaccessible.
+These changes also apply to wandering traders.
+Witch
+
+When held, if targeting the player, they throw potions in the direction of the player.
+Wolf
+
+ Naming a tamed wolf 'Mars' gives it a unique texture.
+Entities
+Eye of ender
+
+When summoned via commands, it moves to the origin point (X=0, Z=0) with its vector depending on its distance from the center of the world.
+Fireball
+
+Player can hold a ghast's fireball, but when released, it returns to its original vector.
+Gameplay
+Explosion
+
+Blocks that would be destroyed by an explosion are launched instead of destroyed.
+Blocks launched represents the form of falling blocks before they land, and sometimes stuck in blocks without turning to normal blocks, causing possible z-fighting.
+The explosion applies random stonecutter recipes to some blocks around it.
+Inventory
+
+The inventory interface, hotbar, hunger bar and armor bar have been removed.
+The health bar is now centered at the bottom of the screen.
+The oxygen bar now appears at the bottom right corner of the screen.
+GUI
+
+Every single inventory for any kind of container block has been removed, with the exception of the horse inventory.
+Players now see both hands on the screen instead of just one.
+World generation
+Stronghold
+
+End portal frames without eyes of ender inside of them do not generate.
+To open the end portal, the player needs to place down end portal frames.
+General
+Debug screen
+
+Mood in the debug screen has been changed to "Number of ghosts in world".
+Loading screen
+
+Similar to 20w14∞'s loading screen, but with different textures.
+Plays a sound saying "Mojang Studios", similar to 20w14∞ and 3D Shareware v1.34.
+The silhouette inside the logo is a "Mojang" that resembles a Crewmate from the game Among Us.
+Trading
+Villagers and wandering traders have different trades.
+
+Armorer
+
+Level
+
+Block wanted
+
+Block given
+
+Trades instock
+
+Price multiplier
+
+Villager XP
+
+Novice
+
+Coal Ore
+
+Emerald Ore
+
+∞
+
+Low
+
+8
+
+Emerald Ore
+
+Carved Pumpkin
+
+∞
+
+Low
+
+4
+
+Apprentice
+
+Iron Ore
+
+Emerald Ore
+
+∞
+
+Low
+
+40
+
+Gold Ore
+
+Emerald Ore
+
+∞
+
+Low
+
+40
+
+Diamond Ore
+
+Emerald Ore
+
+∞
+
+Low
+
+40
+
+Journeyman
+
+Emerald Ore
+
+Block of Iron
+
+1
+
+Low
+
+40
+
+Emerald Ore
+
+Block of Gold
+
+1
+
+Low
+
+40
+
+Emerald Ore
+
+Bell
+
+1
+
+High
+
+40
+
+Expert
+
+Emerald Ore
+
+Block of Diamond
+
+1
+
+Low
+
+60
+
+Butcher
+
+Level
+
+Block wanted
+
+Block given
+
+Trades instock
+
+Price multiplier
+
+Villager XP
+
+Novice
+
+Emerald Ore
+
+Campfire
+
+1
+
+Low
+
+4
+
+Chicken
+
+Emerald Ore
+
+3
+
+Low
+
+8
+
+Apprentice
+
+Dried Kelp Block
+
+Emerald Ore
+
+∞
+
+Low
+
+40
+
+Pig
+
+Emerald Ore
+
+3
+
+Low
+
+8
+
+Cow
+
+Emerald Ore
+
+3
+
+Low
+
+8
+
+Goat
+
+Emerald Ore
+
+3
+
+Low
+
+8
+
+Cartographer
+
+Level
+
+Block wanted
+
+Block given
+
+Trades instock
+
+Price multiplier
+
+Villager XP
+
+Novice
+
+Glass Pane
+
+Emerald Ore
+
+∞
+
+Low
+
+8
+
+Emerald Ore
+
+Parrot
+
+1
+
+Low
+
+4
+
+Apprentice
+
+Emerald Ore
+
+White Banner
+
+1
+
+Low
+
+20
+
+Emerald Ore
+
+Blue Banner
+
+1
+
+Low
+
+20
+
+Emerald Ore
+
+Red Banner
+
+1
+
+Low
+
+20
+
+Emerald Ore
+
+Green Banner
+
+1
+
+Low
+
+20
+
+Emerald Ore
+
+Lime Banner
+
+1
+
+Low
+
+20
+
+Emerald Ore
+
+Black Banner
+
+1
+
+Low
+
+20
+
+Emerald Ore
+
+Purple Banner
+
+1
+
+Low
+
+20
+
+Emerald Ore
+
+Magenta Banner
+
+1
+
+Low
+
+20
+
+Emerald Ore
+
+Yellow Banner
+
+1
+
+Low
+
+20
+
+Emerald Ore
+
+Orange Banner
+
+1
+
+Low
+
+20
+
+Journeyman
+
+Emerald Ore
+
+Spyglass
+
+∞
+
+Low
+
+40
+
+Cleric
+
+Level
+
+Block wanted
+
+Block given
+
+Trades instock
+
+Price multiplier
+
+Villager XP
+
+Novice
+
+Emerald Ore
+
+Glowstone
+
+1
+
+Low
+
+8
+
+Emerald Ore
+
+Block of Redstone
+
+1
+
+Low
+
+8
+
+Emerald Ore
+
+Silverfish
+
+1
+
+Low
+
+8
+
+Apprentice
+
+Emerald Ore
+
+Block of Gold
+
+1
+
+Low
+
+40
+
+Emerald Ore
+
+Block of Lapis Lazuli
+
+1
+
+Low
+
+40
+
+Emerald Ore
+
+Block of Emerald
+
+1
+
+Low
+
+40
+
+Journeyman
+
+Zombie
+
+Emerald Ore
+
+1
+
+Low
+
+80
+
+Zombie Villager
+
+Emerald Ore
+
+1
+
+Low
+
+80
+
+Expert
+
+Emerald Ore
+
+Snow Golem
+
+4
+
+Low
+
+60
+
+Master
+
+Emerald Ore
+
+Iron Golem
+
+1
+
+Low
+
+120
+
+Farmer
+
+Level
+
+Block wanted
+
+Block given
+
+Trades instock
+
+Price multiplier
+
+Villager XP
+
+Novice
+
+Hay Bale
+
+Emerald Ore
+
+∞
+
+Low
+
+8
+
+Emerald Ore
+
+Hay Bale
+
+1
+
+Low
+
+4
+
+Apprentice
+
+Pumpkin
+
+Emerald Ore
+
+∞
+
+Low
+
+40
+
+Emerald Ore
+
+Pumpkin
+
+1
+
+Low
+
+20
+
+Journeyman
+
+Melon
+
+Emerald Ore
+
+∞
+
+Low
+
+80
+
+Emerald Ore
+
+Melon
+
+1
+
+Low
+
+40
+
+Skeleton
+
+Emerald Ore
+
+1
+
+Low
+
+80
+
+Skeleton Horse
+
+Emerald Ore
+
+1
+
+Low
+
+80
+
+Expert
+
+Emerald Ore
+
+Cake
+
+1
+
+Low
+
+60
+
+Wither Skeleton
+
+Emerald Ore
+
+1
+
+Low
+
+120
+
+Master
+
+Emerald Ore
+
+Cactus
+
+1
+
+Low
+
+120
+
+Fisherman
+
+Level
+
+Block wanted
+
+Block given
+
+Trades instock
+
+Price multiplier
+
+Villager XP
+
+Novice
+
+Kelp Plant
+
+Emerald Ore
+
+∞
+
+Low
+
+8
+
+Cod
+
+Emerald Ore
+
+∞
+
+Low
+
+8
+
+Salmon
+
+Emerald Ore
+
+∞
+
+Low
+
+8
+
+Emerald Ore
+
+Cod
+
+∞
+
+Low
+
+4
+
+Apprentice
+
+Emerald Ore
+
+Campfire
+
+1
+
+Low
+
+20
+
+Journeyman
+
+Emerald Ore
+
+Prismarine
+
+1
+
+Low
+
+40
+
+Expert
+
+Emerald Ore
+
+Dark Prismarine
+
+1
+
+Low
+
+60
+
+Emerald Ore
+
+Squid
+
+1
+
+Low
+
+8
+
+Master
+
+Emerald Ore
+
+Brain Coral Block
+
+1
+
+Low
+
+120
+
+Emerald Ore
+
+Bubble Coral Block
+
+1
+
+Low
+
+120
+
+Emerald Ore
+
+Tube Coral Block
+
+1
+
+Low
+
+120
+
+Fire Coral Block
+
+Emerald Ore
+
+∞
+
+Low
+
+120
+
+Horn Coral Block
+
+Emerald Ore
+
+∞
+
+Low
+
+120
+
+Emerald Ore
+
+Tropical Fish
+
+∞
+
+Low
+
+120
+
+Emerald Ore
+
+Glow Squid
+
+1
+
+Low
+
+8
+
+Fletcher
+
+Level
+
+Block wanted
+
+Block given
+
+Trades instock
+
+Price multiplier
+
+Villager XP
+
+Novice
+
+Oak Log
+
+Emerald Ore
+
+4
+
+Low
+
+8
+
+Spruce Log
+
+Emerald Ore
+
+4
+
+Low
+
+8
+
+Acacia Log
+
+Emerald Ore
+
+4
+
+Low
+
+8
+
+Dark Oak Log
+
+Emerald Ore
+
+4
+
+Low
+
+8
+
+Birch Log
+
+Emerald Ore
+
+4
+
+Low
+
+8
+
+Jungle Log
+
+Emerald Ore
+
+4
+
+Low
+
+8
+
+Emerald Ore
+
+Stone Axe
+
+4
+
+Low
+
+4
+
+Apprentice
+
+Gravel
+
+Emerald Ore
+
+∞
+
+Low
+
+40
+
+Journeyman
+
+Emerald Ore
+
+Gravel
+
+1
+
+Low
+
+40
+
+Leatherworker
+
+Level
+
+Block wanted
+
+Block given
+
+Trades instock
+
+Price multiplier
+
+Villager XP
+
+Novice
+
+Cow
+
+Emerald Ore
+
+3
+
+Low
+
+8
+
+Emerald Ore
+
+Cat
+
+3
+
+Low
+
+4
+
+Librarian
+
+Level
+
+Block wanted
+
+Block given
+
+Trades instock
+
+Price multiplier
+
+Villager XP
+
+Novice
+
+Emerald Ore
+
+Bookshelf
+
+1
+
+Low
+
+4
+
+Apprentice
+
+Bookshelf
+
+Emerald Ore
+
+∞
+
+Low
+
+40
+
+Emerald Ore
+
+Lantern
+
+1
+
+Low
+
+20
+
+Journeyman
+
+Emerald Ore
+
+Glass
+
+1
+
+Low
+
+40
+
+Mason
+
+Level
+
+Block wanted
+
+Block given
+
+Trades instock
+
+Price multiplier
+
+Villager XP
+
+Novice
+
+Clay
+
+Emerald Ore
+
+∞
+
+Low
+
+8
+
+Emerald Ore
+
+Bricks
+
+∞
+
+Low
+
+4
+
+Apprentice
+
+Stone
+
+Emerald Ore
+
+∞
+
+Low
+
+40
+
+Journeyman
+
+Granite
+
+Emerald Ore
+
+∞
+
+Low
+
+80
+
+Andesite
+
+Emerald Ore
+
+∞
+
+Low
+
+80
+
+Diorite
+
+Emerald Ore
+
+∞
+
+Low
+
+80
+
+Emerald Ore
+
+Dripstone Block
+
+1
+
+Low
+
+40
+
+Expert
+
+Block of Quartz
+
+Emerald Ore
+
+∞
+
+Low
+
+120
+
+Emerald Ore
+
+Orange Terracotta
+
+∞
+
+Low
+
+60
+
+Emerald Ore
+
+White Terracotta
+
+∞
+
+Low
+
+60
+
+Emerald Ore
+
+Red Terracotta
+
+∞
+
+Low
+
+60
+
+Emerald Ore
+
+Pink Terracotta
+
+∞
+
+Low
+
+60
+
+Emerald Ore
+
+Green Terracotta
+
+∞
+
+Low
+
+60
+
+Emerald Ore
+
+Black Glazed Terracotta
+
+∞
+
+Low
+
+60
+
+Emerald Ore
+
+Magenta Glazed Terracotta
+
+∞
+
+Low
+
+60
+
+Emerald Ore
+
+Lime Glazed Terracotta
+
+∞
+
+Low
+
+60
+
+Emerald Ore
+
+Green Glazed Terracotta
+
+∞
+
+Low
+
+60
+
+Emerald Ore
+
+Yellow Glazed Terracotta
+
+∞
+
+Low
+
+60
+
+Master
+
+Emerald Ore
+
+Quartz Pillar
+
+1
+
+Low
+
+120
+
+Emerald Ore
+
+Block of Quartz
+
+1
+
+Low
+
+120
+
+Emerald Ore
+
+TNT
+
+3
+
+Low
+
+120
+
+Emerald Ore
+
+Diamond Pickaxe
+
+∞
+
+Low
+
+120
+
+Shepherd
+
+Level
+
+Block wanted
+
+Block given
+
+Trades instock
+
+Price multiplier
+
+Villager XP
+
+Novice
+
+White Wool
+
+Emerald Ore
+
+∞
+
+Low
+
+8
+
+Yellow Wool
+
+Emerald Ore
+
+∞
+
+Low
+
+8
+
+Red Wool
+
+Emerald Ore
+
+∞
+
+Low
+
+8
+
+Black Wool
+
+Emerald Ore
+
+∞
+
+Low
+
+8
+
+Blue Wool
+
+Emerald Ore
+
+∞
+
+Low
+
+8
+
+Green Wool
+
+Emerald Ore
+
+∞
+
+Low
+
+8
+
+Lime Wool
+
+Emerald Ore
+
+∞
+
+Low
+
+8
+
+Purple Wool
+
+Emerald Ore
+
+∞
+
+Low
+
+8
+
+Emerald Ore
+
+White Wool
+
+1
+
+Low
+
+4
+
+Emerald Ore
+
+Yellow Wool
+
+1
+
+Low
+
+4
+
+Emerald Ore
+
+Red Wool
+
+1
+
+Low
+
+4
+
+Emerald Ore
+
+Black Wool
+
+1
+
+Low
+
+4
+
+Emerald Ore
+
+Blue Wool
+
+1
+
+Low
+
+4
+
+Emerald Ore
+
+Green Wool
+
+1
+
+Low
+
+4
+
+Emerald Ore
+
+Lime Wool
+
+1
+
+Low
+
+4
+
+Emerald Ore
+
+Purple Wool
+
+1
+
+Low
+
+4
+
+Apprentice
+
+Emerald Ore
+
+White Bed
+
+1
+
+Low
+
+20
+
+Emerald Ore
+
+Yellow Bed
+
+1
+
+Low
+
+20
+
+Emerald Ore
+
+Red Bed
+
+1
+
+Low
+
+20
+
+Emerald Ore
+
+Black Bed
+
+1
+
+Low
+
+20
+
+Emerald Ore
+
+Blue Bed
+
+1
+
+Low
+
+20
+
+Emerald Ore
+
+Green Bed
+
+1
+
+Low
+
+20
+
+Emerald Ore
+
+Lime Bed
+
+1
+
+Low
+
+20
+
+Emerald Ore
+
+Purple Bed
+
+1
+
+Low
+
+20
+
+Toolsmith
+
+Level
+
+Block wanted
+
+Block given
+
+Trades instock
+
+Price multiplier
+
+Villager XP
+
+Novice
+
+Coal Ore
+
+Emerald Ore
+
+∞
+
+Low
+
+8
+
+Emerald Ore
+
+Stone Pickaxe
+
+∞
+
+Low
+
+8
+
+Apprentice
+
+Iron Ore
+
+Emerald Ore
+
+∞
+
+Low
+
+40
+
+Gold Ore
+
+Emerald Ore
+
+∞
+
+Low
+
+40
+
+Diamond Ore
+
+Emerald Ore
+
+∞
+
+Low
+
+40
+
+Journeyman
+
+Emerald Ore
+
+Iron Pickaxe
+
+∞
+
+Low
+
+80
+
+Emerald Ore
+
+Block of Iron
+
+1
+
+Low
+
+40
+
+Emerald Ore
+
+Block of Gold
+
+1
+
+Low
+
+40
+
+Expert
+
+Emerald Ore
+
+Block of Diamond
+
+1
+
+Low
+
+60
+
+Master
+
+Emerald Ore
+
+Block of Diamond
+
+1
+
+Low
+
+120
+
+Creeper
+
+Emerald Ore
+
+1
+
+Low
+
+120
+
+Weaponsmith
+
+Level
+
+Block wanted
+
+Block given
+
+Trades instock
+
+Price multiplier
+
+Villager XP
+
+Novice
+
+Coal Ore
+
+Emerald Ore
+
+∞
+
+Low
+
+8
+
+Gravel
+
+Emerald Ore
+
+∞
+
+Low
+
+8
+
+Emerald Ore
+
+Cactus
+
+∞
+
+Low
+
+4
+
+Apprentice
+
+Iron Ore
+
+Emerald Ore
+
+∞
+
+Low
+
+40
+
+Gold Ore
+
+Emerald Ore
+
+∞
+
+Low
+
+40
+
+Diamond Ore
+
+Emerald Ore
+
+∞
+
+Low
+
+40
+
+Journeyman
+
+Emerald Ore
+
+Block of Iron
+
+1
+
+Low
+
+40
+
+Emerald Ore
+
+Block of Gold
+
+1
+
+Low
+
+40
+
+Expert
+
+Emerald Ore
+
+Block of Diamond
+
+1
+
+Low
+
+60
+
+Wandering trader
+
+Probability
+
+Block wanted
+
+Block given
+
+Trades instock
+
+Price multiplier
+
+Villager XP
+
+100%
+
+Emerald Ore
+
+Sea Pickle
+
+5
+
+Low
+
+1
+
+Emerald Ore
+
+Glowstone
+
+5
+
+Low
+
+1
+
+Emerald Ore
+
+Fern
+
+12
+
+Low
+
+1
+
+Emerald Ore
+
+Sugar Cane
+
+8
+
+Low
+
+1
+
+Emerald Ore
+
+Pumpkin
+
+4
+
+Low
+
+1
+
+Emerald Ore
+
+Kelp
+
+12
+
+Low
+
+1
+
+Emerald Ore
+
+Cactus
+
+8
+
+Low
+
+1
+
+Emerald Ore
+
+Dandelion
+
+12
+
+Low
+
+1
+
+Emerald Ore
+
+Blue Orchid
+
+8
+
+Low
+
+1
+
+Emerald Ore
+
+Poppy
+
+12
+
+Low
+
+1
+
+Emerald Ore
+
+Azure Bluet
+
+12
+
+Low
+
+1
+
+Emerald Ore
+
+Allium
+
+12
+
+Low
+
+1
+
+Emerald Ore
+
+Orange Tulip
+
+12
+
+Low
+
+1
+
+Emerald Ore
+
+Red Tulip
+
+12
+
+Low
+
+1
+
+Emerald Ore
+
+Pink Tulip
+
+12
+
+Low
+
+1
+
+Emerald Ore
+
+White Tulip
+
+12
+
+Low
+
+1
+
+Emerald Ore
+
+Cornflower
+
+12
+
+Low
+
+1
+
+Emerald Ore
+
+Oxeye Daisy
+
+12
+
+Low
+
+1
+
+Emerald Ore
+
+Acacia Sapling
+
+8
+
+Low
+
+1
+
+Emerald Ore
+
+Lily of the Valley
+
+7
+
+Low
+
+1
+
+Emerald Ore
+
+Dark Oak Sapling
+
+8
+
+Low
+
+1
+
+Emerald Ore
+
+Birch Sapling
+
+8
+
+Low
+
+1
+
+Emerald Ore
+
+Oak Sapling
+
+8
+
+Low
+
+1
+
+Emerald Ore
+
+Jungle Sapling
+
+8
+
+Low
+
+1
+
+Emerald Ore
+
+Brain Coral Block
+
+8
+
+Low
+
+1
+
+Emerald Ore
+
+Spruce Sapling
+
+8
+
+Low
+
+1
+
+Emerald Ore
+
+Fire Coral Block
+
+8
+
+Low
+
+1
+
+Emerald Ore
+
+Bubble Coral Block
+
+8
+
+Low
+
+1
+
+Emerald Ore
+
+Tube Coral Block
+
+8
+
+Low
+
+1
+
+Emerald Ore
+
+Horn Coral Block
+
+8
+
+Low
+
+1
+
+Emerald Ore
+
+Brown Mushroom
+
+12
+
+Low
+
+1
+
+Emerald Ore
+
+Vines
+
+12
+
+Low
+
+1
+
+Emerald Ore
+
+Lily Pad
+
+5
+
+Low
+
+1
+
+Emerald Ore
+
+Red Mushroom
+
+12
+
+Low
+
+1
+
+Emerald Ore
+
+Sand
+
+8
+
+Low
+
+1
+
+Emerald Ore
+
+Small Dripleaf
+
+5
+
+Low
+
+1
+
+Emerald Ore
+
+Pointed Dripstone
+
+5
+
+Low
+
+1
+
+Emerald Ore
+
+Red Sand
+
+6
+
+Low
+
+1
+
+Emerald Ore
+
+Moss Block
+
+5
+
+Low
+
+1
+
+Emerald Ore
+
+Rooted Dirt
+
+5
+
+Low
+
+1
+
+33%
+
+Emerald Ore
+
+Packed Ice
+
+6
+
+Low
+
+1
+
+33%
+
+Emerald Ore
+
+Blue Ice
+
+6
+
+Low
+
+1
+
+33%
+
+Emerald Ore
+
+Podzol
+
+6
+
+Low
+
+1
+
+Issues
+22w13oneBlockAtATime is not supported due to being an April Fools' joke, and therefore issues affecting it get closed as "Invalid" in the issue tracker.
+
+Trades for buying items from villagers are not properly implemented and instead give the player a How did we get here? block which is missing the required item ID.
+Banners are invisible when thrown.
+Fire and soul fire are invisible while carried.
+Special logic for smelting clay to bricks and coal ore to soul fire is in the code for fire blocks, but never triggers, because smelting recipes take precedence, so it instead smelts clay to terracotta and coal ore to coal.
+Videos
+
+
+
+
+
+Trivia
+This is the only version in which the player is able to truly hold blocks, rather than items corresponding to blocks. Endermen are the only mob to have this ability in normal versions.
+When a spawner is picked up and placed back down, it loses its block data and becomes a pig spawner.
+With the help of a tamed horse, the player can shift - right click it and see their inventory. The player can put items in the slots with the help of the offhand.
+Despite the snapshot's name, the player can still move items to the offhand, and, therefore, carry two blocks at a time.
+Placing offhand items in Creative mode does not consume the item, as usual, even though a main hand item is consumed in Creative mode.
+Putting a block in the offhand, picking up a mob, and placing the block deletes the mob the player was holding.
+The player's usual Inventory data is still accessible using commands like /data, /item, and /clear, but, apart from the armor slots and offhand, this data doesn't do anything.
+Using the /give command always places items into the player's hands. If the command is used while the player is already holding something, the new item is thrown onto the ground (and places itself if it is a block).
+The /clear command claims that No items were found on player <player> even if the player is holding something, if they had empty Inventory data.
+The /data command reveals that the hand slot is using the tag carriedBlockState, which is the same tag as for items held by endermen and which is always a generic_item_block if the target player is holding something that is not a normal block.
+In Creative mode, loading saved hotbars still modifies this data.
+Picking up mobs modifies the player's Passengers data, which is usually always empty.
+If a player is given armor (through commands such as /item replace entity...), it instantly breaks upon losing any durability.
+Elytra also breaks instead of entering their disabled state (as they do when they lose all durability outside of this snapshot).
+The Unbreaking enchantment and the Unbreakable tag both work on armor.
+With unbreakable elytra, it's possible (though difficult) to juggle a chicken in the air for constant flight.
+Entities thrown by the player cannot be picked up again for a few seconds.
+Certain blocks, like fire, end or nether portal blocks, and end gateways, do not display properly when held or thrown — these are invisible in first person, and in some cases also in third person or when thrown.
+Blocks that do not normally have an item form can now be placed directly, like portal blocks.
+Using /setblock to place a generic_item_block with an ID that represents a block causes it to display the block as if misaligned on the vertical axis, rotated so that the top points south, and with its faces culled to match what would be culled if it were a normal block, e.g. /setblock ~ ~ ~ minecraft:generic_item_block[id=15] for a "grass" block.
+Some blocks and items that need tinting, such as grass blocks and spawn eggs, may display white as if they are not tinted.
+When falling blocks touch ground, if they have air below them but stay on the edge of a solid block next to them, they may keep the form of "falling block" entities.
+When holding a ghast, the player is displayed in the body of the ghast.
+When holding a map, four hands are displayed in the screen, and three hands displayed when holding the map in the offhand slot.
+The papapaya.ogg sound is a parody of the SEGA opening logo for the Genesis games.
+Unobtainable blocks like farmland can be picked up and transferred to a survival world. Unbreakable blocks can be put into a falling state like sand by activating a dispenser pointed at the block. upon updating the world, the unobtainable blocks will be in item form to be picked up. These unobtainable blocks can be placed by endermen in this update, as they can spawn with any block.
+This version has the record for longest version name, with the exception of indev versions.
+Gallery
+Screenshots
+
+
+
+			A player wearing glass.
+
+
+
+			Footprints from carrying.
+
+
+
+			A player floating while carrying a bee.
+
+
+
+			A player holding a spyglass.
+
+
+
+			A player holding sugar cane in third-person view.
+
+
+
+			A player holding sugar cane in first-person view.
+
+
+
+			Endermen stacked from picking up multiples.
+
+
+
+			A player holding a sheep.
+
+
+
+			A player threw a sheep.
+
+
+
+			A player holding a skeleton "wearing" spyglasses.
+
+
+
+			A player riding the ender dragon.
+
+
+
+			A player's vision while hiding inside a barrel.
+
+
+
+			A player holding a birch log.
+
+
+
+			A player carrying 8 stacked turtles.
+
+
+
+			A player wearing a melon on their head.
+
+
+
+			A player wearing a pumpkin on their head.
+
+
+Official images
+
+
+
+			The "One Block At A Time" logo.
+
+
+
+			A player trading with a villager.
+
+
+
+			A crafting grid with stone pickaxes.
+
+
+
+			A player carrying multiple pigs.
+
+
+
+			A player carrying a zombie with a carved pumpkin on its head.
+
+
+
+			A player holding a goat.
+
+
+
+			A player sneaking while wearing a barrel.
+
+
+Notes
+
+ Trades for buying items from villagers are not properly implemented and instead give the player a How did we get here? block which is missing the required item ID.
+
+References
+
+ "Mojang Studios release new astonishing update"     by Per Landin  – Minecraft.net, April 1, 2022.
+
+ "The https://minecraft.wiki/w/Java_Edition_22w13oneBlockAtATime… page is full of interesting citationless guesses For one: the sneaky block isn't a MGS reference. It came from the idea of using silly stuff as armour, like a bucket on the head. "Barrel Costumes" was the inspiration. MGS similarities was noticed after"  – @Xilefian  on X (formerly Twitter), April 3, 2022
+
+ "One of my recent idea pitches Maybe one day."  – @Xilefian  on X (formerly Twitter), November 25, 2020
+
+Navigation

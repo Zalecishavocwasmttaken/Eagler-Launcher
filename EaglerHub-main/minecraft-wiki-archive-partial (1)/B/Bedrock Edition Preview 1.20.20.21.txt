@@ -1,0 +1,1113 @@
+Preview 1.20.20.21
+
+Edition
+
+Bedrock Edition
+
+Release date
+
+July 12, 2023
+
+Server version
+
+1.20.20.21
+
+Editor version
+
+0.4.1
+
+Build version
+
+16310717
+
+Internal version
+
+Windows: 1.20.2021.0Android, iOS, iPadOS: 1.20.20.21Xbox One: 1.20.2021.70
+
+Version code
+
+Android:
+952002021（armeabi-v7a，33）
+962002021（x86，33）
+972002021（arm64-v8a，33）
+982002021（x86_64，33）
+
+Type
+
+Preview
+
+Preview for
+
+1.20.30
+
+Downloads
+
+ ServerWindowsLinux
+
+Protocol version
+
+606
+
+◄◄   1.20.15
+1.20.30
+  1.20.31 ►►
+
+◄   Preview 1.20.20.20
+
+ Preview 1.20.20.21
+
+  Preview 1.20.20.22 ►
+
+{
+    "title": "Preview 1.20.20.21",
+    "images": [
+        "Bedrock 1.20.20.21 PatchNotes.jpg",
+        "Bedrock 1.20.20.21.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Bedrock Edition article, displayed as Bedrock Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "July 12, 2023",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Bedrock Dedicated Server 1.20.20.21 article, displayed as 1.20.20.21)",
+            "label": "Server version"
+        },
+        {
+            "field": "(link to Bedrock Editor 0.4.1 article, displayed as 0.4.1)",
+            "label": "''(link to Bedrock Editor article, displayed as Editor)'' version"
+        },
+        {
+            "field": "16310717",
+            "label": "Build version"
+        },
+        {
+            "field": "'''Windows''': 1.20.2021.0<br>'''Android, iOS, iPadOS''': 1.20.20.21<br>'''Xbox One''': 1.20.2021.70<br>",
+            "label": "Internal version"
+        },
+        {
+            "field": "'''Android''':<br>\n952002021（armeabi-v7a，33）<br>\n962002021（x86，33）<br>\n972002021（arm64-v8a，33）<br>\n982002021（x86_64，33）<br>",
+            "label": "Version code"
+        },
+        {
+            "field": "Preview",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Bedrock Edition 1.20.30 article, displayed as 1.20.30)",
+            "label": "Preview for"
+        },
+        {
+            "field": "'''Server'''<br>[https://minecraft.net/bedrockdedicatedserver/bin-win-preview/bedrock-server-1.20.20.21.zip Windows]<br>[https://minecraft.net/bedrockdedicatedserver/bin-linux-preview/bedrock-server-1.20.20.21.zip Linux]",
+            "label": "Downloads"
+        },
+        {
+            "field": "606",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Bedrock Edition  1.20.15|<span style=\"margin-right:-0.35em\">◄</span>◄   1.20.15]]</td>\n<td style=\"padding: 0.4em\">'''[[Bedrock Edition 1.20.30|1.20.30]]'''</td>\n<td style=\"padding: 0.4em\" >[[Bedrock Edition  1.20.31|  1.20.31 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Bedrock Edition  Preview 1.20.20.20|◄   Preview 1.20.20.20]]\n</td>\n<td style=\"padding: 0.4em\">''' Preview 1.20.20.21'''</td>\n<td style=\"padding: 0.4em\">\n[[Bedrock Edition  Preview 1.20.20.22|  Preview 1.20.20.22 ►]]\n</td>\n</tr>\n</table>"
+}
+
+Beta 1.20.20.21 (Android) or Preview 1.20.20.21 (Windows, iOS, iPadOS, Xbox) is the second beta/Preview version for Bedrock Edition 1.20.30, released on July 12, 2023, which brings more parity from Java Edition and fixes bugs.
+
+Contents
+
+1 Additions
+
+1.1 Gameplay
+1.2 General
+1.3 Technical
+
+2 Changes
+
+2.1 Blocks
+2.2 Command format
+2.3 Gameplay
+2.4 General
+
+3 Experimental
+
+3.1 Changes
+
+3.1.1 Technical
+
+4 Fixes
+5 Notes
+6 References
+7 Navigation
+
+Additions
+Gameplay
+Game rules
+
+Added playersSleepingPercentage, set to 100 by default.
+Controls what percentage of players must sleep to skip the night.
+When set to 0 or a negative value, a single player is sufficient to skip the night, and night is skipped immediately without the falling asleep transition.
+When set over 100, the night cannot be skipped.
+Added recipesUnlock, controlling whether the player needs to collect items to unlock recipes in the recipe book, defaults to true.
+General
+Settings
+
+Added "Recipes Unlock" game option. (recipesUnlock game rule)
+For enable/disable the new recipe unlocking system and its features.
+Added alerts for iOS and iPadOS users who have run out of disk space.
+Technical
+Add-on
+
+Move PlacementDirection (minecraft:placement_direction) and PlacementPosition (minecraft:placement_position) block traits out of experimental. These traits can be used for blocks with format_version >= 1.20.20.
+JSON
+
+Released the following components in JSON formats 1.20.30 and higher:
+minecraft:use_animation item component.
+minecraft:allow_off_hand item component.
+minecraft:should_despawn item component.
+minecraft:liquid_clipped item component.
+minecraft:damage item component.
+Added support for Efficiency enchantment for data driven items using the minecraft:digger component.
+Changes
+Blocks
+Block Breaking
+
+Changed the hardness and blast resistance of 188 blocks to match Java Edition.
+
+Block
+
+Old Hardness
+
+New Hardness
+
+Old Blast Resistance
+
+New Blast Resistance
+
+Activator Rail
+
+0.5
+
+0.7
+
+0.5
+
+0.7
+
+Ancient Debris
+
+720
+
+1200
+
+Andesite Stairs
+
+2
+
+1.5
+
+Bamboo
+
+2
+
+1
+
+2
+
+1
+
+Block of Bamboo (Both Normal & Stripped)
+
+3
+
+2
+
+Bamboo Shoot
+
+0
+
+1
+
+0
+
+1
+
+Bee Nest
+
+2.7
+
+0.3
+
+Beehive
+
+5.4
+
+0.6
+
+Bell
+
+1
+
+5
+
+3
+
+5
+
+Big Dripleaf
+
+0
+
+0.1
+
+0
+
+0.1
+
+Campfire (All Variants)
+
+5
+
+2
+
+5
+
+2
+
+Iron Chain
+
+3
+
+6
+
+Chiseled Deepslate
+
+3.6
+
+6
+
+Cobbled Deepslate
+
+3.6
+
+6
+
+Cobbled Deepslate Slab
+
+3.6
+
+6
+
+Cobbled Deepslate Stairs
+
+3.6
+
+6
+
+Cobbled Deepslate Wall
+
+3.6
+
+6
+
+Composter
+
+2
+
+0.6
+
+2
+
+0.6
+
+Block of Copper (All Variants)
+
+3.6
+
+6
+
+Copper Ore
+
+1.8
+
+3
+
+Coral Blocks
+
+7
+
+1.5
+
+0.9
+
+6
+
+Coral Fans
+
+0.9
+
+0
+
+Dead Coral Fans
+
+0.9
+
+0
+
+Cracked Deepslate Bricks
+
+3.6
+
+6
+
+Cracked Deepslate Tiles
+
+3.6
+
+6
+
+Crimson Hyphae
+
+0.3
+
+2
+
+0.3
+
+2
+
+Crimson Stem
+
+0.3
+
+2
+
+Cut Copper (All Variants)
+
+3.6
+
+6
+
+Cut Copper Slab (All Variants)
+
+3.6
+
+6
+
+Cut Copper Stairs (All Variants)
+
+3.6
+
+6
+
+Deepslate
+
+3.6
+
+6
+
+Deepslate Bricks
+
+3.6
+
+6
+
+Deepslate Brick Slab
+
+3.6
+
+6
+
+Deepslate Brick Stairs
+
+3.6
+
+6
+
+Deepslate Brick Wall
+
+3.6
+
+6
+
+Deepslate Coal Ore
+
+1.8
+
+3
+
+Deepslate Copper Ore
+
+1.8
+
+3
+
+Deepslate Diamond Ore
+
+1.8
+
+3
+
+Deepslate Gold Ore
+
+1.8
+
+3
+
+Deepslate Iron Ore
+
+1.8
+
+3
+
+Deepslate Lapis Lazuli Ore
+
+1.8
+
+3
+
+Deepslate Redstone Ore
+
+1.8
+
+3
+
+Deepslate Tiles
+
+3.6
+
+6
+
+Deepslate Tile Slab
+
+3.6
+
+6
+
+Deepslate Tile Stairs
+
+3.6
+
+6
+
+Deepslate Tile Wall
+
+3.6
+
+6
+
+Diorite Stairs
+
+2
+
+1.5
+
+Dragon Egg
+
+3
+
+9
+
+Dried Kelp Block
+
+0.5
+
+2.5
+
+End Stone Bricks
+
+0.8
+
+3
+
+0.8
+
+9
+
+End Stone Brick Stairs
+
+2
+
+3
+
+6
+
+9
+
+Granite Stairs
+
+2
+
+1.5
+
+Infested Blocks (All Variants)
+
+1.8
+
+0.75
+
+Jukebox
+
+0.8
+
+2
+
+0.8
+
+6
+
+Lantern (All Variants)
+
+5
+
+3.5
+
+5
+
+3.5
+
+Lectern
+
+2
+
+2.5
+
+2
+
+2.5
+
+Light Block
+
+3600000
+
+3600000.8
+
+Light Gray Candle
+
+0
+
+0.1
+
+0
+
+0.1
+
+Lightning Rod
+
+3.6
+
+6
+
+Lodestone
+
+2
+
+3.5
+
+2
+
+3.5
+
+Magma Block
+
+1.5
+
+0.5
+
+Mossy Cobblestone Stairs
+
+2
+
+1.5
+
+Mud Bricks
+
+2
+
+1.5
+
+2
+
+3
+
+Mud Brick Slab
+
+2
+
+1.5
+
+6
+
+3
+
+Mud Brick Stairs
+
+2
+
+1.5
+
+6
+
+3
+
+Mud Brick Wall
+
+2
+
+1.5
+
+6
+
+3
+
+Block of Netherite
+
+720
+
+1200
+
+Piston
+
+0.5
+
+1.5
+
+0.5
+
+1.5
+
+Sticky Piston
+
+0.5
+
+1.5
+
+0.5
+
+1.5
+
+Pointed Dripstone
+
+1.8
+
+3
+
+Polished Andesite Stairs
+
+2
+
+1.5
+
+Polished Blackstone
+
+1.5
+
+2
+
+Polished Blackstone Stairs
+
+1.5
+
+2
+
+Polished Blackstone Wall
+
+1.5
+
+2
+
+Polished Deepslate
+
+3.6
+
+6
+
+Polished Deepslate Slab
+
+3.6
+
+6
+
+Polished Deepslate Stairs
+
+3.6
+
+6
+
+Polished Deepslate Wall
+
+3.6
+
+6
+
+Polished Diorite Stairs
+
+2
+
+1.5
+
+Polished Granite Stairs
+
+2
+
+1.5
+
+Reinforced Deepslate
+
+720
+
+1200
+
+Respawn Anchor
+
+720
+
+1200
+
+Scaffolding
+
+0.6
+
+0
+
+0.9
+
+0
+
+Sculk
+
+0.6
+
+0.2
+
+0.6
+
+0.2
+
+Sculk Catalyst
+
+1.8
+
+3
+
+Sculk Shrieker
+
+1.8
+
+3
+
+Shulker Box (All Variants)
+
+2.5
+
+2
+
+2.5
+
+2
+
+Smooth Quartz Stairs
+
+0.8
+
+2
+
+0.8
+
+2
+
+Smooth Stone
+
+1.5
+
+2
+
+Sniffer Egg
+
+0.4
+
+0.5
+
+0.4
+
+0.5
+
+Soul Soil
+
+1
+
+0.5
+
+1
+
+0.5
+
+Stripped Crimson Hyphae
+
+0.3
+
+2
+
+0.3
+
+2
+
+Stripped Crimson Stem
+
+0.3
+
+2
+
+Stripped Warped Hyphae
+
+0.3
+
+2
+
+0.3
+
+2
+
+Stripped Warped Stem
+
+0.3
+
+2
+
+Sweet Berry Bush
+
+0.2
+
+0
+
+0.2
+
+0
+
+Turtle Egg
+
+0.4
+
+0.5
+
+0.4
+
+0.5
+
+Warped Hyphae
+
+0.3
+
+2
+
+0.3
+
+2
+
+Warped Stem
+
+0.3
+
+2
+
+Stained Glass
+
+The IDs of stained_glass have now been split up into their own IDs.
+
+Old ID
+
+New ID
+
+ stained_glass
+
+ white_stained_glass
+
+ orange_stained_glass
+
+ magenta_stained_glass
+
+ light_blue_stained_glass
+
+ yellow_stained_glass
+
+ lime_stained_glass
+
+ pink_stained_glass
+
+ gray_stained_glass
+
+ light_gray_stained_glass
+
+ cyan_stained_glass
+
+ purple_stained_glass
+
+ blue_stained_glass
+
+ brown_stained_glass
+
+ green_stained_glass
+
+ red_stained_glass
+
+ black_stained_glass
+
+Stained Glass Pane
+
+The IDs of stained_glass_pane have now been split up into their own IDs.
+
+Old ID
+
+New ID
+
+ stained_glass_pane
+
+ white_stained_glass_pane
+
+ orange_stained_glass_pane
+
+ magenta_stained_glass_pane
+
+ light_blue_stained_glass_pane
+
+ yellow_stained_glass_pane
+
+ lime_stained_glass_pane
+
+ pink_stained_glass_pane
+
+ gray_stained_glass_pane
+
+ light_gray_stained_glass_pane
+
+ cyan_stained_glass_pane
+
+ purple_stained_glass_pane
+
+ blue_stained_glass_pane
+
+ brown_stained_glass_pane
+
+ green_stained_glass_pane
+
+ red_stained_glass_pane
+
+ black_stained_glass_pane
+
+Command format
+/recipe
+
+Now is available without using the "Recipe Unlocking" experimental toggle.
+Gameplay
+Recipe book
+
+The new recipe unlocking system and its features are now available without using the "Recipe Unlocking" experimental toggle.
+Now are behind the "Recipes Unlock" game option.
+The recipe book search has been updated when playing in Survival, with the following changes:
+The search will only match the beginning of any word in the item's name. For example, searching for "tor" will now show torch and redstone torch but not the daylight detector.
+Recipes that haven't been unlocked will show up in search results.
+General
+Experiments
+
+Removed the "Recipe Unlocking" experimental toggle.
+Settings
+
+Renamed the "Extra Large GUI Scaling" accessibility and video option to "Extra Large New UI".
+Experimental
+These additions and changes are accessible by enabling the "Beta APIs" and "Molang Features" experimental toggle.
+
+Changes
+Technical
+API
+
+Moved Direction to 1.4.0.
+Moved EntityDamageSource to 1.4.0.
+Moved EntityDieAfterEvent to 1.4.0.
+Moved EntityEventOptions to 1.4.0.
+Moved EntityHitBlockAfterEvent to 1.4.0.
+Moved EntityHitEntityAfterEvent to 1.4.0.
+Moved EntityHurtAfterEvent to 1.4.0.
+Moved EntityHealthChangedAfterEvent to 1.4.0.
+Moved Dimension.getBlockFromRay method to 1.4.0.
+Moved Dimension.getEntitiesFromRay method to 1.4.0.
+Moved Entity.getBlockFromViewDirection method to 1.4.0.
+Moved Entity.getEntitiesFromViewDirection method to 1.4.0.
+Moved BlockRaycastHit to 1.4.0.
+Moved BlockRaycastOptions to 1.4.0.
+Moved EntityRaycastHit to 1.4.0.
+Moved EntityRaycastOptions to 1.4.0.
+Moved PressurePlatePushEvent to 1.4.0.
+Moved PressurePlatePopEvent to 1.4.0.
+Moved TripWireTripEvent to 1.4.0.
+Moved TargetBlockHitEvent to 1.4.0.
+Made property id accessible even if entity is not valid.
+Made property typeId accessible even if entity is not valid.
+Changed item event source properties from type Entity to Player.
+JSON
+
+minecraft:entity_placer will now content error when invalid blocks are named in the use_on and dispense_on lists.
+Removed MinecraftEntityTypes from @minecraft/server and replaced with version from @minecraft/vanilla-data.
+Exposed MoonPhase and World.getMoonPhase to script.
+Removed the minecraft:animates_in_toolbar component.
+Removed the minecraft:explodable component.
+Extra damage hover text now appears on all component items that have an applied Sharpness enchantment.
+The minecraft:shooter component now supports the Quick Charge enchantment with minecraft:enchantable when charge_on_draw is true.
+Remove nonfunctional entity slot options from minecraft:wearable component, ie. saddle, entity armor, and chest.
+Custom items with minecraft:wearable component auto-equip when dropped from a dispenser, matching parity with vanilla armor items.
+Added Scoreboard.addScore and improved Scoreboard.setScore to return the updated score.
+Molang
+
+Renamed block_property and has_block_property to block_state and has_block_state.
+Fixes
+30 issues fixed
+From released versions before 1.20.30
+
+MCPE-52452 – Coral blocks take too long to break.
+MCPE-68721 – Scaffolding and sweet berry bushes cannot be broken instantly in Survival.
+MCPE-101180 – Hyphae mining speed is faster than stems.
+MCPE-101644 – Crimson and warped stems/hyphae lower blast resistance than other types of wood.
+MCPE-114425 – There is no /gamerule playerssleepingpercentage in Bedrock Edition.
+MCPE-114602 – The mining speed of end stone bricks does not match the speed of end stone.
+MCPE-130070 – Stuck swimming down/falling issue.
+MCPE-132408 – Deepslate variants have a significantly lower blast resistance than stone variants.
+MCPE-137449 – End stone bricks has a lower blast resistance, compared to normal end stones.
+MCPE-138995 – Potion trajectory is broken.
+MCPE-139242 – Copper and cut copper blocks have a weaker blast resistance compared to Java Edition.
+MCPE-139246 – Copper ore blast resistance is weaker compared to other ores.
+MCPE-154428 – Large enchants on table are blocked by overlayed items.
+MCPE-160889 – Warden does not detect falling items.
+MCPE-161165 – Sculk sensor does not send a signal to shrieker when player drops item.
+MCPE-163050 – Xbox: Error says I'm out of storage space, quits to menu with weird background.
+MCPE-163497 – Camels don't make sand sounds on red sand or concrete powder.
+MCPE-166565 – Crouching and then swimming makes player constantly descend.
+From 1.20.0
+
+MCPE-170033 – Campfires are lit up instead of extinguished inside the trail ruins structure.
+MCPE-171254 – Character creator features do not match preview icon.
+MCPE-171383 – Bone meal not working underwater after 1.20.
+MCPE-171461 – Sleep fade black screen turns completely black.
+MCPE-171560 – Pink petals cannot be farmed using bone meal in a dispenser.
+From 1.20.10
+
+MCPE-171112 – Recipe unlocking UI can appear in pause menu or world settings.
+MCPE-171141 – Translated toast recipe unlocked content is cut off and unreadable.
+Others
+
+Fixed an issue where players would disappear temporarily when joining a game for the first time.
+Fixed crash in blocks JSON loading on iOS and iPadOS.
+Fixed a crash that could occur when the game lost focus while entering a world.
+Fixed an issue where screen narration would read recipe book folder items as the first item in the folder.
+Fixed held map not being centered when playing on narrow aspect ratio screens.
+Notes
+
+ Bedrock Edition 1.20.20 is not a version of the game and its betas are instead part of 1.20.30.
+
+References
+
+ "We're actually going to move all the 1.20.20 changes into 1.20.30. More info to come in an upcoming changelog."  – @cornerhardmc  on X (formerly Twitter), August 16, 2023
+
+ https://feedback.minecraft.net/hc/en-us/articles/17540689688589-Minecraft-Beta-Preview-1-20-20-21
+
+Navigation

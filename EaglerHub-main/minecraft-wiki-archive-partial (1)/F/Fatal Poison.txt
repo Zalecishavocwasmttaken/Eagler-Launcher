@@ -1,0 +1,123 @@
+This feature is exclusive to Bedrock Edition and Minecraft Education. 
+
+Fatal Poison
+
+Sources
+
+See § Causes
+
+Particle
+
+ #4E9331 (green)
+
+Type
+
+Negative
+
+{
+    "title": "Fatal Poison",
+    "rows": [
+        {
+            "field": "See (link to #Causes article, displayed as <span style=\"white-space: nowrap;\">§ Causes</span>)",
+            "label": "Sources"
+        },
+        {
+            "field": "<span class=\"sprite-file\" style=\"height:18px;width:18px\">(link to File:EffectSprite particle-poison.png article, displayed as 18x18px|link=|alt=EffectSprite particle-poison.png: Sprite image for particle-poison in Minecraft|class=pixel-image|)</span> #4E9331 (green)",
+            "label": "Particle"
+        },
+        {
+            "field": "Negative",
+            "label": "Type"
+        }
+    ],
+    "invimages": [],
+    "images": [
+        "Poison.png"
+    ]
+}
+
+Fatal Poison inflicts damage to entities over time, and can kill both undead and non-undead mobs, similar to Wither. The effect is actually called "Poison", but its ID distinguishes it from the other Poison effect, which cannot kill. In Survival mode, the effect applies only to parrots (when feeding them a cookie) and is not obtainable by players.
+
+Contents
+
+1 Effect
+2 Causes
+3 Immune mobs
+4 Death message
+5 Data values
+
+5.1 ID
+
+6 History
+7 Issues
+8 Navigation
+
+Effect
+The amount of damage inflicted on the affected entity is shown in the table below:[verify for Bedrock Edition]
+
+Level
+Ticks per HP
+HP per second
+
+1
+25
+0.4
+
+2
+12
+0.8
+
+3
+6
+1.66
+
+4
+3
+3.33
+
+5+
+1
+10
+
+ Due to damage immunity, the effective rate is 12 ticks (HP × 0.8 per second) at levels 3 and 4 and 10 ticks (HP × 1 per second) at level 5.
+
+The player's hearts turn yellow-green (HP).
+Amplifiers outside the range 0–31 (corresponding to levels 1–32) are treated modulo 32 (as though reduced by 32 until they are within the range, or as the remainder from division by 32, i.e. 33 is treated as 1.)
+
+Causes
+
+Cause
+
+Potency
+
+Length
+
+Notes
+
+Cookie
+
+I
+
+16:40
+
+Recipient must be a parrot
+
+Immune mobs
+Withers and the ender dragon are immune to Fatal Poison.
+Witches are 95% resistant to damage from Fatal Poison.
+Death message
+If the player is killed by Fatal Poison, the death message "<player> was killed by magic" appears, as when killed by a potion of Harming.
+
+Data values
+ID
+NameIdentifierNumeric ID
+Translation key Poisonfatal_poison25
+potion.poison
+History
+Bedrock Edition1.2.0beta 1.2.0.2
+ Added Fatal Poison.1.11.0beta 1.11.0.5
+ Changed effect icon texture.
+Issues
+Issues relating to "Fatal Poison" are maintained on the bug tracker. Issues should be reported and viewed there.
+
+Navigation

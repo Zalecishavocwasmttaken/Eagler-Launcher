@@ -1,0 +1,140 @@
+This feature is exclusive to Java Edition. 
+
+Configured carvers are used to add caves and canyons. They are referenced in biomes.
+
+Contents
+
+1 Definition
+2 JSON format
+3 Carver Type
+
+3.1 cave and nether_cave
+3.2 canyon
+
+4 History
+5 External links
+6 Navigation
+
+Definition
+Configured carvers can be defined in data packs, as part of the directory structure below.
+
+ data pack name.zip or  data pack name
+ pack.mcmeta
+ data
+ namespace
+ worldgen
+ configured_carver
+ <name>.json
+More directories…
+More directories…
+​[until: JE 26.3]
+
+ data pack name.zip or  data pack name
+ pack.mcmeta
+ data
+ namespace
+ worldgen
+ carver
+ <name>.json
+More directories…
+More directories…
+​[upcoming: JE 26.3]
+JSON format
+
+[NBT Compound / JSON Object]: The root object.
+[String] type: The ID of carver type; see below.
+[NBT Compound / JSON Object] config: Configuration values for the carver.
+[Float] probability: The probability that each chunk attempts to generate carvers. Value between 0 and 1 (both inclusive).
+[NBT Compound / JSON Object] y: The height at which this carver attempts to generate.
+Height provider see Template:Nbt inherit/height provider/template
+[NBT Compound / JSON Object] lava_level​[until: JE 26.3]: The Y-level below or equal to which the carved areas are filled with lava. Doesn't affect nether_cave (where lava level is always bottom_y + 31). Note that the carver is also filled with the fluid from aquifers, which always include lava below -54.
+Choices for a vertical anchor (must choose only one of the three) see Template:Nbt inherit/vertical anchor/template
+[String][NBT List / JSON Array] replaceable​[until: JE 26.3]: Blocks that can be carved. Can be a block ID, a block tag, or a list of block IDs.
+[NBT Compound / JSON Object] debug_settings​[until: JE 26.3]: (optional) Replaces blocks in the carved areas for debugging.
+[Boolean] debug_mode: (optional, defauts to false) Enable debug mode for this carver.
+[NBT Compound / JSON Object] air_state: (optional, defaults to acacia button's default state) Replaces air blocks.
+Block state see Template:Nbt inherit/block state/template
+[NBT Compound / JSON Object] water_state: (optional, defaults to acacia button's default state) Replaces water blocks and then waterlogs these blocks.
+Block state see Template:Nbt inherit/block state/template
+[NBT Compound / JSON Object] lava_state: (optional, defaults to acacia button's default state) Replaces lava blocks.
+Block state see Template:Nbt inherit/block state/template
+[NBT Compound / JSON Object] barrier_state: (optional, defaults to acacia button's default state) Replaces barriers of aquifers.
+Block state see Template:Nbt inherit/block state/template
+Additional fields based on [String] type; see below.
+Carver Type
+The carver type determines the shape of the carving.
+
+cave and nether_cave
+Carves a cave. A cave is a long tunnel that sometimes branches. Sometimes one or more tunnels start from a circular void.
+Nether caves​[until: JE 26.3] are similar to caves, but with a less frequency and wider tunnels [verify]. Also, aquifer doesn't work: The carved blocks below bottom_y + 32.0 are filled with lava.
+Additional fields:
+
+[Float][NBT Compound / JSON Object] yScale​[until: JE 26.3] / [NBT Compound / JSON Object] room_vertical_radius_multiplier​[upcoming: JE 26.3]: Vertically scales circular voids.
+[Int][NBT Compound / JSON Object] count​[upcoming: JE 26.3]: The number of cave tunnels to create from a seed chunk. The number must not be negative.
+Float provider see Template:Nbt inherit/float_provider/template
+[Float][NBT Compound / JSON Object] horizontal_radius_multiplier: Horizonally scales cave tunnels. Doesn't affect the length of tunnels.
+Float provider see Template:Nbt inherit/float_provider/template
+[Float][NBT Compound / JSON Object] vertical_radius_multiplier: Vertically scales cave tunnels. Doesn't affect the length of tunnels.
+[Float][NBT Compound / JSON Object] start_vertical_radius_multiplier​[upcoming: JE 26.3]: Multiplier for the vertical radius of the first segment in each tunnel. If not specified, it defaults to 1.0.
+Float provider see Template:Nbt inherit/float_provider/template
+[Float][NBT Compound / JSON Object] floor_level: Value between -1.0 and 1.0 (both inclusive). Change the shape of the cave's horizontal floor. If 0.0, carves the terrain with ellipsoids. If 1.0, carves with upper semi-ellipsoids, resulting in a level floor.
+[Float][NBT Compound / JSON Object] thickness​[upcoming: JE 26.3]: Multiplier for the radius of carved tunnels.
+[Boolean][NBT Compound / JSON Object] weird_thickness_bias​[upcoming: JE 26.3]: If true, thickness will be multiplied with a 10% chance (e.g. random(0, 1) * random(0, 3) + 1). If not specified, it defaults to false.
+Float provider see Template:Nbt inherit/float_provider/template
+canyon
+Carves a canyon.
+Additional fields:
+
+[Float][NBT Compound / JSON Object] yScale​[until: JE 26.3]: Vertically scales canyons.
+Float provider see Template:Nbt inherit/float_provider/template
+[Float][NBT Compound / JSON Object] vertical_rotation: Vertical rotation as a canyon extends.
+Float provider see Template:Nbt inherit/float_provider/template
+[NBT Compound / JSON Object] shape: The shape to use for the ravine.
+[Float][NBT Compound / JSON Object] y_scale​[upcoming: JE 26.3]: Vertically scales canyons.
+[Float][NBT Compound / JSON Object] distance_factor: Scales the length of canyons. Higher values make canyons longer.
+Float provider see Template:Nbt inherit/float_provider/template
+[Float][NBT Compound / JSON Object] thickness: Scales the breadth and height of canyons.
+Float provider see Template:Nbt inherit/float_provider/template
+[Float][NBT Compound / JSON Object] horizontal_radius_factor: Scales the breadth of canyons. Higher values make canyons wider.
+Float provider see Template:Nbt inherit/float_provider/template
+[Float] vertical_radius_default_factor: Vertically scales canyons. Higher values make canyons deeper.
+[Float] vertical_radius_center_factor: Scales the height based on the horizontal distance from the canyon's center, resulting in deeper center.
+[Int] width_smoothness: Higher values smooth canyon walls on the vertical axis. Must be greater than 0.
+History
+Java Edition1.16.220w28a
+Added experimental support for configured carvers in data packs.1.1721w06a
+Removed carvers underwater_canyon and underwater_cave.21w08a
+Added configuration for the canyon carver.
+
+Added optional carver field debug_settings. When enabled with debug_mode, can place blocks from air_state.21w11a
+Renamed canyon carver field distanceFactor to distance_factor.21w13a
+Added configuration for the cave carver.
+
+Replaced carver field bottom_inclusive and top_inclusive with field y, which is a height provider. Added field yScale.
+
+Moved canyon carver shape fields into sub-object shape.21w16a
+Added field aquifers_enabled.
+
+Added fields water_state, lava_state, and barrier_state in the debug_settings object.1.1821w38a
+Removed field aquifers_enabled.1.1922w15a
+Added field replaceable to carver configuration.Upcoming Java Edition26.3snap2
+Removed carver nether_cave.
+
+Added cave carver fields:
+count
+start_vertical_radius_multiplier
+thickness
+weird_thickness_bias
+
+Renamed cave carver field yScale to room_vertical_radius_multiplier.
+
+Renamed canyon carver field yScale to y_scale and moved under the shape compound.
+
+Removed carver fields:
+replaceable
+lava_level
+debug_settings
+
+External links
+Configured carver Generator on misode.github.io
+Navigation

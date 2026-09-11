@@ -1,0 +1,178 @@
+This article is about the terrain feature.   For the noise parameter that controls terrain height, see World generation § Biomes.
+
+
+
+This  topic  is named by the community. 
+An official name has not been given. Please update the name if confirmed by reliable sources.
+
+Erosion
+
+Overworld erosion
+
+Nether erosion
+
+End erosion
+
+Biomes
+
+Overworld
+The Nether
+The End
+
+Generates inexisting chunks  
+
+No
+
+Consists of
+
+Top layer:AirWaterIceLava
+
+Floor:StoneOrange TerracottaNetherrackEnd stone
+
+{
+    "title": "Erosion",
+    "rows": [
+        {
+            "field": "\n* <span class=\"nowrap\"><span class=\"sprite-file\" style=\"\">(link to File:EnvSprite overworld.png article, displayed as 16x16px|link=Overworld|alt=|class=pixel-image|)</span>(link to Overworld article, displayed as <span class=\"sprite-text\">Overworld</span>)</span>\n* <span class=\"nowrap\"><span class=\"sprite-file\" style=\"\">(link to File:EnvSprite the-nether.png article, displayed as 16x16px|link=The Nether|alt=|class=pixel-image|)</span>(link to The Nether article, displayed as <span class=\"sprite-text\">The Nether</span>)</span>\n* <span class=\"nowrap\"><span class=\"sprite-file\" style=\"\">(link to File:EnvSprite the-end.png article, displayed as 16x16px|link=The End|alt=|class=pixel-image|)</span>(link to The End article, displayed as <span class=\"sprite-text\">The End</span>)</span>",
+            "label": "(link to Biome article, displayed as Biomes)"
+        },
+        {
+            "field": "No",
+            "label": "Generates in<br>existing chunks  "
+        },
+        {
+            "field": "(values exceeds 1000 characters...)",
+            "label": "Consists of"
+        }
+    ],
+    "invimages": [],
+    "images": [
+        "Erosion overworld.png",
+        "Erosion nether.png",
+        "Erosion end.png"
+    ]
+}
+
+Erosions, also known as basins, are rare terrain features that strip away the top layer of a biome's surface, leaving a one-block deep hole with a stony floor. They can generate in all three dimensions and are intentional.
+
+Contents
+
+1 Description
+
+1.1 Overworld
+1.2 The Nether
+1.3 The End
+
+2 Generation
+
+2.1 Accidental removal
+
+3 History
+
+3.1 Java Edition
+3.2 Bedrock Edition
+
+4 Gallery
+
+4.1 Screenshots
+
+5 Trivia
+6 Issues
+7 References
+8 Navigation
+
+Description
+Erosions occur at the top-most layer of the terrain surface. The first layer is stripped away, and the secondary layer is too small to generate, causing the terrain below to generate at the surface. Erosions are completely random and extremely rare; they can consist of only one block, a few random blocks, or a massive area with rough borders.A large plains erosion
+Overworld
+In the Overworld, the floors of erosions almost always consist of stone. They expose ores such as coal ore, copper ore and iron ore. In badlands erosions, gold ore can also be seen. In badlands and variants, the floor is replaced by orange terracotta. Erosions in frozen oceans occur at the freeze layer and replace it with air, followed by ice or water below.
+
+The Nether
+Erosions in The Nether replace the floor with netherrack. Nether erosions can expose ore such as nether gold ore and nether quartz ore. Because erosions generate independent of the y-axis, if an erosion generates in an overhang in the Nether, an identical erosion is guaranteed to generate at the exact same x and z coordinates on the ground below such an overhang.
+
+The End
+Since erosions generate before features, chorus plants can take root in End erosions. The floor of End erosions is always end stone.
+
+Generation
+See also: Surface rule § Surface depth and Tutorial:Custom world generation § Erosion
+
+When the game generates new chunks, the surface depth is calculated for every column inside the chunk based on the minecraft:surface noise. This integer is used to create variation in the depth of stone below the surface layers.
+When it is less than or equal to 0, the effect extends to the top block from the surface and replaces it with air. Note that because surface depth is calculated per-column, every surface in the column is removed; that is, an identical erosion appears above or below another one if there is an overhang. The surface depth rarely reaches these values, eliciting the rarity of erosions. After the hole is generated, the floor is replaced with a stone block of the respective dimension, and the hole is flooded with water if it is at or below sea level.
+Erosion generation occurs before carver creation in the terrain generation process, meaning that caves, features, and structures can disrupt or even completely conceal them. As a consequence, ore blobs are commonly found in erosions, making ore more accessible to players on the surface.
+
+Accidental removal
+In Java Edition, erosions have stopped generating in all biomes except frozen oceans and deep frozen oceans since the addition of surface rules, which is unintentional behavior.
+
+History
+Java Edition
+Java Edition Infdev20100413-1951
+Added erosions.Java Edition Alphav1.2.0
+Surface layer world generation produces chunk-aligned artifacts, which affects erosions.Java Edition1.7.213w36a
+Surface artifacting has been fixed in the overworld.1.1318w16a
+Surface artifacting has been fixed in the nether.1.1821w41a
+Due to an oversight with surface rules, erosions no longer generate as intended.
+Bedrock Edition
+Pocket Edition Alphav0.1.0
+Added erosions.
+Gallery
+Screenshots
+
+
+
+			An erosion in Java Edition Infdev 20100413-1953
+
+
+
+			A naturally generated erosion
+
+
+
+			A large badlands erosion
+
+
+
+			A desert erosion
+
+
+
+			A taiga erosion
+
+
+
+			A snow-covered tundra erosion
+
+
+
+			An erosion in a crimson forest, exposing nether quartz ore blob
+
+
+
+			An erosion in a nether wastes
+
+
+
+			An erosion generated on an outer End island
+
+
+Trivia
+The End has few surface features, and no carvers, making End erosions easy to spot.
+This is the only terrain feature that generates in all three dimensions.
+Issues
+Issues relating to "Erosion" or "Basin" are maintained on the bug tracker. Issues should be reported and viewed there.
+
+References
+
+ MC-1242 – randomly missing topmost layers of the landscape – resolved as "Works As Intended".
+
+ MC-212606 – Weird Grass Generation – resolved as "Works As Intended".
+
+ MC-229112 – strange bug regarding spots where dirt blocks are missing in a random formation – resolved as "Works As Intended".
+
+ MC-130788 – "Basin" structure is flooded since part of it generates below sea level
+
+ MC-264579 – Basins are missing in most biomes
+
+ MC-6820
+
+ MC-7192
+
+Navigation

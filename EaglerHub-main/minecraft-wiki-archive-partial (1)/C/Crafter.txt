@@ -1,0 +1,509 @@
+For the block for manual crafting, see Crafting Table.   For other blocks that can be used to combine items, see Workstation.
+
+Crafter
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Renewable
+
+Yes
+
+Stackable
+
+Yes (64)
+
+Tool
+
+Blast resistance
+
+3.5
+
+Hardness
+
+1.5
+
+Luminous
+
+No
+
+Transparent
+
+No
+
+Flammable
+
+No
+
+Catches firefrom lava
+
+No
+
+Map color
+
+ 11 STONE
+
+Note block instrument
+
+JE: Default (Harp)BE: Bass Drum
+
+{
+    "title": "Crafter",
+    "rows": [
+        {
+            "field": "Yes",
+            "label": "(link to Renewable resource article, displayed as Renewable)"
+        },
+        {
+            "field": "Yes (64)",
+            "label": "Stackable"
+        },
+        {
+            "field": "<span class=\"sprite-file\" style=\"height:32px;width:32px;--vertical-align:middle\">(link to File:SlotSprite Pickaxe Required.png article, displayed as 32x32px|link=|alt=SlotSprite Pickaxe Required.png: Sprite image for Pickaxe Required in Minecraft|class=pixel-image|This block can be broken with any tool, but a pickaxe is the quickest)</span>",
+            "label": "Tool"
+        },
+        {
+            "field": "3.5",
+            "label": "(link to Explosion#Blast resistance article, displayed as Blast resistance)"
+        },
+        {
+            "field": "1.5",
+            "label": "(link to Breaking#Blocks by hardness article, displayed as Hardness)"
+        },
+        {
+            "field": "No",
+            "label": "(link to Light article, displayed as Luminous)"
+        },
+        {
+            "field": "No",
+            "label": "(link to Opacity article, displayed as Transparent)"
+        },
+        {
+            "field": "No",
+            "label": "(link to Fire#Flammable blocks article, displayed as Flammable)"
+        },
+        {
+            "field": "No",
+            "label": "Catches fire<br>from (link to lava article, displayed as lava)"
+        },
+        {
+            "field": "<span style=\"white-space: nowrap;\"><span style=\"display: inline-block; background-color: rgb(112, 112, 112); border: 1px solid #888; border-radius: 0.3em; color: transparent; width: 1em; height: 1em; vertical-align: -0.36em; margin-right: -0.1em\"><br></span> 11 STONE</span>",
+            "label": "(link to Map item format#Color table article, displayed as Map color)"
+        },
+        {
+            "field": "'''(link to Java Edition article, displayed as JE):''' Default (Harp)<br>'''(link to Bedrock Edition article, displayed as BE):''' Bass Drum",
+            "label": "(link to Note Block#Instruments article, displayed as Note block instrument)"
+        }
+    ],
+    "invimages": [
+        "Crafter"
+    ],
+    "images": [
+        "Crafter.png",
+        "Crafter Triggered.png",
+        "Crafter Crafting.png"
+    ]
+}
+
+A crafter is a low-capacity storage block that can use its contents to craft items when given a redstone signal, ejecting the results into the world or into a container it is facing. Its inventory slots can be individually locked so hoppers and similar blocks cannot fill them, while not affecting crafting recipes.
+
+Contents
+
+1 Obtaining
+
+1.1 Breaking
+1.2 Crafting
+
+2 Usage
+
+2.1 Container
+2.2 Redstone component
+
+3 Sounds
+
+3.1 Generic
+3.2 Unique
+
+4 Data values
+
+4.1 ID
+4.2 Block states
+4.3 Block data
+
+5 Achievements
+6 Advancements
+7 Videos
+8 History
+
+8.1 Announcement
+8.2 Java Edition
+8.3 Bedrock Edition
+
+9 Issues
+10 Gallery
+
+10.1 Mojang screenshots
+10.2 Screenshots
+10.3 Development images
+10.4 In other media
+10.5 Concept artwork
+
+11 References
+12 External links
+13 Navigation
+
+Obtaining
+Breaking
+Crafters can be mined with anything, but pickaxes are the quickest.
+
+Block
+
+Crafter
+
+Hardness
+
+1.5
+
+Tool
+
+Breaking time (sec)
+
+Default
+
+2.25
+
+Wooden
+
+1.15
+
+Stone
+
+0.6
+
+Copper
+
+0.45
+
+Iron
+
+0.4
+
+Diamond
+
+0.3
+
+Netherite
+
+0.25
+
+Golden
+
+0.2
+
+OptionsEfficiency000Haste0011JEBE
+
+Legend
+ incorrect tool, drops nothing
+ correct tool, drops nothing or something other than the block itself
+ correct tool, drops the block itself
+italicized can be instant mined
+
+ These durations ignore any other influential factors (e.g., Mining Fatigue) and are measured in seconds. For more information, see Breaking § Mining efficiency.
+
+Crafting
+
+Ingredients
+Crafting recipe
+
+Iron Ingot +Crafting Table +Redstone Dust +Dropper
+
+Usage
+In Java Edition, crafters cannot be moved by pistons.
+
+The crafter's GUI
+A simple contraption for crafting cake using the crafter
+Container
+A crafter has nine slots of inventory space, arranged in a 3-by-3 grid like a crafting table. Its GUI can be accessed by using it.
+A slot can be enabled or disabled, which can be toggled by clicking on it when empty. Disabled slots cannot have items put in them.
+Hoppers, droppers and other crafters interact with crafters by inserting items into its inventory. Hoppers can remove ingredients as well. When an item is added:
+
+The crafter will look for an empty slot to insert that item into. It searches in standard reading order.
+It searches the slots row by row, from left to right.
+Only enabled slots are checked.
+If the crafter has all enabled item slots filled, then the item is added to the lowest count item stack of the same type. If there is a tie, it uses the same reading order described before.
+Hoppers and droppers can interact with all sides of the crafter, and added items follow the rules described above.
+
+Redstone component
+See also: Tutorial:Crafter
+
+When a crafter receives a redstone signal, it waits for 4 game ticks (0.2 seconds) before ejecting one crafted item using the ingredients from the nine inventory slots. The crafted items are subsequently ejected from the front of the crafter. If the front of a crafter is facing a container (including another crafter), the crafted items are transferred into the container. If the container it is facing is full, or the item cannot be inserted into the container, the crafter ejects the item instead. Crafters interact with containers similar to droppers. If a recipe has byproducts (e.g. empty bottles for honey blocks or empty buckets for cake) those are ejected after the crafted item.
+For shaped recipes, the position of the items in the inventory matters. Because disabled slots prevent items from entering the slot, crafters can be used to craft any item in the game automatically without any input from the player, using a series of hoppers and/or droppers and the correct configuration of disabled slots for the recipe.
+A hopper placed below a crafter collects the ingredients from the crafting grid, not the resulting item.
+In Java Edition, unlike dispensers and droppers, crafters aren't affected by quasi-connectivity.
+Comparators can emit a redstone signal when reading from a crafter. The signal strength is equal to the number of crafting slots that are either disabled or occupied by an item. The stack size of the item has no effect on the comparators output signal e.g. having 1 stick in a slot vs having 64 sticks in that same slot both output the same comparator signal. An empty crafter with no disabled slots does not output any signal through a comparator. A crafter with every slot being disabled or containing an item (of any stack size) outputs a signal strength of nine through a comparator.
+
+Sounds
+Generic
+Java Edition:
+
+v
+t
+e stone sound typeSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitchAttenuationdistance​Block brokenBlocksOnce the block has brokenblock.stone.breaksubtitles.block.generic.break​1.00.816​Block placedBlocksWhen the block is placedblock.stone.placesubtitles.block.generic.place​1.00.816​Block breakingBlocksWhile the block is in the process of being brokenblock.stone.hitsubtitles.block.generic.hit​0.250.516​Something falls on a blockEntity-DependentFalling on the block with fall damageblock.stone.fallsubtitles.block.generic.fall​0.50.7516​FootstepsEntity-DependentWalking on the blockblock.stone.stepsubtitles.block.generic.footsteps​0.151.016
+Bedrock Edition:
+
+v
+t
+e stone sound typeSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitch​Block brokenBlocksOnce the block has brokendig.stonesubtitles.block.generic.break​1.00.8–1.0​Block placedBlocksWhen the block is placedplace.stonesubtitles.block.generic.place​1.00.8–1.0​Block breakingBlocksWhile the block is in the process of being brokenhit.stonesubtitles.block.generic.hit​0.370.5​FootstepsPlayersFalling on the block with fall damagefall.stonesubtitles.block.generic.footsteps​0.41.0​FootstepsPlayersWalking on the blockstep.stonesubtitles.block.generic.footsteps​0.31.0​FootstepsBlocksJumping from the blockjump.stonesubtitles.block.generic.footsteps​0.121.0​FootstepsBlocksFalling on the block without fall damageland.stonesubtitles.block.generic.footsteps​0.221.0
+Unique
+
+
+
+This section is missing information about: sound when clicking on slots for enabling and disabling 
+Please expand the section to include this information. Further details may exist on the talk page.
+
+Java Edition
+
+SoundsSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitchAttenuationdistance​Crafter craftsBlocksWhen a crafter crafts somethingblock.crafter.craftsubtitles.block.crafter.craft​1.01.0/0.96/1.045​Crafter fails craftingBlocksWhen a crafter fails to craftblock.crafter.failsubtitles.block.crafter.fail​1.01.0/0.96/1.043​Chest lockedBlocksWhen a player attempts to open a crafter locked using the [NBT Compound / JSON Object] lock tagblock.chest.locked​​subtitles.block.chest.locked​​​1.01.016
+ MC-98316 – Wrong subtitles caused by missing distinction
+
+Bedrock Edition:
+
+SoundsSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitch​ ?BlocksWhen a crafter crafts somethingcrafter.craft​ ?1.00.96–1.04​ ?BlocksWhen a crafter fails to craftcrafter.fail​ ?1.00.96–1.04​ ?SoundWhen a slot is enabled in a crafterrandom.click​ ?0.41.0​ ?BlocksWhen a slot is disabled in a craftercrafter.disable_slot​ ?0.40.75
+Data values
+ID
+Java Edition:
+
+NameIdentifierFormBlock tags
+Translation key CraftercrafterBlock & Itemmineable/pickaxeneeds_stone_tool
+block.minecraft.crafter
+NameIdentifier
+ Block entitycrafter
+
+Bedrock Edition:
+
+NameIdentifierNumeric ID FormItem ID
+Translation key Craftercrafter-313Block & Giveable ItemIdentical
+tile.crafter.name
+ ID of block's direct item form, which is used in savegame files and addons.
+
+ Available with /give command.
+
+ The block's direct item form has the same ID as the block.
+
+NameSavegame ID
+ Block entityCrafter
+
+Block states
+See also: Block states
+
+Java Edition:
+
+  Name
+  Default value
+  Allowed values
+  Description
+  craftingfalsefalsetrueWhether the crafter's mouth is open and top is glowing.
+orientationnorth_updown_eastdown_northdown_southdown_westeast_upnorth_upsouth_upup_eastup_northup_southup_westwest_upThe direction the crafter's face is facing and which way it is rotated.
+triggeredfalsefalsetrueWhether the crafter is activated.
+Bedrock Edition:
+
+  NameMetadata Bits
+  Default value
+  Allowed valuesValues forMetadata Bits
+  Description
+  craftingNot SupportedfalsefalsetrueUnsupportedWhether the crafter's mouth is open and top is glowing.
+orientationNot Supporteddown_eastdown_eastdown_northdown_southdown_westeast_upnorth_upsouth_upup_eastup_northup_southup_westwest_upUnsupportedThe direction the crafter's face is facing and which way it is rotated.
+triggered_bitNot SupportedfalsefalsetrueUnsupportedWhether the crafter is activated.
+Block data
+A crafter has a block entity associated with it that holds additional data about the block.
+Java Edition:
+
+See also: Block entity format
+
+[NBT Compound / JSON Object] Block entity data
+Tags common to all block entities see Template:Nbt inherit/blockentity/template
+Tags common to all objects that can be renamed see Template:Nbt inherit/nameable/template
+Tags common to all containers that can be locked see Template:Nbt inherit/lockable/template
+Tags common to all objects that use loot tables to produce items see Template:Nbt inherit/lootable/template
+[NBT List / JSON Array] Items: List of items in this container. Represents the minecraft:container component. The component is still present on the block entity, even if the tag does not exist (due to a loot table existing instead).
+[NBT Compound / JSON Object]: An item in the crafter, including the slot tag. Crafter slots are numbered 0-8. 0 starts in the top left corner.
+An item stack in a container slot see Template:Nbt inherit/item/template
+[Int Array] disabled_slots: Indexes of slots that are disabled.
+[Boolean] triggered: Set to 1 when it is powered. It is otherwise 0.
+[Int] crafting_ticks_remaining: Set to 6 when the crafter crafts something.​[more information needed]
+
+Bedrock Edition:
+
+See Bedrock Edition level format/Block entity format.
+Achievements
+IconAchievementIn-game descriptionActual requirements (if different)Gamerscore earnedTrophy type (PS)PS4OtherCrafters Crafting CraftersBe near a Crafter when it crafts a CrafterHave a crafter craft a crafter then pick up the newly-crafted crafter.10Bronze
+Advancements
+IconAdvancementIn-game descriptionActual requirements (if different)Crafters Crafting CraftersBe near a Crafter when it crafts a Crafter—
+Videos
+
+
+
+
+
+
+
+
+
+
+
+
+
+History
+Announcement
+October 15, 2023
+   Crafters were announced at Minecraft Live 2023.
+Java Edition
+Java Edition1.20.3ExperimentUpdate 1.2123w42a
+   Added crafters behind the "Update 1.21" experimental data pack.
+
+Crafters currently activate after one game tick.23w43a
+   The textures of the crafter have been changed.
+
+Slots can no longer be toggled by hotkeys; instead, hotkeys place items into the crafter normally.23w46a
+   The textures of the crafter have been changed again.
+
+Crafters now activate after 2 redstone ticks (4 game ticks), like dispensers.1.20.5ExperimentUpdate 1.2124w03a
+   The top face of the crafter is no longer mirrored.1.2124w18a
+Crafters are now available without using the "Update 1.21" experimental data pack.
+Bedrock Edition
+Bedrock Edition1.20.50ExperimentUpdate 1.21Preview 1.20.50.21
+   Added crafters behind the "Update 1.21" experimental toggle.Preview 1.20.50.23
+   The textures of the crafter have been changed.1.20.60ExperimentUpdate 1.21Preview 1.20.60.20
+   The textures of the crafter have been changed again.1.21.0Preview 1.21.0.22
+Crafters are now available without using the "Update 1.21" experimental toggle.1.21.20Preview 1.21.20.21
+Crafter craft and fail sounds now have a random pitch offset.
+
+Crafter fail sound now has a max distance of 3 blocks instead of 5.1.21.50Preview 1.21.50.20
+Crafters are now mined quickly when using any pickaxe.Preview 1.21.50.24
+Crafters are mined faster when using an improper tool.
+Issues
+Issues relating to "Crafter" are maintained on the bug tracker. Issues should be reported and viewed there.
+
+Gallery
+Mojang screenshots
+
+
+
+			A crafter activating and ejecting a cherry hanging sign.
+
+
+
+			Two crafters in a Trial Chamber hallway, with one of the crafters being freshly mined and floating as an item.
+
+
+
+			Sunny using a crafter in a jungle
+
+
+
+			A villager farmer stands by a crafter.
+
+
+
+			Crafter automation
+
+
+
+			"A Redstone contraption in a Village made of Glass and Crafters that turn Gold Nuggets into Gold Ingots, which are then turned into Gold Blocks. These Gold blocks are then broken down again, feeding into another crafter, that perpetually continues the cycle."
+
+
+
+			"An automated rail Crafter is producing rails. Makena is collecting the rails and Noor is building a railway."
+
+
+Screenshots
+
+
+
+			The crafter's GUI when it is triggered and with all of its slots disabled
+
+
+Development images
+
+
+
+			Crafter UI being developed
+
+
+
+			Different angle
+
+
+
+			Crafter UI tested with different items
+
+
+
+			A crafter as seen in its reveal
+
+
+
+			Slots may be disabled by clicking on them, which is useful for automating shaped recipes.
+
+
+
+			A screenshot of two crafters facing each other posted by a developer, using their old textures.
+
+
+In other media
+
+
+
+			Efe crafting cakes with a crafter
+
+
+
+			Alex using various crafters
+
+
+
+			An armadillo passing by several crafters, in A year in blocks
+
+
+Concept artwork
+
+
+
+			Crafter concept art
+
+
+
+			Crafter concept art
+
+
+
+			Early crafter texture
+
+
+References
+
+ "Minecraft Snapshot 23w42a"     – Minecraft.net, October 18, 2023.
+
+ MC-265943 – Crafter cannot be powered above through an air block like dispensers/droppers/pistons – resolved as "Works As Intended".
+
+ "Minecraft Live 2023: Discovering the trial chambers! @ 9:31"  – Minecraft on YouTube, October 15, 2023
+
+ MC-267149 – Crafter top face has an inverted UV texture map – resolved as "Fixed".
+
+ "Minecraft Java Edition 1.20.3"     – Minecraft.net, December 5, 2023.
+
+ "Minecraft Java Edition 1.21"     – Minecraft.net, June 13, 2024.
+
+External links
+"Crafting with the crafter"     by Duncan Geere  – Minecraft.net, June 6, 2024.
+Navigation

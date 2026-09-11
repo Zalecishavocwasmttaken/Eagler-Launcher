@@ -1,0 +1,3387 @@
+For the Java Edition equivalent, see Java Edition Flattening.
+
+ For the page formerly used by the developers to track changes which would need to be made to Bedrock Edition for its flattening to match Java Edition, see Minecraft Wiki:Bedrock Edition flattening.
+
+
+
+This feature is exclusive to Bedrock Edition. 
+
+
+
+This article is missing information about: Changes to behavior packs 
+Please expand the article to include this information. Further details may exist on the talk page.
+
+Over multiple Bedrock Edition versions since 1.16.100, changes have been made to block and item IDs, block states, and the syntax of some commands in a process known as "The Flattening".
+The changes made under this process include the splitting up of block and item IDs and the use of block states instead of block data. As of Preview 26.50.27, this process is not yet complete, with multiple things left to do before The Flattening is complete.
+Changes made to block states and block and item IDs were made while leaving the original ID and block state as valid syntax (known as aliases). For example, /setblock ~ ~ ~ wool ["color"="purple"] would continue to place purple wool, even though wool has been split up into separate block IDs.
+
+Contents
+
+1 Blocks and items
+
+1.1 v1.16.x
+1.2 v1.18.x
+1.3 v1.19.x
+1.4 v1.20.x
+1.5 v1.21.x
+
+2 Structures
+3 Block states
+
+3.1 v1.19.x
+3.2 v1.20.x
+3.3 v1.21.x
+
+4 Names
+5 Commands
+6 Behavior packs
+7 Issues
+8 Notes
+9 Navigation
+
+Blocks and items
+v1.16.x
+
+Update
+
+Beta/Preview
+
+Change
+
+Old
+
+New
+
+Item
+ID
+Item
+ID
+
+1.16.100
+
+beta 1.16.100.56
+
+Rename
+
+ Scute
+turtle_shell_piece
+
+ Scute
+scute
+
+Separate
+
+ Coal
+
+coal
+
+ Coal
+coal
+
+ Charcoal
+charcoal
+
+Rename
+
+ Enchanted Apple
+appleenchanted
+
+ Enchanted Apple
+enchanted_golden_apple
+
+Separate
+
+ Bucket
+
+bucket
+
+ Bucket
+bucket
+
+ Milk
+milk_bucket
+
+ Bucket of Cod
+cod_bucket
+
+ Bucket of Salmon
+salmon_bucket
+
+ Bucket of Tropical Fish
+tropical_fish_bucket
+
+ Bucket of Pufferfish
+pufferfish_bucket
+
+ Water Bucket
+water_bucket
+
+ Lava Bucket
+lava_bucket
+
+Separate
+
+ Boat
+
+boat
+
+ Oak Boat
+oak_boat
+
+ Spruce Boat
+spruce_boat
+
+ Birch Boat
+birch_boat
+
+ Jungle Boat
+jungle_boat
+
+ Acacia Boat
+acacia_boat
+
+ Dark Oak Boat
+dark_oak_boat
+
+Rename
+
+ Raw Cod
+fish
+
+ Raw Cod
+cod
+
+Rename
+
+ Tropical Fish
+clownfish
+
+ Tropical Fish
+tropical_fish
+
+Rename
+
+ Cooked Cod
+cooked_fish
+
+ Cooked Cod
+cooked_cod
+
+Separate
+
+ Dye
+
+dye
+
+ Ink Sac
+ink_sac
+
+ Red Dye
+red_dye
+
+ Green Dye
+green_dye
+
+ Cocoa Beans
+cocoa_beans
+
+ Lapis Lazuli
+lapis_lazuli
+
+ Purple Dye
+purple_dye
+
+ Cyan Dye
+cyan_dye
+
+ Light Gray Dye
+light_gray_dye
+
+ Gray Dye
+gray_dye
+
+ Pink Dye
+pink_dye
+
+ Lime Dye
+lime_dye
+
+ Yellow Dye
+yellow_dye
+
+ Light Blue Dye
+light_blue_dye
+
+ Magenta Dye
+magenta_dye
+
+ Orange Dye
+orange_dye
+
+ Bone Meal
+bone_meal
+
+ Black Dye
+black_dye
+
+ Brown Dye
+brown_dye
+
+ Blue Dye
+blue_dye
+
+ White Dye
+white_dye
+
+Rename
+
+ Sugar Canes (item)
+reeds
+
+ Sugar Canes (item)
+sugar_cane
+
+Rename
+
+ Glistering Melon
+speckled_melon
+
+ Glistering Melon
+glistering_melon_slice
+
+Rename
+
+ Lodestone Compass
+lodestonecompass
+
+ Lodestone Compass
+lodestone_compass
+
+Separate
+
+ Spawn Egg
+
+spawn_egg
+
+ item.spawn_egg.name
+spawn_egg
+
+ Chicken Spawn Egg
+chicken_spawn_egg
+
+ Cow Spawn Egg
+cow_spawn_egg
+
+ Pig Spawn Egg
+pig_spawn_egg
+
+ Sheep Spawn Egg
+sheep_spawn_egg
+
+ Wolf Spawn Egg
+wolf_spawn_egg
+
+ Villager Spawn Egg
+villager_spawn_egg
+
+ Mooshroom Spawn Egg
+mooshroom_spawn_egg
+
+ Squid Spawn Egg
+squid_spawn_egg
+
+ Rabbit Spawn Egg
+rabbit_spawn_egg
+
+ Bat Spawn Egg
+bat_spawn_egg
+
+ Ocelot Spawn Egg
+ocelot_spawn_egg
+
+ Horse Spawn Egg
+horse_spawn_egg
+
+ Donkey Spawn Egg
+donkey_spawn_egg
+
+ Mule Spawn Egg
+mule_spawn_egg
+
+ Skeleton Horse Spawn Egg
+skeleton_horse_spawn_egg
+
+ Zombie Horse Spawn Egg
+zombie_horse_spawn_egg
+
+ Polar Bear Spawn Egg
+polar_bear_spawn_egg
+
+ Llama Spawn Egg
+llama_spawn_egg
+
+ Parrot Spawn Egg
+parrot_spawn_egg
+
+ Dolphin Spawn Egg
+dolphin_spawn_egg
+
+ Zombie Spawn Egg
+zombie_spawn_egg
+
+ Creeper Spawn Egg
+creeper_spawn_egg
+
+ Skeleton Spawn Egg
+skeleton_spawn_egg
+
+ Spider Spawn Egg
+spider_spawn_egg
+
+ Zombified Piglin Spawn Egg
+zombie_pigman_spawn_egg
+
+ Slime Spawn Egg
+slime_spawn_egg
+
+ Enderman Spawn Egg
+enderman_spawn_egg
+
+ Silverfish Spawn Egg
+silverfish_spawn_egg
+
+ Cave Spider Spawn Egg
+cave_spider_spawn_egg
+
+ Ghast Spawn Egg
+ghast_spawn_egg
+
+ Magma Cube Spawn Egg
+magma_cube_spawn_egg
+
+ Blaze Spawn Egg
+blaze_spawn_egg
+
+ Zombie Villager Spawn Egg
+zombie_villager_spawn_egg
+
+ Witch Spawn Egg
+witch_spawn_egg
+
+ Stray Spawn Egg
+stray_spawn_egg
+
+ Husk Spawn Egg
+husk_spawn_egg
+
+ Wither Skeleton Spawn Egg
+wither_skeleton_spawn_egg
+
+ Guardian Spawn Egg
+guardian_spawn_egg
+
+ Elder Guardian Spawn Egg
+elder_guardian_spawn_egg
+
+ NPC Spawn Egg
+npc_spawn_egg
+
+ Shulker Spawn Egg
+shulker_spawn_egg
+
+ Endermite Spawn Egg
+endermite_spawn_egg
+
+ Agent Spawn Egg
+agent_spawn_egg
+
+ Vindicator Spawn Egg
+vindicator_spawn_egg
+
+ Phantom Spawn Egg
+phantom_spawn_egg
+
+ Ravager Spawn Egg
+ravager_spawn_egg
+
+ Sea Turtle Spawn Egg
+turtle_spawn_egg
+
+ Cat Spawn Egg
+cat_spawn_egg
+
+ Evoker Spawn Egg
+evoker_spawn_egg
+
+ Vex Spawn Egg
+vex_spawn_egg
+
+ Pufferfish Spawn Egg
+pufferfish_spawn_egg
+
+ Salmon Spawn Egg
+salmon_spawn_egg
+
+ Drowned Spawn Egg
+drowned_spawn_egg
+
+ Tropical Fish Spawn Egg
+tropical_fish_spawn_egg
+
+ Cod Spawn Egg
+cod_spawn_egg
+
+ Panda Spawn Egg
+panda_spawn_egg
+
+ Pillager Spawn Egg
+pillager_spawn_egg
+
+ Wandering Trader Spawn Egg
+wandering_trader_spawn_egg
+
+ Fox Spawn Egg
+fox_spawn_egg
+
+ Bee Spawn Egg
+bee_spawn_egg
+
+ Piglin Spawn Egg
+piglin_spawn_egg
+
+ Hoglin Spawn Egg
+hoglin_spawn_egg
+
+ Strider Spawn Egg
+strider_spawn_egg
+
+ Zoglin Spawn Egg
+zoglin_spawn_egg
+
+ Piglin Brute Spawn Egg
+piglin_brute_spawn_egg
+
+Rename
+
+ Oak Sign (item)
+sign
+
+ Oak Sign (item)
+oak_sign
+
+Rename
+
+ Dark Oak Sign (item)
+darkoak_sign
+
+ Dark Oak Sign (item)
+dark_oak_sign
+
+Rename
+
+ Fire Charge
+fireball
+
+ Fire Charge
+fire_charge
+
+Rename
+
+ Popped Chorus Fruit
+chorus_fruit_popped
+
+ Popped Chorus Fruit
+popped_chorus_fruit
+
+Rename
+
+ Empty Map
+emptymap
+
+ Empty Map
+empty_map
+
+Rename
+
+ Map
+map
+
+ Map
+filled_map
+
+Rename
+
+ Carrot on a Stick
+carrotonastick
+
+ Carrot on a Stick
+carrot_on_a_stick
+
+Rename
+
+ Nether Star
+netherstar
+
+ Nether Star
+nether_star
+
+Rename
+
+ Firework Rocket
+fireworks
+
+ Firework Rocket
+firework_rocket
+
+Rename
+
+ Firework Star
+fireworkscharge
+
+ Firework Star
+firework_star
+
+Rename
+
+ Iron Horse Armor
+horsearmoriron
+
+ Iron Horse Armor
+iron_horse_armor
+
+Rename
+
+ Golden Horse Armor
+horsearmorgold
+
+ Golden Horse Armor
+golden_horse_armor
+
+Rename
+
+ Diamond Horse Armor
+horsearmordiamond
+
+ Diamond Horse Armor
+diamond_horse_armor
+
+Rename
+
+ Leather Horse Armor
+horsearmorleather
+
+ Leather Horse Armor
+leather_horse_armor
+
+Rename
+
+ Raw Mutton
+muttonraw
+
+ Raw Mutton
+mutton
+
+Rename
+
+ Cooked Mutton
+muttoncooked
+
+ Cooked Mutton
+cooked_mutton
+
+Rename
+
+ Totem of Undying
+totem
+
+ Totem of Undying
+totem_of_undying
+
+Rename
+
+ Music Disc
+record_13
+
+ Music Disc
+music_disc_13
+
+Rename
+
+ Music Disc
+record_cat
+
+ Music Disc
+music_disc_cat
+
+Rename
+
+ Music Disc
+record_blocks
+
+ Music Disc
+music_disc_blocks
+
+Rename
+
+ Music Disc
+record_chirp
+
+ Music Disc
+music_disc_chirp
+
+Rename
+
+ Music Disc
+record_far
+
+ Music Disc
+music_disc_far
+
+Rename
+
+ Music Disc
+record_mall
+
+ Music Disc
+music_disc_mall
+
+Rename
+
+ Music Disc
+record_mellohi
+
+ Music Disc
+music_disc_mellohi
+
+Rename
+
+ Music Disc
+record_stal
+
+ Music Disc
+music_disc_stal
+
+Rename
+
+ Music Disc
+record_strad
+
+ Music Disc
+music_disc_strad
+
+Rename
+
+ Music Disc
+record_ward
+
+ Music Disc
+music_disc_ward
+
+Rename
+
+ Music Disc
+record_11
+
+ Music Disc
+music_disc_11
+
+Rename
+
+ Music Disc
+record_wait
+
+ Music Disc
+music_disc_wait
+
+Rename
+
+ Music Disc
+record_pigstep
+
+ Music Disc
+music_disc_pigstep
+
+Separate
+
+ Banner Patterns
+
+banner_pattern
+
+ Banner Pattern - Flower Charge
+flower_banner_pattern
+
+ Banner Pattern - Creeper Charge
+creeper_banner_pattern
+
+ Banner Pattern - Skull Charge
+skull_banner_pattern
+
+ Banner Pattern - Thing
+mojang_banner_pattern
+
+ Banner Pattern - Field Masoned
+field_masoned_banner_pattern
+
+ Banner Pattern - Bordure Indented
+bordure_indented_banner_pattern
+
+ Banner Pattern - Piglin
+piglin_banner_pattern
+
+v1.18.x
+
+Update
+
+Beta/Preview
+
+Change
+
+Old
+
+New
+
+Block/Item
+ID
+Block/Item
+ID
+
+1.18.30
+
+beta 1.18.30.26
+
+Rename
+
+ Invisible Bedrock
+invisiblebedrock
+
+ Invisible Bedrock
+invisible_bedrock
+
+Rename
+
+ Piston Head
+pistonarmcollision
+
+ Piston Head
+piston_arm_collision
+
+Rename
+
+ Sticky Piston Head
+stickypistonarmcollision
+
+ Sticky Piston Head
+sticky_piston_arm_collision
+
+Rename
+
+ Moving Piston
+movingblock
+
+ Moving Piston
+moving_block
+
+Rename
+
+ Brewing Stand (direct item form)
+brewingstandblock
+
+ Brewing Stand (direct item form)
+item.brewing_stand
+
+Rename
+
+ Tripwire
+tripwire
+
+ Tripwire
+trip_wire
+
+Rename
+
+ Sea Lantern
+sealantern
+
+ Sea Lantern
+sea_lantern
+
+v1.19.x
+
+Update
+
+Beta/Preview
+
+Change
+
+Old
+
+New
+
+Block
+ID
+Block
+ID
+
+1.19.70
+
+Preview 1.19.70.20
+
+Separate
+
+ Wool
+
+wool
+
+ White Wool
+white_wool
+
+ Orange Wool
+orange_wool
+
+ Magenta Wool
+magenta_wool
+
+ Light Blue Wool
+light_blue_wool
+
+ Yellow Wool
+yellow_wool
+
+ Lime Wool
+lime_wool
+
+ Pink Wool
+pink_wool
+
+ Gray Wool
+gray_wool
+
+ Light Gray Wool
+light_gray_wool
+
+ Cyan Wool
+cyan_wool
+
+ Purple Wool
+purple_wool
+
+ Blue Wool
+blue_wool
+
+ Brown Wool
+brown_wool
+
+ Green Wool
+green_wool
+
+ Red Wool
+red_wool
+
+ Black Wool
+black_wool
+
+1.19.80
+
+Preview 1.19.80.21
+
+Separate
+
+ Fence
+
+fence
+
+ Oak Fence
+oak_fence
+
+ Acacia Fence
+acacia_fence
+
+ Birch Fence
+birch_fence
+
+ Dark Oak Fence
+dark_oak_fence
+
+ Jungle Fence
+jungle_fence
+
+ Spruce Fence
+spruce_fence
+
+v1.20.x
+
+Update
+
+Beta/Preview
+
+Change
+
+Old
+
+New
+
+Block
+ID
+Block
+ID
+
+1.20.0
+
+Preview 1.20.0.20
+
+Separate
+
+ Carpet
+
+carpet
+
+ White Carpet
+white_carpet
+
+ Orange Carpet
+orange_carpet
+
+ Magenta Carpet
+magenta_carpet
+
+ Light Blue Carpet
+light_blue_carpet
+
+ Yellow Carpet
+yellow_carpet
+
+ Lime Carpet
+lime_carpet
+
+ Pink Carpet
+pink_carpet
+
+ Gray Carpet
+gray_carpet
+
+ Light Gray Carpet
+light_gray_carpet
+
+ Cyan Carpet
+cyan_carpet
+
+ Purple Carpet
+purple_carpet
+
+ Blue Carpet
+blue_carpet
+
+ Brown Carpet
+brown_carpet
+
+ Green Carpet
+green_carpet
+
+ Red Carpet
+red_carpet
+
+ Black Carpet
+black_carpet
+
+Separate
+
+ Log
+
+log
+
+ Oak Log
+oak_log
+
+ Spruce Log
+spruce_log
+
+ Birch Log
+birch_log
+
+ Jungle Log
+jungle_log
+
+Separate
+
+ Log (2)
+
+log2
+
+ Acacia Log
+acacia_log
+
+ Dark Oak Log
+dark_oak_log
+
+Separate
+
+ Coral
+
+coral
+
+ Tube Coral
+tube_coral
+
+ Brain Coral
+brain_coral
+
+ Bubble Coral
+bubble_coral
+
+ Fire Coral
+fire_coral
+
+ Horn Coral
+horn_coral
+
+ Dead Tube Coral
+dead_tube_coral
+
+ Dead Brain Coral
+dead_brain_coral
+
+ Dead Bubble Coral
+dead_bubble_coral
+
+ Dead Fire Coral
+dead_fire_coral
+
+ Dead Horn Coral
+dead_horn_coral
+
+1.20.10
+
+Preview 1.20.10.20
+
+Separate
+
+ Concrete
+
+concrete
+
+ White Concrete
+white_concrete
+
+ Orange Concrete
+orange_concrete
+
+ Magenta Concrete
+magenta_concrete
+
+ Light Blue Concrete
+light_blue_concrete
+
+ Yellow Concrete
+yellow_concrete
+
+ Lime Concrete
+lime_concrete
+
+ Pink Concrete
+pink_concrete
+
+ Gray Concrete
+gray_concrete
+
+ Light Gray Concrete
+light_gray_concrete
+
+ Cyan Concrete
+cyan_concrete
+
+ Purple Concrete
+purple_concrete
+
+ Blue Concrete
+blue_concrete
+
+ Brown Concrete
+brown_concrete
+
+ Green Concrete
+green_concrete
+
+ Red Concrete
+red_concrete
+
+ Black Concrete
+black_concrete
+
+Separate
+
+ Dyed Shulker Box
+
+shulker_box
+
+ White Shulker Box
+white_shulker_box
+
+ Orange Shulker Box
+orange_shulker_box
+
+ Magenta Shulker Box
+magenta_shulker_box
+
+ Light Blue Shulker Box
+light_blue_shulker_box
+
+ Yellow Shulker Box
+yellow_shulker_box
+
+ Lime Shulker Box
+lime_shulker_box
+
+ Pink Shulker Box
+pink_shulker_box
+
+ Gray Shulker Box
+gray_shulker_box
+
+ Light Gray Shulker Box
+light_gray_shulker_box
+
+ Cyan Shulker Box
+cyan_shulker_box
+
+ Purple Shulker Box
+purple_shulker_box
+
+ Blue Shulker Box
+blue_shulker_box
+
+ Brown Shulker Box
+brown_shulker_box
+
+ Green Shulker Box
+green_shulker_box
+
+ Red Shulker Box
+red_shulker_box
+
+ Black Shulker Box
+black_shulker_box
+
+1.20.30
+
+Preview 1.20.20.21
+
+Separate
+
+ Stained Glass
+
+stained_glass
+
+ White Stained Glass
+white_stained_glass
+
+ Orange Stained Glass
+orange_stained_glass
+
+ Magenta Stained Glass
+magenta_stained_glass
+
+ Light Blue Stained Glass
+light_blue_stained_glass
+
+ Yellow Stained Glass
+yellow_stained_glass
+
+ Lime Stained Glass
+lime_stained_glass
+
+ Pink Stained Glass
+pink_stained_glass
+
+ Gray Stained Glass
+gray_stained_glass
+
+ Light Gray Stained Glass
+light_gray_stained_glass
+
+ Cyan Stained Glass
+cyan_stained_glass
+
+ Purple Stained Glass
+purple_stained_glass
+
+ Blue Stained Glass
+blue_stained_glass
+
+ Brown Stained Glass
+brown_stained_glass
+
+ Green Stained Glass
+green_stained_glass
+
+ Red Stained Glass
+red_stained_glass
+
+ Black Stained Glass
+black_stained_glass
+
+Separate
+
+ Stained Glass Pane
+
+stained_glass_pane
+
+ White Stained Glass Pane
+white_stained_glass_pane
+
+ Orange Stained Glass Pane
+orange_stained_glass_pane
+
+ Magenta Stained Glass Pane
+magenta_stained_glass_pane
+
+ Light Blue Stained Glass Pane
+light_blue_stained_glass_pane
+
+ Yellow Stained Glass Pane
+yellow_stained_glass_pane
+
+ Lime Stained Glass Pane
+lime_stained_glass_pane
+
+ Pink Stained Glass Pane
+pink_stained_glass_pane
+
+ Gray Stained Glass Pane
+gray_stained_glass_pane
+
+ Light Gray Stained Glass Pane
+light_gray_stained_glass_pane
+
+ Cyan Stained Glass Pane
+cyan_stained_glass_pane
+
+ Purple Stained Glass Pane
+purple_stained_glass_pane
+
+ Blue Stained Glass Pane
+blue_stained_glass_pane
+
+ Brown Stained Glass Pane
+brown_stained_glass_pane
+
+ Green Stained Glass Pane
+green_stained_glass_pane
+
+ Red Stained Glass Pane
+red_stained_glass_pane
+
+ Black Stained Glass Pane
+black_stained_glass_pane
+
+Preview 1.20.30.20
+
+Separate
+
+ Concrete Powder
+
+concrete_powder
+
+ White Concrete Powder
+white_concrete_powder
+
+ Orange Concrete Powder
+orange_concrete_powder
+
+ Magenta Concrete Powder
+magenta_concrete_powder
+
+ Light Blue Concrete Powder
+light_blue_concrete_powder
+
+ Yellow Concrete Powder
+yellow_concrete_powder
+
+ Lime Concrete Powder
+lime_concrete_powder
+
+ Pink Concrete Powder
+pink_concrete_powder
+
+ Gray Concrete Powder
+gray_concrete_powder
+
+ Light Gray Concrete Powder
+light_gray_concrete_powder
+
+ Cyan Concrete Powder
+cyan_concrete_powder
+
+ Purple Concrete Powder
+purple_concrete_powder
+
+ Blue Concrete Powder
+blue_concrete_powder
+
+ Brown Concrete Powder
+brown_concrete_powder
+
+ Green Concrete Powder
+green_concrete_powder
+
+ Red Concrete Powder
+red_concrete_powder
+
+ Black Concrete Powder
+black_concrete_powder
+
+Preview 1.20.30.22
+
+Separate
+
+ Stained Terracotta
+
+stained_hardened_clay
+
+ White Terracotta
+white_terracotta
+
+ Orange Terracotta
+orange_terracotta
+
+ Magenta Terracotta
+magenta_terracotta
+
+ Light Blue Terracotta
+light_blue_terracotta
+
+ Yellow Terracotta
+yellow_terracotta
+
+ Lime Terracotta
+lime_terracotta
+
+ Pink Terracotta
+pink_terracotta
+
+ Gray Terracotta
+gray_terracotta
+
+ Light Gray Terracotta
+light_gray_terracotta
+
+ Cyan Terracotta
+cyan_terracotta
+
+ Purple Terracotta
+purple_terracotta
+
+ Blue Terracotta
+blue_terracotta
+
+ Brown Terracotta
+brown_terracotta
+
+ Green Terracotta
+green_terracotta
+
+ Red Terracotta
+red_terracotta
+
+ Black Terracotta
+black_terracotta
+
+1.20.50
+
+Preview 1.20.50.20
+
+Separate
+
+ Planks
+
+planks
+
+ Oak Planks
+oak_planks
+
+ Spruce Planks
+spruce_planks
+
+ Birch Planks
+birch_planks
+
+ Jungle Planks
+jungle_planks
+
+ Acacia Planks
+acacia_planks
+
+ Dark Oak Planks
+dark_oak_planks
+
+Separate
+
+ Stone
+
+stone
+
+ Stone
+stone
+
+ Granite
+granite
+
+ Polished Granite
+polished_granite
+
+ Diorite
+diorite
+
+ Polished Diorite
+polished_diorite
+
+ Andesite
+andesite
+
+ Polished Andesite
+polished_andesite
+
+1.20.60
+
+Preview 1.20.60.24
+
+Separate
+
+ Hardened Stained Glass
+
+hard_stained_glass
+
+ Hardened White Stained Glass
+hard_white_stained_glass
+
+ Hardened Orange Stained Glass
+hard_orange_stained_glass
+
+ Hardened Magenta Stained Glass
+hard_magenta_stained_glass
+
+ Hardened Light Blue Stained Glass
+hard_light_blue_stained_glass
+
+ Hardened Yellow Stained Glass
+hard_yellow_stained_glass
+
+ Hardened Lime Stained Glass
+hard_lime_stained_glass
+
+ Hardened Pink Stained Glass
+hard_pink_stained_glass
+
+ Hardened Gray Stained Glass
+hard_gray_stained_glass
+
+ Hardened Light Gray Stained Glass
+hard_light_gray_stained_glass
+
+ Hardened Cyan Stained Glass
+hard_cyan_stained_glass
+
+ Hardened Purple Stained Glass
+hard_purple_stained_glass
+
+ Hardened Blue Stained Glass
+hard_blue_stained_glass
+
+ Hardened Brown Stained Glass
+hard_brown_stained_glass
+
+ Hardened Green Stained Glass
+hard_green_stained_glass
+
+ Hardened Red Stained Glass
+hard_red_stained_glass
+
+ Hardened Black Stained Glass
+hard_black_stained_glass
+
+Separate
+
+ Hardened Stained Glass Pane
+
+hard_stained_glass_pane
+
+ Hardened White Stained Glass Pane
+hard_white_stained_glass_pane
+
+ Hardened Orange Stained Glass Pane
+hard_orange_stained_glass_pane
+
+ Hardened Magenta Stained Glass Pane
+hard_magenta_stained_glass_pane
+
+ Hardened Light Blue Stained Glass Pane
+hard_light_blue_stained_glass_pane
+
+ Hardened Yellow Stained Glass Pane
+hard_yellow_stained_glass_pane
+
+ Hardened Lime Stained Glass Pane
+hard_lime_stained_glass_pane
+
+ Hardened Pink Stained Glass Pane
+hard_pink_stained_glass_pane
+
+ Hardened Gray Stained Glass Pane
+hard_gray_stained_glass_pane
+
+ Hardened Light Gray Stained Glass Pane
+hard_light_gray_stained_glass_pane
+
+ Hardened Cyan Stained Glass Pane
+hard_cyan_stained_glass_pane
+
+ Hardened Purple Stained Glass Pane
+hard_purple_stained_glass_pane
+
+ Hardened Blue Stained Glass Pane
+hard_blue_stained_glass_pane
+
+ Hardened Brown Stained Glass Pane
+hard_brown_stained_glass_pane
+
+ Hardened Green Stained Glass Pane
+hard_green_stained_glass_pane
+
+ Hardened Red Stained Glass Pane
+hard_red_stained_glass_pane
+
+ Hardened Black Stained Glass Pane
+hard_black_stained_glass_pane
+
+1.20.70
+
+Preview 1.20.70.20
+
+Rename
+ Grass Block
+grass
+ Grass Block
+grass_block
+
+Separate
+
+ Leaves
+
+leaves
+
+ Oak Leaves
+oak_leaves
+
+ Spruce Leaves
+spruce_leaves
+
+ Birch Leaves
+birch_leaves
+
+ Jungle Leaves
+jungle_leaves
+
+Separate
+
+ Leaves (2)
+
+leaves2
+
+ Acacia Leaves
+acacia_leaves
+
+ Dark Oak Leaves
+dark_oak_leaves
+
+Separate
+
+ Double Wood Slab
+
+double_wooden_slab
+
+ Double Oak Slab
+oak_double_slab
+
+ Double Spruce Slab
+spruce_double_slab
+
+ Double Birch Slab
+birch_double_slab
+
+ Double Jungle Slab
+jungle_double_slab
+
+ Double Acacia Slab
+acacia_double_slab
+
+ Double Dark Oak Slab
+dark_oak_double_slab
+
+Separate
+
+ Wood Slab
+
+wooden_slab
+
+ Oak Slab
+oak_slab
+
+ Spruce Slab
+spruce_slab
+
+ Birch Slab
+birch_slab
+
+ Jungle Slab
+jungle_slab
+
+ Acacia Slab
+acacia_slab
+
+ Dark Oak Slab
+dark_oak_slab
+
+Preview 1.20.70.22
+
+Separate
+
+ Wood
+
+wood
+
+ Oak Wood
+oak_wood
+
+ Spruce Wood
+spruce_wood
+
+ Birch Wood
+birch_wood
+
+ Jungle Wood
+jungle_wood
+
+ Acacia Wood
+acacia_wood
+
+ Dark Oak Wood
+dark_oak_wood
+
+ Stripped Oak Wood
+stripped_oak_wood
+
+ Stripped Spruce Wood
+stripped_spruce_wood
+
+ Stripped Birch Wood
+stripped_birch_wood
+
+ Stripped Jungle Wood
+stripped_jungle_wood
+
+ Stripped Acacia Wood
+stripped_acacia_wood
+
+ Stripped Dark Oak Wood
+stripped_dark_oak_wood
+
+1.20.80
+
+Preview 1.20.80.20
+
+Separate
+
+ Sapling
+
+sapling
+
+ Oak Sapling
+oak_sapling
+
+ Spruce Sapling
+spruce_sapling
+
+ Birch Sapling
+birch_sapling
+
+ Jungle Sapling
+jungle_sapling
+
+ Acacia Sapling
+acacia_sapling
+
+ Dark Oak Sapling
+dark_oak_sapling
+
+Separate
+
+ Coral Fan
+
+coral_fan
+
+ Tube Coral Fan
+tube_coral_fan
+
+ Brain Coral Fan
+brain_coral_fan
+
+ Bubble Coral Fan
+bubble_coral_fan
+
+ Fire Coral Fan
+fire_coral_fan
+
+ Horn Coral Fan
+horn_coral_fan
+
+Preview 1.20.80.23
+
+Separate
+
+ Red Flower
+
+red_flower
+
+ Poppy
+poppy
+
+ Blue Orchid
+blue_orchid
+
+ Allium
+allium
+
+ Azure Bluet
+azure_bluet
+
+ Red Tulip
+red_tulip
+
+ Orange Tulip
+orange_tulip
+
+ White Tulip
+white_tulip
+
+ Pink Tulip
+pink_tulip
+
+ Oxeye Daisy
+oxeye_daisy
+
+ Cornflower
+cornflower
+
+ Lily of the Valley
+lily_of_the_valley
+
+Separate
+
+ Dead Coral Fan
+
+coral_fan_dead
+
+ Dead Tube Coral Fan
+dead_tube_coral_fan
+
+ Dead Brain Coral Fan
+dead_brain_coral_fan
+
+ Dead Bubble Coral Fan
+dead_bubble_coral_fan
+
+ Dead Fire Coral Fan
+dead_fire_coral_fan
+
+ Dead Horn Coral Fan
+dead_horn_coral_fan
+
+v1.21.x
+
+Update
+
+Beta/Preview
+
+Change
+
+Old
+
+New
+
+Block/Item
+ID
+Block/Item
+ID
+
+1.21.0
+
+Preview 1.21.0.20
+
+Separate
+
+ Tallgrass
+
+tallgrass
+
+ Grass
+short_grass
+
+ Fern
+fern
+
+Preview 1.21.0.21
+
+Separate
+
+ Tube Coral Block
+
+coral_block
+
+ Tube Coral Block
+tube_coral_block
+
+ Brain Coral Block
+brain_coral_block
+
+ Bubble Coral Block
+bubble_coral_block
+
+ Fire Coral Block
+fire_coral_block
+
+ Horn Coral Block
+horn_coral_block
+
+ Dead Tube Coral Block
+dead_tube_coral_block
+
+ Dead Brain Coral Block
+dead_brain_coral_block
+
+ Dead Bubble Coral Block
+dead_bubble_coral_block
+
+ Dead Fire Coral Block
+dead_fire_coral_block
+
+ Dead Horn Coral Block
+dead_horn_coral_block
+
+Preview 1.21.0.22
+
+Separate
+
+ Double Plant
+
+double_plant
+
+ Sunflower
+sunflower
+
+ Lilac
+lilac
+
+ Double Tallgrass
+tall_grass
+
+ Large Fern
+large_fern
+
+ Rose Bush
+rose_bush
+
+ Peony
+peony
+
+Preview 1.21.0.23
+
+Separate
+
+ Stone Slab
+
+stone_block_slab
+
+ Smooth Stone Slab
+smooth_stone_slab
+
+ Sandstone Slab
+sandstone_slab
+
+ Cobblestone Slab
+cobblestone_slab
+
+ Bricks Slab
+brick_slab
+
+ Stone Bricks Slab
+stone_brick_slab
+
+ Quartz Slab
+quartz_slab
+
+ Nether Brick Slab
+nether_brick_slab
+
+Preview 1.21.0.25
+
+ Wooden Slab
+petrified_oak_slab
+
+1.21.20
+
+Preview 1.21.10.20
+
+Separate
+
+ Double Stone Slab
+
+double_stone_block_slab
+
+ Double Smooth Stone Slab
+
+smooth_stone_double_slab
+
+ Double Sandstone Slab
+sandstone_double_slab
+
+ Double Wooden Slab
+petrified_oak_double_slab
+
+ Double Cobblestone Slab
+cobblestone_double_slab
+
+ Double Bricks Slab
+brick_double_slab
+
+ Double Stone Bricks Slab
+stone_brick_double_slab
+
+ Double Quartz Slab
+quartz_double_slab
+
+ Double Nether Bricks Slab
+nether_brick_double_slab
+
+Separate
+
+ Infested Stone
+
+monster_egg
+
+ Infested Stone
+infested_stone
+
+ Infested Cobblestone
+infested_cobblestone
+
+ Infested Stone Brick
+infested_stone_bricks
+
+ Infested Mossy Stone Bricks
+infested_mossy_stone_bricks
+
+ Infested Cracked Stone Bricks
+infested_cracked_stone_bricks
+
+ Infested Chiseled Stone Bricks
+infested_chiseled_stone_bricks
+
+Separate
+
+ Stone Bricks
+
+stonebrick
+
+ Stone Bricks
+stone_bricks
+
+ Mossy Stone Bricks
+mossy_stone_bricks
+
+ Cracked Stone Bricks
+cracked_stone_bricks
+
+ Chiseled Stone Bricks
+chiseled_stone_bricks
+
+Separate
+
+ Stone Slab (2)
+
+stone_block_slab2
+
+ Red Sandstone Slab
+red_sandstone_slab
+
+ Purpur Slab
+purpur_slab
+
+ Prismarine Slab
+prismarine_slab
+
+ Dark Prismarine Slab
+dark_prismarine_slab
+
+ Prismarine Bricks Slab
+prismarine_brick_slab
+
+ Mossy Cobblestone Slab
+mossy_cobblestone_slab
+
+ Smooth Sandstone Slab
+smooth_sandstone_slab
+
+ Red Nether Brick Slab
+red_nether_brick_slab
+
+Separate
+
+ Stone Slab (3)
+
+stone_block_slab3
+
+ End Stone Brick Slab
+end_stone_brick_slab
+
+ Smooth Red Sandstone Slab
+smooth_red_sandstone_slab
+
+ Polished Andesite Slab
+polished_andesite_slab
+
+ Andesite Slab
+andesite_slab
+
+ Diorite Slab
+diorite_slab
+
+ Polished Diorite Slab
+polished_diorite_slab
+
+ Granite Slab
+granite_slab
+
+ Polished Granite Slab
+polished_granite_slab
+
+Preview 1.21.10.21
+
+Separate
+
+ Coral Wall Fan
+
+coral_fan_hang
+
+ Tube Coral Wall Fan
+tube_coral_wall_fan
+
+ Brain Coral Wall Fan
+brain_coral_wall_fan
+
+ Dead Tube Coral Wall Fan
+dead_tube_coral_wall_fan
+
+ Dead Brain Coral Wall Fan
+dead_brain_coral_wall_fan
+
+Separate
+
+ Coral Wall Fan (2)
+
+coral_fan_hang2
+
+ Bubble Coral Wall Fan
+bubble_coral_wall_fan
+
+ Fire Coral Wall Fan
+fire_coral_wall_fan
+
+ Dead Bubble Coral Wall Fan
+dead_bubble_coral_wall_fan
+
+ Dead Fire Coral Wall Fan
+dead_fire_coral_wall_fan
+
+Separate
+
+ Coral Wall Fan (3)
+
+coral_fan_hang3
+
+ Horn Coral Wall Fan
+horn_coral_wall_fan
+
+ Dead Horn Coral Wall Fan
+dead_horn_coral_wall_fan
+
+Separate
+
+ Stone Slab (4)
+
+stone_block_slab4
+
+ Mossy Stone Brick Slab
+mossy_stone_brick_slab
+
+ Smooth Quartz Slab
+smooth_quartz_slab
+
+ Stone Slab
+normal_stone_slab
+
+ Cut Sandstone Slab
+cut_sandstone_slab
+
+ Cut Red Sandstone Slab
+cut_red_sandstone_slab
+
+Preview 1.21.10.22
+
+Separate
+
+ Double Stone Slab (2)
+
+double_stone_block_slab2
+
+ Double Red Sandstone Slab
+red_sandstone_double_slab
+
+ Double Purpur Slab
+purpur_double_slab
+
+ Double Prismarine Slab
+prismarine_double_slab
+
+ Double Dark Primsarine Slab
+dark_prismarine_double_slab
+
+ Double Prismarine Bricks Slab
+prismarine_brick_double_slab
+
+ Double Mossy Cobblestone Slab
+mossy_cobblestone_double_slab
+
+ Double Smooth Sandstone Slab
+smooth_sandstone_double_slab
+
+ Double Red Nether Brick Slab
+red_nether_brick_double_slab
+
+Separate
+
+ Double Stone Slab (3)
+
+double_stone_block_slab3
+
+ Double End Stone Brick Slab
+end_stone_brick_double_slab
+
+ Double Smooth Red Sandstone Slab
+smooth_red_sandstone_double_slab
+
+ Double Polished Andesite Slab
+polished_andesite_double_slab
+
+ Double Andesite Slab
+andesite_double_slab
+
+ Double Diorite Slab
+diorite_double_slab
+
+ Double Polished Diorite Slab
+polished_diorite_double_slab
+
+ Double Granite Slab
+granite_double_slab
+
+ Double Polished Granite Slab
+polished_granite_double_slab
+
+Separate
+
+ Double Stone Slab (4)
+
+double_stone_block_slab4
+
+ Double Mossy Stone Brick Slab
+mossy_stone_brick_double_slab
+
+ Double Smooth Quartz Slab
+smooth_quartz_double_slab
+
+ Double Stone Slab
+normal_stone_double_slab
+
+ Double Cut Sandstone Slab
+cut_sandstone_double_slab
+
+ Double Cut Red Sandstone Slab
+cut_red_sandstone_double_slab
+
+Separate
+
+ Prismarine
+
+prismarine
+
+ Prismarine
+prismarine
+
+ Dark Prismarine
+dark_prismarine
+
+ Prismarine Bricks
+prismarine_bricks
+
+Preview 1.21.20.21
+
+Rename
+ Dandelion
+yellow_flower
+ Dandelion
+dandelion
+
+Separate
+
+ Light Block
+
+light_block
+
+ Light Block (0)
+light_block_0
+
+ Light Block (1)
+light_block_1
+
+ Light Block (2)
+light_block_2
+
+ Light Block (3)
+light_block_3
+
+ Light Block (4)
+light_block_4
+
+ Light Block (5)
+light_block_5
+
+ Light Block (6)
+light_block_6
+
+ Light Block (7)
+light_block_7
+
+ Light Block (8)
+light_block_8
+
+ Light Block (9)
+light_block_9
+
+ Light Block (10)
+light_block_10
+
+ Light Block (11)
+light_block_11
+
+ Light Block (12)
+light_block_12
+
+ Light Block (13)
+light_block_13
+
+ Light Block (14)
+light_block_14
+
+ Light Block (15)
+light_block_15
+
+Separate
+
+ Sandstone
+
+sandstone
+
+ Sandstone
+sandstone
+
+ Chiseled Sandstone
+chiseled_sandstone
+
+ Cut Sandstone
+cut_sandstone
+
+ Smooth Sandstone
+smooth_sandstone
+
+Preview 1.21.20.22
+
+Separate
+
+ Anvil
+
+anvil
+
+ Anvil
+anvil
+
+ Slightly Damaged Anvil
+chipped_anvil
+
+ Very Damaged Anvil
+damaged_anvil
+
+ Broken Anvil (unused)
+deprecated_anvil
+
+Separate
+
+ Block of Quartz
+
+quartz_block
+
+ Block of Quartz
+quartz_block
+
+ Chiseled Quartz Block
+chiseled_quartz_block
+
+ Quartz Pillar
+quartz_pillar
+
+ Smooth Quartz
+smooth_quartz
+
+Separate
+
+ Red Sandstone
+
+red_sandstone
+
+ Red Sandstone
+red_sandstone
+
+ Chiseled Red Sandstone
+chiseled_red_sandstone
+
+ Cut Red Sandstone
+cut_red_sandstone
+
+ Smooth Red Sandstone
+smooth_red_sandstone
+
+Separate
+
+ Dirt
+
+dirt
+
+ Dirt
+dirt
+
+ Coarse Dirt
+coarse_dirt
+
+Separate
+
+ Sand
+
+sand
+
+ Sand
+sand
+
+ Red Sand
+red_sand
+
+1.21.30
+
+Preview 1.21.30.21
+
+Separate
+
+ Purpur Block
+
+purpur_block
+
+ Purpur Block
+
+purpur_block
+
+ Purpur Pillar
+purpur_pillar
+
+ Chiseled Purpur (unused)
+deprecated_purpur_block_1
+
+ Smooth Purpur (unused)
+deprecated_purpur_block_2
+
+Separate
+
+ Cobblestone Wall
+
+cobblestone_wall
+
+ Cobblestone Wall
+
+cobblestone_wall
+
+ Mossy Cobblestone Wall
+mossy_cobblestone_wall
+
+ Granite Wall
+granite_wall
+
+ Diorite Wall
+diorite_wall
+
+ Andesite Wall
+andesite_wall
+
+ Sandstone Wall
+sandstone_wall
+
+ Brick Wall
+brick_wall
+
+ Stone Brick Wall
+stone_brick_wall
+
+ Mossy Stone Brick Wall
+mossy_stone_brick_wall
+
+ Nether Brick Wall
+nether_brick_wall
+
+ End Stone Brick Wall
+end_stone_brick_wall
+
+ Prismarine Wall
+prismarine_wall
+
+ Red Sandstone Wall
+prismarine_wall
+
+ Red Nether Brick Wall
+red_nether_brick_wall
+
+Preview 1.21.30.22
+
+Separate
+
+ Sponge
+
+sponge
+
+ Sponge
+sponge
+
+ Wet Sponge
+wet_sponge
+
+Separate
+
+ Colored Torch (1)
+
+colored_torch_rg
+
+ Red Torch
+colored_torch_red
+
+ Green Torch
+colored_torch_green
+
+Separate
+
+ Colored Torch (2)
+
+colored_torch_bp
+
+ Blue Torch
+colored_torch_blue
+
+ Purple Torch
+colored_torch_purple
+
+Preview 1.21.30.23
+
+Separate
+
+ TNT
+
+tnt
+
+ TNT
+tnt
+
+ Underwater TNT
+underwater_tnt
+
+Separate
+
+ Chemistry Table
+
+chemistry_table
+
+ Compound Creator
+compound_creator
+
+ Material Reducer
+material_reducer
+
+ Element Constructor
+element_constructor
+
+ Lab Table
+lab_table
+
+1.21.40
+
+Preview 1.21.40.20
+
+Separate and merge
+
+ Red Mushroom Block
+
+red_mushroom_block
+
+ Red Mushroom Block
+
+red_mushroom_block
+
+ Mushroom Stem
+
+mushroom_stem
+
+ Brown Mushroom Block
+
+brown_mushroom_block
+
+ Brown Mushroom Block
+
+brown_mushroom_block
+
+Separate
+
+ Skull
+
+skull
+
+ Skeleton Skull
+skeleton_skull
+
+ Wither Skeleton Skull
+wither_skeleton_skull
+
+ Zombie Head
+zombie_head
+
+ Player Head
+player_head
+
+ Creeper Head
+creeper_head
+
+ Dragon Head
+dragon_head
+
+ Piglin Head
+piglin_head
+
+1.21.111
+
+Preview 1.21.110.23
+
+Merge
+
+ Chain
+chain
+
+ Iron Chain
+
+iron_chain
+
+ Chain (item)
+chain
+
+Structures
+
+Update
+
+Beta/Preview
+
+Structure
+
+Old ID
+
+New ID
+
+1.19.30
+
+Preview 1.19.30.21
+
+Ancient City
+
+ancientcity
+
+ancient_city
+
+Buried Treasure
+
+buriedtreasure
+
+buried_treasure
+
+End City
+
+endcity
+
+end_city
+
+Pillager Outpost
+
+pillageroutpost
+
+pillager_outpost
+
+Bastion Remnant
+
+bastionremnant
+
+bastion_remnant
+
+Ruined Portal
+
+ruinedportal
+
+ruined_portal
+
+Block states
+Some block states were modified. Although the block state syntax in commands was modified in 1.20.10, block states modified prior to that version are displayed in the current syntax for consistency.
+
+v1.19.x
+
+Update
+
+Beta/Preview
+
+Block
+
+Old state
+
+New state
+
+1.19.70
+
+1.19.70.20
+
+ Wool
+
+color=black|blue|brown|cyan|gray|green|light_blue|lime|magenta|orange|pink|purple|red|silver|white|yellow
+
+—
+
+1.19.80
+
+Preview 1.19.80.21
+
+ Fence
+
+wood_type=acacia|birch|dark_oak|jungle|oak|spruce
+
+v1.20.x
+
+Update
+
+Beta/Preview
+
+Block
+
+Old state
+
+New state
+
+1.20.0
+
+Preview 1.20.0.20
+
+ Carpet
+
+color=black|blue|brown|cyan|gray|green|light_blue|lime|magenta|orange|pink|purple|red|silver|white|yellow
+
+—
+
+ Log
+
+old_log_type=birch|jungle|oak|spruce
+
+ Log (2)
+
+new_log_type=acacia|dark_oak
+
+ Coral
+
+coral_color=blue|pink|purple|red|yellowdead_bit=false|true
+
+Preview 1.20.0.22
+
+ Pumpkin
+
+direction=0-3
+
+minecraft:cardinal_direction=east|north|south|west
+
+ Carved Pumpkin
+
+ Jack o'Lantern
+
+1.20.10
+
+Preview 1.20.10.20
+
+ Concrete
+
+color=black|blue|brown|cyan|gray|green|light_blue|lime|magenta|orange|pink|purple|red|silver|white|yellow
+
+—
+
+ Dyed Shulker Box
+
+Preview 1.20.10.23
+
+ Observer
+
+facing_direction=0-5
+
+minecraft:facing_direction=down|east|north|south|up|west
+
+1.20.30
+
+Preview 1.20.20.20
+
+ Amethyst Cluster
+
+minecraft:block_face=down|east|north|south|up|west
+
+ Slabs
+
+top_slot_bit=false|true
+
+minecraft:vertical_half=bottom|top
+
+Preview 1.20.20.21
+
+ Stained Glass
+
+color=black|blue|brown|cyan|gray|green|light_blue|lime|magenta|orange|pink|purple|red|silver|white|yellow
+
+—
+
+ Stained Glass Pane
+
+Preview 1.20.30.20
+
+ Concrete Powder
+
+ Big Dripleaf
+
+direction=0-3
+
+minecraft:cardinal_direction=east|north|south|west
+
+ Small Dripleaf
+
+ Pink Petals
+
+ End Portal Frame
+
+ Lectern
+
+ Anvil
+
+ Campfire
+
+ Soul Campfire
+
+ Calibrated Sculk Sensor
+
+ Powered Redstone Comparator
+
+ Unpowered Redstone Comparator
+
+ Powered Redstone Repeater
+
+ Unpowered Redstone Repeater
+
+ Blast Furnace
+
+facing_direction=0-5
+
+ Lit Blast Furnace
+
+ Furnace
+
+ Lit Furnace
+
+ Smoker
+
+ Lit Smoker
+
+Preview 1.20.30.22
+
+ Stained Terracotta
+
+color=black|blue|brown|cyan|gray|green|light_blue|lime|magenta|orange|pink|purple|red|silver|white|yellow
+
+—
+
+1.20.40
+
+Preview 1.20.40.20
+
+ Chest
+
+facing_direction=0-5
+
+minecraft:cardinal_direction=east|north|south|west
+
+ Trapped Chest
+
+ Ender Chest
+
+ Stonecutter
+
+1.20.50
+
+Preview 1.20.50.20
+
+ Planks
+
+wood_type=acacia|birch|dark_oak|jungle|oak|spruce
+
+—
+
+ Stone
+
+stone_type=andesite|andesite_smooth|diorite|diorite_smooth|granite|granite_smooth|stone
+
+1.20.60
+
+Preview 1.20.60.24
+
+ Hardened Stained Glass
+
+color=black|blue|brown|cyan|gray|green|light_blue|lime|magenta|orange|pink|purple|red|silver|white|yellow
+
+ Hardened Stained Glass Pane
+
+1.20.70
+
+Preview 1.20.70.20
+
+ Leaves
+
+old_leaf_type=birch|jungle|oak|spruce
+
+ Leaves (2)
+
+new_leaf_type=acacia|dark_oak
+
+ Wooden Double Slab
+
+wood_type=acacia|birch|dark_oak|jungle|oak|spruce
+
+ Wooden Slab
+
+Preview 1.20.70.22
+
+ Wood
+
+stripped_bit=false|true
+
+1.20.80
+
+Preview 1.20.80.20
+
+ Sapling
+
+sapling_type=acacia|birch|dark_oak|jungle|oak|spruce
+
+ Coral Fan
+
+coral_color=blue|pink|purple|red|yellow
+
+Preview 1.20.80.23
+
+ Dead Coral Fan
+
+ Red Flower
+
+flower_type=poppy|orchid|allium|houstonia|tulip_red|tulip_orange|tulip_white|tulip_pink|oxeye|cornflower|lily_of_the_valley
+
+v1.21.x
+
+Update
+
+Beta/Preview
+
+Block
+
+Old state
+
+New state
+
+1.21.0
+
+Preview 1.21.0.20
+
+ Tallgrass
+
+tall_grass_type=default|fern|snow|tall
+
+—
+
+Preview 1.21.0.21
+
+ Coral Block
+
+coral_color=blue|pink|purple|red|yellowdead_bit=false|true
+
+Preview 1.21.0.22
+
+ Double Plant
+
+double_plant_type=fern|grass|paeonia|rose|sunflower|syringa
+
+Preview 1.21.0.23
+
+ Stone Slab
+
+stone_slab_type=brick|cobblestone|nether_brick|quartz|sandstone|smooth_stone|stone_brick|wood
+
+1.21.20
+
+Preview 1.21.10.20
+
+ Double Stone Slab
+
+ Monster Egg
+
+monster_egg_stone_type=chiseled_stone_brick|cobblestone|cracked_stone_brick|mossy_stone_brick|stone|stone_brick
+
+ Stone Bricks
+
+stone_brick_type=chiseled|cracked|default|mossy|smooth
+
+ Stone Slab (2)
+
+stone_slab_type_2=mossy_cobblestone|prismarine_brick|prismarine_dark|prismarine_rough|purpur|red_nether_brick|red_sandstone|smooth_sandstone
+
+ Stone Slab (3)
+
+stone_slab_type_3=andesite|diorite|end_stone_brick|granite|polished_andesite|polished_diorite|polished_granite|smooth_red_sandstone
+
+Preview 1.21.10.21
+
+ Coral Wall Fan
+
+coral_hang_type_bit=false|truedead_bit=false|true
+
+ Coral Wall Fan (2)
+
+ Coral Wall Fan (3)
+
+ Stone Slab (4)
+
+stone_slab_type_4=cut_red_sandstone|cut_sandstone|mossy_stone_brick|smooth_quartz|stone
+
+Preview 1.21.10.22
+
+ Double Stone Slab (4)
+
+ Double Stone Slab (3)
+
+stone_slab_type_3=andesite|diorite|end_stone_brick|granite|polished_andesite|polished_diorite|polished_granite|smooth_red_sandstone
+
+ Double Stone Slab (2)
+
+stone_slab_type_2=mossy_cobblestone|prismarine_brick|prismarine_dark|prismarine_rough|purpur|red_nether_brick|red_sandstone|smooth_sandstone
+
+ Prismarine
+
+prismarine_block_type=bricks|dark|default
+
+Preview 1.21.20.21
+
+ Light Block
+
+block_light_level=0-15
+
+ Sandstone
+
+sand_stone_type=cut|default|heiroglyphs|smooth
+
+Preview 1.21.20.22
+
+ Red Sandstone
+
+ Anvil
+
+damage=broken|slightly_damaged|undamaged|very_damaged
+
+ Dirt
+
+dirt_type=coarse|normal
+
+ Sand
+
+sand_type=normal|red
+
+ Block of Quartz
+
+chisel_type=chiseled|default|lines|smooth
+
+1.21.30
+
+Preview 1.21.30.21
+
+ Purpur Block
+
+ Structure Void
+
+structure_void_type=void|air
+
+ Cobblestone Wall
+
+wall_block_type=andesite|brick|cobblestone|diorite|end_brick|granite|mossy_cobblestone|mossy_stone_brick|nether_brick|prismarine|red_nether_brick|red_sandstone|sandstone|stone_brick
+
+Preview 1.21.30.22
+
+ Sponge
+
+sponge_type=dry|wet
+
+ Colored Torch (1)
+
+color_bit=false|true
+
+ Colored Torch (2)
+
+Preview 1.21.30.23
+
+  TNT
+
+allow_underwater_bit=false|true
+
+ Chemistry Table
+
+chemistry_table_type=compound_creator|element_constructor|lab_table|material_reducer
+
+1.21.60
+
+Preview 1.21.60.23
+
+ Fence Gates
+
+direction=0-3
+
+minecraft:cardinal_direction=east|north|south|west
+
+Preview 1.21.60.24
+
+ Doors
+
+Names
+The names of some blocks, items, and entities were changed.
+
+Update
+
+Beta/Preview
+
+Old name
+
+New name
+
+1.16.210
+
+beta 1.16.210.57
+
+ Redstone
+
+Redstone Dust
+
+1.19.10
+
+Preview 1.19.10.22
+
+ Flowered Azalea Leaves
+
+Flowering Azalea Leaves
+
+ Lapis Lazuli Block
+
+Block of Lapis Lazuli
+
+1.19.20
+
+Preview 1.19.20.20
+
+ End Portal
+
+End Portal Frame
+
+ Oak Wood Planks
+
+Oak Planks
+
+ Spruce Wood Planks
+
+Spruce Planks
+
+ Birch Wood Planks
+
+Birch Planks
+
+ Jungle Wood Planks
+
+Jungle Planks
+
+ Acacia Wood Planks
+
+Acacia Planks
+
+ Dark Oak Wood Planks
+
+Dark Oak Planks
+
+ Oak Wood Slab
+
+Oak Slab
+
+ Spruce Wood Slab
+
+Spruce Slab
+
+ Birch Wood Slab
+
+Birch Slab
+
+ Jungle Wood Slab
+
+Jungle Slab
+
+ Acacia Wood Slab
+
+Acacia Slab
+
+ Dark Oak Wood Slab
+
+Dark Oak Slab
+
+Preview 1.19.20.22
+
+ Amethyst Block
+
+Block of Amethyst
+
+1.21.20
+
+Preview 1.21.20.22
+
+ Pillar Quartz Block
+
+Quartz Pillar
+
+1.21.30
+
+Preview 1.21.30.21
+
+ Illager Banner
+
+Ominous Banner
+
+Preview 1.21.30.22
+
+ Snow
+
+Snow Block
+
+ Top Snow
+
+Snow
+
+ Grass
+
+Short Grass
+
+ Double Tallgrass
+
+Tall Grass
+
+ Sugar Canes
+
+Sugar Cane
+
+ Clay Block
+
+Clay
+
+ Sea Turtle Egg
+
+Turtle Egg
+
+ Brick Block
+
+Bricks
+
+ Nether Brick Block
+
+Nether Bricks
+
+ Red Nether Brick
+
+Red Nether Bricks
+
+ Prismarine Bricks Slab
+
+Prismarine Brick Slab
+
+ Stone Bricks Slab
+
+Stone Brick Slab
+
+ Bricks Slab
+
+Brick Slab
+
+ Infested Stone Brick
+
+Infested Stone Bricks
+
+ Daylight Sensor
+
+Daylight Detector
+
+ Enchantment Table
+
+Enchanting Table
+
+ Weighted Pressure Plate (Heavy)
+
+Heavy Weighted Pressure Plate
+
+ Weighted Pressure Plate (Light)
+
+Light Weighted Pressure Plate
+
+ Slightly Damaged Anvil
+
+Chipped Anvil
+
+ Very Damaged Anvil
+
+Damaged Anvil
+
+ Head
+
+Player Head
+
+ Light Block
+
+Light
+
+ Book & Quill
+
+Book and Quill
+
+ Chain Helmet
+
+Chainmail Helmet
+
+ Chain Chestplate
+
+Chainmail Chestplate
+
+ Chain Leggings
+
+Chainmail Leggings
+
+ Chain Boots
+
+Chainmail Boots
+
+ Enchanted Apple
+
+Enchanted Golden Apple
+
+ Cooked Beef
+
+Steak
+
+ Melon
+
+Melon Slice
+
+ Glistering Melon
+
+Glistering Melon Slice
+
+ Milk
+
+Milk Bucket
+
+ Seeds
+
+Wheat Seeds
+
+ Clay
+
+Clay Ball
+
+ Sea Turtle Spawn Egg
+
+Turtle Spawn Egg
+
+ Stone Mason
+
+Mason
+
+Commands
+Some changes to commands have been made since 1.16.210 to accommodate the use of block states, with support for the older block data being phased out altogether in 1.19.70.
+
+Bedrock Edition1.16.210beta 1.16.210.53
+Added block state support to /clone, /fill, and /setblock. This coexisted with the older block data.1.18.0beta 1.18.0.20
+Added block state support to /testforblock.1.19.10ExperimentUpcoming Creator FeaturesPreview 1.19.10.20
+Added block state support to /execute as part of a general syntax overhaul to more closely match Java Edition.1.19.50Preview 1.19.50.23
+New syntax for /execute, including block state support, is no longer behind the "Upcoming Creator Features" experimental toggle.1.19.70Preview 1.19.70.21
+Removed support for block data from /clone, /fill, /setblock, /testforblock, and /execute, making block states mandatory.1.19.80Preview 1.19.80.20
+Auto-complete for block states in commands is now supported.Preview 1.19.80.21
+Specifying a block state is no longer required to use other optional arguments in the /fill, /setblock and /clone commands. In 1.19.70, a blank block state of [] had to be entered to use these optional arguments if no block state was to be specified in the command.1.20.10Preview 1.20.10.20
+Changed syntax of block states in commands to use equals instead of colon to more closely match Java Edition.
+Block states with equals do not require a space to show auto-complete options in commands.
+Behavior packs
+
+
+
+This section of the article is empty. 
+You can help by expanding it.
+
+Issues
+MCPE-187016 – Flattened IDs retain block states from the unflattened ID that should have been removed – resolved as "Won't Fix".
+MCPE-187948 – Issues with Mushroom Stem flattening – resolved as "Won't Fix".
+Notes
+
+ Renamed to turtle_scute in Bedrock Edition 1.20.60
+
+ Alternatively known as Preview 1.18.30.27
+
+ These blocks are unobtainable as items without add-ons or editing. They are only intended to be blocks.
+
+ The Brewing Stand consists of a block brewing_stand, an inventory item also named brewing_stand, and the direct item form of the block, which differs from the inventory item. The block's direct item form, which is not obtainable without add-ons or editing, was renamed from brewingstandblock to item.brewing_stand as part of the Flattening.
+
+ Although the name is similar to what is now referred to as Tall Grass, they are not the same block. This block contained what is now referred to as Short Grass and Fern.
+
+ This does not refer to Stone Slabs; rather, it refers to an unflattened block containing multiple types of stone slabs.
+
+ chain was also renamed to iron_chain in this update due to the addition of the Copper Chain, but this is unrelated to the Flattening.
+
+Navigation

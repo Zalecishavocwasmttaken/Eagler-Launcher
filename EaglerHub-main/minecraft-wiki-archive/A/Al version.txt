@@ -1,0 +1,38 @@
+al_version (AppletLoader version), saved on disc as version, is a number formerly used in versions as a caching identifier, to uniquely identify .jar files to be cached.
+It is needed because the game used to be hosted on the Minecraft website as an applet.
+The al_version value was used to tell the LWJGL AppletLoader when to clear its cache so LWJGL and client jars could be updated automatically.
+
+
+== Usage ==
+al_version is a number given as a parameter to the LWJGL AppletLoader in the HTML code of the applet page.
+It is used to specify a unique version for each jar file to cache them for re-use. (To save on downloads, the site would used a cached version on disc if the game is marked as being the same as the last time it was downloaded.)
+If the stored al_version matches the latest jar files, those jar files are re-used; otherwise the previously saved jars are removed from the cache and new ones are downloaded.
+From Classic through most of Infdev, the al_version was a positive floating point number. Starting from Infdev 20100629, al_version proper was no longer used, however a caching ID still remained, taking the form of the current timestamp of the version's release.
+
+
+== Storage location ==
+The al_version may be found in the HTML of the game's web applet, as <param name="al_version" value="[al_version_id]" />
+In Classic through Infdev, the al_version may be found on disc in the temporary directory as version. The subpath differs based on the applet page the game is being played on. See Applet § Storage locations.
+Starting from Infdev 20100629, with the change from float al_version to a timestamped cache ID, it is now located on disc at %appdata%/.minecraft/bin/ (used by minecraft.net/game/ and the offline launcher).
+
+
+== List ==
+[edit]
+
+
+== History ==
+
+
+== See also ==
+Protocol version
+Data version
+
+
+== References ==
+
+
+== External links ==
+AppletLoader documentation – Legacy LWJGL Javadocs
+
+
+== Navigation ==

@@ -1,0 +1,176 @@
+This page covers a development version that has a major issue under certain conditions. 
+The dedicated server for this version has a security vulnerability in the Log4j library that could be used to perform a remote code execution exploit. It can be addressed by appending a certain JVM argument to the server startup command line.
+
+Minecraft 1.16.4 Pre-release 1
+
+Edition
+
+Java Edition
+
+Release date
+
+October 15, 2020
+
+Type
+
+Pre-release
+
+Pre-release for
+
+1.16.4
+
+Downloads
+
+Client (.json)Server
+
+Obfuscation maps
+
+ClientServer
+
+Protocol version
+
+ dec: 1073741825 hex: 40000001
+
+Data version
+
+2581
+
+Resource pack format
+
+6
+
+Data pack format
+
+6
+
+Minimum Java version
+
+Java SE 8
+
+◄◄   1.16.3
+1.16.4
+  1.16.5 ►►
+
+ 1.16.4 Pre-release 1
+
+  1.16.4 Pre-release 2 ►
+
+{
+    "title": "Minecraft 1.16.4 Pre-release 1",
+    "images": [
+        "20w19a.png",
+        "Java Edition 1.16.4 Pre-release 1.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "October 15, 2020",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Pre-release article, displayed as Pre-release)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition 1.16.4 article, displayed as 1.16.4)",
+            "label": "Pre-release for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/44745d09a0c6b8faca3989274996d5193cdc1560/client.jar Client] ([https://piston-meta.mojang.com/v1/packages/fcde4c4f332110829f1bd117c897b1284fa37fac/1.16.4-pre1.json .json])<br />[https://piston-data.mojang.com/v1/objects/28eb6f8c4c05eec278e3e7f9f0379a16adbfb91d/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/6366c7397087acc8f021401afd4c23220ad06197/client.txt Client]<br />[https://piston-data.mojang.com/v1/objects/cf2fa1a00c551d5a3d4d448f1beb7562abd66c47/server.txt Server]",
+            "label": "(link to Obfuscation map article, displayed as Obfuscation maps)"
+        },
+        {
+            "field": " <span style=\"font-size:smaller\"><abbr title=\"decimal\">dec</abbr>: </span>1073741825<br /> <span style=\"font-size:smaller\"><abbr title=\"hexadecimal\">hex</abbr>: </span>40000001",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "2581",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "6",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "6",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Data pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_8_.28LTS.29 Java SE 8]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" rowspan=\"2\">[[Java Edition  1.16.3|<span style=\"margin-right:-0.35em\">◄</span>◄   1.16.3]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition 1.16.4|1.16.4]]'''</td>\n<td style=\"padding: 0.4em\" >[[Java Edition  1.16.5|  1.16.5 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n\n<td style=\"padding: 0.4em\">''' 1.16.4 Pre-release 1'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  1.16.4 Pre-release 2|  1.16.4 Pre-release 2 ►]]\n</td>\n</tr>\n</table>"
+}
+
+1.16.4 Pre-release 1 (known as 1.16.4-pre1 in the launcher) is the first pre-release for Java Edition 1.16.4, released on October 15, 2020, which adds the social interactions screen and fixes two bugs.
+
+Contents
+
+1 Additions
+
+1.1 General
+
+2 Changes
+
+2.1 Items
+2.2 General
+
+3 Fixes
+4 Videos
+5 References
+6 Navigation
+
+Additions
+General
+Added Social interactions screen.
+Gives players the ability to disable chatting with certain players, thus hiding any messages receiving from them.
+Opens with a configurable key binding, by default P.
+Whether a player is hidden resets when re-joining a server.
+Changes
+Items
+Netherite leggings
+
+Changed the texture of the worn netherite leggings model.
+General
+Crashes
+
+More information is now added to the crash log in cases where poor performance causes the server to crash.
+Options
+
+Added "joinedFirstServer" option to options.txt.
+Protocol versions
+
+New network protocol scheme, with a high bit (bit 30) set for snapshots. The protocol version will increase by 1 for each snapshot, but full releases may keep the same protocol version as the previous full release in cases where the network protocols are compatible.
+Servers
+
+When the server and client version are incompatible, a message reading "Incompatible version!" is displayed, instead of "Client out of date!" or "Server out of date!".
+Fixes
+2 issues fixed
+From 1.16
+
+MC-192434 – The top front texture of worn netherite leggings is inconsistent with the rest of the texture.
+From 1.16.2
+
+MC-199487 – World generation deadlock causes a crash.
+Videos
+Video made by slicedlime:
+
+
+
+
+References
+
+ "Important Message: Security vulnerability in Java Edition"     – Minecraft.net, December 10, 2021.
+
+ "Minecraft 1.16.4 Pre-release 1"     – Minecraft.net, October 15, 2020.
+
+Navigation

@@ -1,0 +1,191 @@
+It has been suggested that this article be moved to Atlas definition. If this move affects many pages or may potentially be controversial, do not move the page until a consensus is reached. [discuss, links]
+Reason: much like other technical pages like Enchantment definition. Contrary to what the beginning sentence insists, atlases are not configuration files, they are graphic files. This page discusses how the game handles them.
+When moving, be sure to use the appropriate tool instead of simply copying and pasting the page's contents, to preserve the edit history.
+
+
+
+This feature is exclusive to Java Edition. 
+
+An atlas is effectively a collection of individual sprites that are combined into one large image when resource packs are loaded. In Minecraft, these are used by various objects such as terrain, items, most gui widgets, and certain block entity textures.
+
+Contents
+
+1 Specification
+
+1.1 JSON format
+
+2 List of atlases
+3 History
+4 Navigation
+
+Specification
+The sprites that are included in an atlas are controlled by json files in a resource pack. These are stored in the assets/<namespace>/atlases/<id>.json directory of a resource pack with the following format.
+When loading atlas files, the game combines all sprite sources from all currently active packs for each atlas. This means that multiple packs can add or remove sprites from an atlas without conflicting with one another.
+It is not possible to define custom atlases simply by creating the JSON file for one as atlases must be registerred in the game code. Unknown atlas files are ignored by the game when loading resources.
+
+JSON format
+
+[NBT Compound / JSON Object] The root tag.
+[NBT List / JSON Array] sources: Contains a list of sprite sources. Every entry runs in during load, in order of definition, adding or removing new textures to the atlas.
+[NBT Compound / JSON Object] Source element.
+[String] type: The type of the sprite source. Can be one of the following:
+directory: Lists all files in a directory and its subdirectories, across all namespaces.
+[String] source: Directory in pack to be listed (relative to textures directory).
+[String] prefix: String to be prefixed to the sprite name when loaded.
+single: Adds a single file.
+[String] resource: Location of a resource within the pack (relative to textures directory, implied .png extension).
+[String] sprite: Sprite name (optional, defaults to the value of resource).
+filter: Removes sprites matching the given pattern (only works for entries already in the list).
+[NBT Compound / JSON Object] pattern
+[String] namespace: Regular expression of the namespace identificator to be removed, if omitted, any value is matched.
+[String] path: Regular expression of the path to be removed, if omitted, any value is matched.
+unstitch: Copies rectangular regions from other images.
+[String] resource: Location of a resource within the pack (relative to textures directory, implied .png extension).
+[Double] divisor_x: Used for determining the units used by in the x coordinate of regions.
+[Double] divisor_y: Used for determining the units used by in the y coordinate of regions.
+[NBT List / JSON Array] regions: List of regions to copy from the source image.
+[String] sprite: Specifies the sprite name.
+[Double] x: Specifies the x coordinate of the top-left corner of the region.
+[Double] y: Specifies the y coordinate of the top-left corner of the region.
+[Double] width: Specifies the width of the region.
+[Double] height: Specifies the height of the region.
+paletted_permutations: Dynamically generate textures in-memory with color sets.
+[NBT List / JSON Array] textures: A list of namespaced resource locations of base textures. These textures are used to generate variants of them that have been modified by color palettes.
+[String] separator: A value that is used when joining texture and permutation names to produce sprite name. Defaults to _.
+[String] palette_key: A namespaced resource location of a color palette key file. This is used to define the set of key pixel colors to swap out with the color palettes defined.
+[NBT Compound / JSON Object] permutations: A map of permutations from suffix to a namespaced resource location of a color palette file. The suffix is appended to the resource location of the output variant textures, with the string specified in separator separating the suffix and the base texture name. The number of pixels in each color palette must be the same as that of the palette_key defined for this source. Pixels are compared by RGB value. The alpha channel is ignored for key matching, but in the resulting texture the alpha channel is multiplied with the color palette's alpha channel. Pixels that do not match the palette_key are copied over to the resulting texture as-is.
+
+List of atlases
+All the atlases that are currently used by the game.
+For atlases which support mipmapping, all sprites should be a minimum of 16x16 pixels in size and a multiple of 2. If these guidelines aren't met the maximum mipmap level is limited and a message is printed in the log along the lines of 'Texture <sprite id> with size <width>x<height> limits mip level from <target mip level> to <limited mip level>'.
+
+Identifier
+
+Contents
+
+Used for
+
+Supports mipmapping
+
+armor_trims
+
+Contains paletted permutations of all armor trim equipment textures. This does not include the item overlays, those are defined in the items atlas.
+
+Rendering of armor trim layers on equipment
+
+No
+
+banner_patterns
+
+Contains all banner pattern textures and the base banner texture from the entity/banner/ directory.
+
+Rendering of banners placed in the world
+
+No
+
+blocks
+
+Contains all block textures from the block/, textures in the entity/conduit/ directory, the entity/bell/bell_body.png texture, and the entity/enchantment/enchanting_table_book.png texture.
+
+Rendering of terrain, conduits, bells, enchanting table books (in the gui and in the world), and item models.
+
+Yes
+
+celestials
+
+Contains the environment/celestial/ directory. This includes the sun texture, moon phase textures, and the end flash texture.
+
+Rendering of celestial bodies like the sun, moon, and end flashes.
+
+No
+
+chests
+
+Contains all the chest textures from the entity/chest/ directory.
+
+Rendering of chest block entities.
+
+No
+
+decorated_pot
+
+Contains all decorated pot patterns and the base decorated pot texture from the entity/decorated_pot/ directory.
+
+Rendering of decorated pot block entities.
+
+No
+
+gui
+
+Contains most gui sprite textures from the gui/sprites/ directory. Also contains the mob effect icons from the mob_effect/ directory. Sprites in this atlas support additional mcmeta data for gui scaling, see Resource_pack#GUI for more information.
+
+Rendering of most gui widgets and icons.
+
+No
+
+items
+
+Contains all item textures from the item/ directory. Also contains paletted permutations for the armor trim item overlay textures.
+
+Rendering of item models.
+
+No
+
+map_decorations
+
+Contains all map decoration icons from the map/decoration/ directory.
+
+Rendering of map decoration icons.
+
+No
+
+paintings
+
+Contains all painting textures from the painting/ directory.
+
+Rendering of paintings.
+
+No
+
+particles
+
+Contains all particle textures from the particle/ directory.
+
+Rendering of most particles.
+
+No
+
+shield_patterns
+
+Contains all shield pattern textures and the base shield texture from the entity/shield/ directory.
+
+Rendering of shields and shield patterns.
+
+No
+
+shulker_boxes
+
+Contains all shulker textures from the entity/shulker/ directory.
+
+Rendering of shulker box block entities. This does not include shulker mobs.
+
+No
+
+History
+Java Edition1.19.322w46a
+Added atlases to resource packs.23w04a
+Added the sprite source paletted_permutations.1.19.423w04a
+Added the armor_trims atlas.Pre-release 1
+Added the decorated_pot atlas.1.20.223w31a
+Added the gui atlas.1.20.524w12a
+Added the map_decorations atlas.1.21.525w04a
+minecraft:paletted_permutations sprite source has a new field, separator.1.21.625w19a
+The mob_effects atlas has been removed, all sprites that were previously stitched to this atlas are instead stitched to the gui atlas.1.21.1125w41a
+Added the celestials atlas which contains celestial bodies including the sun, moon phases, and end flash.25w45a
+Added the items atlas.
+
+Moved armor trim item overlay paletted permutations from the blocks atlas to items.26.2snap4
+Removed the beds atlas.snap7
+Removed the signs atlas.Upcoming Java Edition26.3snap1
+Removed the armor_trims atlas.
+Navigation

@@ -1,0 +1,10439 @@
+options.txt is the file that stores all the options changeable in the in-game options/settings menu and various other information the game needs to store after quitting. It is found in the .minecraft folder in Java Edition or in the com.mojang/minecraftpe folder in Bedrock Edition, and can be edited with any basic text editor to change options. Most settings can be changed in-game, but a few can be changed only by editing this file. The options.txt file for the latest version of the game is not backward-compatible with older versions of the game, and if older versions are played in the same directory as a newer version, options.txt can be reset back to its default settings.
+
+Contents
+
+1 Options
+
+1.1 Java Edition
+1.2 Bedrock Edition
+
+2 Removed options
+
+2.1 Java Edition
+2.2 Bedrock Edition
+
+3 April fools' options
+
+3.1 Java Edition
+
+4 Notes
+5 References
+6 Navigation
+
+Options
+Java Edition
+Each line represents a single option or piece of data, with the option followed by a colon followed by the value of that option. A list of all available key/button numbers for the controls options is available at key codes.
+
+#
+
+Option name
+
+Explanation
+
+Valid values
+
+Default value
+
+Development version added
+
+Version added
+
+1
+
+version
+
+Data version of the client version this file was last saved in; used for upgrading default settings. If this field is missing, the file is discarded and replaced with the defaults. (numeric)
+
+4903(for latest release 26.2)
+
+1.10-pre1
+
+1.10
+
+2
+
+ao
+
+Smooth lighting
+
+true/false
+
+true
+
+3
+
+biomeBlendRadius
+
+Radius for which biome blending should happen
+
+0–7
+
+2
+
+18w15a
+
+1.13
+
+4
+
+chunkSectionFadeInTime
+
+Time it takes for chunks to fade in
+
+0–2
+
+0.75
+
+25w44a
+
+1.21.11
+
+5
+
+cutoutLeaves
+
+Whether leaves are see-through
+
+true/false
+
+true
+
+6
+
+enableVsync
+
+Whether v-sync (vertical synchronization) is enabled
+
+true/false
+
+true
+
+7
+
+entityDistanceScaling
+
+The maximum distance from the player that entities render
+
+0.5–5.0
+
+1.0
+
+20w17a
+
+1.16
+
+8
+
+entityShadows
+
+Whether to display entity shadows
+
+true/false
+
+true
+
+9
+
+forceUnicodeFont
+
+Whether Unicode font should be used
+
+true/false
+
+false
+
+13w42b
+
+1.7.2
+
+10
+
+japaneseGlyphVariants
+
+Uses Japanese variants of CJK (Chinese, Japanese, and Korean) characters in the default font
+
+true/false
+
+false
+
+24w06a
+
+1.20.5
+
+11
+
+fov
+
+How large the field of view is (floating-point). The in-game value is counted in degrees, however, the options.txt isn't. The value is converted into degrees with the following formula: degrees = 40 * value + 70
+
+-1–1
+
+0.0
+
+12
+
+fovEffectScale
+
+FOV Effects (how much the field of view changes when sprinting, having Speed or Slowness etc.)
+
+0–1
+
+1.0
+
+1.16.2-pre1
+
+1.16.2
+
+13
+
+darknessEffectScale
+
+Darkness Pulsing (how much the Darkness effect pulses)
+
+0–1
+
+1.0
+
+22w15a
+
+1.19
+
+14
+
+glintSpeed
+
+The speed of visual glint on enchanted items
+
+0–1
+
+0.5
+
+23w05a
+
+1.19.4
+
+15
+
+glintStrength
+
+The strength of visual glint on enchanted items
+
+0–1
+
+0.75
+
+16
+
+preferredGraphicsBackend
+
+The graphics backend used for rendering
+
+default/opengl/vulkan
+
+default
+
+26.2-snapshot-1
+
+26.2
+
+17
+
+graphicsPreset
+
+The graphics preset used in the video settings screen
+
+fast/fancy/fabulous/custom
+
+fancy
+
+25w41a
+
+1.21.11
+
+18
+
+prioritizeChunkUpdates
+
+Chunk section update strategy
+
+0–2 (Threaded, Semi Blocking, Fully Blocking)
+
+0 (Threaded)
+
+21w37a
+
+1.18
+
+19
+
+fullscreen
+
+Whether the game attempts to go fullscreen at startup
+
+true/false
+
+false
+
+20
+
+exclusiveFullscreen
+
+Whether fullscreen mode should take full control of a monitor
+
+true/false
+
+false
+
+26.1-pre-2
+
+26.1
+
+21
+
+ gamma
+
+Brightness
+
+0–1 (Note: values below 0 and above 1 are invalid and inaccessible on vanilla, even via editing the options.txt file.)
+
+0.5
+
+22
+
+guiScale
+
+Size of interfaces
+
+0 (Auto) or 1+ for size. Upper limit based on window resolution.
+
+0 (Auto)
+
+debugGuiScale​[upcoming: JE 26.3]
+
+Size of the debug screen
+
+-1 (Same as guiScale), 0 (Auto), or 1+ for size. Upper limit based on window resolution.
+
+0 (Auto)
+
+26.3-snapshot-4
+
+26.3
+
+23
+
+maxAnisotropyBit
+
+The amount of anisotropic filtering
+
+1–3 (2x, 4x, 8x)
+
+2 (4x)
+
+25w44a
+
+1.21.11
+
+24
+
+textureFiltering
+
+Texture filtering mode
+
+0–2 (None, RGSS, Anisotropic)
+
+0 (None)
+
+1.21.11-pre1
+
+25
+
+maxFps
+
+The maximum framerate
+
+10–260
+
+120
+
+26
+
+improvedTransparency
+
+Whether to use screen shaders to draw weather, clouds, and particles behind translucent blocks and water​[until: JE 26.3]
+Whether to use an order-independent transparency algorithm to render translucent objects​[upcoming: JE 26.3]
+
+true/false
+
+false
+
+25w41a
+
+1.21.11
+
+27
+
+inactivityFpsLimit
+
+Limits FPS to a certain amount whether the player is AFK (Away From Keyboard) or Minecraft is minimized.
+
+afk/minimized
+
+afk
+
+24w33a
+
+1.21.2
+
+28
+
+mipmapLevels
+
+Amount by which distant textures are smoothed
+
+0–4
+
+4
+
+29
+
+narrator
+
+Setting of the Narrator
+
+0–3 (Off, Narrates All, Narrates Chat, Narrates System)
+
+0 (Off)
+
+17w06a
+
+1.12
+
+30
+
+particles
+
+Amount of particles (such as rain, potion effects, etc.)
+
+0–2 (All, Decreased, Minimal)
+
+0 (All)
+
+31
+
+reducedDebugInfo
+
+Whether to show reduced information on the Debug screen
+
+true/false
+
+false
+
+32
+
+renderClouds
+
+Whether to display clouds
+
+true/false/fast
+
+true
+
+33
+
+cloudRange
+
+The render distance of clouds in the chunk radius from the player
+
+2–128
+
+128
+
+25w17a
+
+1.21.6
+
+34
+
+renderDistance
+
+The render distance in the chunk radius from the player
+
+2–32 without external editing of options.txt; maximum is further limited to 16 on machines with less than 1 gigabyte of memory
+
+12 (64-bit)
+
+35
+
+simulationDistance
+
+The simulation distance in the chunk radius from the player
+
+5–32 without external editing of options.txt; maximum is further limited to 16 on machines with less than 1 gigabyte of memory
+
+12
+
+21w38a
+
+1.18
+
+36
+
+screenEffectScale
+
+Distortion Effects (how intense the effects of Nausea and nether portals are)
+
+0–1
+
+1.0
+
+1.16.2-pre1
+
+1.16.2
+
+37
+
+soundDevice
+
+Sound device to be used
+
+String
+
+21w37a
+
+1.18
+
+38
+
+vignette
+
+Whether to show the vignette
+
+true/false
+
+true
+
+25w41a
+
+1.21.11
+
+39
+
+weatherRadius
+
+The distance in blocks from the player where rain and snow effects are visible.
+
+3–10
+
+10
+
+40
+
+autoJump
+
+Whether auto-jump is enabled
+
+true/false
+
+false
+
+16w20a
+
+1.10
+
+41
+
+rotateWithMinecart
+
+Whether the player's direction changes with the direction of the minecart they are riding
+
+true/false
+
+false
+
+24w33a
+
+1.21.2
+
+42
+
+operatorItemsTab
+
+Whether the player has access to the "Operator Utilities" tab in the Creative inventory
+
+true/false
+
+false
+
+22w45a
+
+1.19.3
+
+43
+
+autoSuggestions
+
+True if brigadier's command suggestion UI should always be shown, instead of just when pressing tab
+
+true/false
+
+true
+
+17w47a
+
+1.13
+
+44
+
+chatColors
+
+Whether colored chat is allowed
+
+true/false
+
+true
+
+45
+
+chatLinks
+
+Whether links show as links or just text in the chat (true/false [links/plaintext])
+
+true/false
+
+true
+
+46
+
+chatLinksPrompt
+
+Whether clicking on links in chat needs confirmation before opening them
+
+true/false
+
+true
+
+47
+
+discrete_mouse_scroll
+
+Ignores scrolling set by operating system
+
+true/false
+
+false
+
+1.14 Pre-Release 2
+
+1.14
+
+48
+
+invertXMouse
+
+Whether mouse is inverted horizontally
+
+true/false
+
+false
+
+25w31a
+
+1.21.9
+
+49
+
+invertYMouse
+
+Whether mouse is inverted vertically
+
+true/false
+
+false
+
+50
+
+realmsNotifications
+
+Whether Realms invites are alerted on the main menu
+
+true/false
+
+true
+
+51
+
+showSubtitles
+
+If subtitles are shown
+
+true/false
+
+false
+
+52
+
+directionalAudio
+
+If Directional Audio is enabled
+
+true/false
+
+false
+
+22w11a
+
+1.19
+
+53
+
+bobView
+
+Whether or not the camera bobs up and down as the player walks
+
+true/false
+
+true
+
+54
+
+toggleCrouch
+
+Whether the sneak key must be pressed or held to activate sneaking
+
+true/false
+
+false
+
+19w41a
+
+1.15
+
+55
+
+toggleSprint
+
+Whether the sprint key must be pressed or held to activate sprinting
+
+true/false
+
+false
+
+56
+
+toggleAttack
+
+Whether the attack key must be pressed or held to activate attacking/destroying
+
+true/false
+
+false
+
+25w31a
+
+1.21.9
+
+57
+
+toggleUse
+
+Whether the use key must be pressed or held to activate using items/placing blocks
+
+true/false
+
+false
+
+58
+
+sprintWindow
+
+Time window in ticks where double-tapping the forward key activates sprint
+
+0–10
+
+7
+
+59
+
+darkMojangStudiosBackground
+
+Whether the Mojang Studios loading screen appears monochrome
+
+true/false
+
+false
+
+21w13a
+
+1.17
+
+60
+
+hideLightningFlashes
+
+Hide lightning flashes (visual effect)
+
+true/false
+
+false
+
+21w37a
+
+1.18
+
+61
+
+hideSplashTexts
+
+Whether splash texts are shown on the title screen
+
+true/false
+
+false
+
+23w42a
+
+1.20.3
+
+62
+
+mouseSensitivity
+
+How much a mouse movement changes the position of the camera
+
+0–1
+
+0.5
+
+63
+
+damageTiltStrength
+
+The amount of camera shake when the player is being hurt.
+
+0–1
+
+1.0
+
+23w06a
+
+1.19.4
+
+64
+
+highContrast
+
+Enhances the contrast of UI elements
+
+true/false
+
+false
+
+1.19.4-pre1
+
+65
+
+highContrastBlockOutline
+
+Makes targeted block outlines more visible
+
+true/false
+
+false
+
+24w40a
+
+1.21.2
+
+66
+
+narratorHotKey
+
+Pressing Ctrl + B does not open narrator if it is turned off
+
+true/false
+
+true
+
+23w33a
+
+1.20.2
+
+67
+
+resourcePacks
+
+A list of active resource packs, with pack names in quotes, separated with commas
+
+String
+
+[]
+
+68
+
+incompatibleResourcePacks
+
+A list of active resource packs that are marked as incompatible with the current Minecraft version, with pack names in quotes, separated with commas
+
+String
+
+[]
+
+69
+
+lastServer
+
+Address of last server used with Direct Connection
+
+String
+
+70
+
+lang
+
+Language to be used
+
+String
+
+en_us
+
+71
+
+chatVisibility
+
+What is seen in chat
+
+0–2 (Shown, Commands only, Hidden)
+
+0 (Shown)
+
+72
+
+chatOpacity
+
+Opacity of the chat
+
+0–1
+
+1.0
+
+73
+
+chatLineSpacing
+
+Spacing between text in chat
+
+0–1
+
+0.0
+
+20w15a
+
+1.16
+
+74
+
+textBackgroundOpacity
+
+Opacity of text background
+
+0–1
+
+0.5
+
+75
+
+backgroundForChatOnly
+
+Toggles if the background is only in chat or if it's everywhere
+
+true/false
+
+true
+
+76
+
+hideServerAddress
+
+Has no effect in modern versions
+
+true/false
+
+false
+
+77
+
+advancedItemTooltips
+
+Whether hovering over items in the inventory shows its ID and durability; toggled by pressing F3 + H
+
+true/false
+
+false
+
+78
+
+pauseOnLostFocus
+
+Whether switching out of Minecraft without pressing Esc or opening an in-game interface automatically pauses the game; toggled by pressing F3 + P
+
+false
+
+true
+
+12w34a
+
+1.4.2
+
+79
+
+overrideWidth
+
+Width to open Minecraft with in pixels (0 means default to the Minecraft settings); no in-game control
+
+Integer
+
+0
+
+80
+
+overrideHeight
+
+Height to open Minecraft with in pixels (0 means default to the Minecraft settings); no in-game control
+
+Integer
+
+0
+
+81
+
+chatHeightFocused
+
+How tall the chat span is
+
+0–1
+
+1.0
+
+82
+
+chatDelay
+
+How much delay there is between text
+
+0–6
+
+0.0
+
+20w15a
+
+1.16
+
+83
+
+chatHeightUnfocused
+
+How tall the maximum chat span is, when the chat button is not pressed
+
+0–1
+
+0.4375
+
+84
+
+chatScale
+
+The scale/size of the text in the chat
+
+0–1
+
+1.0
+
+85
+
+chatWidth
+
+The span width of the chat
+
+0–1
+
+1.0
+
+86
+
+notificationDisplayTime
+
+Changes how long toast notifications (advancements, new recipes, etc.) display on screen
+
+0–1
+
+1.0
+
+87
+
+useNativeTransport
+
+Whether to use a Netty EpollSocketChannel for connections to servers instead of a NioSocketChannel (only applies if EPOLL is available on the user's system)
+
+true/false
+
+true
+
+88
+
+mainHand
+
+Whether the main hand appears as left or right
+
+left/right
+
+right
+
+89
+
+attackIndicator
+
+When hitting, how the attack indicator is shown on screen
+
+0–2 (Off, Crosshair, Hotbar)
+
+1 (Crosshair)
+
+90
+
+tutorialStep
+
+Next stage of tutorial hints to display
+
+movement, find_tree, punch_tree, open_inventory, craft_planks, none
+
+movement
+
+17w06a
+
+1.12
+
+91
+
+mouseWheelSensitivity
+
+Allows making the  Scroll Wheel more sensitive (see MC-123773)
+
+1–10
+
+1.0
+
+18w21a
+
+1.13
+
+92
+
+rawMouseInput​[until: JE 26.3]
+
+Ignores acceleration set by the operating system
+
+true/false
+
+true
+
+1.14.4-pre2
+
+1.14.4
+
+93
+
+allowCursorChanges
+
+Whether the cursor changes shape when hovering over certain UI elements
+
+true/false
+
+true
+
+25w35a
+
+1.21.9
+
+quitShortcuts​[upcoming: JE 26.3]
+
+Whether shortcuts such as ⌥ Alt + F4 on Windows and Linux or ⌘ Command + Q on macOS will close the game.
+
+true/false
+
+true
+
+26.3-snapshot-6
+
+26.3
+
+ctrlClickEmulatesRightClick​[upcoming: JE 26.3]
+
+Whether ⎈ Control +  Left Mouse Button is treated as  Right Mouse Button. Only works on macOS.
+
+true/false
+
+false
+
+26.3-snapshot-9
+
+26.3
+
+94
+
+glDebugVerbosity
+
+LWJGL log info level (only on some machines)
+
+0–4 (none, HIGH, MEDIUM, LOW, NOTIFICATION)
+
+1
+
+1.13-pre2
+
+1.13
+
+95
+
+skipMultiplayerWarning
+
+Whether to skip the legal disclaimer when entering the multiplayer screen
+
+true/false
+
+false
+
+1.15.2-pre1
+
+1.15.2
+
+96
+
+hideMatchedNames
+
+Some servers send chat messages in non-standard formats. With this option on, the game attempts to apply chat hiding anyway by matching the text in messages.
+
+true/false
+
+true
+
+1.16.4-rc1
+
+1.16.4
+
+97
+
+joinedFirstServer
+
+Whether the player has joined a server before. If false, the Social interactions tutorial hint appears when joining a server.
+
+true/false
+
+false
+
+1.16.4-pre1
+
+98
+
+syncChunkWrites
+
+Whether to open region files in synchronous mode
+
+true/false
+
+true (Windows), false (other systems)
+
+1.16-pre3
+
+1.16
+
+99
+
+showAutosaveIndicator
+
+Whether to show autosave indicator on the right-bottom of the screen
+
+true/false
+
+true
+
+21w42a
+
+1.18
+
+100
+
+allowServerListing
+
+Whether to allow player's ID to be shown in the player list shown on the multiplayer screen
+
+true/false
+
+true
+
+1.18-pre2
+
+101
+
+inGameNotification
+
+Whether to show an in-game notification for the friends list
+
+true/false
+
+false
+
+26.2-snapshot-7
+
+26.2
+
+102
+
+sharePresence
+
+Amount of presence to share to friends on the friends list
+
+none/limited/all
+
+all
+
+103
+
+onlyShowSecureChat
+
+Toggles whether the chat displays only cryptographically signed player messages
+
+true/false
+
+false
+
+1.19-pre1
+
+1.19
+
+104
+
+saveChatDrafts
+
+Toggles whether the chat will save drafts when closed
+
+true/false
+
+false
+
+25w33a
+
+1.21.9
+
+105
+
+panoramaScrollSpeed
+
+Changes the scrolling speed of the panorama in the main menu
+
+0–1
+
+1.0
+
+22w42a
+
+1.19.3
+
+106
+
+telemetryOptInExtra
+
+Enables sending extended telemetry
+
+true/false
+
+false
+
+22w46a
+
+107
+
+onboardAccessibility
+
+False prevents the narrator welcome screen from appearing after the user's first launch.
+
+true/false
+
+true
+
+23w03a
+
+1.19.4
+
+108
+
+menuBackgroundBlurriness
+
+Changes the blurriness of menu background
+
+0–1
+
+0
+
+24w09a
+
+1.20.5
+
+109
+
+startedCleanly
+
+Whether the game started cleanly. Used to change the graphics backend if the game failed to start cleanly.
+
+true/false
+
+true
+
+25w02a
+
+1.21.5
+
+110
+
+musicToast
+
+Where to show the music toast
+
+never/pause/pause_and_toast
+
+never
+
+25w46a
+
+1.21.11
+
+111
+
+musicFrequency
+
+Frequency of music
+
+DEFAULT/FREQUENT/CONSTANT
+
+DEFAULT
+
+25w20a
+
+1.21.6
+
+112
+
+key_key.attack
+
+Attack control
+
+Key codes
+
+key.mouse.left
+
+113
+
+key_key.use
+
+Use Item control
+
+Key codes
+
+key.mouse.right
+
+114
+
+key_key.forward
+
+Forward control
+
+Key codes
+
+key.keyboard.w
+
+115
+
+key_key.left
+
+Left control
+
+Key codes
+
+key.keyboard.a
+
+116
+
+key_key.back
+
+Back control
+
+Key codes
+
+key.keyboard.s
+
+117
+
+key_key.right
+
+Right control
+
+Key codes
+
+key.keyboard.d
+
+118
+
+key_key.jump
+
+Jump control
+
+Key codes
+
+key.keyboard.space
+
+119
+
+key_key.sneak
+
+Sneak control
+
+Key codes
+
+key.keyboard.left.shift
+
+120
+
+key_key.sprint
+
+Sprint control
+
+Key codes
+
+key.keyboard.left.control
+
+121
+
+key_key.drop
+
+Drop control
+
+Key codes
+
+key.keyboard.q
+
+122
+
+key_key.inventory
+
+Inventory control
+
+Key codes
+
+key.keyboard.e
+
+123
+
+key_key.chat
+
+Chat control
+
+Key codes
+
+key.keyboard.t
+
+124
+
+key_key.playerlist
+
+List Players control
+
+Key codes
+
+key.keyboard.tab
+
+125
+
+key_key.pickItem
+
+Pick Block control
+
+Key codes
+
+key.mouse.middle
+
+126
+
+key_key.command
+
+Command control
+
+Key codes
+
+key.keyboard.slash
+
+127
+
+key_key.friends
+
+Friends control
+
+Key codes
+
+key.keyboard.o
+
+26.2-snapshot-7
+
+26.2
+
+128
+
+key_key.socialInteractions
+
+Social Interaction control
+
+Key codes
+
+key.keyboard.p
+
+1.16.4-pre1
+
+1.16.4
+
+129
+
+key_key.toggleGui
+
+HUD toggle control
+
+Key codes
+
+key.keyboard.f1
+
+25w41a
+
+1.21.11
+
+130
+
+key_key.toggleSpectatorShaderEffects
+
+Spectator shader effect toggle control
+
+Key codes
+
+key.keyboard.f4
+
+131
+
+key_key.screenshot
+
+Screenshot control
+
+Key codes
+
+key.keyboard.f2
+
+132
+
+key_key.togglePerspective
+
+Perspective control
+
+Key codes
+
+key.keyboard.f5
+
+133
+
+key_key.smoothCamera
+
+Mouse Smoothing control
+
+Key codes
+
+key.keyboard.unknown
+
+134
+
+key_key.fullscreen
+
+Fullscreen control
+
+Key codes
+
+key.keyboard.f11
+
+135
+
+key_key.spectatorOutlines
+
+Visibility of player outlines in Spectator Mode control
+
+Key codes
+
+key.keyboard.unknown
+
+136
+
+key_key.spectatorHotbar
+
+Show hotbar in Spectator Mode control
+
+Key codes
+
+key.mouse.middle
+
+25w36a
+
+1.21.9
+
+137
+
+key_key.swapOffhand
+
+Swapping of items between both hands control
+
+Key codes
+
+key.keyboard.f
+
+1.16-pre3
+
+1.16
+
+138
+
+key_key.saveToolbarActivator
+
+Save current toolbar to a Saved Hotbars slot (in Creative Mode)
+
+Key codes
+
+key.keyboard.c
+
+17w06a
+
+1.12
+
+139
+
+key_key.loadToolbarActivator
+
+Load toolbar from a Saved Hotbars slot (in Creative Mode)
+
+Key codes
+
+key.keyboard.x
+
+140
+
+key_key.advancements
+
+Open the Advancements screen
+
+Key codes
+
+key.keyboard.l
+
+141
+
+key_key.quickActions
+
+Open the quick actions dialog control
+
+Key codes
+
+key.keyboard.g
+
+1.21.6-pre1
+
+1.21.6
+
+142
+
+key_key.debug.overlay
+
+Open the debug overlay control
+
+Key codes
+
+key.keyboard.f3
+
+25w41a
+
+1.21.11
+
+143
+
+key_key.debug.modifier
+
+Debug modifier control
+
+Key codes
+
+key.keyboard.f3
+
+144
+
+key_key.hotbar.1
+
+Hotbar Slot 1 control
+
+Key codes
+
+key.keyboard.1
+
+145
+
+key_key.hotbar.2
+
+Hotbar Slot 2 control
+
+Key codes
+
+key.keyboard.2
+
+146
+
+key_key.hotbar.3
+
+Hotbar Slot 3 control
+
+Key codes
+
+key.keyboard.3
+
+147
+
+key_key.hotbar.4
+
+Hotbar Slot 4 control
+
+Key codes
+
+key.keyboard.4
+
+148
+
+key_key.hotbar.5
+
+Hotbar Slot 5 control
+
+Key codes
+
+key.keyboard.5
+
+149
+
+key_key.hotbar.6
+
+Hotbar Slot 6 control
+
+Key codes
+
+key.keyboard.6
+
+150
+
+key_key.hotbar.7
+
+Hotbar Slot 7 control
+
+Key codes
+
+key.keyboard.7
+
+151
+
+key_key.hotbar.8
+
+Hotbar Slot 8 control
+
+Key codes
+
+key.keyboard.8
+
+152
+
+key_key.hotbar.9
+
+Hotbar Slot 9 control
+
+Key codes
+
+key.keyboard.9
+
+153
+
+key_key.debug.reloadChunk
+
+Debug reload chunk control
+
+Key codes
+
+key.keyboard.a
+
+25w41a
+
+1.21.11
+
+154
+
+key_key.debug.showHitboxes
+
+Debug show hitboxes control
+
+Key codes
+
+key.keyboard.b
+
+155
+
+key_key.debug.clearChat
+
+Debug clear chat control
+
+Key codes
+
+key.keyboard.d
+
+156
+
+key_key.debug.crash
+
+Debug crash control
+
+Key codes
+
+key.keyboard.c
+
+157
+
+key_key.debug.showChunkBorders
+
+Debug show chunk borders control
+
+Key codes
+
+key.keyboard.g
+
+158
+
+key_key.debug.showAdvancedTooltips
+
+Debug show advanced tooltips control
+
+Key codes
+
+key.keyboard.h
+
+159
+
+key_key.debug.copyRecreateCommand
+
+Debug copy recreate command control
+
+Key codes
+
+key.keyboard.i
+
+160
+
+key_key.debug.spectate
+
+Debug spectate control
+
+Key codes
+
+key.keyboard.n
+
+161
+
+key_key.debug.switchGameMode
+
+Debug switch game mode control
+
+Key codes
+
+key.keyboard.f4
+
+162
+
+key_key.debug.debugOptions
+
+Debug options menu control
+
+Key codes
+
+key.keyboard.f6
+
+163
+
+key_key.debug.focusPause
+
+Debug focus pause control
+
+Key codes
+
+key.keyboard.p
+
+164
+
+key_key.debug.dumpDynamicTextures
+
+Debug dump dynamic textures control
+
+Key codes
+
+key.keyboard.s
+
+165
+
+key_key.debug.reloadResourcePacks
+
+Debug reload resource packs control
+
+Key codes
+
+key.keyboard.t
+
+166
+
+key_key.debug.profiling
+
+Debug profiling control
+
+Key codes
+
+key.keyboard.l
+
+167
+
+key_key.debug.copyLocation
+
+Debug copy location control
+
+Key codes
+
+key.keyboard.c
+
+168
+
+key_key.debug.dumpVersion
+
+Debug dump version control
+
+Key codes
+
+key.keyboard.v
+
+169
+
+key_key.debug.profilingChart
+
+Debug profiling chart control
+
+Key codes
+
+key.keyboard.1
+
+170
+
+key_key.debug.fpsCharts
+
+Debug fps charts control
+
+Key codes
+
+key.keyboard.2
+
+171
+
+key_key.debug.networkCharts
+
+Debug network charts control
+
+Key codes
+
+key.keyboard.3
+
+172
+
+key_key.debug.lightmapTexture
+
+Debug lightmap texture control
+
+Key codes
+
+key.keyboard.4
+
+26.1-snapshot-1
+
+26.1
+
+key_key.debug.improvedTransparency​[upcoming: JE 26.3]
+
+Debug improved transparency control
+
+Key codes
+
+key.keyboard.x
+
+26.3-snapshot-2
+
+26.3
+
+173
+
+soundCategory_master
+
+The volume of all sounds
+
+0–1
+
+1.0
+
+174
+
+soundCategory_music
+
+The volume of gameplay music
+
+0–1
+
+1.0
+
+175
+
+soundCategory_record
+
+The volume of music/sounds from jukeboxes and note blocks
+
+0–1
+
+1.0
+
+176
+
+soundCategory_weather
+
+The volume of rain and thunder
+
+0–1
+
+1.0
+
+177
+
+soundCategory_block
+
+The volume of blocks
+
+0–1
+
+1.0
+
+178
+
+soundCategory_hostile
+
+The volume of hostile and neutral mobs
+
+0–1
+
+1.0
+
+179
+
+soundCategory_neutral
+
+The volume of passive mobs
+
+0–1
+
+1.0
+
+180
+
+soundCategory_player
+
+The volume of players
+
+0–1
+
+1.0
+
+181
+
+soundCategory_ambient
+
+The volume of cave sounds and fireworks
+
+0–1
+
+1.0
+
+182
+
+soundCategory_voice
+
+The volume of voices and the narrator
+
+0–1
+
+1.0
+
+183
+
+soundCategory_ui
+
+The volume of the UI
+
+0–1
+
+1.0
+
+1.21.6-pre3
+
+1.21.6
+
+184
+
+modelPart_cape
+
+Whether the cape is shown
+
+true/false
+
+true
+
+185
+
+modelPart_jacket
+
+Whether the "Jacket" skin layer is shown
+
+true/false
+
+true
+
+186
+
+modelPart_left_sleeve
+
+Whether the "Left Sleeve" skin layer is shown
+
+true/false
+
+true
+
+187
+
+modelPart_right_sleeve
+
+Whether the "Right Sleeve" skin layer is shown
+
+true/false
+
+true
+
+188
+
+modelPart_left_pants_leg
+
+Whether the "Left Pants Leg" skin layer is shown
+
+true/false
+
+true
+
+189
+
+modelPart_right_pants_leg
+
+Whether the "Right Pants Leg" skin layer is shown
+
+true/false
+
+true
+
+190
+
+modelPart_hat
+
+Whether the "Hat" skin layer is shown
+
+true/false
+
+true
+
+191
+
+fullscreenResolution
+
+Changes the resolution of the game when in fullscreen mode. The only values allowed are the values supported by the user's monitor, shown when changing the screen resolution in the operating system settings. Setting this option to a value not supported by the monitor resets the option to "Current". When set to "Current", this option is absent from options.txt.
+
+<width>x<height>@<refresh rate>:<color bits>
+
+Absent
+
+Bedrock Edition
+
+#
+
+Option name
+
+Explanation
+
+Valid values
+
+Default value
+
+Version added
+
+1
+
+mp_username
+
+The name of the player.
+
+Player
+
+0.7.0
+
+2
+
+game_difficulty_new
+
+​[more information needed]
+
+0/1
+
+1
+
+0.12.1 (build 1)
+
+3
+
+game_thirdperson
+
+Number used to identify first person, third person front, and third person back.
+
+0/1/2
+
+0
+
+0.7.0
+
+4
+
+ctrl_interactionModel
+
+The control mode used for touch controls.
+
+0: Joystick & tap to interact / 1: Joystick & aim crosshair / 2: D-pad & tap to interact
+
+0
+
+0.11.0 (build 1)
+
+5
+
+ctrl_restoreInteractionModelToClassic
+
+​[more information needed]
+
+0/1
+
+0
+
+1.21.130
+
+6
+
+gfx_alwayshighlighthoveringboxincrosshair
+
+Whether block are always highlighted by the crosshair or only when tapped when using joystick touch controls with a crosshair.
+
+0/1
+
+1
+
+7
+
+gfx_showActionButton
+
+Whether buttons on the touchscreen are shown to interact with blocks and entities when using joystick touch controls with a crosshair.
+
+0/1
+
+1
+
+8
+
+gfx_showBlockSelectButton
+
+Whether to show a pick block button in touch controls.
+
+0/1
+
+0
+
+9
+
+gfx_showToggleCameraPerspectiveButton
+
+Whether a button to toggle the camera perspective is shown on touch controls.
+
+0/1
+
+0
+
+1.21.70
+
+10
+
+ctrl_sprintonmovement
+
+Whether the player can sprint using the joystick in touch controls.
+
+0/1
+
+0
+
+11
+
+ctrl_moveStickVisible
+
+Whether the joystick is visible in touch controls.
+
+0/1
+
+1
+
+12
+
+gfx_thumbstickopacity
+
+Controls the opacity of the thumbstick in touch controls.
+
+0-1
+
+0.5
+
+13
+
+ctrl_defaultMoveStickVisible
+
+Whether the thumbstick in touch controls is always visible.
+
+0/1
+
+1
+
+14
+
+ctrl_creativeDelayedBlockBreaking
+
+Toggles delayed block breaking in Creative mode in touch controls.
+
+0/1
+
+1
+
+15
+
+ctrl_top_button_scale
+
+The size of the top buttons on the HUD in touch controls.
+
+0: Small / 1: Medium / 2: Big
+
+0
+
+1.21.130
+
+16
+
+gfx_wysiwygX
+
+​[more information needed]
+
+​[more information needed]
+
+0.5
+
+17
+
+gfx_wysiwygY
+
+​[more information needed]
+
+​[more information needed]
+
+0.5
+
+18
+
+gfx_wysiwygScale
+
+​[more information needed]
+
+​[more information needed]
+
+1
+
+19
+
+ctrl_enableNewTouchControlSchemes
+
+​[more information needed]
+
+​[more information needed]
+
+1
+
+1.18.30
+
+20
+
+mp_server_visible
+
+​[more information needed]
+
+​[more information needed]
+
+1
+
+0.7.0
+
+21
+
+mp_xboxlive_visible
+
+​[more information needed]
+
+​[more information needed]
+
+1
+
+0.12.1 (build 10)
+
+22
+
+mp_nex_visble
+
+​[more information needed]
+
+​[more information needed]
+
+1
+
+23
+
+mp_psn_visble
+
+​[more information needed]
+
+​[more information needed]
+
+1
+
+1.13.0
+
+24
+
+game_language
+
+The language that the game has selected.
+
+Any valid language code.
+
+Blank
+
+0.11.0 (build 1)
+
+25
+
+game_skintypefull
+
+The unique identifier of the current skin being used.
+
+Any UUID with a matching skin stored on the device.
+
+Randomly selected between the nine default skins:
+c18e65aa-7b21-4637-9b63-8ad63622ef01_Alexc18e65aa-7b21-4637-9b63-8ad63622ef01_Aric18e65aa-7b21-4637-9b63-8ad63622ef01_Efec18e65aa-7b21-4637-9b63-8ad63622ef01_Kaic18e65aa-7b21-4637-9b63-8ad63622ef01_Makenac18e65aa-7b21-4637-9b63-8ad63622ef01_Noorc18e65aa-7b21-4637-9b63-8ad63622ef01_Stevec18e65aa-7b21-4637-9b63-8ad63622ef01_Sunnyc18e65aa-7b21-4637-9b63-8ad63622ef01_Zuri
+
+0.11.0 (build 4)
+
+27
+
+game_recentskin1​[until: BE 26.50]
+
+The skin used before it was last changed.[verify]
+
+0.15.0 (build 1)
+
+Blank
+
+28
+
+game_recentskin2​[until: BE 26.50]
+
+The second most recent skin used.[verify]
+
+0.15.0 (build 1)
+
+Blank
+
+29
+
+game_recentskin3​[until: BE 26.50]
+
+The third most recent skin used.[verify]
+
+0.15.0 (build 1)
+
+Blank
+
+30
+
+game_haseverloggedintoxbl
+
+Whether the user has ever logged into Xbox Live.
+
+0/1
+
+0
+
+0.15.0 (build 1)
+
+31
+
+game_haschosennottosignintoxbl
+
+Whether the user is currently signed out of Xbox Live.
+
+0/1
+
+1
+
+0.15.0 (build 1)
+
+32
+
+game_hasshownsocialdrawer
+
+​[more information needed]
+
+0/1
+
+0
+
+1.21.111
+
+33
+
+dvce_filestoragelocation
+
+Where the game files are stored.
+
+​[more information needed]
+
+2[verify]
+
+1.18.0
+
+34
+
+ctrl_islefthanded
+
+Whether the touch d-pad should be on the left or the right.
+
+0/1
+
+0
+
+0.7.0
+
+35
+
+ctrl_joystickVisibility
+
+Whether the joystick in touch controls is visible when unused.
+
+0/1
+
+0
+
+36
+
+ctrl_staticJoystick
+
+Wether the joystick in touch controls can be moved on the screen.
+
+0/1
+
+1
+
+37
+
+ctrl_usetouchjoypad
+
+Whether or not Split Touch controls is enabled.
+
+0/1
+
+0
+
+0.7.0
+
+38
+
+ctrl_swapjumpandsneak
+
+Whether the jump and sneak buttons should be swapped.
+
+0/1
+
+0
+
+0.12.1 (build 2)
+
+39
+
+gfx_viewdistance
+
+The player's render distance, measured in blocks.
+
+80-1536
+
+Varies depending on the device.
+
+40
+
+gfx_particleviewdistance
+
+​[more information needed]
+
+​[more information needed]
+
+0.5
+
+0.14.2
+
+41
+
+gfx_viewbobbing
+
+Toggles view bobbing.
+
+0/1
+
+1
+
+0.12.1 (build 1)
+
+42
+
+gfx_damagebobbing
+
+Adjusts screen bobbing when taking damage.
+
+0-1
+
+1
+
+1.21.130
+
+43
+
+gfx_transparentleaves
+
+Toggles transparent leaves.
+
+0/1
+
+1
+
+0.14.2
+
+44
+
+gfx_smoothlighting
+
+Toggles smooth lighting.
+
+0/1
+
+1
+
+1.1.0
+
+45
+
+gfx_fancyskies
+
+Whether the sun, moon, clouds, stars, and different sky colors are visible.
+
+0/1
+
+1
+
+0.7.0
+
+46
+
+gfx_field_of_view
+
+The player's field of view, measured in degrees.
+
+30-110
+
+60
+
+0.12.1 (build 3)
+
+47
+
+gfx_msaa
+
+The level of in-game multisample anti-aliasing.
+
+1-16 (power of 2)
+
+1
+
+0.14.2
+
+48
+
+gfx_texel_aa_2
+
+​[more information needed]
+
+​[more information needed]
+
+0
+
+49
+
+gfx_gamma
+
+The brightness level of the player's screen.
+
+0-1
+
+0.5
+
+0.10.0 (build 1)
+
+50
+
+gfx_multithreaded_renderer
+
+​[more information needed]
+
+0/1[verify]
+
+1
+
+51
+
+gfx_vsync
+
+Whether v-sync (vertical synchronization) is enabled
+
+0/1
+
+0
+
+1.9.0
+
+52
+
+dev_file_watcher
+
+​[more information needed]
+
+0/1[verify]
+
+1
+
+1.9.0
+
+53
+
+gfx_max_framerate
+
+The maximum framerate (0 means unlimited)
+
+0-250
+
+0
+
+gfx_max_framerate_advanced
+
+​[more information needed]
+
+0
+
+54
+
+gfx_fullscreen
+
+Whether or not fullscreen is enabled
+
+0/1
+
+0
+
+0.12.1 (build 1)
+
+55
+
+show_advanced_video_settings
+
+Whether the "Advanced Video Settings" are shown, which include options for ray tracing and upscaling. Unused since these settings have been merged in graphics options dropdowns.
+
+0/1
+
+0
+
+1.16.200
+
+56
+
+gfx_guiscale_offset
+
+How much to scale the UI, relative to the game's predetermined scale (based on the screen/window size).
+
+Theoretically any number, but generally an integer between -1 and 2 on most screen sizes.
+
+0
+
+57
+
+gfx_splitscreen_guiscale_offset
+
+The offset of GUIs when using splitscreen.
+
+0-1
+
+0
+
+58
+
+gfx_safe_zone_x
+
+The horizontal offset of the screen.
+
+0-1
+
+1
+
+1.2.9
+
+59
+
+gfx_safe_zone_y
+
+The vertical offset of the screen.
+
+0-1
+
+1
+
+1.2.9
+
+60
+
+gfx_safe_zone_all
+
+The scale offset of the screen.
+
+0-1
+
+1
+
+61
+
+gfx_safe_zone_pos_x
+
+​[more information needed]
+
+0-1
+
+1
+
+62
+
+gfx_safe_zone_pos_y
+
+​[more information needed]
+
+0-1
+
+0
+
+63
+
+gfx_ui_profile
+
+Whether to use the Pocket UI instead of the Classic UI.
+
+0/1
+
+1 on mobile devices, 0 on other platforms.
+
+64
+
+audio_main
+
+The volume of all sounds.
+
+0-1
+
+1
+
+1.16.200
+
+65
+
+audio_sound
+
+The volume of sound effects.
+
+0-1
+
+1
+
+0.7.0
+
+66
+
+audio_music
+
+The volume of gameplay music.
+
+0-1
+
+1
+
+0.12.1 (build 1)
+
+67
+
+audio_ambient
+
+The volume of ambient sounds.
+
+0-1
+
+1
+
+1.16.200
+
+68
+
+audio_block
+
+The volume of blocks.
+
+0-1
+
+1
+
+1.16.200
+
+69
+
+audio_hostile
+
+The volume of hostile mobs.
+
+0-1
+
+1
+
+1.16.200
+
+70
+
+audio_neutral
+
+The volume of friendly creatures.
+
+0-1
+
+1
+
+1.16.200
+
+71
+
+audio_record
+
+The volume of music/sounds from jukeboxes and note blocks.
+
+0-1
+
+1
+
+1.16.200
+
+72
+
+audio_player
+
+The volume of players.
+
+0-1
+
+1
+
+1.16.200
+
+73
+
+audio_weather
+
+The volume of weather.
+
+0-1
+
+1
+
+1.16.200
+
+74
+
+audio_teksttospeech
+
+The volume of text to speech.
+
+0-1
+
+1
+
+1.16.210
+
+75
+
+store_has_purchased_coins
+
+Whether the user has ever bought minecoins.
+
+0/1
+
+0
+
+76
+
+switch_coin_debug
+
+​[more information needed]
+
+0/1[verify]
+
+0
+
+77
+
+manuallyTrackedAchievements
+
+This stores which achievements are manually added to the "In progress" category. The format is +achievement number, where the achievement number is based on the order of achievements. Multiple achievements are separated by a ;.
+
+1.21.111
+
+78
+
+startup_statistics
+
+​[more information needed]
+
+0/1[verify]
+
+0
+
+79
+
+dev_debug_hud
+
+Whether the debug info in Minecraft Preview is enabled, does nothing in full releases.
+
+0: enabled / 1: disabled
+
+0
+
+1.21.130
+
+80
+
+old_game_version_major
+
+The first number in the current version.
+
+0[verify]
+
+0.8.1
+
+81
+
+old_game_version_minor
+
+The second number in the current version, used to store major updates.
+
+0[verify]
+
+0.8.1
+
+82
+
+old_game_version_patch
+
+The third number in the current version, used to store minor updates/hotfixes.
+
+0[verify]
+
+0.8.1
+
+83
+
+old_game_version_revision
+
+The fourth number in the current version, used for internal versioning.
+
+0[verify]
+
+1.12.0
+
+84
+
+old_game_version_beta
+
+The fifth number in the current version, used for betas (0 if not playing beta).
+
+0[verify]
+
+0.8.1
+
+85
+
+fail_realms_purchase_fulfillment
+
+​[more information needed]
+
+0/1[verify]
+
+0
+
+1.21.90
+
+86
+
+realms_show_friend_invites_only
+
+Whether the list of invites to Realms should show invites only from in-game friends.
+
+0/1
+
+1
+
+0.15.0 (build 2)
+
+87
+
+number_of_owned_realms
+
+The number of Realms that the player owns.
+
+0
+
+88
+
+number_of_friends_realms
+
+The number of Realms the player has access to.
+
+0
+
+89
+
+realms_view_upsell_screen_count
+
+​[more information needed]
+
+3
+
+90
+
+realms_ore_ui_purchase_enabled
+
+Whether Realms purchase screens use Ore UI.
+
+0/1
+
+1
+
+91
+
+MultipleSwitchRealms
+
+​[more information needed]
+
+0/1[verify]
+
+0
+
+1.21.80
+
+92
+
+realms_enable_subpacks
+
+​[more information needed]
+
+0/1
+
+1
+
+1.21.80
+
+93
+
+realms_switch_reconciliation
+
+​[more information needed]
+
+0/1
+
+0
+
+26.10
+
+94
+
+realms_switch_test_offers
+
+​[more information needed]
+
+0/1
+
+0
+
+26.10
+
+95
+
+realms_commerce_v2
+
+​[more information needed]
+
+0/1
+
+0
+
+26.30
+
+96
+
+shown_ratings_prompt
+
+Whether the "Do you like Minecraft" pop-up has appeared.
+
+0/1
+
+0
+
+1.5.0
+
+97
+
+save_and_quit_count
+
+The number of times the player has exited a world, which determines when the "Do you like Minecraft" pop-up appears.
+
+1
+
+1.5.0
+
+98
+
+show_worlds_trial_button
+
+​[more information needed]
+
+0/1[verify]
+
+1
+
+99
+
+allow_cellular_data
+
+Whether to use cellular data to connect with online services.
+
+0/1
+
+0
+
+100
+
+auto_update_mode
+
+Whether to update Marketplace packs automatically over cellular data or wi-fi.
+
+0/1
+
+1
+
+101
+
+auto_update_enabled
+
+Whether to update Marketplace packs automatically.
+
+0/1
+
+1
+
+102
+
+websocket_enabled
+
+Whether the game allows to connect to WebSocket servers.
+
+0/1
+
+0
+
+103
+
+websocket_encryption
+
+Whether the game only allows encrypted WebSocket server connections.
+
+0/1
+
+0
+
+1.1.0
+
+104
+
+text_to_speech_discovered
+
+Whether the device has support for text to speech.
+
+0/1
+
+0
+
+1.11.0
+
+105
+
+monitor_platform_text_to_speech
+
+Toggles text to speech with the device's settings.
+
+0/1
+
+1
+
+1.13.0
+
+106
+
+enable_gameplay_subtitles
+
+Toggles closed captions
+
+0/1
+
+0
+
+26.0
+
+107
+
+hide_own_gameplay_subtitles
+
+Whether subtitles for the player's own sounds are shown.
+
+0/1
+
+0
+
+26.20
+
+108
+
+hide_ambient_gameplay_subtitles
+
+Whether subtitles for ambient and weather sounds are shown.
+
+0/1
+
+0
+
+26.20
+
+109
+
+subtitle_duration
+
+The time subtitles are shown, in 0.01 seconds.
+
+1000-4000
+
+1500
+
+26.20
+
+110
+
+subtitle_position
+
+Whether subtitles are shown in the top-right or bottom-right.
+
+0/1
+
+0
+
+26.20
+
+111
+
+chat_text_to_speech
+
+Toggles text to speech for chat messages.
+
+0/1
+
+0
+
+1.0.0
+
+112
+
+ui_text_to_speech
+
+Toggles text to speech in menu screens.
+
+0/1
+
+0
+
+1.11.0
+
+113
+
+open_chat_message
+
+Toggles to show the "Press T, ⏎ Return, or Gamepad Button8 to open chat" message in the chat.
+
+0/1
+
+1
+
+1.13.0
+
+114
+
+ctrl_sensitivity2_mouse
+
+The sensitivity when using mouse controls.
+
+0-1
+
+0.6
+
+115
+
+ctrl_sensitivity_touch
+
+The sensitivity when using touch controls.
+
+0-1
+
+0.6
+
+116
+
+ctrl_sensitivity2_gamepad
+
+The sensitivity when using a console controller.
+
+0-1
+
+0.6
+
+117
+
+ctrl_smoothrotationspeed
+
+The sensitivity of the camera movement keys when using full keyboard gameplay.
+
+0-1
+
+0.1
+
+1.4.0
+
+118
+
+ctrl_invertmouse_mouse
+
+Whether the vertical camera movement on the mouse is inversed.
+
+0/1
+
+0
+
+119
+
+ctrl_invertmouse_touch
+
+Whether the vertical camera movement on touch controls is inverted.
+
+0/1
+
+0
+
+120
+
+ctrl_invertmouse_gamepad
+
+Wether the vertical camera movement on a console controller is inverted.
+
+0/1
+
+0
+
+121
+
+ctrl_autojump_mouse
+
+Toggles auto-jump for mouse controls.
+
+0/1
+
+1
+
+122
+
+ctrl_autojump_touch
+
+Toggles auto-jump for touch controls.
+
+0/1
+
+1
+
+123
+
+ctrl_autojump_gamepad
+
+Toggles auto-jump for console controllers.
+
+0/1
+
+1
+
+124
+
+ctrl_fullkeyboardgameplay
+
+Toggles full keyboard gameplay. If set to 1, all controls are on the keyboard, and the mouse is not used.
+
+0/1
+
+0
+
+1.4.0
+
+125
+
+feedback_destroy_vibration_mouse
+
+Whether to vibrate when breaking block, for keyboard & mouse controls.
+
+0/1
+
+1
+
+126
+
+feedback_destroy_vibration_touch
+
+Whether to vibrate when breaking block, for touch controls.
+
+0/1
+
+0
+
+127
+
+feedback_destroy_vibration_gamepad
+
+Whether to vibrate when breaking block, for console controllers.
+
+0/1
+
+1
+
+128
+
+feedback_split_vibration_mouse
+
+Whether to vibrate when splitting items in a GUI, for keyboard & mouse controls.
+
+0/1
+
+1
+
+129
+
+feedback_split_vibration_touch
+
+Whether to vibrate when splitting items in a GUI, for touch controls.
+
+0/1
+
+0
+
+130
+
+feedback_split_vibration_gamepad
+
+Whether to vibrate when splitting items in a GUI, for console controllers.
+
+0/1
+
+1
+
+131
+
+gfx_toggleclouds
+
+Whether to show the clouds. (Note: gfx_fancyskies must also be on).
+
+0/1
+
+1
+
+132
+
+ctrl_togglecrouch_mouse
+
+Whether the sneak button toggles sneaking, as opposed to holding the button to sneak, when using keyboard controls.
+
+0/1
+
+0
+
+133
+
+ctrl_togglecrouch_touch
+
+Whether the sneak button toggles sneaking, as opposed to holding the button to sneak, when using touch controls.
+
+0/1
+
+1
+
+134
+
+ctrl_togglecrouch_gamepad
+
+Whether the sneak button toggles sneaking, as opposed to holding the button to sneak, when using a console controller.
+
+0/1
+
+0
+
+135
+
+ctrl_sneak
+
+Whether the sneak button toggles sneaking, as opposed to holding the button to sneak, when using touch controls with a joystick.
+
+0/1
+
+0
+
+136
+
+crossplatform_toggle
+
+​[more information needed]
+
+0/1
+
+1
+
+1.13.0
+
+137
+
+last_xuid
+
+The logged Xbox account xuid (in decimal number)
+
+Blank
+
+138
+
+gfx_hidepaperdoll
+
+Whether to hide the paper doll. If turned on, the HUD must also be displayed.
+
+0/1
+
+1
+
+139
+
+gfx_tooltips
+
+Whether to show controller hints for controller controls.
+
+0/1
+
+0
+
+140
+
+show_learning_Prompts
+
+​[more information needed]
+
+0/1[verify]
+
+0
+
+141
+
+show_control_tips
+
+​[more information needed]
+
+0/1[verify]
+
+0
+
+142
+
+show_control_tips_overridden
+
+​[more information needed]
+
+0/1[verify]
+
+0
+
+143
+
+gfx_classic_box_selection
+
+Whether to show the outline selection when aiming at blocks with the crosshair.
+
+0/1
+
+1
+
+144
+
+gfx_splitscreen
+
+Toggles splitscreen mode between horizontal and vertical.
+
+0/1
+
+0
+
+145
+
+gfx_hidehud
+
+Whether to hide the heads-up display. If turned off, the player's hand is still visible, but the coordinates and paper doll are not.
+
+0/1
+
+0
+
+146
+
+gfx_hidehand
+
+Whether to hide the player's hand. If turned on, the player's hand appears regardless of gfx_hidehud.
+
+0/1
+
+0
+
+147
+
+gfx_ingame_player_names
+
+Whether or not in-game player nametags are shown.
+
+0/1
+
+1
+
+148
+
+gfx_splitscreen_ingame_player_names
+
+Whether or not in-game player nametags are shown when playing in splitscreen.
+
+0/1
+
+1
+
+149
+
+gfx_interface_opacity
+
+Adjusts the opacity of the HUD.
+
+0-1
+
+1
+
+150
+
+gfx_splitcreen_interface_opacity
+
+Adjusts the opacity of the HUD while in splitscreen.
+
+0-1
+
+1
+
+151
+
+gfx_hud_background_opacity
+
+Adjusts the opacity of text shown on the HUD.
+
+0-1
+
+0.6
+
+1.16.0
+
+152
+
+gfx_actionbar_background_opacity
+
+Adjusts the opacity of text shown on the action bar.
+
+0-1
+
+0.6
+
+1.16.0
+
+153
+
+gfx_chat_background_opacity
+
+Adjusts the opacity of chat messages shown on the HUD.
+
+0-1
+
+0.7
+
+1.21.90
+
+154
+
+game_ackautosave
+
+​[more information needed]
+
+0/1[verify]
+
+0
+
+155
+
+gfx_showautosaveicon
+
+Whether or not to show the autosave icon when autosaving.
+
+0/1
+
+0
+
+156
+
+gfx_has_set_safe_zone
+
+​[more information needed]
+
+0/1
+
+0
+
+157
+
+gfx_field_of_view_toggle
+
+Whether gameplay can alter the field of view.
+
+0/1
+
+1
+
+158
+
+gfx_gamepad_cursor
+
+Whether to show a cursor in the GUI while using a console controller.
+
+0/1
+
+0
+
+159
+
+gamma_calibration
+
+The brightness when using Vibrant Visuals.
+
+0.25-1.5
+
+1
+
+1.21.20
+
+161
+
+ctrl_hotbarOnlyTouch
+
+Whether touch controls should be used only for the hotbar.
+
+0/1
+
+0
+
+1.2.13
+
+162
+
+gfx_gamepad_cursor_sensitivity
+
+The sensitivity of the cursor when using a console controller.
+
+0-1
+
+1
+
+1.2.10
+
+163
+
+realms_sunset_tier
+
+​[more information needed]
+
+-1/0/1[verify]
+
+-1
+
+164
+
+has_shown_being_sunset_notice
+
+Whether to show a warning when support for this platform is being sunset in the near future.
+
+0/1
+
+0
+
+1.16.10
+
+165
+
+has_shown_sunset_notice
+
+Whether to show a warning when support for this platform has been sunset.
+
+0/1
+
+0
+
+1.16.10
+
+166
+
+game_showplatformnetworkconnect
+
+​[more information needed]
+
+0/1[verify]
+
+0
+
+167
+
+screen_animations
+
+Whether or not smooth screen transitions are enabled.
+
+0/1
+
+1
+
+1.2.13
+
+panorama_scroll_speed
+
+Scroll speed of the menu panorama.
+
+0-1
+
+1
+
+26.30
+
+168
+
+ctrl_swap_gamepad_ab_buttons
+
+Whether to swap the A and B buttons on a controller (by default, these are jumping and sneaking, respectively).
+
+0/1
+
+0
+
+1.2.13
+
+169
+
+ctrl_swap_gamepad_xy_buttons
+
+Whether to swap the X and Y buttons on a controller (by default, these are crafting and inventory, respectively).
+
+0/1
+
+0
+
+1.2.13
+
+170
+
+ctrl_clear_hotbar
+
+Whether the option to instantly clear the hotbar while in a GUI is available, for console controllers.
+
+0/1
+
+0
+
+1.17.30
+
+171
+
+gfx_bubble_particles
+
+Toggles bubble particles and fancy bubble columns.
+
+0/1
+
+1
+
+1.5.0
+
+172
+
+game_showplatformpremiumupsell
+
+​[more information needed]
+
+0/1
+
+0
+
+1.5.0
+
+173
+
+chat_color_code
+
+The color used in the chat window. See the formatting codes page for details.
+
+§ f
+
+1.8.0
+
+174
+
+chat_font_size
+
+The font size used in the chat window.
+
+12
+
+1.10.0
+
+175
+
+chat_line_spacing
+
+The line spacing in the chat window.
+
+1
+
+1.7.0
+
+176
+
+chat_mentions_color_code
+
+The color used to mention other players (e.g., @Player). See the formatting codes page for details.
+
+§ e
+
+1.8.0
+
+177
+
+chat_typeface
+
+The font used in the chat between Mojangles or Noto Sans.
+
+0/1
+
+0
+
+1.10.0
+
+178
+
+content_log_file
+
+Enables a content log file.
+
+0/1
+
+0
+
+1.12.0
+
+179
+
+content_log_gui
+
+Enables the content log GUI in the Creator settings tab.
+
+0/1
+
+0
+
+1.12.0
+
+180
+
+content_log_gui_level
+
+Adjusts the minimum content log level.
+
+0/1/2/3/4
+
+2
+
+181
+
+content_log_gui_show_on_errors
+
+Whether the content log GUI is opened in-game on an error.
+
+0/1
+
+0
+
+182
+
+gameplay_tips_enabled
+
+Toggles tutorial hints.
+
+0/1
+
+0
+
+1.9.0
+
+183
+
+gameplay_tips_enabled_for_debug
+
+​[more information needed]
+
+0/1
+
+1
+
+1.9.0
+
+184
+
+pause_feature_enabled
+
+Whether the game is paused in the pause menu in singleplayer.
+
+0/1
+
+1
+
+1.21.60
+
+185
+
+game_tips_animation_enabled
+
+Toggles the animation of tutorial hints.
+
+0/1
+
+1
+
+186
+
+iap_owning_account
+
+​[more information needed]
+
+Blank
+
+1.9.0
+
+187
+
+last_minecraft_id
+
+The PFID of the player during the last session.
+
+Blank
+
+1.9.0
+
+188
+
+last_title_account_id
+
+The account ID of the player during the last session.
+
+Blank
+
+189
+
+show_camera_tip_times_remain
+
+The amount of camera tutorial hints that is yet to be shown.
+
+3
+
+1.20.70
+
+190
+
+show_movement_tip_times_remain
+
+The amount of movement tutorial hints that is yet to be shown.
+
+3
+
+1.20.70
+
+191
+
+show_flying_tip_times_remain
+
+The amount of flying tutorial hints that is yet to be shown.
+
+3
+
+1.20.70
+
+192
+
+show_fly_up_tip_times_remain
+
+The amount of fly up tutorial hints that is yet to be shown.
+
+3
+
+1.20.70
+
+193
+
+show_fly_down_tip_times_remain
+
+The amount of fly down tutorial hints that is yet to be shown.
+
+3
+
+1.20.70
+
+194
+
+show_stop_flying_tip_times_remain
+
+The amount of stop flying tutorial hints that is yet to be shown.
+
+3
+
+1.20.70
+
+195
+
+show_jump_tip_times_remain
+
+The amount of jump tutorial hints that is yet to be shown.
+
+3
+
+1.20.70
+
+196
+
+show_swim_tip_times_remain
+
+The amount of swim tutorial hints that is yet to be shown.
+
+3
+
+1.20.70
+
+197
+
+show_break_block_tip_times_remain
+
+The amount of break block tutorial hints that is yet to be shown.
+
+3
+
+1.20.70
+
+198
+
+show_place_block_tip_times_remain
+
+The amount of place block tutorial hints that is yet to be shown.
+
+3
+
+1.20.70
+
+199
+
+show_open_inventory_tip_times_remain
+
+The amount of open inventory tutorial hints that is yet to be shown.
+
+3
+
+1.20.70
+
+200
+
+show_sneak_tip_times_remain
+
+The amount of sneak tutorial hints that is yet to be shown.
+
+3
+
+1.20.70
+
+201
+
+show_stop_sneaking_tip_times_remain
+
+The amount of stop sneaking tutorial hints that is yet to be shown.
+
+3
+
+1.20.70
+
+202
+
+show_place_crafting_table_tip_times_remain
+
+The amount of place crafting table tutorial hints that is yet to be shown.
+
+3
+
+1.20.70
+
+203
+
+show_use_crafting_table_tip_times_remain
+
+The amount of use crafting table tutorial hints that is yet to be shown.
+
+3
+
+1.20.70
+
+204
+
+show_hotbar_scrolling_tip_times_remain
+
+The amount of hotbar scrolling tutorial hints that is yet to be shown.
+
+3
+
+1.20.70
+
+205
+
+show_chat_tip_times_remain
+
+The amount of chat tutorial hints that is yet to be shown.
+
+3
+
+1.21.20
+
+206
+
+show_emote_tip_times_remain
+
+The amount of emote tutorial hints that is yet to be shown.
+
+3
+
+1.20.70
+
+207
+
+day_one_experience_completed
+
+Whether the player has completed one in-game day. Or loading_tips_index = 12.
+
+0/1
+
+0
+
+1.13.0
+
+208
+
+is_legacy_player
+
+Whether the player has previously owned PlayStation 4 Edition, to show the "Editions" button on the main menu.
+
+0/1
+
+1
+
+1.13.0
+
+209
+
+toast_notification_duration
+
+The duration of toast notifications.
+
+0/1/2
+
+0
+
+210
+
+chat_message_duration
+
+The duration of chat messages shown on the HUD.
+
+0/1/2
+
+1
+
+211
+
+dev_enable_texture_hot_reloader
+
+​[more information needed]
+
+0/1
+
+0
+
+212
+
+playfab_commerce_enabled
+
+​[more information needed]
+
+0/1
+
+0
+
+1.13.0
+
+213
+
+do_not_show_multiplayer_online_safety_warning
+
+Whether the game should show the online safety warning when attempting to play a multiplayer world or server.
+
+0/1
+
+0
+
+1.14.60
+
+214
+
+only_show_trusted_skins
+
+Whether or not user uploaded skins are rendered.
+
+0/1
+
+1
+
+1.14.60
+
+215
+
+filter_profanity
+
+Whether the game should use profanity filtering in the chat.
+
+0/1
+
+1
+
+1.21.60
+
+216
+
+camera_shake
+
+Whether the camera could visually shake affected by gameplay.
+
+0/1
+
+1
+
+1.16.100
+
+217
+
+hide_endflash
+
+Whether End flashes can happen.
+
+0/1
+
+0
+
+1.21.111
+
+218
+
+enable_dithering_blocks
+
+Whether dithering is enabled for blocks, such as sugar cane.
+
+0/1
+
+1
+
+1.21.120
+
+219
+
+enable_dithering_mobs
+
+Whether dithering is enabled for mobs.
+
+0/1
+
+1
+
+1.21.120
+
+220
+
+gfx_gui_accessibility_scaling
+
+Enables a larger version of the GUI.
+
+0/1
+
+0
+
+221
+
+raytracing_viewdistance
+
+The render distance when the graphics mode is set to Ray Traced.
+
+0-128
+
+Varies depending on the device.
+
+1.16.200
+
+222
+
+deferred_viewdistance
+
+The render distance when the graphics mode is set to Vibrant Visuals.
+
+0-128
+
+Varies depending on the device.
+
+1.20.30
+
+223
+
+upscaling_percentage
+
+The resolution used for upscaling when the graphics mode is set to Vibrant Visuals.
+
+0-100
+
+0
+
+1.21.40
+
+224
+
+upscaling_mode
+
+The upscaling mode used for Vibrant Visuals.
+
+0: TAAU / 1: Bilinear
+
+1
+
+1.21.60
+
+225
+
+gfx_upscaling
+
+Whether upscaling is enabled when the graphics mode is set to Ray Traced.
+
+0/1
+
+1
+
+1.16.200
+
+226
+
+target_resolution
+
+The automatic upscaling factor for Vibrant Visuals.
+
+0-1
+
+Varies
+
+1.21.40
+
+227
+
+new_edit_realm_world_beta​[until: BE 26.50]
+
+Whether the Ore UI edit world screen is currently enabled for Realms.
+
+0/1
+
+0
+
+1.20.60
+
+228
+
+ctrl_spyglassdamp_mouse
+
+The sensitivity of the mouse while using a spyglass.
+
+0-1
+
+0.5
+
+1.17.0
+
+229
+
+ctrl_spyglassdamp_touch
+
+The sensitivity of the joystick while using a spyglass.
+
+0-1
+
+0.5
+
+1.17.0
+
+230
+
+ctrl_spyglassdamp_gamepad
+
+The sensitivity of the console controller while using a spyglass.
+
+0-1
+
+0.5
+
+1.17.0
+
+231
+
+ctrl_dwellbeforedragtime
+
+​[more information needed]
+
+​[more information needed]
+
+180
+
+232
+
+ctrl_stacksplittingtriggertime
+
+The time while holding needed to start splitting a stack of items in the inventory.
+
+525
+
+233
+
+show_render_distance_warning_modal
+
+Whether to show a warning message when trying to set the render distance above the recommended value.
+
+0/1
+
+1
+
+234
+
+dev_marketplace_rotation_speed_multiplier
+
+The rotation speed of skins in the Marketplace.
+
+0
+
+235
+
+dev_marketplace_toggle_all_skins_rotate
+
+Whether skins in the Marketplace are visually rotating.
+
+0/1
+
+1
+
+236
+
+has_shown_storage_location_warning
+
+Whether a warning about the storage location has ever been shown.
+
+0/1
+
+0
+
+1.18.0
+
+237
+
+game_event_retention_ticks
+
+​[more information needed]
+
+​[more information needed]
+
+0
+
+238
+
+deep_dark_debug_render
+
+​[more information needed]
+
+0/1
+
+0
+
+239
+
+copy_coordinate_ui
+
+Whether the coordinates and buttons to copy them are shown in the chat menu.
+
+0/1
+
+0
+
+1.19.10
+
+240
+
+serverbound_client_diagnostics_enabled
+
+Starts a diagnostics capture session at level load.
+
+0/1
+
+0
+
+241
+
+script_debugger_auto_attach
+
+Attempt to attach script debugger at level load, requires that either inbound port or connect address is set and that inbound or outbound connections are enabled.
+
+0/1
+
+0
+
+242
+
+script_debugger_auto_attach_timeout
+
+Amount of time to wait at world load for debugger to attach.
+
+0-1
+
+0
+
+243
+
+script_debugger_attach_mode
+
+Whether to connect to the debugger at the specified port, or listen to inbound connect attempts from the debugger on the specified port.
+
+0: connect / 1: listen
+
+1
+
+244
+
+script_debugger_host
+
+The specified host to connect with the debugger.
+
+localhost
+
+245
+
+script_debugger_port
+
+The specified port to connect with or listen to the debugger.
+
+19144
+
+246
+
+script_debugger_passcode
+
+The passcode used for the debugger.
+
+Blank
+
+247
+
+script_debugger_passcode_required
+
+VSCode will prompt user for passcode to connect.
+
+0/1
+
+0
+
+248
+
+script_watchdog_slow_warning
+
+Enables the watchdog for slow script.
+
+0/1
+
+0
+
+249
+
+script_watchdog_spike_warning
+
+Enables the watchdog for single tick spikes.
+
+0/1
+
+0
+
+250
+
+script_watchdog_slow_threshold
+
+Sets the watchdog threshold for single tick spikes.
+
+5-50
+
+10
+
+251
+
+script_watchdog_spike_threshold
+
+Sets the watchdog threshold for slow scripts over multiple ticks.
+
+50-500
+
+100
+
+252
+
+script_watchdog_hang_threshold
+
+Sets the watchdog threshold for single tick hangs.
+
+3-100
+
+10
+
+253
+
+device_info_memory_tier_override
+
+Saves and shuts down the world when the combined script memory usage exceeds the given threshold.
+
+1/2/3/4/5
+
+4
+
+254
+
+device_info_use_memory_tier_override
+
+Whether to use device_info_memory_tier_override instead of an automatic memory tier.
+
+0/1
+
+0
+
+255
+
+debug_text_filtering_delay_sec_override
+
+The amount of seconds the profanity filter is delayed, if the option below is set.
+
+0-5
+
+0
+
+26.20
+
+256
+
+debug_text_filtering_use_delay_sec_override
+
+Whether to enable the profanity filter delay override.
+
+0/1
+
+0
+
+26.20
+
+257
+
+darkness_effect_modifier
+
+Changes the influence of the Darkness effect.
+
+0-1
+
+1
+
+screen_distortion
+
+Changes the influence of the screen distortion effect.
+
+0-1
+
+1
+
+26.40
+
+258
+
+glint_strength
+
+Changes the transparency of visual glint on enchanted items.
+
+0-1
+
+0.75
+
+1.19.80
+
+259
+
+glint_speed
+
+Changes the speed of visual glint on enchanted items.
+
+0-1
+
+0.5
+
+1.19.80
+
+260
+
+touch_control_selection_screen
+
+Enables a button to change the touch control mode.
+
+0/1
+
+0
+
+261
+
+enable_braze
+
+​[more information needed]
+
+0/1
+
+0
+
+262
+
+gfx_resizableui
+
+Toggles the ability to customize the location, scale, and opacity of buttons in touch controls.
+
+0/1
+
+1
+
+263
+
+gfx_hotbarScale
+
+Adjusts the scale of the hotbar
+
+0-1
+
+1
+
+264
+
+gfx_moveStickX
+
+The horizontal location of the move joystick.
+
+0-1
+
+0.15
+
+265
+
+gfx_moveStickY
+
+The vertical location of the move joystick.
+
+0-1
+
+0.55
+
+266
+
+gfx_moveStickScale
+
+The size of the move joystick.
+
+1
+
+267
+
+gfx_altStickX
+
+The horizontal location of the alternative move joystick.
+
+0-1
+
+0.85
+
+1.21.130
+
+268
+
+gfx_altStickY
+
+The vertical location of the alternative move joystick.
+
+0-1
+
+0.55
+
+1.21.130
+
+269
+
+gfx_altStickScale
+
+The size of the alternative move joystick.
+
+1
+
+1.21.130
+
+270
+
+gfx_touchButton1X
+
+The horizontal location of the place block button.
+
+0-1
+
+0.925
+
+271
+
+gfx_touchButton1Y
+
+The vertical location of the place block button.
+
+0-1
+
+0.4
+
+272
+
+gfx_touchButton1Scale
+
+The scale of the place block button.
+
+1
+
+273
+
+gfx_touchButton1Opacity
+
+The opacity of the place block button.
+
+0-1
+
+0.5
+
+274
+
+gfx_touchButton2X
+
+The horizontal location of the attack/destroy button.
+
+0-1
+
+0.825
+
+275
+
+gfx_touchButton2Y
+
+The vertical location of the attack/destroy button.
+
+0-1
+
+0.5
+
+276
+
+gfx_touchButton2Scale
+
+The scale of the attack/destroy button.
+
+1
+
+277
+
+gfx_touchButton2Opacity
+
+The opacity of the attack/destroy button.
+
+0-1
+
+0.5
+
+278
+
+gfx_touchButton3X
+
+The horizontal location of the sneak button.
+
+0-1
+
+0.925
+
+279
+
+gfx_touchButton3Y
+
+The vertical location of the sneak button.
+
+0-1
+
+0.6
+
+280
+
+gfx_touchButton3Scale
+
+The scale of the sneak button.
+
+1
+
+281
+
+gfx_touchButton3Opacity
+
+The opacity of the sneak button.
+
+0-1
+
+0.5
+
+282
+
+gfx_touchButton4X
+
+The horizontal location of the sprint button.
+
+0-1
+
+0.825
+
+283
+
+gfx_touchButton4Y
+
+The vertical location of the sprint button.
+
+0-1
+
+0.7
+
+284
+
+gfx_touchButton4Scale
+
+The scale of the sprint button.
+
+1
+
+285
+
+gfx_touchButton4Opacity
+
+The opacity of the sprint button.
+
+0-1
+
+0.5
+
+286
+
+gfx_touchButton5X
+
+The horizontal location of the jump button.
+
+0-1
+
+0.925
+
+287
+
+gfx_touchButton5Y
+
+The vertical location of the place jump button.
+
+0-1
+
+0.8
+
+288
+
+gfx_touchButton5Scale
+
+The scale of the place jump button.
+
+1
+
+289
+
+gfx_touchButton5Opacity
+
+The opacity of the place jump button.
+
+0-1
+
+0.5
+
+290
+
+gfx_touchButton6X
+
+The horizontal location of the pick block button.
+
+0-1
+
+0.266
+
+291
+
+gfx_touchButton6Y
+
+The vertical location of the pick block button.
+
+0-1
+
+0.8
+
+292
+
+gfx_touchButton6Scale
+
+The scale of the pick block button.
+
+0
+
+1
+
+293
+
+gfx_touchButton6Opacity
+
+The opacity of the pick block button.
+
+0-1
+
+0.5
+
+294
+
+gfx_touchDpadX
+
+The horizontal location of the D-Pad.
+
+0-1
+
+0.12
+
+295
+
+gfx_touchDpadY
+
+The vertical location of the D-Pad.
+
+0-1
+
+0.75
+
+296
+
+gfx_touchDpadScale
+
+The scale of the D-Pad.
+
+1.2
+
+297
+
+gfx_touchDpadOpacity
+
+The opacity of the D-Pad.
+
+0-1
+
+0.5
+
+298
+
+gfx_classicButton1X
+
+The horizontal location of the jump button when using D-pad & tap to interact control mode.
+
+0-1
+
+0.9
+
+299
+
+gfx_classicButton1Y
+
+The vertical location of the jump button when using D-pad & tap to interact control mode.
+
+0-1
+
+0.75
+
+300
+
+gfx_classicButton1Scale
+
+The scale of the jump button when using D-pad & tap to interact control mode.
+
+1.2
+
+301
+
+gfx_classicButton1Opacity
+
+The opacity of the jump button when using D-pad & tap to interact control mode.
+
+0-1
+
+0.5
+
+302
+
+gfx_classicButton2X
+
+The horizontal location of the fly/swim up button when using D-pad & tap to interact control mode.
+
+0-1
+
+0.9
+
+303
+
+gfx_classicButton2Y
+
+The vertical location of the fly/swim up button when using D-pad & tap to interact control mode.
+
+0-1
+
+0.75
+
+304
+
+gfx_classicButton2Scale
+
+The scale of the fly/swim up button when using D-pad & tap to interact control mode.
+
+1.2
+
+305
+
+gfx_classicButton2Opacity
+
+The opacity of the fly/swim up button when using D-pad & tap to interact control mode.
+
+0-1
+
+0.5
+
+306
+
+gfx_classicButton3X
+
+The horizontal location of the fly/swim down button when using D-pad & tap to interact control mode.
+
+0-1
+
+0.9
+
+307
+
+gfx_classicButton3Y
+
+The vertical location of the fly/swim down button when using D-pad & tap to interact control mode.
+
+0-1
+
+0.89
+
+308
+
+gfx_classicButton3Scale
+
+The scale of the fly/swim down button when using D-pad & tap to interact control mode.
+
+1.2
+
+309
+
+gfx_classicButton3Opacity
+
+The opacity of the fly/swim down button when using D-pad & tap to interact control mode.
+
+0-1
+
+0.5
+
+310
+
+gfx_classicButton4X
+
+The horizontal location of the pick block button when using D-pad & tap to interact control mode.
+
+0-1
+
+0.75
+
+311
+
+gfx_classicButton4Y
+
+The vertical location of the pick block button when using D-pad & tap to interact control mode.
+
+0-1
+
+0.75
+
+312
+
+gfx_classicButton4Scale
+
+The scale of the pick block button when using D-pad & tap to interact control mode.
+
+1.2
+
+313
+
+gfx_classicButton4Opacity
+
+The opacity of the pick block button when using D-pad & tap to interact control mode.
+
+0-1
+
+0.5
+
+314
+
+realmsplus_lastshowngoogleholddate
+
+​[more information needed]
+
+Date: YYYY-MM-DDTHH:MM:SSZ
+
+1970-01-01T00:00:00Z
+
+315
+
+ctrl_resetOnStart
+
+​[more information needed]
+
+0/1
+
+0
+
+316
+
+gpu_validation_enabled
+
+​[more information needed]
+
+0/1
+
+0
+
+317
+
+gpu_validation_verbose
+
+​[more information needed]
+
+0/1
+
+0
+
+318
+
+gpu_validation_outputmanager_enabled
+
+​[more information needed]
+
+0/1
+
+0
+
+319
+
+gpu_validation_disable_errorsupress
+
+​[more information needed]
+
+0/1
+
+0
+
+320
+
+load_renderdocdll
+
+​[more information needed]
+
+0/1
+
+0
+
+321
+
+graphics_mode
+
+Changes the game's graphics mode.
+
+0: Simple / 1: Fancy / 2: Vibrant Visuals / 3: Ray Traced
+
+2
+
+1.21.80
+
+322
+
+graphics_api
+
+Sets the graphics API on certain platforms.​[more information needed]
+
+0/1
+
+0
+
+1.21.120
+
+323
+
+graphics_quality_preset_mode
+
+The quality of Vibrant Visuals.
+
+0: Favor Performance / 1: Favor Visuals / 2: Custom
+
+0
+
+1.21.60
+
+324
+
+shadow_quality
+
+The quality of shadows in Vibrant Visuals.
+
+0: Low / 1: Medium / 2: High / 3: Ultra
+
+1
+
+1.20.30
+
+325
+
+cloud_quality
+
+The quality of clouds in Vibrant Visuals.
+
+0: Low / 1: Medium / 2: High / 3: Ultra
+
+1
+
+1.21.100
+
+326
+
+lighting_mixed_res_upscale
+
+​[more information needed]
+
+0/1
+
+1
+
+26.20
+
+327
+
+point_light_loding_quality​[until: BE 26.50]block_light_quality​[upcoming: BE 26.50]
+
+The quality of point light loding in Vibrant Visuals.
+
+0: Standard / 1: Volumetric Lights / 2: Point Lights / 3: Point Lights+ / 4: Point Lights++
+
+1
+
+1.20.30
+
+328
+
+volumetric_fog_quality
+
+The quality of volumetric fog in Vibrant Visuals.
+
+0: Off / 1: Low / 2: Medium / 3: High / 4: Ultra
+
+2
+
+1.20.60
+
+329
+
+reflections_quality
+
+The quality of reflections in Vibrant Visuals.
+
+0: Off / 1: Low / 2: Medium / 3: High / 4: Ultra
+
+2
+
+1.21.20
+
+330
+
+bloom_strength
+
+The amount of bloom in Vibrant Visuals.
+
+0-1
+
+1
+
+1.20.30
+
+331
+
+bloom_custom_strength
+
+​[more information needed]
+
+0-1
+
+0
+
+1.20.30
+
+332
+
+do_not_show_multiplayer_ip_safety_warning
+
+Whether to show the warning message when trying show the IP adress of a custom server.
+
+0/1
+
+0
+
+333
+
+do_not_show_worlds_without_entitlement_warning
+
+Whether to show the warning message when trying to play a world without a name.
+
+0/1
+
+0
+
+do_not_show_unavailable_dependencies_beta_warning
+
+​[more information needed]
+
+0/1
+
+0
+
+26.40
+
+334
+
+do_not_show_old_worlds_warning
+
+Whether to show the warning message when trying to play an Old world.
+
+0/1
+
+0
+
+1.18.0
+
+335
+
+do_not_hardcore_mode_warning
+
+Whether to show the warning message when trying to create a Hardcore world.
+
+0/1
+
+0
+
+1.20.80
+
+336
+
+DO_NOT_SHOW_PARTY_TOO_LARGE_WARNING
+
+Whether to show the warning message if a party grows too large.
+
+0/1
+
+0
+
+26.20
+
+337
+
+DO_NOT_SHOW_PARTY_MEMBERS_NO_ACCESS_CANT_INVITE_WARNING
+
+Whether to show the warning message if invited players can't join the party.
+
+0/1
+
+0
+
+26.20
+
+338
+
+DO_NOT_SHOW_PARTY_MEMBERS_NO_ACCESS_INVITE_WARNING
+
+Whether to show the warning message if the player can't join a party they've been invited to.
+
+0/1
+
+0
+
+26.20
+
+339
+
+DO_NOT_SHOW_PARTIES_NOT_SUPPORTED_WARNING
+
+Whether to show the warning message attempting to move a party to a server that does not support parties.
+
+0/1
+
+0
+
+26.20
+
+340
+
+DO_NOT_SHOW_NON_PUBLIC_SERVER_WARNING_THIS_JOIN
+
+​[more information needed]
+
+0/1
+
+0
+
+26.40
+
+341
+
+do_not_show_experimental_worlds_warning
+
+Whether to show the warning message when trying to play or create a world with experiments enabled.
+
+0/1
+
+0
+
+342
+
+do_not_show_using_external_storage_warning
+
+Whether to show the warning message when using external storage.
+
+0/1
+
+0
+
+1.18.0
+
+343
+
+do_not_show_hidden_local_worlds_warning
+
+Whether to show the warning message when locally stored worlds created from a template are hidden without having access to the template.
+
+0/1
+
+0
+
+344
+
+do_not_show_hidden_alternative_storage_worlds_warning
+
+Whether to show the warning message when external stored worlds are hidden.
+
+0/1
+
+0
+
+345
+
+do_not_show_alternative_storage_has_worlds
+
+Whether to show a message when there are worlds external stored.
+
+0/1
+
+0
+
+1.18.0
+
+346
+
+do_not_show_addon_stacking_warning
+
+Whether to show the warning when add-ons are being stacked.
+
+0/1
+
+0
+
+347
+
+do_not_show_slow_connection_warning
+
+Whether to show the warning when the player's connection is slow while playing in multiplayer.
+
+0/1
+
+0
+
+1.21.80
+
+348
+
+do_not_show_realms_moderation_deletion_warning
+
+Whether a warning message should be shown when attempting to delete an expired Realm.
+
+0/1
+
+0
+
+1.21.111
+
+349
+
+do_not_show_realms_region_ping_warning
+
+Whether to show a warning when the server region for a Realms server is set to one with a high ping.
+
+0/1
+
+0
+
+26.0
+
+350
+
+do_not_show_friends_list_ftue
+
+Whether to show a tooltip in the pause menu that the list of players has been moved to the social drawer.
+
+0/1
+
+0
+
+1.21.120
+
+do_not_show_party_tab_ftue
+
+Whether to show a tooltip in the social drawer informing players about the new party feature.
+
+0/1
+
+0
+
+26.30
+
+do_not_show_storage_low_warning
+
+Whether to show the warning modal in the play screen when the storage is full and worlds cannot be opened.
+
+0/1
+
+0
+
+26.30
+
+351
+
+emoteChat
+
+Whether to show a message in the chat when a player uses an emote.
+
+0/1
+
+1
+
+1.16.0
+
+352
+
+loading_tips_index
+
+Count of displayed loading tips (repeating ones also count), when more than 12, the player has reached the second level of Survival loading tips.
+
+0/12
+
+0
+
+353
+
+nether_reached
+
+Whether the player has ever entered the Nether, unlocks the third level of Survival loading tips.
+
+0/1
+
+0
+
+1.20.50
+
+354
+
+has_dismissed_new_player_flow
+
+Whether the player is new to the game and the game starts with quick world creation.
+
+0/1
+
+0
+
+355
+
+ctrl_improvedInputResponse
+
+Toggles the Improved Input Response feature, which reduces the delay between an input and the game's response.
+
+0/1
+
+0
+
+356
+
+app_launched_count
+
+The total amount the player has launched the game.
+
+0
+
+357
+
+gfx_debug_trace
+
+​[more information needed]
+
+0/1
+
+0
+
+358
+
+xbl_use_remote_connect
+
+Whether to use a login code to sign in with a Microsoft account on non-Windows devices.
+
+0/1
+
+0
+
+359
+
+worlds_friends_servers_SISU_third_session
+
+​[more information needed]
+
+0/1
+
+1
+
+360
+
+show_free_preview_realm_available_new_icon
+
+​[more information needed]
+
+0/1
+
+1
+
+361
+
+ecomode_toggle
+
+​[more information needed]
+
+0/1
+
+1
+
+362
+
+playScreenWorldLayoutMode
+
+Toggles the layout of the world tab in the Play screen between list and gallery.
+
+1: Gallery / 2: List
+
+1
+
+1.20.30
+
+363
+
+do_not_show_manage_showcase_clear_warning
+
+Whether to show the warning message when the player attempts to clear the showcase gallery.
+
+0/1
+
+0
+
+1.21.30
+
+364
+
+do_not_show_manage_showcase_replace_warning
+
+Whether to show the warning message when the player attempts to replace a screenshot in the showcase gallery.
+
+0/1
+
+0
+
+1.21.30
+
+365
+
+do_not_show_not_following_party_warning
+
+Whether to show the warning message when the player refuses to move to a world from a party.​[upcoming]
+
+0/1
+
+0
+
+26.10
+
+366
+
+new_player_flow_v3_abc_test_group
+
+​[more information needed]
+
+​[more information needed]
+
+1
+
+367
+
+new_player_path_tutorial_mode_ab_test_group
+
+​[more information needed]
+
+​[more information needed]
+
+1
+
+26.0
+
+368
+
+partyInviteReceivedFilter
+
+Whether party invites are shown from any player or only in-game friends.
+
+0/1
+
+0
+
+1.21.90
+
+369
+
+partyPrivacy
+
+Changes the default state of the party privacy setting, either "Friends only" or "Open".
+
+0/1
+
+0
+
+1.21.90
+
+370
+
+partyInviteSendPrivileges
+
+Whether members of a party can invite players or not.
+
+0/1
+
+1
+
+1.21.90
+
+371
+
+frame_pacing_enabled
+
+Whether to enable frame pacing on mobile devices.
+
+0/1
+
+0
+
+1.21.90
+
+372
+
+options_version_major
+
+The first number in the version of the game.
+
+1
+
+1.21.90
+
+373
+
+options_version_minor
+
+The second number in the version of the game, used for major updates.
+
+26
+
+1.21.90
+
+374
+
+options_version_patch
+
+The third number in the version of the game, used for minor updates.
+
+20 (30 in Preview)
+
+1.21.90
+
+375
+
+options_version_revision
+
+The fourth number in the version of the game, used for internal versioning.
+
+4 (25 in Preview)
+
+1.21.90
+
+376
+
+graphics_mode_switch
+
+Whether the graphics mode option can be changed in-game.
+
+0/1
+
+0
+
+1.21.90
+
+377
+
+gfx_texture_streaming
+
+Enables texture streaming, which makes the game not load textures from resource packs that get overwritten
+
+0/1
+
+1
+
+26.10
+
+378
+
+command_macro_command_0
+
+The command entered for the first command macro slot.
+
+26.0
+
+379
+
+command_macro_command_1
+
+The command entered for the second command macro slot.
+
+26.0
+
+380
+
+command_macro_command_2
+
+The command entered for the third command macro slot.
+
+26.0
+
+381
+
+command_macro_command_3
+
+The command entered for the fourth command macro slot.
+
+26.0
+
+382
+
+command_macro_command_4
+
+The command entered for the fifth command macro slot.
+
+26.0
+
+383
+
+command_macro_command_5
+
+The command entered for the sixth command macro slot.
+
+26.0
+
+384
+
+command_macro_command_6
+
+The command entered for the seventh command macro slot.
+
+26.0
+
+385
+
+command_macro_command_7
+
+The command entered for the eighth command macro slot.
+
+26.0
+
+386
+
+command_macro_command_8
+
+The command entered for the ninth command macro slot.
+
+26.0
+
+387
+
+command_macro_command_9
+
+The command entered for the tenth command macro slot.
+
+26.0
+
+388
+
+editor_collect_network_metrics
+
+Whether to collect metrics in the Editor.
+
+0/1
+
+1
+
+26.10
+
+389
+
+pause_menu_on_focus_lost
+
+Whether the game pauses when the application loses focus on Windows.
+
+0/1
+
+1
+
+26.10
+
+graphics_quality_preset_changed
+
+​[more information needed]
+
+0/1
+
+0
+
+26.40
+
+390
+
+gamepadMappingVersion
+
+The version type used for the controller controls layout.
+
+0/1/2/3
+
+1
+
+391
+
+ctrl_type_0_key.jump
+
+The jump key when using a controller.
+
+1
+
+392
+
+ctrl_type_0_key.drop
+
+The drop item key when using a controller.
+
+6
+
+393
+
+ctrl_type_0_key.attack
+
+The attack key when using a controller.
+
+-99
+
+394
+
+ctrl_type_0_key.use
+
+The use key when using a controller.
+
+-100
+
+395
+
+ctrl_type_0_container.crafting
+
+The crafting key when using a controller.
+
+3
+
+396
+
+ctrl_type_0_key.inventory
+
+The open inventory key when using a controller.
+
+4
+
+397
+
+ctrl_type_0_key.cycleItemLeft
+
+The cycle item left key when using a controller.
+
+11
+
+398
+
+ctrl_type_0_key.cycleItemRight
+
+The cycle item right key when using a controller.
+
+12
+
+399
+
+ctrl_type_0_key.togglePerspective
+
+The toggle perspective key when using a controller.
+
+5
+
+400
+
+ctrl_type_0_key.sneak
+
+The sneak key when using a controller.
+
+2
+
+401
+
+ctrl_type_0_key.sprint
+
+The sprint key when using a controller.
+
+9
+
+402
+
+ctrl_type_0_key.flyUpSlow
+
+The fly up slow key when using a controller.
+
+0
+
+403
+
+ctrl_type_0_key.flyDownSlow
+
+The fly down slow key when using a controller.
+
+10
+
+404
+
+ctrl_type_0_key.emote
+
+The emote key when using a controller.
+
+7
+
+1.16.0
+
+405
+
+ctrl_type_0_key.socialdrawermobeffectsandinteractwithtoast
+
+The view status effects, open notifications, and social drawer key when using a controller.
+
+13
+
+26.10
+
+406
+
+ctrl_type_0_key.chat
+
+The open chat key when using a controller.
+
+8
+
+407
+
+ctrl_type_0_key.left
+
+The move left key when using a controller.
+
+18
+
+408
+
+ctrl_type_0_key.right
+
+The move right key when using a controller.
+
+17
+
+409
+
+ctrl_type_0_key.back
+
+The move backward key when using a controller.
+
+16
+
+410
+
+ctrl_type_0_key.forward
+
+The jump key when using a controller.
+
+19
+
+411
+
+ctrl_type_0_key.pickItem
+
+The pick block control key when using a controller.
+
+0
+
+412
+
+ctrl_type_0_key.describeBlock
+
+The Identify key when using a controller.
+
+0
+
+26.10
+
+413
+
+keyboard_type_0_key.attack
+
+The attack key when using a keyboard and mouse.
+
+-99
+
+414
+
+keyboard_type_0_key.pickItem
+
+The pick block key when using a keyboard and mouse.
+
+-97
+
+415
+
+keyboard_type_0_key.use
+
+The use key when using a keyboard and mouse.
+
+-98
+
+416
+
+keyboard_type_0_key.drop
+
+The drop key when using a keyboard and mouse.
+
+81
+
+417
+
+keyboard_type_0_key.hotbar.1
+
+The select hotbar slot 1 key when using a keyboard and mouse.
+
+49
+
+418
+
+keyboard_type_0_key.hotbar.2
+
+The select hotbar slot 2 key when using a keyboard and mouse.
+
+50
+
+419
+
+keyboard_type_0_key.hotbar.3
+
+The select hotbar slot 3 key when using a keyboard and mouse.
+
+51
+
+420
+
+keyboard_type_0_key.hotbar.4
+
+The select hotbar slot 4 key when using a keyboard and mouse.
+
+52
+
+421
+
+keyboard_type_0_key.hotbar.5
+
+The select hotbar slot 5 key when using a keyboard and mouse.
+
+53
+
+422
+
+keyboard_type_0_key.hotbar.6
+
+The select hotbar slot 6 key when using a keyboard and mouse.
+
+54
+
+423
+
+keyboard_type_0_key.hotbar.7
+
+The select hotbar slot 7 key when using a keyboard and mouse.
+
+55
+
+424
+
+keyboard_type_0_key.hotbar.8
+
+The select hotbar slot 8 key when using a keyboard and mouse.
+
+56
+
+425
+
+keyboard_type_0_key.hotbar.9
+
+The select hotbar slot 9 key when using a keyboard and mouse.
+
+57
+
+426
+
+keyboard_type_0_key.inventory
+
+The open inventory key when using a keyboard and mouse.
+
+69
+
+427
+
+keyboard_type_0_key.togglePerspective
+
+The toggle perspective key when using a keyboard and mouse.
+
+116
+
+428
+
+keyboard_type_0_key.jump
+
+The jump key when using a keyboard and mouse.
+
+32
+
+429
+
+keyboard_type_0_key.sneak
+
+The sneak key when using a keyboard and mouse.
+
+16
+
+430
+
+keyboard_type_0_key.sprint
+
+The sprint key when using a keyboard and mouse.
+
+17
+
+431
+
+keyboard_type_0_key.left
+
+The strafe left key when using a keyboard and mouse.
+
+65
+
+432
+
+keyboard_type_0_key.right
+
+The strafe right key when using a keyboard and mouse.
+
+86
+
+433
+
+keyboard_type_0_key.back
+
+The walk backward key when using a keyboard and mouse.
+
+83
+
+434
+
+keyboard_type_0_key.forward
+
+The walk forward key when using a keyboard and mouse.
+
+87
+
+435
+
+keyboard_type_0_key.mobEffects
+
+The view status effects key when using a keyboard and mouse.
+
+90
+
+436
+
+keyboard_type_0_key.chat
+
+The chat key when using a keyboard and mouse.
+
+84,13
+
+437
+
+keyboard_type_0_key.command
+
+The open command key when using a keyboard and mouse.
+
+191
+
+438
+
+keyboard_type_0_key.copyCoordinates
+
+The copy coordinates key when using a keyboard and mouse.
+
+67
+
+1.19.30
+
+439
+
+keyboard_type_0_key.copyFacingCoordinates
+
+The copy facing coordinates key when using a keyboard and mouse.
+
+88
+
+1.19.30
+
+440
+
+keyboard_type_0_key.emote
+
+The emote key when using a keyboard and mouse.
+
+66
+
+1.16.0
+
+441
+
+keyboard_type_0_key.describeBlock
+
+The Describe key when using a keyboard and mouse.
+
+0
+
+26.10
+
+442
+
+keyboard_type_0_key.screenshot
+
+The screenshot key when using a keyboard and mouse.
+
+113
+
+443
+
+keyboard_type_0_key.socialDrawer
+
+The open social drawer key when using a keyboard and mouse.
+
+115
+
+26.10
+
+444
+
+keyboard_type_0_key.menuTabLeft
+
+The menu tab left key when using a keyboard and mouse.
+
+219
+
+1.6.0
+
+445
+
+keyboard_type_0_key.menuTabRight
+
+The menu tab right key when using a keyboard and mouse.
+
+221
+
+1.6.0
+
+446
+
+keyboard_type_0_key.menuCancel
+
+The menu cancel key when using a keyboard and mouse.
+
+-95
+
+447
+
+keyboard_type_0_key.interactwithtoast
+
+The open notifications key when using a keyboard and mouse.
+
+78
+
+448
+
+keyboard_type_0_key.commandmacro.0
+
+The key to execute the first command macro.
+
+0
+
+26.0
+
+449
+
+keyboard_type_0_key.commandmacro.1
+
+The key to execute the second command macro.
+
+0
+
+26.0
+
+450
+
+keyboard_type_0_key.commandmacro.2
+
+The key to execute the third command macro.
+
+0
+
+26.0
+
+451
+
+keyboard_type_0_key.commandmacro.3
+
+The key to execute the fourth command macro.
+
+0
+
+26.0
+
+452
+
+keyboard_type_0_key.commandmacro.4
+
+The key to execute the fifth command macro.
+
+0
+
+26.0
+
+453
+
+keyboard_type_0_key.commandmacro.5
+
+The key to execute the sixth command macro.
+
+0
+
+26.0
+
+454
+
+keyboard_type_0_key.commandmacro.6
+
+The key to execute the seventh command macro.
+
+0
+
+26.0
+
+455
+
+keyboard_type_0_key.commandmacro.7
+
+The key to execute the eighth command macro.
+
+0
+
+26.0
+
+456
+
+keyboard_type_0_key.commandmacro.8
+
+The key to execute the ninth command macro.
+
+0
+
+26.0
+
+457
+
+keyboard_type_0_key.commandmacro.9
+
+The key to execute the tenth command macro.
+
+0
+
+26.0
+
+458
+
+keyboard_type_1_key.lookUpSlight
+
+The look up slight key when using full keyboard gameplay.
+
+109
+
+1.4.0
+
+459
+
+keyboard_type_1_key.lookDownSlight
+
+The look down slight key when using full keyboard gameplay.
+
+107
+
+1.4.0
+
+460
+
+keyboard_type_1_key.lookUpRight
+
+The look up right key when using full keyboard gameplay.
+
+105
+
+1.4.0
+
+461
+
+keyboard_type_1_key.lookUp
+
+The look up key when using full keyboard gameplay.
+
+104
+
+1.4.0
+
+462
+
+keyboard_type_1_key.lookUpLeft
+
+The look up left key when using full keyboard gameplay.
+
+103
+
+1.4.0
+
+463
+
+keyboard_type_1_key.lookRight
+
+The look right key when using full keyboard gameplay.
+
+102
+
+1.4.0
+
+464
+
+keyboard_type_1_key.lookCenter
+
+The look center key when using full keyboard gameplay.
+
+101,35,220
+
+1.4.0
+
+465
+
+keyboard_type_1_key.lookLeft
+
+The look left key when using full keyboard gameplay.
+
+100
+
+1.4.0
+
+466
+
+keyboard_type_1_key.lookDownRight
+
+The look down right key when using full keyboard gameplay.
+
+99
+
+1.4.0
+
+467
+
+keyboard_type_1_key.lookDown
+
+The look down key when using full keyboard gameplay.
+
+98
+
+1.4.0
+
+468
+
+keyboard_type_1_key.lookDownLeft
+
+The look down left key when using full keyboard gameplay.
+
+97
+
+1.4.0
+
+469
+
+keyboard_type_1_key.lookUpSmooth
+
+The look up smooth key when using full keyboard gameplay.
+
+38
+
+1.4.0
+
+470
+
+keyboard_type_1_key.lookDownSmooth
+
+The look down smooth key when using full keyboard gameplay.
+
+40
+
+1.4.0
+
+471
+
+keyboard_type_1_key.lookLeftSmooth
+
+The look left smooth key when using full keyboard gameplay.
+
+37
+
+1.4.0
+
+472
+
+keyboard_type_1_key.lookRightSmooth
+
+The look right smooth key when using full keyboard gameplay.
+
+39
+
+1.4.0
+
+473
+
+keyboard_type_1_key.cycleItemLeft
+
+The cycle item left key when using full keyboard gameplay.
+
+33
+
+1.4.0
+
+474
+
+keyboard_type_1_key.cycleItemRight
+
+The cycle item right key when using full keyboard gameplay.
+
+34
+
+1.4.0
+
+475
+
+keyboard_type_1_key.interactwithtoast
+
+The open notifications key when using full keyboard gameplay.
+
+78
+
+476
+
+keyboard_type_1_key.attack
+
+The attack key when using full keyboard gameplay.
+
+81
+
+1.4.0
+
+477
+
+keyboard_type_1_key.pickItem
+
+The pick block key when using full keyboard gameplay.
+
+88
+
+1.4.0
+
+478
+
+keyboard_type_1_key.use
+
+The use key when using full keyboard gameplay.
+
+69
+
+1.4.0
+
+479
+
+keyboard_type_1_key.drop
+
+The drop key when using full keyboard gameplay.
+
+90
+
+1.4.0
+
+480
+
+keyboard_type_1_key.hotbar.1
+
+The select hotbar slot 1 key when using full keyboard gameplay.
+
+49
+
+1.4.0
+
+481
+
+keyboard_type_1_key.hotbar.2
+
+The select hotbar slot 2 key when using full keyboard gameplay.
+
+50
+
+1.4.0
+
+482
+
+keyboard_type_1_key.hotbar.3
+
+The select hotbar slot 3 key when using full keyboard gameplay.
+
+51
+
+1.4.0
+
+483
+
+keyboard_type_1_key.hotbar.4
+
+The select hotbar slot 4 key when using full keyboard gameplay.
+
+52
+
+1.4.0
+
+484
+
+keyboard_type_1_key.hotbar.5
+
+The select hotbar slot 5 key when using full keyboard gameplay.
+
+53
+
+1.4.0
+
+485
+
+keyboard_type_1_key.hotbar.6
+
+The select hotbar slot 6 key when using full keyboard gameplay.
+
+54
+
+1.4.0
+
+486
+
+keyboard_type_1_key.hotbar.7
+
+The select hotbar slot 7 key when using full keyboard gameplay.
+
+55
+
+1.4.0
+
+487
+
+keyboard_type_1_key.hotbar.8
+
+The select hotbar slot 8 key when using full keyboard gameplay.
+
+56
+
+1.4.0
+
+488
+
+keyboard_type_1_key.hotbar.9
+
+The select hotbar slot 9 key when using full keyboard gameplay.
+
+57
+
+1.4.0
+
+489
+
+keyboard_type_1_key.inventory
+
+The open inventory key when using full keyboard gameplay.
+
+67
+
+1.4.0
+
+490
+
+keyboard_type_1_key.togglePerspective
+
+The toggle perspective key when using full keyboard gameplay.
+
+116
+
+1.4.0
+
+491
+
+keyboard_type_1_key.jump
+
+The jump key when using full keyboard gameplay.
+
+32
+
+1.4.0
+
+492
+
+keyboard_type_1_key.sneak
+
+The sneak key when using full keyboard gameplay.
+
+16
+
+1.4.0
+
+493
+
+keyboard_type_1_key.sprint
+
+The sprint key when using full keyboard gameplay.
+
+17
+
+1.4.0
+
+494
+
+keyboard_type_1_key.left
+
+The strafe left key when using full keyboard gameplay.
+
+65
+
+1.4.0
+
+495
+
+keyboard_type_1_key.right
+
+The strafe right key when using full keyboard gameplay.
+
+68
+
+1.4.0
+
+496
+
+keyboard_type_1_key.back
+
+The walk backward key when using full keyboard gameplay.
+
+83
+
+1.4.0
+
+497
+
+keyboard_type_1_key.forward
+
+The walk forward key when using full keyboard gameplay.
+
+87
+
+1.4.0
+
+498
+
+keyboard_type_1_key.mobEffects
+
+The view status effects key when using full keyboard gameplay.
+
+9
+
+1.4.0
+
+499
+
+keyboard_type_1_key.chat
+
+The chat key when using full keyboard gameplay.
+
+84, 13
+
+1.4.0
+
+500
+
+keyboard_type_1_key.command
+
+The open command key when using full keyboard gameplay.
+
+191
+
+1.4.0
+
+501
+
+keyboard_type_1_key.emote
+
+The emote key when using full keyboard gameplay.
+
+66
+
+1.16.0
+
+502
+
+keyboard_type_1_key.screenshot
+
+The screenshot key when using full keyboard gameplay.
+
+113
+
+1.16.0
+
+503
+
+keyboard_type_1_key.menuTabLeft
+
+The menu tab left key when using full keyboard gameplay.
+
+219
+
+504
+
+keyboard_type_1_key.menuTabRight
+
+The menu tab right key when using full keyboard gameplay.
+
+221
+
+505
+
+keyboard_type_1_key.menuCancel
+
+The menu cancel key when using full keyboard gameplay.
+
+80
+
+506
+
+keyboard_type_1_key.copyCoordinates
+
+The copy coordinates key when using full keyboard gameplay.
+
+0
+
+1.19.30
+
+507
+
+keyboard_type_1_key.copyFacingCoordinates
+
+The copy facing coordinates key when using full keyboard gameplay.
+
+0
+
+1.19.30
+
+508
+
+keyboard_type_1_key.commandmacro.0
+
+The key to execute the first command macro when using full keyboard gameplay.
+
+0
+
+26.0
+
+509
+
+keyboard_type_1_key.commandmacro.1
+
+The key to execute the second command macro when using full keyboard gameplay.
+
+0
+
+26.0
+
+510
+
+keyboard_type_1_key.commandmacro.2
+
+The key to execute the third command macro when using full keyboard gameplay.
+
+0
+
+26.0
+
+511
+
+keyboard_type_1_key.commandmacro.3
+
+The key to execute the fourth command macro when using full keyboard gameplay.
+
+0
+
+26.0
+
+512
+
+keyboard_type_1_key.commandmacro.4
+
+The key to execute the fifth command macro when using full keyboard gameplay.
+
+0
+
+26.0
+
+513
+
+keyboard_type_1_key.commandmacro.5
+
+The key to execute the sixth command macro when using full keyboard gameplay.
+
+0
+
+26.0
+
+514
+
+keyboard_type_1_key.commandmacro.6
+
+The key to execute the seventh command macro when using full keyboard gameplay.
+
+0
+
+26.0
+
+515
+
+keyboard_type_1_key.commandmacro.7
+
+The key to execute the eighth command macro when using full keyboard gameplay.
+
+0
+
+26.0
+
+516
+
+keyboard_type_1_key.commandmacro.8
+
+The key to execute the ninth command macro when using full keyboard gameplay.
+
+0
+
+26.0
+
+517
+
+keyboard_type_1_key.commandmacro.9
+
+The key to execute the tenth command macro when using full keyboard gameplay.
+
+0
+
+26.0
+
+Removed options
+
+
+
+This section is missing information about: removed options 
+Please expand the section to include this information. Further details may exist on the talk page.
+
+Java Edition
+
+Option name
+
+Explanation
+
+Valid values
+
+Default value
+
+Development version added
+
+Version added
+
+Development version removed
+
+Version removed
+
+advancedOpengl
+
+​[more information needed]
+
+​[more information needed]
+
+false
+
+b1.6-tb3
+
+14w30a
+
+1.8
+
+allowBlockAlternatives
+
+Whether alternative block models are used
+
+true/false
+
+true
+
+14w28a
+
+1.8
+
+15w31a
+
+1.9
+
+anaglyph3d
+
+Whether 3D mode is turned on
+
+true/false
+
+false
+
+c0.24_st_03
+
+17w43a
+
+1.13
+
+anisotropicFiltering
+
+​[more information needed]
+
+​[more information needed]
+
+1
+
+13w38a
+
+1.7
+
+14w25a
+
+1.8
+
+chatPreview
+
+When the client will send the current chat to the server to preview it
+
+true/false
+
+true
+
+22w19a
+
+1.19
+
+22w42a
+
+1.19.3
+
+chunksPerFrame
+
+​[more information needed]
+
+​[more information needed]
+
+2
+
+1.8.2-pre1
+
+1.8.2-pre2
+
+difficulty
+
+The world difficulty. Had no effect after 1.7.2
+
+0–3 (Peaceful, Easy, Normal, Hard)
+
+2 (Normal)
+
+​[more information needed]
+
+​[more information needed]
+
+22w12a
+
+1.19
+
+clouds
+
+Whether or not clouds are on
+
+true/false
+
+true
+
+b1.9-pre5
+
+14w25a
+
+1.8
+
+enableWeakAttacks
+
+When false, the client will ignore attempts to attack when weapon cooldown is less than 75% recharged.
+
+true/false
+
+false
+
+1.9.1-pre1
+
+1.9.1
+
+19w08a
+
+1.14
+
+fancyGraphics
+
+Whether fancy (more detailed) graphics are turned on
+
+true/false
+
+true
+
+inf-20100615
+
+20w27a
+
+1.16.2
+
+fboEnable
+
+Whether Framebuffer Objects is turned on
+
+true/false
+
+true
+
+13w38a
+
+1.7.2
+
+18w44a
+
+1.14
+
+fpsLimit
+
+​[more information needed]
+
+​[more information needed]
+
+1
+
+b1.7_01
+
+13w38a
+
+1.7.2
+
+graphicsMode
+
+Whether Fast (less detailed), Fancy (more detailed), or Fabulous! (most detailed) graphics are turned on
+
+0-2 (Fast, Fancy, Fabulous!)
+
+1 (Fancy)
+
+1.16-pre1
+
+1.16
+
+25w41a
+
+1.21.11
+
+heldItemTooltips
+
+Whether switching between items shows the name of the item; no in-game control
+
+true/false
+
+true
+
+12w50a
+
+1.4.6
+
+23w06a
+
+1.19.4
+
+hideBundleTutorial
+
+Whether the player has seen the bundle tutorial hint when trying to use a bundle.
+
+true/false
+
+false
+
+21w05a
+
+1.17
+
+24w33a
+
+1.21.1
+
+key_Back
+
+Back control
+
+31
+
+c0.0.23a_01
+
+b1.1-2
+
+key_Build
+
+Use control
+
+48
+
+c0.0.23a_01
+
+in-20091231-2
+
+key_Chat
+
+Chat control
+
+20
+
+c0.0.23a_01
+
+b1.1-2
+
+key_Drop
+
+Drop control
+
+16
+
+in-20091231-2
+
+b1.1-2
+
+key_Forward
+
+Forward control
+
+17
+
+c0.0.23a_01
+
+b1.1-2
+
+key_Inventory
+
+Inventory control
+
+23
+
+in-20091231-2
+
+b1.1-2
+
+key_Jump
+
+Jump control
+
+57
+
+c0.0.23a_01
+
+b1.1-2
+
+key_key.fog
+
+Fog control
+
+33
+
+b1.1-2
+
+b1.8
+
+key_key.streamCommercial
+
+Stream Commercial control
+
+Key codes
+
+0 (none)
+
+13w47a
+
+1.7.4
+
+15w31a
+
+1.9
+
+key_key.streamPauseUnpause
+
+Pause/Unpause Stream control
+
+Key codes
+
+65 (F7)
+
+13w47a
+
+1.7.4
+
+15w31a
+
+1.9
+
+key_key.streamStartStop
+
+Start/Stop Stream control
+
+Key codes
+
+64 (F6)
+
+13w47a
+
+1.7.4
+
+15w31a
+
+1.9
+
+key_key.streamToggleMic
+
+Microphone input control
+
+Key codes
+
+0 (none)
+
+13w47d
+
+1.7.4
+
+15w31a
+
+1.9
+
+key_key.swapHands
+
+Swapping of items between hands control; renamed to key_key.swapOffhand
+
+Key codes
+
+key.keyboard.f
+
+15w31a
+
+1.9
+
+1.16-pre3
+
+1.16
+
+key_Left
+
+​[more information needed]
+
+30
+
+c0.0.23a_01
+
+b1.1-2
+
+key_Load location
+
+​[more information needed]
+
+19
+
+c0.0.23a_01
+
+a1.0.10
+
+key_Right
+
+​[more information needed]
+
+32
+
+c0.0.23a_01
+
+b1.1-2
+
+key_Save location
+
+​[more information needed]
+
+28
+
+c0.0.23a_01
+
+a1.0.10
+
+key_Sneak
+
+​[more information needed]
+
+42
+
+a1.1.1
+
+b1.1-2
+
+key_Toggle fog
+
+Old fog control
+
+33
+
+c0.0.23a_01
+
+b1.1-2
+
+limitFramerate
+
+Framerate limit
+
+​[more information needed]
+
+false
+
+c0.27_st
+
+b1.7_01
+
+music
+
+Whether music is on[verify]
+
+​[more information needed]
+
+1.0
+
+c0.0.23a_01
+
+13w36a
+
+1.7.2
+
+onlyShowSignedChat
+
+Toggles whether the chat displays only cryptographically signed player messages
+
+true/false
+
+false
+
+22w19a
+
+1.19-pre1
+
+postProcessEnable
+
+​[more information needed]
+
+​[more information needed]
+
+true
+
+13w38a
+
+13w38b
+
+saturation
+
+No in-game control. Never did anything.
+
+0-1
+
+0.0
+
+13w38a
+
+1.7.2
+
+19w08a
+
+1.14
+
+serverTextures
+
+​[more information needed]
+
+true/false
+
+true
+
+12w18a
+
+1.3.1
+
+​[more information needed]
+
+​[more information needed]
+
+shieldAnimation
+
+​[more information needed]
+
+true/false
+
+true
+
+Combat Test 3
+
+Combat Test 4
+
+showCape
+
+​[more information needed]
+
+true/false
+
+true
+
+12w41a
+
+1.4.2
+
+14w03a
+
+1.8
+
+showFrameRate
+
+​[more information needed]
+
+​[more information needed]
+
+false
+
+c0.0.23a_01
+
+a1.1.1
+
+showInventoryAchievementHint
+
+Whether the "Press 'E' to open your inventory" toast appears in the upper right corner of the screen upon initially spawning; no in-game control
+
+true/false
+
+true
+
+13w36a
+
+1.7.2
+
+17w13a
+
+1.12
+
+showNowPlayingToast
+
+Whether to show a toast when a song starts playing
+
+true/false
+
+false
+
+25w20a
+
+1.21.6
+
+25w46a
+
+1.21.11
+
+skin
+
+​[more information needed]
+
+​[more information needed]
+
+Default
+
+a1.2.2-1
+
+13w36a
+
+1.7.2
+
+skipFriendsListPromo
+
+​[more information needed]
+
+true/false
+
+false
+
+26.2-snapshot-7
+
+26.2-pre-1
+
+skipRealms32bitWarning
+
+Whether to skip the 32-bit environment warning when entering the Realms screen[verify]
+
+true/false
+
+false
+
+1.18.2-pre1
+
+1.18.2
+
+24w14a
+
+1.20.5
+
+snooperEnabled
+
+Whether snooper functionality is turned on
+
+true/false
+
+true
+
+12w30a
+
+1.3.1
+
+21w43a
+
+1.18
+
+sound
+
+Whether sound is on[verify]
+
+​[more information needed]
+
+1.0
+
+c0.0.23a_01
+
+13w36a
+
+1.7.2
+
+soundCategory_animals
+
+​[more information needed]
+
+​[more information needed]
+
+1.0
+
+13w36a
+
+13w42a
+
+soundCategory_blocks
+
+​[more information needed]
+
+​[more information needed]
+
+1.0
+
+13w36a
+
+13w42a
+
+soundCategory_mobs
+
+​[more information needed]
+
+​[more information needed]
+
+1.0
+
+13w36a
+
+13w42a
+
+soundCategory_players
+
+​[more information needed]
+
+​[more information needed]
+
+1.0
+
+13w36a
+
+13w42a
+
+soundCategory_records
+
+​[more information needed]
+
+​[more information needed]
+
+1.0
+
+13w36a
+
+13w42a
+
+streamBytesPerPixel
+
+The total bytes-per-pixel (BPP) for livestream output
+
+0-1
+
+0.5
+
+13w47a
+
+1.7.4
+
+15w31a
+
+1.9
+
+streamChatEnabled
+
+If the Twitch chat is copied into the Minecraft chat
+
+0/1 (true/false)
+
+0
+
+13w47a
+
+1.7.4
+
+15w31a
+
+1.9
+
+streamChatUserFilter
+
+The above but whether it is to be censored
+
+0/1 (true/false)
+
+0
+
+13w47a
+
+1.7.4
+
+15w31a
+
+1.9
+
+streamCompression
+
+Whether to compress the livestream's video output
+
+0/1 (false/true)
+
+1
+
+13w47a
+
+1.7.4
+
+15w31a
+
+1.9
+
+streamFps
+
+The output FPS of the livestream.
+
+​[more information needed]
+
+0.31690142
+
+13w47a
+
+1.7.4
+
+15w31a
+
+1.9
+
+streamKbps
+
+The bitrate (Kbps) of the video when livestreaming.
+
+​[more information needed]
+
+0.5412844
+
+13w47a
+
+1.7.4
+
+15w31a
+
+1.9
+
+streamMicToggleBehavior
+
+Used to toggle microphone output
+
+0/1 (false/true)
+
+0
+
+13w47d
+
+1.7.4
+
+15w31a
+
+1.9
+
+streamMicVolume
+
+Microphone's output volume when livestreaming
+
+0-1
+
+1.0
+
+13w47a
+
+1.7.4
+
+15w31a
+
+1.9
+
+streamPreferredServer
+
+The preferred ingest server of the livestream.
+
+​[more information needed]
+
+13w47a
+
+1.7.4
+
+15w31a
+
+1.9
+
+streamSendMetadata
+
+Whether to send extra metadata in the livestream
+
+true/false
+
+true
+
+13w47a
+
+1.7.4
+
+15w31a
+
+1.9
+
+streamSystemVolume
+
+System's output volume when livestreaming
+
+0-1
+
+1.0
+
+13w47a
+
+1.7.4
+
+15w31a
+
+1.9
+
+touchscreen
+
+Whether touchscreen controls are used
+
+true/false
+
+false
+
+1.4.6-pre
+
+1.4.6
+
+26.2-snapshot-5
+
+26.2
+
+uploadsPerFrame
+
+​[more information needed]
+
+​[more information needed]
+
+16
+
+1.8.2-pre2
+
+1.8.2-pre5
+
+useVbo
+
+Whether Vertex Buffer Objects is turned on
+
+true/false
+
+false
+
+14w29a
+
+1.8
+
+18w44a
+
+1.14
+
+viewDistance
+
+​[more information needed]
+
+​[more information needed]
+
+0
+
+c0.0.23a_01
+
+13w38a
+
+1.7.2
+
+Bedrock Edition
+
+Option name
+
+Explanation
+
+Valid values
+
+Default value
+
+Version added
+
+Version removed
+
+game_difficulty
+
+Set the game difficulty.
+
+0/2
+
+2
+
+0.7.0
+
+0.12.1 (build 1)
+
+gfx_pixeldensity
+
+Controlled the size of the d-pad and the chat button.
+
+Varies depending on the device.
+
+Varies depending on the device.
+
+0.7.0
+
+0.11.0 (build 1)
+
+ctrl_sensitivity
+
+The sensitivity of the camera movement.
+
+0–1
+
+0.5
+
+0.7.0
+
+ctrl_invertmouse
+
+Inverted camera movement.
+
+0/1
+
+0
+
+0.7.0
+
+ctrl_usetouchscreen
+
+​[more information needed]
+
+0/1
+
+1
+
+0.7.0
+
+feedback_vibration
+
+Whether to vibrate when a block is broken.
+
+0/1
+
+1
+
+0.7.0
+
+gfx_renderdistance
+
+Controlled which tick the view distance slider was on (more info).
+
+Varies depending on the version.
+
+Varies depending on the version.
+
+0.7.0
+
+0.9.0 (build 1)
+
+gfx_animatetextures
+
+Toggled water, lava, and fire animations.
+
+0/1
+
+1
+
+0.7.0
+
+0.14.2
+
+gfx_ao
+
+Toggled smooth lighting.
+
+0/1
+
+1
+
+0.7.0
+
+0.8.0 (build 2)
+
+gfx_hidegui
+
+Whether to hide the heads-up display and the player's hand.
+
+0/1
+
+0
+
+0.7.0
+
+game_ordercraftable
+
+Corresponds with the "Show craftable recipes first" toggle in-game.​[more information needed]
+
+0/1
+
+1
+
+0.8.0 (build 1)
+
+0.8.0 (build 2)
+
+gfx_renderdistance_new
+
+The player's render distance, measured in blocks.
+
+The range available without editing depends on the device's capabilities.[needs testing]
+
+Varies depending on the device.[needs testing]
+
+0.9.0 (build 1)
+
+dev_autoloadlevel
+
+On startup, the game would automatically load in the first level on the world selection screen.
+
+0/1
+
+0
+
+0.9.0 (build 1)
+
+dev_showchunkmap
+
+​[more information needed]
+
+​[more information needed]
+
+0
+
+0.9.0 (build 1)
+
+dev_showchunkmap
+
+Second dev_showchunkmap line directly below the other one. It is not known whether the two behaved differently.
+
+​[more information needed]
+
+0
+
+0.9.0 (build 4)
+
+0.9.0 (build 5)
+
+game_flatworldlayers
+
+Controlled which layers would generate in flat worlds.
+
+​[more information needed]
+
+[7,3,3,2]
+
+0.9.0 (build 5)
+
+dev_disablefilesystem
+
+Disabled chunk data from saving. This would also reset chunk data for any accessed worlds and generate a new world with the same seed.
+
+0/1
+
+0
+
+0.9.0 (build 5)
+
+game_limitworldsize
+
+Set the world limits to Old world type.
+
+​[more information needed]
+
+0
+
+0.9.2
+
+game_skintype
+
+The type of skin the player is using. 0 and 1 are custom skins with Steve's and Alex's dimensions respectively, 2 is Alex's skin, and 3 is Steve's skin.
+
+0/1/2/3
+
+3
+
+0.11.0 (build 1)
+
+0.11.0 (build 4)
+
+game_lastcustomskin
+
+​[more information needed]
+
+​[more information needed]
+
+0
+
+0.11.0 (build 1)
+
+0.11.0 (build 4)
+
+ctrl_autojump
+
+Toggles auto-jump.
+
+0/1
+
+0
+
+0.12.1 (build 1)
+
+ctrl_keyboardlayout
+
+Which keyboard layout the game controls are mapped to. 0 is QWERTY, 1 is QWERTZ, 2 is AZERTY, and 3 is QZERTY.
+
+0/1/2/3
+
+0
+
+0.12.1 (build 1)
+
+ctrl_gamePadMap
+
+​[more information needed]
+
+​[more information needed]
+
+Varies depending on the version.
+
+0.12.1 (build 1)
+
+gfx_guiscale
+
+How much to scale the UI, relative to the game's predetermined scale (based on the screen/window size).
+
+Varies depending on the device.
+
+0
+
+0.14.0 (build 1)
+
+game_automationserverretrytime
+
+​[more information needed]
+
+​[more information needed]
+
+30
+
+0.14.2
+
+gfx_texel_aa
+
+​[more information needed]
+
+​[more information needed]
+
+0
+
+0.14.2
+
+point_light_shadow_quality
+
+The quality of point light shadows in Vibrant Visuals.
+
+0: Off / 1: Low / 2: Medium / 3: High / 4: Ultra
+
+2
+
+1.20.80
+
+26.40
+
+realms_ore_ui_moderation
+
+Whether the feed moderation in Realms uses Ore UI.
+
+0/1
+
+0
+
+1.21.100
+
+26.40
+
+vr_stutter_turn
+
+​[more information needed]
+
+​[more information needed]
+
+1
+
+0.14.2
+
+vr_head_steering
+
+​[more information needed]
+
+​[more information needed]
+
+1
+
+0.14.2
+
+vr_stereo
+
+​[more information needed]
+
+​[more information needed]
+
+0
+
+0.14.2
+
+vr_hud_at_top
+
+​[more information needed]
+
+​[more information needed]
+
+0
+
+0.14.2
+
+vr_hud_drift
+
+​[more information needed]
+
+​[more information needed]
+
+1
+
+0.14.2
+
+vr_linear_jump
+
+​[more information needed]
+
+​[more information needed]
+
+1
+
+0.14.2
+
+vr_linear_motion
+
+​[more information needed]
+
+​[more information needed]
+
+1
+
+0.14.2
+
+vr_sticky_mining
+
+​[more information needed]
+
+​[more information needed]
+
+1
+
+0.14.2
+
+vr_use_comfort_controls
+
+​[more information needed]
+
+​[more information needed]
+
+0
+
+0.14.2
+
+vr_show_comfort_selection_screen
+
+​[more information needed]
+
+​[more information needed]
+
+1
+
+0.14.2
+
+dev_enable_profiler
+
+​[more information needed]
+
+​[more information needed]
+
+0
+
+0.15.0 (build 1)
+
+dev_uselocalserver
+
+​[more information needed]
+
+​[more information needed]
+
+0
+
+0.15.0 (build 1)
+
+dev_connection_quality
+
+​[more information needed]
+
+​[more information needed]
+
+0
+
+0.15.0 (build 1)
+
+gfx_async_texture_loads
+
+​[more information needed]
+
+0/1[verify]
+
+1
+
+1.13.0
+
+gfx_show_async_texture_loads
+
+​[more information needed]
+
+0/1[verify]
+
+0
+
+1.13.0
+
+gfx_max_dequed_textures_per_frame
+
+​[more information needed]
+
+​[more information needed]
+
+16
+
+1.14.0
+
+gfx_texture_load_delay
+
+​[more information needed]
+
+0/1[verify]
+
+0
+
+1.14.0
+
+do_not_show_gfx_driver_outdated
+
+Whether a warning should be shown when the graphics driver is outdated for ray tracing.
+
+0/1
+
+1
+
+1.16.200
+
+1.21.80
+
+do_not_show_gfx_driver_outdated_version
+
+The version of the outdated graphics driver warning, depends on the graphics card.
+
+Blank
+
+1.16.200
+
+1.21.80
+
+gfx_raytracing
+
+Enables ray tracing for supported hardware.
+
+0/1
+
+0
+
+1.16.200
+
+1.21.80
+
+game_hasshownpatchnotice
+
+Whether the game has shown the notice for the most recent update.[verify]
+
+0/1
+
+0
+
+1.21.80
+
+game_lastshownrealmsenddate
+
+​[more information needed]
+
+1970-01-01T00:00:00Z
+
+1.13.0
+
+1.21.80
+
+gfx_fancygraphics
+
+Toggles fancy graphics.
+
+0/1
+
+1
+
+0.7.0
+
+1.21.80
+
+hdr_brightness
+
+​[more information needed]
+
+0/1[verify]
+
+1
+
+1.21.80
+
+mp_prev_app_name
+
+​[more information needed]
+
+Player
+
+1.21.90
+
+new_video_settings
+
+​[more information needed]
+
+0/1
+
+0
+
+1.21.90
+
+playScreenShowLanWorlds
+
+Toggles to show LAN worlds in the worlds list.
+
+0/1
+
+0
+
+1.21.90
+
+keyboard_type_0_key.toggleRenderer
+
+The toggle renderer key when using a keyboard and mouse.
+
+186
+
+1.21.90
+
+keyboard_type_1_key.toggleRenderer
+
+The toggle renderer key when using full keyboard gameplay.
+
+186
+
+1.21.90
+
+gfx_vr_transparentleaves
+
+Toggles transparent leaves when using VR.
+
+0/1
+
+1
+
+1.21.100
+
+gfx_vr_smoothlighting
+
+Toggles smooth lighting when using VR.
+
+0/1
+
+1
+
+1.21.100
+
+vr_cameraMovement
+
+​[more information needed]
+
+0-1
+
+1
+
+1.21.100
+
+vr_snapAngle
+
+​[more information needed]
+
+[verify]
+
+2
+
+1.21.100
+
+vr_stutter_turn_constant_time
+
+​[more information needed]
+
+[verify]
+
+1
+
+0.14.2
+
+1.21.100
+
+vr_stutter_turn_sound
+
+​[more information needed]
+
+[verify]
+
+1
+
+0.14.2
+
+1.21.100
+
+vr_movement
+
+​[more information needed]
+
+[verify]
+
+0
+
+1.21.100
+
+vr_jump
+
+​[more information needed]
+
+[verify]
+
+0
+
+1.21.100
+
+vr_headSteering
+
+​[more information needed]
+
+[verify]
+
+0
+
+1.21.100
+
+vr_stickyMining
+
+​[more information needed]
+
+[verify]
+
+0
+
+1.21.100
+
+vr_hudPosition
+
+​[more information needed]
+
+[verify]
+
+0
+
+1.21.100
+
+vr_sensitivity
+
+The sensitivity when using VR.
+
+0-1
+
+0.5
+
+0.14.2
+
+1.21.100
+
+vr_gamma
+
+The gamma level of the player's screen when using VR.
+
+0/1[verify]
+
+0
+
+0.14.2
+
+1.21.100
+
+vr_particle_view_dist
+
+The particle view distance when playing VR.
+
+​[more information needed]
+
+0.25
+
+1.21.100
+
+vr_hud_distance
+
+​[more information needed]
+
+0/1[verify]
+
+1
+
+1.21.100
+
+vr_hmd_displacement
+
+​[more information needed]
+
+​[more information needed]
+
+0
+
+0.14.2
+
+1.21.100
+
+vr_renderdistance
+
+The view distance when using VR.
+
+Must be a number.​[more information needed]
+
+128 on iOS, 336 on Windows​[more information needed]
+
+0.14.2
+
+1.21.100
+
+vr_autojump
+
+Toggles auto-jump when using VR.
+
+0/1
+
+1
+
+0.14.2
+
+1.21.100
+
+vr_stereorendering
+
+​[more information needed]
+
+0/1[verify]
+
+1
+
+1.21.100
+
+vr_use_normal_hit
+
+​[more information needed]
+
+0/1[verify]
+
+0
+
+0.14.2
+
+1.21.100
+
+vr_use_red_flash
+
+​[more information needed]
+
+0/1[verify]
+
+1
+
+0.14.2
+
+1.21.100
+
+vr_rstick_pitch_assist
+
+​[more information needed]
+
+0/1[verify]
+
+0
+
+0.14.2
+
+1.21.100
+
+vr_rstick_gazeadjust
+
+​[more information needed]
+
+0/1[verify]
+
+0
+
+0.14.2
+
+1.21.100
+
+vr_gaze_pitch_boost
+
+​[more information needed]
+
+0/1[verify]
+
+1
+
+0.14.2
+
+1.21.100
+
+vr_living_room_cursor_centered
+
+​[more information needed]
+
+0/1[verify]
+
+1
+
+1.21.100
+
+vr_tap_turn
+
+​[more information needed]
+
+0/1[verify]
+
+0
+
+1.21.100
+
+vr_tapturn_sensitivity
+
+​[more information needed]
+
+0-1[verify]
+
+0.375
+
+1.21.100
+
+vr_wheelturn_sensitivity
+
+​[more information needed]
+
+​[more information needed]
+
+50
+
+1.21.100
+
+vr_180_turns
+
+​[more information needed]
+
+0/1[verify]
+
+0
+
+1.21.100
+
+vr_livingroom_hint_time
+
+​[more information needed]
+
+​[more information needed]
+
+32000
+
+0.15.0 (build 1)
+
+1.21.100
+
+vr_mirror_texture
+
+​[more information needed]
+
+0/1[verify]
+
+1
+
+1.21.100
+
+vr_hand_controls_item
+
+​[more information needed]
+
+0/1[verify]
+
+1
+
+1.21.100
+
+vr_hand_pointer
+
+​[more information needed]
+
+0/1[verify]
+
+1
+
+1.21.100
+
+vr_hands_visible
+
+​[more information needed]
+
+0/1[verify]
+
+0
+
+1.21.100
+
+vr_ui_mouse_sensitivity
+
+​[more information needed]
+
+0/1[verify]
+
+1
+
+1.21.100
+
+vr_msaa
+
+Whether or not multisample anti-aliasing is enabled when using VR.
+
+0/1
+
+1
+
+1.21.100
+
+gfx_vr_classic_box_selection
+
+Whether to show the outline selection when aiming at blocks with the crosshair in VR.
+
+0/1
+
+0
+
+1.21.100
+
+vr_hide_hud
+
+Whether to hide the HUD when using VR.
+
+0/1
+
+0
+
+1.21.100
+
+vr_hide_hand
+
+Whether to hide the player's hand when using VR.
+
+0/1
+
+0
+
+1.21.100
+
+gfx_dynamictextures
+
+Whether the game can automatically adjust the texture limit for a better experience.
+
+0/1
+
+1
+
+1.21.100
+
+partyVisibility
+
+The current visibility of a hosted party, either "Open" or "Invite only".
+
+0/1
+
+1
+
+1.21.90
+
+1.21.111
+
+ctrl_type_1_container.crafting
+
+The crafting key when using a Nintendo Switch controller.
+
+3
+
+1.21.111
+
+ctrl_type_1_key.attack
+
+The attack key when using a Nintendo Switch controller.
+
+12
+
+1.21.111
+
+ctrl_type_1_key.back
+
+The move backward key when using a Nintendo Switch controller.
+
+0
+
+1.21.111
+
+ctrl_type_1_key.chat
+
+The open chat key when using a Nintendo Switch controller.
+
+5
+
+1.21.111
+
+ctrl_type_1_key.cycleItemLeft
+
+The cycle item left key when using a Nintendo Switch controller.
+
+7
+
+1.21.111
+
+ctrl_type_1_key.cycleItemRight
+
+The cycle item right key when using a Nintendo Switch controller.
+
+8
+
+1.21.111
+
+ctrl_type_1_key.drop
+
+The drop item key when using a Nintendo Switch controller.
+
+6
+
+1.21.111
+
+ctrl_type_1_key.emote
+
+The emote key when using a Nintendo Switch controller.
+
+0
+
+1.16.0
+
+1.21.111
+
+ctrl_type_1_key.flyDownSlow
+
+The fly down slow key when using a Nintendo Switch controller.
+
+10
+
+1.21.111
+
+ctrl_type_1_key.flyUpSlow
+
+The fly up slow key when using a Nintendo Switch controller.
+
+0
+
+1.21.111
+
+ctrl_type_1_key.forward
+
+The jump key when using a Nintendo Switch controller.
+
+0
+
+1.21.111
+
+ctrl_type_1_key.interactwithtoast
+
+The open notifications key when using a Nintendo Switch controller.
+
+13
+
+1.21.111
+
+ctrl_type_1_key.inventory
+
+The open inventory key when using a Nintendo Switch controller.
+
+4
+
+1.21.111
+
+ctrl_type_1_key.jump
+
+The jump key when using a Nintendo Switch controller.
+
+1
+
+1.21.111
+
+ctrl_type_1_key.left
+
+The move left key when using a Nintendo Switch controller.
+
+0
+
+1.21.111
+
+ctrl_type_1_key.mobEffects
+
+The view status effects key when using a Nintendo Switch controller.
+
+0
+
+1.21.111
+
+ctrl_type_1_key.pickItem
+
+The pick block key when using a Nintendo Switch controller.
+
+0
+
+1.21.111
+
+ctrl_type_1_key.right
+
+The move right key when using a Nintendo Switch controller.
+
+0
+
+1.21.111
+
+ctrl_type_1_key.screenshot
+
+The screenshot key when using a Nintendo Switch controller.
+
+0
+
+1.21.111
+
+ctrl_type_1_key.sneak
+
+The sneak key when using a Nintendo Switch controller.
+
+2
+
+1.21.111
+
+ctrl_type_1_key.sprint
+
+The sprint key when using a Nintendo Switch controller.
+
+9
+
+1.21.111
+
+ctrl_type_1_key.togglePerspective
+
+The toggle perspective key when using a Nintendo Switch controller.
+
+15
+
+1.21.111
+
+ctrl_type_1_key.use
+
+The use key when using a Nintendo Switch controller.
+
+11
+
+1.21.111
+
+ctrl_type_2_container.crafting
+
+The crafting key when using a PlayStation controller.
+
+3
+
+1.21.111
+
+ctrl_type_2_key.attack
+
+The attack key when using a PlayStation controller.
+
+-99
+
+1.21.111
+
+ctrl_type_2_key.back
+
+The move backward key when using a PlayStation controller.
+
+0
+
+1.21.111
+
+ctrl_type_2_key.chat
+
+The open chat key when using a PlayStation controller.
+
+8
+
+1.21.111
+
+ctrl_type_2_key.cycleItemLeft
+
+The cycle item left key when using a PlayStation controller.
+
+11
+
+1.21.111
+
+ctrl_type_2_key.cycleItemRight
+
+The cycle item right when using a PlayStation controller.
+
+12
+
+1.21.111
+
+ctrl_type_2_key.drop
+
+The drop item key when using a PlayStation controller.
+
+6
+
+1.21.111
+
+ctrl_type_2_key.emote
+
+The emote key when using a PlayStation controller.
+
+0
+
+1.16.0
+
+1.21.111
+
+ctrl_type_2_key.flyDownSlow
+
+The fly down slow key when using a PlayStation controller.
+
+10
+
+1.21.111
+
+ctrl_type_2_key.flyUpSlow
+
+The fly up slow key when using a PlayStation controller.
+
+0
+
+1.21.111
+
+ctrl_type_2_key.forward
+
+The jump key when using a PlayStation controller.
+
+0
+
+1.21.111
+
+ctrl_type_2_key.interactwithtoast
+
+The open notifications key when using a PlayStation controller.
+
+13
+
+1.21.111
+
+ctrl_type_2_key.inventory
+
+The open inventory key when using a PlayStation controller.
+
+4
+
+1.21.111
+
+ctrl_type_2_key.jump
+
+The jump key when using a PlayStation controller.
+
+1
+
+1.21.111
+
+ctrl_type_2_key.left
+
+The move left key when using a PlayStation controller.
+
+0
+
+1.21.111
+
+ctrl_type_2_key.mobEffects
+
+The view status effects key when using a PlayStation controller.
+
+7
+
+1.21.111
+
+ctrl_type_2_key.pickItem
+
+The pick block control key when using a PlayStation controller.
+
+0
+
+1.21.111
+
+ctrl_type_2_key.right
+
+The move right key when using a PlayStation controller.
+
+0
+
+1.21.111
+
+ctrl_type_2_key.screenshot
+
+The screenshot key when using a PlayStation controller.
+
+0
+
+1.21.111
+
+ctrl_type_2_key.sneak
+
+The sneak key when using a PlayStation controller.
+
+2
+
+1.21.111
+
+ctrl_type_2_key.sprint
+
+The sprint key when using a PlayStation controller.
+
+9
+
+1.21.111
+
+ctrl_type_2_key.togglePerspective
+
+The toggle perspective key when using a PlayStation controller.
+
+15
+
+1.21.111
+
+ctrl_type_2_key.use
+
+The use key when using a PlayStation controller.
+
+-100
+
+1.21.111
+
+ctrl_type_3_key.jump
+
+The jump key when using a VR motion controller.
+
+1
+
+1.21.111
+
+ctrl_type_3_key.attack
+
+The attack key when using a VR motion controller.
+
+-99
+
+1.21.111
+
+ctrl_type_3_key.use
+
+The use key when using a VR motion controller.
+
+12
+
+1.21.111
+
+ctrl_type_3_key.inventory
+
+The open inventory key when using a VR motion controller.
+
+2
+
+1.21.111
+
+ctrl_type_3_key.cycleItemLeft
+
+The cycle item left key when using a VR motion controller.
+
+11
+
+1.21.111
+
+ctrl_type_3_key.cycleItemRight
+
+The cycle item right key when using a VR motion controller.
+
+-100
+
+1.21.111
+
+ctrl_type_3_key.togglePerspective
+
+The toggle perspective key when using a VR motion controller.
+
+4
+
+1.21.111
+
+ctrl_type_3_key.sneak
+
+The sneak key when using a VR motion controller.
+
+3
+
+1.21.111
+
+ctrl_type_3_key.sprint
+
+The sprint key when using a VR motion controller.
+
+9
+
+1.21.111
+
+ctrl_type_3_key.drop
+
+The fly up slow key when using a VR motion controller.
+
+10
+
+1.21.111
+
+ctrl_type_3_key.pickItem
+
+The pick block control key when using a VR motion controller.
+
+0
+
+1.21.111
+
+ctrl_type_3_key.emote
+
+The emote key when using a VR motion controller.
+
+0
+
+1.16.0
+
+1.21.111
+
+ctrl_type_3_key.screenshot
+
+The screenshot key when using a VR motion controller.
+
+0
+
+1.21.111
+
+ctrl_type_3_key.mobeffectsandinteractwithtoast
+
+The view status effects & open notifications key when using a VR motion controller.
+
+13
+
+1.21.111
+
+owners_can_require_opt_in
+
+Whether the player can require members from an owned Realm to opt in to the Timeline.
+
+0/1
+
+1
+
+1.21.70
+
+1.21.120
+
+ctrl_sensitivity2_motioncontroller
+
+The sensitivity when using a VR motion controller.
+
+0-1
+
+0.6
+
+1.21.120
+
+ctrl_invertmouse_motioncontroller
+
+Whether the vertical camera movement on a VR motion controller is inverted.
+
+0/1
+
+0
+
+1.21.120
+
+ctrl_autojump_motioncontroller
+
+Toggles auto-jump for VR motion controllers.
+
+0/1
+
+1
+
+1.21.120
+
+feedback_destroy_vibration_motioncontroller
+
+Whether to vibrate when breaking block, for VR motion controllers.
+
+0/1
+
+1
+
+1.21.120
+
+feedback_split_vibration_motioncontroller
+
+Whether to vibrate when splitting items in a GUI, for VR motion controllers.
+
+0/1
+
+1
+
+1.21.120
+
+ctrl_togglecrouch_motioncontroller
+
+Whether the sneak button toggles sneaking, as opposed to holding the button to sneak, when using a VR motion controller.
+
+0/1
+
+0
+
+1.21.120
+
+realmsplus_upgradenotice_state
+
+​[more information needed]
+
+0-4[verify]
+
+0
+
+1.13.0
+
+1.21.120
+
+ctrl_spyglassdamp_motioncontroller
+
+The sensitivity of the VR motion controller while using a spyglass.
+
+0-1
+
+0.5
+
+1.21.120
+
+gfx_dpadscale
+
+The scale of the D-Pad in touch controls.
+
+0-1
+
+0.5
+
+0.11.0 (build 1)
+
+1.21.130
+
+
+
+do_not_show_cloud_upload_prompt
+
+​[more information needed]
+
+0/1
+
+0
+
+1.21.130
+
+keyboard_type_0_key.declineToast
+
+The decline toast key when using a keyboard and mouse.
+
+77
+
+1.21.100
+
+26.0
+
+keyboard_type_1_key.declineToast
+
+The decline toast key when using full keyboard gameplay.
+
+77
+
+1.21.100
+
+26.0
+
+command_macros_enabled
+
+Whether command macros are enabled.
+
+0/1
+
+0
+
+26.0
+
+26.0
+
+device_lost_telemetry_enabled
+
+​[more information needed]
+
+0/1
+
+0
+
+26.20
+
+game_lastcustomskinnew
+
+The filepath of the last imported skin file.
+
+Filepath of  com.mojang followed by /custom_skins/file name.png
+
+Standard.Dummy
+
+0.11.0 (build 4)
+
+26.30
+
+has_set_hdr_brightness
+
+​[more information needed]
+
+0/1[verify]
+
+0
+
+1.21.20
+
+26.30
+
+April fools' options
+Java Edition
+
+Option name
+
+Explanation
+
+Valid values
+
+Default value
+
+April fools' version
+
+key_key.potato
+
+Potato control
+
+Key codes
+
+key.keyboard.apostrophe
+
+24w14potato
+
+hasSeenVotingScreen
+
+Whether to not show a toast every few seconds about a new voting proposal
+
+true/false
+
+false
+
+23w13a_or_b
+
+key_key.boss_mode
+
+Boss mode control
+
+Key codes
+
+key.keyboard.b
+
+3D Shareware v1.34
+
+key_key.decrease_view
+
+Screen size control
+
+Key codes
+
+key.keyboard.f8
+
+key_key.increase_view
+
+Screen size control
+
+Key codes
+
+key.keyboard.f7
+
+grayscale
+
+Whether to make all textures monochrome except for recolored/secondary layer textures
+
+true/false
+
+false
+
+2.0
+
+Notes
+
+ This is the line number of the option in the "options.txt" file; options are not actually numbered in any way in options.txt itself.
+
+ See in-game codes in Language
+
+ By default, this field is empty
+
+ Theoretically any value, but the game only loads chunks in the range 0-128 chunks. Values above 128 may result in unexpected behavior and crashes.
+
+References
+
+ MC-51418 – resolved as "Fixed".
+
+Navigation

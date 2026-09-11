@@ -1,0 +1,192 @@
+This page describes content that has been removed from Java Edition. 
+This feature was present in earlier versions of Java Edition, but has since been removed.
+
+Invalid data value leaves2
+
+Rarity tier
+
+  Common
+
+Renewable
+
+No
+
+Stackable
+
+Yes (64)
+
+{
+    "title": "Invalid data value leaves2",
+    "rows": [
+        {
+            "field": "<span style=\"white-space: nowrap;\"><span style=\"display: inline-block; background-color: #fff; border: 1px solid #888; border-radius: 0.3em; color: transparent; width: 1em; height: 1em; vertical-align: -0.36em; margin-right: -0.1em\"><br></span> </span> Common",
+            "label": "(link to Rarity article, displayed as Rarity tier)"
+        },
+        {
+            "field": "No",
+            "label": "(link to Renewable resource article, displayed as Renewable)"
+        },
+        {
+            "field": "Yes (64)",
+            "label": "Stackable"
+        }
+    ],
+    "invimages": [],
+    "images": [
+        "Missing Model JE3.png"
+    ]
+}
+
+Invalid data value leaves2 refers to item forms of the secondary leaves block with damage values outside of the usual range which leaves can usually be obtained in.
+
+Contents
+
+1 Obtaining
+
+1.1 Transmutation
+1.2 Breaking leaves2 blocks
+
+2 Usage
+
+2.1 Placement
+2.2 Conversion to future versions
+
+3 History
+
+3.1 Java Edition
+3.2 Bedrock Edition
+
+4 Issues
+5 References
+6 External links
+7 Navigation
+
+Obtaining
+Without the use of commands, invalid data value leaves2 are unobtainable in the last versions in which they existed without inheriting them from a prior version in which they were obtainable.
+Only eight damage variants of the leaves2 block are currently known to be obtainable. Two of these correspond to existing species (0 for acacia and 1 for dark oak), with the other six being invalid data value variants. There is currently no known way to obtain leaves2 items with damage values of 6, 7, 10, 11, 12, 13, 14 or 15. Like with all other invalid data value items documented on this wiki, there is also no known way to obtain items with damage values 16 and above, nor -1 and below.
+
+Transmutation
+Block transmutation with arrows can be used to obtain leaves2 blocks with metadata 2 and 3. These blocks can be mined with shears in 14w21b or earlier to obtain the item corresponding to these blocks. The initial block being transmuted must be acacia leaves from an existing tree which has not been updated, i.e. a leaves2 block with metadata value 0. Dark oak leaves, as well as player-placed acacia leaves or acacia leaves which have received a block update, cannot be transmuted. As such, an acacia tree must be grown in situ within a dedicated transmutation apparatus.
+
+Breaking leaves2 blocks
+From 14w25a to 14w28a, leaves2 blocks existing in the world will drop invalid data value leaves2 items when broken with shears. Acacia leaves will drop items with a damage value of 4, and dark oak leaves will drop items with a damage value of 5.
+From 14w25a to 14w30b, breaking leaves2 blocks with a Silk Touch enchanted non-shears tool will drop different invalid data value leaves2 items: acacia leaves drop damage value 8, and dark oak leaves drop damage value 9.
+Invalid data value leaves blocks that exist in the world cannot be broken in 14w25a or 14w25b, as approaching a chunk containing them will crash the game in these two versions. They cannot be broken in 14w26a or later, as such versions treat invalid blocks as air.
+
+Usage
+Placement
+
+
+
+This section is missing information about: placement behavior: did placed IDV leaves just act like 0 to 3, or did the placed leaves reflect the behavior of the block that dropped them? this should be easier to test since they're a more recent addition. I assume 2-3 crash later versions 
+Please expand the section to include this information. Further details may exist on the talk page.
+
+Conversion to future versions
+In 1.13 (17w47a) onwards, distinguishing between block and item variants using metadata and damage was formally abolished. As a result of this, existing items would be converted over to the new ID system automatically. Invalid data value leaves behave anomalously in that instead of converting to their respective parent species, they all convert to acacia leaves instead. Despite these items often being unknowingly collected and stored in older versions in such a way that conversion like this would end up being undesirable, Mojang have decided to not fix this.
+
+History
+Java Edition
+Java Edition1.7.213w43a
+A second block ID is now used for two newly-implemented species of leaves. Invalid data variants exist as a consequence of how block and item metadata is handled.
+
+As a result of this, due to only two spots for species being taken, two more remain which are unfilled, resulting in invalid data values. These can be obtained via block transmutation and picked up.
+
+Leaves2 items with damage values 2 and above are named "Acacia Leaves" regardless of the species they actually represent.1.814w10a
+The item forms of all invalid data value log2 blocks have changed; those corresponding to rotated logs now map textures correctly but the lighting behaves rotated as well, and the remaining unused variants now are 2D in item form.
+
+Leaves2 blocks in the world with metadata corresponding to unused species now have no model . The particles of said blocks are still that of the leaves they previously were.[verify]14w17a
+Leaves2 items with data values outside of the expected range now have the correct name corresponding to the data value it represents, rather than all sharing the name "Acacia Leaves". The items which do not correspond to valid species data (2, 3, 6, 7, 10, 11, 14 and 15) are named "Oak Leaves", despite oak leaves being a completely different block ID.14w25a
+ With the introduction of data-driven item models, any item with a data value outside of what is accepted by the game has no model to point to, resulting in use of the missing item model.
+
+Leaves2 blocks corresponding to the two empty species slots now cause the game to crash if approached. It is therefore impossible to interact with these blocks to obtain damage values 2 or 3, nor any potential higher damage values allowed by this snapshot.
+
+Leaves2 items with damage values 4 and 5 can be obtained by breaking acacia and dark oak leaves with shears, and damage values 8 and 9 can be obtained via the use of Silk Touch.14w28b
+Leaves2 items with damage values 4 and 5 are no longer obtainable from breaking leaves2 with shears.14w30a
+Invalid data value leaves2 items, alongside other invalid data value items, now appear the size of a full block when held in third person or by another player or mob.14w30c
+Leaves2 items with damage values 8 and 9 are no longer obtainable with Silk Touch tools.1.915w31a
+ The missing model's inventory appearance has changed, resulting in the appearance of invalid data value leaves2 items also changing.
+
+The items also appear the size of a full block when held in first person and when dropped on the ground, and also appear larger than before in an item frame.1.1317w43a
+ The missing texture has changed, resulting in the appearance of invalid data value leaves2 items also changing.17w47a
+Numeric IDs for blocks and items have been completely removed from the game, with different species of leaves being given their own string IDs. As a result, invalid data value leaves2 items have been "removed" as any such item now converts cleanly into acacia leaves.
+Bedrock Edition
+Pocket Edition Alphav0.9.0build 1
+ Acacia leaves with damage/metadata values 2, 3, 6, 7, 10, 11, 14, and 15 display this texture when in the inventory.v0.15.0build 1
+Acacia leaves with invalid damage/metadata values no longer display this behavior.
+Inventory appearances (values marked in red are not known to be obtainable in survival mode)
+
+From version
+
+Damage value
+
+Notes
+
+2
+
+3
+
+4
+
+5
+
+6
+
+7
+
+8
+
+9
+
+10
+
+11
+
+12
+
+13
+
+14
+
+15
+
+1.7.2
+
+13w43a
+
+1.8
+
+14w10a
+
+States corresponding to nonexistent species are now 2D.
+
+14w25a
+
+Model no longer exists
+
+1.9
+
+15w31a
+
+The missing model is no longer rotated or downscaled.
+
+1.13
+
+17w43a
+
+The missing texture has changed.
+
+Issues
+Invalid data value leaves2 are an issue, and due to their removal, can be considered already fixed.
+
+References
+
+ MC-57973 – Dark Oak / Acacia Leaves missing texture – resolved as "Fixed".
+
+ MC-62017 – texture of dark acacia and dark oak leaves are missing when the break with a tool with silk touch – resolved as "Fixed".
+
+ MC-249703 – Leaves items with incorrect damage/metadata values become oak/acacia instead of their actual species – resolved as "Won't Fix".
+
+External links
+Invalid Data Value Leaves2 at the Minecraft Discontinued Features wiki
+
+Navigation

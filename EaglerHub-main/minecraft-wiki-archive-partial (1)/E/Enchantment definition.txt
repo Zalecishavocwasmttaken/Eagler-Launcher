@@ -1,0 +1,671 @@
+This feature is exclusive to Java Edition. 
+
+Enchantments are stored as JSON files within a data pack in the path data/<namespace>/enchantment.
+
+Contents
+
+1 JSON format
+2 Effect components
+
+2.1 Components with value effects
+2.2 Components with entity effects
+2.3 location_changed
+2.4 damage_immunity
+2.5 prevent_equipment_drop
+2.6 prevent_armor_change
+2.7 attributes
+2.8 crossbow_charging_sounds
+2.9 trident_sound
+
+3 Value effects
+
+3.1 set
+3.2 add
+3.3 multiply
+3.4 remove_binomial
+3.5 all_of
+
+4 Attribute effects
+5 Entity effects
+
+5.1 all_of
+5.2 apply_exhaustion
+5.3 apply_impulse
+5.4 apply_mob_effect
+5.5 change_item_damage
+5.6 damage_entity
+5.7 explode
+5.8 ignite
+5.9 play_sound
+5.10 replace_block
+5.11 replace_disk
+5.12 run_function
+5.13 set_block_properties
+5.14 spawn_particles
+5.15 summon_entity
+
+6 Location-based effects
+
+6.1 attribute
+
+7 Level-based value
+
+7.1 Constant
+7.2 exponent
+7.3 linear
+7.4 levels_squared
+7.5 clamped
+7.6 fraction
+7.7 lookup
+
+8 History
+9 See also
+10 Notes
+11 References
+12 Navigation
+
+JSON format
+
+[NBT Compound / JSON Object]: The root object.
+[NBT Compound / JSON Object] description: A text component that is used to display the enchantment on items.
+[String][NBT List / JSON Array] exclusive_set: Any number of enchantment(s) (an [String] ID, or a [String] tag with #, or an [NBT List / JSON Array] array containing [String] IDs) — Enchantments that are incompatible with this enchantment. — Defaults to an empty list.
+[String][NBT List / JSON Array] supported_items: Any number of item(s) (an [String] ID, or a [String] tag with #, or an [NBT List / JSON Array] array containing [String] IDs) — Items on which this enchantment can be applied using an anvil or using the /enchant command.
+[String][NBT List / JSON Array] primary_items: (Optional) Any number of item(s) (an [String] ID, or a [String] tag with #, or an [NBT List / JSON Array] array containing [String] IDs); has to be a subset of [String][NBT List / JSON Array] supported_items — Items for which this enchantment (if present in #in_enchanting_table) appears in an enchanting table. If unspecified, defaults to being the same as [String][NBT List / JSON Array] supported_items.
+[Int] weight: Value between 1 and 1024 (inclusive) — Controls the probability of this enchantment when enchanting. The probability is determined weight/total_weight * 100%, where total_weight is the sum of the weights of all available enchantments.
+[Int] max_level: Value between 1 and 255 (inclusive) — The maximum level of this enchantment.
+[NBT Compound / JSON Object] min_cost: The minimum base cost of this enchantment in levels. The base cost range will be modified before use.
+[Int] base: The minimum cost for a level I enchantment.
+[Int] per_level_above_first: The amount of levels added to the minimum for each level above level I.
+[NBT Compound / JSON Object] max_cost: The maximum base cost of this enchantment in levels. The base cost range will be modified before use.
+same fields as above
+[Int] anvil_cost: The base cost when applying this enchantment to another item using an anvil. Halved when adding using a book, multiplied by the level of the enchantment.
+[NBT List / JSON Array] slots: List of equipment slots that this enchantment works in.
+[String]: one of any, hand, mainhand, offhand, armor, feet, legs, chest, head, body, saddle — a slot
+[NBT Compound / JSON Object] effects: Effect components — Controls the effect of the enchantment.
+[NBT List / JSON Array][NBT Compound / JSON Object] <component ID>: An effect component
+Fields depending on the component
+
+Effect components
+Components with value effects
+These components use a value effect to change a value and an optional condition to check beforehand. The general format for them is:
+
+[NBT List / JSON Array] <component ID>
+[NBT Compound / JSON Object]
+[NBT Compound / JSON Object] effect: value effect — Determines how to modify the value.
+[NBT Compound / JSON Object] requirements: Optional predicate — Determines when the effect is active. Cannot be of type minecraft:reference; all predicates must be in-lined.
+Additional fields of the minecraft:equipment_drops component:
+[String] enchanted: One of attacker, or victim. — which entity has to have the enchantment
+
+Component ID
+Value changed
+Loot context for predicate
+
+minecraft:armor_effectiveness
+Effectiveness of the armor on the target of the attack. 0 completely ineffective; 1 completely effective
+
+enchanted_damage:
+
+this entity: The attacked entity
+attacker entity: the attacking entity
+direct_attacker entity: the projectile entity
+Enchantment level
+Origin: The position of the attacked entity
+Damage source
+
+minecraft:damage
+Amount of damage dealt by an attack
+
+minecraft:damage_protection
+Amount of protection from incoming damage (specifically, from the portion of the damage that remains after accounting for armor). Each point of damage_protection reduces this damage by 4%, up to a maximum of 80% per damaged entity.
+
+minecraft:smash_damage_per_fallen_block
+Amount of damage added to the smash attack of a mace, per block fallen
+
+minecraft:knockback
+Knockback caused by the attack
+
+minecraft:equipment_drops
+Chance of equipment dropping from the killed entity. Value between 0 and 1
+
+minecraft:ammo_use
+Amount of ammunition used when firing a bow or crossbow
+
+enchanted_item:
+
+Tool: The ammo item
+Enchantment level
+
+minecraft:projectile_piercing
+Count of pierced entities by fired projectiles
+
+minecraft:block_experience
+Amount of experience awarded for breaking a block
+
+enchanted_item:
+
+Tool: The enchanted item
+Enchantment level
+
+minecraft:repair_with_xp
+Damage to repair per XP collected
+
+minecraft:item_damage
+Amount of durability to lose when damaged
+
+minecraft:projectile_count
+Amount of projectiles spawned when firing
+
+enchanted_entity:
+
+this entity: The projectile
+Enchantment level
+Origin The position of the projectile
+
+minecraft:trident_return_acceleration
+Used for tridents returning to their owner ​[more information needed]
+
+minecraft:projectile_spread
+Maximum spread of projectiles in degrees from firing direction
+
+enchanted_entity:
+
+this entity: The player / attacking entity
+Enchantment level
+Origin The position of the attacking entity
+
+minecraft:fishing_time_reduction
+Time saved during fishing in seconds. A higher number means shorter total fishing time.
+
+minecraft:fishing_luck_bonus
+Added luck used in the fishing loot table
+
+minecraft:mob_experience
+Amount of experience awarded for killing a mob
+
+enchanted_entity:
+
+this entity: The killed mob
+Enchantment level
+Origin The position of the killed mob
+
+Some components don't check a predicate and always modify a value when applied. Their format is:
+
+[NBT Compound / JSON Object] <component ID>: value effect — Determines how to modify the value.
+
+Component ID
+Value changed
+
+minecraft:crossbow_charge_time
+Time of crossbow charging in seconds
+
+minecraft:trident_spin_attack_strength
+Strength of the spin attack of a trident.​[more information needed] Any value larger than 0 causes the trident to not be thrown.
+
+Components with entity effects
+These components use an entity effect to change a value and an optional condition to check beforehand. The general format for them is:
+
+[NBT List / JSON Array] <component ID>
+[NBT Compound / JSON Object]
+[NBT Compound / JSON Object] effect: entity effect — The entity effect to apply
+[NBT Compound / JSON Object] requirements: Optional predicate — Determines when the effect is active. Cannot be of type minecraft:reference; all predicates must be in-lined.
+Additional fields of the minecraft:post_attack component:
+[String] enchanted: One of attacker, victim, or damaging_entity. — which entity has to have the enchantment
+[String] affected: One of attacker, victim, or damaging_entity. — which entity is affected by the [NBT Compound / JSON Object] effect.
+
+Component ID
+Effect applied
+Loot context for predicate
+
+minecraft:hit_block
+After an entity hits a block using the enchanted item
+
+hit_block:
+
+Enchantment level
+this entity: the entity hitting the block (the projectile if applicable)
+Origin: if hit with a melee attack, the center of the hit block; if hit with a projectile, the position the projectile hit the block at.
+Block state: the block state of the hit block
+
+minecraft:tick
+Every tick
+
+enchanted_entity:
+
+Enchantment level
+this entity: the owner of the enchanted item
+Origin: the position of the owner
+
+minecraft:projectile_spawned
+After a projectile entity has been spawned from a bow, crossbow, snowball, trident, splash potion, lingering potion, ender pearl, firework rocket, wind charge, or egg.
+
+enchanted_entity:
+
+Enchantment level
+this entity: the projectile that spawned
+Origin: the position of the projectile
+
+minecraft:post_attack
+After an attack damages an entity
+
+enchanted_damage:
+
+this entity: the attacked entity
+attacker entity: the attacking entity
+direct_attacker entity: the projectile entity
+Enchantment level
+Origin: the position of the attacked entity
+Damage source
+
+minecraft:post_piercing_attack
+After a piercing attack is made, regardless of whether it hits anything
+
+enchanted_entity:
+
+Enchantment level
+this entity: the owner of the enchanted item
+Origin: the position of the owner
+The predicate gets validated as if it gets the enchanted_damage context.
+
+location_changed
+Enables or disables a location-based effect when the owners block position changed, i.e. when the integer portion of the coordinate changes. Also triggers when the equipment is equipped, and when an entity with the enchantment is loaded.
+
+[NBT List / JSON Array] minecraft:location_changed
+[NBT Compound / JSON Object]
+[NBT Compound / JSON Object] effect: location-based effect — The effect to apply
+[NBT Compound / JSON Object] requirements: Optional predicate — Determines when the effect is active. Cannot be of type minecraft:reference; all predicates must be in-lined.
+
+The loot context for the predicate is enchanted_location:
+
+this entity: The entity that moved
+Enchantment level
+Origin: The position of the entity that moved
+Enchantment active status: Flag whether the enchantment was active before, i.e. the predicate succeeded at the old position.
+damage_immunity
+Applies damage immunity if the requirements are fulfilled.
+
+[NBT List / JSON Array] minecraft:damage_immunity
+[NBT Compound / JSON Object]
+[NBT Compound / JSON Object] effect: {}
+[NBT Compound / JSON Object] requirements: Optional predicate — Determines when the damage immunity is applied. Cannot be of type minecraft:reference; all predicates must be in-lined.
+
+The loot context for the predicate is enchanted_damage:
+
+this entity: The attacked entity (i.e the owner of the enchanted item)
+attacker entity: the attacking entity
+direct_attacker entity: the projectile entity
+Enchantment level
+Origin ​[more information needed]
+Damage source
+prevent_equipment_drop
+Prevents the item from being dropped on death of the owner when the component is present.
+
+[NBT Compound / JSON Object] minecraft:prevent_equipment_drop: {}
+
+prevent_armor_change
+Prevents the item from being unequipped from an armor slot.
+
+[NBT Compound / JSON Object] minecraft:prevent_armor_change: {}
+
+attributes
+Always applies all listed attribute effects.
+
+[NBT List / JSON Array] minecraft:attributes:
+[NBT Compound / JSON Object] an attribute effect
+
+crossbow_charging_sounds
+Changes the sounds used when charging a crossbow.
+
+[NBT List / JSON Array] minecraft:crossbow_charging_sounds:
+[NBT Compound / JSON Object]: the sounds used at enchantment level I
+[String] start: One server-side sound event (an [String] ID, or a new [NBT Compound / JSON Object] server-side sound event definition) — Optional, sound to use at start of charging
+A sound event see Template:Nbt inherit/sound event/template
+[String] mid: One server-side sound event (an [String] ID, or a new [NBT Compound / JSON Object] server-side sound event definition) — Optional, sound to use in the middle of charging
+A sound event see Template:Nbt inherit/sound event/template
+[String] end: One server-side sound event (an [String] ID, or a new [NBT Compound / JSON Object] server-side sound event definition) — Optional, sound to use for the end of charging
+A sound event see Template:Nbt inherit/sound event/template
+[NBT Compound / JSON Object]: the sounds used at enchantment level II
+...
+
+trident_sound
+Changes the sounds of a trident.
+
+[NBT List / JSON Array] minecraft:trident_sound:
+[String]: One server-side sound event (an [String] ID, or a new [NBT Compound / JSON Object] server-side sound event definition) — the sounds used at enchantment level I
+A sound event see Template:Nbt inherit/sound event/template
+[String]: One server-side sound event (an [String] ID, or a new [NBT Compound / JSON Object] server-side sound event definition) — the sounds used at enchantment level II
+A sound event see Template:Nbt inherit/sound event/template
+...
+
+Value effects
+Value effects are used to modify a value, see § Components with value effects.
+
+set
+Sets the value to the specified value.
+
+[NBT Compound / JSON Object]
+[String] type: minecraft:set
+[Float][NBT Compound / JSON Object] value: level based value determining the new value.
+
+add
+Adds the specified value to the old value.
+
+[NBT Compound / JSON Object]
+[String] type: minecraft:add
+[Float][NBT Compound / JSON Object] value: level based value determining the value to add.
+
+multiply
+Multiplies the old value with the specified factor.
+
+[NBT Compound / JSON Object]
+[String] type: minecraft:multiply
+[Float][NBT Compound / JSON Object] factor: level based value determining the value to multiply.
+
+remove_binomial
+Runs a single​[more information needed] test with the chance of removing 1 from the value.
+
+[NBT Compound / JSON Object]
+[String] type: minecraft:remove_binomial
+[Float][NBT Compound / JSON Object] chance: level based value determining the chance to remove 1 .
+
+all_of
+Runs multiple value effects in series.
+
+[NBT Compound / JSON Object]
+[String] type: minecraft:all_of
+[NBT List / JSON Array] effects: List of value effects
+[NBT Compound / JSON Object]: A value effect
+
+Attribute effects
+Attribute effects are used to apply an attribute modifier to the entity that has an enchanted item equipped.
+
+[NBT Compound / JSON Object] The attribute effect
+[String] attribute: The id of the attribute to modify
+[Float][NBT Compound / JSON Object] amount: level-based value — amount to add depending on level of the enchantment
+[String] operation: One of add_value, add_multiplied_base and add_multiplied_total — The operation to apply, see Attribute § Operations
+[String] id: A resource location to use for this attribute modifier. Must be unique. The equipment slot is postfixed to this id.
+
+Entity effects
+These effects are used to affect an entity by an enchantment component, see § Components with entity effects. The affected entity is determined by the component
+
+all_of
+Runs multiple entity effects in sequence.
+
+[NBT Compound / JSON Object]
+[String] type: minecraft:all_of
+[NBT List / JSON Array] effects: The list of entity effects to run
+[NBT Compound / JSON Object]: A entity effect
+
+apply_exhaustion
+Applies an exhaustion effect to the affected player.
+[NBT Compound / JSON Object]
+
+[String] type: minecraft:apply_exhaustion
+[Float] amount: The exhaustion to apply by this level-based value
+apply_impulse
+
+[NBT Compound / JSON Object]
+[String] type: minecraft:apply_impulse
+[NBT List / JSON Array] direction: The first step of determining the impulse is applying this vector as local coordinates (the same used by tp @s ^ ^ ^) onto the entity look vector
+[NBT List / JSON Array] coordinate_scale: The second step is scaling the resulting vector by this vector on each axis in world space, X, Y and Z
+[Float] magnitude: The third step is scaling the resulting vector by this level-based value
+
+apply_mob_effect
+Applies a status effect to the affected mob.
+
+[NBT Compound / JSON Object]
+[String] type: minecraft:apply_mob_effect
+[String][NBT List / JSON Array] to_apply: Any number of effect(s) (an [String] ID, or a [String] tag with #, or an [NBT List / JSON Array] array containing [String] IDs) — The effect(s) to apply.
+[Float][NBT Compound / JSON Object] min_duration: level-based value — minimum possible duration of the effect in seconds
+[Float][NBT Compound / JSON Object] max_duration: level-based value — maximum possible duration of the effect in seconds
+[Float][NBT Compound / JSON Object] min_amplifier: level-based value — minimum possible amplifier of the effect
+[Float][NBT Compound / JSON Object] max_amplifier: level-based value — maximum possible amplifier of the effect
+
+change_item_damage
+Reduces the durability of the enchanted item
+
+[NBT Compound / JSON Object]
+[String] type: minecraft:change_item_damage
+[Float][NBT Compound / JSON Object] amount: level-based value — The amount of durability to remove from the item
+
+damage_entity
+Deals (extra) damage to the affected entity.
+
+[NBT Compound / JSON Object]
+[String] type: minecraft:damage_entity
+[String] damage_type: One damage type (an [String] ID)
+[Float][NBT Compound / JSON Object] min_damage: level-based value — minimum possible damage
+[Float][NBT Compound / JSON Object] max_damage: level-based value — maximum possible damage
+
+explode
+Causes an explosion
+
+[NBT Compound / JSON Object]
+[String] type: minecraft:explode
+[Boolean] attribute_to_user: Should the explosion be attributed to the entity using the enchanted item?
+[String] damage_type: Optional. One damage type (an [String] ID) — the explosion deals no damage if this field is omitted.
+[String][NBT List / JSON Array] immune_blocks: Optional. Any number of block type(s) (an [String] ID, or a [String] tag with #, or an [NBT List / JSON Array] array containing [String] IDs) — blocks that fully block the explosion and can't be destroyed.
+[Float][NBT Compound / JSON Object] knockback_multiplier: Optional level-based value, defaults to 1 —  Multiplier of the explosion knockback.
+[NBT List / JSON Array] offset: Optional list of 3 [Float], defaults to [0,0,0] — X, Y, Z position offset to spawn the explosion.
+[Float][NBT Compound / JSON Object] radius: level-based value — The radius of the explosion
+[Boolean] create_fire: Should fire be placed by the explosion?
+[String] block_interaction: One of none (no effect), block (like a bed explosion), mob (like a creeper explosion), tnt (like tnt explosion), trigger (like a wind-charge explosion). — How the explosion should interact with blocks.
+[NBT Compound / JSON Object] small_particle: The small particle the explosion emits.
+A particle see Template:Nbt inherit/particle/template
+[NBT Compound / JSON Object] large_particle: The large particle the explosion emits.
+A particle see Template:Nbt inherit/particle/template
+[NBT List / JSON Array] block_particles: Optional, particles for each air block in the radius of the explosion.
+[NBT Compound / JSON Object]: A block particle option.
+[Int] weight: The weight for this option to be chosen.
+[NBT Compound / JSON Object] particle: The particle to spawn.
+A particle see Template:Nbt inherit/particle/template
+[Float] scaling: Scaling of the distance from the center of the explosion to the block position.
+[Float] speed: Multiplier of the speed of the particle.
+[String] sound: One server-side sound event (an [String] ID, or a new [NBT Compound / JSON Object] server-side sound event definition) — The sound to play.
+A sound event see Template:Nbt inherit/sound event/template
+
+ignite
+Ignites the affected entity
+
+[NBT Compound / JSON Object]
+[String] type: minecraft:ignite
+[Float][NBT Compound / JSON Object] duration: level-based value — The duration the fire should last in seconds.
+
+play_sound
+Plays a sound
+
+[NBT Compound / JSON Object]
+[String] type: minecraft:play_sound
+[String][NBT Compound / JSON Object][NBT List / JSON Array] sound List of Any number of server-side sound event(s) (an [String] ID, or a new [NBT Compound / JSON Object] server-side sound event definition, or an [NBT List / JSON Array] array containing [String] IDs and new [NBT Compound / JSON Object] definitions) to play, one for each level of enchantment. If a level is higher than the number of sounds, the last sound in the list is used.
+A sound event see Template:Nbt inherit/sound event/template
+[Float][NBT Compound / JSON Object] volume: Float between 0.00001 and 10.0 — Volume of the sound
+Float provider see Template:Nbt inherit/float_provider/template
+[Float][NBT Compound / JSON Object] pitch: Float between 0.00001 and 2.0 — Pitch of the sound. Values less than 0.5 are treated as 0.5.
+Float provider see Template:Nbt inherit/float_provider/template
+
+replace_block
+Places a block
+
+[NBT Compound / JSON Object]
+[String] type: minecraft:replace_block
+[NBT Compound / JSON Object] block_state The block to place.
+Block state provider see Template:Nbt inherit/block state provider/template
+[NBT List / JSON Array] offset: Optional list of 3 [Int], defaults to [0,0,0] — X, Y, Z position offset to place the block.
+[String] trigger_game_event: One game event (an [String] ID) — The game event to trigger on placing the block.
+[NBT Compound / JSON Object] predicate: Optional — A block predicate used to test if the block should be placed.
+
+[String] type: The type of the block predicate. See Block predicate § Types for options.
+additional fields depending on [String] type. See Block predicate § Types.
+
+replace_disk
+Places a half-sphere[verify].
+
+[NBT Compound / JSON Object]
+[String] type: minecraft:replace_disk
+[NBT Compound / JSON Object] block_state The block to place.
+Block state provider see Template:Nbt inherit/block state provider/template
+[NBT List / JSON Array] offset: Optional list of 3 [Int], defaults to [0,0,0] — X, Y, Z position offset to place the center of the disk.
+[Float][NBT Compound / JSON Object] radius: level-based value — The radius of the disk.
+[Float][NBT Compound / JSON Object] height: level-based value — The height of the disk.
+[String] trigger_game_event: One game event (an [String] ID) — The game event to trigger on placing each block.
+[NBT Compound / JSON Object] predicate: Optional — A block predicate used to test each position in the disk to determine if a block should be placed.
+
+[String] type: The type of the block predicate. See Block predicate § Types for options.
+additional fields depending on [String] type. See Block predicate § Types.
+
+run_function
+Run a function.
+
+[NBT Compound / JSON Object]
+[String] type: minecraft:run_function
+[String] function: One function (an [String] ID) — The function to run.
+
+set_block_properties
+Sets the block properties of a block.
+
+[NBT Compound / JSON Object]
+[String] type: minecraft:set_block_properties
+[NBT List / JSON Array] offset: Optional list of 3 [Int], defaults to [0,0,0] — X, Y, Z position offset to place the block.
+[NBT Compound / JSON Object] properties: The block state properties to apply.
+[String] <block state>: A key-value pair, where the key is a block state key and the value is a block state value to force place for this block, for example "facing": "east".
+[String] trigger_game_event: One game event (an [String] ID) — The game event to trigger on modifying the block.
+
+spawn_particles
+Spawns particles.
+
+[NBT Compound / JSON Object]
+[String] type: minecraft:spawn_particles
+[NBT Compound / JSON Object] particle: The particle to spawn.
+A particle see Template:Nbt inherit/particle/template
+[NBT Compound / JSON Object] horizontal_position: How to spawn the particle horizontally
+[String] type: One of entity_position (spawn at position of entity) or in_bounding_box (spawn at random position inside the bounding box of the entity)
+[Float] offset: Optional, defaults to 0 — Offset to the position.
+Additional field if [String] type is in_bounding_box:
+[Float] scale: Optional, defaults to 1 — Scaling factor of the bounding box.
+[NBT Compound / JSON Object] vertical_position: How to spawn the particle vertically
+same fields as [NBT Compound / JSON Object] horizontal_position.
+[NBT Compound / JSON Object] horizontal_velocity: The initial horizontal velocity of the particle.
+[Float][NBT Compound / JSON Object] base: Optional, defaults to 0 — Base speed of the particle
+Float provider see Template:Nbt inherit/float_provider/template
+[Float] movement_scale: Optional, defaults to 1 — Factor of the entity speed to add to the particle speed. A value of 1 adds the entity speed to the particle speed.
+[NBT Compound / JSON Object] vertical_velocity: The initial vertical velocity of the particle.
+same fields as [NBT Compound / JSON Object] horizontal_velocity.
+[Float][NBT Compound / JSON Object] speed: Optional, defaults to 0 — Speed factor of the particle.
+Float provider see Template:Nbt inherit/float_provider/template
+
+summon_entity
+Spawns an entity.
+
+[NBT Compound / JSON Object]
+[String] type: minecraft:summon_entity
+[String][NBT List / JSON Array] entity: Any number of entity type(s) (an [String] ID, or a [String] tag with #, or an [NBT List / JSON Array] array containing [String] IDs) — The entity or entities ​[more information needed] to spawn
+[Boolean] join_team: Should the summoned entity join the team of the owner of the enchanted item?
+
+Location-based effects
+All entity effects are also location-based effects. In this case the minecraft:all_of effect also accepts location-based effects as sub-effects. Additionally the following location-based effect exists:
+
+attribute
+Applies attribute modifiers to the affected entity.
+
+[NBT Compound / JSON Object]
+[String] type: minecraft:attribute
+[String] attribute: The id of the attribute to modify
+[Float][NBT Compound / JSON Object] amount: level-based value — amount to add depending on level of the enchantment
+[String] operation: One of add_value, add_multiplied_base and add_multiplied_total — The operation to apply, see Attribute § Operations
+[String] id: A resource location to use for this attribute modifier. Must be unique.
+
+Level-based value
+A level-based value is used in enchantment effects to use different numbers depending on the level of the enchantment. Level-based value is also used in number providers.
+
+Constant
+A constant float can be used instead of a compound to set a value that doesn't depend on the level of the enchantment
+
+[Float] A constant value
+
+exponent
+Raises the base to the specified power level.
+
+[NBT Compound / JSON Object]
+[String] type: minecraft:exponent
+[Float][NBT Compound / JSON Object] base: Level-based value indicating the base of the exponent
+[Float][NBT Compound / JSON Object] power: Level-based value indicating the power of the exponent
+
+linear
+The value is linearly increased (or decreased) per level. The final value is base + per_level_above_first * (level - 1).
+
+[NBT Compound / JSON Object]
+[String] type: minecraft:linear
+[Float] base: Value to use for a level I enchantment
+[Float] per_level_above_first: Amount added to the value for each level above the first.
+
+levels_squared
+The value is based on the square of the level. The final value is level ^ 2 + added
+
+[NBT Compound / JSON Object]
+[String] type: minecraft:levels_squared
+[Float] added: Value to add to the squared level
+
+clamped
+Uses another level-based value and clamps the resulting value to the range [min, max].
+
+[NBT Compound / JSON Object]
+[String] type: minecraft:clamped
+[Float][NBT Compound / JSON Object] value: level-based value — input
+[Float] min: The minimum value of the output
+[Float] max: The maximum value of the output
+
+fraction
+Calculates a fraction of 2 level-based values: numerator/denominator
+
+[NBT Compound / JSON Object]
+[String] type: minecraft:fraction
+[Float][NBT Compound / JSON Object] numerator: level-based value — numerator of the fraction
+[Float][NBT Compound / JSON Object] denominator: level-based value — denominator of the fraction
+
+lookup
+Directly defines the value for each level, with a fallback for levels that aren't directly defined
+
+[NBT Compound / JSON Object]
+[String] type: minecraft:lookup
+[NBT List / JSON Array] values: List of values to use for each level, indexed by level - 1
+[Float]: Value to use for level 1
+[Float]: Value to use for level 2
+...
+[Float][NBT Compound / JSON Object] fallback: level-based value — Value to use when [NBT List / JSON Array] values doesn't define a value for the given level.
+
+History
+Java Edition1.2124w18a
+Enchantments can now be changed using data packs.24w19a
+Added trigger_game_event field to replace_block, replace_disc, and set_block_properties entity effects.
+
+Removed predicates from crossbow_charge_time and trident_spin_attack_strength effect components.24w20a
+Maximum value of weight is now 1024 (was unbound)
+
+Maximum value of max_level is now 255 (was unbound)24w21a
+Changed attribute effects and the minecraft:attribute location based effect: removed name and uuid field, added id field
+
+The minecraft:damage_item entity effect doesn't affect items of players in creative mode anymore
+
+Changed loot context used by minecraft:hit_block effect component to hit_block (was enchanted_entity)pre1
+Added minecraft:lookup level-based valuepre3
+Renamed replace_disc entity effect to replace_disk1.21.224w33a
+Added support for enchantment trigger projectile_spawned in several items.24w40a
+Entity effect damage_item has been renamed to change_item_damage and now allows a negative value.1.21.925w33a
+Added block_particles field to explode entity effect.1.21.1125w41a
+Added exponent.
+Enchantment Effect Components: added minecraft:post_piercing_attack.
+Enchantment Entity Effects: added minecraft:apply_impulse.25w43a
+Enchantment Entity Effects: added minecraft:apply_exhaustion.26.1snap1
+The post_piercing_attack component no longer only works for a player if that player has a certain food level.
+See also
+Enchantment tag (Java Edition)
+Notes
+
+ Unlike the projectile, the origin will always be within the bounds of the hit block. In other words, its block position always matches that of the hit block.
+
+ Although not clarified by Mojang, the chance used in minecraft:unbreaking indicates this. The chance is levellevel+1 for tools and 2×level(5×level)+5 for armors, which is exactly the chance of not losing the durability upon each use (see unbreaking).
+
+References
+
+ Minecraft 1.21 Pre-release 1 – minecraft.net, May 29, 2024.
+
+Navigation

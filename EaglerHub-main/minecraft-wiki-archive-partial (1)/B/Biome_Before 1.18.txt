@@ -1,0 +1,1006 @@
+This article describes content that has been officially made unobtainable in Bedrock Edition. 
+It can still be obtained using third-party software. However, this can cause unexpected behavior such as bugs and crashes.
+
+
+
+This page describes content that has been removed from Java Edition. 
+This feature was present in earlier versions of Java Edition, but has since been removed.
+
+Different Minecraft biomes before the world generation overhaul in 1.18
+In Java Edition 1.18 and Bedrock Edition 1.18.0, Overworld terrain generation was rewritten to be more varied and independent of biome generation. This made many biome variants that were in the game redundant, as the only difference between them and their regular counterparts was the way terrain generated in them. As a result, most variant biomes were removed from the generator. In Java Edition, these biomes were merged with their normal variants, while in Bedrock Edition, these biomes still exist but are no longer used.
+
+Contents
+
+1 Generation
+
+1.1 Earlier stages
+1.2 Generation of biomes and biome variants
+1.3 Generation of rivers
+1.4 Oceanic temperature generation
+1.5 Terrain
+1.6 Other information
+1.7 Seed map
+
+2 Redundant biomes
+
+2.1 Hills
+2.2 Modified biomes
+2.3 Modified hills
+2.4 Other biomes
+
+3 Climate
+
+3.1 Snowfall
+3.2 List of biome climates
+
+4 Data values
+
+4.1 ID
+
+5 History
+
+5.1 Java Edition
+5.2 Bedrock Edition
+
+6 Gallery
+
+6.1 Screenshots
+6.2 Mojang images
+
+7 See also
+8 Navigation
+
+Generation
+Minecraft biomes were generated in layer stacks. These layers generated specific aspects of Minecraft biomes, such as scale, rivers, varieties, and biome categories.
+
+Earlier stages
+The ocean zone
+Biome generation was initialized as a 1 to 4096 scale of ocean, with a few spots of landmasses scattered throughout. This map was then scaled and additional landmasses shuffled around to decrease the amount of ocean, twice, to reach a scale of 1 to 1024. Additional layers that decrease the amount of ocean were repeatedly applied until the ratio of land to ocean was about 50-50. Snowy biome categories were then assigned to a few spots of land, which was then shuffled around a final time to obtain a ratio of 33% ocean and 67% landmass.
+At this stage of biome generation, the final climate zones were applied as follows. Areas of dry landmasses were assigned to be a normal biome if it bordered a cold or frozen landmass. Areas of snowy landmasses were assigned to the cold temperature category if it bordered a normal or dry temperature zone. 1 out of every 13 landmasses was then marked as "Special", which would be used to place some of the rarer biomes in later stages of biome generation. This map was then scaled twice, until a scale of 1 to 256. An additional layer was applied to create a more jagged coastline, creating areas of large islands and lakes around the coastline. 1 out of 100 areas of oceans were assigned as mushroom fields biomes and areas of ocean far from the coast converted into deep ocean.
+The final areas of climate areas were as follows: 31% oceanic, which consisted of 22% deep ocean and 9% ocean, 0.07% mushroom, 13% dry, 22% medium, 23% cold, and 6% frozen. Areas of rare biomes made up 4% of the total area.
+The biome generation was then split into 3 separate stacks.
+
+Generation of biomes and biome variants
+One stack of biome generation generated the actual biomes in-game. The biome categories generated the following biomes as follows. Some biomes were weighed more and as such generated more commonly than other biomes. Snowy biomes had an unused rare biome variant and as such generated as normal snowy biomes.
+
+Climate zone
+
+Biome
+
+Screenshot (final generation)
+
+Dry (13%)
+
+Desert (3 times), Savanna (2 times), Plains
+
+Rare dry (0.9%)
+
+Wooded Badlands Plateau (2 times), Badlands Plateau
+
+Medium (22%)
+
+Forest, Dark Forest, Birch Forest, Mountains, Swamp, Plains
+
+Rare medium (1.5%)
+
+Jungle
+
+Cold (23%)
+
+Forest, Mountains, Taiga, Plains
+
+Rare cold (1.6%)
+
+Giant Tree Taiga
+
+Frozen (6%)
+
+Snowy Tundra (3 times), Snowy Taiga
+
+Forest and mountains biomes could generate in both cold biome clusters in addition to normal temperature clusters. Plains biomes could generate in all temperature clusters except in frozen biomes.
+Bamboo jungles overwrote certain areas of jungle biomes since Village and Pillage.
+This map was scaled twice until a scale of 1 to 64 in both Java Edition and Bedrock Edition. In Legacy Console Edition, the map was not scaled at all at this stage of biome generation unless biome size was set to medium or large. To ensure a smooth transition between biomes, some biomes generated an "edge biome" as follows. These edge biomes could also generate hills and modified biome variants:
+
+Badlands plateau and wooded badlands plateau generated regular badlands on all edges.
+Giant tree taiga generated the regular taiga on all edges, unless there was a pre-existing snowy taiga or taiga bordering it.
+If a desert bordered a snowy plains, an edge of wooded mountains generated.
+If a swamp bordered a jungle, a jungle edge generated. If a swamp bordered a desert, snowy taiga, or snowy tundra, a plains biome generated.
+Random areas of modified (or mutated) and hills biomes were then merged into the biome generation. Most biomes had a "hills" variant but some biomes used other biomes as their "hills" variant, which are listed below. This stage also allowed islands to generate in areas of deep ocean. Swamps, wooded mountains and regular badlands did not generate a hills biome variant.
+Oceans and bamboo jungles did not have a "modified" biome variant. While most biomes had a "modified" variant, few biomes generated a unique "modified hills" variant, such as birch forests and mountain biomes. Some other biomes used another existing biome as a "modified hills" variant. If a biome did not have a "modified hills" variant, such as swamps or snowy taigas, the regular biome variant generated instead.
+
+Existing biome
+
+Hills
+
+Modified
+
+Modified hills
+
+Badlands
+
+Eroded Badlands
+
+Badlands Plateau
+
+Badlands
+
+Modified Badlands Plateau
+
+Eroded Badlands
+
+Bamboo Jungle
+
+Bamboo Jungle Hills
+
+Birch Forest
+
+Birch Forest Hills
+
+Tall Birch Forest
+
+Tall Birch Hills
+
+Dark Forest
+
+Plains
+
+Dark Forest Hills
+
+Sunflower Plains
+
+Deep Ocean
+
+1/2 Plains, 1/2 Forest
+
+1/2 Sunflower Plains, 1/2 Flower Forest
+
+Desert
+
+Desert Hills
+
+Desert Lakes
+
+Forest
+
+Wooded Hills
+
+Flower Forest
+
+Giant Tree Taiga
+
+Giant Tree Taiga Hills
+
+Giant Spruce Taiga
+
+Giant Spruce Taiga Hills
+
+Jungle
+
+Jungle Hills
+
+Modified Jungle
+
+Jungle Edge
+
+Modified Jungle Edge
+
+Mountains
+
+Wooded Mountains
+
+Gravelly Mountains
+
+Gravelly Mountains+
+
+Ocean
+
+Deep Ocean
+
+Plains
+
+2/3 Forest, 1/3 Wooded Hills
+
+Sunflower Plains
+
+Flower Forest
+
+Savanna
+
+Savanna Plateau
+
+Shattered Savanna
+
+Shattered Savanna Plateau
+
+Snowy Tundra
+
+Snowy Mountains
+
+Ice Spikes
+
+Snowy Taiga
+
+Snowy Taiga Hills
+
+Snowy Taiga Mountains
+
+Swamp
+
+Swamp Hills
+
+Taiga
+
+Taiga Hills
+
+Taiga Mountains
+
+Wooded Badlands Plateau
+
+Badlands
+
+Modified Wooded Badlands Plateau
+
+Eroded Badlands
+
+Wooded Mountains
+
+Gravelly Mountains+
+
+Additional areas of sunflower plains were generated separately to the modified biome stage of biome generation, covering 1/57 of normal plains biome.
+The map was then scaled and the coastline made more jagged, then scaled again and beaches were generated. The generation of shorelines and beaches were as follows, this also added a few additional biome edge biomes for jungles and badlands, without biome variants:
+
+Beach biomes generated on all coastlines except the regular swamp and regular badlands biomes.
+Stone Shore biomes generated on the coastline of the standard mountains and wooded mountains biomes.
+Snowy Beach biomes generated on the coastline of all frozen biomes except snowy taiga mountains.
+Mushroom Field Shore biomes generated on the coastline of all mushroom fields biomes, excluding the coastline with deep oceans.
+A regular desert generated on the edge of all badlands biomes, excluding eroded badlands. The desert border did not generate next to oceans.
+A jungle edge generated on the edge of all jungle biomes. The jungle edge did not generate next to oceans.
+Mountain Edge biomes surrounded all mountains, but only generated before Java Edition 1.7.2.
+This also created unique quirks in generation, where gravelly mountains and swamp hills generated a beach biome, and swamp hills bordering a regular jungle edge, with a modified jungle edge bordering jungles.
+This biome map was scaled two more times (scaled 4×) until a scale of 1 to 4. River generation was merged with the regular biomes, then ocean climate zones merged.
+
+Generation of rivers
+A layer stack for river noise generation was used as a random number generator to generate areas of hills and mutated biomes, which was scaled twice before applied to the biome stage of biome generation at scale 1 to 64. Since Update Aquatic, modified biomes could conform to an entire biome or border a river. A separate layer stack to generate rivers throughout was scaled 4 times, before it was merged with the rest of the generation at scale 1 to 4.
+Rivers generated across all land biomes excluding areas of oceans. Frozen rivers replaced rivers in regular snowy tundras, and mushroom field shores replaced rivers in mushroom fields.
+Once the ocean temperature stack and river generation stack was merged with the biome generation stack, a final layer was applied to make the biome scale 1:1, which was the final biome generation used in Minecraft.
+
+Oceanic temperature generation
+Oceanic temperature generation
+Ocean biomes generated their climate zones separately from land biome generation, because they were added later in 1.13 and to avoid changing existing seeds. Ocean climate zones were initialized at a scale of 1 to 256, then scaled 6 times, before it was merged with the rest of the biome generation. There were 5 different climate zones, and deep oceans were converted into the deep variant of these biomes. Warm oceans overwrote deep warm oceans as they did not generate.
+
+Ocean
+
+Deep ocean
+
+Warm Ocean
+
+Lukewarm Ocean
+
+Deep Lukewarm Ocean
+
+Ocean
+
+Deep Ocean
+
+Cold Ocean
+
+Deep Cold Ocean
+
+Frozen Ocean
+
+Deep Frozen Ocean
+
+In Java Edition, ocean climate zones were done so warm oceans could not border frozen oceans. One must go incrementally from warm oceans, to lukewarm oceans, regular oceans, and cold oceans, before reaching frozen oceans. If a frozen ocean or deep frozen ocean bordered a land biome, a regular cold ocean generated. If a warm ocean generated next to a land biome, a regular lukewarm ocean generated.
+In Bedrock Edition, ocean climate zones could border every other ocean climate zone and land biomes. Ocean climate zones were much smaller than in Java Edition, and frozen and warm climate zones were roughly twice as rare as other climate zones.
+Ocean climate zones were based off the 48 bit seed, unlike the rest of the land biome generation, as such, shadow seeds in Java Edition contained entirely different ocean climate areas, even though common land biomes generated identically in Java Edition shadow seeds.
+
+Terrain
+An example of old terrain generation. In this biome, the base terrain height is just above sea level, and the height variation allows some hills.
+Before 1.18, terrain generation was dependent on the biome instead of separate. Each biome had a setBaseHeight and setHeightVariation value controlling the terrain generation. The surface heightmap was calculated using noise with the height variation as amplitude; higher values result in more hilly, mountainous, or jagged terrain. The base height of a biome controlled around what height the noise started calculating.
+For example, badlands plateaus had a high base height and low height variation, resulting in flat plateaus. Hills biomes had a higher height variation, and deep oceans had a very low base height.
+In Bedrock Edition, there were predefined terrain values for certain biome types:
+
+default: Bamboo jungle, birch forest, deep dark, dripstone caves, forest, jungle, jungle edge, lush caves, badlands, eroded badlands, pale garden, dark forest, taiga
+lowlands: Desert, snowy tundra, plains, savanna, sunflower plains
+highlands: Badlands plateau, wooded badlands plateau, savanna plateau
+mountains: All regular hills biomes
+default_mutated: Tall birch forest, modified jungle edge, modified jungle, modified badlands plateau, modified wooded badlands plateau, dark forest hills, taiga mountains
+extreme: Mountains, gravelly mountains, wooded mountains, gravelly mountains+
+less_extreme: Mountain edge
+taiga: Snowy taiga, giant tree taiga, giant spruce taiga
+swamp: Mangrove swamp, swamp
+river: Frozen river, river
+beach: Beach, snowy beach, mushroom field shore
+stone_beach: Stone shore
+ocean: All oceans
+deep_ocean: All deep oceans
+mushroom: Mushroom fields
+Some biomes had custom values:
+
+Tall birch hills: 0.55, 0.5
+Snowy taiga mountains: 0.3, 0.4
+Desert lakes: 0.225, 0.25
+Flower forest: 0.1, 0.4
+Ice spikes: 0.425, 0.45
+Giant spruce taiga hills: 0.55, 0.5
+Shattered savanna: 0.3625, 1.225
+Shattered savanna plateau: 1.05, 1.2125
+Swamp hills: -0.1, 0.3
+On the edges between biomes, the terrain from both was blended for around 10 blocks. This zone was most noticable between oceans and deep ocean/land biomes, rivers, and plateau or extreme hills biomes, where steep cliffs shaped around the biome border.
+
+Other information
+In Java Edition, the possible shapes of biomes could use only the first 24 bits of the 64-bit world seed, and biome shapes within a world seed could repeat beginning around 229 blocks from 0,0. Biome generation overflowed at 231 blocks from 0,0. However, as biomes were generated in a zoomed out stage, before it was scaled upward, it technically means that biome generation could extend further out during earlier stages of biome generation as the integer overflow point is further out.
+Even though there are 64-bit seeds on Java, there were only 263 unique noise maps for continental/ocean biome generation, because a quadratic equation was used, and quadratic equations always can be mirrored so that for every input except one to the quadratic equation, there is another that results in the same output (halving the number of truly distinct possibilities). For any seed, the other seed resulting in the same output to this equation was colloquially known as a shadow seed. In this case, land biome and general ocean biomes were exactly the same in a pair of seeds, but ocean biome temperatures, structures and hills differed in the shadow seed. A user could find a shadow seed by adding the constant -7379792620528906219 to the negative of their current world seed, to obtain the shadow seed. Shadow seeds were exclusive to Java Edition.
+With Bedrock Edition using 32-bit seeds and a different world generation algorithm, there were few similarities between it and the 64-bit world generation. The positions of mutated biomes, oceans (and islands), rare biomes (jungles, badlands, mushroom fields, giant tree taiga), as well as specific biomes in cold, temperate, or dry biome clusters, bore some geographical relationship with the equivalent positive value seed of the 64-bit generation. The biome shapes deviated significantly. The specific generation of lush biomes and ocean variants was completely different on Bedrock.
+
+Java Edition biomes before 1.18
+
+Bedrock Edition biomes before 1.18
+
+Seed map
+An interactive widget is being loaded. If this does not work for you, please reload the page or check if JavaScript is working or enabled.
+Redundant biomes
+The following biomes became redundant after 1.18 and were either removed‌[JE  only] or made unused.‌[BE  only] In Bedrock Edition, they continued receiving updates with the other biomes. In older worlds, this is visible in graphics, mob spawning, and music, while the terrain also received updates when generated through single biome or behavior packs.
+
+Hills
+Hills were generated as relatively small spots within certain biomes.
+Most hills were gentle rolling slopes on which the usual biome terrain generates, with some sharper cliffs here and there. The same structures and features generated as in the regular biomes.
+
+Biome name
+
+Description
+
+Screenshot
+
+Bamboo jungle hills
+
+Birch forest hills
+
+Unlike regular birch forests, wildflowers do not generate.
+
+Desert hills
+
+Unlike regular deserts, villages and pillager outposts do not generate here. Desert pyramids also did not generate in Java Edition.
+
+Giant tree taiga hills
+
+Unlike regular old growth pine taigas, trail ruins do not generate here.
+
+Jungle hills
+
+Unlike regular jungles, trail ruins do not generate here.
+
+Snowy mountains
+
+Despite the name implying that this biome was more mountainous than other hills biomes, the snowy mountains had the exact same terrain as other biomes. Snowy mountains had a lower chance of spawning passive mobs during world generation than other biomes (7% versus 10%).‌[Java Edition  only]
+Unlike regular snowy plains, igloos, villages, and pillager outposts do not generate here.
+
+Snowy taiga hills
+
+Unlike regular snowy taigas, trail ruins and igloos do not generate here.
+
+Taiga hills
+
+Unlike regular taigas, trail ruins do not generate here, as well as villages and pillager outposts in Java Edition.
+
+Wooded hills
+
+Modified biomes
+Modified biomes were rare variations on their regular counterparts. They were much larger in size than hills, and often bordered each other.
+These biomes had only different terrain than the regular biomes, and were therefore removed. Most of them were even more mountainous than the hills biomes.
+
+Biome name
+
+Description
+
+Screenshot
+
+Dark forest hills
+
+The dark forest hills featured high cliffs and overhangs, breaking the canopy. Clearings of small plains biomes did not generate here, making it even more dangerous than the regular dark forest.
+
+Desert lakes
+
+In this biome, patches of water were more common, and the terrain is slightly more rough. Although desert wells could be found, desert pyramids, villages and outposts did not generate in this biome.
+
+Modified badlands plateau
+
+Compared to the average badlands plateau, the modified badlands plateau featured more variable terrain and smaller plateaus, as if a larger plateau was weathered down over time. It was the second-rarest biome in the game, after the modified jungle edge.
+
+Modified jungle
+
+The modified jungle featured very mountainous terrain, with many cliffs and overhangs. No structures generate here.
+
+Modified jungle edge
+
+The very rare modified jungle edge only generated when a rare swamp hills biome bordered a jungle. Like the regular modified jungle, this biome had much more mountainous terrain, but it was very small in size.
+
+Modified wooded badlands plateau
+
+This biome featured grass and oak trees on top of plateaus, much like its regular counterpart. However, the plateaus that generated here were generally smaller, allowing far less foliage to generate. The terrain was more erratic, and could be compared to that of the similar modified badlands plateau biome, having an old and eroded appearance. Eroded badlands generated instead of badlands and deserts alongside this biome.
+In the latest versions, the grass, coarse dirt, and oak trees do not generate here.
+
+Snowy taiga mountains
+
+The very rare snowy taiga mountains featured even more mountainous terrain than the snowy taiga hills, although not as much as the windswept hills. No structures generate here.
+
+Swamp hills
+
+The swamp hills had a much more hilly terrain than the regular, flat swamp. The land patches were much bigger and higher, while the lakes were overall deeper.
+
+Taiga mountains
+
+Like the snowy taiga mountains, this biome featured very mountainous terrain, sometimes passing snowfall hight. The taiga mountains were very similar to the windswept forest, but with a higher density of trees and slightly lower elevation. No structures generate here.
+
+Modified hills
+The modified hills biomes were variations on some modified biomes. Their terrain was somewhat different, with the tall birch hills being more hilly, and the shattered savanna plateau being slightly less shattered.
+Modified hills did not generate as small spots within modified biomes, but as large biomes on their own.
+
+Biome name
+
+Description
+
+Screenshot
+
+Giant spruce taiga hills
+
+Giant spruce taiga hills were a special case. In Java Edition, the game code sets the values setBaseHeight and setHeightVariation to define a "hilly" biome, but used the same values as for its non-hill variant (giant spruce taiga), meaning there was absolutely no terrain difference between the two biomes.
+In Bedrock Edition, this biome did generate as a much hillier version of the giant spruce taiga, even more mountainous than regular hills biomes. However, the giant spruce taiga hills used the same trees as the giant tree taiga hills (with leaves only at the top), making this biome very similar to the giant tree taiga hills.
+Unlike the regular old growth pine taigas, trail ruins do not generate here.
+
+Gravelly mountains+
+
+The gravelly mountains+ had exactly the same terrain and features as the regular gravelly mountains in Java Edition.
+In Bedrock Edition, the regular gravelly mountains did not have any trees, but this biome did, making it slightly different. Because almost no grass blocks were generated between the gravel, trees did rarely generate.
+
+Shattered savanna plateau
+
+The terrain of the shattered savanna plateau biome was much less tame than its normal counterpart. It featured incredibly large and steep mountains that jut out of the terrain, similar to the shattered savanna biome, albeit slightly smaller and gentler in comparison.
+In Bedrock Edition, the grass and foliage color was lush green (the same color as in mushroom fields) and rainfall occurred, making it easily distinctable from the regular shattered savanna.
+
+Tall birch hills
+
+Like the birch forest hills biome, the tall birch hills featured a much more hilly terrain than the regular tall birch forest. The hills were very steep compared to other hills biomes.
+Unlike regular old growth birch forests, trail ruins and wildflowers do not generate here.
+
+Other biomes
+These biomes were neither a modified variant nor a hills variant. They no longer generate due to various reasons.
+
+Biome name
+
+Description
+
+Screenshot
+
+Badlands plateau
+
+Badlands plateaus generated as actual biomes in badlands biomes, and were flattened at the top, much like real-life plateaus. They came to rest at an elevation of about 20 to 30 blocks above sea level. One may discover the entrance to a mineshaft within the tall slopes of a badlands plateau.
+With the new terrain generation in Caves & Cliffs: Part II, the regular badlands biome also featured these plateaus and this biome became redundant.
+
+Deep warm ocean
+
+Similar to the warm ocean biome, but without coral reefs or sea pickles in Java Edition, and twice as deep. Because they were a deep ocean variant, they could generate ocean monuments. Unlike the regular warm ocean, shipwrecks do not generate here in Bedrock Edition.
+The deep warm ocean did not naturally generate in any non-snapshot or non-beta version.
+
+Legacy frozen ocean
+
+Similar to the frozen ocean biome, but without icebergs, it is completely flat. No structures generate here, and land inside this biome is made out of stone covered with snow.
+This biome has never generated naturally on both editions. In Java Edition, it was merged with the current frozen ocean, while in Bedrock Edition it still exists as an unused biome.
+
+Mountain edge
+
+Similar to the sparse jungle biome, the mountain edge used to generate exclusively at the edge of windswept hills biomes in order to smooth the transition between biomes. This biome had lots of trees, similar to windswept forests. While the terrain was lower and gentler in nature, some areas may reach high enough to be covered by snow.
+This biome doesn't generate naturally from Java Edition 1.7.2 onward, and never generated in Bedrock Edition.
+
+Mushroom field shore
+
+Mushroom field shores represented the transition between mushroom fields and the ocean, forming long strips between the biomes as a "beach", hence the name. However, it did not generate if the ocean biome was a deep ocean. This biome also generated when a river met a mushroom fields biome, similar to what frozen rivers did in snowy plains. The terrain of this biome was much more flat and shallow than the main mushroom fields biome, though it contained many of the same features, such as a mycelium surface layer, huge mushrooms and lack of hostile mobs, but shipwrecks and buried treasure could generate here.‌[Bedrock Edition  only]
+Because the terrain was the only difference with the regular mushroom fields biome, this biome became redundant after Caves & Cliffs: Part II.
+
+Climate
+Main articles: Biome § Tint and Biome § Climate
+This is a list of climate attributes and colors for each unused biome. For block renders with these colors applied, see Block colors § Biome colors.
+
+Snowfall
+Unused biomes have the following minimum heights for snowfall. Note that the minimum height for snowfall was also raised in 1.18; for the old values, see Snowfall § Old snowfall heights.
+
+Biomes
+
+Minimum height for snowfall
+
+Snowy MountainsLegacy Frozen OceanSnowy Taiga HillsSnowy Taiga Mountains
+
+Any
+
+Gravelly Mountains+
+Mountain Edge
+
+120±8
+
+Taiga Hills
+Taiga Mountains
+
+160±8
+
+Giant Tree Taiga Hills
+Giant Spruce Taiga Hills
+
+200±8
+
+Others
+
+356±8 (out of world)
+
+List of biome climates
+The fog color in all these biomes is  #abd2ff.
+
+Biomes
+
+Base temperature
+
+Downfall
+
+Snow accumulation
+
+Grass color
+
+Foliage color
+
+Dry foliage color
+
+Water color
+
+Water fog color
+
+Sky color
+
+Modified Badlands Plateau
+
+2.0
+
+0.0
+
+0.0-0.125
+
+ #90814d
+
+ #aea42a
+
+ #a38046
+
+ #55809e
+
+ #6eb1ff
+
+Modified Wooded Badlands Plateau
+
+Badlands Plateau
+
+ #bfb755
+
+ #497f99
+
+Desert Hills
+
+ #1a7aa1
+
+Desert Lakes
+
+ #44aff5
+
+Shattered Savanna Plateau
+
+0.5
+
+ #82c245
+
+ #64b216
+
+ #a37b46
+
+ #2590a8
+
+Jungle Hills
+
+0.95
+
+0.9
+
+ #59c93c
+
+ #30bb0b
+
+ #a36346
+
+ #1b9ed8
+
+ #77a8ff
+
+Modified Jungle
+
+Bamboo Jungle Hills
+
+Modified Jungle Edge
+
+0.8
+
+ #64c73f
+
+ #3eb80f
+
+ #0d8ae3
+
+Mushroom Field Shore
+
+0.9
+
+1.0
+
+ #55c93f
+
+ #2bbb0f
+
+ #a36246
+
+ #818193
+
+Swamp Hills
+
+0.8
+
+0.5
+
+ #6a7039 #4c763c
+
+ #6a7039
+
+ #7b5334
+
+ #4c6156
+
+ #78a7ff
+
+Wooded Hills
+
+0.7
+
+0.8
+
+ #79c05a
+
+ #59ae30
+
+ #a36d46
+
+ #056bd1
+
+ #79a6ff
+
+Tall Birch Hills
+
+ #0a74c4
+
+Dark Forest Hills
+
+ #507a32
+
+ #7b5334
+
+ #3b6cd1
+
+Birch Forest Hills
+
+0.6
+
+0.6
+
+ #88bb67
+
+ #6ba941
+
+ #a37246
+
+ #0a74c4
+
+ #7aa5ff
+
+Deep Warm Ocean
+
+0.5
+
+0.5
+
+ #8eb971
+
+ #71a74d
+
+ #a17448
+
+ #02b0e5
+
+ #0686ca
+
+ #7ba4ff
+
+Giant Tree Taiga Hills
+
+0.3
+
+0.8
+
+ #86b87f
+
+ #68a55f
+
+ #9c754d
+
+ #286378
+
+ #7ca3ff
+
+Giant Spruce Taiga Hills
+
+ #2d6d77
+
+Taiga Hills
+
+0.25
+
+ #86b783
+
+ #68a464
+
+ #9a764f
+
+ #236583
+
+ #7da3ff
+
+Taiga Mountains
+
+ #1e6b82
+
+Gravelly Mountains+
+
+0.2
+
+0.3
+
+ #8ab689
+
+ #6da36b
+
+ #977752
+
+ #0e63ab
+
+ #7da2ff
+
+Mountain Edge
+
+ #045cd5
+
+Snowy Mountains
+
+0.0
+
+0.5
+
+0.125-0.25
+
+ #80b497
+
+ #60a17b
+
+ #8f7a5a
+
+ #1156a7
+
+ #7fa1ff
+
+Legacy Frozen Ocean
+
+ #44aff5
+
+Snowy Taiga Hills
+
+-0.5
+
+0.4
+
+0.125-0.5
+
+ #245b78
+
+ #839eff
+
+Snowy Taiga Mountains
+
+ #205e83
+
+Data values
+ID
+Bedrock Edition:
+
+NameIdentifierNumeric ID
+ [No displayed name]mesa_plateau39
+
+ [No displayed name]bamboo_jungle_hills49
+
+ [No displayed name]birch_forest_hills28
+
+ [No displayed name]roofed_forest_mutated158
+
+ [No displayed name]deep_warm_ocean41
+
+ [No displayed name]desert_hills17
+
+ [No displayed name]desert_mutated130
+ [No displayed name]redwood_taiga_hills_mutated161
+
+ [No displayed name]mega_taiga_hills33
+
+ [No displayed name]extreme_hills_plus_trees_mutated162
+
+ [No displayed name]jungle_hills22
+
+ [No displayed name]mesa_plateau_mutated167
+
+ [No displayed name]jungle_mutated149
+
+ [No displayed name]jungle_edge_mutated151
+
+ [No displayed name]mesa_plateau_stone_mutated166
+
+ [No displayed name]extreme_hills_edge20
+
+ [No displayed name]mushroom_island_shore15
+
+ [No displayed name]savanna_plateau_mutated164
+
+ [No displayed name]ice_mountains13
+
+ [No displayed name]cold_taiga_hills31
+
+ [No displayed name]cold_taiga_mutated158
+
+ [No displayed name]swampland_mutated134
+
+ [No displayed name]taiga_hills19
+
+ [No displayed name]taiga_mutated133
+
+ [No displayed name]birch_forest_hills_mutated156
+
+ [No displayed name]forest_hills18
+
+History
+Java Edition
+Java Edition1.0.0Beta 1.9 Prerelease
+Added Ice Mountains and MushroomIslandShore.1.112w01a
+Added DesertHills, Extreme Hills Edge, ForestHills and TaigaHills.1.2.112w03a
+Added JungleHills.1.7.213w36a
+Added Birch Forest Hills, Birch Forest Hills M, Cold Taiga Hills, Cold Taiga M, Desert M, Extreme Hills+ M, Jungle M, JungleEdge M, Mega Taiga Hills, Mesa Plateau, Mesa Plateau F M, Mesa Plateau M, Redwood Taiga Hills M, Roofed Forest M, Savanna Plateau M, Swampland M and Taiga M.
+
+Extreme hills edge no longer generates naturally.1.1318w08a
+Added Warm Deep Ocean.18w08b
+Warm deep ocean no longer generates naturally.1.1418w43a
+Added Bamboo Jungle Hills.1.18Experimental Snapshot 1
+A lot of biomes no longer generated naturally, because they were no longer needed.
+
+Deep warm ocean now generates naturally.21w40a
+Removed every unused biome.21w43a
+Removed deep warm ocean.
+Bedrock Edition
+Bedrock Edition1.18.0beta 1.18.0.20
+Deep warm ocean biomes now naturally generate by default without enabling experimental gameplay.beta 1.18.0.22
+Removed various biomes from the generator.beta 1.18.0.25
+The deep warm ocean biomes no longer generate naturally.1.21.60Preview 1.21.60.23
+The vegetation of many Overworld biomes has been updated to more closely match Java Edition.1.21.90Preview 1.21.90.26
+Added unique atmospherics, lighting, color grading, and volumetric fog settings for each biome with Vibrant Visuals.
+Gallery
+Screenshots
+
+
+
+			The transition layers between temperate biomes and badlands plateaus
+
+
+
+			A river in a badlands plateau
+
+
+
+			Old view of eroded badlands
+
+
+
+			A mountainous mushroom island
+
+
+
+			A gravelly mountains biome before 1.18, with the lower snow height
+
+
+
+			A large river separating a desert and a forest, which was very common before 1.18
+
+
+
+			The old jungle edge biome
+
+
+
+			A rare occurrence of a mushroom fields biome touching the mainland, which was possible before 1.18
+
+
+
+			A rare biome transition of a colder biome touching a warmer biome (e.g. badlands and ice spikes). This became impossible after 1.18.
+
+
+
+			A river that splits off into two rivers
+
+
+
+			Two old mountains variants, with snow. On the left is a normal mountains biome, on the right is a wooded mountains biome.
+
+
+
+			A swamp and dark forest connecting
+
+
+
+			Village reaching into 3 biomes
+
+
+
+			Two ocean "lakes" in a plains biome
+
+
+
+			A badlands biome and an ice spikes biome generated next to each other
+
+
+
+			A jungle between an ice spikes biome and a taiga
+
+
+
+			A comparison of the four giant tree taiga biomes before 1.18
+
+
+Mojang images
+
+
+
+			A biome map shown by Jeb on instagram
+
+
+
+			A biome map tweeted by Jeb, showcasing work-in-progress biome generation for Java Edition 1.7.2
+
+
+
+			A biome map tweeted by Jeb, showcasing slightly larger oceans for the WIP biome system in 1.7.2
+
+
+
+			This is the first picture provided of the mesa biome.
+
+
+
+			The first image of a giant tree taiga, as tweeted by Jeb
+
+
+
+			The first image of a cliff biome, provided by Jeb
+
+
+See also
+Biome
+Biome/Before Beta 1.8
+World Generation
+World Generation/History
+Biome/ID
+Navigation

@@ -1,0 +1,73 @@
+This page describes an education-related feature. 
+This feature is available only in Minecraft Education or when enabling the "Minecraft Education features" cheat setting in Bedrock Edition.
+
+/ability
+
+Permission levelrequired
+
+1
+
+Restrictions
+
+Cheat only
+
+{
+    "title": "<code>/ability</code>",
+    "rows": [
+        {
+            "field": "1",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "(link to Cheat article, displayed as Cheat) only<br>",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+Sets or queries a player with a specific ability.
+
+Contents
+
+1 Syntax
+2 Arguments
+3 Result
+4 History
+
+4.1 Bedrock Edition
+4.2 Minecraft Education
+
+5 Navigation
+
+Syntax
+ability <player: target> <ability: Ability> [value: Boolean]
+ability <player: target> [ability: Ability]
+Arguments
+player: target: CommandSelector<Player>
+
+Specifies the target for which to grant/revoke/query the ability.
+ability: Ability: enum
+
+Specifies the player ability.
+These abilities are:
+worldbuilder gives the selector the ability to become a world builder. This allows the player to build - even in Adventure mode.
+mayfly lets the selector fly as if they were in Creative mode.
+mute mutes the selector. If they chat, no one can hear (or see) their message.
+value: Boolean: enum
+
+Specifies the value to set the ability to, must be either true or false. If not specified, returns the current ability's value.
+Result
+Fails if the arguments are not specified correctly.
+On success, sets the player ability into the specified ability. If value: Boolean is not specified, returns whether the player has the specified ability. If ability: Ability is not specified, returns what abilities the player has.
+
+History
+Bedrock Edition
+Pocket Edition Alphav0.16.0build 1
+Added /ability.Bedrock Edition1.5.0beta 1.5.0.4
+Added the function of query.
+Minecraft Education
+Minecraft Education1.7
+Added /ability.
+Navigation

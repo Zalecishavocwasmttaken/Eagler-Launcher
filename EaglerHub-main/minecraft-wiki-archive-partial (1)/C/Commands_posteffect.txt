@@ -1,0 +1,78 @@
+This article describes content that is currently in development for Java Edition. 
+This content has appeared in  development versions for Java Edition 26.3, but the full update adding it has not been released yet.
+
+
+
+/posteffect
+
+Permission levelrequired
+
+2
+
+Restrictions
+
+None
+
+{
+    "title": "<code>/posteffect</code>",
+    "rows": [
+        {
+            "field": "2",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "None",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+Allows adding or removing post effects to players.
+
+Contents
+
+1 Syntax
+2 Arguments
+3 Result
+4 Output
+5 History
+6 Navigation
+
+Syntax
+/posteffect add <players> <posteffect>
+Adds the post effect to the players, if it doesn't already exist.
+/posteffect clear <players>
+Removes all post effects from the players, if any exist.
+/posteffect list <target>
+Lists all post effects applied to the player, if any exist.
+/posteffect remove <players> <posteffect>
+Removes the post effect from the players, if it exists.
+Arguments
+<players>: entity
+
+Specifies one or more players to modify.
+Must be a player name, a target selector or a UUID.  And the target selector must be of player type.
+<target>: entity
+
+Specifies a player to show the post effects applied list.
+Must be a player name, a target selector or a UUID.  And the target selector must be of single-player type.
+<posteffect>: resource_location
+
+Specifies the post effect to be added/removed. To be effective, the post-processing effect must be in assets/<namespace>/post_effect. In vanilla, the post effects are minecraft:blur, minecraft:creeper, minecraft:entity_outline, minecraft:invert, and minecraft:spider. See post effect.
+Must be a resource location for an unregistered content.
+Result
+
+CommandTriggerJava Edition
+
+AnyThe command is incomplete, or any argument is not specified correctly. Unparseable<players> fails to resolve to one or more online players. Failed/posteffect list<target> selector allows more than 1 player.AnyOtherwiseSuccessful
+Output
+
+CommandEditionSituationSuccess Count/execute store success .../execute store result ...
+
+AnyJava EditionOn fail000/posteffect list ...On success11the total number of post effect a player has.OtherOn success11the total number of players affected.
+History
+Upcoming Java Edition26.3snap3
+Added /posteffect.
+Navigation

@@ -1,0 +1,72 @@
+The cache files for Bedrock Edition include various temporary assets related to online features, mostly Marketplace content. Marketplace cache, download cache, and screenshot cache can be cleared in the Storage settings. All files in the cache are named with random UUIDs.
+
+Contents
+
+1 Location
+
+1.1 Windows
+1.2 Android
+
+2 Directory structure
+3 History
+4 See also
+5 Navigation
+
+Location
+Windows
+On Windows, the files are located under the %LOCALAPPDATA%\Temp\Minecraft Bedrock\minecraftpe directory. In Minecraft Preview, this is %LOCALAPPDATA%\Temp\Minecraft Bedrock Preview\minecraftpe and functions the same.
+
+Android
+
+
+
+This section of the article is empty. 
+You can help by expanding it.
+
+Directory structure
+
+ minecraftpe
+ AchievementIcons: Achievement icons.
+ blob_cache: ​[more information needed]
+ CatalogCache: The main Marketplace cache, containing all thumbnails, images, icons, and persona renders currently cached, as well as (multiple) .zip files with the exact same content as in  images.
+ CatalogScratch: Files without an extension with a JSON structure containing various cached information related to the Marketplace, as well as the UUIDs of corresponding images in the cache.
+ ContentCache
+ Minecoin: Contains the bundle thumbnails for Minecoin purchases plus one JSON-like file containing information.
+ ThirdPartyServer: Cache from featured servers.
+ ExperienceManifest: Contains one JSON-like file with various types of information related to featured servers.
+ WorldSeeds: Contains seed template thumbnails as well as a JSON files with all information about these seeds, including names, seeds, UUIDs, min engine versions, sometimes discontinued presets, and many more.
+ DownloadTemp: Download cache.
+ download_state.json: Provides information about ongoing downloads.
+ update_history.json: Provides information about recent pack updates.
+ font: Contains the Minecraft Ten font.
+ images: Contains promotional images for Minecraft Realms, such as banners, key art, and FAQ icons.
+ MCProfileCache: Contains player skin faces used in the profile screen, obtained from the Persona API. It also contains .eTag files for each image.
+ MessagingService
+ PFID
+ Images: Contains images and icons from Inbox messages.
+ session_data: JSON-structured file containing an unknown session token and UUID.
+ packcache: Contains downloaded Marketplace content similar to premium_cache in com.mojang.
+ resource: Resource packs.
+ persona: Skin packs.
+ ResPackDownloads: Downloaded resource packs from servers.
+ ServerContent: Downloaded other content from servers.
+ ShowcasedScreenshots: Contains all currently cached screenshots from showcase galleries.
+ TempImportPacks: Cache from external pack import.
+ XblProfileCache: Cache from uploading images to Realms Stories.[verify]
+ lastSessionPlayed.json: Contains information about the last playing session, such as joined worlds, their IDs and game modes, and the playtime.
+ texturecache: Currently Minecraft Preview for Windows only. This is the texture cache for the "Texture Streaming" video setting.
+
+History
+
+
+
+This section needs expansion. 
+You can help by expanding it.
+
+Bedrock Edition1.21.120Preview 1.21.120.21
+Changed cache file location from %LOCALAPPDATA%\Temp\minecraftpe to %LOCALAPPDATA%\Temp\Minecraft Bedrock\minecraftpe, and split Minecraft Preview cache.
+See also
+com.mojang, the directory storing all user data.
+Bedrock Edition installation files, all permanent game files.
+Cache (computing) on Wikipedia.
+Navigation

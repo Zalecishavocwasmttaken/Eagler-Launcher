@@ -1,0 +1,297 @@
+Preview 1.21.0.21
+
+Edition
+
+Bedrock Edition
+
+Release date
+
+April 10, 2024
+
+Server version
+
+1.21.0.21
+
+Editor version
+
+0.6.0
+
+Build version
+
+23561338
+
+Internal version
+
+Windows, Xbox: 1.21.21.0Android, iOS, iPadOS: 1.21.0.21
+
+Version code
+
+Android:
+952100021 (armeabi-v7a, 34)
+962100021 (x86, 34)
+972100021 (arm64-v8a, 34)
+982100021 (x86_64, 34)
+
+Type
+
+Preview
+
+Preview for
+
+1.21.0
+
+Downloads
+
+ ServerWindowsLinux
+
+Protocol version
+
+679
+
+◄◄   1.20.81
+1.21.0
+  1.21.1 ►►
+
+◄   Preview 1.21.0.20
+
+ Preview 1.21.0.21
+
+  Preview 1.21.0.22 ►
+
+{
+    "title": "Preview 1.21.0.21",
+    "images": [
+        "Bedrock 1.21.0.21 PatchNotes.jpeg",
+        "Bedrock 1.21.0.21.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Bedrock Edition article, displayed as Bedrock Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "April 10, 2024",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Bedrock Dedicated Server 1.21.0.21 article, displayed as 1.21.0.21)",
+            "label": "Server version"
+        },
+        {
+            "field": "(link to Bedrock Editor 0.6.0 article, displayed as 0.6.0)",
+            "label": "''(link to Bedrock Editor article, displayed as Editor)'' version"
+        },
+        {
+            "field": "23561338",
+            "label": "Build version"
+        },
+        {
+            "field": "'''Windows, Xbox''': 1.21.21.0<br>'''Android, iOS, iPadOS''': 1.21.0.21",
+            "label": "Internal version"
+        },
+        {
+            "field": "'''Android''':<br />\n952100021 (armeabi-v7a, 34)<br />\n962100021 (x86, 34)<br />\n972100021 (arm64-v8a, 34)<br />\n982100021 (x86_64, 34)<br />",
+            "label": "Version code"
+        },
+        {
+            "field": "Preview",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Bedrock Edition 1.21.0 article, displayed as 1.21.0)",
+            "label": "Preview for"
+        },
+        {
+            "field": "'''Server'''<br>[https://minecraft.net/bedrockdedicatedserver/bin-win-preview/bedrock-server-1.21.0.21.zip Windows]<br>[https://minecraft.net/bedrockdedicatedserver/bin-linux-preview/bedrock-server-1.21.0.21.zip Linux]",
+            "label": "Downloads"
+        },
+        {
+            "field": "679",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Bedrock Edition  1.20.81|<span style=\"margin-right:-0.35em\">◄</span>◄   1.20.81]]</td>\n<td style=\"padding: 0.4em\">'''[[Bedrock Edition 1.21.0|1.21.0]]'''</td>\n<td style=\"padding: 0.4em\" >[[Bedrock Edition  1.21.1|  1.21.1 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Bedrock Edition  Preview 1.21.0.20|◄   Preview 1.21.0.20]]\n</td>\n<td style=\"padding: 0.4em\">''' Preview 1.21.0.21'''</td>\n<td style=\"padding: 0.4em\">\n[[Bedrock Edition  Preview 1.21.0.22|  Preview 1.21.0.22 ►]]\n</td>\n</tr>\n</table>"
+}
+
+Beta 1.21.0.21 (Android) or Preview 1.21.0.21 (Windows, iOS, iPadOS, Xbox, PlayStation) is the second beta/Preview version for Bedrock Edition 1.21.0, released on April 10, 2024, which adds new enchantments for the mace and 5 new paintings under experimental gameplay, and fixes bugs.
+
+Contents
+
+1 Changes
+
+1.1 Blocks
+1.2 General
+1.3 Technical
+
+2 Experimental
+
+2.1 Additions
+
+2.1.1 Gameplay
+2.1.2 Items
+
+2.2 Changes
+
+2.2.1 Blocks
+2.2.2 Items
+2.2.3 World generation
+2.2.4 Technical
+
+3 Fixes
+4 References
+5 Navigation
+
+Changes
+Blocks
+Coral Block and Dead Coral Block
+
+The different block states for the coral_block ID have now been split up into their own IDs.
+
+Old ID
+
+New ID
+
+ coral_block
+
+ tube_coral_block
+
+ brain_coral_block
+
+ bubble_coral_block
+
+ fire_coral_block
+
+ horn_coral_block
+
+ dead_tube_coral_block
+
+ dead_brain_coral_block
+
+ dead_bubble_coral_block
+
+ dead_fire_coral_block
+
+ dead_horn_coral_block
+
+General
+Accessibility features
+
+Added text-to-speech support for member search results in the Realms Stories Member tab. (Preview Only)
+The Realms Stories Opt In screen now enumerates its active buttons with text-to-speech on. (Preview Only)
+Controls
+
+Added slide-off persistence to new d-pad touch control scheme.
+Changes positioning and scale of default new touch d-pad control scheme.
+Also allows for moving the dpad closer to the hotbar when customizing touch controls.
+Education edition toggle
+
+Chemistry items now appear in the Creative inventory when the Education edition toggle is on.
+Technical
+API
+
+Moved typeId and Block.matches from beta to stable.
+@minecraft/server.BlockType
+Moved id API from beta to stable v1.11.0.
+@minecraft/server.BlockTypes
+Moved BlockTypes API from beta to stable v1.11.0.
+Moved typeAPI from beta to stable v1.11.0.
+@minecraft/server.Block
+Moved type API from beta to stable v1.11.0.
+Blocks
+
+Updated block geometry to allow UV rotations.
+This allows to rotate the specified UV rect in 90 degree increments before applying it to a block face.
+Supported from minecraft:geometry format version 1.21.0 and up.
+Added pivot for scale in the Block Transformation Component.
+Added pivot for rotation in the Block Transformation Component.
+Experimental
+These additions and changes are accessible by enabling the "Update 1.21" and "Beta APIs" experimental toggles.
+
+Additions
+Gameplay
+Effects
+
+Added Raid Omen.
+Instead of triggering a Raid directly, Bad Omen will transform into a Raid Omen variant with a duration of 30 seconds.
+Once the Raid Omen expires, a Raid will start at the location the player gained the Raid Omen.
+Like any other effect, players can drink a Bucket of Milk to clear the Raid Omen to prevent the Raid from starting.
+Added activation sounds to Bad Omen, Trial Omen, and Raid Omen.
+Enchantments
+
+The mace now has three brand new enchantments available for use:
+Wind Burst generates a burst of wind when successfully striking enemies, launching the wielder in the air.
+Density makes the already heavy mace even heavier, adding additional heft to its smash attack.
+Breach allows the mace to bypass a portion of an enemy's armor, striking fear into the hearts of even the most protected enemies.
+Items
+Paintings
+
+Added five new paintings by the artist Sarah Boeving:
+
+Picture
+
+Name
+Size
+
+Meditative
+1x1
+
+Prairie Ride
+1x2
+
+Baroque
+2x2
+
+Humble
+2x2
+
+Unpacked
+4x4
+
+Changes
+Blocks
+Ominous Trial Spawner
+
+Ominous Trial Spawners now show a preview of the item that is about to be dropped.
+Items
+Mace
+
+Added a new explosive particle effect when executing a smash attack with the mace to really show the player's power when using it.
+World generation
+Trial Chambers
+
+Trial Chambers are now more consistently buried by terrain when found underground.
+Technical
+API
+
+API get will now handle items whose names have changed so that scripts referencing old names will still work as intended.
+Added ItemComponentUseOnEvent for beta.
+Updated JavaScript engine:
+BigInt support.
+hasOwn.
+Array findLast and at.
+Miscellaneous bug fixes.
+Fixes
+9 issues fixed
+From released versions before 1.21.0
+
+MCPE-174648 – Unable to navigate to previously sent messages using keyboard arrow keys [on Xbox]
+MCPE-179440 – Moving block cause crash
+MCPE-179689 – With the new control UI, it is impossible to continuously move and down in water without switching where fingers are touching on the screen
+MCPE-180142 – Armadillos get stuck when constantly receiving damage from environment.
+From the previous development version
+
+MCPE-180287 – Respawn button appears on the Hardcore mode death screen
+Others
+
+Fixed a crash that could occur when the player begins losing air.
+Fixed several instances of periods being narrated as "dot" on the Realms Stories "Opt In" screen. (Preview only)
+Fixed some places in documentation generation where elements were accidentally overwritten. This caused a minor amount of documentation to appear or move in the Animations, Blocks, Entities, and Particles files.
+Fixed heightmap textures not rendering correctly in the Deferred Technical Preview.
+References
+
+ "Minecraft Beta & Preview - 1.21.0.21"     – Minecraft Feedback, April 10, 2024.
+
+ "Minecraft Preview 1.21.0.21"     by Jay Wells  – Minecraft.net, April 10, 2024.
+
+Navigation

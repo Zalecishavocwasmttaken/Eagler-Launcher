@@ -1,0 +1,3111 @@
+This article is missing information about: Minecraft Education dedicated servers. 
+Please expand the article to include this information. Further details may exist on the talk page.
+
+Bedrock Dedicated Server
+
+Developer(s)
+
+ Mojang Studios
+
+Platform(s)
+
+Written in
+
+ C++
+
+Latest version
+
+Release: 1.26.45.1
+Preview: 1.26.50.27
+
+Release date
+
+August 28, 2018
+
+Size
+
+Release:
+Linux: ≈ 101.6 MB
+Windows: ≈ 92.8 MB
+Preview:
+
+Linux: ≈ 92.5 MB
+Windows: ≈ 95.0 MB
+
+License
+
+EULA
+
+Source available
+
+No
+
+Links
+
+Website
+
+{
+    "title": "Bedrock Dedicated Server",
+    "rows": [
+        {
+            "field": "(link to File:Mojang Studios logo.svg article, displayed as x20px|link=Mojang Studios) (link to Mojang Studios article, displayed as Mojang Studios)",
+            "label": "Developer(s)"
+        },
+        {
+            "field": "(link to File:Windows.svg article, displayed as x20px|Windows|link=wikipedia:Microsoft Windows)<span class=\"os-icon\">(link to File:Tux.svg article, displayed as x20px|Linux|link=wikipedia:Linux)</span>",
+            "label": "Platform(s)"
+        },
+        {
+            "field": "(link to File:C++.svg article, displayed as x20px|C++|link=wikipedia:C++) (link to wikipedia:C++ article, displayed as C++)",
+            "label": "Written in"
+        },
+        {
+            "field": "\n* '''Release:''' (link to Bedrock Dedicated Server_1.26.45.1 article, displayed as 1.26.45.1)\n* '''Preview:''' (link to Bedrock Dedicated Server_1.26.50.27 article, displayed as 1.26.50.27)",
+            "label": "Latest version"
+        },
+        {
+            "field": "August 28, 2018",
+            "label": "Release date"
+        },
+        {
+            "field": "'''Release''':<br>\n* Linux: ≈ 101.6 MB\n* Windows: ≈ 92.8 MB<br>\n'''Preview''':<br>\n* Linux: ≈ 92.5 MB\n* Windows: ≈ 95.0 MB",
+            "label": "Size"
+        },
+        {
+            "field": "[https://www.minecraft.net/en-us/eula EULA]",
+            "label": "License"
+        },
+        {
+            "field": "No",
+            "label": "<span style=\"white-space:normal\">Source available</span>"
+        },
+        {
+            "field": "\n* [https://www.minecraft.net/en-us/download/server/bedrock Website]",
+            "label": "Links"
+        }
+    ],
+    "invimages": [],
+    "images": [
+        "Bedrock Dedicated Server Interface.png"
+    ]
+}
+
+
+
+ There is a related tutorial page for this topic! 
+See Tutorial:Setting up a Bedrock Edition server.
+
+The BDS logo
+Bedrock Dedicated Server (or BDS for short) is the server software used to host a Bedrock Edition server. It is distributed by Mojang and can be downloaded free of charge. It is available for Windows and Linux, and has both a release and a preview version.
+
+Contents
+
+1 Contents
+
+1.1 Directory structure
+
+2 System requirements
+3 Connection
+4 Community resources
+
+4.1 Plugin Support software
+4.2 Startup and maintenance scripts
+
+5 Download
+
+5.1 Bedrock Edition
+
+5.1.1 Release versions
+5.1.2 Preview versions
+
+5.2 Minecraft Education
+
+5.2.1 Release versions
+5.2.2 Preview versions
+
+6 Limitations
+7 History
+8 Issues
+9 See also
+10 Notes
+11 References
+12 External links
+13 Navigation
+
+Contents
+The server software is distributed as a ZIP archive, which includes initial data, including the primary server.properties configuration file, and the executable. The software keeps data in the working directory, and expects the initial data to be present there.
+
+Directory structure
+
+ working directory
+ behavior_packs: Default Minecraft behavior pack directory.
+ config
+ default
+ permissions.json: A list of allowed scripting modules.
+ data
+ bootstrap.json
+ definitions: Contains some resources for the server.
+ attachables: JSON files containing resources (such as animations and render controllers) for attachables like armor and some weapons.
+ disconnection_errors
+ disconnection_error_messaging.json: Server disconnection messages with codewords and URLs.
+ disconnection_error_messaging_edu.json: Contains disconnection message when a player from Minecraft Education attempts to connect to the server.
+ feature_rules: JSON files affecting feature placement during world generation, similar to the directory in behavior packs.
+ features: JSON files affecting feature generation, similar to the directory in behavior packs.
+ persona: JSON files containg default settings and UUIDs for all nine default characters.
+ sdl_layouts: JSON files containing layouts for the Dressing Room.
+ spawn_groups: JSON files containing spawn settings for all different raid waves.
+ development_behavior_packs: Custom behavior pack directory for worlds. Generated on the first run.
+ development_resource_packs: Custom resource pack directory for worlds. Generated on the first run.
+ development_skin_packs: Generated on the first run.
+ minecraftpe: Only Linux. Generated on the first run.
+ premium_cache: Only Linux. Generated on the first run.
+ resource_packs: Default Minecraft resource pack directory.
+ treatments: Only Linux. Generated on the first run.
+ treatment_packs2: Only Linux. Generated on the first run.
+ world_templates: Generated on the first run.
+ worlds: Generated on the first run. May generate a world with the level-name of server.properties simultaneously.
+ allowlist.json: Specifies players that are whitelisted.
+ bedrock_server (Linux) or  bedrock_server.exe (Windows): Server software executable.
+ bedrock_server_how_to.html: HTML manual describing how to use the server software.
+ Dedicated_Server.txt: Only Linux, a log file. Generated on the first run.
+ packet-statistics.txt: Generated on the first run. Requires to stop the server normally.
+ packetlimitconfig.json: Specifies the sending limit of packets.
+ permissions.json: Specifies player permissions.
+ profanity_filter.wlist: Contains a list of words for filtering the profanity.
+ release-notes.txt: Contains some notes and links to changelogs and the bug tracker.
+ server.properties: Primary configuration file.
+
+Files are part of the distributed archive if not mentioned otherwise.
+
+System requirements
+See also the official system requirements on the bottom of the download page.
+Operating system
+Windows: Windows 10 version 10.0.15063 or later, or Windows Server 2016 or later
+Linux: Only Ubuntu 22.04 or later is officially supported, but the program will run on any Linux distribution for the x86-64 architecture that has correct libraries installed (including glibc 2.35 or later).
+Processor
+A minimum of a dual core CPU. Highly recommended to have a quad-core x86/64 bit processor that can run at least 3 GHz or higher, Intel i5 Ivy Bridge processor or newer, AMD FX-4100 or higher. Minimum requirements are Intel Core i3 3210, or AMD A8 7600 APU or equivalent.
+Memory
+4 GB of memory minimum. May require more memory with more than 10 players at the same time. Generally, Bedrock Edition does not seem to be as memory hungry as Java Edition. Unlike with Java Edition server software, there is no way to specify initial startup and maximum memory values.
+Internet speed
+A speed of 5 Mbps upload and 10 Mbps download per 10 players. A DSL connection will likely not have the bandwidth to run a server over the internet. An internet connection is not required to host a server on a LAN.
+Network
+An ethernet connection tends to be faster and more stable than a Wi-Fi connection. 100 Mbps Ethernet is acceptable. Gigabit LAN is not required.
+The computer hosting the server should be assigned a static IP address on the network, rather than using DHCP.
+To allow clients to connect to the server over the internet, the port used by the server needs to be forwarded.
+Storage
+180 MB free storage space is required, but 1 GB is recommended when using multiple or large worlds.
+Connection
+See also: Bedrock Edition § Platform differences
+
+BDS uses UDP, unlike Java Edition which uses TCP. The default port for IPv4 is 19132 and the default port for IPv6 is 19133; these can be changed in server.properties. Players on the Xbox, PlayStation, and Nintendo Switch versions can only connect through a custom DNS or a LAN connection.
+
+Community resources
+
+
+
+The contents of this section are not supported by Mojang Studios or the Minecraft Wiki.
+
+Plugin Support software
+LeviLamina is an unofficial mod loader designed to provide essential API support for Minecraft Bedrock Edition. It features a comprehensive API, a range of utility interfaces, a powerful event system, and extensive support for basic interfaces. LeviLamina offers a solid foundation for augmenting Minecraft with additional gameplay features and functionalities, making the modding process effortless through its user-friendly development environment and flexible approach. It supports Windows client and server.
+LiteLoaderBDS [Defunct as of 2024] was an unofficial plugin loader that provides basic API support for Bedrock Dedicated Server, with a massive API, a lot of packed utility interfaces, a rich event system and powerful basic interface support. With LiteLoaderBDS and plugins, it is easy to extend the functionality of BDS, the associated development is easy to learn, and the development approach is flexible.
+BDSX [Defunct as of 2024] was a modification of Minecraft Bedrock Dedicated Server, supporting node.js. Because it is based on the official BDS software, it includes all the features of vanilla Minecraft, but includes other features as well, such as hooking functions and packets to change behavior.
+Endstone is a modern plugin loader that provides a high-level plugin API for Bedrock Dedicated Servers, supporting both Python and C++. It allows developers to extend Bedrock Dedicated Servers without the hassle of dealing with low-level hooks. Endstone users will benefit from all vanilla features and native support for both Windows and Linux.
+
+Startup and maintenance scripts
+BDSAddonInstaller A node.js tool used for automatically installing, updating, and uninstalling addons/packs.
+MCscripts systemd units and scripts for backups, automatic updates, and posting logs to chat bots
+MinecraftBedrockServer Sets up a Minecraft Bedrock dedicated server on Ubuntu / Debian / Raspbian / Armbian with options for automatic updates, backups and running automatically at startup
+MCBEPlay  MCBEPlay is primarily a Windows 10 GUI for the official BDS System, that enables you to control and manage your Minecraft Bedrock Edition Server with little to no knowledge of server systems. It also has automatic backups, can save automatically, and has auto restarts.
+WinMSSScripts WinMSSScripts is a basic batch file to help create maintain backups of your worlds and log files as you run the official BDS System on Windows systems.
+MC-BDS-PWSH Updates Minecraft Bedrock Dedicated Server with PowerShell.
+Download
+Bedrock Edition
+Release versions
+
+Download
+
+1.6.0.15
+
+Windows
+
+Ubuntu
+
+1.6.1.0
+
+Windows
+
+Ubuntu
+
+1.7.0.13
+
+Windows
+
+Ubuntu
+
+1.8.0.24
+
+Windows
+
+Ubuntu
+
+1.8.1.2
+
+Windows
+
+Ubuntu
+
+1.9.0.15
+
+Windows
+
+Ubuntu
+
+1.10.0.7
+
+Windows
+
+Ubuntu
+
+1.11.0.23
+
+Windows
+
+Ubuntu
+
+1.11.1.2
+
+Windows
+
+Ubuntu
+
+1.11.2.1
+
+Windows
+
+Ubuntu
+
+1.11.4.2
+
+Windows
+
+Ubuntu
+
+1.12.0.28
+
+Windows
+
+Ubuntu
+
+1.12.1.1
+
+Windows
+
+Ubuntu
+
+1.13.0.34
+
+Windows
+
+Ubuntu
+
+1.13.1.5
+
+Windows
+
+Ubuntu
+
+1.13.2.0
+
+Windows
+
+Ubuntu
+
+1.13.3.0
+
+Windows
+
+Ubuntu
+
+1.14.0.9
+
+Windows
+
+Ubuntu
+
+1.14.1.4
+
+Windows
+
+Ubuntu
+
+1.14.20.1
+
+Windows
+
+Ubuntu
+
+1.14.21.0
+
+Windows
+
+Ubuntu
+
+1.14.30.2
+
+Windows
+
+Ubuntu
+
+1.14.32.1
+
+Windows
+
+Ubuntu
+
+1.14.60.5
+
+Windows
+
+Ubuntu
+
+1.16.0.2
+
+Windows
+
+Ubuntu
+
+1.16.1.02
+
+Windows
+
+Ubuntu
+
+1.16.10.02
+
+Windows
+
+—
+
+1.16.20.01
+
+Windows
+
+1.16.20.03
+
+Windows
+
+Ubuntu
+
+1.16.40.02
+
+Windows
+
+Ubuntu
+
+1.16.100.04
+
+Windows
+
+Ubuntu
+
+1.16.101.01
+
+Windows
+
+Ubuntu
+
+1.16.200.02
+
+Windows
+
+Ubuntu
+
+1.16.201.02
+
+Windows
+
+Ubuntu
+
+1.16.201.03
+
+Windows
+
+Ubuntu
+
+1.16.210.05
+
+Windows
+
+Linux
+
+1.16.210.06
+
+Windows
+
+Linux
+
+1.16.220.02
+
+Windows
+
+Linux
+
+1.16.221.01
+
+Windows
+
+Linux
+
+1.17.0.03
+
+Windows
+
+Linux
+
+1.17.1.01
+
+Windows
+
+Linux
+
+1.17.2.01
+
+Windows
+
+Linux
+
+1.17.10.04
+
+Windows
+
+Linux
+
+1.17.11.01
+
+Windows
+
+Linux
+
+1.17.30.04
+
+Windows
+
+Linux
+
+1.17.31.01
+
+Windows
+
+Linux
+
+1.17.32.02
+
+Windows
+
+Linux
+
+1.17.33.01
+
+Windows
+
+Linux
+
+1.17.34.02
+
+Windows
+
+Linux
+
+1.17.40.06
+
+Windows
+
+Linux
+
+1.17.41.01
+
+Windows
+
+Linux
+
+1.18.0.02
+
+Windows
+
+Linux
+
+1.18.1.02
+
+Windows
+
+Linux
+
+1.18.2.03
+
+Windows
+
+Linux
+
+1.18.11.01
+
+Windows
+
+Linux
+
+1.18.12.01
+
+Windows
+
+Linux
+
+1.18.30.04
+
+Windows
+
+Linux
+
+1.18.31.04
+
+Windows
+
+Linux
+
+1.18.32.02
+
+Windows
+
+Linux
+
+1.18.33.02
+
+Windows
+
+Linux
+
+1.19.10.20
+
+Windows
+
+Linux
+
+1.19.1.01
+
+Windows
+
+Linux
+
+1.19.2.02
+
+Windows
+
+Linux
+
+1.19.10.03
+
+Windows
+
+Linux
+
+1.19.11.01
+
+Windows
+
+Linux
+
+1.19.20.02
+
+Windows
+
+Linux
+
+1.19.21.01
+
+Windows
+
+Linux
+
+1.19.22.01
+
+Windows
+
+Linux
+
+1.19.30.04
+
+Windows
+
+Linux
+
+1.19.31.01
+
+Windows
+
+Linux
+
+1.19.40.02
+
+Windows
+
+Linux
+
+1.19.41.01
+
+Windows
+
+Linux
+
+1.19.50.02
+
+Windows
+
+Linux
+
+1.19.51.01
+
+Windows
+
+Linux
+
+1.19.52.01
+
+Windows
+
+Linux
+
+1.19.60.04
+
+Windows
+
+Linux
+
+1.19.61.01
+
+Windows
+
+Linux
+
+1.19.62.01
+
+Windows
+
+Linux
+
+1.19.63.01
+
+Windows
+
+Linux
+
+1.19.70.02
+
+Windows
+
+Linux
+
+1.19.71.02
+
+Windows
+
+Linux
+
+1.19.72.01
+
+Windows
+
+Linux
+
+1.19.73.02
+
+Windows
+
+Linux
+
+1.19.80.02
+
+Windows
+
+Linux
+
+1.19.81.01
+
+Windows
+
+Linux
+
+1.19.83.01
+
+Windows
+
+Linux
+
+1.20.0.01
+
+Windows
+
+Linux
+
+1.20.1.02
+
+Windows
+
+Linux
+
+1.20.10.01
+
+Windows
+
+Linux
+
+1.20.11.01
+
+Windows
+
+Linux
+
+1.20.12.01
+
+Windows
+
+Linux
+
+1.20.13.01
+
+Windows
+
+Linux
+
+1.20.14.01
+
+Windows
+
+Linux
+
+1.20.15.01
+
+Windows
+
+Linux
+
+1.20.30.02
+
+Windows
+
+Linux
+
+1.20.31.01
+
+Windows
+
+Linux
+
+1.20.32.03
+
+Windows
+
+Linux
+
+1.20.40.01
+
+Windows
+
+Linux
+
+1.20.41.02
+
+Windows
+
+Linux
+
+1.20.50.03
+
+Windows
+
+Linux
+
+1.20.51.01
+
+Windows
+
+Linux
+
+1.20.61.01
+
+Windows
+
+Linux
+
+1.20.62.01
+
+Windows
+
+Linux
+
+1.20.62.02
+
+Windows
+
+Linux
+
+1.20.62.03
+
+Windows
+
+Linux
+
+1.20.70.05
+
+Windows
+
+Linux
+
+1.20.71.01
+
+Windows
+
+Linux
+
+1.20.72.01
+
+Windows
+
+Linux
+
+1.20.73.01
+
+Windows
+
+Linux
+
+1.20.80.05
+
+Windows
+
+Linux
+
+1.20.81.01
+
+Windows
+
+Linux
+
+1.21.0.03
+
+Windows
+
+Linux
+
+1.21.1.03
+
+Windows
+
+Linux
+
+1.21.2.02
+
+Windows
+
+Linux
+
+1.21.3.01
+
+Windows
+
+Linux
+
+1.21.20.03
+
+Windows
+
+Linux
+
+1.21.22.01
+
+Windows
+
+Linux
+
+1.21.23.01
+
+Windows
+
+Linux
+
+1.21.30.03
+
+Windows
+
+Linux
+
+1.21.31.04
+
+Windows
+
+Linux
+
+1.21.40.03
+
+Windows
+
+Linux
+
+1.21.41.01
+
+Windows
+
+Linux
+
+1.21.42.01
+
+Windows
+
+Linux
+
+1.21.43.01
+
+Windows
+
+Linux
+
+1.21.44.01
+
+Windows
+
+Linux
+
+1.21.50.07
+
+Windows
+
+—
+
+1.21.50.10
+
+Windows
+
+Linux
+
+1.21.51.01
+
+Windows
+
+Linux
+
+1.21.51.02
+
+Windows
+
+Linux
+
+1.21.60.10
+
+Windows
+
+Linux
+
+1.21.61.01
+
+Windows
+
+Linux
+
+1.21.62.01
+
+Windows
+
+Linux
+
+1.21.70.04
+
+Windows
+
+Linux
+
+1.21.71.01
+
+Windows
+
+Linux
+
+1.21.72.01
+
+Windows
+
+Linux
+
+1.21.73.01
+
+Windows
+
+Linux
+
+1.21.80.3
+
+Windows
+
+Linux
+
+1.21.81.2
+
+Windows
+
+Linux
+
+1.21.82.1
+
+Windows
+
+Linux
+
+1.21.83.1
+
+Windows
+
+Linux
+
+1.21.84.1
+
+Windows
+
+Linux
+
+1.21.90.3
+
+Windows
+
+Linux
+
+1.21.90.4
+
+Windows
+
+Linux
+
+1.21.91.1
+
+Windows
+
+Linux
+
+1.21.92.1
+
+Windows
+
+Linux
+
+1.21.93.1
+
+Windows
+
+Linux
+
+1.21.94.1
+
+Windows
+
+Linux
+
+1.21.94.2
+
+Windows
+
+Linux
+
+1.21.95.1
+
+Windows
+
+Linux
+
+1.21.100.6
+
+Windows
+
+Linux
+
+1.21.100.7
+
+Windows
+
+Linux
+
+1.21.101.1
+
+Windows
+
+Linux
+
+1.21.102.1
+
+Windows
+
+Linux
+
+1.21.110.2
+
+Windows
+
+Linux
+
+1.21.111.1
+
+Windows
+
+Linux
+
+1.21.112.1
+
+Windows
+
+Linux
+
+1.21.113.1
+
+Windows
+
+Linux
+
+1.21.114.1
+
+Windows
+
+Linux
+
+1.21.120.4
+
+Windows
+
+Linux
+
+1.21.121.1
+
+Windows
+
+Linux
+
+1.21.122.2
+
+Windows
+
+Linux
+
+1.21.123.2
+
+Windows
+
+Linux
+
+1.21.124.2
+
+Windows
+
+Linux
+
+1.21.130.3
+
+Windows
+
+Linux
+
+1.21.130.4
+
+Windows
+
+Linux
+
+1.21.131.1
+
+Windows
+
+Linux
+
+1.21.132.1
+
+Windows
+
+Linux
+
+1.21.132.3
+
+Windows
+
+Linux
+
+1.26.0.2
+
+Windows
+
+Linux
+
+1.26.1.1
+
+Windows
+
+Linux
+
+1.26.2.1
+
+Windows
+
+Linux
+
+1.26.3.1
+
+Windows
+
+Linux
+
+1.26.10.4
+
+Windows
+
+Linux
+
+1.26.11.1
+
+Windows
+
+Linux
+
+1.26.12.2
+
+Windows
+
+Linux
+
+1.26.13.1
+
+Windows
+
+Linux
+
+1.26.14.1
+
+Windows
+
+Linux
+
+1.26.20.4
+
+Windows
+
+Linux
+
+1.26.20.5
+
+Windows
+
+Linux
+
+1.26.21.1
+
+Windows
+
+Linux
+
+1.26.22.1
+
+Windows
+
+Linux
+
+1.26.23.1
+
+Windows
+
+Linux
+
+1.26.30.5
+
+Windows
+
+Linux
+
+1.26.31.1
+
+Windows
+
+Linux
+
+1.26.32.2
+
+Windows
+
+Linux
+
+1.26.33.1
+
+Windows
+
+Linux
+
+1.26.33.2
+
+Windows
+
+Linux
+
+1.26.34.3
+
+Windows
+
+Linux
+
+1.26.36.1
+
+Windows
+
+Linux
+
+1.26.40.8
+
+Windows
+
+Linux
+
+1.26.42.1
+
+Windows
+
+Linux
+
+1.26.43.1
+
+Windows
+
+Linux
+
+1.26.44.3
+
+Windows
+
+Linux
+
+1.26.45.1
+
+Windows
+
+Linux
+
+Preview versions
+
+Download
+
+1.19.50.21
+
+Windows
+
+Linux
+
+1.19.50.24
+
+Windows
+
+Linux
+
+1.19.50.25
+
+Windows
+
+Linux
+
+1.19.60.20
+
+Windows
+
+Linux
+
+1.19.60.22
+
+Windows
+
+Linux
+
+1.19.60.23
+
+Windows
+
+Linux
+
+1.19.60.24
+
+Windows
+
+Linux
+
+1.19.60.25
+
+Windows
+
+Linux
+
+1.19.60.26
+
+Windows
+
+Linux
+
+1.19.60.27
+
+Windows
+
+Linux
+
+1.19.70.20
+
+Windows
+
+Linux
+
+1.19.70.21
+
+Windows
+
+Linux
+
+1.19.70.22
+
+Windows
+
+Linux
+
+1.19.70.23
+
+Windows
+
+Linux
+
+1.19.70.24
+
+Windows
+
+Linux
+
+1.19.70.26
+
+Windows
+
+Linux
+
+1.19.80.20
+
+Windows
+
+Linux
+
+1.19.80.21
+
+Windows
+
+Linux
+
+1.19.80.22
+
+Windows
+
+Linux
+
+1.19.80.23
+
+Windows
+
+Linux
+
+1.19.80.24
+
+Windows
+
+Linux
+
+1.20.0.20
+
+Windows
+
+Linux
+
+1.20.0.21
+
+Windows
+
+Linux
+
+1.20.0.22
+
+Windows
+
+Linux
+
+1.20.0.23
+
+Windows
+
+Linux
+
+1.20.0.24
+
+Windows
+
+Linux
+
+1.20.0.25
+
+Windows
+
+Linux
+
+1.20.10.20
+
+Windows
+
+Linux
+
+1.20.10.21
+
+Windows
+
+Linux
+
+1.20.10.23
+
+Windows
+
+Linux
+
+1.20.10.24
+
+Windows
+
+Linux
+
+1.20.20.20
+
+Windows
+
+Linux
+
+1.20.20.21
+
+Windows
+
+Linux
+
+1.20.20.22
+
+Windows
+
+Linux
+
+1.20.20.23
+
+Windows
+
+Linux
+
+1.20.30.20
+
+Windows
+
+Linux
+
+1.20.30.21
+
+Windows
+
+Linux
+
+1.20.30.22
+
+Windows
+
+Linux
+
+1.20.30.24
+
+Windows
+
+Linux
+
+1.20.30.25
+
+Windows
+
+Linux
+
+1.20.40.20
+
+Windows
+
+Linux
+
+1.20.40.21
+
+Windows
+
+Linux
+
+1.20.40.22
+
+Windows
+
+Linux
+
+1.20.40.23
+
+Windows
+
+Linux
+
+1.20.40.24
+
+Windows
+
+Linux
+
+1.20.50.20
+
+Windows
+
+Linux
+
+1.20.50.21
+
+Windows
+
+Linux
+
+1.20.50.22
+
+Windows
+
+Linux
+
+1.20.50.23
+
+Windows
+
+Linux
+
+1.20.50.24
+
+Windows
+
+Linux
+
+1.20.60.20
+
+Windows
+
+Linux
+
+1.20.60.21
+
+Windows
+
+Linux
+
+1.20.60.22
+
+Windows
+
+Linux
+
+1.20.60.23
+
+Windows
+
+Linux
+
+1.20.60.24
+
+Windows
+
+Linux
+
+1.20.60.25
+
+Windows
+
+Linux
+
+1.20.70.20
+
+Windows
+
+Linux
+
+1.20.70.21
+
+Windows
+
+Linux
+
+1.20.70.22
+
+Windows
+
+Linux
+
+1.20.70.24
+
+Windows
+
+Linux
+
+1.20.70.25
+
+Windows
+
+Linux
+
+1.20.80.20
+
+Windows
+
+Linux
+
+1.20.80.21
+
+Windows
+
+Linux
+
+1.20.80.22
+
+Windows
+
+Linux
+
+1.20.80.23
+
+Windows
+
+Linux
+
+1.20.80.24
+
+Windows
+
+Linux
+
+1.21.0.20
+
+Windows
+
+Linux
+
+1.21.0.21
+
+Windows
+
+Linux
+
+1.21.0.22
+
+Windows
+
+Linux
+
+1.21.0.23
+
+Windows
+
+Linux
+
+1.21.0.24
+
+Windows
+
+Linux
+
+1.21.0.25
+
+Windows
+
+Linux
+
+1.21.0.26
+
+Windows
+
+Linux
+
+1.21.10.20
+
+Windows
+
+Linux
+
+1.21.10.21
+
+Windows
+
+Linux
+
+1.21.10.22
+
+Windows
+
+Linux
+
+1.21.10.23
+
+Windows
+
+Linux
+
+1.21.10.24
+
+Windows
+
+Linux
+
+1.21.20.21
+
+Windows
+
+Linux
+
+1.21.20.22
+
+Windows
+
+Linux
+
+1.21.20.23
+
+Windows
+
+Linux
+
+1.21.20.24
+
+Windows
+
+Linux
+
+1.21.30.21
+
+Windows
+
+Linux
+
+1.21.30.22
+
+Windows
+
+Linux
+
+1.21.30.23
+
+Windows
+
+Linux
+
+1.21.30.24
+
+Windows
+
+Linux
+
+1.21.30.25
+
+Windows
+
+Linux
+
+1.21.40.20
+
+Windows
+
+Linux
+
+1.21.40.21
+
+Windows
+
+Linux
+
+1.21.40.22
+
+Windows
+
+Linux
+
+1.21.40.23
+
+Windows
+
+Linux
+
+1.21.40.25
+
+Windows
+
+Linux
+
+1.21.50.20
+
+Windows
+
+Linux
+
+1.21.50.22
+
+Windows
+
+Linux
+
+1.21.50.24
+
+Windows
+
+Linux
+
+1.21.50.25
+
+Windows
+
+Linux
+
+1.21.50.26
+
+Windows
+
+Linux
+
+1.21.50.28
+
+Windows
+
+Linux
+
+1.21.50.29
+
+Windows
+
+Linux
+
+1.21.60.21
+
+Windows
+
+Linux
+
+1.21.50.07
+
+—
+
+Linux
+
+1.21.60.22
+
+Windows
+
+Linux
+
+1.21.60.23
+
+Windows
+
+Linux
+
+1.21.60.24
+
+Windows
+
+Linux
+
+1.21.60.25
+
+Windows
+
+—
+
+1.21.60.26
+
+—
+
+Linux
+
+1.21.60.27
+
+Windows
+
+Linux
+
+1.21.60.28
+
+Windows
+
+Linux
+
+1.21.70.20
+
+Windows
+
+Linux
+
+1.21.70.21
+
+Windows
+
+Linux
+
+1.21.70.22
+
+Windows
+
+Linux
+
+1.21.70.23
+
+Windows
+
+Linux
+
+1.21.70.24
+
+Windows
+
+Linux
+
+1.21.70.25
+
+Windows
+
+Linux
+
+1.21.70.26
+
+Windows
+
+Linux
+
+1.21.80.20
+
+Windows
+
+Linux
+
+1.21.80.21
+
+Windows
+
+Linux
+
+1.21.80.22
+
+Windows
+
+Linux
+
+1.21.80.25
+
+Windows
+
+Linux
+
+1.21.80.26
+
+Windows
+
+Linux
+
+1.21.80.27
+
+Windows
+
+Linux
+
+1.21.80.28
+
+Windows
+
+Linux
+
+1.21.90.20
+
+Windows
+
+Linux
+
+1.21.90.21
+
+Windows
+
+Linux
+
+1.21.90.22
+
+Windows
+
+Linux
+
+1.21.90.23
+
+Windows
+
+Linux
+
+1.21.90.25
+
+Windows
+
+Linux
+
+1.21.90.26
+
+Windows
+
+Linux
+
+1.21.90.27
+
+Windows
+
+Linux
+
+1.21.90.28
+
+Windows
+
+Linux
+
+1.21.100.20
+
+Windows
+
+Linux
+
+1.21.100.21
+
+Windows
+
+Linux
+
+1.21.100.22
+
+Windows
+
+Linux
+
+1.21.100.23
+
+Windows
+
+Linux
+
+1.21.100.24
+
+Windows
+
+Linux
+
+1.21.100.25
+
+Windows
+
+Linux
+
+1.21.110.20
+
+Windows
+
+Linux
+
+1.21.110.22
+
+Windows
+
+Linux
+
+1.21.110.23
+
+Windows
+
+Linux
+
+1.21.110.24
+
+Windows
+
+Linux
+
+1.21.110.25
+
+Windows
+
+Linux
+
+1.21.110.26
+
+Windows
+
+Linux
+
+1.21.120.20
+
+Windows
+
+Linux
+
+1.21.120.21
+
+Windows
+
+Linux
+
+1.21.120.22
+
+Windows
+
+Linux
+
+1.21.120.23
+
+Windows
+
+Linux
+
+1.21.120.24
+
+Windows
+
+Linux
+
+1.21.120.25
+
+Windows
+
+Linux
+
+1.21.130.20
+
+Windows
+
+Linux
+
+1.21.130.22
+
+Windows
+
+Linux
+
+1.21.130.24
+
+Windows
+
+Linux
+
+1.21.130.25
+
+Windows
+
+Linux
+
+1.21.130.26
+
+Windows
+
+Linux
+
+1.21.130.27
+
+Windows
+
+Linux
+
+1.21.130.28
+
+Windows
+
+Linux
+
+1.26.0.23
+
+Windows
+
+Linux
+
+1.26.0.24
+
+Windows
+
+Linux
+
+1.26.0.25
+
+Windows
+
+Linux
+
+1.26.0.26
+
+Windows
+
+Linux
+
+1.26.0.27
+
+Windows
+
+Linux
+
+1.26.0.28
+
+Windows
+
+Linux
+
+1.26.0.29
+
+Windows
+
+Linux
+
+1.26.10.20
+
+Windows
+
+Linux
+
+1.26.10.21
+
+Windows
+
+Linux
+
+1.26.10.22
+
+Windows
+
+—
+
+1.26.10.23
+
+Windows
+
+Linux
+
+1.26.10.24
+
+Windows
+
+Linux
+
+1.26.10.25
+
+Windows
+
+Linux
+
+1.26.10.26
+
+Windows
+
+Linux
+
+1.26.10.27
+
+Windows
+
+Linux
+
+1.26.20.20
+
+Windows
+
+Linux
+
+1.26.20.21
+
+Windows
+
+Linux
+
+1.26.20.22
+
+Windows
+
+Linux
+
+1.26.20.23
+
+Windows
+
+Linux
+
+1.26.20.24
+
+Windows
+
+Linux
+
+1.26.20.26
+
+Windows
+
+Linux
+
+1.26.20.27
+
+Windows
+
+Linux
+
+1.26.20.28
+
+Windows
+
+Linux
+
+1.26.30.25
+
+Windows
+
+Linux
+
+1.26.30.26
+
+Windows
+
+Linux
+
+1.26.30.27
+
+Windows
+
+Linux
+
+1.26.30.28
+
+Windows
+
+Linux
+
+1.26.30.29
+
+Windows
+
+Linux
+
+1.26.30.30
+
+Windows
+
+Linux
+
+1.26.30.31
+
+Windows
+
+Linux
+
+1.26.30.32
+
+Windows
+
+Linux
+
+1.26.40.20
+
+Windows
+
+Linux
+
+1.26.40.21
+
+Windows
+
+Linux
+
+1.26.40.23
+
+Windows
+
+Linux
+
+1.26.40.24
+
+Windows
+
+Linux
+
+1.26.40.25
+
+Windows
+
+Linux
+
+1.26.40.26
+
+Windows
+
+Linux
+
+1.26.40.27
+
+Windows
+
+Linux
+
+1.26.40.29
+
+Windows
+
+Linux
+
+1.26.40.30
+
+Windows
+
+Linux
+
+1.26.40.31
+
+Windows
+
+Linux
+
+1.26.50.20
+
+Windows
+
+Linux
+
+1.26.50.22
+
+Windows
+
+Linux
+
+1.26.50.24
+
+Windows
+
+Linux
+
+1.26.50.25
+
+Windows
+
+Linux
+
+1.26.50.26
+
+Windows
+
+Linux
+
+1.26.50.27
+
+Windows
+
+Linux
+
+Minecraft Education
+Release versions
+
+Download
+
+1.21.132.1
+
+Windows
+
+Linux
+
+1.21.133.2
+
+Windows
+
+Linux
+
+1.26.32.0
+
+Windows
+
+Linux
+
+Preview versions
+
+Download
+
+1.21.110.1
+
+Windows
+
+Linux
+
+1.21.131.1
+
+Windows
+
+Linux
+
+1.26.30.0
+
+Windows
+
+Linux
+
+Limitations
+This server software has some limitations compared to regular Bedrock Edition multiplayer or the Java Edition server.jar:
+
+The /reload command cannot reload the server like the Java server to prevent the server from crashing. As a result, the server needs to be restarted every time the server settings are readjusted, or plug-ins are added.
+Doesn't have a server invite system that allows in-game friends, including from consoles, to connect like Realms.
+Doesn't support remote console (RCON), which allows sending commands remotely from external sources.
+Doesn't support SRV record for a domain name, which allows connecting to a server using an Internet domain name without specifying a port manually.
+Doesn't support setting the server's message of the day (MOTD), even though the feature itself is supported by the Bedrock client, as seen in Bedrock Edition's server list.
+The server has poor support of community mods or plugins, unlike Java Edition, which has a larger community and matured over the years, e.g., Spigot and PaperMC. Additionally, players may resort to GeyserMC, which allows cross-compatibility for Bedrock Edition players to join a Java Edition server.
+An alternative to plugins is the Scripting API provided by add-ons.
+The performance of BDS is poor on some multi-core server CPUs with low clock speed. On the contrary, some high clock speed desktop CPUs with stronger single core performance are more suitable for running BDS.
+In the case of high load (for example, a large number of entities accumulate / load complex chunks), sometimes the server suddenly has a very low CPU utilization, but the whole server is stuck.
+History
+
+
+
+This section is currently in the process of being split into its own page  at Bedrock Dedicated Server version history. [discuss]
+See the talk page for more information about the split.Reason: Quite useless table, only keep the lines about server-specific changes.
+
+The server follows the client's release cycle.
+
+Bedrock Edition1.6.0.14
+An unreleased Bedrock Dedicated Server version has been shown.1.6.1.0
+First public Bedrock Dedicated Server (BDS) release.
+
+ Includes a bedrock_server_how_to.html as a guide.
+
+ Bug tracker for BDS was launched.1.7.0.13
+Server software updated for Bedrock Edition 1.7.0.1.8.0.24
+Server software updated for Bedrock Edition 1.8.0.
+2 issues fixed
+BDS-104 – Save hold/resume causing world size to increase quite a bit more than normal.
+BDS-198 – save query does not work more than once per boot
+1.8.1.2
+Server software updated for Bedrock Edition 1.8.1.1.9.0.15
+Server software updated for Bedrock Edition 1.9.0.1.10.0.7
+Server software updated for Bedrock Edition 1.10.0.1.11.0.23
+Server software updated for Bedrock Edition 1.11.0.1.11.1.2
+Server software updated for Bedrock Edition 1.11.1.1.11.2.1
+Server software updated for Bedrock Edition 1.11.2.1.11.4.2
+Server software updated for Bedrock Edition 1.11.4.1.12.0.28
+Server software updated for Bedrock Edition 1.12.0.1.12.1.1
+Server software updated for Bedrock Edition 1.12.1.1.13.0.34
+Server software updated for Bedrock Edition 1.13.0.1.13.1.5
+Server software updated for Bedrock Edition 1.13.1.1.13.2.0
+Server software updated for Bedrock Edition 1.13.2.1.13.3.0
+Server software updated for Bedrock Edition 1.13.3.1.14.0.9
+Server software updated for Bedrock Edition 1.14.0.1.14.1.4
+Server software updated for Bedrock Edition 1.14.1.1.14.20.1
+Server software updated for Bedrock Edition 1.14.20.1.14.21.0
+Unknown1.14.30.2
+Server software updated for Bedrock Edition 1.14.30.1.14.32.1
+
+4 issues fixed
+BDS-1682 – BDS CRASH
+BDS-2772 – Server crashes constantly
+BDS-3245 – PS4 player cannot authenticate to BDS LAN game when online-mode=true
+BDS-3357 – /save command crashes server
+1.14.60.5
+Server software updated for Bedrock Edition 1.14.60.1.16.0.2
+Server software updated for Bedrock Edition 1.16.0.1.16.1.02
+Server software updated for Bedrock Edition 1.16.1.1.16.10.02
+Server software updated for Bedrock Edition 1.16.10.1.16.20.03
+Server software updated for Bedrock Edition 1.16.20.1.16.40.02
+Server software updated for Bedrock Edition 1.16.40.1.16.100.04
+Server software updated for Bedrock Edition 1.16.100.1.16.101.01
+Server software updated for Bedrock Edition 1.16.101.1.16.200.02
+Server software updated for Bedrock Edition 1.16.200.1.16.201.02
+Server software updated for Bedrock Edition 1.16.201.1.16.201.03
+Fixed a bug BDS-10666.1.16.210.05
+Server software updated for Bedrock Edition 1.16.210.1.16.210.06
+Unknown1.16.220.02
+Server software updated for Bedrock Edition 1.16.220 and removed libCrypto.so1.16.221.01
+Server software updated for Bedrock Edition 1.16.221.1.17.0.03
+Server software updated for Bedrock Edition 1.17.0.1.17.1.01
+Server software updated for Bedrock Edition 1.17.1.1.17.2.01
+Server software updated for Bedrock Edition 1.17.2.1.17.10.04
+Server software updated for Bedrock Edition 1.17.10.
+1 issue fixed
+BDS-13482 – Missing debug symbols from Linux BDS 1.17.01.17.11.01
+Server software updated for Bedrock Edition 1.17.11.1.17.30.04
+Server software updated for Bedrock Edition 1.17.30.1.17.31.01
+Unknown1.17.32.02
+Server software updated for Bedrock Edition 1.17.32.1.17.33.01
+Server software updated for Bedrock Edition 1.17.33.1.17.34.02
+Server software updated for Bedrock Edition 1.17.34.1.17.40.06
+Server software updated for Bedrock Edition 1.17.40.1.17.41.01
+Server software updated for Bedrock Edition 1.17.41.1.18.0.02
+Server software updated for Bedrock Edition 1.18.0.1.18.1.02
+Server software updated for Bedrock Edition 1.18.1.1.18.2.03
+Server software updated for Bedrock Edition 1.18.2.1.18.11.01
+Server software updated for Bedrock Edition 1.18.10.1.18.12.01
+Server software updated for Bedrock Edition 1.18.12.1.18.30.04
+Server software updated for Bedrock Edition 1.18.30.1.18.31.04
+Server software updated for Bedrock Edition 1.18.31.1.18.32.02
+Server software updated for Bedrock Edition 1.18.32.1.18.33.02
+Server software updated for Bedrock Edition 1.18.33.1.19.10.20
+The initial release of the server software for betas, the Bedrock Edition Preview 1.19.10.20.1.19.1.01
+Server software updated for Bedrock Edition 1.19.0.1.19.2.02
+Server software updated for Bedrock Edition 1.19.2.1.19.10.03
+Server software updated for Bedrock Edition 1.19.10.1.19.11.01
+Server software updated for Bedrock Edition 1.19.11.1.19.20.02
+Server software updated for Bedrock Edition 1.19.20.1.19.21.01
+Server software updated for Bedrock Edition 1.19.21.1.19.22.01
+Server software updated for Bedrock Edition 1.19.22.1.19.30.04
+Server software updated for Bedrock Edition 1.19.30 and supports Ubuntu 22.041.19.31.01
+Server software updated for Bedrock Edition 1.19.31.1.19.50.21
+Server software (beta) updated for Bedrock Edition Preview 1.19.50.21.1.19.40.02
+Server software updated for Bedrock Edition 1.19.40.1.19.41.01
+Server software updated for Bedrock Edition 1.19.41.1.19.50.24
+Server software (beta) updated for Bedrock Edition Preview 1.19.50.24.1.19.50.25
+Server software (beta) updated for Bedrock Edition Preview 1.19.50.25.1.19.60.20
+Server software (beta) updated for Bedrock Edition Preview 1.19.60.20.1.19.50.02
+Server software updated for Bedrock Edition 1.19.50.
+1 issue fixed
+BDS-1094 – Additional IPv4 and IPv6 port opening upon starting server
+1.19.60.22
+Server software (beta) updated for Bedrock Edition Preview 1.19.60.22.1.19.60.23
+Server software (beta) updated for Bedrock Edition Preview 1.19.60.23.1.19.51.01
+Server software updated for Bedrock Edition 1.19.51.1.19.60.24
+Server software (beta) updated for Bedrock Edition Preview 1.19.60.24.1.19.60.25
+Server software (beta) updated for Bedrock Edition Preview 1.19.60.25.1.19.60.26
+Server software (beta) updated for Bedrock Edition Preview 1.19.60.26.1.19.60.27
+Server software (beta) updated for Bedrock Edition Preview 1.19.60.27.1.19.70.20
+Server software (beta) updated for Bedrock Edition Preview 1.19.70.20.1.19.52.01
+Server software updated.1.19.70.21
+Server software (beta) updated for Bedrock Edition Preview 1.19.70.21.1.19.60.04
+Server software updated for Bedrock Edition 1.19.60.1.19.61.01
+Server software updated.1.19.62.01
+Server software updated.1.19.63.01
+Server software updated.1.19.70.23
+Server software (beta) updated for Bedrock Edition Preview 1.19.70.23.1.19.70.24
+Server software (beta) updated for Bedrock Edition Preview 1.19.70.24.1.19.70.26
+Server software (beta) updated for Bedrock Edition Preview 1.19.70.26.1.19.80.20
+Server software (beta) updated for Bedrock Edition Preview 1.19.80.20.1.19.70.02
+Server software updated for Bedrock Edition 1.19.70.1.19.80.21
+Server software (beta) updated for Bedrock Edition Preview 1.19.80.21.1.19.71.02
+Server software updated for Bedrock Edition 1.19.71.1.19.72.01
+Server software updated for Bedrock Edition 1.19.72.1.19.80.22
+Server software (beta) updated for Bedrock Edition Preview 1.19.80.22.1.19.73.02
+Server software updated for Bedrock Edition 1.19.73.1.19.80.23
+Server software (beta) updated for Bedrock Edition Preview 1.19.80.23.1.20.0.20
+Server software (beta) updated for Bedrock Edition Preview 1.20.0.20.1.20.0.21
+Server software (beta) updated for Bedrock Edition Preview 1.20.0.21.1.19.80.02
+Server software updated for Bedrock Edition 1.19.80.1.20.0.22
+Server software (beta) updated for Bedrock Edition Preview 1.20.0.22.1.19.81.01
+Server software updated for Bedrock Edition 1.19.81.1.20.0.23
+Server software (beta) updated for Bedrock Edition Preview 1.20.0.23.1.20.0.24
+Server software (beta) updated for Bedrock Edition Preview 1.20.0.24.1.19.83.01
+Server software updated for Bedrock Edition 1.19.83.1.20.0.25
+Server software (beta) updated for Bedrock Edition Preview 1.20.0.25.1.20.10.20
+Server software (beta) updated for Bedrock Edition Preview 1.20.10.20.1.20.0.01
+Server software updated for Bedrock Edition 1.20.0.1.20.10.21
+Server software (beta) updated for Bedrock Edition Preview 1.20.10.21.1.20.10.23
+Server software (beta) updated for Bedrock Edition Preview 1.20.10.23.
+1 issue fixed
+BDS-18133 – server crash with non-empty allowlist.json
+1.20.1.02
+Server software updated for Bedrock Edition 1.20.1.1.20.10.24
+Server software (beta) updated for Bedrock Edition Preview 1.20.10.24.1.20.20.20
+Server software (beta) updated for Bedrock Edition Preview 1.20.20.20.1.20.10.01
+Server software updated for Bedrock Edition 1.20.10.1.20.11.01
+Server software updated for Bedrock Edition 1.20.11.1.20.20.21
+Server software (beta) updated for Bedrock Edition Preview 1.20.20.21.1.20.12.01
+Server software updated for Bedrock Edition 1.20.12.1.20.20.22
+Server software (beta) updated for Bedrock Edition Preview 1.20.20.22.1.20.13.01
+Server software updated for Bedrock Edition 1.20.13.1.20.20.23
+Server software (beta) updated for Bedrock Edition Preview 1.20.20.23.1.20.30.20
+Server software (beta) updated for Bedrock Edition Preview 1.20.30.20.1.20.14.01
+Server software updated for Bedrock Edition 1.20.14.1.20.30.21
+Server software (beta) updated for Bedrock Edition Preview 1.20.30.21.1.20.15.01
+Server software updated for Bedrock Edition 1.20.15.1.20.30.22
+Server software (beta) updated for Bedrock Edition Preview 1.20.30.22.
+1 issue fixed
+BDS-17527 – Multiple server crashes due to memory leak when loading chunks
+1.20.30.24
+Server software (beta) updated for Bedrock Edition Preview 1.20.30.24.1.20.30.25
+Server software (beta) updated for Bedrock Edition Preview 1.20.30.25.1.20.40.20
+Server software (beta) updated for Bedrock Edition Preview 1.20.40.20.1.20.40.21
+Server software (beta) updated for Bedrock Edition Preview 1.20.40.21.1.20.30.02
+Server software updated for Bedrock Edition 1.20.30 and requires Ubuntu 20.041.20.40.22
+Server software (beta) updated for Bedrock Edition Preview 1.20.40.22.1.20.31.01
+Server software updated for Bedrock Edition 1.20.31.1.20.40.23
+Server software (beta) updated for Bedrock Edition Preview 1.20.40.23.1.20.32.03
+Server software updated for Bedrock Edition 1.20.32.1.20.40.24
+Server software (beta) updated for Bedrock Edition Preview 1.20.40.24.1.20.50.20
+Server software (beta) updated for Bedrock Edition Preview 1.20.50.20.1.20.50.21
+Server software (beta) updated for Bedrock Edition Preview 1.20.50.21.1.20.40.01
+Server software updated for Bedrock Edition 1.20.40.1.20.50.22
+Server software (beta) updated for Bedrock Edition Preview 1.20.50.22.1.20.41.02
+Server software updated for Bedrock Edition 1.20.41.1.20.50.23
+Server software (beta) updated for Bedrock Edition Preview 1.20.50.23.1.20.50.24
+Server software (beta) updated for Bedrock Edition Preview 1.20.50.24.1.20.60.20
+Server software (beta) updated for Bedrock Edition Preview 1.20.60.20.1.20.60.21
+Server software (beta) updated for Bedrock Edition Preview 1.20.60.21.1.20.50.03
+Server software updated for Bedrock Edition 1.20.50.1.20.60.22
+Server software (beta) updated for Bedrock Edition Preview 1.20.60.22.1.20.60.23
+Server software (beta) updated for Bedrock Edition Preview 1.20.60.23.1.20.51.01
+Server software updated for Bedrock Edition 1.20.51.1.20.60.24
+Server software (beta) updated for Bedrock Edition Preview 1.20.60.24.1.20.60.25
+Server software (beta) updated for Bedrock Edition Preview 1.20.60.25.1.20.70.20
+Server software (beta) updated for Bedrock Edition Preview 1.20.70.20.1.20.70.21
+Server software (beta) updated for Bedrock Edition Preview 1.20.70.21.1.20.61.01
+Server software updated for Bedrock Edition 1.20.60.1.20.70.22
+Server software (beta) updated for Bedrock Edition Preview 1.20.70.22.1.20.70.24
+Server software (beta) updated for Bedrock Edition Preview 1.20.70.24.1.20.62.01
+Server software updated for Bedrock Edition 1.20.62.1.20.62.02
+Unknown1.20.70.25
+Server software (beta) updated for Bedrock Edition Preview 1.20.70.25.1.20.80.20
+Server software (beta) updated for Bedrock Edition Preview 1.20.80.20.1.20.62.03
+Unknown1.20.80.21
+Server software (beta) updated for Bedrock Edition Preview 1.20.80.21.1.20.70.05
+Server software updated for Bedrock Edition 1.20.70.1.20.71.01
+Server software updated for Bedrock Edition 1.20.71.1.20.80.22
+Server software (beta) updated for Bedrock Edition Preview 1.20.80.22.1.20.72.01
+Server software updated for Bedrock Edition 1.20.72.1.20.80.23
+Server software (beta) updated for Bedrock Edition Preview 1.20.80.23.1.20.80.24
+Server software (beta) updated for Bedrock Edition Preview 1.20.80.24.1.20.73.01
+Server software updated for Bedrock Edition 1.20.73.1.21.0.20
+Server software (beta) updated for Bedrock Edition Preview 1.21.0.20.1.21.0.21
+Server software (beta) updated for Bedrock Edition Preview 1.21.0.21.1.21.0.22
+Server software (beta) updated for Bedrock Edition Preview 1.21.0.22.1.20.80.05
+Server software updated for Bedrock Edition 1.20.80.1.21.0.23
+Server software (beta) updated for Bedrock Edition Preview 1.21.0.23.1.20.81.01
+Server software updated for Bedrock Edition 1.20.81.1.21.0.24
+Server software (beta) updated for Bedrock Edition Preview 1.21.0.24.1.21.0.25
+Server software (beta) updated for Bedrock Edition Preview 1.21.0.25.1.21.0.26
+Server software (beta) updated for Bedrock Edition Preview 1.21.0.26.1.21.10.20
+Server software (beta) updated for Bedrock Edition Preview 1.21.10.20.1.21.10.21
+Server software (beta) updated for Bedrock Edition Preview 1.21.10.21.1.21.10.22
+Server software (beta) updated for Bedrock Edition Preview 1.21.10.22 and removed debug symbols1.21.10.23
+Server software (beta) updated for Bedrock Edition Preview 1.21.10.23.1.21.0.03
+Server software updated for Bedrock Edition 1.21.0.1.21.10.24
+Server software (beta) updated for Bedrock Edition Preview 1.21.10.24.1.21.1.03
+Server software updated for Bedrock Edition 1.21.1.1.21.20.21
+Server software (beta) updated for Bedrock Edition Preview 1.21.20.21.1.21.2.02
+Server software updated for Bedrock Edition 1.21.2.1.21.20.22
+Server software (beta) updated for Bedrock Edition Preview 1.21.20.22.1.21.3.01
+Server software updated for Bedrock Edition 1.21.3.1.21.20.23
+Server software (beta) updated for Bedrock Edition Preview 1.21.20.23.1.21.20.24
+Server software (beta) updated for Bedrock Edition Preview 1.21.20.24.1.21.30.21
+Server software (beta) updated for Bedrock Edition Preview 1.21.30.21.1.21.30.22
+Server software (beta) updated for Bedrock Edition Preview 1.21.30.22.1.21.20.03
+Server software updated for Bedrock Edition 1.21.20.1.21.30.23
+Server software (beta) updated for Bedrock Edition Preview 1.21.30.23.1.21.30.24
+Server software (beta) updated for Bedrock Edition Preview 1.21.30.24.1.21.22.01
+Server software updated for Bedrock Edition 1.21.22.1.21.30.25
+Server software (beta) updated for Bedrock Edition Preview 1.21.30.25.1.21.23.01
+Server software updated for Bedrock Edition 1.21.23.1.21.40.20
+Server software (beta) updated for Bedrock Edition Preview 1.21.40.20.1.21.40.21
+Server software (beta) updated for Bedrock Edition Preview 1.21.40.21.1.21.30.03
+Server software updated for Bedrock Edition 1.21.30.1.21.40.22
+Server software (beta) updated for Bedrock Edition Preview 1.21.40.22.1.21.40.23
+Server software (beta) updated for Bedrock Edition Preview 1.21.40.23.1.21.31.04
+Server software updated for Bedrock Edition 1.21.31.1.21.40.25
+Server software (beta) updated for Bedrock Edition Preview 1.21.40.25.1.21.50.20
+Server software (beta) updated for Bedrock Edition Preview 1.21.50.20.1.21.50.22
+Server software (beta) updated for Bedrock Edition Preview 1.21.50.22.1.21.50.24
+Server software (beta) updated for Bedrock Edition Preview 1.21.50.24.1.21.40.01
+Server software updated for Bedrock Edition 1.21.40.1.21.41.01
+Server software updated for Bedrock Edition 1.21.41.1.21.50.25
+Server software (beta) updated for Bedrock Edition Preview 1.21.50.25.1.21.42.01
+Server software updated for Bedrock Edition 1.21.42.1.21.43.01
+Server software updated for Bedrock Edition 1.21.43.1.21.50.26
+Server software (beta) updated for Bedrock Edition Preview 1.21.50.26.1.21.44.01
+Server software updated for Bedrock Edition 1.21.44.1.21.50.28
+Server software (beta) updated for Bedrock Edition Preview 1.21.50.28.1.21.50.29
+Server software (beta) updated for Bedrock Edition Preview 1.21.50.29.1.21.60.21
+Server software (beta) updated for Bedrock Edition Preview 1.21.60.21.1.21.60.22
+Server software (beta) updated for Bedrock Edition Preview 1.21.60.21.1.21.50.07
+Server software updated for Bedrock Edition 1.21.50.1.21.50.10
+Server software updated for Bedrock Edition 1.21.50.1.21.60.23
+Server software (beta) updated for Bedrock Edition Preview 1.21.60.23.1.21.51.01
+Server software updated for Bedrock Edition 1.21.51.1.21.51.02
+Server software updated for Bedrock Edition 1.21.51.1.21.60.24
+Server software (beta) updated for Bedrock Edition Preview 1.21.60.24.1.21.60.25
+Server software (beta) updated for Bedrock Edition Preview 1.21.60.25.1.21.60.26
+Server software (beta) updated for Bedrock Edition Preview 1.21.60.25.1.21.60.27
+Server software (beta) updated for Bedrock Edition Preview 1.21.60.27.1.21.60.28
+Server software (beta) updated for Bedrock Edition Preview 1.21.60.28.1.21.70.20
+Server software (beta) updated for Bedrock Edition Preview 1.21.70.20.1.21.70.21
+Server software (beta) updated for Bedrock Edition Preview 1.21.70.20.1.21.70.22
+Server software (beta) updated for Bedrock Edition Preview 1.21.70.22.1.21.60.10
+Server software updated for Bedrock Edition 1.21.60.1.21.70.23
+Server software (beta) updated for Bedrock Edition Preview 1.21.70.23.1.21.61.01
+Server software updated for Bedrock Edition 1.21.61.1.21.70.24
+Server software (beta) updated for Bedrock Edition Preview 1.21.70.24.1.21.62.01
+Server software updated for Bedrock Edition 1.21.62.1.21.70.25
+Server software (beta) updated for Bedrock Edition Preview 1.21.70.25.1.21.70.26
+Server software (beta) updated for Bedrock Edition Preview 1.21.70.26.1.21.80.20
+Server software (beta) updated for Bedrock Edition Preview 1.21.80.20.1.21.80.21
+Server software (beta) updated for Bedrock Edition Preview 1.21.80.21.1.21.70.04
+Server software updated for Bedrock Edition 1.21.70.1.21.80.22
+Server software (beta) updated for Bedrock Edition Preview 1.21.80.22.1.21.71.01
+Server software updated for Bedrock Edition 1.21.71.1.21.80.25
+Server software (beta) updated for Bedrock Edition Preview 1.21.80.25.1.21.80.26
+Server software (beta) updated for Bedrock Edition Preview 1.21.80.25.1.21.80.27
+Server software (beta) updated for Bedrock Edition Preview 1.21.80.27.1.21.72.01
+Server software updated for Bedrock Edition 1.21.72.1.21.73.01
+Server software updated for Bedrock Edition 1.21.73.1.21.80.28
+Server software (beta) updated for Bedrock Edition Preview 1.21.80.28.1.21.90.20
+Server software (beta) updated for Bedrock Edition Preview 1.21.90.20.1.21.90.21
+Server software (beta) updated for Bedrock Edition Preview 1.21.90.21.1.21.90.22
+Server software (beta) updated for Bedrock Edition Preview 1.21.90.22.1.21.80.3
+Server software updated for Bedrock Edition 1.21.80.1.21.90.23
+Server software (beta) updated for Bedrock Edition Preview 1.21.90.23.1.21.90.25
+Server software (beta) updated for Bedrock Edition Preview 1.21.90.25.1.21.81.2
+Server software updated for Bedrock Edition 1.21.81.1.21.82.1
+Server software updated for Bedrock Edition 1.21.82.1.21.90.26
+Server software (beta) updated for Bedrock Edition Preview 1.21.90.26.1.21.90.27
+Server software (beta) updated for Bedrock Edition Preview 1.21.90.27.1.21.90.28
+Server software (beta) updated for Bedrock Edition Preview 1.21.90.28.1.21.83.1
+Server software updated for Bedrock Edition 1.21.83.1.21.84.1
+Server software updated for Bedrock Edition 1.21.84.1.21.100.20
+Server software (beta) updated for Bedrock Edition Preview 1.21.100.20.1.21.90.3
+Server software updated for Bedrock Edition 1.21.90.1.21.90.4
+Server software updated for Bedrock Edition 1.21.90.1.21.100.21
+Server software (beta) updated for Bedrock Edition Preview 1.21.100.21.1.21.91.1
+Server software updated for Bedrock Edition 1.21.91.1.21.92.1
+Server software updated for Bedrock Edition 1.21.92.1.21.100.22
+Server software (beta) updated for Bedrock Edition Preview 1.21.100.22.1.21.100.23
+Server software (beta) updated for Bedrock Edition Preview 1.21.100.23.1.21.93.1
+Server software updated for Bedrock Edition 1.21.93.1.21.94.1
+Server software updated for Bedrock Edition 1.21.94.1.21.94.2
+Server software updated for Bedrock Edition 1.21.94.1.21.95.1
+Server software updated for Bedrock Edition 1.21.94.1.21.100.24
+Server software (beta) updated for Bedrock Edition Preview 1.21.100.24.1.21.100.25
+Server software (beta) updated for Bedrock Edition Preview 1.21.100.24.1.21.110.20
+Server software (beta) updated for Bedrock Edition Preview 1.21.110.20.1.21.110.22
+Server software (beta) updated for Bedrock Edition Preview 1.21.110.22.1.21.100.6
+Server software updated for Bedrock Edition 1.21.100.1.21.100.7
+Server software updated for Bedrock Edition 1.21.100.1.21.110.23
+Server software (beta) updated for Bedrock Edition Preview 1.21.110.23.1.21.110.24
+Server software (beta) updated for Bedrock Edition Preview 1.21.110.24.1.21.101.1
+Server software updated for Bedrock Edition 1.21.101.1.21.110.25
+Server software (beta) updated for Bedrock Edition Preview 1.21.110.25.1.21.102.1
+Server software updated for Bedrock Edition 1.21.101.1.21.110.26
+Server software (beta) updated for Bedrock Edition Preview 1.21.110.26.1.21.120.20
+Server software (beta) updated for Bedrock Edition Preview 1.21.120.20.1.21.120.21
+Server software (beta) updated for Bedrock Edition Preview 1.21.120.21.1.21.120.22
+Server software (beta) updated for Bedrock Edition Preview 1.21.120.22.1.21.120.23
+Server software (beta) updated for Bedrock Edition Preview 1.21.120.23.1.21.110.2
+Server software updated for Bedrock Edition 1.21.111.1.21.111.1
+Server software updated for Bedrock Edition 1.21.111.1.21.120.24
+Server software (beta) updated for Bedrock Edition Preview 1.21.120.24.1.21.112.1
+Server software updated for Bedrock Edition 1.21.112.1.21.120.25
+Server software (beta) updated for Bedrock Edition Preview 1.21.120.25.1.21.113.1
+Server software updated for Bedrock Edition 1.21.113.1.21.130.20
+Server software (beta) updated for Bedrock Edition Preview 1.21.130.20.1.21.114.1
+Server software updated for Bedrock Edition 1.21.114.1.21.130.22
+Server software (beta) updated for Bedrock Edition Preview 1.21.130.22.1.21.120.4
+Server software updated for Bedrock Edition 1.21.120.1.21.130.24
+Server software (beta) updated for Bedrock Edition Preview 1.21.130.24.1.21.130.25
+Server software (beta) updated for Bedrock Edition Preview 1.21.130.25.1.21.130.26
+Server software (beta) updated for Bedrock Edition Preview 1.21.130.26.1.21.121.1
+Server software updated for Bedrock Edition 1.21.121.1.21.122.2
+Server software updated for Bedrock Edition 1.21.122.1.21.130.27
+Server software (beta) updated for Bedrock Edition Preview 1.21.130.27.1.21.123.2
+Server software updated for Bedrock Edition 1.21.123.1.21.130.28
+Server software (beta) updated for Bedrock Edition Preview 1.21.130.28.1.21.124.2
+Server software updated for Bedrock Edition 1.21.124.1.26.0.23
+Server software (beta) updated for Bedrock Edition Preview 26.0.23.1.26.0.24
+Server software (beta) updated for Bedrock Edition Preview 26.0.24.1.21.130.3
+Server software updated for Bedrock Edition 1.21.130.1.21.130.4
+Server software updated for Bedrock Edition 1.21.130.1.26.0.25
+Server software (beta) updated for Bedrock Edition Preview 26.0.25.1.21.131.1
+Server software updated for Bedrock Edition 1.21.131.1.26.0.26
+Server software (beta) updated for Bedrock Edition Preview 26.0.26.1.26.0.27
+Server software (beta) updated for Bedrock Edition Preview 26.0.27.1.21.132.1
+Server software updated for Bedrock Edition 1.21.132.1.26.0.28
+Server software (beta) updated for Bedrock Edition Preview 26.0.28.1.21.132.3
+Server software updated for Bedrock Edition 1.21.132.1.26.0.29
+Server software (beta) updated for Bedrock Edition Preview 26.0.29.1.26.10.20
+Server software (beta) updated for Bedrock Edition Preview 26.10.20.1.26.10.21
+Server software (beta) updated for Bedrock Edition Preview 26.10.21.1.26.10.22
+Server software (beta) updated for Bedrock Edition Preview 26.10.21.1.26.0.2
+Server software updated for Bedrock Edition 26.0.1.26.10.23
+Server software (beta) updated for Bedrock Edition Preview 26.10.23.1.26.10.24
+Server software (beta) updated for Bedrock Edition Preview 26.10.24.1.26.1.1
+Server software updated for Bedrock Edition 26.1.1.26.10.25
+Server software (beta) updated for Bedrock Edition Preview 26.10.25.1.26.2.1
+Server software updated for Bedrock Edition 26.2.1.26.3.1
+Server software updated for Bedrock Edition 26.3.1.26.10.26
+Server software (beta) updated for Bedrock Edition Preview 26.10.26.1.26.10.27
+Server software (beta) updated for Bedrock Edition beta 26.10.27.1.26.20.20
+Server software (beta) updated for Bedrock Edition Preview 26.20.20.1.26.20.21
+Server software (beta) updated for Bedrock Edition Preview 26.20.21.1.26.10.4
+Server software updated for Bedrock Edition 26.10.1.26.20.22
+Server software (beta) updated for Bedrock Edition Preview 26.20.22.1.26.11.1
+Server software updated for Bedrock Edition 26.11.1.26.20.23
+Server software (beta) updated for Bedrock Edition Preview 26.20.23.1.26.20.24
+Server software (beta) updated for Bedrock Edition Preview 26.20.23.1.26.12.2
+Server software updated for Bedrock Edition 26.12.1.26.13.1
+Server software updated for Bedrock Edition 26.13.1.26.20.26
+Server software (beta) updated for Bedrock Edition Preview 26.20.26.1.26.14.1
+Server software updated for Bedrock Edition 26.13.1.26.20.27
+Server software (beta) updated for Bedrock Edition Preview 26.20.27.1.26.20.28
+Server software (beta) updated for Bedrock Edition Preview 26.20.28.1.26.30.25
+Server software (beta) updated for Bedrock Edition Preview 26.30.25.1.26.30.26
+Server software (beta) updated for Bedrock Edition Preview 26.30.25.1.26.20.4
+Server software updated for Bedrock Edition 26.20.1.26.20.5
+Server software updated for Bedrock Edition 26.20.1.26.30.27
+Server software (beta) updated for Bedrock Edition Preview 26.30.27.1.26.30.28
+Server software (beta) updated for Bedrock Edition Preview 26.30.28.1.26.21.1
+Server software updated for Bedrock Edition 26.21.1.26.30.29
+Server software (beta) updated for Bedrock Edition Preview 26.30.29.1.26.30.30
+Server software (beta) updated for Bedrock Edition Preview 26.30.29.1.26.22.1
+Server software updated for Bedrock Edition 26.22.1.26.30.31
+Server software (beta) updated for Bedrock Edition Preview 26.30.31.1.26.23.1
+Server software updated for Bedrock Edition 26.23.1.26.30.32
+Server software (beta) updated for Bedrock Edition Preview 26.30.32.1.26.40.20
+Server software (beta) updated for Bedrock Edition Preview 26.40.20.1.26.40.21
+Server software (beta) updated for Bedrock Edition Preview 26.40.20.1.26.40.23
+Server software (beta) updated for Bedrock Edition Preview 26.40.22.1.26.40.24
+Server software (beta) updated for Bedrock Edition Preview 26.40.22.1.26.40.25
+Server software (beta) updated for Bedrock Edition Preview 26.40.22.1.26.30.5
+Server software updated for Bedrock Edition 26.30.1.26.40.26
+Server software (beta) updated for Bedrock Edition Preview 26.40.26.1.26.31.1
+Server software updated for Bedrock Edition 26.31.1.26.40.27
+Server software (beta) updated for Bedrock Edition Preview 26.40.27.1.26.40.29
+Server software (beta) updated for Bedrock Edition Preview 26.40.27.1.26.32.2
+Server software updated for Bedrock Edition 26.32.1.26.40.30
+Server software (beta) updated for Bedrock Edition Preview 26.40.30.1.26.33.1
+Server software updated for Bedrock Edition 26.33.1.26.40.31
+Server software (beta) updated for Bedrock Edition Preview 26.40.31.1.26.33.2
+Server software updated for Bedrock Edition 26.33.1.26.50.20
+Server software (beta) updated for Bedrock Edition Preview 26.50.20.1.26.34.3
+Server software updated for Bedrock Edition 26.34.1.26.50.22
+Server software (beta) updated for Bedrock Edition Preview 26.50.22.1.26.36.1
+Server software updated for Bedrock Edition 26.35.1.26.40.8
+Server software updated for Bedrock Edition 26.40.1.26.50.24
+Server software (beta) updated for Bedrock Edition Preview 26.50.24.1.26.42.1
+Server software updated for Bedrock Edition 26.41.1.26.43.1
+Server software updated for Bedrock Edition 26.41.1.26.50.25
+Server software (beta) updated for Bedrock Edition Preview 26.50.25.1.26.44.3
+Server software updated for Bedrock Edition 26.44.1.26.50.26
+Server software (beta) updated for Bedrock Edition Preview 26.50.26.1.26.50.27
+Server software (beta) updated for Bedrock Edition Preview 26.50.27.1.26.45.1
+Server software updated for Bedrock Edition 26.45.
+Issues
+Issues relating to "Bedrock Dedicated Server", "BDS", or "Server" are maintained on the bug tracker. Issues should be reported and viewed there.
+
+See also
+server.jar - the server software used to host a Java Edition server.
+Realms - the official server-hosting service which internally uses BDS.
+Notes
+
+ As of 1.26.45.1
+
+ As of 1.26.50.27
+
+References
+
+ https://feedback.minecraft.net/hc/en-us/community/posts/360059965732-Expand-Bedrock-Dedicated-Server-BDS-Configuration-Customization-Options
+
+ https://discordapp.com/channels/302094807046684672/489043421072195585/489067565843349504
+
+External links
+Download page
+Bug tracker
+Tutorial
+Navigation

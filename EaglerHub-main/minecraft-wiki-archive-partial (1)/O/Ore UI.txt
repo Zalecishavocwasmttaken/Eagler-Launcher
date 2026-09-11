@@ -1,0 +1,1830 @@
+This feature is exclusive to Bedrock Edition, Minecraft Education, China Edition and Minecraft Legends. 
+
+Ore UI
+
+Developer(s)
+
+Paulo Ragonha, Fernando Vía Canel, Marlon Huber-Smith, Anna Päärni, Oleg Kozitsyn, Danila Dergachev, Omar ElGaml, James Nicholls
+
+Publisher(s)
+
+Mojang Studios
+
+Platform(s)
+
+Same as in Bedrock Edition, Minecraft Education, and China Edition
+
+Engine
+
+Coherent Gameface
+
+Written in
+
+TypeScript and JavaScript
+
+Latest version
+
+React Facet: v18.6.0
+
+Release date
+
+First commit on October 11, 2021
+
+Size
+
+1.57MB
+
+License
+
+MIT License
+
+Source available
+
+Yes
+
+Links
+
+Website
+
+{
+    "title": "Ore UI",
+    "rows": [
+        {
+            "field": "Paulo Ragonha, Fernando Vía Canel, Marlon Huber-Smith, Anna Päärni, (link to Oleg Kozitsyn article, displayed as Oleg Kozitsyn), Danila Dergachev, Omar ElGaml, James Nicholls",
+            "label": "Developer(s)"
+        },
+        {
+            "field": "(link to Mojang Studios article, displayed as Mojang Studios)",
+            "label": "Publisher(s)"
+        },
+        {
+            "field": "Same as in ''(link to Bedrock Edition article, displayed as Bedrock Edition)'', ''(link to Minecraft Education article, displayed as Minecraft Education)'', and ''(link to China Edition article, displayed as China Edition)''",
+            "label": "Platform(s)"
+        },
+        {
+            "field": "[https://coherent-labs.com/products/coherent-gameface/ Coherent Gameface]",
+            "label": "Engine"
+        },
+        {
+            "field": "(link to wikipedia:TypeScript article, displayed as TypeScript) and (link to wikipedia:JavaScript article, displayed as JavaScript)",
+            "label": "Written in"
+        },
+        {
+            "field": "React Facet: [https://github.com/Mojang/ore-ui/releases/tag/v18.6.0 v18.6.0]",
+            "label": "Latest version"
+        },
+        {
+            "field": "First commit on October 11, 2021",
+            "label": "Release date"
+        },
+        {
+            "field": "1.57MB",
+            "label": "Size"
+        },
+        {
+            "field": "(link to wikipedia:MIT License article, displayed as MIT License)",
+            "label": "License"
+        },
+        {
+            "field": "Yes",
+            "label": "<span style=\"white-space:normal\">Source available</span>"
+        },
+        {
+            "field": "\n* [https://github.com/Mojang/ore-ui Website]",
+            "label": "Links"
+        }
+    ],
+    "invimages": [],
+    "images": [
+        "Ore UI.png"
+    ]
+}
+
+Ore UI is a collection of open source packages designed for building interactive video game user interfaces using web technology, written in the TypeScript programming language and utilizing the React library. It provides reusable building blocks for video game development and general-purpose web applications. Ore UI is currently used in Minecraft games such as Bedrock Edition, Bedrock Editor, Minecraft Education, China Edition, and Minecraft Legends.
+
+Bedrock Edition's new UI design system overhaul
+The new UI design system overhaul (Updated version)
+In Bedrock Edition, a new UI design system is being developed using the Gameface engine (formerly Hummingbird) by Coherent Labs, which made it possible to run modern web technology such as JavaScript, HTML and CSS.
+
+Contents
+
+1 Development
+
+1.1 Bedrock Edition's UI redesign tech preview
+1.2 React Facet
+
+2 Design system
+3 Usage
+
+3.1 Bedrock Edition
+
+3.1.1 Release
+3.1.2 Preview
+
+3.2 Bedrock Editor
+
+3.2.1 Release
+3.2.2 Preview
+
+3.3 Minecraft Education
+
+3.3.1 Release
+
+3.4 China Edition
+
+3.4.1 Release
+
+4 Data-Driven UI
+5 Differences with JSON UI
+6 Control icons
+
+6.1 Keyboard and mouse controls
+6.2 Controller controls
+
+7 Sounds
+8 History
+
+8.1 Bedrock Edition
+8.2 Bedrock Editor
+8.3 Minecraft Education
+8.4 Control
+8.5 Ore UI releases
+
+9 Issues
+10 Trivia
+11 Gallery
+
+11.1 Screenshots
+
+11.1.1 Bedrock Edition
+11.1.2 Bedrock Editor
+11.1.3 Minecraft Education
+11.1.4 Minecraft China Edition
+
+11.2 Development screenshots
+
+11.2.1 Atlas
+11.2.2 Achievement
+11.2.3 Play
+11.2.4 Create new world
+11.2.5 Gameplay
+
+11.2.5.1 Screenshots
+11.2.5.2 Videos
+
+11.2.6 Player permission
+11.2.7 Party
+11.2.8 Disconnected
+11.2.9 Quick world creation
+11.2.10 Realms
+
+11.3 dotJS 2018
+11.4 Ore UI-styled screenshots
+
+12 Videos
+13 References
+14 External links
+
+14.1 GitHub
+14.2 Data-Driven UI
+
+14.2.1 Documentation
+14.2.2 GitHub
+
+14.3 Feedback
+
+15 Navigation
+
+Development
+Bedrock Edition's UI redesign tech preview
+On November 9, 2018, Tobias Ahlin, the lead experience designer at Mojang Studios, announced a UI overhaul coming to Bedrock Edition built on Hummingbird engine, which runs a subset of HTML and CSS, and a design system built with React. A tech preview for the title screen redesign featuring a user-friendly input for touch, controller, and keyboard was shown at the dotJS 2018 developer conference.
+
+The UI redesign tech preview, shown in dotJS 2018 developer conference
+The new title screen from the tech preview features two pages. The top page shows the player's last played world, with the background UI that changes to match the world's thumbnail. The bottom page shows five interactable buttons and their actions possibly:
+
+"Play" which lets the player navigate to the Select World screen.
+"Store" which lets the player navigate to the store (similar to the modern Marketplace).
+"Skins" which lets the player change their skin (similar to the modern Character Creator).
+"Achievements" and "Settings" which let the player view their achievements and settings.
+There is also a profile button (with the player's profile picture) on the top right corner, which likely lets the player navigate to their profile screen.
+The website for Minecraft JavaScript API documentation was once available through a link which can be seen near the end of the talk; the documentation provides the page to the tech preview where users could freely interact with the redesigned user interface. The original link for the documentation now redirects to a completely different website, making the documentation inaccessible; it is now considered lost media as it has not been archived elsewhere.
+In beta 1.16.100.50, released on July 31, 2020, the new achievements screen was added. It was rolled out initially for 5 percent of the player base. For the next 9 weeks, the number of players who could access the new achievement UI gradually increased from 5% to 75%.
+In the following years, more JSON UI menu screens were gradually refreshed with Ore UI, with design previews available in Minecraft Preview before full release in usually a few months. The internal resources for Ore UI include a texture atlas containing revamped textures for in-game GUIs, such as the inventory. These have been teased to be in early development.
+
+React Facet
+On October 18, 2021, the React Facet source code was published on Ore UI GitHub repository under the MIT License.
+On October 25, 2021, Paulo Ragonha, a tech lead at Mojang Studios, introduced React Facet, an observable-based state management for video game user interface built in React. This was announced at the React Advanced 2021 developer conference. In the talk, Ragonha showcases how React Facet bridges game data by introducing a system that connects the backend C++ game engine (where the game's states reside) with the frontend JavaScript UI. This connection relies on a concept called "facets", which are lightweight observable objects representing slices of the game's state. These facets allow the UI to subscribe to specific pieces of data from the game engine, such as player health, inventory, or environmental changes, and receive real-time updates as the state changes in the game.
+
+Design system
+The Ore UI design system can be found inside the Ore UI Developer Page section in the Minecraft Bedrock Developer Mode. For all texture elements, see Bedrock Edition GUI, UI, and Ore UI textures § Ore UI.
+
+
+
+			Ore UI Developer Pages section
+
+
+
+			Hero (green with Minecraft Ten font) button states
+
+
+
+			Primary (green with Mojangles font) button states
+
+
+
+			Secondary (white) button states
+
+
+
+			Destructive (red) button states
+
+
+
+			Modal with placeholder content
+
+
+
+			A dummy modal
+
+
+
+			Checkboxes in action
+
+
+
+			Checkbox states
+
+
+
+			Dropdown button states
+
+
+
+			Radio button states
+
+
+
+			Slider states
+
+
+
+			Toggle states
+
+
+
+			Text field states
+
+
+
+			Toggle button states
+
+
+
+			Tab button states
+
+
+
+			All tag variants
+
+
+Usage
+The Play screen while using a controller with controller hints enabled
+The menu screens updated with Ore UI implemented new features using the design system, such as informative (and sometimes humorous) descriptions, smaller fonts for readability, clearer and modern layouts, more responsive sliders, more different types of elements, and tags. The buttons are styled similarly to JSON UI, with updated looks, pressing animations, and exclusive sounds for progressive buttons. Certain menus have received additional animations and images, and all UI textures have been updated, including controller hints.
+Unlike JSON UI, Ore UI menus are separated into sections containing the elements. Depending on the UI scaling, each section is individually scaled, leaving gaps for the panorama in smaller scales, while some elements like the top navigation bar remain responsive. Dropdown buttons, which open an options pop-up, are replaced with always visible toggle buttons on smaller UI scales. Ore UI supports an additional accessibility scaling option to increase the scaling.
+Ore UI is currently used in the following menu screens (including sub-menus):
+
+Bedrock Edition
+Release
+Sign in
+Quick world creation
+Pop-ups on the Main menu
+Play
+Create new world
+Edit world
+All settings tabs & main settings UI except for Global Resources, Party, Resource Packs, and Behavior Packs.
+Inbox
+Social drawer
+Search for players
+Profile
+Suspended
+Report bad behavior
+Screenshot gallery
+Achievements
+Player permissions (except Realms)
+Realms information & purchase screens
+Realms Hub
+Edit world Realms
+Death
+Sleep
+Additionally, the toast that appears after 15 minutes of inactivity, along with the overlay, is based on Ore UI.
+
+Preview
+World and Realm selection for local uploading to Realms
+Marketplace Wishlist screen
+Vibrant Visuals brightness screen
+Bedrock Editor
+Release
+Create new project
+Projects tool mode
+Preview
+Main menu
+Minecraft Education
+Release
+Create new world
+Edit world
+Death
+Sleep
+China Edition
+Release
+Skin store
+Mod store
+Play
+Create new world
+Mini map
+Data-Driven UI
+
+
+
+ There is a category for this topic! 
+See Category:Ore UI (DDUI) screenshots for a list of pages relating to this topic.
+
+An Ore UI dialog in the Minecraft Movie Voting Event
+Some of the possibilities with the data-driven UI framework include games, search menus, and graphical command interfaces.
+Add-on creators can utilize scripting to create custom dialogs using Ore UI (DDUI). Similar to JSON UI dialogs, this is implemented in the @minecraft/server-ui module. Unlike JSON UI, data-driven UI dialogs can automatically update, and have more controls. They can also use text component format to style text, such as color coding and localization.
+Furthermore, the dialogs have generally the same functions as JSON UI dialogs, but styled in Ore UI. Creators can use toggles, sliders, text input fields, dropdown, collapsible content, and even dynamic images.
+
+Differences with JSON UI
+
+Features
+
+JSON UI(Legacy)
+
+Ore UI(Modern)
+
+Creator customization
+
+Can be modified by resource packs to change layout and behavior.
+Allows creating complex UI by directly modifying or defining UI controls and other elements through the JSON files.
+
+Hard-coded and cannot be modified by resource packs.
+Creation of custom form UIs is possible on server side using @minecraft/server-ui scripting module, though it does not directly interface with the HTML UI, and allowing few basic UI elements.
+
+Color codes and emojis
+
+Supports specific layout properties, color codes, and emojis.
+
+Does not support color codes on various screens, however, on the death screen in the name of the player or item or mob that killed them, and on the new forms screen in the label it is supported, not understanding emojis they are not supported natively in text fields.
+
+Status
+
+Planned to be removed in future updates.
+
+Currently in active development.
+
+Performance
+
+Can be unoptimized, leading to lower FPS, long loading times, and general poor user experience, especially with a lot of custom UI.
+
+Aims for better performance, though some users have reported micro-freezes and lag issues, particularly on consoles.
+
+Availability
+
+Available by default on screens that are not yet migrated to Ore UI.
+
+Available on a few select screens (Play, Settings, Create World, and Achievements), although it may fallback to legacy JSON UI in specific cases.​[more information needed]
+
+Accessibility
+
+Limited built-in scaling.
+
+Better support for different screen sizes.
+
+Visuals
+
+Pixel-perfect scaling; classic layout.
+
+Modern visuals, but cited for blurry text and clunky button spacing.
+
+Technology
+
+Data-driven using JSON files.
+
+Developed using modern web technology (JavaScript, HTML, CSS) and the Gameface engine by Coherent Labs.
+
+Technical details
+
+UI elements are defined in resource packs, specifically under <resource pack>/ui directory.
+
+UI elements are defined internally in the game's installation files, specifically under Content/data/gui/dist/hbui.
+
+Control icons
+Main articles: Controls and Template:Ore UI Control
+Keyboard and mouse controls
+
+ Key A
+ Key B
+ Key C
+ Key D
+ Key E
+ Key F
+ Key G
+ Key H
+ Key I
+ Key J
+ Key K
+ Key L
+ Key M
+ Key N
+ Key O
+ Key P
+ Key Q
+ Key R
+ Key S
+ Key T
+ Key U
+ Key V
+ Key W
+ Key X
+ Key Y
+ Key Z
+ Key F2
+ Key arrow up
+ Key arrow right
+ Key arrow down
+ Key arrow left
+ Key bracket close
+ Key bracket close small
+ Key bracket open
+ Key bracket open small
+ Key Slash
+ Key alt
+ Key ctrl
+ Key ctrl small
+ Key enter
+ Key esc
+ Key shift
+ Key space
+ Key tab
+ Mouse
+ Mouse left click
+ Mouse right click
+ Mouse scroll click
+ Mouse scroll wheel
+Controller controls
+
+
+
+
+ X button
+ A button
+ B button
+ Y button
+ Up button
+ Right button
+ Down button
+ Left button
+ Menu button, d-pad
+ Select button
+ Right stick
+ Right stick arrow up
+ Right stick arrow right
+ Right stick arrow down
+ Right stick arrow left
+ Right bumper
+ Right trigger
+ Right stick click
+ Left stick
+ Left stick arrow up
+ Left stick arrow right
+ Left stick arrow down
+ Left stick arrow left
+ Left bumper
+ Left trigger
+ Left stick click
+
+
+
+
+
+ Triangle button
+ Circle button
+ Cross button
+ Square button
+ Up button, d-pad
+ Right button, d-pad
+ Down button, d-pad
+ Left button, d-pad
+ Menu button
+ Touch pad
+ Right stick
+ Right stick arrow up
+ Right stick arrow right
+ Right stick arrow down
+ Right stick arrow left
+ Right bumper
+ Right trigger
+ Right stick click
+ Left stick
+ Left stick arrow up
+ Left stick arrow right
+ Left stick arrow down
+ Left stick arrow left
+ Left bumper
+ Left trigger
+ Left stick click
+
+
+
+
+
+ Y button
+ B button
+ A button
+ X button
+ Up button, d-pad
+ Right button, d-pad
+ Down button, d-pad
+ Left button, d-pad
+ Menu button
+ Select button
+ Right stick
+ Right stick arrow up
+ Right stick arrow right
+ Right stick arrow down
+ Right stick arrow left
+ Right bumper
+ Right trigger
+ Right stick click
+ Left stick
+ Left stick arrow up
+ Left stick arrow right
+ Left stick arrow down
+ Left stick arrow left
+ Left bumper
+ Left trigger
+ Left stick click
+
+
+Sounds
+SoundsSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitch​Pressure Plate clicksSoundWhen a menu button is clickedrandom.clicksubtitles.block.pressure_plate.click​1.01.0​ ?SoundWhen a progressive button gets clicked?​ ?1.01.0​ ?SoundWhen the social drawer gets opened?​ ?1.01.0​ ?SoundWhen the social drawer gets closed?​ ?1.01.0​ ?SoundWhen a notification pops up?​ ?1.01.0​ ?BlocksWhen Hardcore mode is toggled onfire.ignite​ ?1.00.8–1.2​ ?Hostile MobsWhen Hardcore mode is toggled onmob.ghast.fireball​ ?1.01.0​ ?BlocksWhen Hardcore mode is toggled offrandom.fizz​ ?0.51.8–2.4
+History
+Bedrock Edition
+Bedrock Edition1.16.100beta 1.16.100.50
+Added Ore UI.
+Added  gui/dist/hbui.
+ Achievement screen has been updated to match Ore UI, rolled out gradually for 5% players.beta 1.18.20.21
+ Create New World screen has been updated to match Ore UI, available in beta only.1.19.20
+Create New World screen is released to the public and no longer in Preview only.Preview 1.19.40.20
+ Control mode screen has been added to match Ore UI, available in Preview only.Preview 1.19.40.22
+ Report screen in profiles from other players has been updated to match Ore UI, available in Preview only.1.19.40Preview 1.19.40.23
+ Notification screen has been updated to match Ore UI.1.19.50
+Control mode screen is released to the public and no longer in Preview only.
+
+Report screen in profiles from other players is released to the public and no longer in Preview only.Preview 1.19.80.20
+ Experimental Death screen has been updated to match Ore UI, available in Preview only.1.19.80Preview 1.19.80.21
+ Sign in screen has been updated to match Ore UI.Preview 1.20.30.22
+ "Worlds" tab in Play screen has been updated to match Ore UI, available in Preview only.1.20.30
+ Experimental Death screen is released to the public and no longer in Preview only.Preview 1.20.60.21
+ A "Friends" tab has been added to the Play screen with Ore UI, available in Preview only.1.20.60Preview 1.20.60.23
+ Inbox screen has been added with Ore UI.
+ Edit World screen has been updated to match Ore UI, available in Preview only.
+
+Realms Stories screen has been added with Ore UI, available in Preview only.Preview 1.20.60.25
+  Quick World Creation has been added with Ore UI.Preview 1.20.80.21
+ "Servers" tab in the Play screen has been updated to match Ore UI, available in Preview only.1.20.80Preview 1.20.80.23
+ Search for players screen has been updated to match Ore UI.
+Death screen is no longer experimental.Release
+Realms Stories screen is released to the public and no longer in Preview only.1.21.0Preview 1.21.0.20
+ Profile screen has been updated to match Ore UI.1.21.20Preview 1.21.10.21
+ Changed the appearance of the Control mode screen.Preview 1.21.20.21
+ Experimental Sleep screen has been updated to match Ore UI, available in Preview only.Release
+Achievement button in main menu and game menu has been replaced with the profile button, along with the new profile screen, showing the player's statistics and achievements.[verify]1.21.30Preview 1.21.30.22
+ Screenshot Gallery screen in profile screen has been added with Ore UI.Preview 1.21.30.24
+ Create from template screen has been updated to match Ore UI, available in Preview only.Preview 1.21.40.22
+ "Realms" tab in the Play screen has been updated to match Ore UI, available in Preview only.1.21.50Preview 1.21.50.24
+Sleep screen is released to the public and no longer experimental or in Preview only.December 28, 2024
+Edit World screen is released to the public and no longer in Preview only.1.21.60
+Play screen is released to the public and no longer in Preview only.1.21.70Preview 1.21.70.22
+ Player Permissions screen in the game menu has been updated to match Ore UI.Preview 1.21.70.23
+ The Report Bad Behavior (previously Report) screen has been updated.Release
+ The "Friends" drawer is now accessible from the main menu and the game menu, only for some players and not for long.Preview 1.21.80.25
+ Error screen on world load has been updated to match Ore UI, available in Preview only.1.21.90Preview 1.21.90.25
+  Quick world creation has been expanded with character selection and ready to play screens.Preview 1.21.100.20
+ Audio settings screen has been updated to match Ore UI, available in Preview only.1.21.100Preview 1.21.100.22
+  Added Error Details screen to the error screen on world load.
+Error screen on world load is released to the public and no longer Preview only.Preview 1.21.110.20
+ The Edit World screen for Realms has been updated to match Ore UI, available in Preview only.Preview 1.21.110.25
+ An updated "Social" tab has been added to the game menu, available in Preview only.
+"Friends" tab has been renamed to "Social" tab, available in Preview only.1.21.111
+ Achievement screen has been redesigned.Preview 1.21.120.22
+  Accessibility and Language settings screens have been updated to match Ore UI, available in Preview only.1.21.120Preview 1.21.120.23
+ Added a Learn more button to the error screen on world load.Preview 1.21.120.24
+ General settings screen has been updated to match Ore UI, available in Preview only.Release
+"Social" tab in the game menu is released to the public and no longer in Preview only.
+"Friends" tab has been renamed to "Social" tab, no longer in Preview only.Preview 1.21.130.24
+ Video settings screen has been updated to match Ore UI, available in Preview only.26.0Preview 26.0.23
+ Game update required screen on world load has been updated to match Ore UI.Preview 26.0.25
+  Keyboard & Mouse and Account settings screen have been updated to match Ore UI, available in Preview only.
+ Party tab has been added to the updated Social drawer, available in Preview only.
+ Create party screen has been added with Ore UI, available in Preview only.Preview 26.0.28
+ Settings screen in main menu or game menu has been updated to match Ore UI, available in Preview only.26.10Preview 26.10.20
+  Error and Error Details screen on world load has been changed to match Ore UI.26.10ExperimentBeta APIsPreview 26.10.21
+Added new data-driven UI features, to create dialogs with Ore UI.26.10Preview 26.10.23
+  Controller and Touch settings screen have been updated to match Ore UI, available in Preview only.Release
+The settings screen is released to the public and no longer in Preview only.26.20Preview 26.20.22
+ Realms Hub screen have been updated to match Ore UI.
+"Realms Stories" screen has been renamed to "Realms Hub" screen.Release
+Party tab in Social drawer and Create party screen is released to the public and no longer in Preview only.
+The Edit World screen for Realms is released to the public and no longer in Preview only.26.30Preview 26.30.25
+ Creator settings screen has been updated to match Ore UI.Preview 26.30.28
+ Storage settings screen has been updated to match Ore UI, available in Preview only.26.30Preview 26.30.29
+Released DDUI out of experimental.26.40Preview 26.40.20
+ Added a Reconnect button to the multiplayer error screen on world load.release
+Storage settings screen and Saves realms hub screen have been updated with Ore UI.Preview 26.50.22
+Realms settings screen has been updated to match Ore UI.Upcoming Bedrock EditionPreview 26.50.20
+ Wishlist marketplace screen has been updated to match Ore UI, available in Preview only.
+Bedrock Editor
+
+Bedrock Editor
+
+Version
+
+Preview version
+
+Release version
+
+Changelogs
+
+0.3
+
+Preview 1.19.80.20
+
+–
+
+Create New Project screen has been added with Ore UI, available in Preview only.
+
+Project Tool Mode screen has been added with Ore UI, available in Preview only.
+
+0.8.0
+
+–
+
+1.21.50
+
+Editor is released to the public and no longer in Preview only.
+
+1.3.1
+
+Preview 26.20.20
+
+-
+
+ Main menu screen has been updated to match Ore UI, available in Preview only.
+
+Minecraft Education
+Minecraft Education1.21.03Preview 1.21.01.0
+Death screen has been updated to match Ore UI.1.21.91Preview 1.21.50.1
+Sleep screen has been updated to match Ore UI.Preview 1.21.90.1
+Added Ore UI for new world screen.
+ Create New World and Edit World screen have been updated to match Ore UI.
+Control
+Bedrock Edition1.16.100beta 1.16.100.50
+         New textures have been added for Xbox controller buttons to match Ore UI.beta 1.16.100.56
+         New textures have been added for Nintendo Switch controller buttons to match Ore UI.
+         New textures have been added for PlayStation controller buttons to match Ore UI.1.16.210beta 1.16.210.50
+            New textures have been added for directional pad buttons to match Ore UI.1.16.220beta 1.16.220.50
+                                                               New textures have been added for keyboard and mouse controls to match Ore UI.
+               New textures have been added for Nintendo Switch and dark controls to match Ore UI.
+               New textures have been added for PlayStation 4 and dark controls to match Ore UI.
+               New textures have been added for Xbox and dark controls to match Ore UI.beta 1.16.220.52
+            New textures have been added for controller controls to match Ore UI.1.17.0beta 1.17.0.56
+  Textures have been removed for mouse controls to match Ore UI.1.17.30beta 1.17.20.20
+  New textures have been added for PlayStation  4 controls to match Ore UI.
+  Textures have been removed for select on PlayStation 4 controls to match Ore UI.1.18.30Preview 1.18.20.24
+ New textures have been added for keyboard controls to match Ore UI.1.19.0Preview 1.19.0.31
+      New textures have been added for keyboard controls to match Ore UI.1.19.10Preview 1.19.10.21
+  New textures have been added for keyboard controls to match Ore UI.
+                               Textures have been removed for keyboard, mouse, and dark controls to match Ore UI.
+              Textures have been removed for Nintendo Switch and dark controls to match Ore UI.
+
+         Textures have been removed for PlayStation 4 and dark controls to match Ore UI.
+              Textures have been removed for Xbox and dark controls to match Ore UI.1.19.60Preview 1.19.60.22
+ New textures have been added for keyboard controls to match Ore UI.1.19.70Preview 1.19.70.23
+ Textures have been removed for keyboard controls to match Ore UI.1.20.30Preview 1.20.30.21
+ Textures have been re-added for Xbox controls to match Ore UI.
+ Textures have been removed for Xbox controls to match Ore UI.Preview 1.20.30.24
+ New textures have been added for Nintendo Switch controls to match Ore UI.
+ Textures have been removed for Nintendo Switch controls to match Ore UI.1.20.50Preview 1.20.50.20
+ Textures have been changed for Nintendo Switch controls to match Ore UI.1.21.20Preview 1.21.10.20
+                  New textures have been added for PlayStation 5 controls to match Ore UI.1.21.30Preview 1.21.30.23
+ New textures have been added for keyboard controls to match Ore UI.1.21.90Preview 1.21.90.23
+    Textures have been changed for keyboard controls to match Ore UI.1.21.100Preview 1.21.100.20
+   Textures have been removed for small on keyboard controls to match Ore UI.1.21.111Preview 1.21.110.20
+      New textures have been added for keyboard and mouse controls to match Ore UI.
+                                 Textures have been removed for keyboard and mouse controls to match Ore UI.1.21.130Preview 1.21.130.20
+                                            New textures have been added for keyboard and mouse controls to match Ore UI.
+   Textures have been re-added for keyboard controls to match Ore UI.
+ Textures have been changed for keyboard controls to match Ore UI.26.10Preview 26.10.23
+        New textures have been added for controller controls to match Ore UI.
+            Textures have been changed for Nintendo Switch controls to match Ore UI.
+                Textures have been changed for PlayStation controls to match Ore UI.
+             Textures have been changed for Xbox controls to match Ore UI.26.20Preview 26.20.27
+        New textures have been added for Nintendo Switch controls to match Ore UI.
+Ore UI releases
+These are standalone Ore UI releases on GitHub.
+
+Ore UI GitHub releases
+
+Version
+
+What's changed
+
+Internal changes
+
+Date
+
+0.1.2
+
+Stabilize automated performance tests.
+
+–
+
+November 4, 2021
+
+Add ESLint checks.
+
+Fix Style updates not properly cleaning previous subscriptions.
+
+0.1.3
+
+Fix unmount cleanup of Facets.
+
+November 5, 2021
+
+0.1.4
+
+Separate setWithCallback support from set in facet.
+
+November 17, 2021
+
+0.2.0
+
+Add support for null values on some built-in equality checks.
+
+December 10, 2021
+
+Add support for multiple facets in useFacetCallback and useFacetEffect.
+
+0.2.1
+
+Add "contribute" file with publishing documentation.
+
+December 15,2021
+
+Fix useFacetCallback return type.
+
+0.2.2
+
+Add login instructions to CONTRIBUTING.md.
+
+December 20, 2021
+
+useFacetState setter memoized.
+
+0.2.3
+
+Add index to Map tests.
+
+February 8, 2022
+
+Add a condition property to the Mount component.
+
+Rename useFacetEffect to useFacetLayoutEffect and add a new useFacetEffect.
+
+Add With component to refine mounted components Facet type.
+
+Deferred Mount feature: DeferredMountWithCallback.
+
+0.3.0
+
+Add support for id attribute.
+
+Update README.md.
+
+April 11, 2022
+
+Fix missing public APIs from published npm package.
+
+Make the types defined in the hooks more dynamic.
+
+Rename RemoteFacet to SharedFacet.
+
+Add tscompiler paths for our packages.
+
+Rename shared to shared-facet.
+
+Adding pr as a trigger of actions.
+
+0.3.2
+
+Introduce multiObserve and hasDefinedValue helpers.
+
+–
+
+June 28, 2022
+
+0.3.3
+
+Update the types of the useFacetCallback function.
+
+June 29, 2022
+
+Fix circular dependency.
+
+0.3.4
+
+Fix line endings settings for prettier.
+
+July 14, 2022
+
+Allow null as return value of the mount components.
+
+0.3.5
+
+Added a deferred mount config provider.
+
+July 25, 2022
+
+0.3.6
+
+Support onMouseMove handler.
+
+August 2, 2022
+
+0.3.7
+
+Fix memory leak caused by not removing child from parent.
+
+August 16, 2022
+
+0.3.8
+
+Fix createFacet equalityCheck to not fire for undefined or null.
+
+August 18, 2022
+
+0.3.9
+
+Added createFacetContext.
+
+August 24, 2022
+
+0.3.10
+
+Added defaultEqualityCheck to createFacet, and introduced createStaticFacet.
+
+August 31, 2022
+
+0.3.11
+
+Support data- properties related to narration.
+
+September 14, 2022
+
+0.3.12
+
+Upgrade TypeScript version + tie VSCode TS version to workspace.
+
+September 21, 2022
+
+0.4.0
+
+Convert some key null coalescing operators into explicit ternaries.
+
+October 24, 2022
+
+Move responsibility of cleaning up effects from facets to useEffect() / useFacetEffect().
+
+0.4.1
+
+Upgrade Yarn to 3.2.4.
+
+November 3, 2022
+
+Turn off static access logs in test environment.
+
+Added improved logging to static facet context.
+
+0.4.2
+
+Make it possible to supply an initial value for useFacetRef.
+
+December 6, 2022
+
+Support defaultReturnValue in useFacetCallback.
+
+0.4.3
+
+New linting rule to detect import issues.
+
+0.4.4
+
+Lock nodejs version.
+
+March 3, 2023
+
+Fix useFacetCallback having outdated values.
+
+Fix useFacetCallback mismatch subscriptions.
+
+Only accept numerical characters if the input type is number.
+
+0.4.5
+
+Update the list of maintainers in the README.md file.
+
+March 24, 2023
+
+Keep useFacetCallback instance same even if facets instances change.
+
+0.5.0
+
+Tweak hasDefinedValue typing.
+
+June 15, 2023
+
+Adds support for custom equality checks on unwrap.
+
+Batching support.
+
+0.5.1
+
+Add support for Gameface's cohinline attribute in dom-fiber.
+
+September 14, 2023
+
+Update the list of maintainers in the README.md file.
+
+Force strict comparison eqeqeq eslint rule.
+
+Revert to using void as cleanup type for useFacetEffect.
+
+0.5.2
+
+Adding bigint to Value type.
+
+September 25, 2023
+
+0.5.3
+
+Fix children being called with null and undefined.
+
+October 27, 2023
+
+0.5.4
+
+Added support for foreignObject in our custom renderer.
+
+January 31, 2024
+
+0.6.0
+
+Added property count to Map to make length of provided array available.
+
+July 25, 2024
+
+Cached maps useFacetMemo can return values before any subscription.
+
+0.6.1
+
+Fix useFacetUnwrap support for custom equality check.
+
+0.6.2
+
+Updated puppeteer to the latest version.
+
+March 12, 2025
+
+Update the useSharedFacet typing.
+
+0.6.4
+
+Correctly export fireEvent from renderer.ts.
+
+April 3, 2025
+
+18.0.0
+
+Update to React 18.
+
+September 4, 2025
+
+18.1.0
+
+Support for React 18's useTransition and startTransition.
+
+September 17, 2025
+
+18.2.0
+
+Move documentation from separate branch to main branch.
+
+October 16, 2025
+
+Added comment for code smell using useFacetCallback.
+
+Fix issue with incorrect typing for StrictReactNode.
+
+New Unwrap and Times helper components.
+
+18.3.0
+
+Documentation improvements & spring cleaning.
+
+October 28, 2025
+
+Fix support for updating equality checks of useFacetWrapMemo.
+
+18.4.0
+
+Fix createStaticFacet triggering NO_VALUE.
+
+November 14, 2025
+
+Fix edge case of effects without facets not running.
+
+Fix external types of mapFacets helper functions.
+
+18.5.0
+
+Copilot support.
+
+February 18, 2026
+
+Support for new auxclick event.
+
+18.6.0
+
+Allow facets to be used as an initial value of useFacetState.
+
+March 23, 2026
+
+Issues
+Issues relating to "Ore UI", "OreUI", "New UI", "NewUI", or "New design" are maintained on the bug tracker. Issues should be reported and viewed there.
+
+Trivia
+The in-game descriptions of features are sometimes remarkable or humorous. Notable quotes are:
+Explore a mysterious world where you build, collect, craft, and fight monsters.
+Whatever the default game mode is... that's what you get.
+You can't respawn if you die. Good luck! You'll need it.
+A mysterious series of numbers used to create your world
+Might want to build with stone
+Red box goes boom
+Enjoy Minecraft with friends
+Minecraft is for everyone, including you
+Shiny glint for enchanted items
+Reverses up and down when looking around. A less common option for keyboard and mouse users, but you do you.
+We didn't know where else to put these settings
+Technical info that's not relevant to players. Feel free to have a look if you're curious!
+Not a trick question. How smooth do you like your blocks?
+Happy little clouds in the sky
+Leaves but better
+Bubbles with style
+Minecraft, in full screen
+Gallery
+Screenshots
+Bedrock Edition
+
+
+
+			"Worlds" tab in the Play screen (grid view)
+
+
+
+			"Worlds" tab in the Play screen (list view)
+
+
+
+			"Create from..." screen, showing world templates
+
+
+
+			Create new world screen
+
+
+
+			Edit world screen
+
+
+
+			"Realms" tab in the Play screen, when not owning a Realm
+
+
+
+			"Realms" tab in the Play screen, on an owned Realm
+
+
+
+			Realms Hub
+
+
+
+			"Servers" tab in the Play screen
+
+
+
+			Settings screen
+
+
+
+			Inbox screen
+
+
+
+			Player permissions screen in the game menu
+
+
+
+			Sleeping screen
+
+
+
+			Death screen in Survival or Adventure mode
+
+
+
+			Death screen in Hardcore mode
+
+
+
+			Social drawer in the Play screen
+
+
+
+			Social drawer when in a party
+
+
+
+			Profile screen
+
+
+
+			Search for players screen
+
+
+
+			Report bad behavior screen
+
+
+
+			Screenshot gallery in the Profile screen
+
+
+
+			Achievements screen
+
+
+Bedrock Editor
+
+
+
+			Main menu screen
+
+
+
+			Create new project screen
+
+
+
+			A project in tool mode
+
+
+Minecraft Education
+
+
+
+			Create new world screen
+
+
+
+			Edit world screen
+
+
+Minecraft China Edition
+
+
+
+			Skin Store screen
+
+
+
+			Mod Store screen
+
+
+
+			Play screen
+
+
+
+			Create new world screen
+
+
+
+			Mini-map screen
+
+
+Development screenshots
+Atlas
+
+
+
+			An older version of the atlas file.
+
+
+
+			An older version of the atlas file.
+
+
+
+			An older version of the atlas file.
+
+
+
+			An older version of the atlas file.
+
+
+
+			An older version of the atlas file.
+
+
+
+			An older version of the atlas file.
+
+
+
+			The current version of the atlas file.
+
+
+Achievement
+
+
+
+			A sneak peek of the achievement screen.
+
+
+
+			A sneak peek of the achievement details screen.
+
+
+Play
+
+
+
+			An early look of the play screen servers tab.
+
+
+Create new world
+
+
+
+			A sneak peek of the create new world screen,  showing a part of the "Create" button.
+
+
+
+			Another sneak peek of the create new world screen, showing the world's difficulty selector.
+
+
+
+			A sneak peek of the create new world screen, showing active resource packs section.
+
+
+Gameplay
+Main article: Bedrock Edition GUI, UI, and Ore UI textures § GUI 2
+Screenshots
+
+
+
+			An early look of the old hotbar.
+
+
+
+			An early look of the new hotbar.
+
+
+
+			An early look of the old inventory screen.
+
+
+
+			An early look of the new inventory and recipe book screen.
+
+
+
+			An early look of the old crafting table screen.
+
+
+
+			An early look of the new workbench screen.
+
+
+
+			An early look of the inventory, workbench, and recipe book screen.
+
+
+
+			An early look of the old crafting recipe screen.
+
+
+
+			An early look of the old locked crafting recipe screen.
+
+
+
+			An early look of the new recipe book screen.
+
+
+
+			An early look of the new locked recipe book screen.
+
+
+
+			An early look of the recipe book on input field screen.
+
+
+
+			An early look of the recipe book on icon.
+
+
+
+			An early look of the old furnace screen.
+
+
+
+			An early look of the new furnace screen.
+
+
+
+			An early look of the lit furnace (100%) screen.
+
+
+
+			An early look of the lit furnace (50%) screen.
+
+
+
+			An early look of the smoker screen.
+
+
+
+			An early look of the blast furnace screen.
+
+
+
+			An early look of the old anvil screen.
+
+
+
+			An early look of the new anvil screen.
+
+
+
+			An early look of the anvil screen.
+
+
+
+			An early look of the anvil screen.
+
+
+
+			An early look of the anvil on input field screen.
+
+
+
+			An early look of the anvil on input field screen.
+
+
+
+			An early look of the grindstone screen.
+
+
+
+			An early look of the dropper and dispenser screen.
+
+
+
+			An early look of the hopper screen.
+
+
+
+			An early look of the brewing stand screen.
+
+
+
+			An early look of the trading screen.
+
+
+
+			An early look of the bundle tooltip.
+
+
+
+			An early look of the bundle (50%) tooltip.
+
+
+
+			An early look of the bundle (100%) tooltip.
+
+
+
+			An early look of the magenta bundle tooltip.
+
+
+
+			An early look of the magenta bundle (50%) tooltip.
+
+
+
+			An early look of the magenta bundle (100%) tooltip.
+
+
+
+			An early look of the chest container screen.
+
+
+
+			An early look of the barrel container screen.
+
+
+
+			An early look of the ender chest container screen.
+
+
+
+			An early look of the shulker box container screen.
+
+
+
+			An early look of the copper chest container screen.
+
+
+
+			An early look of the exposed copper chest container screen.
+
+
+
+			An early look of the weathered copper chest container screen.
+
+
+
+			An early look of the oxidized copper chest container screen.
+
+
+
+			An early look of the shulker box container screen.
+
+
+
+			An early look of the red shulker box container screen.
+
+
+
+			An early look of the green shulker box container screen.
+
+
+
+			An early look of the blue shulker box container screen.
+
+
+
+			An early look of the white shulker box container screen.
+
+
+
+			An early look of the black shulker box container screen.
+
+
+
+			An early look of the pocket UI profile of shulker box container screen.
+
+
+
+			An early look of the classic UI profile of shulker box container screen.
+
+
+
+			An early look of the pocket UI profile of anvil screen.
+
+
+
+			An early look of the classic UI profile of anvil screen.
+
+
+Videos
+
+
+
+			An early look of the container all screen.
+
+
+
+			An early look of the copper chest container screen.
+
+
+Player permission
+
+
+
+			An early look of the player permissions screen.
+
+
+
+			An early look of the Player Permissions screen. (kick players confirmation dialog)
+
+
+Party
+
+
+
+			An early look of the create party screen.
+
+
+Disconnected
+
+
+
+			An early look of the disconnection screen.
+
+
+Quick world creation
+
+
+
+			A sneak peek of the quick world creation in select character screen.
+
+
+Realms
+
+
+
+			A sneak peek of the Realms Stories in "Timeline" tab opt in to timeline message.
+
+
+
+			A sneak peek of the Play screen in "Realms" tab - "Add Members" button.
+
+
+
+			A sneak peek of the Realms owner screen.
+
+
+
+			A sneak peek of the Realms Hub screen.
+
+
+
+			A sneak peek of the realms hub screen "community" tab.
+
+
+
+			A sneak peek of the realms hub screen "world" tab in "saves" tab.
+
+
+
+			A sneak peek of the game menu in settings realms screen "game" tab.
+
+
+dotJS 2018
+
+
+
+			Early prototype of Bedrock Edition's title screen UI redesign
+
+
+
+			Tech preview of Bedrock Edition's title screen UI redesign.
+
+
+
+			An improved version of the tech preview with the panorama updated to match Update Aquatic from 2020.
+
+
+
+			Bedrock Edition's achievement UI redesign.
+
+
+Ore UI-styled screenshots
+These UIs take design inspiration from Bedrock Edition's UI redesign, and are not really implemented through Ore UI framework, instead they may use resource pack or different implementation based on JSON UI.
+
+
+
+			Quests screen in the Minecraft Movie Live Event.
+
+
+
+			Map screen in the Minecraft Movie Live Event.
+
+
+
+			Return to Lobby confirmation dialog in the Minecraft Movie Live Event.
+
+
+
+			NPC conversation screen in the 15 Year Journey.
+
+
+
+			Sticker collected screen in the 15 Year Journey.
+
+
+
+			Return to Hub confirmation dialog in the 15 Year Journey.
+
+
+Videos
+Ore UI Documentation
+The following screen can only be accessed in Minecraft Bedrock Edition 1.20.0 (Dev).
+
+
+
+
+References
+
+ "first commit · Mojang/ore-ui@a899c6a"     – GitHub.
+
+ "Mojang/ore-ui: 💎 Building blocks to construct game UIs using web tech."     – GitHub.
+
+ "Thanks for everyone that attended my talk live at @ReactAdvanced. For anyone that couldn't attend, I'll post a link here once it is available for everyone. It was a developer conference, but if you were waiting for a sneak peek on the new UI components... here it is ☺️"  – @pirelenito  on X (formerly Twitter), October 26, 2021
+
+ "Mojang 2022 - Now"     – Design lead.
+
+ "GameTest Q&A 2021/08/06"     – Bedrock Wiki.
+
+ "Using React to Build Performant Game UIs in Minecraft - Paulo Ragonha, React Advanced 2021"  – December 27, 2021 on YouTube
+
+ "dotJS 2018 - Tobias Ahlin - Adding JavaScript to Minecraft"  – March 4, 2019 on YouTube
+
+ "Powered by Coherent Labs"     – Coherent Labs.
+
+ "Coherent Gameface"     – Coherent Labs.
+
+ "Uh-oh! I think I pressed something, and now 5% of #Minecraft beta users will see the new achievements screen. Well, might as well ask for feedback here: https://aka.ms/mcAchievementBeta."  – @Volgar  on X (formerly Twitter), July 31, 2020
+
+ "I'll provide more context later, but... jam. It gets everywhere. Hence, a whopping 75% of #Minecraft players have a chance to see the new achievements screen both in the latest release and the latest beta. Stay tuned! Ta-tah!"  – @Volgar  on X (formerly Twitter), December 10, 2020
+
+ "Importing codebase from internal repository (#1) · Mojang/ore-ui@96c107c"     – GitHub.
+
+ "Schedule"     – React Advanced.
+
+ "Introduction to the Data-Driven UI (DDUI) Framework"     – Microsoft Learn.
+
+ "No one is talking about this? A new folder called "ddui" was just added to Bedrock and it contains all the storage block screens.This might be the first step to having data driven UI using OreUI."  – @SmokeyStack_  on X (formerly Twitter), October 22, 2025
+
+ "For those of you who do not like this, here's some good news.This will be data driven. All blocks that have a UI got moved under the data driven entry.Additionally, there is a new command related to the Data Driven UI."  – @SmokeyStack_  on X (formerly Twitter), December  4, 2025
+
+ "No. Allowing directly changing screens is what made improving the UI design of Minecraft impossible: any change breaks existing mods. It's the same reason why there is a graveyard of abandoned mods for Java Minecraft – not every modder has time to make updates for every release."  – @Volgar  on X (formerly Twitter), December  9, 2024
+
+ "Intro to JSON UI"     – Bedrock Wiki, April 1, 2024.
+
+ MCPE-180757 – HBUI texture files are not in the "resource_packs" folder – resolved as "Works As Intended".
+
+ "It probably won't be supported in the new screens, but it certainly shouldn't look like this, just plain text. Thanks, I'll pass it to the team."  – @Volgar  on X (formerly Twitter), December 12, 2024
+
+ MCPE-174371 – The new "Play screen" UI doesn't support colored characters – resolved as "Works As Intended".
+
+ MCPE-152246 – New Create New World UI doesn't support text formatting codes – resolved as "Works As Intended".
+
+ "Emojis & Symbols"     – Bedrock Wiki, April 1, 2024.
+
+ MCPE-185774 – New server UI does not show some characters – resolved as "Won't Fix".
+
+ MCPE-180677 – Extreme performance downgrades in Ore UI vs JSON UI
+
+ Although there is a subtitle and a translation key assigned to this sound, the subtitle only appears if the sound is played directly in-game.
+
+ "Howdy, my dears! In case you missed it, there is now new Inbox screen built with Ore UI available in #Minecraft preview builds. It's a work in progress, but hopefully it'd be a hub for release notes, invitations etc"  – @Volgar  on X (formerly Twitter), December 13, 2023
+
+ "Well, actually, that's not all, my dears. In today's preview the new Edit World screen is rolling out too! Check it out, and use the feedback button on the screen to tell us what you think."  – @Volgar  on X (formerly Twitter), December 13, 2023
+
+ "OreUI servers tab V2"  – @nipitare_  on X (formerly Twitter), August  5, 2026
+
+ "So far the HUD only has the hotbar."  – @xKingDarkYT  on X (formerly Twitter), December 28, 2024
+
+ "They have yea, it basically looks like the current one we have"  – @nipitare_  on X (formerly Twitter), April 21, 2026
+
+ "New inventory, dropper/dispenser and hopper OreUI screens."  – @nipitare_  on X (formerly Twitter), September  4, 2025
+
+ "It looks like this with all the extra screens, but keep in mind it likely is broken because it has not been updated for a long time. (Note: Don't upload to minecraft wiki, broken screens there will cause confusion)"  – @nipitare_  on X (formerly Twitter), June 23, 2026
+
+ "Anvil and the Crafting Table screens in OreUI"  – @SmokeyStack_  on X (formerly Twitter), August 12, 2025
+
+ "Updated recipe book and crafting table screens in OreUI."  – @nipitare_  on X (formerly Twitter), June  9, 2026
+
+ "The textures are all named like that, so i just made a guess they would use that string"  – @nipitare_  on X (formerly Twitter), June  9, 2026
+
+ "Do not worry the placment is the same as current screens,"  – @nipitare_  on X (formerly Twitter), June 10, 2026
+
+ "New OreUI crafting recipe screen in #MinecraftFirst image is unlocked recipes, second one locked onesNote: Amount of rows might be inaccurate and don't worry about bread."  – @nipitare_  on X (formerly Twitter), September  9, 2025
+
+ "Recipe book and anvil have gotten their own input field textures in OreUI."  – @nipitare_  on X (formerly Twitter), June 23, 2026
+
+ "OreUI recipe book screen has recived it's categories"  – @nipitare_  on X (formerly Twitter), July  7, 2026
+
+ "Looks still early wip but could be soon... maybe as soon as next year?"  – @xKingDarkYT  on X (formerly Twitter), November 20, 2024
+
+ "Furnace screen in OreUI has recived some major updates"  – @nipitare_  on X (formerly Twitter), December  3, 2025
+
+ "New OreUI smoker and blast furnace screens (first image smoker other blast furnace)"  – @nipitare_  on X (formerly Twitter), March 10, 2026
+
+ "New OreUI anvil screens. The text input will change to a more darker one when there is an input item (3rd image). The texture should change based on damage state but all 3 have the same texture currently (Undamaged)."  – @nipitare_  on X (formerly Twitter), April 21, 2026
+
+ "New OreUI grindstone and brewing stand screens (white bars are progress bar both at 50%)"  – @nipitare_  on X (formerly Twitter), January 27, 2026
+
+ "Some part of new trading screen in OreUI. Code wise trade offers seem to be implemented but cannot get them to work."  – @nipitare_  on X (formerly Twitter), September 23, 2025
+
+ "New OreUI bundle screens (4 slots is an placeholder)"  – @nipitare_  on X (formerly Twitter), March 25, 2026
+
+ "It turns out that the bundle screen does not show item amount, it shows Empty, Full or nothing instead. As to why the numbers got there is because i made an mistake in data input. (Images of magenta bundle)"  – @nipitare_  on X (formerly Twitter), April  4, 2026
+
+ "OreUI versions of the container screens"  – @xKingDarkYT  on X (formerly Twitter), December 28, 2024
+
+ "New OreUI copper chests in #minecraft. Go in order from least to most oxidised"  – @nipitare_  on X (formerly Twitter), March 31, 2026
+
+ "New OreUI dyed shulker screens in #minecraft. First is undyed, then red, green, blue. Replies will also have white and black"  – @nipitare_  on X (formerly Twitter), March 31, 2026
+
+ "Apparently OreUI screens are side by side if you use pocket ui profile. This applies to all OreUI container screens, shulker box and anvil are just examples."  – @nipitare_  on X (formerly Twitter), September 18, 2025
+
+ "A closer look to the OreUI container screens in #minecraft. Keep in mind these screens are still WIP (especially brewing stand and grindstone)."  – @nipitare_  on X (formerly Twitter), August 29, 2026
+
+ "No, it's vanilla i just force the oreui screen to render instead of jsonui one."  – @nipitare_  on X (formerly Twitter), August 29, 2026
+
+ "Well it does that ¯\_(ツ)_/¯"  – @nipitare_  on X (formerly Twitter), August 30, 2026
+
+ "An OreUI version of the player permissions screen was added in today's Preview (1.21.60.25)"  – @xKingDarkYT  on X (formerly Twitter), January  8, 2025
+
+ "Seems like Mojang is working on a party system?"  – @xKingDarkYT  on X (formerly Twitter), February 28, 2025
+
+ "New disconnection screen."  – @xKingDarkYT  on X (formerly Twitter), February 28, 2025
+
+ "New Character Selector screen in #Minecraft Bedrock"  – @inotflying  on X (formerly Twitter), May 8, 2025
+
+ "Realms upcoming feature sneak peek 👀Bedrock Realm owners will have the option to require that players opt-in to the Realm's Timeline if they want to play on the Realm."  – @CornerHardMC  on X (formerly Twitter), May 16, 2025
+
+ "Small Realms improvement coming in 1.21.90: there's a new "Add Members" button that takes you directly to the screen that allows you to add members to your Realm"  – @CornerHardMC  on X (formerly Twitter), May 24, 2025
+
+ "Realms sneak peek 👀Bedrock Realms will have a new "Administrator" role that the Realm Owner can grant to other trusted players, allowing them to add members, change settings, manage worlds, and other non-billing details of the Realm."  – @CornerHardMC  on X (formerly Twitter), March  6, 2026
+
+ "Realms sneak peek 👀Soon in Preview you'll get to try our new user interface for Bedrock Realms - Realm Hub! It's everything from Realms settings, world slots, and Realms Stories, all in one place, easy to navigate. Both Realm Owner and Administrators can make changes 🔧"  – @CornerHardMC  on X (formerly Twitter), March 13, 2026
+
+ "When you're playing on the Realm, if you do something significant, like defeat the wither, Realms will make a new Realm Event in that Realm's story feed. It's like news stories about exciting stuff players are doing 😀"  – @CornerHardMC  on X (formerly Twitter), March 13, 2026
+
+ "Coming in 26.40: The fancy new Realms Saves UI will no longer be "Under construction" 👷😀Manually back up your Realm world while you're playing, or restore a manual or automatic save from earlier if something bad happens on your Realm."  – @CornerHardMC  on X (formerly Twitter), July 31, 2026
+
+ "Coming in 26.40: the in-game settings for your Bedrock Realms will now be in the new Ore UI interface! No more oddly spaced JSON UI settings 😄 We're gradually getting all the screens moved over to the nice new UI system."  – @CornerHardMC  on X (formerly Twitter), August  1, 2026
+
+ "A look at early abandoned designs of the Start Screen (Main Menu)Left image is from 2019Right image is from 2020"  – @xKingDarkYT  on X (formerly Twitter), April 24, 2023
+
+ https://twitter.com/xKingDarkTV/status/1650372641637687296
+
+External links
+GitHub
+Ore UI
+
+Data-Driven UI
+Documentation
+Introduction to the Data-Driven UI (DDUI) Framework
+
+GitHub
+Intro to DDUI
+
+Feedback
+Achievement in beta 1.16.100.50
+Achievement Screen Beta Thread on July 30, 2020
+Create new world in beta 1.18.20.21
+Updated “Create New World” experience in Bedrock Beta on January 27, 2022
+Death in Preview 1.19.80.20
+Updated "You Died" Screen Experience on March 8, 2023
+Realms stories in Preview 1.20.60.23
+Let's talk about Realms Stories on December 13, 2023
+Servers in Preview 1.20.80.21
+Updated 'Servers Tab' Experience in Bedrock Preview on February 23, 2024
+Search for players in Preview 1.20.80.23
+Enhancements to finding friends in Bedrock Preview on March 18, 2024
+Profile in Preview 1.21.0.20
+Updated Player Profile in Bedrock Preview! on April 3, 2024
+Realms in Preview 1.21.20.21
+Updated Realms Tab Experience in Bedrock Preview on April 23, 2024
+Screenshots in Preview 1.21.30.22
+Screenshots available in Bedrock Preview! on August 7, 2024
+Create from template in Preview 1.21.30.24
+Updated Template Screen Experience in Bedrock Preview! on April 11, 2024
+Play in 1.21.60
+Let’s talk about the new Bedrock Edition Play screen! on December 12, 2024
+Player permissions in Preview 1.21.70.22
+Improvements to the Player Permissions screen in Bedrock on February 5, 2025
+Social drawer on Party system in Preview 26.0.25
+New Party System (Bedrock Preview) on December 10, 2025
+Settings in Preview 26.0.28
+Let’s talk about our updated settings! (Bedrock) on January 12, 2026
+Realms hub in Preview 26.20.22
+Bedrock Realms Hub on March 25, 2026
+Navigation

@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eaglercraft Hub</title>
+  <link rel="icon" type="image/png" href="minebrick.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/skinview3d/bundles/skinview3d.bundle.js"></script>
+  <script src="minecraft-wiki-offline-data.js"></script>
+  <style>
+    .game-card { cursor: pointer; }
+    .game-card:hover { transform: translateY(-5px); }
+    .hub-tab.active { background-color: rgb(22 163 74); color: white; }
+    #skin-preview { width: 256px; height: 320px; max-width: 100%; display: block; }
+    .wiki-article { white-space: pre-wrap; max-height: 34rem; overflow: auto; }
+  </style>
+</head>
+<body class="bg-gray-900 text-white font-sans flex flex-col min-h-screen">
+
+  <nav class="flex justify-center gap-3 p-6" aria-label="Main navigation">
+    <button type="button" class="hub-tab active bg-gray-800 text-gray-300 px-5 py-2 rounded-xl transition" data-tab="versions">Versions</button>
+    <button type="button" class="hub-tab bg-gray-800 text-gray-300 px-5 py-2 rounded-xl transition" data-tab="skins">Skins</button>
+    <button type="button" class="hub-tab bg-gray-800 text-gray-300 px-5 py-2 rounded-xl transition" data-tab="wiki">MC Wiki</button>
+  </nav>
+
+  <main id="hub-ui" class="tab-content flex-grow flex flex-col items-center justify-center p-6" data-content="versions">
+    <h1 class="text-5xl font-bold mb-12 text-green-400 drop-shadow-lg">Eaglercraft Hub (Minecraft brought to the web)</h1>
+    <div class="mb-8 flex flex-col sm:flex-row gap-4 items-center">
+  <label class="text-gray-300 font-medium">Launch Mode:</label>
+  <select
+    id="proxyMode"
+    class="bg-gray-800 text-white px-4 py-2 rounded-xl border border-gray-700 focus:outline-none focus:ring-2 focus:ring-green-400"
+  >
+    <option value="normal">Normal</option>
+    <option value="proxy">Multiplayer</option>
+  </select>
+</div>
+
+    <div class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+      
+      <div data-url="/118.html" 
+      data-proxy="https://cdn.jsdelivr.net/gh/sealiee11/arctic-static@7fd1a8e1f8c859016d3124124fb305bb0ebc57fa/f/1adjawo5/yltv4347/rv3.bf6598f86ac3f94f77c436f91e8753a61c3346ea0773924973c8ed1fe01fb616f2"
+          class="game-card bg-gray-800 p-6 rounded-2xl shadow-lg hover:bg-green-600 transition text-center">
+        <h2 class="text-2xl font-semibold mb-2">Eaglercraft 1.8.8</h2>
+        <p class="text-gray-300">Most popular for pvp, servers, gameplay etc</p>
+      </div>
+
+      <div data-url="/1112.html"
+      data-proxy="https://eaglerports.github.io/1.2.5/" 
+          class="game-card bg-gray-800 p-6 rounded-2xl shadow-lg hover:bg-green-600 transition text-center">
+        <h2 class="text-2xl font-semibold mb-2">Eaglercraft 1.12.2</h2>
+        <p class="text-gray-300">Best version imo for servers</p>
+      </div>
+
+      <div data-url="/125.html" 
+       data-proxy="https://eaglerports.github.io/1.2.5/"
+          class="game-card bg-gray-800 p-6 rounded-2xl shadow-lg hover:bg-green-600 transition text-center">
+        <h2 class="text-2xl font-semibold mb-2">Eaglercraft 1.2.5</h2>
+        <p class="text-gray-300">Old classic version</p>
+      </div>
+
+      
+      <div data-url="/EaglercraftZ/index.html" 
+      data-proxy="https://eaglerports.github.io/1.2.5/"
+    class="game-card bg-gray-800 p-6 rounded-2xl shadow-lg hover:bg-green-600 transition text-center">
+  <h2 class="text-2xl font-semibold mb-2">Eaglercraft Z (latest version of minecraft)</h2>
+  <p class="text-gray-300">Latest version. Contains mace + elytra and wind charges basically every 1.21 feature best for modern pvp with netherite, end crystals mace, spear, wind charges and traps</p>
+</div>
+      <div data-url="Eaglercraft2611wasm/index.html" 
+      data-proxy="https://eaglerports.github.io/1.2.5/"
+    class="game-card bg-gray-800 p-6 rounded-2xl shadow-lg hover:bg-green-600 transition text-center">
+  <h2 class="text-2xl font-semibold mb-2">Eaglercraft 26.1.1</h2>
+  <p class="text-gray-300">IDK EVEN KNOW HOW THIS IS POSSIBLE NEWEST MC JAVA VERSION WITH FORGE MOD LOADER WITH SHADERS RUNNING AT 30-60 FPS ON THE WEB (WIP)</p>
+</div>
+      <div data-url="/eaglerforge/index.html"
+      data-proxy="https://eaglerports.github.io/1.2.5/" 
+          class="game-card bg-gray-800 p-6 rounded-2xl shadow-lg hover:bg-green-600 transition text-center">
+        <h2 class="text-2xl font-semibold mb-2">Eagler Forge</h2>
+        <p class="text-gray-300">Use Eagler Forge Mods for some mods</p>
+      </div>
+
+      <div data-url="/eaglerforgemods.html" 
+          class="game-card bg-gray-800 p-6 rounded-2xl shadow-lg hover:bg-green-600 transition text-center">
+        <h2 class="text-2xl font-semibold mb-2">Eagler Forge Mods</h2>
+        <p class="text-gray-300">copy the link then add it to eaglerforge</p>
+      </div>
+
+    </div>
+  </main>
+
+  <main id="skins-ui" class="tab-content hidden flex-grow flex flex-col items-center p-6" data-content="skins">
+    <h1 class="text-5xl font-bold mb-4 text-green-400 drop-shadow-lg text-center">Minecraft Skins</h1>
+    <p class="text-gray-400 mb-8 text-center">Choose a skin from the Eaglercraft Hub collection.</p>
+
+    <section class="w-full max-w-2xl bg-gray-800 p-6 rounded-2xl shadow-lg text-center">
+      <label for="skin-picker" class="block text-gray-300 font-medium mb-3">Select a skin</label>
+      <select id="skin-picker" class="w-full bg-gray-900 text-white px-4 py-3 rounded-xl border border-gray-700 focus:outline-none focus:ring-2 focus:ring-green-400"></select>
+      <div class="mt-8 min-h-72 flex flex-col items-center justify-center">
+        <canvas id="skin-preview" class="rounded-xl bg-gray-900" width="256" height="320" aria-label="3D selected Minecraft skin preview"></canvas>
+        <p id="skin-name" class="mt-4 text-xl font-semibold text-green-400"></p>
+      </div>
+      <a id="skin-download" class="inline-block bg-green-600 px-5 py-3 rounded-xl hover:bg-green-500 transition" download>Download skin</a>
+    </section>
+  </main>
+
+  <main id="wiki-ui" class="tab-content hidden flex-grow flex flex-col items-center p-6" data-content="wiki">
+    <h1 class="text-5xl font-bold mb-4 text-green-400 drop-shadow-lg text-center">Minecraft Wiki</h1>
+    <p class="text-gray-400 mb-8 text-center max-w-2xl">Browse the saved Minecraft Wiki archive or search the category index for an article.</p>
+
+    <div class="w-full max-w-6xl grid gap-6 md:grid-cols-[18rem_1fr]">
+      <section class="bg-gray-800 p-6 rounded-2xl shadow-lg">
+        <h2 class="text-xl font-semibold mb-4">Saved archive</h2>
+        <div id="wiki-archive-list" class="space-y-2"></div>
+        <p id="wiki-status" class="text-sm text-gray-400 mt-5">Loading category index...</p>
+      </section>
+
+      <section class="bg-gray-800 p-6 rounded-2xl shadow-lg">
+        <article class="mb-6 border-b border-gray-700 pb-6">
+          <h2 id="wiki-title" class="text-2xl font-semibold text-green-400">Choose an article</h2>
+          <p id="wiki-source" class="text-sm text-green-300 mt-2"></p>
+          <iframe id="wiki-article" class="wiki-article mt-4 w-full min-h-[32rem] bg-white rounded-xl border-2 border-green-500" title="Offline Minecraft Wiki article"></iframe>
+        </article>
+        <div class="grid gap-3 md:grid-cols-2 mb-5">
+          <label class="text-gray-300">Search pages
+            <input id="wiki-search" type="search" placeholder="Try creeper, village, redstone..." class="mt-2 w-full bg-gray-900 text-white px-4 py-3 rounded-xl border border-gray-700 focus:outline-none focus:ring-2 focus:ring-green-400">
+          </label>
+          <label class="text-gray-300">Filter category
+            <select id="wiki-category" class="mt-2 w-full bg-gray-900 text-white px-4 py-3 rounded-xl border border-gray-700 focus:outline-none focus:ring-2 focus:ring-green-400">
+              <option value="">All categories</option>
+            </select>
+          </label>
+        </div>
+        <div id="wiki-results" class="grid gap-2 sm:grid-cols-2 max-h-64 overflow-auto"></div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="p-4 text-center text-gray-500">
+    &copy; 2026 Eaglercraft Hub, modified by Zalec
+  </footer>
+
+ <script>
+  const skinFiles = [
+    "4cvit", "ashwagg", "bluebeast", "boomie", "boosfer", "clownpierce",
+    "deputy-ace", "DrDonut", "dreamer", "eggchan","Farex", "ferremc", "flamefrags", "frontman",
+    "glowinganylaticsplanner", "grcreeper", "guardofficer", "jadenman","Jettism", "leow0ok",
+    "lettucek-minecraft", "lomedy", "mappic", "minutetech", "parrotx2", "princezam",
+    "radioknight", "smoothnit", "spoke1", "spoke2", "spoke3", "theobaldthebird",
+    "wemmbu", "wifies", "Zalec"
+  ];
+
+  const skinPicker = document.getElementById('skin-picker');
+  const skinPreview = document.getElementById('skin-preview');
+  const skinName = document.getElementById('skin-name');
+  const skinDownload = document.getElementById('skin-download');
+  const skinViewer = new skinview3d.SkinViewer({
+    canvas: skinPreview,
+    width: 256,
+    height: 320,
+    skin: `skins/${skinFiles[0]}.png`
+  });
+  skinViewer.autoRotate = true;
+  skinViewer.animation = new skinview3d.IdleAnimation();
+  skinViewer.controls.enableZoom = false;
+
+  skinFiles.forEach(fileName => {
+    const option = document.createElement('option');
+    option.value = fileName;
+    option.textContent = fileName.replace(/-/g, ' ');
+    skinPicker.appendChild(option);
+  });
+
+  function showSkin(fileName) {
+    const skinPath = `skins/${fileName}.png`;
+    skinViewer.loadSkin(skinPath);
+    skinName.textContent = fileName.replace(/-/g, ' ');
+    skinDownload.href = skinPath;
+    skinDownload.download = `${fileName}.png`;
+  }
+
+  skinPicker.addEventListener('change', () => showSkin(skinPicker.value));
+  showSkin(skinFiles[0]);
+
+  const wikiArchiveList = document.getElementById('wiki-archive-list');
+  const wikiResults = document.getElementById('wiki-results');
+  const wikiSearch = document.getElementById('wiki-search');
+  const wikiCategory = document.getElementById('wiki-category');
+  const wikiTitle = document.getElementById('wiki-title');
+  const wikiSource = document.getElementById('wiki-source');
+  const wikiArticle = document.getElementById('wiki-article');
+  const wikiStatus = document.getElementById('wiki-status');
+  const wikiPages = MINECRAFT_WIKI_OFFLINE.pages.filter(page => page.sources.length);
+
+  function addWikiTable(doc, parent, rows) {
+    const table = doc.createElement('table');
+    table.className = 'wiki-table';
+    rows.forEach((cells, rowIndex) => {
+      const row = doc.createElement('tr');
+      cells.forEach(cell => {
+        const element = doc.createElement(rowIndex === 0 ? 'th' : 'td');
+        element.textContent = cell.trim();
+        row.appendChild(element);
+      });
+      table.appendChild(row);
+    });
+    parent.appendChild(table);
+  }
+
+  function addWikiChart(doc, parent, rows) {
+    const chart = doc.createElement('div');
+    chart.className = 'wiki-chart';
+    rows.forEach(([label, value]) => {
+      const row = doc.createElement('div');
+      row.className = 'wiki-chart-row';
+      row.innerHTML = `<span>${label}</span><div class="wiki-chart-track"><i style="width:${Math.min(value, 100)}%"></i></div><b>${value}%</b>`;
+      chart.appendChild(row);
+    });
+    parent.appendChild(chart);
+  }
+
+  function renderWikiFrame() {
+    const doc = wikiArticle.contentDocument;
+    if (!doc || !doc.body) return;
+    const text = doc.body.textContent.replace(/\u00a0/g, ' ');
+    const lines = text.split(/\r?\n/).map(line => line.trimEnd());
+    doc.head.innerHTML = `<style>
+      :root { color-scheme: light; }
+      body { margin: 0; padding: 1.25rem; color: #172033; background: #fff; font: 16px/1.65 system-ui, sans-serif; }
+      h2, h3, h4, h5 { color: #166534; line-height: 1.25; margin: 1.4rem 0 .6rem; }
+      h2 { font-size: 1.45rem; border-bottom: 2px solid #bbf7d0; padding-bottom: .3rem; }
+      h3 { font-size: 1.2rem; } h4, h5 { font-size: 1.05rem; }
+      p { margin: .65rem 0; } ul { margin-top: .2rem; }
+      .wiki-table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: .95rem; }
+      .wiki-table th { background: #166534; color: white; text-align: left; }
+      .wiki-table th, .wiki-table td { border: 1px solid #bbf7d0; padding: .5rem .65rem; vertical-align: top; }
+      .wiki-table tr:nth-child(even) { background: #f0fdf4; }
+      .wiki-chart { margin: 1rem 0; padding: .75rem; border: 1px solid #bbf7d0; border-radius: .5rem; background: #f0fdf4; }
+      .wiki-chart-row { display: grid; grid-template-columns: 7rem 1fr 4rem; align-items: center; gap: .6rem; margin: .4rem 0; }
+      .wiki-chart-row span { overflow-wrap: anywhere; } .wiki-chart-row b { text-align: right; }
+      .wiki-chart-track { height: .8rem; background: #d1d5db; border-radius: .3rem; overflow: hidden; }
+      .wiki-chart-track i { display: block; height: 100%; background: #16a34a; }
+    </style>`;
+    doc.body.innerHTML = '';
+    const jsonRows = [['Label', 'Value']];
+    const normalizedText = text.replace(/\\"/g, '"');
+    for (const match of normalizedText.matchAll(/"field"\s*:\s*"(.*?)"\s*,\s*"label"\s*:\s*"(.*?)"/g)) {
+      jsonRows.push([match[2], match[1]]);
+    }
+    if (jsonRows.length > 1) addWikiTable(doc, doc.body, jsonRows);
+    let paragraph = [];
+    const flushParagraph = () => {
+      if (!paragraph.length) return;
+      const p = doc.createElement('p');
+      p.textContent = paragraph.join(' ');
+      doc.body.appendChild(p);
+      paragraph = [];
+    };
+    for (let index = 0; index < lines.length; index += 1) {
+      const line = lines[index].trim();
+      if (!line) { flushParagraph(); continue; }
+      const heading = line.match(/^(={2,5})\s*(.*?)\s*\1$/);
+      if (heading) {
+        flushParagraph();
+        const element = doc.createElement(`h${Math.min(5, heading[1].length)}`);
+        element.textContent = heading[2];
+        doc.body.appendChild(element);
+        continue;
+      }
+      if (line === '{|') {
+        flushParagraph();
+        const rows = [];
+        for (index += 1; index < lines.length && lines[index].trim() !== '|}'; index += 1) {
+          const tableLine = lines[index].trim();
+          if (!tableLine || tableLine === '|-') continue;
+          const marker = tableLine[0] === '!' || tableLine[0] === '|';
+          if (marker) rows.push(tableLine.slice(1).split(/!!|\|\|/));
+        }
+        if (rows.length) addWikiTable(doc, doc.body, rows);
+        continue;
+      }
+      if (/^\d+$/.test(line)) {
+        const numericChart = [];
+        const chartStart = index;
+        while (index < lines.length) {
+          const label = lines[index].trim();
+          if (!/^\d+$/.test(label)) break;
+          let cursor = index + 1;
+          while (cursor < lines.length && !lines[cursor].trim()) cursor += 1;
+          const valueMatch = lines[cursor]?.trim().match(/^(\d+(?:\.\d+)?)\s*%$/);
+          if (!valueMatch) break;
+          numericChart.push([label, Number(valueMatch[1])]);
+          cursor += 1;
+          for (let column = 0; column < 2; column += 1) {
+            while (cursor < lines.length && !lines[cursor].trim()) cursor += 1;
+            if (/^\d+\s*:\s*[\d,]+/.test(lines[cursor]?.trim() || '')) cursor += 1;
+            while (cursor < lines.length && !lines[cursor].trim()) cursor += 1;
+            if (/^\d+(?:\.\d+)?\s*%$/.test(lines[cursor]?.trim() || '')) cursor += 1;
+          }
+          index = cursor;
+        }
+        if (numericChart.length >= 3) {
+          flushParagraph();
+          addWikiChart(doc, doc.body, numericChart);
+          index -= 1;
+          continue;
+        }
+        index = chartStart;
+      }
+      const chartRows = [];
+      const chartStart = index;
+      while (index < lines.length) {
+        if (!lines[index].trim()) { index += 1; continue; }
+        const chartMatch = lines[index].trim().match(/^(.+?)\s+(\d+(?:\.\d+)?)\s*%$/);
+        if (!chartMatch) break;
+        chartRows.push([chartMatch[1], Number(chartMatch[2])]);
+        index += 1;
+      }
+      if (chartRows.length >= 3) {
+        flushParagraph();
+        addWikiChart(doc, doc.body, chartRows);
+        index -= 1;
+        continue;
+      }
+      index = chartStart;
+      if (/^\*\s+/.test(line)) {
+        flushParagraph();
+        const list = doc.querySelector('ul:last-of-type') || doc.createElement('ul');
+        if (!list.parentNode) doc.body.appendChild(list);
+        const item = doc.createElement('li');
+        item.textContent = line.replace(/^\*\s+/, '');
+        list.appendChild(item);
+        continue;
+      }
+      paragraph.push(line.replace(/^\|\s*/, ''));
+    }
+    flushParagraph();
+  }
+
+  function showWikiArticle(page, source = page.sources[0]) {
+    wikiTitle.textContent = page.title;
+    wikiArticle.onload = renderWikiFrame;
+    wikiArticle.src = source.path;
+    wikiSource.replaceChildren();
+    page.sources.forEach(archive => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'text-green-400 hover:underline mr-3';
+      button.textContent = archive.source === 'partial' ? 'Partial archive' : 'Full archive';
+      button.addEventListener('click', () => showWikiArticle(page, archive));
+      wikiSource.appendChild(button);
+    });
+  }
+
+  ['Minecraft Wiki', 'Minecraft Wiki (website)', 'Minecraft Wiki_editcopy', '0x10c Wiki'].forEach(title => {
+    const page = wikiPages.find(item => item.title === title);
+    if (!page) return;
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'w-full text-left bg-gray-900 px-4 py-3 rounded-xl hover:bg-green-700 transition';
+    button.textContent = page.title;
+    button.addEventListener('click', () => showWikiArticle(page));
+    wikiArchiveList.appendChild(button);
+  });
+
+  function renderWikiResults() {
+    const query = wikiSearch.value.trim().toLowerCase();
+    const category = wikiCategory.value;
+    const matches = wikiPages.filter(page =>
+      (!query || page.title.toLowerCase().includes(query)) &&
+      (!category || page.categories.includes(category))
+    ).slice(0, 80);
+    wikiResults.replaceChildren();
+    matches.forEach(page => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'bg-gray-900 px-3 py-2 rounded-lg text-left hover:bg-green-700 transition';
+      button.textContent = page.title;
+      button.title = page.categories.join(', ');
+      button.addEventListener('click', () => showWikiArticle(page));
+      wikiResults.appendChild(button);
+    });
+    wikiStatus.textContent = `${matches.length} of ${wikiPages.length.toLocaleString()} archived pages shown. Articles are loaded locally.`;
+  }
+
+  const categories = [...new Set(wikiPages.flatMap(page => page.categories))].sort();
+  categories.forEach(category => {
+    const option = document.createElement('option');
+    option.value = category;
+    option.textContent = category;
+    wikiCategory.appendChild(option);
+  });
+  renderWikiResults();
+
+  wikiSearch.addEventListener('input', renderWikiResults);
+  wikiCategory.addEventListener('change', renderWikiResults);
+  showWikiArticle(wikiPages.find(page => page.title === 'Minecraft Wiki') || wikiPages[0]);
+
+  document.querySelectorAll('.hub-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.hub-tab').forEach(button => button.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(content => content.classList.add('hidden'));
+      tab.classList.add('active');
+      document.querySelector(`[data-content="${tab.dataset.tab}"]`).classList.remove('hidden');
+    });
+  });
+
+  document.querySelectorAll('.game-card').forEach(card => {
+    card.addEventListener('click', async () => {
+      const launchMode = document.getElementById('proxyMode').value;
+
+      const normalUrl = card.getAttribute('data-url');
+      const proxyUrl = card.getAttribute('data-proxy');
+      const usingProxy = launchMode === 'proxy' && proxyUrl;
+
+      // Open window early to bypass popup blockers
+      const newWin = window.open('about:blank', '_blank');
+      if (!newWin) {
+        alert("Please allow popups to launch the game.");
+        return;
+      }
+
+      // Multiplayer mode: redirect the new window directly to the custom link
+      if (usingProxy) {
+        newWin.location.href = proxyUrl;
+        return;
+      }
+
+      const finalUrl = normalUrl;
+      const folderPath = finalUrl.substring(
+        0,
+        finalUrl.lastIndexOf('/') + 1
+      );
+
+      try {
+        const response = await fetch(finalUrl + '?t=' + Date.now());
+        if (!response.ok) throw new Error("Fetch failed");
+
+        const html = await response.text();
+
+        newWin.document.open();
+        const baseTag = `<base href="${folderPath}">`;
+
+        const injectedHtml = html.includes('<head>')
+          ? html.replace('<head>', `<head>${baseTag}`)
+          : baseTag + html;
+
+        newWin.document.write(injectedHtml);
+        newWin.document.close();
+
+      } catch (err) {
+        console.warn("Fetch failed, falling back:", err);
+        newWin.location.href = finalUrl;
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

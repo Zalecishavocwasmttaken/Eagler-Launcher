@@ -1,0 +1,30 @@
+Specifying a constant height:
+Choices for a vertical anchor (must choose only one of the three) see Template:Nbt inherit/vertical anchor/template
+Either specifying a constant height directly as above, or specifying the types and additional fields as below:
+[String] type: The type of the height provider. One of constant (specify a constant height), uniform (random value in a uniform distribution), biased_to_bottom (random value, biased towards the bottom), very_biased_to_bottom (random value, stronger biased towards the bottom), trapezoid (random value, isosceles trapezoidal distribution), and weighted_list (random value from a weighted list).
+If type is constant, additional fields are as follows:
+[NBT Compound / JSON Object] value: The vertical anchor to use as constant height.
+Choices for a vertical anchor (must choose only one of the three) see Template:Nbt inherit/vertical anchor/template
+If type is uniform, additional fields are as follows:
+[NBT Compound / JSON Object] min_inclusive: The vertical anchor to use as minimum height.
+Choices for a vertical anchor (must choose only one of the three) see Template:Nbt inherit/vertical anchor/template
+[NBT Compound / JSON Object] max_inclusive: The vertical anchor to use as maximum height.
+Choices for a vertical anchor (must choose only one of the three) see Template:Nbt inherit/vertical anchor/template
+If type is biased_to_bottom or very_biased_to_bottom, additional fields are as follows:
+[NBT Compound / JSON Object] min_inclusive: The vertical anchor to use as minimum height.
+Choices for a vertical anchor (must choose only one of the three) see Template:Nbt inherit/vertical anchor/template
+[NBT Compound / JSON Object] max_inclusive: The vertical anchor to use as maximum height.
+Choices for a vertical anchor (must choose only one of the three) see Template:Nbt inherit/vertical anchor/template
+[Int] inner: (optional, defaults to 1). Value between 1 and max_height - min_height from anchors (inclusive). Graph below [Int] inner (inclusive) looks like a random distribution and above looks like an exponential distribution. very_biased_to_bottom will have a sharper exponential distribution.
+If type is trapezoid, additional fields are as follows:
+[NBT Compound / JSON Object] min_inclusive: The vertical anchor to use as minimum height.
+Choices for a vertical anchor (must choose only one of the three) see Template:Nbt inherit/vertical anchor/template
+[NBT Compound / JSON Object] max_inclusive: The vertical anchor to use as maximum height.
+Choices for a vertical anchor (must choose only one of the three) see Template:Nbt inherit/vertical anchor/template
+[Int] plateau: (optional, defaults to 0) The length of the range in the middle of the trapezoid distribution that has a uniform distribution.
+If type is weighted_list, additional fields are as follows:
+[NBT List / JSON Array] distribution: (Cannot be empty) A random weighted pool of height providers.
+[NBT Compound / JSON Object] One entry in the random pool.
+[Int] data: A height provider.
+Height provider see Template:Nbt inherit/height provider/template
+[Int] weight: The weight of this entry.

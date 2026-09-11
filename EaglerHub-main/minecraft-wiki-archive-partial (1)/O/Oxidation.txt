@@ -1,0 +1,192 @@
+Some blocks that are affected by oxidation
+Oxidation (also known as oxidization or oxidisation) is a mechanic that causes many blocks and mobs made from copper to oxidize over time, changing their appearance and, in a few cases, their functionality.
+All objects that oxidize can be 'locked' in their current oxidation state by being waxed with honeycombs, and can gradually be scraped of their wax and/or oxidation using an axe.
+
+Contents
+
+1 Mechanics
+
+1.1 Blocks
+1.2 Copper golem
+1.3 Waxing
+1.4 Deoxidation
+
+2 Affected features
+3 Achievements
+4 Advancements
+5 History
+
+5.1 Reveal
+5.2 Java Edition
+5.3 Bedrock Edition
+
+6 Issues
+7 References
+8 Navigation
+
+Mechanics
+
+
+
+This section is missing information about: How does the Bedrock Edition behavior differ from Java Edition? 
+Please expand the section to include this information. Further details may exist on the talk page.
+
+Blocks
+Non-waxed blocks made from copper can oxidize over time, gaining a verdigris appearance over four stages:
+
+ Unoxidized
+ Exposed
+ Weathered
+ Oxidized
+Lightning bolts and axes can remove the oxidation on copper blocks.
+As the block begins to oxidize (exposed copper), it gets discolored and green spots begin to appear. As the oxidation continues (weathered copper), the block is a green color with brown spots. In the last stage (oxidized copper), the block is teal with several green spots.
+Oxidation is a purely visual mechanic in most cases, but there are behavioral differences on some blocks, such as the fact only unoxidized copper blocks can be crafted back into copper ingots. Another one is that the light level of copper bulbs depends on the oxidation level. Normal copper bulbs have a light level of 15, exposed copper bulbs have a light level of 12, weathered copper bulbs have a light level of 8, and oxidized copper bulbs have a light level of 4.
+Oxidation of copper blocks relies only on random ticks. Unlike the real-world phenomenon, rain or water does not accelerate oxidation, and covering copper blocks with other blocks does not prevent oxidation.
+In Java Edition, groups of non-waxed copper blocks oxidize far more slowly than single copper blocks that are spaced at least 4 blocks apart. This is because a block in a group being at the same or lower oxidation level than the others slows down the oxidation process for all other blocks within 4 blocks of taxicab distance. Oxidation speed for a group of copper blocks can be increased by placing oxidized copper blocks around less oxidized copper blocks, but this does not offer a speed improvement over placing the blocks 4 apart. The calculations for the oxidation behavior are as follows:
+In Java Edition, when a random tick is given, a copper block has a 64⁄1125 chance to enter a state called pre-oxidation. This means a copper block has approximately a 5% chance per minute to enter pre-oxidation at least once, and enters pre-oxidation after roughly 20 minutes on average.
+In pre-oxidation, the copper block checks all non-waxed copper blocks within a distance of 4 blocks taxicab distance in order to determine whether it should oxidize.
+
+If there is any copper block that has a lower oxidation level, then the copper block does not oxidize, and pre-oxidation ends.
+Otherwise, the chance of oxidation is determined by the proportion of nearby unwaxed copper blocks that are at the same or higher oxidation level. Let a be the number of all nearby non-waxed copper blocks, and b be the number of nearby non-waxed copper blocks that have a higher oxidation level. Calculate a proportion value c from this equation: c = b + 1⁄a + 1. Additionally, let a modifying factor m be 0.75 if the copper block has no oxidation, or 1 if the copper block is exposed or weathered. Then the final oxidation probability is  mc2.
+For example, an unweathered copper block surrounded by 6 unweathered copper blocks and 6 exposed copper blocks has a 21.7% chance to oxidize if it enters the pre-oxidation state. In this case, a = 12, b = 6, and m = 0.75.
+The resulting behavior for groups of copper blocks is that oxidation typically begins at corners or edges, and spreads evenly from there, with an entire region needing to reach a minimum oxidation level before advancing to the next.
+
+Copper golem
+Main article: Copper Golem § Oxidation
+A non-waxed copper golem takes between 7 hours and 7 hours and 40 minutes to oxidize to the next stage. Since the timer is based on gametime, it advances even if the golem is not located in a loaded chunk. Once fully oxidized, a copper golem has a 0.58% chance per tick to become a copper golem statue and take a random pose, provided it is not waxed and is fully located in air.
+
+Waxing
+Main article: Waxing
+Using a honeycomb on a non-waxed copper block (or crafting them together) turns it into its waxed variant, which prevents the block from oxidizing entirely. Using an axe on a waxed copper block turns it into the respective non-waxed copper block, the honeycomb used to wax the copper block is not returned. Waxed blocks have the same texture as unwaxed ones.
+
+Deoxidation
+Using an axe on an exposed, weathered, or oxidized copper block removes one layer of oxidation, making it become a regular, exposed, or weathered copper block respectively. The axe removes wax first, then oxidation layers. If using on an unoxidized copper golem statue, scraping it with an axe reanimates it into an unoxidized copper golem.
+Lightning can also remove oxidation from copper blocks. A lightning bolt striking a non-waxed copper block removes all oxidation from the block, and may also deoxidize randomly selected copper blocks nearby.[verify]. In Java Edition, these additional blocks are chosen by random walks as follows: The position of the struck copper block​[more information needed] is set as the start point. Then, the game performs 3 to 5 walks. In the beginning of each walk, a judgment point is set at the start point. For each step of the walk, the game randomly selects 10 blocks from a 3×3×3 volume centered on the judgment point. If a non-waxed copper block is found among these 10 blocks, the judgment point is transferred to the first such block found, and 1 oxidation layer of that block is removed (if the block is still unoxidized, the block stays as it is). The number of steps in a walk is between 1 and 8 (inclusive), chosen randomly for each walk. This means that one single lightning strike can deoxidize up to 41 blocks (1 block initially struck by lightning + 5 max walks*8 max steps in every walk).
+
+Affected features
+The following blocks and mobs are affected by oxidation:
+
+Feature
+
+Unoxidized
+
+Exposed
+
+Weathered
+
+Oxidized
+
+Block of Copper
+
+Chiseled Copper
+
+Copper Bars
+
+Copper Bulb
+
+Copper Chain
+
+Copper Chest
+
+Copper Door
+
+Copper Golem
+
+Copper Golem Statue
+
+Copper Grate
+
+Copper Lantern
+
+Copper Trapdoor
+
+Cut Copper
+
+Cut Copper Slab
+
+Cut Copper Stairs
+
+Lightning Rod
+
+Achievements
+IconAchievementIn-game descriptionActual requirements (if different)Gamerscore earnedTrophy type (PS)PS4OtherWax on, Wax offApply and remove Wax from all the Copper blocks!!!Wax and de-wax each oxidation stage of the 4 original copper blocks in the game: blocks of copper, cut copper blocks, cut copper stairs, and cut copper slabs.30Silver
+Advancements
+IconAdvancementIn-game descriptionActual requirements (if different)Wax OnApply Honeycomb to a Copper block!Use a honeycomb on any of these 15 waxable copper block variants:
+
+Block of Copper
+Chiseled Copper
+Copper Bars
+Copper Bulb
+Copper Chain
+Copper Chest
+Copper Door
+Copper Golem Statue
+Copper Grate
+Copper Lantern
+Copper Trapdoor
+Cut Copper
+Cut Copper Slab
+Cut Copper Stairs
+Lightning Rod
+The block can be in any of its four oxidation stages, but cannot already be waxed.Wax OffScrape Wax off of a Copper block!Use an axe to revert any of these 15 waxed variants of copper blocks:
+
+Block of Copper
+Chiseled Copper
+Copper Bars
+Copper Bulb
+Copper Chain
+Copper Chest
+Copper Door
+Copper Golem Statue
+Copper Grate
+Copper Lantern
+Copper Trapdoor
+Cut Copper
+Cut Copper Slab
+Cut Copper Stairs
+Lightning Rod
+The block can be in any of its four oxidation stages.
+History
+Reveal
+October 3, 2020
+Oxidizing copper blocks are revealed at Minecraft Live 2020.
+Java Edition
+Java Edition1.1720w45a
+Added copper blocks and cut copper, which are affected by oxidation.21w05a
+Oxidation now relies on random ticks.21w11a
+Copper blocks can be waxed by using honeycomb, producing yellow particles.
+Honeycomb in a dispenser now waxes copper blocks.
+Axes can scrape off wax and oxidation of copper blocks, producing white particles.
+Lightning striking copper now cleans its oxidation.1.20.3ExperimentUpdate 1.2123w43a
+Added chiseled copper, copper bulbs, copper doors, copper grates, and copper trapdoors, which are affected by oxidation.1.21.925w31a
+Added copper chests and copper golems, which are affected by oxidation.
+Lightning rods are now affected by oxidation.25w32a
+Added copper bars, copper chains, and copper lanterns, which are affected by oxidation.
+Bedrock Edition
+Bedrock Edition1.16.210ExperimentCaves & Cliffsbeta 1.16.210.57
+Added copper blocks and cut copper, which can oxidize.1.16.220ExperimentCaves & Cliffsbeta 1.16.220.52
+Right clicking on copper while holding an axe de-waxes copper, scraping off patina one step at a time.
+Lightning rods struck by lightning decrements the oxidation age of nearby copper blocks.1.17.0beta 1.17.0.50
+Copper surfaces now deoxidize in a more random pattern when struck by lightning.
+
+Horizontally placed Lightning rods now interact properly with respect to de-oxidizing copper blocks.
+
+Copper blocks struck by lightning now deoxidize even if there's no lightning rod present.
+
+Added sounds for scraping off wax and oxidization.1.20.50ExperimentUpdate 1.21Preview 1.20.50.22
+Added chiseled copper, copper bulbs, copper doors, copper grates, and copper trapdoors, all of which are affected by oxidation.1.21.100ExperimentDrop 3 2025Preview 1.21.100.23
+Added copper chests and copper golems, both of which are affected by oxidation.1.21.111Preview 1.21.110.22
+Lightning rods can now oxidize.Preview 1.21.110.23
+Added copper bars, copper chains, and copper lanterns, all of which are affected by oxidation.
+Issues
+Issues relating to "Oxidation" are maintained on the bug tracker. Issues should be reported and viewed there.
+
+References
+
+ "21w05a Code Review"
+
+ "What's The Fastest Way To Get Oxidized Copper And How Long Does It Take?"  – ilmango on YouTube, February 7, 2021
+
+ "21w11a Code Review"
+
+Navigation

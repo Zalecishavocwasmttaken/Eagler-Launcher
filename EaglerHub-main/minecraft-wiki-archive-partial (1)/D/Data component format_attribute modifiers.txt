@@ -1,0 +1,10 @@
+[NBT List / JSON Array] minecraft:attribute_modifiers: A list of attribute modifiers which, if present on an item, may be applied to a player or mob that has equipped the item. If the item is not in the correct equipment slot, it has no effect. The modifiers are removed from the entity once the item is moved out of that slot or is deleted. Any attribute modifiers specified are listed in the item's tooltip (unless hidden).
+[NBT Compound / JSON Object]: A single attribute modifier and its tooltip display type.
+[String] id: A namespaced ID to identify this modifier. It must be unique from other modifiers of the same attribute.
+[String] type: The namespaced ID of the attribute this modifier is to act upon.
+[String] slot: The equipment slot/slots the item must be in for the modifier to take effect. Can be any, hand, armor, mainhand, offhand, head, chest, legs, feet, body, or saddle. Defaults to any. Note: any refers to any equipment slot, not any inventory slot.
+[String] operation: Modifier operation. Can be add_value, add_multiplied_base, or add_multiplied_total. See Attribute Modifiers for info.
+[Double] amount: The value used in the modifier's operation.
+[NBT Compound / JSON Object] display: How the modifier is displayed in an item's tooltip. Optional.
+[String] type: Display type. Can be default, hidden or override.
+[NBT Compound / JSON Object][NBT List / JSON Array][String] value (only present if [String] type is override): A text component to show for this attribute modifier entry.

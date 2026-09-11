@@ -1,0 +1,333 @@
+For the April Fools' joke snapshot released that week, see Java Edition 22w13oneBlockAtATime.
+
+
+
+This page covers a development version that has a major issue under certain conditions. 
+Attempting to generate a structure with an allay causes the server to hang.
+
+Minecraft 22w13a
+
+Edition
+
+Java Edition
+
+Release date
+
+March 31, 2022
+
+Type
+
+Snapshot
+
+Snapshot for
+
+1.19
+
+Downloads
+
+Client (.json)Server
+
+Obfuscation maps
+
+ClientServer
+
+Protocol version
+
+ dec: 1073741900 hex: 4000004C
+
+Data version
+
+3085
+
+Resource pack format
+
+9
+
+Data pack format
+
+10
+
+Minimum Java version
+
+Java SE 17
+
+◄◄   1.18.2
+1.19
+  1.19.1 ►►
+
+◄   22w12a
+
+ 22w13a
+
+  22w14a ►
+
+{
+    "title": "Minecraft 22w13a",
+    "images": [
+        "22w13a.jpg",
+        "Java Edition 22w13a.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "March 31, 2022",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Snapshot article, displayed as Snapshot)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition 1.19 article, displayed as 1.19)",
+            "label": "Snapshot for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/1156e606bb7272bb1972e3f2ee7c3a498e1bfb6c/client.jar Client] ([https://piston-meta.mojang.com/v1/packages/5f73acb0bfadc51f9535464c6f03b84c358d2b9b/22w13a.json .json])<br />[https://piston-data.mojang.com/v1/objects/7c8afca77bb9a73d31cdc70f2f68b4119d581455/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/6c24f90a6b2653803072e82d26814aec59b79eb1/client.txt Client]<br />[https://piston-data.mojang.com/v1/objects/5712fbabd1d65667551df47b3f22e72e58158136/server.txt Server]",
+            "label": "(link to Obfuscation map article, displayed as Obfuscation maps)"
+        },
+        {
+            "field": " <span style=\"font-size:smaller\"><abbr title=\"decimal\">dec</abbr>: </span>1073741900<br /> <span style=\"font-size:smaller\"><abbr title=\"hexadecimal\">hex</abbr>: </span>4000004C",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "3085",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "9",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "10",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Data pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_17_.28LTS.29 Java SE 17]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Java Edition  1.18.2|<span style=\"margin-right:-0.35em\">◄</span>◄   1.18.2]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition 1.19|1.19]]'''</td>\n<td style=\"padding: 0.4em\" >[[Java Edition  1.19.1|  1.19.1 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  22w12a|◄   22w12a]]\n</td>\n<td style=\"padding: 0.4em\">''' 22w13a'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  22w14a|  22w14a ►]]\n</td>\n</tr>\n</table>"
+}
+
+22w13a is the third snapshot for Java Edition 1.19, released on March 31, 2022, which adds the allay, ancient cities, reinforced deepslate, and fixes bugs.
+
+Contents
+
+1 Additions
+
+1.1 Blocks
+1.2 Items
+1.3 Mobs
+1.4 World generation
+1.5 Gameplay
+1.6 General
+
+2 Changes
+
+2.1 Blocks
+2.2 Mobs
+2.3 Non-mob entities
+2.4 Gameplay
+2.5 General
+
+3 Fixes
+4 Videos
+5 References
+6 Navigation
+
+Additions
+Blocks
+ Reinforced deepslate
+
+A new block only found in ancient cities shaped as a large frame.
+Is not craftable.
+Is completely blast-resistant, and takes an incredibly long amount of time to mine (82.5 seconds).
+Can be broken, but won't drop anything, even with Silk Touch.
+Cannot be moved with pistons.
+Items
+Spawn eggs
+
+ Allay spawn egg
+Mobs
+ Allay
+
+Can collect the same items from the world as it holds in its hand.
+If holds an item it got from a player, it follows that player.
+It can be made to hold an item by interacting with the allay (pressing use).
+The item can also be removed by interacting with the allay (pressing use) while with an empty hand.
+Able to drop items at nearby note blocks, and stay close to a note block that has been played near them.
+If they have items in their inventory, they attempt to give them to their owner.
+When playing a note block near them, that note block becomes their favorite one for 30 seconds, and they attempt to drop off items at the note block rather than at the player.
+Sometimes spawn in cages next to pillager outposts (similar to iron golem), and inside woodland mansions.
+Has a delay for picking new items after delivering items.
+Immune to damage from its owner while holding an item.
+Have 10HP health points.
+World generation
+ Ancient city
+
+Generates within the deep dark biome and includes all of the deep dark features within it.
+Always generates at Y=-51.
+Made of deepslate and its variants, basalt and its variants, and gray wool.
+Contains soul sand, soul fire and soul lanterns, as well as candles and skeleton skulls.
+Contains chests with unique loot, like the Swift Sneak enchantment.
+Other valuable loot includes the "otherside" music disc, potions of Regeneration II, enchanted books, enchanted iron and diamond leggings, enchanted diamond hoes, and enchanted golden apples.
+If the frame of reinforced deepslate generates with a chest in front, it always contains one golden carrot (a hint about how to open the secret door below).
+Has different levels and open spaces, with several types of ruins and wall structures.
+Some of these structures contain dark oak logs, planks, and fences; cyan, light blue, and blue wool and carpets; ladders; ice and its variants; note blocks; stone pressure plates; and iron trapdoors opened with levers.
+Hidden underneath the frame of reinforced deepslate are several rooms containing redstone mechanisms that serve to introduce new players to their function.
+There is a silenced sculk sensor that needs a signal strength of 8 to open a redstone door. Taking the golden carrot from the chest placed near the structure and eating it reveals the entrance.
+Each variant of the city center has a different redstone puzzle concealing the entrance, requiring slightly different strategies to solve.
+The mechanisms are made with redstone dust, redstone torches, redstone repeaters, redstone comparators, redstone lamps, blocks of redstone, sticky pistons, a sculk sensor, a target, and a lectern.
+One variant includes a lever, and another includes a furnace containing 24 deepslate and a wooden shovel.
+Gameplay
+Advancements
+
+Added three new advancements:
+Bukkit bukkit
+Catch a tadpole in a bucket
+It spreads
+Kill a mob near a sculk catalyst
+With our powers combined!
+Have all froglights in your inventory
+Added kill_mob_near_sculk_catalyst advancement trigger.
+Triggered when a player kills an entity next to sculk catalyst, with following conditions:
+[NBT List / JSON Array] player: a player for which this trigger runs.
+[NBT List / JSON Array] entity: a predicate for the entity that was killed.
+[NBT Compound / JSON Object] killing_blow: a predicate for how the entity was killed.
+General
+Particles
+
+Added a new particle: allay_dust.
+Tags
+
+Added following block tags:
+#ancient_city_center_replaceable: deepslate, deepslate_bricks, deepslate_tiles, deepslate_brick_slab, deepslate_tile_slab, deepslate_brick_stairs, deepslate_tile_wall, deepslate_brick_wall, cobbled_deepslate, cracked_deepslate_bricks, and cracked_deepslate_tiles.
+#ancient_city_replaceable: #ancient_city_center_replaceable and gray_wool.
+Added following game event tag:
+#ignore_vibrations_on_occluding_block: hit_ground and step.
+Added following biome tag:
+#has_structure/ancient_city: deep_dark
+Changes
+Blocks
+Mangrove leaves
+
+Are now able to drop sticks when broken.
+Note block
+
+Only wool and carpets now block the sounds coming from note blocks.
+Sculk shrieker
+
+Can generate from sculk catalyst spread again.
+Now drops if mined using Silk Touch.
+Added can_summon blockstate, which determines it summon a warden or not.
+Set to true by default for sculk shriekers placed via world generation.
+Set to false by default for sculk shriekers placed by a player or generated via sculk spread.
+Mobs
+Warden
+
+Can now walk over rails.
+Non-mob entities
+Minecart with chest, minecart with furnace, minecart with TNT and minecart with hopper
+
+Crafting recipes are now shapeless.
+Now drop themselves when broken.
+Gameplay
+Advancements
+
+Breeding frogs are now required for "Two by Two" advancement.
+General
+Game events
+
+Renamed some game events, to make them more grammatically consistent:
+drinking_finish -> drink
+entity_killed -> entity_die
+entity_damaged -> entity_damage
+elytra_free_fall -> elytra_glide
+mob_interact -> entity_interact
+ravager_roar -> entity_roar
+wolf_shaking -> entity_shake
+The following events have been collapsed into block_activate and block_deactivate:
+block_press
+block_unpress
+block_switch
+block_unswitch
+ring_bell has been removed and replaced with block_change.
+Both shulker_open and shulker_close have been removed in favour of using container_open and container_close.
+fishing_rod_cast and fishing_rod_reel_in have been renamed to item_interact_start and item_interact_finish.
+entity_interact should be dispatched more often when interacting with various mobs.
+Tags
+
+Renamed #carpets block and item tag to #wool_carpets.
+Reinforced deepslate is now part of the #dragon_immune, #features_cannot_replace, and #wither_immune block tags.
+The #spawns_cold_variant_frogs biome tag no longer contains the #is_mountain biome tag.
+Frozen peaks, jagged peaks, snowy slopes, frozen ocean, deep frozen ocean, grove, deep dark, frozen river, snowy taiga, snowy beach are now part of the #spawns_cold_variant_frogs biome tag.
+Warm ocean is now part of the #spawns_warm_variant_frogs biome tag.
+Changed game events in the #vibrations game event tag:
+Include all game events changes mentioned above.
+Added note_block_play.
+Removed minecart_moving.
+Changed game events in the #warden_events_can_listen game event tag:
+Include all game events changes mentioned above.
+Added flap and note_block_play.
+Removed minecart_moving.
+Fixes
+28 issues fixed
+From released versions before 1.19
+
+MC-195468 – World Generation Settings not working on dedicated server.
+MC-210331 – Sculk sensors are not activated upon wandering traders drinking milk or witches drinking potions.
+MC-210485 – Sculk sensors are not activated upon evokers summoning vexes.
+MC-212503 – Sculk sensors are not activated upon collecting fish, axolotls, or tadpoles using water buckets.
+MC-214652 – Naming inconsistency for game events for eating/drinking.
+MC-249493 – Breaking a minecart with chest/furnace/TNT/hopper separates the minecart and the block it contains.
+From the 1.19 development versions
+
+MC-249103 – Z-fighting can be seen on the underside of frogs' feet.
+MC-249110 – Z-fighting textures inside the frog's mouth.
+MC-249115 – Frogs spawn with wrong color in some biomes.
+MC-249132 – Frogs are not required to be bred for the Two by Two advancement.
+MC-249168 – Dispensing a Bucket of Tadpole above or below a dimension dispenses the item, instead of a tadpole.
+MC-249349 – Dispensing a Bucket of Tadpole dispenses the item, instead of water with a tadpole.
+From the previous development version
+
+MC-249380 – The locks of chests within chest boats are positioned slightly too high.
+MC-249382 – Boats with chest do not drop items contained in chest when destroyed in Creative.
+MC-249385 – Boat with chest cannot be placed by dispenser.
+MC-249389 – GUI Scale is a slider instead of a button.
+MC-249392 – Options have missing or untranslated names.
+MC-249397 – Bottom face of Warden's right arm missing in warden_bioluminescent_layer texture.
+MC-249398 – Game crash regarding warden.
+MC-249404 – Boats with Chest aren't grouped in the recipe book.
+MC-249405 – chatScale option defaults to 0.0 instead of 1.0, causing chat to disappear.
+MC-249409 – Furnaces, blast furnaces and smokers don't cook without fuel in the bottom slot, even if they are already fired up.
+MC-249431 – The server occasionally fails to save chunks.
+MC-249437 – Sculk shriekers no longer appear to be capable of spawning from charges.
+MC-249474 – Four-legged mobs do not sit correctly in a boat with a chest.
+MC-249501 – Boats with chest have items inside deleted when they break into planks and sticks.
+MC-249529 – Mangrove boat cannot be placed by dispenser.
+MC-249642 – Wardens can't pass over rails.
+Videos
+Videos made by slicedlime:
+
+
+
+
+
+
+
+
+References
+
+ MC-249712 – Server hangs and game stops responding when loading a chunk containing a structure with an allay – resolved as "Fixed".
+
+ "Minecraft Snapshot 22w13a"     – Minecraft.net, March 31, 2022.
+
+Navigation

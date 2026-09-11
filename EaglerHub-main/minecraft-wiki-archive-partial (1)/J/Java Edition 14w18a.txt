@@ -1,0 +1,176 @@
+This page covers a development version that has a major issue under certain conditions. 
+Rendering an item frame crashes the game
+
+14w18a
+
+Edition
+
+Java Edition
+
+Release date
+
+April 30, 2014
+
+Type
+
+Snapshot
+
+Snapshot for
+
+1.8
+
+Downloads
+
+Client (.json)Server (.exe)
+
+Protocol version
+
+16
+
+Resource pack format
+
+1
+
+Minimum Java version
+
+Java SE 6
+
+◄◄   1.7.10
+1.8
+  1.8.1 ►►
+
+◄   14w17a
+
+ 14w18a
+
+  14w18b ►
+
+{
+    "title": "14w18a",
+    "images": [
+        "Java Edition 14w18a.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "April 30, 2014",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Snapshot article, displayed as Snapshot)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition 1.8 article, displayed as 1.8)",
+            "label": "Snapshot for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/9f9457fa624e797ee8b7fd409abd4843548affc5/client.jar Client] ([https://piston-meta.mojang.com/v1/packages/108308cc8f8d1e28710926710c123a2be4247971/14w18a.json .json])<br />[https://piston-data.mojang.com/v1/objects/48d6b3b47e870f61a95645e2bc1a84a27a1da068/server.jar Server] ([https://piston-data.mojang.com/v1/objects/49dd5660a0764d03dd02c7149c4c8b56e1142b69/windows_server.exe .exe])",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "16",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "1",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_6 Java SE 6]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Java Edition  1.7.10|<span style=\"margin-right:-0.35em\">◄</span>◄   1.7.10]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition 1.8|1.8]]'''</td>\n<td style=\"padding: 0.4em\" >[[Java Edition  1.8.1|  1.8.1 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  14w17a|◄   14w17a]]\n</td>\n<td style=\"padding: 0.4em\">''' 14w18a'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  14w18b|  14w18b ►]]\n</td>\n</tr>\n</table>"
+}
+
+
+14w18a is the twentieth snapshot for Java Edition 1.8, released on April 30, 2014.
+
+Contents
+
+1 Changes
+
+1.1 Blocks
+
+2 Fixes
+3 Trivia
+4 References
+5 Navigation
+
+Changes
+Blocks
+Pistons and slime blocks
+
+Slime blocks now push and pull blocks adjacent when connected to sticky pistons.
+Connected to normal pistons, slime blocks only push blocks, but don't pull them.
+Up to 12 slime blocks connected to a piston in any arrangement can be moved as long as the following conditions are met: blocks do not disrupt the chain, non-movable blocks are not in the way and slime blocks are not attached to the piston itself.
+Follows all the rules that pistons follow, for example, blocks which can normally be moved by pistons can be moved if attached to slime blocks.
+Extending a piston with a slime block on top of it launches the entity (mobs, players, items, launched arrows, etc.) into the air.
+Torches
+
+Can now be placed on stained glass.
+Fixes
+38 issues fixed
+From released versions before 1.8
+
+MC-2346 – Hitbox of anvil not proportional.
+MC-3631 – Creepers float one-eighth of a block above the ground.
+MC-9553 – Wrong rendering order of particles, hitboxes, clouds, transparent blocks and breaking animations.
+Fixed partially: Only particle rendering is fixed.
+MC-31728 – Resource pack glitch on shaders.
+MC-32017 – Maps issue + super secret settings.
+MC-34648 – Torch not placeable on stained glass.
+MC-36103 – Nether portal block invisible in front of another nether portal block.
+MC-47811 – The bottom texture of non-full blocks is flipped vertically.
+From the 1.8 development versions
+
+MC-46776 – When only a Spectator stays near mobs, they don't despawn.
+MC-48831 – "Reeds" model displays incorrectly.
+MC-48954 – When you kill invisible horse variants, the screen will turn red/black.
+MC-50073 – It is possible to change the missing block model.
+MC-50201 – Minecart glitch on rails.
+MC-50239 – Pick block on hydrated farmland gives dirt block with invalid data value (missing texture).
+MC-50510 – Burning furnace (Block 62) has wrong inventory image.
+MC-51379 – Rails render from below, but not correctly.
+MC-51934 – Lapis-Lazuli ore pick block.
+MC-52814 – dropper spawns items inside of itself with no velocity causing them to fly everywhere.
+From the previous development version
+
+MC-53370 – Any stone slabs on top of one another creates a double stone block.
+MC-53371 – Respawn button does not work if spawnpoint is outside of the world border.
+MC-53375 – Sheep give other color when sheared.
+MC-53381 – Player takes damage when world border is nearer than 179 blocks
+MC-53390 – Maximum value for the /worldborder command too low (30 million instead of 60 million).
+MC-53401 – redstone overlay gets tinted.
+MC-53405 – Singleplayer menu: only one click loads world.
+MC-53412 – The world border stops the player one block further away from the center in south/east direction.
+MC-53419 – Unable to create/load new heavily customized world.
+MC-53434 – Can place blocks outside world border.
+MC-53442 – /worldborder missing string: commands.worldborder.setSlowly.success.
+MC-53460 – Redstone gives off no particles when being broken.
+MC-53464 – Scrollbar in all lists act weird/unresponsively.
+MC-53493 – Minecraft crashes when setting FixedBiome to hell.
+MC-53514 – Lava oceans setting does not work in customized world type.
+MC-53570 – Barrier particles fight for attention.
+MC-53580 – Crafting wool/clay/glass/[wolf] collars results in the wrong color.
+MC-53616 – River generation dramatically increased in default world generation.
+MC-53773 – Cannot respawn outside world border.
+MC-53918 – Double-clicking server in server list no longer does anything.
+Trivia
+14w18a was previously removed from the launcher for some time, but was added back in September 2018.
+References
+
+ "Minecraft snapshot 14w18b"  (archived)   by Dinnerbone  – Mojang.com, April 30, 2014.
+
+ "I don't think anyone has found it yet, so I'll go ahead and spoil it: Standing on a slime block that gets pushed up is lots of fun."  – @Dinnerbone (Nathan Adams) on X (formerly Twitter), April 30, 2014
+
+ "A hint about one of the bugs I fixed for this week's snapshot, which should make people happy:"  – @TheMogMiner (Ryan Holtz) on X (formerly Twitter), April 30, 2014
+
+ "Almost! Just particles for now. :D"  – @TheMogMiner (Ryan Holtz) on X (formerly Twitter), April 30, 2014
+
+Navigation

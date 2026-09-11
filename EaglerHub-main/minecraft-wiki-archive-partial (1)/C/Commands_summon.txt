@@ -1,0 +1,148 @@
+/summon
+
+Permission levelrequired
+
+2 ‌[JE  only]
+1 ‌[BE  only]
+
+Restrictions
+
+Cheat only‌[BE  only]
+
+{
+    "title": "<code>/summon</code>",
+    "rows": [
+        {
+            "field": "\n* 2 ‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Java Edition\">(link to Java Edition article, displayed as JE)  only</span></i>]</sup>\n* 1 ‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Bedrock Edition\">(link to Bedrock Edition article, displayed as BE)  only</span></i>]</sup>",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "(link to Cheat article, displayed as Cheat) only‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Bedrock Edition\">(link to Bedrock Edition article, displayed as BE)  only</span></i>]</sup>",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+Summons an entity.
+
+Contents
+
+1 Syntax
+2 Arguments
+3 Result
+4 Output
+5 Examples
+6 History
+
+6.1 Java Edition
+6.2 Bedrock Edition
+
+7 External links
+8 Navigation
+
+Syntax
+Java Edition
+summon <entity> [<pos>] [<nbt>]
+Bedrock Edition
+summon <entityType: EntityType> [spawnPos: x y z] [yRot: value] [xRot: value] [spawnEvent: string] [nameTag: string]
+summon <entityType: EntityType> <nameTag: string> [spawnPos: x y z]
+summon <entityType: EntityType> [spawnPos: x y z] facing <lookAtEntity: target> [spawnEvent: string] [nameTag: string]
+summon <entityType: EntityType> [spawnPos: x y z] facing <lookAtPosition: x y z> [spawnEvent: string] [nameTag: string]
+Arguments
+JE: <entity>: resourceBE: entityType: EntityType: enum
+
+Specifies the entity to be summoned.
+In Java Edition, must be an existing registered resource location in minecraft:entity_type registry. In Bedrock Edition, must be an ID of an entity type.
+In Java Edition, player and fishing bobber entity cannot be summoned. Commands trying to summon them always fail.
+In Bedrock Edition, only certain entity types are allowed to be summoned. Entity types that are allowed to be summoned are listed in the auto-completion suggestion list. Commands trying to summon an entity that cannot be summoned are unparseable.
+JE: <pos>: vec3BE: spawnPos: x y z: CommandPositionFloat
+
+Specifies the position to summon the entity. If not specified, defaults to the position of the command's execution.
+Must be three-dimensional coordinates with double-precision floating-point number‌[Java Edition  only] or single-precision floating-point number‌[Bedrock Edition  only] elements. Accepts tilde and caret notations.
+JE: <nbt>: nbt_compound_tag
+
+Specifies the data tag for the entity, this can include any NBT in Entity format.
+Must be a [NBT Compound / JSON Object] compound NBT in SNBT format.
+BE: yRot: value: RelativeFloat and xRot: value: RelativeFloat
+
+Specifies the rotation of the summoned entity.
+Must be a [Float] float. Accepts tilde notation.
+BE: lookAtEntity: target: CommandSelector<Actor>
+
+Specifies the entity to make the summoned entity facing to.
+Must be a player name or a target selector.
+BE: lookAtPosition: x y z: CommandPositionFloat
+
+Specifies the coordinates to make the summoned entity facing to.
+Must be three-dimensional coordinates with single-precision floating-point number elements. Accepts tilde and caret notations.
+BE: spawnEvent: string: basic_string
+
+Specifies the in-game event for the entity. Should be a spawn event (event name for entities in behavior pack).
+Must be a string. And it must be a single word that has no space or a double-quoted string (When quoted, \ can be used to escape characters).
+BE: nameTag: string: basic_string
+
+Specifies the name of the entity.
+Must be a string. And it must be a single word that has no space or a double-quoted string (When quoted, \ can be used to escape characters).
+Result
+
+CommandTriggerJava EditionBedrock Edition
+
+AnyThe command is incomplete, or any argument is not specified correctly. Unparseable UnparseableentityType: EntityType is not an entity type that is allowed to be summoned. N/A Unparseable<entity> is minecraft:player or minecraft:fishing_bobber. Failed N/ASpecified position is unloaded. FailedTrying to summon hostiles in peaceful difficulty. SuccessfulAttempting to summon an entity with an identical UUID with an existing entity. Failed N/AThe <X> or <Z> arguments exceed the range of [-30000000, 30000000), or the <Y> argument exceeds the range of [-20000000, 20000000). SuccessfulOtherwiseSuccessful
+Output
+
+CommandEditionSituationSuccess Count/execute store success .../execute store result ...
+
+AnyJava EditionOn fail000On success111Bedrock EditionOn fail0N/AN/AOn success1N/AN/A
+Examples
+To summon lightning 10 blocks west of the current position of the executing player:
+ summon lightning_bolt ~-10 ~ ~
+Java Edition:
+To summon a charged creeper at the current position named "Powered Creeper":
+ summon creeper ~ ~ ~ {powered:true,CustomName:'"Powered Creeper"'}
+NOTE: CustomName is a raw JSON text.
+To summon an unbreakable diamond pickaxe:
+ summon item ~ ~ ~ {Item:{id:"minecraft:diamond_pickaxe",count:1,components:{"minecraft:unbreakable":{}}}}
+To summon a spider jockey:
+summon spider ~ ~ ~ {Passengers:[{id:"minecraft:skeleton",HandItems:[{id:"minecraft:bow",count:1}]}]}
+To summon an evoker rotated -90° to face east without AI:
+summon evoker ~ ~ ~ {Rotation:[-90f,0f],NoAI:1}
+To summon a villager that trades 1 dirt block in exchange for 5 diamonds:
+summon villager ~ ~ ~ {Offers:{Recipes:[{buy:{id:"minecraft:dirt",count:1},sell:{id:"minecraft:diamond",count:5},rewardExp:false}]}}
+To summon a baby zombie that has the Speed II mob effect with infinite duration:
+summon zombie ~ ~ ~ {IsBaby:true,active_effects:[{id:"minecraft:speed",amplifier:1b,duration:-1,show_particles:true}]}
+To summon a glowing Primed TNT 5 blocks forward, that will explode in 30 seconds but will not deal any damage to blocks or entities:
+summon tnt ^ ^ ^5 {Glowing:true,fuse:600s,explosion_power:0.0f}
+Bedrock Edition:
+To summon a patrol captain pillager at the current position:
+summon pillager ~ ~ ~ ~ ~ minecraft:spawn_as_patrol_captain
+To summon a dolphin with the name "Dolphin" in a golden color:
+summon dolphin §6Dolphin ~ ~ ~
+To summon a boat rotated 180 degrees:
+summon boat ~ ~ ~ 180 180
+History
+
+
+
+This section needs expansion. 
+You can help by expanding it.
+
+Java Edition
+Java Edition1.7.213w36a
+Added /summon.1.814w30a
+/summon can now spawn lightning.1.1620w06a
+/summon now cannot summon an entity with a position where <x> or <z> exceeds the range of [-30000000, 30000000), or <y> exceeds the range of [-20000000, 20000000)20w11a
+/summon now gives permission to summon Fireball.1.19.322w42a
+<entity> now accepts a resource argument, instead of entity_summon.1.21.925w31a
+The command now fails when trying to summon monsters while the difficulty is set to Peaceful.
+Bedrock Edition
+Pocket Edition Alphav0.16.0build 1
+Added /summon.Bedrock Edition1.19.40Preview 1.19.40.21
+Added new overload to the /summon command that adds rotation arguments.Preview 1.19.40.23
+Temporarily disabled the rotation for the /summon command while a bug is worked on.1.19.70Preview 1.19.70.23
+Re-added the rotation arguments.1.19.80Preview 1.19.80.20
+Added facing argument.
+External links
+"/summon Command"     – Microsoft Learn, August 1, 2024.
+Navigation

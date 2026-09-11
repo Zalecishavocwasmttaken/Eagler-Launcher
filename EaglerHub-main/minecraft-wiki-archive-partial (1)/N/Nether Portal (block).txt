@@ -1,0 +1,313 @@
+Nether Portal
+
+Java Edition
+
+Bedrock Edition
+
+Renewable
+
+Yes
+
+Stackable
+
+Yes (64) ‌[BE  only]N/A ‌[JE  only]
+
+Tool
+
+None
+
+Blast resistance
+
+0
+
+Hardness
+
+-1
+
+Luminous
+
+Yes (11)
+
+Transparent
+
+Yes
+
+Flammable
+
+No
+
+Catches firefrom lava
+
+No
+
+Map color
+
+ 0 NONE
+
+Note block instrument
+
+Default (Harp)
+
+{
+    "title": "Nether Portal",
+    "rows": [
+        {
+            "field": "Yes",
+            "label": "(link to Renewable resource article, displayed as Renewable)"
+        },
+        {
+            "field": "Yes (64) ‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Bedrock Edition\">(link to Bedrock Edition article, displayed as BE)  only</span></i>]</sup><br>N/A ‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Java Edition\">(link to Java Edition article, displayed as JE)  only</span></i>]</sup>",
+            "label": "Stackable"
+        },
+        {
+            "field": "None",
+            "label": "Tool"
+        },
+        {
+            "field": "0",
+            "label": "(link to Explosion#Blast resistance article, displayed as Blast resistance)"
+        },
+        {
+            "field": "-1",
+            "label": "(link to Breaking#Blocks by hardness article, displayed as Hardness)"
+        },
+        {
+            "field": "Yes (11)",
+            "label": "(link to Light article, displayed as Luminous)"
+        },
+        {
+            "field": "Yes",
+            "label": "(link to Opacity article, displayed as Transparent)"
+        },
+        {
+            "field": "No",
+            "label": "(link to Fire#Flammable blocks article, displayed as Flammable)"
+        },
+        {
+            "field": "No",
+            "label": "Catches fire<br>from (link to lava article, displayed as lava)"
+        },
+        {
+            "field": "<span style=\"white-space: nowrap;\"><span style=\"display: inline-block; background-color: rgb(); border: 1px solid #888; border-radius: 0.3em; color: transparent; width: 1em; height: 1em; vertical-align: -0.36em; margin-right: -0.1em\"><br></span> 0 NONE</span>",
+            "label": "(link to Map item format#Color table article, displayed as Map color)"
+        },
+        {
+            "field": "Default (Harp)",
+            "label": "(link to Note Block#Instruments article, displayed as Note block instrument)"
+        }
+    ],
+    "invimages": [
+        "Nether Portal.gif"
+    ],
+    "images": [
+        "Nether Portal (EW).gif",
+        "Nether Portal (EW) BE.gif"
+    ]
+}
+
+The Nether portal block is the translucent part of the Nether portal that teleports the player to and from the Nether.
+
+Contents
+
+1 Obtaining
+
+1.1 Post-generation
+
+2 Usage
+
+2.1 Piston interactivity
+
+3 Sounds
+
+3.1 Generic
+3.2 Unique
+
+4 Data values
+
+4.1 ID
+4.2 Block states
+
+5 History
+
+5.1 History of the block itself
+
+5.1.1 Java Edition
+5.1.2 Bedrock Edition
+5.1.3 Legacy Console Edition
+
+5.2 History of the block's effects
+5.3 Data history
+
+6 Issues
+7 References
+8 Navigation
+
+Obtaining
+The Nether portal block cannot be obtained as an item even by using the /give command. The item form is completely non-existent in Java Edition, but it can be obtained through add-ons, external editors or by using bugs in Bedrock Edition.
+This block cannot be picked up using pick block, similar to the End portal block.
+The Nether portal block can be placed using commands such as /fill or /setblock.
+
+Post-generation
+When a Nether portal is lit by placing fire in any manner inside the portal frame, the Nether portal blocks are generated, with one of them replacing the fire.
+Nether portal blocks with the portal structure itself can also generate when an entity goes through a portal and there's no other active portal within 128 blocks of the matching coordinate.
+Nether portal blocks cannot generate in the End and can only be placed using commands.
+
+Usage
+See also: Nether portal
+
+Nether portal blocks can stably exist only within a Nether portal structure, unlike End portal blocks. When the block is updated and detects that it is not part of such a structure, it is destroyed. However, using update suppression glitches, it is possible to obtain a standalone portal block without a frame, but the portal is destroyed once it receives an update, i.e., placing a block next to the portal or moving a piston next to or into the portal.
+Nether portal blocks can be used to teleport entities between the Nether and the Overworld. When a player in the Overworld or the Nether stands in a Nether portal block for 4 seconds, the player is taken to the other dimension. While in the Nether portal block, the player can neither open their inventory nor interact with blocks with a GUI. The player can step out of a portal before it completes its animation to abort the teleport. However, in Creative mode there is no wait time—the player immediately transfers between dimensions. If there is already an active portal within range (125 blocks) in the other world, the player appears in that portal. Otherwise, a portal is created at or near the corresponding coordinates. If a single portal block is placed using commands, it can still be used to travel to the Nether.
+Nether portal blocks make distinctive sounds and emit the same purple particles produced by endermen, endermites, and ender chests. Portal blocks emit a light level of 11, dimmer than a torch.
+Falling block entities can be teleported through a portal, but a piston cannot push a block through.
+Much like water or lava, portal blocks cannot be broken by tools except in Creative. However, portal blocks can be destroyed by explosions (even weak ones) and can be replaced by placing water or lava sources in the same block (can also be done by dispensers). If any portal block is destroyed, the whole portal is deactivated as adjacent portal blocks are updated and detect that the portal structure is no longer complete.
+While Nether portals themselves cannot be lit in the End, a portal block set in the End and in custom dimensions behaves exactly like in the Overworld, calculating coordinates in the Nether with the same 1:8 ratio. They teleport players to the Nether in Java Edition, and to the Overworld in Bedrock Edition. However, once teleported to the Overworld from the End, the player is in a glitched state where they can no longer interact with the world or load chunks during that session. After reloading the world, the player spawns on a new End platform at the same coordinates in the End as where the Nether portal was.
+
+Piston interactivity
+Nether portal blocks cannot be pushed by pistons. They also cannot be pushed or pulled by sticky pistons.
+
+Sounds
+Generic
+Java Edition:
+
+v
+t
+e glass sound typeSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitchAttenuationdistance​Block brokenBlocksOnce the block has brokenblock.glass.breaksubtitles.block.generic.break​1.00.816​Block placedBlocksWhen the block is placedblock.glass.placesubtitles.block.generic.place​1.00.816​Block breakingBlocksWhile the block is in the process of being brokenblock.glass.hitsubtitles.block.generic.hit​0.250.516​Something falls on a blockEntity-DependentFalling on the block with fall damageblock.glass.fallsubtitles.block.generic.fall​0.50.7516​FootstepsEntity-DependentWalking on the blockblock.glass.stepsubtitles.block.generic.footsteps​0.151.016
+Bedrock Edition:
+
+v
+t
+e glass sound typeSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitch​Block brokenBlocksOnce the block has brokenrandom.glass​ ?1.00.8–1.0​Block placedBlocksWhen the block is placeddig.stone​ ?1.00.8–1.0​Block breakingBlocksWhile the block is in the process of being brokenhit.stone​ ?0.40.6​FootstepsPlayersFalling on the block with fall damagefall.stone​ ?0.41.0​FootstepsPlayersWalking on the blockstep.stone​ ?0.31.0​FootstepsBlocksJumping from the blockjump.stone​ ?0.121.0​FootstepsBlocksFalling on the block without fall damageland.stone​ ?0.221.0
+
+Unique
+Java Edition:
+
+SoundsSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitchAttenuationdistance​Portal whooshes BlocksRandomlyblock.portal.ambient​​subtitles.block.portal.ambient​​​0.50.8–1.210​Portal noise fadesAmbient/EnvironmentAfter the player is teleported through a Nether portalblock.portal.travel​​subtitles.block.portal.travel​​​0.250.8–1.216​Portal noise intensifies Ambient/EnvironmentWhen the player enters a Nether portalblock.portal.trigger​​subtitles.block.portal.trigger​​​0.250.8–1.216
+ The subtitle refers to it generically as a portal rather than specifically a Nether portal: see MC-218020
+
+ The sound event and translation string still refers to this generically as "portal", despite the block being named "nether_portal"; see also MC-193751
+
+Bedrock Edition:
+
+SoundsSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitch​ ?BlocksRandomlyportal.portal​ ?0.250.8–1.2​ ?Ambient/EnvironmentAfter the player is teleported through a Nether portalportal.travel​ ?1.01.0​ ?Ambient/EnvironmentWhen the player enters a Nether portalportal.trigger​ ?1.01.0
+Data values
+ID
+Java Edition:
+
+NameIdentifierFormBlock tags
+Translation key Nether Portalnether_portalBlockhoglin_repellentsportals
+block.minecraft.nether_portal
+Bedrock Edition:
+
+NameIdentifierNumeric ID FormItem ID
+Translation key Nether Portalportal90Block & Ungiveable ItemIdentical
+tile.portal.name
+ ID of block's direct item form, which is used in savegame files and addons.
+
+ Unavailable with /give command
+
+ The block's direct item form has the same ID as the block.
+
+Block states
+See also: Block states
+
+Java Edition:
+
+  Name
+  Default value
+  Allowed values
+  Description
+  axisx
+xThe portal's long edge runs east–west.
+zThe portal's long edge runs north–south.
+Bedrock Edition:
+
+  NameMetadata Bits
+  Default value
+  Allowed valuesValues forMetadata Bits
+  Description
+  portal_axis0x10x2unknown
+unknown0If placed with this state, the portal's long edge runs north–south. If set to it, its direction is tied to that of adjacent portals.x1The portal's long edge runs east–west.z2The portal's long edge runs north–south.
+History
+There is an associated technical blocks page for the internal item form of this block; see Technical blocks/Nether Portal.
+There is an associated page detailing the algorithm used for generating this block's texture in legacy versions; see Procedural animated texture generation/Nether portals.
+History of the block itself
+
+
+
+This section would benefit from the addition of more images. 
+Please remove this notice once you have added  suitable images to the article.The specific instructions are: The block may have been way lighter at some point in Pocket Edition's history: https://youtube.com/watch?v=5N0x7X-nkCQ&t=3m27s
+
+
+
+This section is missing information about:
+"It is now possible to smash Nether portals by simply punching them." was listed as a change that happened at some point in 1.0.0. Testing reveals it doesn't happen at all in Survival mode, so was this meant to refer to Creative and that detail was left out?
+"The Nether portal has been changed, having a slightly darker look." listed for Beta 1.9 Prerelease 4 in the main Nether portal page. I can't seem to find any visual changes to Nether portals in this version at all. 
+Please expand the section to include this information. Further details may exist on the talk page.
+
+Java Edition
+Java Edition Alphav1.2.0preview
+ Added the Nether portal block.
+
+It currently cannot be destroyed by flowing fluids.Java Edition Beta1.6Test Build 3
+  Nether portal blocks no longer have a top face.Java Edition1.0.0Beta 1.9 Prerelease 6
+Nether portal blocks are no longer affected by smooth lighting.RC1
+It is no longer possible to break portal blocks with water or lava. Both stop before hitting the portal and act as if the portal were a solid block; placing water instead of fire in the portal automatically deactivates the portal anyway.1.2.112w08a
+The player can now (again) break a block portal in Creative by punching it. It makes the same sound as glass being destroyed.1.3.112w24a
+Fixed missing nether portal sounds.1.513w02a
+ Blocks can now be displayed inside of a minecart via commands or map editing. If a nether portal is set as such a block, it appears opaque and as a full cube rather than a thin cuboid.1.7.213w41a
+Nether portals, water and ice are now visible through each other.
+
+   This also makes the rear planes visible from the front planes.13w42a
+   Nether portals no longer show their back face.1.814w18a
+  Nether portals no longer have side faces.1.21.525w04a
+Nether portals now no longer teleport entities if they are within its block space but do not intersect with its hitbox.1.21.625w16a
+Reverted the previous teleportation changes.
+Bedrock Edition
+Pocket Edition Alphav0.12.1build 1
+[verify] Added Nether portal blocks.
+Legacy Console Edition
+Legacy Console EditionXbox 360Xbox OnePS3PS4PS VitaWii USwitchTU1CU11.001.001.00Patch 11.0.1
+[verify] Added Nether portal blocks.TU25CU141.171.171.17
+   Nether portals no longer show their back face.
+History of the block's effects
+Java Edition Alphav1.2.0preview
+A unique screen effect is shown after traveling through a Nether portal, in which the "nausea" effect slows down and the overlay disappears.Java Edition BetaMay 2, 2011
+Portals were made to function properly in multiplayer, allowing players on servers to teleport between the Overworld and the Nether.1.6Test Build 3
+The Nether portal's screen distortion effect now increases more smoothly. Previously, it would start off extremely subtly before becoming extremely intense.
+
+Nether portals now work in multiplayer. Before this update, Nether portals could be created on multiplayer servers, but could not teleport players to the Nether, thus multiplayer servers required modding to access the Nether.Unknown?
+Players in creative mode now move through instantly rather than having to wait.Java Edition1.3.112w22a
+Zombie pigmen now rarely spawn from portal blocks in the Overworld.?
+trigger.ogg now always plays to completion when using a Nether portal.1.1620w14a
+Hoglins are now scared of Nether portal blocks.Pre-release 3
+Nether portal blocks now have a loot table.1.20Pre-release 1
+Nether portals no longer produce a screen animation and sound after changing dimensions.Pocket Edition Alpha?
+The sounds of Nether portals have been updated to match Java Edition.​[more information needed]
+Data history
+Java Edition1.513w02a
+Nether portal blocks now use a texture file in resource packs: textures/blocks/portal.png.1.7.213w37a
+Nether portal blocks now use block data values (later changed to block state) to determine their orientation. Due to these changes, Nether portals created in 1.6.4 and earlier have a tendency to close when upgrading.
+
+Metadata value 1 corresponds to a portal that reaches the west and east sides of the block, and 2 corresponds to one that touches the north and south sides. 0, 3, 4, 6, 7, 8, 10, 11, 12, 14 and 15 also appear as north/south and 5, 9 and 13 as east/west; however, they appear to be unused.13w37b
+ Nether portal blocks with metadata values 3, 7, 11 and 15 now have a vertical post appearance rather than the pane or sheet appearance of other states.1.814w03a
+Nether portal blocks with data values 3, 7, 11 and 15 now appear as north-south connected again.1.1317w47a
+Prior to The Flattening, this block's numeral ID was 90.pre5
+The block ID of Nether portals has been changed to nether_portal.
+Issues
+Issues relating to "Nether portal" are maintained on the bug tracker. Issues should be reported and viewed there.
+
+References
+
+ MC-249033 – resolved as "Works As Intended".
+
+ MC-258446
+
+ MC-101556
+
+ MC-295395
+
+ MC-177712 – resolved as "Fixed".
+
+ MC-180 – resolved as "Fixed".
+
+Navigation

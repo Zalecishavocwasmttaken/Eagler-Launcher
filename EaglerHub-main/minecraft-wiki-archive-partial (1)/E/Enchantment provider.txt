@@ -1,0 +1,127 @@
+This feature is exclusive to Java Edition. 
+
+Enchantment providers are used to source one or more enchantments for use in specific scenarios, such as mobs spawning with enchanted equipment.
+Enchantment providers are stored as JSON files within a data pack in the data/<namespace>/enchantment_provider folder.
+
+Contents
+
+1 JSON format
+
+1.1 single
+1.2 enchantments_by_cost
+1.3 enchantments_by_cost_with_difficulty
+
+2 Usage
+
+2.1 With villager trade rebalance
+
+3 Navigation
+
+JSON format
+single
+Always returns the same enchantment
+
+[NBT Compound / JSON Object]
+[String] type: minecraft:single
+[String] enchantment: One enchantment (an [String] ID) — the enchantment to return
+[Int][NBT Compound / JSON Object] level: The level of the enchantment
+Int provider see Template:Nbt inherit/int_provider/template
+
+enchantments_by_cost
+Returns random enchantments from a list of possible enchantments, using a configured cost. Similar​[more information needed] to the cost of an enchanting table.
+
+[NBT Compound / JSON Object]
+[String] type: minecraft:enchantments_by_cost
+[String] enchantments: Any number of enchantment(s) (an [String] ID, or a [String] tag with #, or an [NBT List / JSON Array] array containing [String] IDs) — set of all possible enchantments
+[Int][NBT Compound / JSON Object] cost: The cost to use to determine the enchantments
+Int provider see Template:Nbt inherit/int_provider/template
+
+enchantments_by_cost_with_difficulty
+Works the same way as enchantments_by_cost but the cost is determined using the local difficulty of the area.
+The effective cost is calculated by min_cost + rand(0, local_difficulty_factor * max_cost_span). Where:
+
+rand(a,b) refers to a random number between a and b.
+local_difficulty_factor is: local_difficulty/2 - 1 clamped to a value between 0 and 1.
+
+[NBT Compound / JSON Object]
+[String] type: minecraft:enchantments_by_cost_with_difficulty
+[String] enchantments: Any number of enchantment(s) (an [String] ID, or a [String] tag with #, or an [NBT List / JSON Array] array containing [String] IDs) — set of all possible enchantments
+[Int] min_cost: Minimum 1 — The base cost at local difficulty below 2.
+[Int] max_cost_span: Minimum 0 —Factor of the uniform randomization range for local difficulty.
+
+Usage
+Enchantment providers are used by the game in specific cases listed below:
+
+Enchantment provider
+Used for the enchantments of
+
+minecraft:mob_spawn_equipment
+armor and weapons of a mob that spawns with enchanted equipment
+
+minecraft:pillager_spawn_crossbow
+the enchanted crossbow of a spawned pillager
+
+minecraft:raid/pillager_post_wave_3
+the enchanted crossbow of a spawned pillager in waves 4 and 5 of a raid
+
+minecraft:raid/pillager_post_wave_5
+the enchanted crossbow of a spawned pillager in waves above 5 of a raid
+
+minecraft:raid/vindicator
+the enchanted axe of a spawned vindicator in waves 1 to 5 of a raid
+
+minecraft:raid/vindicator_post_wave_5
+the enchanted axe of a spawned vindicator in waves above 5 of a raid
+
+minecraft:enderman_loot_drop
+the "fake tool" used in the loot tables of the block held by an enderman when killed.
+
+With villager trade rebalance
+
+
+
+This section describes an experimental feature in Java Edition. 
+This feature is not enabled in-game by default and requires enabling the "Villager Trade Rebalance" experimental data pack in Java Edition.
+
+Enchantment providers are used to determine the traded equipment depending on biome, profession, equipment (i.e. the item traded) and trading level. They follow the format minecraft:trades/<biome>_<profession>_<equipment>_<level>.
+
+The following enchantment providers are in use:
+
+minecraft:trades/desert_armorer_boots_4
+minecraft:trades/desert_armorer_chestplate_4
+minecraft:trades/desert_armorer_chestplate_5
+minecraft:trades/desert_armorer_helmet_4
+minecraft:trades/desert_armorer_leggings_4
+minecraft:trades/desert_armorer_leggings_5
+minecraft:trades/jungle_armorer_boots_4
+minecraft:trades/jungle_armorer_boots_5
+minecraft:trades/jungle_armorer_chestplate_4
+minecraft:trades/jungle_armorer_helmet_4
+minecraft:trades/jungle_armorer_helmet_5
+minecraft:trades/jungle_armorer_leggings_4
+minecraft:trades/plains_armorer_boots_4
+minecraft:trades/plains_armorer_boots_5
+minecraft:trades/plains_armorer_chestplate_4
+minecraft:trades/plains_armorer_helmet_4
+minecraft:trades/plains_armorer_leggings_4
+minecraft:trades/plains_armorer_leggings_5
+minecraft:trades/savanna_armorer_boots_4
+minecraft:trades/savanna_armorer_chestplate_4
+minecraft:trades/savanna_armorer_chestplate_5
+minecraft:trades/savanna_armorer_helmet_4
+minecraft:trades/savanna_armorer_helmet_5
+minecraft:trades/savanna_armorer_leggings_4
+minecraft:trades/snow_armorer_boots_4
+minecraft:trades/snow_armorer_boots_5
+minecraft:trades/snow_armorer_helmet_4
+minecraft:trades/snow_armorer_helmet_5
+minecraft:trades/swamp_armorer_boots_4
+minecraft:trades/swamp_armorer_boots_5
+minecraft:trades/swamp_armorer_chestplate_4
+minecraft:trades/swamp_armorer_helmet_4
+minecraft:trades/swamp_armorer_helmet_5
+minecraft:trades/swamp_armorer_leggings_4
+minecraft:trades/taiga_armorer_chestplate_5
+minecraft:trades/taiga_armorer_leggings_5
+
+Navigation

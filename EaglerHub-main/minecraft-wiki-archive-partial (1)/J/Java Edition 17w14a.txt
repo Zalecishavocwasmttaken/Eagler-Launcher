@@ -1,0 +1,251 @@
+This page covers a development version that has a major issue under certain conditions. 
+The dedicated server for this version has a security vulnerability in the Log4j library that could be used to perform a remote code execution exploit. It can be addressed by appending a certain JVM argument to the server startup command line.
+
+Minecraft 17w14a
+
+Edition
+
+Java Edition
+
+Release date
+
+April 5, 2017
+
+Type
+
+Snapshot
+
+Snapshot for
+
+1.12
+
+Downloads
+
+Client (.json)Server
+
+Protocol version
+
+320
+
+Data version
+
+1124
+
+Resource pack format
+
+3
+
+Minimum Java version
+
+Java SE 8
+
+◄◄   1.11.2
+1.12
+  1.12.1 ►►
+
+◄   17w13b
+
+ 17w14a
+
+  17w15a ►
+
+{
+    "title": "Minecraft 17w14a",
+    "images": [
+        "17w14a.png",
+        "Java Edition 17w14a.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "April 5, 2017",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Snapshot article, displayed as Snapshot)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition 1.12 article, displayed as 1.12)",
+            "label": "Snapshot for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/23500be7cee6c8a4519d475a7c8f2b8493a3336f/client.jar Client] ([https://piston-meta.mojang.com/v1/packages/51f1acd9b0e5f8dff45dc80b4d73eb8e8317e733/17w14a.json .json])<br />[https://piston-data.mojang.com/v1/objects/0530caf1d099fc730ca335a21bcf2fbb58c42c64/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "320",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "1124",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "3",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_8_.28LTS.29 Java SE 8]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Java Edition  1.11.2|<span style=\"margin-right:-0.35em\">◄</span>◄   1.11.2]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition 1.12|1.12]]'''</td>\n<td style=\"padding: 0.4em\" >[[Java Edition  1.12.1|  1.12.1 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  17w13b|◄   17w13b]]\n</td>\n<td style=\"padding: 0.4em\">''' 17w14a'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  17w15a|  17w15a ►]]\n</td>\n</tr>\n</table>"
+}
+
+17w14a is the fourth snapshot for Java Edition 1.12, released on April 5, 2017.
+
+Contents
+
+1 Changes
+
+1.1 Mobs
+1.2 General
+
+2 Fixes
+3 Videos
+4 Trivia
+5 Gallery
+6 References
+7 Navigation
+
+Changes
+Mobs
+Parrots
+
+They are now able to make sounds while sitting on the player's shoulders.
+ Parrots now dance and change colors if playing music on a nearby jukebox.
+Changed the  Right Mouse Button action:
+When used on a tamed parrot, it tells it to sit down.
+Walking over/through/near a tamed parrot while crouching cause it to sit on the player's shoulders.
+Zombies
+
+New ConversionPlayerLeast and ConversionPlayerMost tags.
+Contains the UUID of the player that is converting the zombie.
+Used with the "minecraft:cured_zombie_villager" trigger for advancements.
+General
+Advancements
+
+Added 8 advancements, 7 of which are in the new "Adventure" tab.
+Advancements added in this version include:
+Minecraft/AdventureIconAdvancementIn-game descriptionParentActual requirements (if different)Resource locationRewards
+Cure a zombie villagerDescriptions were not added yet.Brew a Weakness PotionThe advancement is granted when the zombie villager converts into a villager.story/cure_zombie_villager—
+Adventure——Kill any entity, or be killed by any entity.adventure/root—
+Change your spawn point—AdventureSleep in a bed.adventure/sleep_in_bed—
+Complete a trade—AdventureTrade with a villager.adventure/trade—
+Kill a mob—Adventure
+Kill one of these 22 mobs:
+
+Blaze
+Cave Spider
+Creeper
+Enderman
+Evoker
+Ghast
+Guardian
+Husk
+Magma Cube
+Polar Bear
+Shulker
+Silverfish
+Skeleton
+Slime
+Spider
+Stray
+Vindicator
+Witch
+Wither Skeleton
+Zombie
+Zombie Pigman
+Zombie Villager
+
+adventure/kill_a_mob—
+Kill all the mobs—Kill a mobKill each of the mobs mentioned above.adventure/kill_all_mobs—
+Shoot something—Kill a mobHit a mob with a shot arrow.adventure/shoot_arrow—
+Sniper duel—Shoot somethingKill any mob with a shot arrow from at least 50 blocks away.adventure/sniper_duel—
+
+Changes to some existing advancements:
+"Summon the Wither" now works properly when player summons a wither.
+"Brew a Potion" changed to "Brew a Weakness Potion"; now requires specifically taking a potion of Weakness out of a brewing stand.
+Icon of the advancement was changed to a potion of Healing.
+"Create a full beacon" is now a "goal" type advancement instead of a "challenge".
+Pop-up notification for when players advance.
+New sliding effect.
+Comes in two different colors - yellow for normal advancements, and pink for "challenge" advancements.
+NBT format
+
+recipeBook: Now a compound tag (was a string) containing recipe book information
+isFilteringCraftable: Becomes 1 if the player has enabled the "Show Craftable" feature in the recipe book.
+isGuiOpen: Checks if the player has left the GUI open.
+unlocked
+recipes: Contains information about all recipes the player has seen.
+displayed: Checks if the player has tried out the recipe in the recipe book before (by clicking it/viewing it)
+Recipe book
+
+Changed the icon on the trigger button, from a standard book to the knowledge book.
+Added a shift-click ability to the recipe book that puts all available materials in the crafting grid.
+Added a new white-and-gray colored notification that pops up when the player unlocks new recipes.
+The notification only appears upon reloading the world; Dinnerbone has stated that this is a bug.
+If player searches "excited" (changed in 17w18a) in the recipe book, language switches to Pirate Speak.
+Splashes
+
+"Now Java 6!" changed to "Now Java 8!"
+Fixes
+21 issues fixed
+From the 1.12 development versions
+
+MC-114879 – Picking up an item has a chance to duplicate it
+MC-114896 – Parrots don't make any sounds when they are on your shoulder
+MC-114943 – Items in crafting table disappear when selecting a recipe
+MC-114976 – Parrots don't show up on subtitles
+MC-114987 – Unknown recipe message not translated
+MC-114989 – recipe command causes unknown errors with invalid player argument
+MC-114999 – Hover text of items in crafting grid is rendered behind crafting help
+MC-115028 – Crafting recipe pop-up renders above items in the inventory gui
+MC-115054 – Recipe interface doesn't remember "showing all/craftable" preference when inventory closed
+MC-115065 – "loot" reward for advancements does not provide items
+MC-115067 – All instances of entity-matching conditions do not function for advancements
+MC-115074 – Potion effects are still rendered under the recipe book
+MC-115100 – Hover text of items in crafting help does not use same text and text box like hovering over item in inventory
+MC-115107 – Helmet does not render after using autorecipe feature
+MC-115123 – Parrots keep moving their legs even if they are on shoulders
+MC-115129 – Missing crafting recipe resources render in front of item description
+MC-115153 – recipe command not showing an error with invalid first argument
+MC-115175 – New crafting menu texture bug
+MC-115204 – Crash when canceling/changing recipe in recipe book with full inventory
+From the previous development version
+
+MC-115191 – Parrots disappear completely when leaving the End via a portal
+MC-115209 – Crafting Book Not Accounting for Item Count
+Videos
+Video made by slicedlime:
+
+
+
+
+Trivia
+17w14a was previously removed from the launcher for some time, but was added back in September 2018.
+Gallery
+
+
+
+			"Minecraft" advancement tree in 17w14a.
+
+
+
+			"Adventure" advancement tree in 17w14a.
+
+
+References
+
+ "Important Message: Security vulnerability in Java Edition"     – Minecraft.net, December 10, 2021.
+
+ "Minecraft Snapshot 17w14a"     – Minecraft.net, April 5, 2017.
+
+ https://www.reddit.com/r/Minecraft/comments/63lprq/snapshot_17w14a_out_for_testing/dfv6qw0/?context=1
+
+Navigation

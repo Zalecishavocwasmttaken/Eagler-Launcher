@@ -1,0 +1,390 @@
+This page describes content that has been removed from Java Edition. 
+This feature was present in earlier versions of Java Edition, but has since been removed.
+
+
+
+This feature is exclusive to Bedrock Edition. 
+
+Invalid data value Leaves
+
+Rarity tier
+
+  Common
+
+Renewable
+
+No
+
+Stackable
+
+Yes (64)
+
+{
+    "title": "Invalid data value Leaves",
+    "rows": [
+        {
+            "field": "<span style=\"white-space: nowrap;\"><span style=\"display: inline-block; background-color: #fff; border: 1px solid #888; border-radius: 0.3em; color: transparent; width: 1em; height: 1em; vertical-align: -0.36em; margin-right: -0.1em\"><br></span> </span> Common",
+            "label": "(link to Rarity article, displayed as Rarity tier)"
+        },
+        {
+            "field": "No",
+            "label": "(link to Renewable resource article, displayed as Renewable)"
+        },
+        {
+            "field": "Yes (64)",
+            "label": "Stackable"
+        }
+    ],
+    "invimages": [],
+    "images": [
+        "Missing Model JE3.png"
+    ]
+}
+
+Invalid data value leaves are item forms of the primary leaves block with damage values outside of the usual range which leaves can usually be obtained in.
+
+Contents
+
+1 Obtaining
+
+1.1 Breaking leaves blocks
+
+2 Usage
+
+2.1 Placement
+2.2 Conversion to future versions
+
+3 Nomenclature
+4 History
+
+4.1 Java Edition
+4.2 Bedrock Edition
+4.3 Legacy Console Edition
+
+5 Issues
+6 References
+7 External links
+
+7.1 Videos
+
+8 Navigation
+
+Obtaining
+Without the use of commands, invalid data value leaves are unobtainable in the last versions in which they existed without inheriting them from a prior version in which they were obtainable.
+
+Breaking leaves blocks
+Invalid data value leaves were obtainable by breaking leaves blocks placed in the world which had specific metadata values. When broken, the item would inherit the exact metadata that the block had, rather than be converted into one of the four valid states. This can be done from Beta 1.9 Prerelease 6 onwards.
+The bug allowing for this was fixed in 12w49a, making invalid data value leaves unobtainable from this version onwards.
+
+Value
+
+Species
+
+Obtained from
+
+Valid?
+
+0
+
+Oak
+
+Shears, or silk touch on a single leaf from a tree
+
+Yes
+
+1
+
+Spruce
+
+Yes
+
+2
+
+Birch
+
+Yes
+
+3
+
+Jungle
+
+Yes
+
+4
+
+Oak
+
+Silk Touch on a player-placed leaves block
+
+No
+
+5
+
+Spruce
+
+No
+
+6
+
+Birch
+
+No
+
+7
+
+Jungle
+
+No
+
+8
+
+Oak
+
+Silk Touch on a leaves block from a tree after an adjacent leaves block has been broken
+
+No
+
+9
+
+Spruce
+
+No
+
+10
+
+Birch
+
+No
+
+11
+
+Jungle
+
+No
+
+12
+
+Oak
+
+Silk Touch on a player-placed leaves block after an adjacent leaves block has been broken
+
+No
+
+13
+
+Spruce
+
+No
+
+14
+
+Birch
+
+No
+
+15
+
+Jungle
+
+No
+
+In summary:
+
+A large amount of leaves with metadata 8, 9, 10 or 11, depending on the species of the tree in question, can be obtained by breaking the leaves of a naturally-generated or sapling-grown tree using a tool with the Silk Touch enchantment. The first leaves block broken will always be of metadata 0, 1, 2 or 3, but the majority of subsequently broken leaves will return values 8, 9, 10 or 11.
+Leaves with metadata 12, 13, 14 or 15, depending on species, can be obtained in bulk by manually placing leaves in a large, connected fashion such as a cuboid, and then proceeding to break all of these with a Silk Touch tool.
+Leaves with metadata 4, 5, 6 or 7, depending on species, can be obtained in bulk by manually placing leaves in a spaced-out fashion, such that none of the placed leaves blocks are touching each other (even diagonally), and then breaking the blocks with a Silk Touch tool.
+When placing leaves for the latter two cases, it is recommended that valid data value leaves are placed, as the placement of invalid data value leaves has not been fully researched for the version range in question.
+
+Usage
+Placement
+
+
+
+This section is missing information about: check to see how the behavior changed in earlier versions 
+Please expand the section to include this information. Further details may exist on the talk page.
+
+Up until 17w46a,​[more information needed] placed invalid data value leaves will always place leaves that do not decay. Leaves items with damage 4, 5, 6 and 7 will place leaves with metadata 4, 5, 6 and 7 respectively. Similarly, items with damage 12, 13, 14 and 15 will place blocks with metadata 12, 13, 14 and 15. Items with damage 8, 9, 10 and 11 will respectively place blocks with metadata 12, 13, 14 and 15.
+
+Conversion to future versions
+In 1.13 (17w47a) onwards, distinguishing between block and item variants using metadata and damage was formally abolished. As a result of this, existing items would be converted over to the new ID system automatically. Invalid data value leaves behave anomalously in that instead of converting to their respective parent species, they all convert to oak leaves instead. Despite these items often being unknowingly collected and stored in older versions in such a way that conversion like this would end up being undesirable, Mojang have decided to not fix this.
+
+Nomenclature
+Leaves items with data values higher than 3, particularly oak leaves with a damage value of 4, are often referred to as "alpha leaves". This is a particularly egregious misnomer, as any of the twelve extreme data values can be obtained in versions as late as 1.4.5, with absolutely no involvement from Alpha or even Beta versions of the game. How exactly this specific term reached common usage remains unknown, although it may be tied to the existence of "alpha trees", in which trees generated or grown before Java Edition Beta 1.2 would be comprised of multiple species of leaves if upgraded to this version or beyond, as metadata which was previously reserved for leaf decay was now used for distinguishing different species of leaves from each other.
+Similarly confusingly, petrified oak slabs are sometimes referred to as "alpha slabs", despite the fact that the block was introduced in Beta 1.3, several months after the end of the Alpha era of the game.
+
+History
+Java Edition
+Java Edition Indev0.3120100131-2156
+Durability has been introduced. It can be assigned to leaves items via an inventory editor, but is functionally meaningless in this case.Java Edition Beta1.2
+Leaves items with a nonzero value set for damage now process this as a variant form of the item, rather than literal damage, resulting in the item forms now appearing distinct (spruce leaves now use their own texture).1.4
+The durability bar has been removed from leaves with higher damage values.Java Edition1.0.0Beta 1.9 Prerelease 6
+Leaves with damage values above 3 are now obtainable in survival via the Silk Touch enchantment. Prior to this version, Silk Touch would ignore block metadata and always return an item with metadata 0.1.2.112w03a
+The jungle biome and its associated tree have been implemented, making the leaves block with metadata 3 obtainable in survival, alongside its invalid item variants 7, 11 and 15. Prior to this version, if these metadata variants were desired, a tree from prior to Beta 1.2 would be required due to metadata used for decay calculations being repurposed for distinguishing species; this method was also not renewable.1.3.1?
+Leaves now have different tooltips for each species. All invalid data value item forms of leaves are named "Oak Leaves", regardless of species.1.4.612w49a
+The Silk Touch enchantment now only drops leaves with metadata 0 to 3, making higher values unobtainable in Survival.1.814w17a
+Leaves with data values outside of the expected range now have the correct name corresponding to the data value it represents, rather than all sharing the name "Oak Leaves".14w25a
+ With the introduction of data-driven item models, any item with a data value outside of what is accepted by the game has no model to point to, resulting in use of the missing item model.14w30a
+Invalid data value leaves, alongside other invalid data value items, now appear the size of a full block when held in third person or by another player or mob.1.915w31a
+ The missing model's inventory appearance has changed, resulting in the appearance of invalid data value leaves also changing.
+
+The items also appear the size of a full block when held in first person and when dropped on the ground, and also appear larger than before in an item frame.1.1317w43a
+ The missing texture has changed, resulting in the appearance of invalid data value leaves also changing.17w47a
+Numeric IDs for blocks and items have been completely removed from the game, with different species of leaves being given their own string IDs. As a result, invalid data value leaves have been "removed" as any such item now converts cleanly into oak leaves.
+Bedrock Edition
+Bedrock Edition?
+Leaves items with invalid data values may have been obtainable at certain points in the game.
+Legacy Console Edition
+Legacy Console EditionXbox 360Xbox OnePS3PS4PS VitaWii USwitchTU7??????
+Leaves with damage values above 3 are now obtainable in survival with the introduction of the Silk Touch enchantment.TU14
+The Silk Touch enchantment now only drops leaves with metadata 0 to 3, making higher values unobtainable.
+Inventory appearances
+
+From version
+
+Damage value
+
+Notes
+
+4
+
+5
+
+6
+
+7
+
+8
+
+9
+
+10
+
+11
+
+12
+
+13
+
+14
+
+15
+
+0.31
+
+20100131[verify]
+
+Durability introduced. Currently meaningless for leaves.
+
+20100201-2227[verify]
+
+All 3D items now appear slightly darker on the left.
+
+​[more information needed]
+
+All 3D items now appear much brighter.
+
+Minecraft Infdev
+
+20100611
+
+All 3D items now appear slightly darker.
+
+Alpha v1.0.1
+
+All 3D items now appear very slightly darker.
+
+Alpha v1.2.0
+
+preview
+
+Leaves are now colored per biome. The item does not yet respect this and uses the untinted gray texture.
+
+Beta 1.2
+
+Values for damage on leaves are now processed as variants. The durability bar appears slightly emptier.
+
+Beta 1.4
+
+The durability bar is no longer present.
+
+Beta 1.6
+
+Test Build 3
+
+All 3D items now appear much brighter and are rotated 90 degrees clockwise from their previous positions.
+
+Beta 1.7
+
+The item forms of leaves are now tinted.
+
+Beta 1.8
+
+Pre-release
+
+All 3D items now appear even brighter than previously, with almost no shading.
+
+1.0.0
+
+RC2
+
+All 3D items are now shaded more reasonably.
+
+1.2.1
+
+12w03a
+
+Jungle leaves are actually introduced, filling the previously unused fourth data value.
+
+1.3.1
+
+12w22a
+
+Most 3D items in the inventory have been rotated 90 degrees anti-clockwise.
+
+1.4.2
+
+12w34a
+
+Items appeared slightly darker in the player's inventory than in chests prior to this version.
+
+1.8
+
+14w25a
+
+Model no longer exists
+
+1.9
+
+15w31a
+
+The missing model is no longer rotated or downscaled.
+
+1.13
+
+17w43a
+
+The missing texture has changed.
+
+Metadata values above 16
+Main article: /Unobtainable values
+Issues
+Invalid data value leaves are an issue, and due to their removal, can be considered already fixed.
+
+References
+
+ MC-1847 – resolved as "Fixed".
+
+ MC-249703 – resolved as "Won't Fix".
+
+ https://youtu.be/HrTZOigsMwk
+
+ MCPE-41408 – resolved as "Fixed".
+
+ https://www.minecraftforum.net/forums/minecraft-editions/minecraft-xbox-360-edition/mcx360-discussion/2064202-mcxbla-title-update-change-logs ("Corrected the leaves obtained using silk touch on Jungle trees", fix confirmed for all species)
+
+External links
+Invalid Data Value Leaves at the Minecraft Discontinued Features wiki
+Videos
+A video detailing how each of the twelve obtainable invalid data value variants of leaves can be obtained
+An earlier video on the same topic
+Navigation

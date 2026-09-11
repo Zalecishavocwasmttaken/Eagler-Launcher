@@ -1,0 +1,251 @@
+Minecraft 1.21.2 Pre-Release 1
+
+Edition
+
+Java Edition
+
+Release date
+
+October 8, 2024
+
+Type
+
+Pre-release
+
+Pre-release for
+
+1.21.2
+
+Downloads
+
+Client (.json)Server
+
+Obfuscation maps
+
+ClientServer
+
+Protocol version
+
+ dec: 1073742037 hex: 400000D5
+
+Data version
+
+4073
+
+Resource pack format
+
+41
+
+Data pack format
+
+57
+
+Minimum Java version
+
+Java SE 21
+
+◄◄   1.21.1
+1.21.2
+  1.21.3 ►►
+
+◄   24w40a
+
+ 1.21.2 Pre-Release 1
+
+  1.21.2 Pre-Release 2 ►
+
+{
+    "title": "Minecraft 1.21.2 Pre-Release 1",
+    "images": [
+        "1.21.2-pre1.jpg",
+        "Java Edition 1.21.2 Pre-Release 1.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "October 8, 2024",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Pre-release article, displayed as Pre-release)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition 1.21.2 article, displayed as 1.21.2)",
+            "label": "Pre-release for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/d34d3e0fd086462f47c3312e7ba68c78a4fe325e/client.jar Client] ([https://piston-meta.mojang.com/v1/packages/8f4467762c2ad89ddc2f8058f19e884fe39bd89c/1.21.2-pre1.json .json])<br />[https://piston-data.mojang.com/v1/objects/7e6e5da8bb024227ffa0d24cfa3181e6a772bb76/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/cb5f7c9571f714f862ccb4dc0b533629d2baae54/client.txt Client]<br />[https://piston-data.mojang.com/v1/objects/d897befa73bc09c7ab85d9927455a1c650e31666/server.txt Server]",
+            "label": "(link to Obfuscation map article, displayed as Obfuscation maps)"
+        },
+        {
+            "field": " <span style=\"font-size:smaller\"><abbr title=\"decimal\">dec</abbr>: </span>1073742037<br /> <span style=\"font-size:smaller\"><abbr title=\"hexadecimal\">hex</abbr>: </span>400000D5",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "4073",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "41",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "57",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Data pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_21_.28LTS.29 Java SE 21]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Java Edition  1.21.1|<span style=\"margin-right:-0.35em\">◄</span>◄   1.21.1]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition 1.21.2|1.21.2]]'''</td>\n<td style=\"padding: 0.4em\" >[[Java Edition  1.21.3|  1.21.3 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  24w40a|◄   24w40a]]\n</td>\n<td style=\"padding: 0.4em\">''' 1.21.2 Pre-Release 1'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  1.21.2 Pre-Release 2|  1.21.2 Pre-Release 2 ►]]\n</td>\n</tr>\n</table>"
+}
+
+1.21.2 Pre-Release 1 (known as 1.21.2-pre1 in the launcher) is the first pre-release for Java Edition 1.21.2, released on October 8, 2024, which fixes bugs.
+
+Contents
+
+1 Additions
+
+1.1 General
+
+2 Changes
+
+2.1 Gameplay
+2.2 General
+
+3 Experimental
+
+3.1 Changes
+
+3.1.1 Blocks
+3.1.2 Mobs
+3.1.3 General
+
+4 Fixes
+5 Videos
+6 References
+7 Navigation
+
+Additions
+General
+Game rule
+
+Added the disablePlayerMovementCheck game rule.
+Controls the player movement speed restriction.
+This behaves the same as the disableElytraMovementCheck rule, but applies irrespective of flying with elytra.
+Default to false.
+Changes
+Gameplay
+Oxygen bar
+
+Added an empty state for air bubbles () along with a wobble when the player is drowning.
+Added a popping sound for when bubbles pop on the oxygen bar, increasing in pitch depending on the oxygen left.
+General
+Data pack
+
+The pack format version is now 57.
+Item components
+
+minecraft:equippable
+Added field camera_overlay (optional): namespaced ID of the overlay texture to use when equipped.
+If not specified, no overlay is used.
+The ID addresses a texture under the textures/ folder and automatically assumed to be .png.
+For instance, misc/pumpkinblur addresses textures/misc/pumpkinblur.png.
+Resource pack
+
+The pack format version is now 41.
+Added texture and sound for tweaked air bubble UI.
+New texture added for empty air bubble.
+Sound added for when air bubble pops.
+Particles
+
+The format of color fields in particle options is now more standardized:
+RGB fields can always be encoded either as a vector of floats (order: [R,G,B]) or as a single packed integer (order: RGB).
+ARGB fields can always be encoded either as a vector of floats (order: [R,G,B,A] or as a single packed integer (order: ARGB).
+Changed fields:
+minecraft:trail.color (previously accepted only integer).
+minecraft:dust.color (previously accepted only vector of floats).
+minecraft:dust_color_transition.from_color (previously accepted only vector of floats).
+minecraft:dust_color_transition.to_color (previously accepted only vector of floats).
+Enchanting
+
+Carpets and wolf armor now show the enchantment glint on llamas and wolves.
+Experimental
+The listed changes are only present when the "Winter Drop" experimental data pack is enabled.
+
+Changes
+Blocks
+Creaking heart
+
+A comparator that is attached to the creaking heart block outputs a signal strength dependent on the distance to the connected creaking.
+Mobs
+Creaking
+
+Doesn't activate or freeze around players in Creative mode.
+Cannot be named with a name tag if summoned via a creaking heart.
+General
+Tags
+
+Added pale_garden to the #is_overworld biome tag.
+Fixes
+29 issues fixed
+From released versions before 1.21
+
+MC-271961 – Parity Issue: No empty bubbles on the oxygen bar and popping sound.
+From the 1.21.2 development versions
+
+MC-276360 – Repeating command block data is often lost when moving it around in inventory.
+MC-276604 – Horse Armor no longer has enchantment glint.
+MC-276815 – Dyed bundles are missing the "filled" predicate.
+MC-276965 – Post shader ColorModulate uniform not reset properly after spectating spiders.
+MC-276979 – Lock field on containers and minecraft:lock data component do not get datafixed correctly when a \ is present.
+MC-277017 – Flaming arrows no longer extinguish when water or powder snow is placed in its location.
+MC-277019 – Execute command teleporting across dimensions does not use correct relative coordinates.
+MC-277027 – Shapeless recipes accept anything if one of their ingredients is an empty tag.
+MC-277028 – Bundles do not empty smoothly.
+From the previous development version
+
+MC-277067 – The high contrast and programmer art resource packs are displayed as being incompatible.
+MC-277075 – Pale hanging moss is all destroyed at the same time when its supporting block is removed.
+MC-277078 – Trim advancements use recipe registry key.
+MC-277108 – The "below_name" scoreboard display mode renders with dark parts when custom colors are set.
+MC-277111 – Wandering traders can sell pale oak saplings even when they're disabled.
+MC-277118 – Creakings can spawn with doMobSpawning set to false.
+MC-277131 – Pale garden missing from #minecraft:is_overworld biome tag.
+MC-277141 – /rotate command is not restricted to permission level 2.
+MC-277143 – Horse armor has damage-related components.
+MC-277144 – Furnaces, blast furnaces, and smokers delete all of their contents inside them once reloaded after smelting items.
+MC-277148 – Pack filters removing recipes that the player has unlocked causes data pack loading to fail.
+MC-277160 – Pale hanging moss is often immediately destroyed when placed using the /fill command.
+MC-277163 – Map color for pale oak saplings is incorrect.
+MC-277176 – Team affixes have dark lines between them and the username in player name tags.
+MC-277215 – The game crashes when attempting to accept or reject already accepted or rejected realm invitations.
+MC-277301 – The enchantment glint isn't visible on thrown tridents that are enchanted or held in the hand in third person when using Fabulous graphics.
+MC-277302 – The enchantment glint isn't visible on shields that are enchanted in third person when using Fabulous graphics.
+MC-277335 – Pale moss carpet can be swapped without destroying the upper vine.
+MC-277371 – Pale moss carpet is often immediately destroyed when placed using the /fill command.
+Videos
+Videos made by slicedlime:
+
+
+
+
+
+
+
+
+References
+
+ "Minecraft 1.21.2 Pre-Release 1"     – Minecraft.net, October 8, 2024.
+
+Navigation

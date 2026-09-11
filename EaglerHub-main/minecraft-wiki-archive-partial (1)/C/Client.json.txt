@@ -1,0 +1,112 @@
+This feature is exclusive to Java Edition. 
+
+client.json is the file that accompanies client.jar in .minecraft/versions/<version> and lists the version's attributes. When using the latest version of the Minecraft Launcher, it is named <game version>.json (e.g., 1.21.7.json). The JSON file for specific versions is located in the version_manifest.json file.
+
+Contents
+
+1 JSON format
+2 History
+3 Notes
+4 Navigation
+
+JSON format
+This is the JSON format for client.json.
+
+[NBT Compound / JSON Object] The root tag.
+[NBT Compound / JSON Object] arguments:
+[NBT List / JSON Array] game: Contains arguments supplied to the game, such as information about the username and the version.
+[String] An argument.
+[NBT Compound / JSON Object] A conditional argument.
+[NBT List / JSON Array] rules: A list of rules.
+[NBT Compound / JSON Object] A rule.
+[String] action: One of "allow" or "disallow".
+[NBT Compound / JSON Object] features: Includes a set of features that can be checked.
+[Boolean] is_demo_user: Appears only in the first appearance of the compound tag.
+[Boolean] has_custom_resolution: Appears only in the second appearance of the compound tag.
+[Boolean] has_quick_plays_support: Appears only in the third appearance of the compound tag.
+[Boolean] is_quick_play_singleplayer: Appears only in the fourth appearance of the compound tag.
+[Boolean] is_quick_play_multiplayer: Appears only in the fifth appearance of the compound tag.
+[Boolean] is_quick_play_realms: Appears only in the sixth appearance of the compound tag.
+[String][NBT List / JSON Array] value: An argument or a list of arguments that is added when the condition is matched.
+[NBT List / JSON Array] jvm: Contains JVM arguments, such as information about memory allocation, garbage collector selection, or environment variables.
+[NBT Compound / JSON Object]: A conditional argument.
+[NBT List / JSON Array] rules: A list of rules.
+[NBT Compound / JSON Object]: A rule.
+[String] action: One of "allow" or "disallow".
+[NBT Compound / JSON Object] features: The launcher can detect this, but it's currently unused.
+[NBT Compound / JSON Object] os:
+[String] name: One of "windows", "osx" or "linux".
+[String] version: Contains a regex intended to be checked against System.getProperty("os.version").
+[String] arch: Appears only in the fourth appearance of the compound tag. Its value is "x86".
+[String][NBT List / JSON Array] value: An argument or a list of arguments that is added when the condition is matched.
+[NBT Compound / JSON Object] assetIndex:
+[String] id: The assets version.
+[String] sha1: The SHA1 hash of the assets file.
+[Int] size: The size of the version.
+[Int] totalSize: The total size of the version.
+[String] url: The URL that the game should visit to download the assets.
+[String] assets: The assets version.
+[Int] complianceLevel: 0 until 1.16.4-pre2, and 1 for all versions after. A value of 0 causes the official launcher to warn the player about missing player safety features when this version is selected.
+[NBT Compound / JSON Object] downloads:
+[NBT Compound / JSON Object] client: The client.jar download information.
+[String] sha1: The SHA1 hash of the jar.
+[Int] size: The size of the jar in bytes.
+[String] url: The URL the launcher should visit to download the file.
+[NBT Compound / JSON Object] client_mappings: The obfuscation maps for this client version. Added in Java Edition 19w36a but got included in 1.14.4 also. Repeats the structure of the client download information.
+[NBT Compound / JSON Object] server: The server download information. Repeats the structure of the client download information.
+[NBT Compound / JSON Object] server_mappings: The obfuscation maps for this server version. Added in Java Edition 19w36a but got included in 1.14.4 also. Repeats the structure of the client download information.
+[NBT Compound / JSON Object] windows_server: The Windows server download information. Removed in Java Edition 16w05a, but is still present in prior versions. Repeats the structure of the client download information.
+[String] id: The name of this version client (e.g. 1.14.4).
+[NBT Compound / JSON Object] javaVersion:
+[String] component: The build of OpenJDK to download and use with the game. Its value is "jre-legacy" until 21w18a, "java-runtime-alpha" until 1.18-pre1, "java-runtime-beta" until 22w17a, "java-runtime-gamma" until 24w13a, "java-runtime-delta" until 1.21.11, and "java-runtime-epsilon" since 26.1 Snapshot 1.
+[Int] majorVersion: The version of the Java Runtime Environment to use. Its value is 8 until 21w18a, 16 until 1.18-pre1, 17 until 24w13a, 21 until 1.21.11, and 25 since 26.1 Snapshot 1.
+[NBT List / JSON Array] libraries: A list of libraries.
+[NBT Compound / JSON Object]: A library.
+[NBT Compound / JSON Object] downloads: The library's download information.
+[NBT Compound / JSON Object] artifact: Info about the artifact.
+[String] path: Path to store the downloaded artifact, relative to the "libraries" directory in .minecraft.
+[String] sha1: The SHA1 hash of the file.
+[Int] size: The size of the file in bytes.
+[String] url: The URL that the game should visit to download the file.
+[NBT Compound / JSON Object] classifiers: Appears only for some libraries.
+[NBT Compound / JSON Object] <classifier>: Specifies the artifact information for the artifact with this specific classifier. Repeats the artifact structure above.
+[String] name: A maven name for the library, in the form of "groupId:artifactId:version".
+[String] url: The URL of the Maven repository (used by Forge).
+[NBT Compound / JSON Object] natives: Information about native libraries (in C) bundled with this library. Appears only when there are classifiers for natives.
+[String]: This tag's name depends on the natives that appear in the classifiers, it will be one of "windows", "osx" or "linux".
+[NBT Compound / JSON Object] extract: Rules to follow when extracting natives from a library.
+[NBT List / JSON Array] exclude: Paths to exclude.
+[String]: Its value is "META-INF/".
+[NBT List / JSON Array] rules: Contains a compound with the tags "action" and "os", as shown above.
+[NBT Compound / JSON Object] logging: Information about Log4j log configuration.
+[NBT Compound / JSON Object] client:
+[String] argument: The JVM argument for adding the log configuration. Its value is "-Dlog4j.configurationFile=${path}".
+[NBT Compound / JSON Object] file: The Log4j2 XML configuration used by this version for the launcher for launcher's log screen.
+[String] id: Its value is "client-1.7.xml" until 17w14a, "client-1.12.xml" until 24w36a, and "client-1.21.2.xml" since 24w37a.
+[String] sha1: The SHA1 hash for this file.
+[Int] size: The size of this file in bytes.
+[String] url: The URL the launcher should visit to download the file.
+[String] type: Its value is "log4j2-xml".
+[String] mainClass: The main class.
+[Int] minimumLauncherVersion: The minimum Launcher version that can run this version of the game.
+[String] releaseTime: The release date-time in ISO-8601 extended offset format.
+[String] time: Same as "releaseTime".
+[String] type: The type of this game version. One of "release", "snapshot", "unobfuscated", "old_beta" or "old_alpha"
+
+History
+Java Edition1.6.113w16a
+With the new launcher, versions are now stored in .minecraft/versions and each version has its own folder with a minecraft.jar (which is now called client.jar) and a <client>.json file.1.7.213w39a
+Added the [NBT Compound / JSON Object] logging tag in the root tag.1.916w05a
+Removed the [NBT Compound / JSON Object] windows_server tag, however, it remains present for versions that already have it.1.1317w43a
+The [NBT Compound / JSON Object] arguments tag replaced the old [String] minecraftArguments tag.1.1519w36a
+Obfuscation mappings are now listed in the [NBT Compound / JSON Object] downloads tag. They are implemented in 1.14.4 also.1.1620w21a
+Added two new arguments: disableChat, which disables the chat in-game, and disableMultiplayer, which disables the "Multiplayer" and "Minecraft Realms" buttons.1.1720w45a
+Added the [NBT Compound / JSON Object] javaVersion tag with all its children.1.2023w14a
+In [NBT List / JSON Array] game, added [Boolean] has_quick_plays_support, [Boolean] is_quick_play_singleplayer, [Boolean] is_quick_play_multiplayer, and [Boolean] is_quick_play_realms to [NBT List / JSON Array] rules.
+Notes
+
+ "Regular expression"     – Wikipedia.
+
+ https://www.iso.org/iso-8601-date-and-time-format.html
+
+Navigation

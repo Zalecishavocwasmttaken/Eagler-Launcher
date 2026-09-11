@@ -1,0 +1,76 @@
+This feature is exclusive to Java Edition. 
+
+/swing
+
+Permission levelrequired
+
+2
+
+Restrictions
+
+None
+
+{
+    "title": "<code>/swing</code>",
+    "rows": [
+        {
+            "field": "2",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "None",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+Controls the swinging animation of entities' hands.
+
+Contents
+
+1 Syntax
+2 Arguments
+3 Result
+4 Output
+5 History
+6 Navigation
+
+Syntax
+/swing [<targets>] [mainhand|offhand]​[until: JE 26.3]
+/swing [<targets>] [mainhand|offhand] [<animation>] [<duration>]​[upcoming: JE 26.3]
+Arguments
+<targets>: entity
+
+Specifies entities to swing. Defaults to @s (the command executor).
+Not all entities will animate a swing on the client side.
+Must be a player name, a target selector or a UUID.
+mainhand|offhand
+
+Specifies the arm to swing. Defaults to mainhand.
+<animation>: swing_animation​[upcoming: JE 26.3]
+
+Specifies the swing animation to play. Defaults to whack.
+Must be whack, stab, or none.
+<duration>: time​[upcoming: JE 26.3]
+
+Specifies the duration of the swing animation. Defaults to 6t.
+It must be a single-precision floating-point number suffixed with a unit. It must be not less than 1 gameticks. Units include:d: an in-game day, 24000 gameticks;s: a second, 20 gameticks;t (default and omitable): a single gametick; the default unit.The time is set to the closest integer after unit conversion to gametick. For example. .5d is same as 12000 gameticks.
+Result
+
+CommandTriggerJava Edition
+
+AnyThe command is incomplete, or any argument is not specified correctly. Unparseable<targets> fails to resolve to one or more entities. FailedOtherwiseSuccessful
+Output
+
+CommandEditionSituationSuccess Count/execute store success .../execute store result ...
+
+AnyJava EditionOn fail000On success11the number of targeted entities
+History
+Java Edition26.1snap1
+Added /swing.snap3
+Both arguments are now optional, and default to @s and mainhand respectively.Upcoming Java Edition26.3snap7
+When used on a player, the player's attack strength will no longer be reset.
+Added the whack|stab and duration arguments.
+Navigation

@@ -1,0 +1,9 @@
+This page describes content that has been removed and was only present in earlier versions of Java Edition. 
+In Java Edition 1.20.5, this format has been replaced with the data component format.
+
+[NBT Compound / JSON Object] display: Display properties.
+[String] Name: The JSON text component to use to display the item.
+[NBT List / JSON Array] Lore: List of strings to display as lore for the item.
+[String] A text component representing a line of text for the lore of an item.
+[Int] HideFlags: Bit field determining which parts of the tooltip to hide on an item. 1 for "Enchantments", 2 for "AttributeModifiers", 4 for "Unbreakable", 8 for "CanDestroy", 16 for "CanPlaceOn", 32 for various other information (including potion effects, "StoredEnchantments", written book "generation" and "author", "Explosion", "Fireworks", amount of items in a bundle, and map tooltips), 64 for "Dyed" on leather armor, and 128 for armor trim information. For example, setting to 3 (1 + 2) would hide both "Enchantments" (1) and "AttributeModifiers" (2) tags, and setting to 255 would hide everything.
+[Int] CustomModelData: A value used in the "custom_model_data" item tag in the overrides of item models.

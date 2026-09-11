@@ -1,0 +1,179 @@
+This article is about an underground feature in basalt deltas.   For ore blobs, see Ore (feature).   For glowstone blobs on the Nether roof, see Glowstone Blob.  For the former clay blobs, see Clay Blob.
+
+
+
+This feature is exclusive to Java Edition. 
+
+Blob
+
+
+
+
+
+
+
+
+
+
+Biomes
+
+Basalt Deltas
+
+Generates inexisting chunks  
+
+No
+
+Consists of
+
+Basalt or Blackstone
+
+{
+    "title": "Blob",
+    "rows": [
+        {
+            "field": "<span class=\"nowrap\"><span class=\"sprite-file\" style=\"\">(link to File:BiomeSprite basalt-deltas.png article, displayed as 16x16px|link=Basalt Deltas|alt=|class=pixel-image|)</span>(link to Basalt Deltas article, displayed as <span class=\"sprite-text\">Basalt Deltas</span>)</span>",
+            "label": "(link to Biome article, displayed as Biomes)"
+        },
+        {
+            "field": "No",
+            "label": "Generates in<br>existing chunks  "
+        },
+        {
+            "field": "<span class=\"nowrap\"><span class=\"sprite-file\" style=\"\">(link to File:BlockSprite basalt.png article, displayed as 16x16px|link=Basalt|alt=|class=pixel-image|)</span>(link to Basalt article, displayed as <span class=\"sprite-text\">Basalt</span>)</span> or <span class=\"nowrap\"><span class=\"sprite-file\" style=\"\">(link to File:BlockSprite blackstone.png article, displayed as 16x16px|link=Blackstone|alt=|class=pixel-image|)</span>(link to Blackstone article, displayed as <span class=\"sprite-text\">Blackstone</span>)</span>",
+            "label": "Consists of"
+        }
+    ],
+    "invimages": [],
+    "images": [
+        "Basalt blob.png",
+        "Blackstone blob feature.png"
+    ]
+}
+
+A blob is a feature consisting of basalt or blackstone blocks, which replaces netherrack blocks during world generation. They exclusively generate in basalt deltas and often overlap with other blobs.
+
+Contents
+
+1 Types
+2 Data values
+
+2.1 ID
+2.2 Config
+
+3 History
+4 Issues
+5 Gallery
+
+5.1 Screenshots
+
+6 Navigation
+
+Types
+
+Blocks
+
+Radius
+
+Spawn tries per chunk
+
+Minimum height
+
+Maximum height
+
+Ore concentrate
+
+Biomes
+
+Blackstone
+
+3—7
+
+25
+
+0
+
+127
+
+Uniform
+
+Basalt Deltas
+
+Basalt
+
+3—7
+
+75
+
+0
+
+127
+
+Uniform
+
+Basalt Deltas
+
+ Blobs generate using either uniform distribution, or triangle distribution. Uniform distribution have all ores spread in same frequency at any height, while triangle generates more frequently in center height.
+
+Data values
+ID
+Feature typeIdentifier
+[No displayed name]netherrack_replace_blobs
+
+Configured featureIdentifier
+ [No displayed name]blackstone_blobs
+
+ [No displayed name]basalt_blobs
+
+Config
+Main article: Configured feature
+Java Edition:
+
+[NBT Compound / JSON Object] config
+[NBT Compound / JSON Object] state The block to use.
+Block state see Template:Nbt inherit/block state/template
+[NBT Compound / JSON Object] target The block to replace. Properties here are ignored.
+Block state see Template:Nbt inherit/block state/template
+[Int][NBT Compound / JSON Object] radius Value between 0 and 12 (inclusive).
+Int provider see Template:Nbt inherit/int_provider/template
+
+An example
+
+{
+  "type": "minecraft:netherrack_replace_blobs",
+  "config": {
+    "radius": {
+      "type": "minecraft:uniform",
+      "value": {
+        "max_inclusive": 7,
+        "min_inclusive": 3
+      }
+    },
+    "state": {
+      "Name": "minecraft:basalt",
+      "Properties": {
+        "axis": "y"
+      }
+    },
+    "target": {
+      "Name": "minecraft:netherrack"
+    }
+  }
+}
+
+History
+Java Edition1.1620w15a
+Added basalt blobs.
+
+Added blackstone blobs.
+Issues
+Issues relating to "Blob" are maintained on the bug tracker. Issues should be reported and viewed there.
+
+Gallery
+Screenshots
+
+
+
+			Blackstone ore (left) and blackstone blob (right).
+
+
+Navigation

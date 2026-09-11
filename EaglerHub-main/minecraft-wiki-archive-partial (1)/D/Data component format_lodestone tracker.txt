@@ -1,0 +1,5 @@
+[NBT Compound / JSON Object] minecraft:lodestone_tracker: Stores information about the lodestone this compass should point toward. If present on a compass item, the base item name will be overridden as "Lodestone Compass". While tracked in a player's inventory, a compass with this component will do active polling to see if the position of its lodestone is loaded, and if it is and the lodestone has been destroyed then this component is removed.
+[NBT Compound / JSON Object] target: Information about the lodestone. Optional. If not set, this compass spins randomly.
+[Int Array] pos: The integer coordinates of the lodestone.
+[String] dimension: The ID of the dimension of the lodestone.
+[Boolean] tracked: If true, the component is removed when the lodestone is broken. If false, the component is kept. Defaults to true.

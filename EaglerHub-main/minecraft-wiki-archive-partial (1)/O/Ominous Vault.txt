@@ -1,0 +1,405 @@
+For the non-ominous variant, see Vault.
+
+Ominous Vault
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Renewable
+
+No
+
+Stackable
+
+Yes (64)
+
+Tool
+
+Any tool
+
+Blast resistance
+
+50
+
+Hardness
+
+50
+
+Luminous
+
+Yes  Active or ejecting: 12  Inactive: 6
+
+Transparent
+
+Partial
+
+Flammable
+
+No
+
+Catches firefrom lava
+
+No
+
+Map color
+
+ 11 STONE
+
+Note block instrument
+
+Bass Drum
+
+{
+    "title": "Ominous Vault",
+    "rows": [
+        {
+            "field": "No",
+            "label": "(link to Renewable resource article, displayed as Renewable)"
+        },
+        {
+            "field": "Yes (64)",
+            "label": "Stackable"
+        },
+        {
+            "field": "Any tool",
+            "label": "Tool"
+        },
+        {
+            "field": "50",
+            "label": "(link to Explosion#Blast resistance article, displayed as Blast resistance)"
+        },
+        {
+            "field": "50",
+            "label": "(link to Breaking#Blocks by hardness article, displayed as Hardness)"
+        },
+        {
+            "field": "Yes <br> Active or ejecting: 12 <br> Inactive: 6",
+            "label": "(link to Light article, displayed as Luminous)"
+        },
+        {
+            "field": "Partial",
+            "label": "(link to Opacity article, displayed as Transparent)"
+        },
+        {
+            "field": "No",
+            "label": "(link to Fire#Flammable blocks article, displayed as Flammable)"
+        },
+        {
+            "field": "No",
+            "label": "Catches fire<br>from (link to lava article, displayed as lava)"
+        },
+        {
+            "field": "<span style=\"white-space: nowrap;\"><span style=\"display: inline-block; background-color: rgb(112, 112, 112); border: 1px solid #888; border-radius: 0.3em; color: transparent; width: 1em; height: 1em; vertical-align: -0.36em; margin-right: -0.1em\"><br></span> 11 STONE</span>",
+            "label": "(link to Map item format#Color table article, displayed as Map color)"
+        },
+        {
+            "field": "Bass Drum",
+            "label": "(link to Note Block#Instruments article, displayed as Note block instrument)"
+        }
+    ],
+    "invimages": [
+        "Vault"
+    ],
+    "images": [
+        "Ominous Vault (inactive) JE2 BE2.png",
+        "Ominous Vault (active) JE2 BE2.png",
+        "Ominous Vault (unlocking) JE2 BE2.png",
+        "Ominous Vault (ejecting) JE2 BE2.png"
+    ]
+}
+
+An ominous vault is a type of vault found in trial chambers. It ejects valuable loot when unlocked using an ominous trial key and is the only source of heavy cores, among other items.
+
+Contents
+
+1 Obtaining
+
+1.1 Breaking
+1.2 Natural generation
+
+2 Usage
+
+2.1 Piston interactivity
+
+3 Loot
+4 Sounds
+
+4.1 Generic
+4.2 Unique
+
+5 Data values
+6 Achievements
+7 Advancements
+8 History
+
+8.1 Java Edition
+8.2 Bedrock Edition
+
+9 Issues
+10 Gallery
+
+10.1 Mojang images
+
+11 References
+12 Navigation
+
+Obtaining
+Ominous vaults cannot be obtained as items in Survival or Adventure mode. They are technically block state variants of normal vaults and can be obtained or created using commands, such as:
+Java Edition:
+
+/give @s minecraft:vault[block_state={ominous:"true"},block_entity_data={id:"minecraft:vault",config:{key_item:{count:1,id:"minecraft:ominous_trial_key"},loot_table:"minecraft:chests/trial_chambers/reward_ominous"}}]
+/setblock x y z minecraft:vault[ominous=true]{config:{key_item:{count:1,id:"minecraft:ominous_trial_key"},loot_table:"minecraft:chests/trial_chambers/reward_ominous"}}
+Bedrock Edition:
+
+/setblock x y z vault ["ominous"=true]
+This command does not affect the loot table nor the key item, making it so that a normal trial key can unlock an ominous vault as if it were a normal vault. This is a bug, and can be seen on the bug tracker.
+Breaking
+No tool can accelerate the breaking process of ominous vault.
+
+Block
+
+Ominous Vault
+
+Hardness
+
+50
+
+Breaking time (secs)
+
+Default
+
+75
+
+OptionsHaste0011JEBE
+
+Legend
+ incorrect tool, drops nothing
+ correct tool, drops nothing or something other than the block itself
+ correct tool, drops the block itself
+italicized can be instant mined
+
+An ominous vault drops nothing when it is destroyed.
+
+Natural generation
+An ominous vault, as it appears in trial chambers.
+Ominous vaults can be found throughout trial chambers. Each combat chamber always contains one ominous vault, while additional ominous vaults can be found at the end of both corridors and in two of the three types of intersections. There is usually an average of 6 to 8 ominous vaults in each trial chambers structure.
+An ominous vault can be distinguished from a normal vault by its texture and location in harder to find places. An ominous vault is always surrounded by an altar-like structure that contains red candles and red glazed terracotta.
+Unlike ominous trial spawners, ominous vaults don't replace normal vaults when a player with the Trial Omen effect is nearby.
+
+Usage
+A player can unlock an ominous vault using an ominous trial key. Each player can unlock each ominous vault only once, although after the 129th player opens the same vault, the first player in the list is forgotten and can open it again.
+
+Piston interactivity
+An ominous vault cannot be pushed by a piston or pulled by a sticky piston.
+
+Loot
+An ominous vault ejects 2 to 5 stacks of loot, like a normal vault. It ejects a combination of loot from three different loot tables. The ejected loot is dependent on the world seed, and is unaffected by timing. The following information describes the loot ejected for a single player when a single ominous trial key is used.
+
+Common loot
+Every ominous vault gives between one and three sets of common loot, corresponding to the third and sixth columns below.
+An ominous vault that does not give rare loot gives an additional set of common loot, making it possible to get four sets of common loot.
+Rare loot
+Every ominous vault has an 80% chance to include a set of rare loot.
+The loot listed in the second and fifth columns below corresponds with the chance of one set of rare loot, plus the chance of the one set of common loot that can be used in its place.
+Unique loot
+Every ominous vault has a 75% chance to include one additional set of unique loot.
+This loot, and the 25% chance for each ominous vault not to have this loot, corresponds with the fourth and seventh columns below.
+Unique loot is always the first to drop when an ominous vault is opened.
+In Java Edition and Bedrock Edition, each trial chambers ominous vault contains  items drawn from 3 pools,  with the following distribution:
+
+ Item
+  Stack Size
+  Weight
+  Chance
+  Avg.per container
+  Avg. # containersto loot
+
+1×
+1–3×
+1×
+1×
+1–3×
+1×
+
+Emerald
+4–104–10—145⁄21755⁄15—56.2%5.1331.8
+
+Wind Charge
+8–128–12—116⁄21754⁄15—47.4%5.8672.1
+
+Arrow of Slowness IV
+4–124–12—87⁄21753⁄15—37.5%3.5202.7
+
+Diamond
+2–32–3—58⁄21752⁄15—26.4%0.7333.8
+
+Nothing
+——1——10⁄4025.0%0.2504.0
+
+Flow Armor Trim Smithing Template
+——1——9⁄4022.5%0.2254.4
+
+Enchanted Golden Apple
+——1——9⁄4022.5%0.2254.4
+
+Flow Banner Pattern
+——1——6⁄4015.0%0.1506.7
+
+Ominous Bottle III - V
+11—29⁄21751⁄15—13.9%0.1477.2
+
+Block of Emerald
+1——300⁄2175——13.8%0.1387.2
+
+Enchanted Crossbow
+1——240⁄2175——11.0%0.1109.1
+
+Block of Iron
+1——240⁄2175——11.0%0.1109.1
+
+Golden Apple
+1——180⁄2175——8.3%0.08312.1
+
+Enchanted Diamond Axe
+1——180⁄2175——8.3%0.08312.1
+
+Enchanted Diamond Chestplate
+1——180⁄2175——8.3%0.08312.1
+
+Music Disc (Creator)
+——1——3⁄407.5%0.07513.3
+
+Heavy Core
+——1——3⁄407.5%0.07513.3
+
+Enchanted Book
+1——120⁄2175——5.5%0.05518.1
+
+Enchanted Book
+1——120⁄2175——5.5%0.05518.1
+
+Enchanted Book
+1——120⁄2175——5.5%0.05518.1
+
+Block of Diamond
+1——60⁄2175——2.8%0.02836.2
+{ "chestNames": [ "trial-chambers-reward-ominous" ], "gameVersion": "Java", "loot": { "trial-chambers-reward-ominous": { "poolsJava": [ { "items": { "tipped-arrow-strong-slowness": [ 4, 12, 87 ], "diamond": [ 2, 3, 58 ], "enchanted-book-rnd-wind-burst": [ 1, 1, 120 ], "enchanted-book-rnd-breach-density": [ 1, 1, 120 ], "enchanted-book-rnd-trial-chambers-2": [ 1, 1, 120 ], "golden-apple": [ 1, 1, 180 ], "level-enchanted-diamond-chestplate-4": [ 1, 1, 180 ], "level-enchanted-diamond-axe-2": [ 1, 1, 180 ], "ominous-bottle-2": [ 1, 1, 29 ], "block-of-emerald": [ 1, 1, 300 ], "block-of-diamond": [ 1, 1, 60 ], "wind-charge": [ 8, 12, 116 ], "emerald": [ 4, 10, 145 ], "block-of-iron": [ 1, 1, 240 ], "level-enchanted-crossbow": [ 1, 1, 240 ] }, "rolls": [ 1, 1 ], "totalweight": 2175 }, { "items": { "tipped-arrow-strong-slowness": [ 4, 12, 3 ], "diamond": [ 2, 3, 2 ], "wind-charge": [ 8, 12, 4 ], "emerald": [ 4, 10, 5 ], "ominous-bottle-2": [ 1, 1, 1 ] }, "rolls": [ 1, 3 ], "totalweight": 15 }, { "items": { "disc-creator": [ 1, 1, 3 ], "flow-armor-trim-smithing-template": [ 1, 1, 9 ], "enchanted-golden-apple": [ 1, 1, 9 ], "empty": [ 1, 1, 10 ], "flow-banner-pattern": [ 1, 1, 6 ], "heavy-core": [ 1, 1, 3 ] }, "rolls": [ 1, 1 ], "totalweight": 40 } ], "poolsBedrockUpcoming": [], "itemDataJava": { "block-of-diamond": { "itemname": "block-of-diamond", "sizes": [ 1, "—", "—" ], "sortsize": [ 1, 0, 0 ], "sortweight": [ 60, 0, 0 ], "weights": [ "<sup>60</sup>&frasl;<sub>2175</sub>", "—", "—" ], "avgamount": 0.027586206896551724, "chanceany": 0.02758620689655178 }, "heavy-core": { "sortsize": [ 0, 0, 1 ], "weights": [ "—", "—", "<sup>3</sup>&frasl;<sub>40</sub>" ], "chanceany": 0.07499999999999996, "sizes": [ "—", "—", 1 ], "sortweight": [ 0, 0, 3 ], "armor": 0, "material": 0, "avgamount": 0.075, "itemname": "heavy-core" }, "enchanted-book-rnd-trial-chambers-2": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>120</sup>&frasl;<sub>2175</sub>", "—", "—" ], "chanceany": 0.05517241379310345, "sizes": [ 1, "—", "—" ], "sortweight": [ 120, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.05517241379310345, "itemname": "enchanted-book-rnd-trial-chambers-2" }, "enchanted-book-rnd-wind-burst": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>120</sup>&frasl;<sub>2175</sub>", "—", "—" ], "chanceany": 0.05517241379310345, "sizes": [ 1, "—", "—" ], "sortweight": [ 120, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.05517241379310345, "itemname": "enchanted-book-rnd-wind-burst" }, "block-of-emerald": { "itemname": "block-of-emerald", "sizes": [ 1, "—", "—" ], "sortsize": [ 1, 0, 0 ], "sortweight": [ 300, 0, 0 ], "weights": [ "<sup>300</sup>&frasl;<sub>2175</sub>", "—", "—" ], "avgamount": 0.13793103448275862, "chanceany": 0.13793103448275867 }, "wind-charge": { "itemname": "wind-charge", "sizes": [ "8–12", "8–12", "—" ], "sortsize": [ 10, 10, 0 ], "sortweight": [ 116, 4, 0 ], "weights": [ "<sup>116</sup>&frasl;<sub>2175</sub>", "<sup>4</sup>&frasl;<sub>15</sub>", "—" ], "avgamount": 5.866666666666666, "chanceany": 0.4744480658436214 }, "empty": { "itemname": "empty", "sizes": [ "—", "—", 1 ], "sortsize": [ 0, 0, 1 ], "sortweight": [ 0, 0, 10 ], "weights": [ "—", "—", "<sup>10</sup>&frasl;<sub>40</sub>" ], "avgamount": 0.25, "chanceany": 0.25 }, "level-enchanted-crossbow": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>240</sup>&frasl;<sub>2175</sub>", "—", "—" ], "chanceany": 0.1103448275862069, "sizes": [ 1, "—", "—" ], "sortweight": [ 240, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.1103448275862069, "itemname": "level-enchanted-crossbow" }, "block-of-iron": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>240</sup>&frasl;<sub>2175</sub>", "—", "—" ], "chanceany": 0.1103448275862069, "sizes": [ 1, "—", "—" ], "sortweight": [ 240, 0, 0 ], "armor": 0, "material": 2, "avgamount": 0.1103448275862069, "itemname": "block-of-iron" }, "diamond": { "itemname": "diamond", "sizes": [ "2–3", "2–3", "—" ], "sortsize": [ 2.5, 2.5, 0 ], "sortweight": [ 58, 2, 0 ], "weights": [ "<sup>58</sup>&frasl;<sub>2175</sub>", "<sup>2</sup>&frasl;<sub>15</sub>", "—" ], "avgamount": 0.7333333333333333, "chanceany": 0.26391967078189305 }, "flow-armor-trim-smithing-template": { "sortsize": [ 0, 0, 1 ], "weights": [ "—", "—", "<sup>9</sup>&frasl;<sub>40</sub>" ], "chanceany": 0.22499999999999998, "sizes": [ "—", "—", 1 ], "sortweight": [ 0, 0, 9 ], "armor": 0, "material": 0, "avgamount": 0.225, "itemname": "flow-armor-trim-smithing-template" }, "level-enchanted-diamond-axe-2": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>180</sup>&frasl;<sub>2175</sub>", "—", "—" ], "chanceany": 0.08275862068965523, "sizes": [ 1, "—", "—" ], "sortweight": [ 180, 0, 0 ], "armor": 0, "material": 4, "avgamount": 0.08275862068965517, "itemname": "level-enchanted-diamond-axe-2" }, "flow-banner-pattern": { "itemname": "flow-banner-pattern", "sizes": [ "—", "—", 1 ], "sortsize": [ 0, 0, 1 ], "sortweight": [ 0, 0, 6 ], "weights": [ "—", "—", "<sup>6</sup>&frasl;<sub>40</sub>" ], "avgamount": 0.15, "chanceany": 0.15000000000000002 }, "enchanted-golden-apple": { "sortsize": [ 0, 0, 1 ], "weights": [ "—", "—", "<sup>9</sup>&frasl;<sub>40</sub>" ], "chanceany": 0.22499999999999998, "sizes": [ "—", "—", 1 ], "sortweight": [ 0, 0, 9 ], "armor": 0, "material": 3, "avgamount": 0.225, "itemname": "enchanted-golden-apple" }, "disc-creator": { "sortsize": [ 0, 0, 1 ], "weights": [ "—", "—", "<sup>3</sup>&frasl;<sub>40</sub>" ], "chanceany": 0.07499999999999996, "sizes": [ "—", "—", 1 ], "sortweight": [ 0, 0, 3 ], "armor": 0, "material": 0, "avgamount": 0.075, "itemname": "disc-creator" }, "level-enchanted-diamond-chestplate-4": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>180</sup>&frasl;<sub>2175</sub>", "—", "—" ], "chanceany": 0.08275862068965523, "sizes": [ 1, "—", "—" ], "sortweight": [ 180, 0, 0 ], "armor": 2, "material": 4, "avgamount": 0.08275862068965517, "itemname": "level-enchanted-diamond-chestplate-4" }, "golden-apple": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>180</sup>&frasl;<sub>2175</sub>", "—", "—" ], "chanceany": 0.08275862068965523, "sizes": [ 1, "—", "—" ], "sortweight": [ 180, 0, 0 ], "armor": 0, "material": 3, "avgamount": 0.08275862068965517, "itemname": "golden-apple" }, "tipped-arrow-strong-slowness": { "itemname": "tipped-arrow-strong-slowness", "sizes": [ "4–12", "4–12", "—" ], "sortsize": [ 8, 8, 0 ], "sortweight": [ 87, 3, 0 ], "weights": [ "<sup>87</sup>&frasl;<sub>2175</sub>", "<sup>3</sup>&frasl;<sub>15</sub>", "—" ], "avgamount": 3.52, "chanceany": 0.3753600000000001 }, "emerald": { "itemname": "emerald", "sizes": [ "4–10", "4–10", "—" ], "sortsize": [ 7, 7, 0 ], "sortweight": [ 145, 5, 0 ], "weights": [ "<sup>145</sup>&frasl;<sub>2175</sub>", "<sup>5</sup>&frasl;<sub>15</sub>", "—" ], "avgamount": 5.133333333333334, "chanceany": 0.5621399176954733 }, "ominous-bottle-2": { "itemname": "ominous-bottle-2", "sizes": [ 1, 1, "—" ], "sortsize": [ 1, 1, 0 ], "sortweight": [ 29, 1, 0 ], "weights": [ "<sup>29</sup>&frasl;<sub>2175</sub>", "<sup>1</sup>&frasl;<sub>15</sub>", "—" ], "avgamount": 0.14666666666666667, "chanceany": 0.1391394238683127 }, "enchanted-book-rnd-breach-density": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>120</sup>&frasl;<sub>2175</sub>", "—", "—" ], "chanceany": 0.05517241379310345, "sizes": [ 1, "—", "—" ], "sortweight": [ 120, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.05517241379310345, "itemname": "enchanted-book-rnd-breach-density" } }, "display_name": "trial chambers ominous vault", "superheader": "[[Trial Chambers]]", "poolsJavaUpcoming": [], "structure": "Trial Chambers", "container": "Ominous vault", "itemDataJavaUpcoming": [], "allRollsJavaUpcoming": [], "itemDataBedrock": { "block-of-diamond": { "itemname": "block-of-diamond", "sizes": [ 1, "—", "—" ], "sortsize": [ 1, 0, 0 ], "sortweight": [ 60, 0, 0 ], "weights": [ "<sup>60</sup>&frasl;<sub>2175</sub>", "—", "—" ], "avgamount": 0.027586206896551724, "chanceany": 0.02758620689655178 }, "heavy-core": { "sortsize": [ 0, 0, 1 ], "weights": [ "—", "—", "<sup>3</sup>&frasl;<sub>40</sub>" ], "chanceany": 0.07499999999999996, "sizes": [ "—", "—", 1 ], "sortweight": [ 0, 0, 3 ], "armor": 0, "material": 0, "avgamount": 0.075, "itemname": "heavy-core" }, "enchanted-book-rnd-trial-chambers-2": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>120</sup>&frasl;<sub>2175</sub>", "—", "—" ], "chanceany": 0.05517241379310345, "sizes": [ 1, "—", "—" ], "sortweight": [ 120, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.05517241379310345, "itemname": "enchanted-book-rnd-trial-chambers-2" }, "enchanted-book-rnd-wind-burst": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>120</sup>&frasl;<sub>2175</sub>", "—", "—" ], "chanceany": 0.05517241379310345, "sizes": [ 1, "—", "—" ], "sortweight": [ 120, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.05517241379310345, "itemname": "enchanted-book-rnd-wind-burst" }, "block-of-emerald": { "itemname": "block-of-emerald", "sizes": [ 1, "—", "—" ], "sortsize": [ 1, 0, 0 ], "sortweight": [ 300, 0, 0 ], "weights": [ "<sup>300</sup>&frasl;<sub>2175</sub>", "—", "—" ], "avgamount": 0.13793103448275862, "chanceany": 0.13793103448275867 }, "wind-charge": { "itemname": "wind-charge", "sizes": [ "8–12", "8–12", "—" ], "sortsize": [ 10, 10, 0 ], "sortweight": [ 116, 4, 0 ], "weights": [ "<sup>116</sup>&frasl;<sub>2175</sub>", "<sup>4</sup>&frasl;<sub>15</sub>", "—" ], "avgamount": 5.866666666666666, "chanceany": 0.4744480658436214 }, "empty": { "itemname": "empty", "sizes": [ "—", "—", 1 ], "sortsize": [ 0, 0, 1 ], "sortweight": [ 0, 0, 10 ], "weights": [ "—", "—", "<sup>10</sup>&frasl;<sub>40</sub>" ], "avgamount": 0.25, "chanceany": 0.25 }, "level-enchanted-crossbow": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>240</sup>&frasl;<sub>2175</sub>", "—", "—" ], "chanceany": 0.1103448275862069, "sizes": [ 1, "—", "—" ], "sortweight": [ 240, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.1103448275862069, "itemname": "level-enchanted-crossbow" }, "block-of-iron": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>240</sup>&frasl;<sub>2175</sub>", "—", "—" ], "chanceany": 0.1103448275862069, "sizes": [ 1, "—", "—" ], "sortweight": [ 240, 0, 0 ], "armor": 0, "material": 2, "avgamount": 0.1103448275862069, "itemname": "block-of-iron" }, "diamond": { "itemname": "diamond", "sizes": [ "2–3", "2–3", "—" ], "sortsize": [ 2.5, 2.5, 0 ], "sortweight": [ 58, 2, 0 ], "weights": [ "<sup>58</sup>&frasl;<sub>2175</sub>", "<sup>2</sup>&frasl;<sub>15</sub>", "—" ], "avgamount": 0.7333333333333333, "chanceany": 0.26391967078189305 }, "flow-armor-trim-smithing-template": { "sortsize": [ 0, 0, 1 ], "weights": [ "—", "—", "<sup>9</sup>&frasl;<sub>40</sub>" ], "chanceany": 0.22499999999999998, "sizes": [ "—", "—", 1 ], "sortweight": [ 0, 0, 9 ], "armor": 0, "material": 0, "avgamount": 0.225, "itemname": "flow-armor-trim-smithing-template" }, "level-enchanted-diamond-axe-2": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>180</sup>&frasl;<sub>2175</sub>", "—", "—" ], "chanceany": 0.08275862068965523, "sizes": [ 1, "—", "—" ], "sortweight": [ 180, 0, 0 ], "armor": 0, "material": 4, "avgamount": 0.08275862068965517, "itemname": "level-enchanted-diamond-axe-2" }, "flow-banner-pattern": { "itemname": "flow-banner-pattern", "sizes": [ "—", "—", 1 ], "sortsize": [ 0, 0, 1 ], "sortweight": [ 0, 0, 6 ], "weights": [ "—", "—", "<sup>6</sup>&frasl;<sub>40</sub>" ], "avgamount": 0.15, "chanceany": 0.15000000000000002 }, "enchanted-golden-apple": { "sortsize": [ 0, 0, 1 ], "weights": [ "—", "—", "<sup>9</sup>&frasl;<sub>40</sub>" ], "chanceany": 0.22499999999999998, "sizes": [ "—", "—", 1 ], "sortweight": [ 0, 0, 9 ], "armor": 0, "material": 3, "avgamount": 0.225, "itemname": "enchanted-golden-apple" }, "disc-creator": { "sortsize": [ 0, 0, 1 ], "weights": [ "—", "—", "<sup>3</sup>&frasl;<sub>40</sub>" ], "chanceany": 0.07499999999999996, "sizes": [ "—", "—", 1 ], "sortweight": [ 0, 0, 3 ], "armor": 0, "material": 0, "avgamount": 0.075, "itemname": "disc-creator" }, "level-enchanted-diamond-chestplate-4": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>180</sup>&frasl;<sub>2175</sub>", "—", "—" ], "chanceany": 0.08275862068965523, "sizes": [ 1, "—", "—" ], "sortweight": [ 180, 0, 0 ], "armor": 2, "material": 4, "avgamount": 0.08275862068965517, "itemname": "level-enchanted-diamond-chestplate-4" }, "golden-apple": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>180</sup>&frasl;<sub>2175</sub>", "—", "—" ], "chanceany": 0.08275862068965523, "sizes": [ 1, "—", "—" ], "sortweight": [ 180, 0, 0 ], "armor": 0, "material": 3, "avgamount": 0.08275862068965517, "itemname": "golden-apple" }, "tipped-arrow-strong-slowness": { "itemname": "tipped-arrow-strong-slowness", "sizes": [ "4–12", "4–12", "—" ], "sortsize": [ 8, 8, 0 ], "sortweight": [ 87, 3, 0 ], "weights": [ "<sup>87</sup>&frasl;<sub>2175</sub>", "<sup>3</sup>&frasl;<sub>15</sub>", "—" ], "avgamount": 3.52, "chanceany": 0.3753600000000001 }, "emerald": { "itemname": "emerald", "sizes": [ "4–10", "4–10", "—" ], "sortsize": [ 7, 7, 0 ], "sortweight": [ 145, 5, 0 ], "weights": [ "<sup>145</sup>&frasl;<sub>2175</sub>", "<sup>5</sup>&frasl;<sub>15</sub>", "—" ], "avgamount": 5.133333333333334, "chanceany": 0.5621399176954733 }, "ominous-bottle-2": { "itemname": "ominous-bottle-2", "sizes": [ 1, 1, "—" ], "sortsize": [ 1, 1, 0 ], "sortweight": [ 29, 1, 0 ], "weights": [ "<sup>29</sup>&frasl;<sub>2175</sub>", "<sup>1</sup>&frasl;<sub>15</sub>", "—" ], "avgamount": 0.14666666666666667, "chanceany": 0.1391394238683127 }, "enchanted-book-rnd-breach-density": { "sortsize": [ 1, 0, 0 ], "weights": [ "<sup>120</sup>&frasl;<sub>2175</sub>", "—", "—" ], "chanceany": 0.05517241379310345, "sizes": [ 1, "—", "—" ], "sortweight": [ 120, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.05517241379310345, "itemname": "enchanted-book-rnd-breach-density" } }, "poolsBedrock": [ { "items": { "tipped-arrow-strong-slowness": [ 4, 12, 87 ], "diamond": [ 2, 3, 58 ], "enchanted-book-rnd-wind-burst": [ 1, 1, 120 ], "enchanted-book-rnd-breach-density": [ 1, 1, 120 ], "enchanted-book-rnd-trial-chambers-2": [ 1, 1, 120 ], "golden-apple": [ 1, 1, 180 ], "level-enchanted-diamond-chestplate-4": [ 1, 1, 180 ], "level-enchanted-diamond-axe-2": [ 1, 1, 180 ], "ominous-bottle-2": [ 1, 1, 29 ], "block-of-emerald": [ 1, 1, 300 ], "block-of-diamond": [ 1, 1, 60 ], "wind-charge": [ 8, 12, 116 ], "emerald": [ 4, 10, 145 ], "block-of-iron": [ 1, 1, 240 ], "level-enchanted-crossbow": [ 1, 1, 240 ] }, "rolls": [ 1, 1 ], "totalweight": 2175 }, { "items": { "tipped-arrow-strong-slowness": [ 4, 12, 3 ], "diamond": [ 2, 3, 2 ], "wind-charge": [ 8, 12, 4 ], "emerald": [ 4, 10, 5 ], "ominous-bottle-2": [ 1, 1, 1 ] }, "rolls": [ 1, 3 ], "totalweight": 15 }, { "items": { "disc-creator": [ 1, 1, 3 ], "flow-armor-trim-smithing-template": [ 1, 1, 9 ], "enchanted-golden-apple": [ 1, 1, 9 ], "empty": [ 1, 1, 10 ], "flow-banner-pattern": [ 1, 1, 6 ], "heavy-core": [ 1, 1, 3 ] }, "rolls": [ 1, 1 ], "totalweight": 40 } ], "allRollsBedrockUpcoming": [], "allRollsBedrock": [ 1, "1–3", 1 ], "itemDataBedrockUpcoming": [], "chest_type": "reward-container", "header": "Ominous vault", "allRollsJava": [ 1, "1–3", 1 ], "link": "[[trial chambers]] ominous vault", "structID": "trial-chambers" } } }
+
+ The size of stacks (or for unstackable items, number) of this item on any given roll.
+
+ The weight of this item relative to other items in the pool.
+
+ The odds of finding any of this item in a single chest.
+
+ The number of items expected per chest, averaged over a large number of chests.
+
+ The average number of chests the player should expect to search to find any of this item.
+
+ 'Nothing' does not refer to the chance of an empty chest.  Instead, it refers to the chance that the random loot generator does not add any loot on a single roll.
+
+ Ominous bottle level between III and V
+
+ Enchantment probabilities are the same as a level-5 to level-20 enchantment would be on an enchanting table that was able to apply treasure enchantments (except Soul Speed, Swift Sneak, and Wind Burst), and where the chance of multiple enchantments is not reduced.
+
+ Enchantment probabilities are the same as a level-10 to level-20 enchantment would be on an enchanting table that was able to apply treasure enchantments (except Soul Speed, Swift Sneak, and Wind Burst), and where the chance of multiple enchantments is not reduced.
+
+ Enchanted with a random level of Breach, or Density.
+
+ Enchanted with a random level of Knockback, Punch, Smite, Looting, or Multishot.
+
+ Enchanted with level I of Wind Burst.
+
+Sounds
+Generic
+
+v
+t
+e vault sound typeSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitchAttenuationdistance​Block brokenBlocksOnce the block has brokenblock.vault.breaksubtitles.block.generic.break​1.00.816​Block placedBlocksWhen the block is placedblock.vault.placesubtitles.block.generic.place​1.00.816​Block breakingBlocksWhile the block is in the process of being brokenblock.vault.hitsubtitles.block.generic.hit​0.250.516​Something falls on a blockEntity-DependentFalling on the block with fall damageblock.vault.fallsubtitles.block.generic.fall​0.50.7516​FootstepsEntity-DependentWalking on the blockblock.vault.stepsubtitles.block.generic.footsteps​0.151.016
+Unique
+Java Edition:
+
+
+
+This section is missing information about: What specific pitches are used when a vault still has n items to eject, from m total? 
+Please expand the section to include this information. Further details may exist on the talk page.
+
+v
+t
+eSoundsSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitchAttenuationdistance​Vault cracklesBlocksRandomlyblock.vault.ambientsubtitles.block.vault.ambient​0.75–1.00.5–1.516​Vault ignitesBlocksWhen an ominous vault detects a playerblock.vault.activatesubtitles.block.vault.activate​1.00.8–1.216​Vault extinguishesBlocksWhen an ominous vault deactivatesblock.vault.deactivatesubtitles.block.vault.deactivate​1.00.8–1.216​Vault opensBlocksWhen an ominous vault starts ejecting itemsblock.vault.open_shuttersubtitles.block.vault.open_shutter​1.01.016​Vault closesBlocksWhen an ominous vault stops ejecting itemsblock.vault.close_shuttersubtitles.block.vault.close_shutter​1.01.016​Vault ejects itemBlocksWhen an ominous vault ejects a reward itemblock.vault.eject_itemsubtitles.block.vault.eject_item​1.00.8–1.216​Vault unlocksBlocksWhen an ominous vault is unlockedblock.vault.insert_itemsubtitles.block.vault.insert_item​1.01.016​Vault rejects itemBlocksWhen a player inserts an invalid item into an ominous vaultblock.vault.insert_item_failsubtitles.block.vault.insert_item_fail​1.01.016​Vault rejects playerBlocksWhen an ominous vault rejects an already rewarded playerblock.vault.reject_rewarded_playersubtitles.block.vault.reject_rewarded_player​1.01.016
+Bedrock Edition:
+
+v
+t
+eSoundsSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitch​ ?BlocksRandomlyvault.ambient​ ?0.75–1.00.5–1.5​ ?BlocksWhen an ominous vault detects a playervault.activate​ ?1.00.76–1.14​ ?BlocksWhen an ominous vault deactivatesvault.deactivate​ ?1.00.8–1.2​ ?BlocksWhen an ominous vault starts ejecting itemsvault.open_shutter​ ?1.01.0​ ?BlocksWhen an ominous vault stops ejecting itemsvault.close_shutter​ ?1.01.0​ ?BlocksWhen an ominous vault ejects a reward itemvault.eject_item​ ?1.00.8–1.1​ ?BlocksWhen an ominous vault is unlockedvault.insert_item​ ?1.00.8–1.1​ ?BlocksWhen a player inserts an invalid item into an ominous vaultvault.insert_item_fail​ ?1.00.8–1.1​ ?BlocksWhen a vault rejects an already rewarded playervault.reject_rewarded_player​ ?1.01.0
+Data values
+Main article: Vault § Data values
+An ominous vault is technically a block state variant of a vault. Therefore, it has the same data value structure.
+
+Achievements
+IconAchievementIn-game descriptionActual requirements (if different)Gamerscore earnedTrophy type (PS)PS4OtherRevaultingUnlock an Ominous Vault with an Ominous Trial Key—20Silver
+Advancements
+IconAdvancementIn-game descriptionActual requirements (if different)RevaultingUnlock an Ominous Vault with an Ominous Trial Key—
+History
+Java Edition
+Java Edition1.20.5ExperimentUpdate 1.2124w13a
+    Added ominous vaults.pre1
+    Updated textures to fix inconsistencies across all states.1.2124w18a
+Ominous vaults are now available without using the "Update 1.21" experimental data pack.
+
+Increased the chance of obtaining mace enchantments.
+
+Ominous vaults can now eject the new "Creator" music disc.
+Bedrock Edition
+Bedrock Edition1.21.0ExperimentUpdate 1.21Preview 1.21.0.20
+    Added ominous vaults.1.21.0Preview 1.21.0.22
+Ominous vaults are now available without using the "Update 1.21" experimental toggle.
+    Updated textures to fix inconsistencies across all states.Preview 1.21.0.24
+Ominous vaults can now eject the new "Creator" music disc.1.21.2
+The probability of loot in ominous vaults has been changed to match Java Edition.
+Issues
+Issues relating to "Ominous Vault" are maintained on the bug tracker. Issues should be reported and viewed there.
+
+Gallery
+Mojang images
+
+
+
+			An active ominous vault.
+
+
+
+			A naturally spawning ominous vault.
+
+
+
+			Ari walking away from a looted ominous vault.
+
+
+
+			"Noor is about to open an Ominous Vault with an Ominous Trial Key in Trial Chambers."
+
+
+References
+
+ MCPE-180338 – 
+Ominous vault made by /setblock or /fill not taking ominous key
+
+ "Ominous Trials are now available on Java Snapshot! 🔑 Drink an ominous bottle to gain the Bad Omen effect 🔑 Head to a village for a Raid Omen and start a pillager raid OR enter a trial chamber to trigger a Trial Omen effect 🔑 Trial Omen effect will spew out tougher mobs with better gear, potions, and projectiles 🔑 Earn the ominous trial key to unlock an ominous vault Read more about the update (coming soon to Beta/Preview): https://minecraft.net/en-us/article/introducing-mace-and-ominous-events"  – @Minecraft (Minecraft) on X (formerly Twitter), March 27, 2024
+
+ "Minecraft Java Edition 1.20.5"     by Java Team  – Minecraft.net, April 23, 2024.
+
+Navigation

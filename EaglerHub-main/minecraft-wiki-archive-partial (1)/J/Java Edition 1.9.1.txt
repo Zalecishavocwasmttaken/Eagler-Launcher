@@ -1,0 +1,220 @@
+This page covers a release version that has a major issue under certain conditions. 
+The dedicated server for this version has a security vulnerability in the Log4j library that could be used to perform a remote code execution exploit. It can be addressed by appending a certain JVM argument to the server startup command line.
+
+Minecraft 1.9.1
+
+Edition
+
+Java Edition
+
+Release date
+
+March 30, 2016
+
+Development versions
+
+Pre-releases (3) (View all)
+
+Downloads
+
+Client (.json)Server
+
+Protocol version
+
+108
+
+Data version
+
+175
+
+Resource pack format
+
+2
+
+Minimum Java version
+
+Java SE 6
+
+◄◄   1.9
+1.9.1
+  1.10 ►►
+
+  1.9.2 ►
+
+{
+    "title": "Minecraft 1.9.1",
+    "images": [
+        "Banner 1.9.1.png",
+        "Java Edition 1.9.1.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "March 30, 2016",
+            "label": "Release date"
+        },
+        {
+            "field": "<div class=\"hlist\"><span style=\"white-space:nowrap;\">(link to :Category:Java Edition 1.9.1 pre-releases article, displayed as '''Pre-releases''') (3) </span><br/>((link to Java Edition 1.9.1/Development versions article, displayed as View all))</div>",
+            "label": "<span style=\"white-space: normal;\">Development versions</span>"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/9bc7f02323d90b9385c1a5dbd47fb144a3fb8835/client.jar Client] ([https://piston-meta.mojang.com/v1/packages/a7c5c055718d8e7d709f3f2338b4e8f1125b5aae/1.9.1.json .json])<br />[https://piston-data.mojang.com/v1/objects/bf95d9118d9b4b827f524c878efd275125b56181/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "108",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "175",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "2",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_6 Java SE 6]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" rowspan=\"2\">[[Java Edition  1.9|<span style=\"margin-right:-0.35em\">◄</span>◄   1.9]]</td>\n<td rowspan=\"2\" style=\"padding: 0.4em\">'''1.9.1'''</td>\n<td style=\"padding: 0.4em\" >[[Java Edition  1.10|  1.10 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n\n\n<td style=\"padding: 0.4em\">\n[[Java Edition  1.9.2|  1.9.2 ►]]\n</td>\n</tr>\n</table>"
+}
+
+
+
+Other editions with a version "1.9.1": 
+
+Java Edition Classic server
+Education
+Minecraft Dungeons
+
+
+1.9.1 is a minor update for Java Edition released on March 30, 2016. 1.9.1 is not compatible with 1.9 servers. Due to a major multiplayer bug, 1.9.1 was replaced with 1.9.2 on the same day.
+
+Contents
+
+1 Additions
+
+1.1 Items
+
+2 Changes
+
+2.1 Blocks
+2.2 Items
+2.3 Mobs
+2.4 Non-mob entities
+2.5 Command format
+2.6 Gameplay
+2.7 General
+
+3 Fixes
+4 Videos
+5 Footnotes
+6 References
+7 Navigation
+
+Additions
+Items
+Armor
+
+New armor attribute: generic.armorToughness, which includes a new formula for calculating damage:
+totalDamage=damage×(1−max(defensePoints5,defensePoints−damage2+toughness4)25)
+Increased toughness means less armor defense point reduction from strong attacks.
+Diamond armor has toughness 2, all other armor has toughness 0. A full set of diamond armor, therefore gives a toughness attribute of 8.
+Elytra
+
+Added sound effects while gliding with elytra.
+Sound event item.elytra.flying.
+Changes
+Blocks
+Dispensers
+
+Dispensers with arrows in jungle temples now use loot tables.
+Increased limit per tick for scheduled tile ticks from 1,000 to 65,536.
+Hoppers
+
+Can now push and pull items to and from chests that are blocked from opening.
+Items
+Shields
+
+No longer take damage when blocking weak attacks (less than 3HP damage).
+Mobs
+General
+
+AI has been improved.​[more information needed]
+Skeletons
+
+Now shoot less quickly on Easy and Normal difficulties.
+Non-mob entities
+Minecarts with chest & minecarts with hopper
+
+The GUI name is now the same as the item's display name.
+Command format
+Target selectors
+
+Entity selector c (count) now sorts on proximity using true coordinates, not coordinates snapped to the grid.
+Gameplay
+Combat
+
+Attack cooldown indicator is now enabled by default.
+General
+Loot tables
+
+Now work in dispensers and droppers.
+Session IDs
+
+Are no longer printed by the game to the log files or to the launcher.
+Fixes
+13 issues fixed
+From release versions older than 1.9
+
+MC-7961 – Hopper can't fill or empty a chest if the chest is blocked from opening.
+MC-56162 – Setting /worldborder damage amount 0 doesn't work.
+MC-95352 – Spatial target arguments c, dx, dy, dz behave unexpectedly and inconsistently.
+From release version 1.9
+
+MC-90257 – A chain of command blocks may take more than 1 tick to traverse.
+MC-93074 – Summoned arrows can't be assigned a scoreboard value (too many arrows/spectral arrows cause command fail).
+MC-96219 – Block duplication bug with pistons (ghost blocks).
+MC-96927 – Selector c= targeting inaccurate entity position.
+MC-98327 – Elytra texture transparency issues.
+MC-98461 – Several languages (at least Frisian, Talossan, Ripuarian, Lojban, and LOLCAT) are not selectable, "Eesti (Eesti)" is listed as "Inglise (US)".
+MC-98587 – Command block logic sometimes fails arbitrarily.
+MC-99060 – Elytra glowing effect is always black.
+MC-99697 – Missnamed minecarts with hoppers and chests as "container.minecart".
+From the 1.9.1 development versions
+
+MC-99396 – Players attack animation missing.
+Other
+
+Fixed game engine adding non-existent entities (failed mob spawns, etc.) to its internal lists, increasing instability.
+Videos
+Video made by slicedlime:
+
+
+
+
+Footnotes
+
+ Players who already played previous 1.9 versions may still need to manually enable the crosshair option (or delete options.txt to reset the default values).
+
+References
+
+ "Important Message: Security vulnerability in Java Edition"     – Minecraft.net, December 10, 2021.
+
+ "Elytras have sounds? Well, in 1.9.1 pre-release 1 they do. Read about that (and more) at http://www.mojang.com/2016/03/minecr…"  – @SeargeDP (Michael Stoyke) on X (formerly Twitter), March 9, 2016
+
+ "Minecraft 1.9.1"   (Archive)  by Searge  – Mojang.com, March 30, 2016.
+
+ MC-96927 – Selector c= targeting inaccurate entity position
+
+ MCL-4420 – Session ID is shown as "<censored>" in launcher but correctly written into log file
+
+ "Paper patch 0078" – https://github.com/starlis/Paper/blob/b2dd99e74e91fbe5f7c28fe29faa58b7162c1aa6/Spigot-Server-Patches/0078-Optimize-Navigation-Listener.patch
+
+Navigation

@@ -1,0 +1,233 @@
+18w31a
+
+Edition
+
+Java Edition
+
+Release date
+
+August 1, 2018
+
+Type
+
+Snapshot
+
+Snapshot for
+
+1.13.1
+
+Downloads
+
+Client (.json)Server
+
+Protocol version
+
+396
+
+Data version
+
+1622
+
+Resource pack format
+
+4
+
+Data pack format
+
+4
+
+Minimum Java version
+
+Java SE 8
+
+◄◄   1.13
+1.13.1
+  1.13.2 ►►
+
+◄   18w30b
+
+ 18w31a
+
+  18w32a ►
+
+{
+    "title": "18w31a",
+    "images": [
+        "18w31a.jpg",
+        "Java Edition 18w31a.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "August 1, 2018",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Snapshot article, displayed as Snapshot)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition 1.13.1 article, displayed as 1.13.1)",
+            "label": "Snapshot for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/0a343ef39365d70908a3c59fbbf2d9c0ddd2ad75/client.jar Client] ([https://piston-meta.mojang.com/v1/packages/8b603c88a9b33a27a4c436b6b71d1740dbae4ad3/18w31a.json .json])<br />[https://piston-data.mojang.com/v1/objects/4646084899fb62a7b9afa6f453fae4e6e786e5a5/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "396",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "1622",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "4",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "4",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Data pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_8_.28LTS.29 Java SE 8]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Java Edition  1.13|<span style=\"margin-right:-0.35em\">◄</span>◄   1.13]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition 1.13.1|1.13.1]]'''</td>\n<td style=\"padding: 0.4em\" >[[Java Edition  1.13.2|  1.13.2 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  18w30b|◄   18w30b]]\n</td>\n<td style=\"padding: 0.4em\">''' 18w31a'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  18w32a|  18w32a ►]]\n</td>\n</tr>\n</table>"
+}
+
+18w31a is the third snapshot for Java Edition 1.13.1, released on August 1, 2018, which adds some new features, changes some existing features, optimizes performance, and fixes many bugs.
+
+Contents
+
+1 Additions
+
+1.1 General
+
+2 Changes
+
+2.1 Blocks
+2.2 Mobs
+2.3 Items
+2.4 Command format
+2.5 General
+
+3 Fixes
+4 Videos
+5 Trivia
+6 References
+7 Navigation
+
+Additions
+General
+Chunks
+
+Added a concept of force-loaded chunks to the game, and a command (/chunk) to toggle force-loading on and off.
+Block tags
+
+Added the tag minecraft:underwater_bonemeals.
+Changes
+Blocks
+Conduits
+
+Are now properly waterlogged.
+Mobs
+Fish
+
+Now have a 5% chance of dropping bone meal when killed.
+Squid
+
+Now spawn only in rivers, oceans, or beaches.
+Items
+Bone meal
+
+When used in water of warm ocean biomes, it now has a chance to grow coral.
+Command format
+Scoreboards
+
+The scoreboard operator %= was changed from using Java's native % to using Math.floorMod. This causes the operator to use floored modulo instead of truncated modulo, so now -1 % 7 wraps to 6 instead of returning -1.
+Functions
+
+Line numbers in function parse error logs now start with 1 (was 0).
+General
+Performance has been optimized.
+Fixes
+45 issues fixed
+From released versions before 1.13
+
+MC-73 – Green arrow bug on maps in frames.
+MC-1528 – Maps in item frames' markers aren't persistent.
+MC-96998 – End Cities / Woodland Mansions don't generate completely when interrupting generation
+MC-112801 – Players on the death screen still cause spawners to spawn.
+MC-122939 – Statistics for mining banners and beds never increase.
+MC-128547 – Minecraft keeps previously used World in memory if the player has hit any entity in that world.
+From 1.13
+
+MC-121369 – Holding ESC while clicking "Multiplayer" returns user to main menu
+MC-123021 – Crash on open if "Saves" is a link
+MC-124583 – Cannot place structure void block next to another when right clicking on one
+MC-125337 – When the double-held trident throws, players will lift both hands
+MC-130258 – Maps in item frames show shading problems.
+MC-131397 – Sponges cannot remove water from conduits
+MC-132451 – Command Parser - invalid value for block property and property name are reversed in error message
+MC-132769 – Detecting a 2 redstone tick repeater with an observer block creates a 2 redstone tick pulse
+MC-133181 – Observer's cooldown is broken.
+MC-133546 – Player becomes "ghost" when dying in the nether or going through the end portal back to the overworld
+MC-134105 – Can't return from the end after defeating dragon.
+MC-134159 – Saved world causes crash in 1.13.
+MC-134667 – Async Chunk Gen dangerously adding entities to world async.
+MC-134889 – Iron golems spawn in air blocks.
+MC-134916 – Sound event block.pumpkin.carve doesn't play when carving normal pumpkins.
+MC-135049 – Old world doesn't save map markers in 1.13.
+MC-135261 – /setblock for player heads don't show the texture after the placement.
+From the 1.13.1 development versions
+
+MC-134816 – Crash: Exception ticking world entities
+MC-134825 – Tab completion/suggestions don't work for some non-literal arguments (in chat)
+MC-134832 – TNT with unstable=true blockstate is ignited instead of broken in creative mode.
+MC-134898 – Pressing Escape no longer returns to main menu from singleplayer menu.
+From the previous development version
+
+MC-134966 – Using /setblock to place an "Always Active" command block with a command won't execute the command immediately
+MC-134967 – NullPointerException when placing Wither Skeleton Skulls.
+MC-134974 – Entities in your world can randomly freeze
+MC-134982 – Exception when placing a command block.
+MC-134987 – Renaming a world doesn't update its name until re-entering the world list.
+MC-134988 – Optimizing a world doesn't update it until re-entering the world list.
+MC-135039 – The game crashes when /setblock-ing a spawner with an entity ID containing capital letters
+MC-135053 – Sticky pistons get stuck when receiving a 0 gametick pulse.
+MC-135136 – Crash when placing a chain command block with set command.
+MC-135147 – Loading/saving structures with command blocks in them causes errors
+MC-135172 – Under certain conditions pistons can't be powered for the first 2 gameticks after being moved.
+MC-135185 – All redstone components can become stuck in a powered state when indirectly unpowered.
+MC-135186 – Pistons can only be re-pulsed 5 or more gameticks later.
+MC-135194 – Pistons react 1 gametick too late.
+MC-135229 – Game crash when opening Furnace
+MC-135268 – Switching to spectator mode and back creates ghost player duplicates for other players
+MC-135293 – Profiler doesn't exit section when an entity is removed, causing recursive profiling and lag
+Private issues
+
+MC-134716 – Minecraft Multiplayer – Player kick exploit.
+Videos
+Video made by slicedlime:
+
+
+
+
+
+Trivia
+This snapshot, being the third for 1.13.1, was released in the same week of the year as the third snapshot for 1.9, 15w31c.
+18w31a was released exactly 6 years after 1.3.1.
+References
+
+ "Minecraft Snapshot 18w31a"     – Minecraft.net, August 1, 2018.
+
+ https://www.reddit.com/r/Minecraft/comments/93pmai/minecraft_snapshot_18w31a/e3fkwrj
+
+Navigation

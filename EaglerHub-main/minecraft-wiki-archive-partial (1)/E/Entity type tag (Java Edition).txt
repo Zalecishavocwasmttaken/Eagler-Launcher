@@ -1,0 +1,819 @@
+Contents
+
+1 List of tags
+
+1.1 accepts_iron_golem_gift
+1.2 aquatic
+1.3 arrows
+1.4 arthropod
+1.5 axolotl_always_hostiles
+1.6 axolotl_hunt_targets
+1.7 beehive_inhabitors
+1.8 boat
+1.9 burn_in_daylight
+1.10 can_breathe_under_water
+1.11 can_equip_harness
+1.12 can_equip_saddle
+1.13 can_float_while_ridden
+1.14 can_turn_in_boats
+1.15 can_wear_horse_armor
+1.16 can_wear_nautilus_armor
+1.17 candidate_for_iron_golem_gift
+1.18 cannot_be_age_locked
+1.19 cannot_be_dismounted_by_item_usage
+1.20 cannot_be_pushed_onto_boats
+1.21 deflects_projectiles
+1.22 dismounts_underwater
+1.23 fall_damage_immune
+1.24 followable_friendly_mobs
+1.25 freeze_hurts_extra_types
+1.26 freeze_immune_entity_types
+1.27 frog_food
+1.28 ignores_poison_and_regen
+1.29 illager
+1.30 illager_friends
+1.31 immune_to_infested
+1.32 immune_to_oozing
+1.33 impact_projectiles
+1.34 inverted_healing_and_harm
+1.35 nautilus_hostiles
+1.36 no_anger_from_wind_charge
+1.37 non_controlling_rider
+1.38 not_affected_by_geysers
+1.39 not_scary_for_pufferfish
+1.40 powder_snow_walkable_mobs
+1.41 raiders
+1.42 redirectable_projectile
+1.43 sensitive_to_bane_of_arthropods
+1.44 sensitive_to_impaling
+1.45 sensitive_to_smite
+1.46 skeletons
+1.47 undead
+1.48 wither_friends
+1.49 zombies
+
+2 Removed tags
+
+2.1 axolotl_tempted_hostiles
+2.2 deflects_arrows
+2.3 deflects_tridents
+
+3 History
+4 Navigation
+
+  This article is about the grouping of types of entities.   For grouping of individual entities, see Scoreboard § Tags.
+
+An entity type tag is a group of entity types. It can be used in type target selector arguments and loot table conditions with #<identifier>, which checks if the entity's type matches any of the entity types specified in the tag. Entity type tags are also used to control a number of other gameplay features; see below for the use of each tag.
+The entity type tags are under data/<namespace>/tags/entity_type folder of data pack.
+
+List of tags
+
+accepts_iron_golem_gift
+aquatic
+arows
+arthropod
+axolotl_always_hostiles
+axolotl_hunt_targets
+beehive_inhabitors
+boats
+burn_in_daylight
+can_breathe_under_water
+can_equip_harness
+can_equip_saddle
+can_float_while_ridden
+can_turn_in_boats
+can_wear_horse_armor
+can_wear_nautilus_armor
+candidate_for_iron_golem_gift
+cannot_be_age_locked
+cannot_be_dismounted_by_item_usage​[upcoming: JE 26.3]
+cannot_be_pushed_onto_boats
+deflects_projectiles
+dismounts_underwater
+fall_damage_immune
+followable_friendly_mobs
+freeze_hurts_extra_types
+freeze_immune_entity_types
+frog_food
+ignores_poison_and_regen
+illager
+illager_friends
+immune_to_infested
+immune_to_oozing
+impact_projectiles
+inverted_healing_and_harm
+nautilus_hostiles
+no_anger_from_wind_charge
+non_controlling_rider
+not_affected_by_geysers
+not_scary_for_pufferfish
+powder_snow_walkable_mobs
+raiders
+redirectable_projectile
+sensitive_to_bane_of_arthropods
+sensitive_to_impaling
+sensitive_to_smite
+skeletons
+undead
+wither_friends
+zombies
+accepts_iron_golem_gift
+Entities in this tag can have poppies placed onto their head by iron golems.
+Used in the #candidate_for_iron_golem_gift tag.
+
+[NBT List / JSON Array] #minecraft:accepts_iron_golem_gift (1 values)
+
+minecraft:copper_golem
+
+aquatic
+Contains all aquatic mobs. Unused in vanilla aside from being used in other tags.
+Used in the #sensitive_to_impaling tag.
+
+[NBT List / JSON Array] #minecraft:aquatic (14 values)
+
+minecraft:axolotl
+minecraft:cod
+minecraft:dolphin
+minecraft:elder_guardian
+minecraft:glow_squid
+minecraft:guardian
+minecraft:nautilus
+minecraft:pufferfish
+minecraft:salmon
+minecraft:squid
+minecraft:tadpole
+minecraft:tropical_fish
+minecraft:turtle
+minecraft:zombie_nautilus
+
+arrows
+Entities in this tag are affected by the Power and Punch enchantments.
+Used by the advancement "Take Aim".
+Used in the #impact_projectiles tag.
+
+[NBT List / JSON Array] #minecraft:arrows (2 values)
+
+minecraft:arrow
+minecraft:spectral_arrow
+
+arthropod
+Contains all arthropod mobs. Unused in vanilla aside from being used in other tags.
+Used in the #sensitive_to_bane_of_arthropods tag.
+
+[NBT List / JSON Array] #minecraft:arthropod (5 values)
+
+minecraft:bee
+minecraft:cave_spider
+minecraft:endermite
+minecraft:silverfish
+minecraft:spider
+
+axolotl_always_hostiles
+Axolotls are always hostile toward entities in this tag.
+
+[NBT List / JSON Array] #minecraft:axolotl_always_hostiles (3 values)
+
+minecraft:drowned
+minecraft:elder_guardian
+minecraft:guardian
+
+axolotl_hunt_targets
+Axolotls exhibit the cooldown-based "hunt" behavior toward entities in this tag.
+
+[NBT List / JSON Array] #minecraft:axolotl_hunt_targets (7 values)
+
+minecraft:cod
+minecraft:glow_squid
+minecraft:pufferfish
+minecraft:salmon
+minecraft:squid
+minecraft:tadpole
+minecraft:tropical_fish
+
+beehive_inhabitors
+Entities in this tag can be in beehives.
+
+[NBT List / JSON Array] #minecraft:beehive_inhabitors (1 values)
+
+minecraft:bee
+
+boat
+Used by the advancement "Whatever Floats Your Goat!".
+
+[NBT List / JSON Array] #minecraft:boat (11 values)
+
+minecraft:acacia_boat
+minecraft:bamboo_raft
+minecraft:birch_boat
+minecraft:cherry_boat
+minecraft:dark_oak_boat
+minecraft:jungle_boat
+minecraft:mangrove_boat
+minecraft:oak_boat
+minecraft:pale_oak_boat
+minecraft:poplar_boat​[upcoming: JE 26.3]
+minecraft:spruce_boat
+
+burn_in_daylight
+Entities in this tag burn in direct sunlight. Wither skeletons remain unaffected due to being immune to fire.
+
+[NBT List / JSON Array] #minecraft:burn_in_daylight (10 values)
+
+minecraft:bogged
+minecraft:drowned
+minecraft:phantom
+minecraft:skeleton
+minecraft:stray
+minecraft:wither_skeleton
+minecraft:zombie
+minecraft:zombie_horse
+minecraft:zombie_nautilus
+minecraft:zombie_villager
+
+can_breathe_under_water
+Entities in this tag cannot drown underwater.
+
+[NBT List / JSON Array] #minecraft:can_breathe_under_water (16 values)
+
+#minecraft:undead
+minecraft:armor_stand
+minecraft:axolotl
+minecraft:cod
+minecraft:copper_golem
+minecraft:elder_guardian
+minecraft:frog
+minecraft:glow_squid
+minecraft:guardian
+minecraft:nautilus
+minecraft:pufferfish
+minecraft:salmon
+minecraft:squid
+minecraft:tadpole
+minecraft:tropical_fish
+minecraft:turtle
+
+can_equip_harness
+Entities in this tag can be equipped with a harness.
+Note: this does not mean that the Harness will function, just that it can be equipped into the body slot.
+
+[NBT List / JSON Array] #minecraft:can_equip_harness (1 values)
+
+minecraft:happy_ghast
+
+can_equip_saddle
+Entities in this tag can be equipped with a saddle.
+Note: this does not mean that the Saddle will function, just that it can be equipped into the saddle slot.
+
+[NBT List / JSON Array] #minecraft:can_equip_saddle (11 values)
+
+minecraft:camel
+minecraft:camel_husk
+minecraft:donkey
+minecraft:horse
+minecraft:mule
+minecraft:nautilus
+minecraft:pig
+minecraft:skeleton_horse
+minecraft:strider
+minecraft:zombie_horse
+minecraft:zombie_nautilus
+
+can_float_while_ridden
+Entities in this tag can float in water while being ridden by a player.
+
+[NBT List / JSON Array] #minecraft:can_float_while_ridden (6 values)
+
+minecraft:camel
+minecraft:camel_husk
+minecraft:donkey
+minecraft:horse
+minecraft:mule
+minecraft:zombie_horse
+
+can_turn_in_boats
+Entities in this tag are not forced to face forward in boats.
+
+[NBT List / JSON Array] #minecraft:can_turn_in_boats (1 values)
+
+minecraft:breeze
+
+can_wear_horse_armor
+Entities in this tag can be equipped with horse armor in their body slot.
+
+[NBT List / JSON Array] #minecraft:can_wear_horse_armor (2 values)
+
+minecraft:horse
+minecraft:zombie_horse
+
+can_wear_nautilus_armor
+Entities in this tag can be equipped with nautilus armor in their body slot.
+
+[NBT List / JSON Array] #minecraft:can_wear_nautilus_armor (2 values)
+
+minecraft:nautilus
+minecraft:zombie_nautilus
+
+candidate_for_iron_golem_gift
+Iron golems will offer poppies to entities in this tag.
+
+[NBT List / JSON Array] #minecraft:candidate_for_iron_golem_gift (2 values)
+
+#minecraft:accepts_iron_golem_gift
+minecraft:villager
+
+cannot_be_age_locked
+Baby variants of entities in this tag cannot be permanently set to a baby using a golden dandelion. Note that this tag does not include baby mobs that do not grow up in the first place, such as baby zombies (and variants), zoglins, and piglins.
+
+[NBT List / JSON Array] #minecraft:cannot_be_age_locked (3 values)
+
+minecraft:skeleton_horse
+minecraft:villager
+minecraft:zombie_horse
+
+cannot_be_dismounted_by_item_usage
+​[more information needed]
+
+[NBT List / JSON Array] #minecraft:cannot_be_dismounted_by_item_usage​[upcoming: JE 26.3] (1 values)
+
+minecraft:interaction
+
+cannot_be_pushed_onto_boats
+Entities in this tag will not automatically enter boats when nearby enough.
+
+[NBT List / JSON Array] #minecraft:cannot_be_pushed_onto_boats (14 values)
+
+minecraft:cod
+minecraft:creaking
+minecraft:dolphin
+minecraft:elder_guardian
+minecraft:glow_squid
+minecraft:nautilus
+minecraft:player
+minecraft:pufferfish
+minecraft:salmon
+minecraft:squid
+minecraft:sulfur_cube
+minecraft:tadpole
+minecraft:tropical_fish
+minecraft:zombie_nautilus
+
+deflects_projectiles
+Projectiles bounce off entities in this tag.
+Breezes are hard-coded to still be vulnerable to wind charges despite their inclusion in this tag; if other entities are added to this tag, they will also deflect wind charges.
+
+[NBT List / JSON Array] #minecraft:deflects_projectiles (1 values)
+
+minecraft:breeze
+
+dismounts_underwater
+Entities in this tag will force their riders to dismount when fully submerged.
+
+[NBT List / JSON Array] #minecraft:dismounts_underwater (13 values)
+
+minecraft:camel
+minecraft:chicken
+minecraft:donkey
+minecraft:happy_ghast
+minecraft:horse
+minecraft:llama
+minecraft:mule
+minecraft:pig
+minecraft:ravager
+minecraft:spider
+minecraft:strider
+minecraft:trader_llama
+minecraft:zombie_horse
+
+fall_damage_immune
+Entities in this tag cannot take fall damage.
+
+[NBT List / JSON Array] #minecraft:fall_damage_immune (18 values)
+
+minecraft:allay
+minecraft:bat
+minecraft:bee
+minecraft:blaze
+minecraft:breeze
+minecraft:cat
+minecraft:chicken
+minecraft:copper_golem
+minecraft:ghast
+minecraft:happy_ghast
+minecraft:iron_golem
+minecraft:magma_cube
+minecraft:ocelot
+minecraft:parrot
+minecraft:phantom
+minecraft:shulker
+minecraft:snow_golem
+minecraft:wither
+
+followable_friendly_mobs
+Adults of entities in this tag will be followed by ghastlings.
+
+[NBT List / JSON Array] #minecraft:followable_friendly_mobs (25 values)
+
+minecraft:armadillo
+minecraft:bee
+minecraft:camel
+minecraft:cat
+minecraft:chicken
+minecraft:cow
+minecraft:donkey
+minecraft:fox
+minecraft:goat
+minecraft:happy_ghast
+minecraft:horse
+minecraft:llama
+minecraft:mule
+minecraft:ocelot
+minecraft:panda
+minecraft:parrot
+minecraft:pig
+minecraft:polar_bear
+minecraft:rabbit
+minecraft:sheep
+minecraft:skeleton_horse
+minecraft:sniffer
+minecraft:strider
+minecraft:villager
+minecraft:wolf
+
+freeze_hurts_extra_types
+Entities in this tag take 5x more damage from #is_freezing damage types.
+
+[NBT List / JSON Array] #minecraft:freeze_hurts_extra_types (3 values)
+
+minecraft:blaze
+minecraft:magma_cube
+minecraft:strider
+
+freeze_immune_entity_types
+Entities in this tag do not build up freezing effect when inside a powder snow block.
+
+[NBT List / JSON Array] #minecraft:freeze_immune_entity_types (4 values)
+
+minecraft:polar_bear
+minecraft:snow_golem
+minecraft:stray
+minecraft:wither
+
+frog_food
+Entities in this tag are eaten by frogs.
+
+[NBT List / JSON Array] #minecraft:frog_food (2 values)
+
+minecraft:magma_cube
+minecraft:slime
+
+ignores_poison_and_regen
+For entities that cannot be affected by Poison and Regeneration effects.
+
+[NBT List / JSON Array] #minecraft:ignores_poison_and_regen (1 values)
+
+#minecraft:undead
+
+illager
+Contains all illager mobs. Unused in vanilla aside from being used in other tags.
+Used in the #illager_friends tag.
+
+[NBT List / JSON Array] #minecraft:illager (4 values)
+
+minecraft:evoker
+minecraft:illusioner
+minecraft:pillager
+minecraft:vindicator
+
+illager_friends
+Illagers consider entities in this tag to be allies, unless on a different team.
+
+[NBT List / JSON Array] #minecraft:illager_friends (1 values)
+
+#minecraft:illager
+
+immune_to_infested
+Entities in this tag cannot be afflicted with the Infested effect.
+
+[NBT List / JSON Array] #minecraft:immune_to_infested (1 values)
+
+minecraft:silverfish
+
+immune_to_oozing
+Entities in this tag cannot be afflicted with the Oozing effect.
+
+[NBT List / JSON Array] #minecraft:immune_to_oozing (1 values)
+
+minecraft:slime
+
+impact_projectiles
+Entities in this tag can break chorus flowers and decorated pots when hit, provided they are capable of activating targets.
+If removed from this tag, tridents additionally lose the ability to break pointed dripstone when hit.
+
+[NBT List / JSON Array] #minecraft:impact_projectiles (11 values)
+
+#minecraft:arrows
+minecraft:breeze_wind_charge
+minecraft:dragon_fireball
+minecraft:egg
+minecraft:fireball
+minecraft:firework_rocket
+minecraft:small_fireball
+minecraft:snowball
+minecraft:trident
+minecraft:wind_charge
+minecraft:wither_skull
+
+inverted_healing_and_harm
+Entities in this tag are healed by Instant Damage and harmed by Instant Health.
+
+[NBT List / JSON Array] #minecraft:inverted_healing_and_harm (1 values)
+
+#minecraft:undead
+
+nautilus_hostiles
+Nautiluses and zombie nautiluses are hostile to entities in this tag.
+
+[NBT List / JSON Array] #minecraft:nautilus_hostiles (1 values)
+
+minecraft:pufferfish
+
+no_anger_from_wind_charge
+Entities in this tag do not retaliate if damaged by a wind charge.
+
+[NBT List / JSON Array] #minecraft:no_anger_from_wind_charge (9 values)
+
+minecraft:bogged
+minecraft:breeze
+minecraft:cave_spider
+minecraft:husk
+minecraft:skeleton
+minecraft:slime
+minecraft:spider
+minecraft:stray
+minecraft:zombie
+
+non_controlling_rider
+Entities in this tag do not override the AI of entities they are riding.
+
+[NBT List / JSON Array] #minecraft:non_controlling_rider (3 values)
+
+minecraft:magma_cube
+minecraft:slime
+minecraft:sulfur_cube
+
+not_affected_by_geysers
+Geysers never affect the movement of entities in this tag.
+
+[NBT List / JSON Array] #minecraft:not_affected_by_geysers (1 values)
+
+minecraft:ender_dragon
+
+not_scary_for_pufferfish
+Entities in this tag do not cause nearby pufferfish to inflate.
+
+[NBT List / JSON Array] #minecraft:not_scary_for_pufferfish (14 values)
+
+minecraft:cod
+minecraft:dolphin
+minecraft:elder_guardian
+minecraft:glow_squid
+minecraft:guardian
+minecraft:nautilus
+minecraft:pufferfish
+minecraft:salmon
+minecraft:squid
+minecraft:sulfur_cube
+minecraft:tadpole
+minecraft:tropical_fish
+minecraft:turtle
+minecraft:zombie_nautilus
+
+powder_snow_walkable_mobs
+Entities in this tag can walk on top of powder snow without sinking.
+
+[NBT List / JSON Array] #minecraft:powder_snow_walkable_mobs (4 values)
+
+minecraft:endermite
+minecraft:fox
+minecraft:rabbit
+minecraft:silverfish
+
+raiders
+Entities in this tag then follow on to achieve the effect of Glowing  when a bell is rung, and do not override a ravager's AI when riding one.
+Used in the advancement "Voluntary Exile".
+
+[NBT List / JSON Array] #minecraft:raiders (6 values)
+
+minecraft:evoker
+minecraft:illusioner
+minecraft:pillager
+minecraft:ravager
+minecraft:vindicator
+minecraft:witch
+
+redirectable_projectile
+Projectile entities with this tag get reflected by left clicking them.
+
+[NBT List / JSON Array] #minecraft:redirectable_projectile (3 values)
+
+minecraft:breeze_wind_charge
+minecraft:fireball
+minecraft:wind_charge
+
+sensitive_to_bane_of_arthropods
+Entities in this tag are affected by the Bane of Arthropods enchantment.
+
+[NBT List / JSON Array] #minecraft:sensitive_to_bane_of_arthropods (1 values)
+
+#minecraft:arthropod
+
+sensitive_to_impaling
+Entities in this tag are affected by the Impaling enchantment.
+
+[NBT List / JSON Array] #minecraft:sensitive_to_impaling (1 values)
+
+#minecraft:aquatic
+
+sensitive_to_smite
+Entities in this tag are affected by the Smite enchantment.
+
+[NBT List / JSON Array] #minecraft:sensitive_to_smite (1 values)
+
+#minecraft:undead
+
+skeletons
+Used in the 'entities/creeper.json' loot table to determine whether a random item in #creeper_drop_music_discs should drop.
+Used in the #undead tag.
+
+[NBT List / JSON Array] #minecraft:skeletons (6 values)
+
+minecraft:bogged
+minecraft:parched
+minecraft:skeleton
+minecraft:skeleton_horse
+minecraft:stray
+minecraft:wither_skeleton
+
+undead
+Armadillos roll up if entities in this tag are nearby.
+Used in the #can_breathe_under_water, #ignores_poison_and_regen, #inverted_healing_and_harm, #sensitive_to_smite, and #wither_friends tags.
+
+[NBT List / JSON Array] #minecraft:undead (4 values)
+
+#minecraft:skeletons
+#minecraft:zombies
+minecraft:phantom
+minecraft:wither
+
+wither_friends
+Entities in this tag are not targeted by and cannot hurt withers.
+
+[NBT List / JSON Array] #minecraft:wither_friends (1 values)
+
+#minecraft:undead
+
+zombies
+Contains all zombie mobs. Unused in vanilla aside from being used in other tags.
+Used in the #undead tag.
+
+[NBT List / JSON Array] #minecraft:zombies (9 values)
+
+minecraft:camel_husk
+minecraft:drowned
+minecraft:husk
+minecraft:zoglin
+minecraft:zombie
+minecraft:zombie_horse
+minecraft:zombie_nautilus
+minecraft:zombie_villager
+minecraft:zombified_piglin
+
+Removed tags
+
+axolotl_tempted_hostiles
+deflects_arrows
+deflects_tridents
+axolotl_tempted_hostiles
+Replaced with #axolotl_always_hostiles.
+Version added: 20w51a. Version removed: 21w13a.
+
+[NBT List / JSON Array] #minecraft:axolotl_tempted_hostiles (2 values)
+
+minecraft:drowned
+minecraft:guardian
+
+deflects_arrows
+Replaced with #deflects_projectiles.
+Version added: 23w45a. Version removed: 24w03a.
+
+[NBT List / JSON Array] #minecraft:deflects_arrows (1 values)
+
+minecraft:breeze
+
+deflects_tridents
+Replaced with #deflects_projectiles
+Version added: 23w45a. Version removed: 24w03a.
+
+[NBT List / JSON Array] #minecraft:deflects_tridents (1 values)
+
+minecraft:breeze
+
+History
+Java Edition1.1418w43a
+Added entity type tag.
+
+Added #skeletons tag.19w13b
+Added #raiders tag.1.1519w36a
+Added #beehive_inhabitors tag.19w45a
+Added #arrows tag.1.1620w09a
+Added #impact_projectiles tag.1.1720w46a
+Added #powder_snow_walkable_mobs tag.20w51a
+Added #axolotl_always_hostiles, and #axolotl_tempted_hostiles tags.21w03a
+Added #axolotl_always_hostiles tag.21w05a
+Added fox to #powder_snow_walkable_mobs tag.21w13a
+Added #axolotl_hunt_targets, #freeze_hurts_extra_types, and #freeze_immune_entity_types tags.
+
+Removed #axolotl_tempted_hostiles tag.
+
+Added drowned, elder_guardian, and guardian and removed cod, glow_squid, pufferfish, salmon, squid, and tropical_fish from #axolotl_always_hostiles tag.21w17a
+Added wither to #freeze_immune_entity_types tag.1.1922w11a
+Added tadpole to #axolotl_hunt_targets tag.22w14a
+Added #frog_food tag.1.19.4Pre-release 1
+Added #fall_damage_immune tag.Pre-release 2
+Added #dismounts_underwater tag.1.20.223w31a
+Added #non_controlling_rider tag.1.20.323w40a
+Added #can_breathe_under_water, #undead, and #zombies tags.
+
+Added skeleton_horse to #skeletons tag.23w42a
+Added firework_rocket to #impact_projectiles tag.1.20.3ExperimentUpdate 1.2123w45a
+Added #deflects_arrows, and #deflects_tridents tags.
+
+Added breeze to #deflects_arrows, #deflects_tridents, and #fall_damage_immune tag.Pre-Release 1
+Added #can_turn_in_boats tag.Pre-Release 2
+Added wind_charge to #impact_projectiles tag.1.20.524w03a
+Added #aquatic, #arthropod, #ignores_poison_and_regen, #illager, #illager_friends, #inverted_healing_and_harm, #not_scary_for_pufferfish, #sensitive_to_bane_of_arthropods, #sensitive_to_impaling, and #wither_friends tags.1.20.5ExperimentUpdate 1.2124w03a
+Renamed tags #deflects_tridents to #deflects_projectiles, and #deflects_arrows to #deflects_projectiles.24w04a
+Added #no_anger_from_wind_charge tag.24w06a
+Added breeze_wind_charge to #impact_projectiles tag.24w07a
+Added bogged to #no_anger_from_wind_charge tag.
+
+Added bogged to #skeletons tag.1.20.524w12a
+Added #sensitive_to_smite tag.1.20.5ExperimentUpdate 1.2124w13a
+Added #immune_to_infested, and #immune_to_oozing tags.1.20.5Pre-release 1
+Added #punchable_projectiles tag.1.20.5ExperimentUpdate 1.21Pre-release 1
+Added #punchable_projectiles tag.
+
+Added breeze_wind_charge, and wind_charge to #punchable_projectiles tag.1.20.5Pre-Release 3
+Renamed tag #punchable_projectiles to #redirectable_projectile.
+
+Added #redirectable_projectile tag.
+
+Removed #punchable_projectiles tag.1.20.5ExperimentUpdate 1.21Pre-Release 3
+Renamed tag #punchable_projectiles to #redirectable_projectile.
+
+Added #redirectable_projectile tag.
+
+Removed #punchable_projectiles tag.
+
+Added breeze_wind_charge, and wind_charge to #redirectable_projectile tag.1.2124w19a
+Moved folder tags/entity_types to tags/entity_type.24w18a
+Experimental tags are now available without using the "Update 1.21" experimental datapack.1.21.224w39a
+Added #boat tag.1.21.525w03a
+Added #can_equip_saddle tag.25w04a
+Added #can_wear_horse_armor tag.1.21.625w15a
+Added #can_equip_harness, and #followable_friendly_mobs tags.
+
+Added happy_ghast to #dismounts_underwater, and #fall_damage_immune tags.25w18a
+Added happy_ghast to  #followable_friendly_mobs tag.1.21.925w31a
+Added copper_golem to #can_breathe_under_water, and #fall_damage_immune tags.25w33a
+Added #accepts_iron_golem_gift, #candidate_for_iron_golem_gift, and #cannot_be_pushed_onto_boats tags.25w34a
+Removed guardian from #cannot_be_pushed_onto_boats tag.1.21.1125w41a
+Added #burn_in_daylight, #can_wear_nautilus_armor, and #nautilus_hostiles tags.
+
+Added nautilus, and zombie_nautilus to #aquatic, #can_equip_saddle, and #not_scary_for_pufferfish tags.
+
+Added nautilus to #can_breathe_under_water tag.
+
+Added zombie_horse to #can_wear_horse_armor tag.
+
+Added zombie_nautilus to #zombies tag.25w42a
+Added bogged, skeleton, stray, and wither_skeleton and removed #skeletons from #burn_in_daylight tag.25w43a
+Added nautilus, and zombie_nautilus to #cannot_be_pushed_onto_boats tag.25w44a
+Added #can_float_while_ridden tag.
+
+Added camel_husk to #can_equip_saddle tag.
+
+Added parched to #skeletons tag.
+
+Added camel_husk to #zombies tag.pre1
+Added camel_husk to #can_float_while_ridden tag.26.1snap5
+Added #cannot_be_age_locked tag.snap6
+Added skeleton_horse, zombie_horse, and villager to #cannot_be_age_locked tag.snap7
+Removed camel_husk, and hoglin from #cannot_be_age_locked tag.26.2snap1
+Added sulfur_cube to #non_controlling_rider, and #not_scary_for_pufferfish tags.snap3
+Added sulfur_cube to #cannot_be_pushed_onto_boats tag.pre4
+Added #not_affected_by_geysers tag.Upcoming Java Edition26.3snap1
+Added #cannot_be_dismounted_by_item_usage tag.
+
+Added poplar_boat to #boat tag.
+Navigation

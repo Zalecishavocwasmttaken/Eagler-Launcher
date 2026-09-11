@@ -1,0 +1,170 @@
+/time
+
+Permission levelrequired
+
+2 ‌[JE  only]
+1 ‌[BE  only]
+
+Restrictions
+
+Cheat only‌[BE  only]
+
+{
+    "title": "<code>/time</code>",
+    "rows": [
+        {
+            "field": "\n* 2 ‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Java Edition\">(link to Java Edition article, displayed as JE)  only</span></i>]</sup>\n* 1 ‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Bedrock Edition\">(link to Bedrock Edition article, displayed as BE)  only</span></i>]</sup>",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "(link to Cheat article, displayed as Cheat) only‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Bedrock Edition\">(link to Bedrock Edition article, displayed as BE)  only</span></i>]</sup>",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+Changes or queries the world's game time or the time of a world clock.
+
+Contents
+
+1 Usage
+2 Syntax
+3 Arguments
+4 Result
+5 Output
+6 Examples
+7 History
+
+7.1 Java Edition
+7.2 Bedrock Edition
+
+8 Notes
+9 External links
+10 Navigation
+
+Usage
+There are four types of time involved in this command:
+
+Gametime - The total number of game ticks that have elapsed in the world.
+Daylight cycle time (aka. internal daytime) - The total number of game ticks that have elapsed during the daylight cycle. It does not elapse when the game rule advance_time is false.
+Daytime - The number of game ticks that have elapsed since sunrise on current day. It is the result of dividing the daylight cycle time modulo 24,000.
+Day - The number of days that have elapsed during the daylight cycle. It is the result of floor division by 24,000 of the daylight cycle time.
+In Java Edition, if the world is frozen by the /tick command, the four times above do not elapse.
+
+World clock time - the time the world clock is set to.
+/time set ... command in Java Edition always directly sets the daylight cycle time to the specified number. But in Bedrock Edition, when time: TimeSpec is specified, it increases the daylight cycle time to meet the specified time: TimeSpec.
+For example:
+
+In Java Edition, when executing /time set day or /time set 1000, the daylight cycle time is set to 1000, so the "day" value returns to 0.
+In Bedrock Edition, when executing /time set 1000, the daylight cycle time is also set to 1000. But, for /time set day, if now the daylight cycle time is 25001 (1 day + 1001 ticks), after executing /time set day, it won't become 1000 or 25000, since it only increases the daylight cycle time when using time: TimeSpec. In fact, it turns into 49000 (2 days + 1000 ticks), and the "day" value becomes 2. If now the daylight cycle time is 25000 (1 day + 1000 ticks), after executing /time set day, it remains unchanged.
+Syntax
+Java Edition
+time add <time>
+time of <clock> add <time>
+Adds <time> to the specified world clock's daylight cycle time.
+time pause
+time of <clock> pause
+Pauses the specified world clock.
+time query gametime
+Queries the number of game ticks that have passed in the world.
+time query time
+time of <clock> query time
+Queries the number of game ticks that have passed in a <clock>.
+time query <timeline> repetition
+time of <clock> query <timeline> repetition
+Queries the number of repetitions that have passed using <clock>'s timeline <timeline>.
+time query <timeline>
+time of <clock> query <timeline>
+Queries the number of game ticks passed in this repetition of <clock>'s timeline <timeline>.
+time rate <rate>
+time of <clock> rate <rate>
+Sets the time advancement speed multiplier of the specified world clock.
+time resume
+time of <clock> resume
+Resumes the specified world clock
+time set (<time>|<timemarker>)
+time of <clock> set (<time>|<timemarker>)
+Sets the specified world clock's daylight cycle time to the specified time or time marker ((day|night|noon|midnight).
+Bedrock Edition
+time add <amount: int>
+Adds <time> to the daylight cycle time.
+time query <daytime|gametime|day>
+Queries current time.
+time set <amount: int>
+time set <time: TimeSpec>
+Sets the daylight cycle time.
+Arguments
+JE: <time>: timeBE: amount: int: int
+
+Specifies the time to add or set.
+In Java Edition, it must be a single-precision floating-point number suffixed with a unit. It must be not less than 0 gameticks. Units include:d: an in-game day, 24000 gameticks;s: a second, 20 gameticks;t (default and omitable): a single gametick; the default unit.The time is set to the closest integer after unit conversion to gametick. For example. .5d is same as 12000 gameticks.In Bedrock Edition it must be a [Int] 32-bit integer number.
+daytime|gametime|day
+
+Specifies the time to query. Must be daytime, gametime or day.
+JE: day|night|noon|midnight
+BE: time: TimeSpec: enum
+
+Specifies the time to set.
+Must be one of the following:
+ sunrise = 23,000‌[Bedrock Edition  only]
+ day = 1,000
+ noon = 6,000
+ sunset = 12,000‌[Bedrock Edition  only]
+ night = 13,000
+ midnight = 18,000
+JE: <clock>: resource
+
+Specifies the world clock to operate on. If not specified (/time instead of /time of <clock>), defaults to the default world clock of the dimension of execution. Currently, only the Overworld and the End have default world clocks, which are minecraft:overworld and minecraft:the_end respectively.
+Executing without specifying a world clock in a dimension without a default world clock raises an error.
+Must be a namespaced identifier of a registry registered in the minecraft:world_clock registry.
+JE: <timemarker>: resource
+
+Specifies the time marker to set the time to
+Must be a namespaced identifier. Upon execution, the command either attempts to retrieve an unregistered item based on this identifier, or send it to the client for processing.
+JE: <timeline>: resource
+
+Specifies the timeline to query.
+Must be a namespaced identifier of a registry registered in the minecraft:timeline registry.
+Result
+
+CommandTriggerJava EditionBedrock Edition
+
+AnyThe command is incomplete, or any argument is not specified correctly. Unparseable N/AThe specified world clock does not exist, a default world clock is not available in the current dimension, the specified timeline does not belong to the specified world clock, the specified time marker does not exist, or the clock is already at the specified time, paused, running, or at the specified rate. ErrorAnyOtherwiseSuccessful
+Output
+
+CommandEditionSituationSuccess Count/execute store success .../execute store result ...
+
+/time add .../time set ...Java EditionOn success11the daytime (the daylight cycle time modulo 24000) after execution/time query ...On success11the obtained valueAnyBedrock EditionOn fail0N/AN/AOn success1N/AN/A
+Examples
+To set the daylight cycle time to 1,000: time set 1000
+To add one day to the daylight cycle time: time add 24000
+To change/reset in-game day count to desired number: time set <desired day number*24000+time of day in ticks>; to change day count to day 472 at noon (6000): time set 11334000
+History
+Java Edition
+Java Edition Beta1.3
+Added /time.  Both add and set can be used.Java Edition1.3.112w16a
+/time is now usable in singleplayer.
+
+/time set now accepts day (equivalent to 0) and night (equivalent to 12500).1.7.213w36a
+/time set day now is equivalent to 1000, and /time set night now is equivalent to 13000.1.814w29a
+Added /time query, accepting daytime and gametime.1.915w49b
+/time query now accepts day as a value.1.1318w01a
+Added the options noon and midnight to /time set.26.1snap3
+The /time command is now based on world clocks.
+The return value (e.g. from /execute store) from the set and add subcommands is now the total elapsed ticks of the clock instead of the current time of day.pre1
+Added /time [of <clock>] rate <rate>.
+Bedrock Edition
+Pocket Edition Alphav0.16.0build 1
+Added /time.Bedrock Edition1.17.30beta 1.17.30.20
+Now /time set <amount: int> directly sets the daylight cycle time to the specified number, instead of incrementing the daylight cycle time to satisfy the specified daytime.Upcoming Bedrock Edition26.50ExperimentCreator World Clocks FeaturesPreview 26.50.26
+Added /time of for modifying world clocks.
+Supports add, set, pause, resume and query time. set can also target a time marker.
+Notes
+
+ Stored as a 64-bit signed integer, but returned modulo 231−1.
+
+External links
+"/time Command"     – Microsoft Learn, October 11, 2023.
+Navigation

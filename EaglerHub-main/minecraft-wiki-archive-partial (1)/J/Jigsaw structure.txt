@@ -1,0 +1,233 @@
+Jigsaw structure
+
+Biomes
+
+None
+
+Generates inexisting chunks  
+
+No
+
+Consists of
+
+Jigsaw Block
+
+{
+    "title": "Jigsaw structure",
+    "rows": [
+        {
+            "field": "None",
+            "label": "(link to Biome article, displayed as Biomes)"
+        },
+        {
+            "field": "No",
+            "label": "Generates in<br>existing chunks  "
+        },
+        {
+            "field": "\n* <span class=\"nowrap\"><span class=\"sprite-file\" style=\"\">(link to File:BlockSprite jigsaw-block.png article, displayed as 16x16px|link=Jigsaw Block|alt=|class=pixel-image|)</span>(link to Jigsaw Block article, displayed as <span class=\"sprite-text\">Jigsaw Block</span>)</span>",
+            "label": "Consists of"
+        }
+    ],
+    "invimages": [],
+    "images": [
+        "Jigsaw Block.png"
+    ]
+}
+
+Jigsaw structures are structures that generate using jigsaw blocks.
+They are used to generate pillager outposts, villages, bastion remnants, ancient cities, trail ruins, trial chambers and abandoned camps​[upcoming: Third Drop 2026]. The jigsaw structure generation can be customized using data packs in Java Edition or add-ons in Bedrock Edition.
+
+Contents
+
+1 Generation
+
+1.1 Step 1: Starting piece
+1.2 Step 2: Connecting pieces
+
+1.2.1 Connecting piece selection
+1.2.2 Connecting piece try
+1.2.3 Piece placement condition
+
+1.3 Step 3: Processing
+
+2 Pool aliases
+
+2.1 direct
+2.2 random
+2.3 random_group
+
+3 Data values
+
+3.1 ID
+3.2 Config
+
+4 History
+
+4.1 Java Edition
+4.2 Bedrock Edition
+
+5 Navigation
+
+Generation
+The generation places a number of pieces. A piece is usually a structure template, but can also be a placed feature. The pieces are organized into template pools. During generation pieces are randomly selected from a given template pool.
+When a structure is generated starting from a given chunk, it generates in a number of steps, detailed below.
+
+Step 1: Starting piece
+A jigsaw structure defines a [String][NBT Compound / JSON Object] start_pool. A piece is selected from this pool and placed at the starting position. Rotation and the starting template are chosen randomly, based on the chunk coordinates and the world seed. If the selected piece is a minecraft:empty_pool_element, the structure fails to generate.‌[JE  only] The starting position is the 0, 0 chunk coordinate of the starting chunk. If the [String] project_start_to_heightmap‌[JE  only]/[String] heightmap_projection‌[BE  only] is set, the start height is based on the specified heightmap, offset by the values result of [Int][NBT Compound / JSON Object] start_height. Otherwise, [Int][NBT Compound / JSON Object] start_height is used to determine the start height.
+If the structure defines a [String] start_jigsaw_name, then a jigsaw block with that name is randomly selected and then placed at the starting position. If no matching jigsaw block is found, the structure fails to generate. If the structure has [String] start_jigsaw_name unset, the north west corner of the (unrotated) piece is placed at the starting position.
+If the final starting piece position is not at least [Int] dimension_padding.bottom blocks away from the lower build limit and [Int] dimension_padding.top blocks away from the upper build limit, the structure fails to generate.
+Finally, the starting piece is put into a generation queue.
+
+Step 2: Connecting pieces
+The generation queue is processed sequentially. A piece is removed from the queue when it is processed. Of the processed (parent) piece all jigsaw blocks are then used to generate a connecting piece. The jigsaw blocks are handled in order from high to low selection priority set in each jigsaw block and a random order of jigsaw blocks with equal selection priority.
+
+Connecting piece selection
+The jigsaw block is referencing a "target pool". The "target pool" is used as an alias by the pool aliases referenced in [NBT List / JSON Array] pool_aliases to determine which template pool to use. If no pool alias is used then the "target pool" directly references the template pool to use.
+The connecting piece is determined using that template pool in following order:
+
+All the pieces from the template pool — in random order according to their weight.
+All the pieces from the fallback pool specified in the template pool — in random order according to their weight.
+If the maximum depth (defined by [Int] size‌[JE  only]/[Int] max_depth‌[BE  only]) is reached, point 1 is skipped.
+
+Connecting piece try
+From the tried piece a random jigsaw block is selected, that
+
+is facing outside of the bounds of the connecting piece
+has a "name" that matches the "target name" of the parent jigsaw block,
+has an orientation that is compatible with the parent jigsaw orientation (pieces can be rotated horizontally only).
+The piece is placed in the world such that the jigsaw blocks connect to each other. If the currently handled piece or the newly selected piece is set to terrain matching, the piece is moved vertically to align with the terrain.
+
+Piece placement condition
+The placement is then checked for validity. A piece has to:
+
+Not exceed the outer bounding box. If it is placed within another piece, then the bounding box of that piece is the outer bounding box, otherwise the outer bounding box is determined as:
+Horizontal side-length 2 * a + 1, where a = [Int] max_distance_from_center or [NBT Compound / JSON Object] max_distance_from_center.[Int] horizontal
+Vertical side-length 2 * a + 1, where a = [Int] max_distance_from_center or [NBT Compound / JSON Object] max_distance_from_center.[Int] vertical
+Centered in the center by XZ and lowest Y block of first piece.
+It then gets truncated on the top or bottom such that it is at least [Int] dimension_padding or [NBT Compound / JSON Object] dimension_padding.[Int] bottom‌[JE  only] blocks away from the lower build limit and [Int] dimension_padding or [NBT Compound / JSON Object] dimension_padding.[Int] top‌[JE  only] blocks away from the upper build limit.
+Not intersect with any other piece (except those that it is placed inside of)
+If parent is inside of grandparent, then not be outside of grandparent
+If the piece can't be placed, then the placement is retried with the next piece (see #Connecting piece selection). If all pieces can't be placed than no piece is placed for this jigsaw block.
+If the piece can be placed, then the newly placed piece is added to the generation queue according to the placement priority specified in the parent jigsaw block, but behind elements of equal placement priority already in the queue. The generation continues with the next jigsaw block of the parent piece.
+
+Step 3: Processing
+Finally, each piece is processed, changing or removing blocks from the template.
+The processing is done using the processor list specified for each piece in the template pool. Additionally, jigsaw blocks are replaced with the specified "Turns into" final state (using the minecraft:jigsaw_replacement processor in Java Edition). For pieces set to terrain matching each column of blocks is adjusted in height match the terrain (using the minecraft:gravity processor in Java Edition).
+Notes:
+
+ When the structure fails to generate, it can't be located using /locate and other structures from the same structure set can take its place.
+
+ When [Boolean] use_expansion_hack is set to true, the bounding box of the pieces is extended to the height of the highest possible child piece (except when parent piece is generated by the [String][NBT Compound / JSON Object] start_pool).
+
+Pool aliases
+Pool aliases are used to redirect the alias "target pool" referenced in jigsaw blocks to a (different) template pools. The redirections are determined before the generation starts, so in a single structure all references to a specific alias template pool are rewired to the same target template pool. Any alias that is not redirected by a pool alias is used directly as reference to a template pool.
+
+direct
+All references to [String] alias are rewired to [String] target.
+
+[NBT Compound / JSON Object]: a pool alias
+[String] type: direct
+[String] alias: ID — alias to be redirected
+[String] target: One template pool (an [String] ID) — target for redirection
+
+random
+A target selected from [NBT List / JSON Array] targets per structure. All references to [String] alias are rewired that target.
+
+[NBT Compound / JSON Object]: a pool alias
+[String] type: random
+[String] alias: ID
+[NBT List / JSON Array] targets: list of possible rewiring targets
+[NBT Compound / JSON Object]: a rewiring target
+[Int] weight: The chance of this target to be selected
+[String] data: One template pool (an [String] ID) — target for redirection if selected
+
+random_group
+A alias group is selected from [NBT List / JSON Array] groups per structure. All pool aliases in that group are used.
+
+[NBT Compound / JSON Object]: a pool alias
+[String] type: random_group
+[NBT List / JSON Array] groups list of possible rewiring groups. One group is selected per structure generation.
+[NBT Compound / JSON Object]: a group
+[Int] weight: The chance of this group to be selected
+[NBT List / JSON Array] data: list of pool aliases to be used if the group is selected
+[NBT Compound / JSON Object]: any pool alias
+
+Data values
+ID
+Java Edition:
+
+Structure typeIdentifier
+ Jigsawjigsaw
+
+Config
+Java Edition:
+
+[NBT Compound / JSON Object] Structure configuration
+[String] type: jigsaw
+Fields common to all structures see Template:Nbt inherit/structure/template
+[String][NBT Compound / JSON Object] start_pool: One template pool (an [String] ID, or a new [NBT Compound / JSON Object] template pool definition) — The template pool the structure starts from.
+[Int] size: Value between 0 and 20 (inclusive) — The depth of jigsaw structures to generate.
+[Int][NBT Compound / JSON Object] start_height: If project_start_to_heightmap is unset, the structure will start at the value provided. Otherwise, the value acts as an offset from the heightmap.
+Height provider see Template:Nbt inherit/height provider/template
+[String] project_start_to_heightmap: (optional) The heightmap the start height should project to. Can be WORLD_SURFACE_WG, WORLD_SURFACE, OCEAN_FLOOR_WG, OCEAN_FLOOR, MOTION_BLOCKING, or MOTION_BLOCKING_NO_LEAVES.
+[String] start_jigsaw_name: (optional) The name of the jigsaw block the structure start attaches to.
+[Int][NBT Compound / JSON Object] max_distance_from_center: Defines the maximum distance of any piece from the structure start. When defined as a single number, defines both horizontal and vertical distance and is limited to the limits of [Int] horizontal (see below).
+[Int] horizontal: Value between 1 and 128 (inclusive) when [String] terrain_adaptation is "none", otherwise from 1 to 116 (inclusive). — The maximum horizontal Chebyshev distance from the jigsaw pieces to the structure start.
+[Int] vertical: Optional value between 1 and 4064 (defaults to 4064) — The maximum vertical distance of any piece to the structure start.
+[Boolean] use_expansion_hack: Allows the structure's vertical limit to be expanded if necessary. Used in villages to prevent cut-off when terrain height varies.
+[NBT List / JSON Array] pool_aliases: (optional) used to rewire jigsaw pool connections by redirecting pool references on individual structure instances.
+[NBT Compound / JSON Object]: pool alias
+[Int][NBT Compound / JSON Object] dimension_padding: (optional, defaults to 0). Padding on the top and bottom world limit. [Int]: shorthand to set the same value for [Int] bottom and [Int] top.
+[Int] bottom: (optional, defaults to 0), non-negative. Amount of blocks at the bottom build limit that are excluded from the outer bounding box of the structure.
+[Int] top: (optional, defaults to 0), non-negative. Amount of blocks at the top build limit that are excluded from the outer bounding box of the structure.
+[String] liquid_settings: (optional, defaults to apply_waterlogging). How blocks with waterlogged block state should generate when they overlap with existing water. apply_waterlogging: waterlog block placed inside water, ignore_waterlogging: keep the waterlogged block state as is.
+
+Bedrock Edition:
+
+[NBT Compound / JSON Object] Structure configuration
+[String] format_version: ​[more information needed]
+[NBT Compound / JSON Object] minecraft:jigsaw
+[NBT Compound / JSON Object] description
+[String] identifier: The identifier used for /locate and /place
+[NBT Compound / JSON Object] biome_filter: Biomes that this structure is allowed to generate in. ​[more information needed]
+[String] step: The step where the structure generates. ​[more information needed]
+[String] terrain_adaptation: (Optional, defaults to none) The type of terrain adaptation used for the structure. none for no adaptation, beard_thin is used by pillager outposts and villages, beard_box is used by ancient cities, bury is used by strongholds, and encapsulate is used by Trial Chambers.
+[String] start_pool: One template pool (an [String] ID) — The template pool the structure starts from.
+[Int] max_depth: Value between 0 and 20 (inclusive) — The depth of jigsaw structures to generate.
+[Int][NBT Compound / JSON Object] start_height: If heightmap_projection is unset, the structure will start at the value provided. Otherwise, the value acts as an offset from the heightmap. ​[more information needed]
+Height provider see Template:Nbt inherit/height provider/template
+[String] heightmap_projection: (optional) The heightmap the start height should project to. Can be world_surface or sea_floor.
+[String] start_jigsaw_name: (optional) The name of the jigsaw block the structure start attaches to.
+[Int] max_distance_from_center: The maximum 3D Chebyshev distance from the jigsaw pieces to the structure start. Value between 1 and 128 (inclusive) [verify].
+[NBT List / JSON Array] pool_aliases: (optional) used to rewire jigsaw pool connections by redirecting pool references on individual structure instances.
+[NBT Compound / JSON Object]: pool alias
+[Int] dimension_padding: (optional, defaults to 0). Padding on the top and bottom world limit.
+[String] liquid_settings: (optional, defaults to apply_waterlogging). How water interacts with the structure when it is generated. Can be apply_waterlogging or ignore_waterlogging.
+
+History
+Java Edition
+Java Edition1.1418w46a
+Added jigsaw blocks.18w47a
+Added jigsaw structures in the form of pillager outpost.1.16.220w28a
+Jigsaw structures can now be customized in data packs, using configured_structure_features of type village, pillager_outpost, and bastion_remnant. They have a maximum radius of 80 blocks.1.19Deep Dark Experimental Snapshot 1
+Jigsaw structures with radius 128[verify] can now be generated using the configured_structure_features type ancient_city.22w11a
+Merged the structure types village, pillager_outpost and bastion_remnant into a single type jigsaw .
+
+Added [Int][NBT Compound / JSON Object] start_height, [String] project_start_to_heightmap and [Boolean] use_expansion_hack.22w12a
+Added [Int] max_distance_from_center.22w13a
+Replaced [Boolean] adapt_noise with [String] terrain_adaptation.22w17a
+Added [String] start_jigsaw_name.1.20.323w42a
+Added [NBT List / JSON Array] pool_aliases.1.2124w19a
+Added [Int] dimension_padding.24w20a
+[Int][NBT Compound / JSON Object] dimension_padding can now also be specified separately for [Int] bottom and [Int] top padding.pre1
+Added [String] liquid_settings.1.21.925w31a
+[Int][NBT Compound / JSON Object] max_distance_from_center can now also be specified separately for [Int] horizontal and [Int] vertical distance.
+Bedrock Edition
+Bedrock Edition1.10.0beta 1.10.0.3
+Added jigsaw blocks.1.21.50ExperimentData-Driven Jigsaw StructuresPreview 1.21.50.26
+Jigsaw structures can now be customized in add-ons, using files json.1.21.80ExperimentData-Driven Jigsaw StructuresPreview 1.21.80.22
+Added [Int] start_height, [Int] dimension_padding, [Int] max_distance_from_center and [NBT List / JSON Array] pool_aliases.1.21.90ExperimentData-Driven Jigsaw StructuresPreview 1.21.90.21
+Added [String] liquid_settings1.21.100ExperimentData-Driven Jigsaw StructuresPreview 1.21.100.20
+[Int][NBT Compound / JSON Object] max_distance_from_center now parses horizontal and vertical values separately in an object while supporting horizontal only with parsing as a constant, the vertical value is now optional and defaults to having no limit.1.21.120Preview 1.21.120.23
+Jigsaw structures can now be customized without using any experiments.
+Navigation

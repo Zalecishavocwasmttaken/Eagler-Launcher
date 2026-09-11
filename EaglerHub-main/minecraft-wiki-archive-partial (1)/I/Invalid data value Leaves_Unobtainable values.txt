@@ -1,0 +1,20 @@
+From versions in-20100131 to 14w05b, the historical appearances of leaves with damage 16 and above can be treated identically to those of damage 0 to 15, as the only visual difference is the durability bar in versions prior to Beta 1.4. There is currently no known way to obtain any of these in Survival mode; commands or inventory editors must be used.
+Currently, the only tested items have damage values from 0 to 383. The behavior of values from 384 to 2147483647 is yet to be documented; from versions up to 14w08a as well as versions 14w25a and later they appear to be predictable.
+
+Java Edition1.814w06a
+ Leaves with damage values 16 to 31 inclusive, as well as 48 to 127 inclusive, now appear untinted as items. 32 to 47 remain colored like before.
+
+ Leaves with damage values 128 to 255 now appear 2D as items.
+
+This overall pattern appears to repeat modulo 256.14w07a
+ Leaves with damage values 16 and above now appear 2D as items.14w10a
+Invalid data value leaves now appear to have far more unpredictable models as damage values increase. This is due to the item picking model data from higher block IDs, however not all block models are copied. This complex behavior does not seem to repeat at any scale which has currently been checked.
+
+ Leaves with a damage value of 16, 48, 64, 80, 96 or 104 now appear 3D and untinted.​[more information needed]
+
+Most other damage values which were previously 2D and colored 17 to 31 remain as such. However, some groups exist of leaves which become 3D and uncolored, such as 82-85, 90-93, 114-117 and 122-125.​[more information needed]
+
+ Damage values 32 to 47 are once again 3D. Data values 256 to 271 as well as 288 to 303 also now appear 3D and colored.
+
+  From 128 to 143, several leaves items will have 3D models which are slab height, rather than a full block. These items actually use the model for beds, as is evidenced by one horizontal face (corresponding to the inside of the bed) being absent from each item, as well as the bottom face being indented.​[more information needed] 132 to 135 appear identical to 128 to 131 respectively, and 140 to 143 appear identical to 136 to 139. Items 160 to 175 also use the bed models, appearing identical to these.14w25a
+ All leaves with damage values above 3, therefore including those above 15, no longer have a model. Refer to the previous history sections for more information on how the missing item model changed.

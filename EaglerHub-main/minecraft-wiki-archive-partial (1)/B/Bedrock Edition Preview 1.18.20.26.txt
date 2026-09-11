@@ -1,0 +1,267 @@
+Preview 1.18.20.26
+
+Edition
+
+Bedrock Edition
+
+Release date
+
+Windows, Android, iOS, iPadOS, Xbox: February 9, 2022
+
+Internal version
+
+Beta
+Windows: 1.18.2025.0
+Xbox One: 1.18.2025.70
+Android: 1.18.20.25
+Preview
+Windows: 1.18.2026.0
+Xbox One: 1.18.2026.70
+iOS, iPadOS: 1.18.20.26
+
+Type
+
+Preview
+
+Preview for
+
+1.18.30
+
+Protocol version
+
+491
+
+◄◄   1.18.12
+1.18.30
+  1.18.31 ►►
+
+◄   Preview 1.18.20.24
+
+ Preview 1.18.20.26
+
+  Preview 1.18.20.28 ►
+
+{
+    "title": "Preview 1.18.20.26",
+    "images": [
+        "Bedrock 1.18.20.25 PatchNotes.jpg",
+        "Bedrock 1.18.20.25.png",
+        "Bedrock 1.18.20.26.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Bedrock Edition article, displayed as Bedrock Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "'''Windows, Android, iOS, iPadOS, Xbox''': February 9, 2022",
+            "label": "Release date"
+        },
+        {
+            "field": "\n;Beta\n'''Windows''': 1.18.2025.0<br>\n'''Xbox One''': 1.18.2025.70<br>\n'''Android''': 1.18.20.25<br>\n'''Preview'''\n'''Windows''': 1.18.2026.0<br>\n'''Xbox One''': 1.18.2026.70<br>\n'''iOS, iPadOS''': 1.18.20.26<br>",
+            "label": "Internal version"
+        },
+        {
+            "field": "Preview",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Bedrock Edition 1.18.30 article, displayed as 1.18.30)",
+            "label": "Preview for"
+        },
+        {
+            "field": "491",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Bedrock Edition  1.18.12|<span style=\"margin-right:-0.35em\">◄</span>◄   1.18.12]]</td>\n<td style=\"padding: 0.4em\">'''[[Bedrock Edition 1.18.30|1.18.30]]'''</td>\n<td style=\"padding: 0.4em\" >[[Bedrock Edition  1.18.31|  1.18.31 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Bedrock Edition  Preview 1.18.20.24|◄   Preview 1.18.20.24]]\n</td>\n<td style=\"padding: 0.4em\">''' Preview 1.18.20.26'''</td>\n<td style=\"padding: 0.4em\">\n[[Bedrock Edition  Preview 1.18.20.28|  Preview 1.18.20.28 ►]]\n</td>\n</tr>\n</table>"
+}
+
+Beta 1.18.20.25 (Windows, Android, Xbox) or Preview 1.18.20.26 (Windows, iOS, iPadOS, Xbox) is the third beta/Preview version for Bedrock Edition 1.18.30, released on February 9, 2022, which makes changes to the hunger system, and fixes bugs.
+
+Contents
+
+1 Additions
+
+1.1 Command format
+
+2 Changes
+
+2.1 Gameplay
+2.2 Items
+
+3 Experimental
+
+3.1 Changes
+
+3.1.1 Blocks
+3.1.2 Items
+3.1.3 Technical
+
+4 Fixes
+5 Notes
+6 References
+7 Navigation
+
+Additions
+Command format
+/placefeature
+
+Used to place a configured feature at a given location.
+Was removed in the next beta due to the commands being not fully implemented yet.
+Changes
+Gameplay
+Hunger
+
+The rate of hunger depletion can now be changed with behavior packs (add-ons).
+Exhaustion levels: the rate that hunger decreases has been changed to better match Java Edition, so players can now properly lose hunger when sprinting or swimming and lose significantly less hunger when jumping.
+
+Action
+
+Old rate
+
+New rate
+
+Units
+
+Swimming
+
+0
+
+0.01 
+
+per meter
+
+Sprinting
+
+0
+
+0.1
+
+per meter
+
+Breaking a block
+
+0.025
+
+0.005
+
+per block broken
+
+Jumping
+
+0.4  
+
+0.05 
+
+per jump
+
+Attacking an enemy
+
+0.3  
+
+0.1  
+
+per attack landed
+
+Jumping while sprinting
+
+1.6  
+
+0.2  
+
+per jump
+
+Items
+Boats
+
+The item sprite of spruce boat has been changed from  to . However, this change is not visible in-game.
+Experimental
+These additions and changes are accessible by enabling the "Wild Update", "Vanilla Experiments", "Upcoming Creator Features", and "GameTest Framework" experimental toggle.
+
+Changes
+Blocks
+Frog spawn
+
+Frog Spawn is no longer invisible when seen from below.
+Froglights
+
+No longer randomly rotate.
+Can now be placed sideways.
+ Changed their textures.
+Items
+Goat horns
+
+A sound now plays when a Horn breaks off a goat.
+An animation is now shown when using the goat horn in both 1st and 3rd person views.
+Technical
+GameTest Framework
+
+BlockInventoryComponent
+Fixed accessing items in a double chest crashing/being inconsistent
+Added nameTagproperty
+Added idproperty
+Added MinecraftDimensionTypeswith constants for built-in dimension IDs
+Added spawnItemto spawn an ItemStack in the dimension
+Exposed the following components for Entities:
+minecraft:can_climb
+minecraft:can_fly
+minecraft:can_power_jump
+minecraft:fire_immune
+minecraft:floats_in_liquid
+minecraft:is_dyable
+minecraft:is_baby
+minecraft:is_charged
+minecraft:is_chested
+minecraft:is_hidden_when_invisible
+minecraft:is_ignited
+minecraft:is_illager_captain
+minecraft:is_saddled
+minecraft:is_shaking
+minecraft:is_sheared
+minecraft:is_stackable
+minecraft:is_stunned
+minecraft:is_tamed
+minecraft:wants_jockey
+Volume
+
+Volume definitions are now stored and read from behavior packs instead of being part of the level directory.
+Fixes
+Gameplay
+
+Removed water from the extra-block when placing an amethyst cluster (MCPE-148394)
+Reverted fix for coral fan pathing
+Tweaked hunger depletion rate to better match Java Edition (MCPE-56031)
+Players can now properly lose hunger when sprinting or swimming
+Players lose significantly less hunger when jumping
+Exhaustion rates can now be tweaked in behavior packs
+Mobs
+
+Fixed an issue where entities with Fire Resistance effect or entities that are naturally immune to fire can take damage from cauldrons filled with lava (MCPE-65962)
+Mobs that are riding a boat, for example, can no longer use JumpToBlockGoal (MCPE-150750)
+User Interface
+
+Crouch (sneak) state is now reset when player dies to avoid getting stuck in crouch state after respawning
+The Resource Packs tab in the new Create New World screen is now available.
+Technical
+
+Using /playanimation command now updates paper doll and inventory character (MCPE-137353)
+Using biome-specific vanilla fog settings as default when overriding fog settings.
+Title commands fired before a client was done joining now shows instead of being ignored.
+Fixed a case where ray tracing resources would be destroyed prematurely on level exit from an RTX-enabled world.
+Notes
+
+ Bedrock Edition 1.18.20 is not a version of the game and its betas are instead part of 1.18.30.
+
+References
+
+ 1.18.20 rolled into 1.18.30; CornerHard on Twitch - March 30, 2022
+
+ "Minecraft Beta - 1.18.20.25 (Xbox / Windows / Android)"     – feedback.minecraft.net, February 9, 2022.
+
+ "@MCPE4theBeacon Not quite ready for full implementation. You might see it go away in the next beta, but the team is still working hard on it!"  – @MattGartzke  on X (formerly Twitter), February 10, 2022
+
+ MCPE-152262
+
+Navigation

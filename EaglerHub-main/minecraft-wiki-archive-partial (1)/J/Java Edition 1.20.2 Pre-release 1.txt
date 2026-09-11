@@ -1,0 +1,1461 @@
+Minecraft 1.20.2 Pre-release 1
+
+Edition
+
+Java Edition
+
+Release date
+
+September 5, 2023
+
+Type
+
+Pre-release
+
+Pre-release for
+
+1.20.2
+
+Downloads
+
+Client (.json)Server
+
+Obfuscation maps
+
+ClientServer
+
+Protocol version
+
+ dec: 1073741972 hex: 40000094
+
+Data version
+
+3572
+
+Resource pack format
+
+17
+
+Data pack format
+
+18
+
+Minimum Java version
+
+Java SE 17
+
+◄◄   1.20.1
+1.20.2
+  1.20.3 ►►
+
+◄   23w35a
+
+ 1.20.2 Pre-release 1
+
+  1.20.2 Pre-release 2 ►
+
+{
+    "title": "Minecraft 1.20.2 Pre-release 1",
+    "images": [
+        "1.20.2-pre1.jpg",
+        "Java Edition 1.20.2 Pre-release 1.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "September 5, 2023",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Pre-release article, displayed as Pre-release)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition 1.20.2 article, displayed as 1.20.2)",
+            "label": "Pre-release for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/fbbd743e671b0faa872be8ff8caab6189178912c/client.jar Client] ([https://piston-meta.mojang.com/v1/packages/39b8ee6bd43752f3b5cf0405acc0ed686991a151/1.20.2-pre1.json .json])<br />[https://piston-data.mojang.com/v1/objects/7fa1c9c59238ee98696da880d361d96c728dd9ea/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/a87ae393f7368e31d6e130014e86872803cdd3f0/client.txt Client]<br />[https://piston-data.mojang.com/v1/objects/fcf4d256daa79d32ee029604052c6ea5fa4193c2/server.txt Server]",
+            "label": "(link to Obfuscation map article, displayed as Obfuscation maps)"
+        },
+        {
+            "field": " <span style=\"font-size:smaller\"><abbr title=\"decimal\">dec</abbr>: </span>1073741972<br /> <span style=\"font-size:smaller\"><abbr title=\"hexadecimal\">hex</abbr>: </span>40000094",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "3572",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "17",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "18",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Data pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_17_.28LTS.29 Java SE 17]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Java Edition  1.20.1|<span style=\"margin-right:-0.35em\">◄</span>◄   1.20.1]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition 1.20.2|1.20.2]]'''</td>\n<td style=\"padding: 0.4em\" >[[Java Edition  1.20.3|  1.20.3 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  23w35a|◄   23w35a]]\n</td>\n<td style=\"padding: 0.4em\">''' 1.20.2 Pre-release 1'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  1.20.2 Pre-release 2|  1.20.2 Pre-release 2 ►]]\n</td>\n</tr>\n</table>"
+}
+
+1.20.2 Pre-release 1 (known as 1.20.2-pre1 in the launcher) is the first pre-release for Java Edition 1.20.2, released on September 5, 2023, which adds further experimental changes to villagers and village explorer maps.
+
+Contents
+
+1 Additions
+
+1.1 General
+
+2 Changes
+
+2.1 Items
+2.2 Gameplay
+2.3 Command format
+2.4 General
+
+3 Experimental
+
+3.1 Changes
+
+3.1.1 World generation
+3.1.2 Gameplay
+
+4 Fixes
+5 Videos
+6 Notes
+7 References
+8 Navigation
+
+Additions
+General
+Game rule
+
+Added enderPearlsVanishOnDeath, controlling whether thrown ender pearls vanish when the player that threw them dies, defaults to true.
+Tags
+
+Added the following structure tags:
+#on_desert_village_maps: contains village_desert.
+#on_jungle_explorer_maps: contains jungle_pyramid.
+#on_plains_village_maps: contains village_plains.
+#on_savanna_village_maps: contains village_savanna.
+#on_snowy_village_maps: contains village_snowy.
+#on_swamp_explorer_maps: contains swamp_hut.
+#on_taiga_village_maps: contains village_taiga.
+Changes
+Items
+Explorer map
+
+Updated structure icons on explorer maps sold by cartographers.
+Gameplay
+Recipe book
+
+The recipe book search has been updated.
+The search only matches the beginning of any word in the item's name.
+For example, searching for "tor" still shows torch and redstone torch, but not daylight detector anymore.
+All recipes, including those that have not been unlocked, now show up in search results.
+Trading
+
+When villagers unlock new trades, the order of those trades in the UI is now always random instead of sometimes being deterministic.
+Command format
+Functions
+
+Numbers used as macro arguments are now always inserted without suffixes, regardless of numeric type.
+/execute
+
+Temporarily removed syntax /execute (if|unless) function.
+/return
+
+Temporarily removed syntax /return run.
+General
+Data pack
+
+The data pack version is now 18.
+Protocol
+
+Client options are now sent during the configuration network phase when joining a server.
+Experimental
+Changes
+These changes are accessible by enabling the "Villager Trade Rebalance" experimental data pack.
+
+World generation
+Ancient city
+
+Increases the chance of generating enchanted books with Mending.
+Desert temple
+
+Increases the chance of generating enchanted books with Unbreaking (level I to III).
+Jungle temple
+
+Increases the chance of generating enchanted books with Unbreaking (level I to III).
+Mineshaft
+
+Increases the chance of generating enchanted books with Efficiency (level I to V).
+Pillager outpost
+
+Increases the chance of generating enchanted books with Quick Charge (level I to III).
+Gameplay
+Trading
+
+Added seven new maps which cartographers can sell, depending on the biome they come from.
+Jungle and swamp villages do not generate naturally. Thus, players must breed villagers or cure zombie villagers in these biomes to access their trades.
+Village maps points to a village in a specific biome. Jungle explorer map points to a jungle pyramid. Swamp explorer map points to a swamp hut.
+
+Available new tradable maps
+
+Desert
+Jungle
+Plains
+Savanna
+Snow
+Swamp
+Taiga
+
+Group 1
+
+Savanna Village Map
+Savanna Village Map
+Savanna Village Map
+Desert Village Map
+Plains Village Map
+Snowy Village Map
+Plains Village Map
+
+Group 2
+
+Plains Village Map
+Desert Village Map
+Taiga Village Map
+Plains Village Map
+Taiga Village Map
+Taiga Village Map
+Snowy Village Map
+
+Group 3
+
+Jungle Explorer Map
+Swamp Explorer Map
+–
+Jungle Explorer Map
+Swamp Explorer Map
+Jungle Explorer Map
+Swamp Explorer Map
+
+Current version of trades for cartographer
+
+Level
+Item wanted
+Default quantity
+Price multiplier
+Item given
+Quantity
+Trades until disabled
+XP to villager
+
+Novice
+
+Paper
+24
+0.05
+Emerald
+1
+16
+2
+
+Emerald
+7
+0.05
+Empty Map
+1
+12
+1
+
+Apprentice
+
+Glass Pane
+11
+0.05
+Emerald
+1
+16
+10
+
+EmeraldCompass
+81
+0.2
+Forementioned maps
+1
+12
+5
+
+Journeyman
+
+Compass
+1
+0.05
+Emerald
+1
+12
+10
+
+EmeraldCompass
+131
+0.2
+Ocean Explorer Map
+1
+12
+10
+
+Expert
+
+Emerald
+7
+0.05
+Item Frame
+1
+12
+15
+
+Emerald
+3
+0.05
+Any color blank banner
+1
+12
+15
+
+Master
+
+Emerald
+8
+0.05
+Globe Banner Pattern
+1
+12
+30
+
+EmeraldCompass
+141
+0.2
+Woodland Explorer Map
+1
+1
+30
+
+Changed trades of armorers:
+Buying diamond armor now also requires a small amount of diamonds.
+Most master-level armorers buy iron blocks and pay 4 emeralds for them.
+Chainmail armor is exclusively sold by jungle and swamp armorers.
+The savanna armorer sells cursed diamond armor at reduced prices.
+The taiga armorer can swap one piece of diamond armor for another.
+
+Current version of trades for desert armorers
+
+Level
+Item wanted
+Default quantity
+Price multiplier
+Item given
+Quantity
+Trades until disabled
+XP to villager
+
+Novice
+
+Coal
+15
+0.05
+Emerald
+1
+12
+2
+
+Iron Ingot
+5
+0.05
+Emerald
+1
+12
+2
+
+Apprentice
+
+Emerald
+4
+0.05
+Iron Boots
+1
+12
+5
+
+Emerald
+5
+0.05
+Iron Helmet
+1
+12
+5
+
+Emerald
+7
+0.05
+Iron Leggings
+1
+12
+5
+
+Emerald
+9
+0.05
+Iron Chestplate
+1
+12
+5
+
+Journeyman
+
+Lava Bucket
+1
+0.05
+Emerald
+1
+12
+20
+
+Emerald
+5
+0.05
+Shield
+1
+12
+10
+
+Emerald
+36
+0.2
+Bell
+1
+12
+10
+
+Expert
+
+Emerald
+8
+0.05
+Iron Boots (Thorns I)
+1
+3
+15
+
+Emerald
+9
+0.05
+Iron Helmet (Thorns I)
+1
+3
+15
+
+Emerald
+11
+0.05
+Iron Leggings (Thorns I)
+1
+3
+15
+
+Emerald
+13
+0.05
+Iron Chestplate (Thorns I)
+1
+3
+15
+
+Master
+
+EmeraldDiamond
+164
+0.05
+Diamond Chestplate (Thorns I)
+1
+3
+30
+
+EmeraldDiamond
+163
+0.05
+Diamond Leggings (Thorns I)
+1
+3
+30
+
+Block of Iron
+1
+0.05
+Emerald
+4
+12
+30
+
+Current version of trades for jungle armorers
+
+Level
+Item wanted
+Default quantity
+Price multiplier
+Item given
+Quantity
+Trades until disabled
+XP to villager
+
+Novice
+
+Coal
+15
+0.05
+Emerald
+1
+12
+2
+
+Iron Ingot
+5
+0.05
+Emerald
+1
+12
+2
+
+Apprentice
+
+Emerald
+4
+0.05
+Chainmail Boots
+1
+12
+5
+
+Emerald
+5
+0.05
+Chainmail Helmet
+1
+12
+5
+
+Emerald
+7
+0.05
+Chainmail Leggings
+1
+12
+5
+
+Emerald
+9
+0.05
+Chainmail Chestplate
+1
+12
+5
+
+Journeyman
+
+Lava Bucket
+1
+0.05
+Emerald
+1
+12
+20
+
+Emerald
+5
+0.05
+Shield
+1
+12
+10
+
+Emerald
+36
+0.2
+Bell
+1
+12
+10
+
+Expert
+
+Emerald
+8
+0.05
+Chainmail Boots (Unbreaking I)
+1
+3
+15
+
+Emerald
+9
+0.05
+Chainmail Helmet (Unbreaking I)
+1
+3
+15
+
+Emerald
+11
+0.05
+Chainmail Leggings (Unbreaking I)
+1
+3
+15
+
+Emerald
+13
+0.05
+Chainmail Chestplate (Unbreaking I)
+1
+3
+15
+
+Master
+
+Emerald
+9
+0.05
+Chainmail Helmet (Projectile Protection I)
+1
+3
+30
+
+Emerald
+8
+0.05
+Chainmail Boots (Feather Falling I)
+1
+3
+30
+
+Block of Iron
+1
+0.05
+Emerald
+4
+12
+30
+
+Current version of trades for plains armorers
+
+Level
+Item wanted
+Default quantity
+Price multiplier
+Item given
+Quantity
+Trades until disabled
+XP to villager
+
+Novice
+
+Coal
+15
+0.05
+Emerald
+1
+12
+2
+
+Iron Ingot
+5
+0.05
+Emerald
+1
+12
+2
+
+Apprentice
+
+Emerald
+4
+0.05
+Iron Boots
+1
+12
+5
+
+Emerald
+5
+0.05
+Iron Helmet
+1
+12
+5
+
+Emerald
+7
+0.05
+Iron Leggings
+1
+12
+5
+
+Emerald
+9
+0.05
+Iron Chestplate
+1
+12
+5
+
+Journeyman
+
+Lava Bucket
+1
+0.05
+Emerald
+1
+12
+20
+
+Emerald
+5
+0.05
+Shield
+1
+12
+10
+
+Emerald
+36
+0.2
+Bell
+1
+12
+10
+
+Expert
+
+Emerald
+8
+0.05
+Iron Boots (Protection I)
+1
+3
+15
+
+Emerald
+9
+0.05
+Iron Helmet (Protection I)
+1
+3
+15
+
+Emerald
+11
+0.05
+Iron Leggings (Protection I)
+1
+3
+15
+
+Emerald
+13
+0.05
+Iron Chestplate (Protection I)
+1
+3
+15
+
+Master
+
+EmeraldDiamond
+163
+0.05
+Diamond Leggings (Protection I)
+1
+3
+30
+
+EmeraldDiamond
+162
+0.05
+Diamond Boots (Protection I)
+1
+3
+30
+
+Block of Iron
+1
+0.05
+Emerald
+4
+12
+30
+
+Current version of trades for savanna armorers
+
+Level
+Item wanted
+Default quantity
+Price multiplier
+Item given
+Quantity
+Trades until disabled
+XP to villager
+
+Novice
+
+Coal
+15
+0.05
+Emerald
+1
+12
+2
+
+Iron Ingot
+5
+0.05
+Emerald
+1
+12
+2
+
+Apprentice
+
+Emerald
+4
+0.05
+Iron Boots
+1
+12
+5
+
+Emerald
+5
+0.05
+Iron Helmet
+1
+12
+5
+
+Emerald
+7
+0.05
+Iron Leggings
+1
+12
+5
+
+Emerald
+9
+0.05
+Iron Chestplate
+1
+12
+5
+
+Journeyman
+
+Lava Bucket
+1
+0.05
+Emerald
+1
+12
+20
+
+Emerald
+5
+0.05
+Shield
+1
+12
+10
+
+Emerald
+36
+0.2
+Bell
+1
+12
+10
+
+Expert
+
+Emerald
+2
+0.05
+Iron Boots (Curse of Binding)
+1
+3
+15
+
+Emerald
+3
+0.05
+Iron Helmet (Curse of Binding)
+1
+3
+15
+
+Emerald
+5
+0.05
+Iron Leggings (Curse of Binding)
+1
+3
+15
+
+Emerald
+7
+0.05
+Iron Chestplate (Curse of Binding)
+1
+3
+15
+
+Master
+
+EmeraldDiamond
+62
+0.05
+Diamond Helmet (Curse of Binding)
+1
+3
+30
+
+EmeraldDiamond
+83
+0.05
+Diamond Chestplate (Curse of Binding)
+1
+3
+30
+
+Block of Iron
+1
+0.05
+Emerald
+4
+12
+30
+
+Current version of trades for snow armorers
+
+Level
+Item wanted
+Default quantity
+Price multiplier
+Item given
+Quantity
+Trades until disabled
+XP to villager
+
+Novice
+
+Coal
+15
+0.05
+Emerald
+1
+12
+2
+
+Iron Ingot
+5
+0.05
+Emerald
+1
+12
+2
+
+Apprentice
+
+Emerald
+4
+0.05
+Iron Boots
+1
+12
+5
+
+Emerald
+5
+0.05
+Iron Helmet
+1
+12
+5
+
+Emerald
+7
+0.05
+Iron Leggings
+1
+12
+5
+
+Emerald
+9
+0.05
+Iron Chestplate
+1
+12
+5
+
+Journeyman
+
+Lava Bucket
+1
+0.05
+Emerald
+1
+12
+20
+
+Emerald
+5
+0.05
+Shield
+1
+12
+10
+
+Emerald
+36
+0.2
+Bell
+1
+12
+10
+
+Expert
+
+Emerald
+8
+0.05
+Iron Boots (Frost Walker I)
+1
+3
+15
+
+Emerald
+9
+0.05
+Iron Helmet (Aqua Affinity)
+1
+3
+15
+
+Master
+
+EmeraldDiamond
+122
+0.05
+Diamond Boots (Frost Walker I)
+1
+3
+30
+
+EmeraldDiamond
+123
+0.05
+Diamond Helmet (Aqua Affinity)
+1
+3
+30
+
+Block of Iron
+1
+0.05
+Emerald
+4
+12
+30
+
+Current version of trades for swamp armorers
+
+Level
+Item wanted
+Default quantity
+Price multiplier
+Item given
+Quantity
+Trades until disabled
+XP to villager
+
+Novice
+
+Coal
+15
+0.05
+Emerald
+1
+12
+2
+
+Iron Ingot
+5
+0.05
+Emerald
+1
+12
+2
+
+Apprentice
+
+Emerald
+4
+0.05
+Chainmail Boots
+1
+12
+5
+
+Emerald
+5
+0.05
+Chainmail Helmet
+1
+12
+5
+
+Emerald
+7
+0.05
+Chainmail Leggings
+1
+12
+5
+
+Emerald
+9
+0.05
+Chainmail Chestplate
+1
+12
+5
+
+Journeyman
+
+Lava Bucket
+1
+0.05
+Emerald
+1
+12
+20
+
+Emerald
+5
+0.05
+Shield
+1
+12
+10
+
+Emerald
+36
+0.2
+Bell
+1
+12
+10
+
+Expert
+
+Emerald
+8
+0.05
+Chainmail Boots (Mending)
+1
+3
+15
+
+Emerald
+9
+0.05
+Chainmail Helmet (Mending)
+1
+3
+15
+
+Emerald
+11
+0.05
+Chainmail Leggings (Mending)
+1
+3
+15
+
+Emerald
+13
+0.05
+Chainmail Chestplate (Mending)
+1
+3
+15
+
+Master
+
+Emerald
+9
+0.05
+Chainmail Helmet (Respiration I)
+1
+3
+30
+
+Emerald
+8
+0.05
+Chainmail Boots (Depth Strider I)
+1
+3
+30
+
+Block of Iron
+1
+0.05
+Emerald
+4
+12
+30
+
+Current version of trades for taiga armorers
+
+Level
+Item wanted
+Default quantity
+Price multiplier
+Item given
+Quantity
+Trades until disabled
+XP to villager
+
+Novice
+
+Coal
+15
+0.05
+Emerald
+1
+12
+2
+
+Iron Ingot
+5
+0.05
+Emerald
+1
+12
+2
+
+Apprentice
+
+Emerald
+4
+0.05
+Iron Boots
+1
+12
+5
+
+Emerald
+5
+0.05
+Iron Helmet
+1
+12
+5
+
+Emerald
+7
+0.05
+Iron Leggings
+1
+12
+5
+
+Emerald
+9
+0.05
+Iron Chestplate
+1
+12
+5
+
+Journeyman
+
+Lava Bucket
+1
+0.05
+Emerald
+1
+12
+20
+
+Emerald
+5
+0.05
+Shield
+1
+12
+10
+
+Emerald
+36
+0.2
+Bell
+1
+12
+10
+
+Expert
+
+EmeraldDiamond Boots
+41
+0.05
+Diamond Leggings
+1
+3
+15
+
+EmeraldDiamond Leggings
+41
+0.05
+Diamond Chestplate
+1
+3
+15
+
+EmeraldDiamond Helmet
+41
+0.05
+Diamond Boots
+1
+3
+15
+
+EmeraldDiamond Chestplate
+21
+0.05
+Diamond Helmet
+1
+3
+15
+
+Master
+
+EmeraldDiamond
+184
+0.05
+Diamond Chestplate (Blast Protection I)
+1
+3
+30
+
+EmeraldDiamond
+183
+0.05
+Diamond Leggings (Blast Protection I)
+1
+3
+30
+
+Block of Diamond
+1
+0.05
+Emerald
+42
+12
+30
+
+Fixes
+41 issues fixed
+From released versions before 1.20
+
+MC-70127 – Some block state changes aren't communicated to clients.
+MC-72721 – Chat messages show after death independent of chat setting.
+MC-103800 – Sometimes armor stands won't update their visual rotation.
+MC-119873 – The text used for the credits button within the title screen is untranslatable.
+MC-154827 – Typo in splash text "Verlet intregration!".
+MC-177172 – Dash in villager/trader UI is hardcoded / untranslatable.
+MC-193457 – Dropper/Dispenser 'Triggered' block state not updating without player interaction.
+MC-201166 – A summoned minecart can stay visually tilted.
+MC-248778 – The item count symbol within shulker box tooltips is untranslatable.
+MC-248833 – The parentheses used before and after the warning label within the language menu are untranslatable.
+MC-248844 – The page indicator symbol within the recipe book GUI is untranslatable.
+MC-248846 – The colon used within the death screen to show the player's score is untranslatable.
+MC-249355 – The hyphen used within the statistics menu to show a null value is untranslatable.
+MC-252295 – The word "whilst" within several death messages isn't spelled in American English.
+MC-252298 – Death messages relating to the Thorns enchantment don't contain conjunctions where appropriate.
+MC-252316 – The word "burnt" within some death messages isn't spelled in American English.
+MC-253241 – The player count indicator symbol within the multiplayer menu is untranslatable.
+MC-253269 – The advancement progress indicator symbol within the advancements menu is untranslatable.
+MC-253270 – The hyphen used within boss bars for raids is untranslatable.
+MC-253278 – The percentage symbol used within the level loading screen to show the loading progress of the world is untranslatable.
+MC-253281 – Text within filled map tooltips when advanced tooltips are hidden is untranslatable.
+MC-253283 – The percentage and chunk indicator symbols used within the optimize world menu are untranslatable.
+MC-253638 – The symbols used within shulker box tooltips to show random loot table contents are untranslatable.
+MC-255263 – Players' positions are desynced after stopping movement while moving the camera.
+MC-255418 – Vertical redstone dust placed against dropper/dispenser/hopper doesn't visually disappear when the dust above is removed.
+MC-256777 – The two characters used within the tab list to show players' health are untranslatable.
+MC-260819 – The death.attack.message_too_long string is missing an article before the word "stripped".
+MC-263133 – Inconsistent word usage in Out of Memory screen.
+From 1.20.1
+
+MC-264233 – Player is shown as Anonymous after dying and respawning.
+MC-264574 – symlink does not work for root world folder.
+MC-264809 – Redstone comparators cause redstone dust connection issue.
+MC-265151 – The "(Unknown)" string that's displayed when being banned from a server for an unknown reason is untranslatable.
+From the 1.20.2 development versions
+
+MC-264615 – It takes several seconds for the absorption effect icon to display after obtaining the effect.
+MC-264656 – Regular golden apples don't increase the number of gold hearts if you previously ate an enchanted golden apple and then took damage.
+MC-264657 – Absorption gold heart refilling is determined by whether the low level and the high level have the same hideParticles parameter.
+MC-264658 – Only integer numeric data type can be used in macro.
+MC-265053 – Programmer Art lapis lazuli outline texture in enchanting table UI incorrectly uses the old formatting.
+MC-265060 – Missing sprite for error in Loom GUI (loom.png).
+From the previous development version
+
+MC-265126 – requirements field can no longer be skipped in advancements.
+MC-265209 – Switching to protocol "CONFIGURATION" causes race condition.
+MC-265213 – The chat message from the /random command says "between 1 and 6" instead of "1 to 6".
+Videos
+Videos made by slicedlime:
+
+
+
+
+
+
+
+
+Notes
+
+ Divided into 3 groups, pulled independently.
+
+ The list of possible offers contains individual offers for each color, so multiple colors may be offered by the same villager as separate trades.
+
+References
+
+ "Minecraft 1.20.2 Pre-Release 1"     – Minecraft.net, September 5, 2023.
+
+Navigation

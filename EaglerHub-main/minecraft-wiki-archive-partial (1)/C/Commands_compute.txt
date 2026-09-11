@@ -1,0 +1,97 @@
+This article is a work in progress. 
+Please help expand and improve it. The talk page may contain suggestions.
+
+
+
+
+
+This article describes content that is currently in development for Java Edition. 
+This content has appeared in  development versions for Java Edition 26.3, but the full update adding it has not been released yet.
+
+
+
+/compute
+
+Permission levelrequired
+
+2
+
+Restrictions
+
+None
+
+{
+    "title": "<code>/compute</code>",
+    "rows": [
+        {
+            "field": "2",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "None",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+Evaluates number providers in various loot contexts.
+
+Contents
+
+1 Syntax
+2 Arguments
+3 Result
+4 Output
+5 History
+6 Navigation
+
+Syntax
+/compute <CONTEXT> <provider> [<scale>]
+/compute <CONTEXT> <provider> integer
+Where CONTEXT is one of:
+default
+Runs the provider with the minecraft:command_compute_default context, which provides common parameters such as the execution position and this entity.
+block <pos>
+Runs the provider with the minecraft:command_compute_position context, providing the block state and block entity of the block at <pos>.
+entity <target>
+Runs the provider with the minecraft:command_compute_entity context, providing the selected entity as target_entity.
+In float mode, <provider> is evaluated as a floating-point value. If <scale> is specified, the resulting value is multiplied by it. The resulting value is then rounded down to the nearest integer.
+If <scale> is omitted, a scale of 1.0 is used.
+In integer mode, specified by integer, the provider is evaluated directly as an integer. The <scale> argument cannot be used with integer mode.
+Arguments
+<pos>: block_pos
+
+Specifies the block whose state and block entity are made available to the number provider.
+Must be a block position composed of <X>, <Y> and <Z>, each of which must be an integer or a tilde and caret notation.
+<target>: entity
+
+Specifies the entity whose data is made available to the number provider as target_entity.
+Must be a player name, a target selector or a UUID.  And the target selector must be in single type.
+<provider>: number_provider
+
+Specifies the number provider to evaluate.
+Arg desc: Illegal parameters
+<scale>: float
+
+Specifies the value by which the provider's result is multiplied in float mode.
+If omitted, 1.0 is used.
+The resulting value is rounded down to the nearest integer after scaling.
+Must be a [Float]Single-precision floating-point number (from -(2-2-23)×2127 (≈-3.4×1038) to (2-2-23)2×127 (≈3.4×1038) ).
+Result
+
+CommandTriggerJava EditionBedrock Edition
+
+AnyThe command is incomplete, or any argument is not specified correctly. Unparseable UnparseableThe number provider cannot be evaluated in the specified context. FailedThe number provider is successfully evaluated. Successful
+Output
+
+CommandEditionSituationSuccess Count/execute store success .../execute store result ...
+
+AnyJava EditionOn fail00N/AOn successThe integer result produced by the number provider.the computed resultthe computed result
+When the provider has a registered identifier, a successful command also displays its identifier and the computed result. In float mode, if scaling and rounding change the provider's original value, the output also displays the original floating-point value.
+
+History
+Upcoming Java Edition26.3snap10
+Added /compute.
+Navigation

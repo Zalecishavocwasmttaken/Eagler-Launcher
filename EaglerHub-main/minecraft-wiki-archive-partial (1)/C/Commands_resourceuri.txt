@@ -1,0 +1,70 @@
+This feature is exclusive to Minecraft Education. 
+
+/resourceuri
+
+Permission levelrequired
+
+1
+
+Restrictions
+
+Cheat only
+
+{
+    "title": "<code>/resourceuri</code>",
+    "rows": [
+        {
+            "field": "1",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "(link to Cheat article, displayed as Cheat) only<br>",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+Sets or clears the resource link in the pause menu.
+
+Contents
+
+1 Syntax
+2 Arguments
+3 Result
+4 Output
+5 History
+6 Navigation
+
+Syntax
+resourceuri
+resourceuri clear
+Clears the resource link.
+resourceuri default [uri: text]
+Sets the resource link's URI, the button text is by default.
+resourceuri named <name: string> [uri: text]
+Sets the resource link.
+Arguments
+name: string: basic_string
+
+Specifies the resource link's button text.
+Must be a string. And it must be a single word that has no space or a double-quoted string (When quoted, \ can be used to escape characters).
+uri: text: CommandRawText
+
+Specifies the resource link's URI, defaults to empty.
+It is a greedy phrase string argument (taking the rest of the command as the string argument).
+Result
+
+CommandTriggerBedrock Edition
+
+AnyThe command is incomplete, or any argument is not specified correctly. UnparseableOtherwiseSuccessful
+Output
+
+CommandEditionSituationSuccess Count
+
+AnyBedrock EditionOn fail0On success1
+History
+Minecraft Education1.14.701.14.60
+Added /resourceuri.
+Navigation

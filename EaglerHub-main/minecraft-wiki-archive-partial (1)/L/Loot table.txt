@@ -1,0 +1,334 @@
+This article describes only the loot table in Java Edition.See the official documentation for the loot table in Bedrock Edition. 
+
+Loot tables are technical JSON files that are used to dictate what items should generate in various situations, such as what items should be in naturally generated containers, what items should drop when breaking a block or killing a mob, what items can be fished, and more. It does not affect dropped experience, or dropped non-item entities such as slimes from larger slimes or silverfish from infested blocks. In the /loot command, a loot table can be specified in SNBT format.
+
+Contents
+
+1 Definition
+2 Usage
+
+2.1 Vanilla usages
+2.2 NBT data
+2.3 Others
+
+3 Format
+4 Pool
+5 Entry
+
+5.1 Singleton entry
+5.2 Tag entry
+5.3 Composite entry
+
+6 Number provider
+7 Loot context types
+8 History
+
+8.1 Individual tables
+8.2 Relevant data
+8.3 Unsorted
+
+9 Issues
+10 External links
+11 References
+12 Navigation
+
+Definition
+Loot tables are part of the data pack directory structure, highlighted below:
+
+ data pack name.zip or  data pack name
+ pack.mcmeta
+ data
+ namespace
+ loot_table
+ <name>.json
+More directories…
+
+All loot tables are defined in data packs (vanilla data packs or custom data packs).
+In the /loot command, a loot table can be specified in SNBT format.
+
+Usage
+Custom data packs use loot tables to change what loot can spawn in containers or drop by mobs. They can either modify existing loot tables or create new ones.
+
+Vanilla usages
+Vanilla loot tables are grouped into categories with some tables being in subfolders of those.
+For example, the file for zombies would go in  <data pack name>/data/minecraft/loot_table/entities/zombie.json. Editing this file in a datapack would make every zombie in a Minecraft world use the modified datapack's loot table rather than the default zombie loot table.
+To edit the loot tables of other entities, one would edit the entity's corresponding JSON file under the  <data pack name>/data/minecraft/loot_table/entities directory, which is typically said entity's name in the singular form (e.g.   ghast.json rather than  ghasts.json).
+The various subfolders and files include:
+
+ archaeology: The items from brushing suspicious sand or suspicious gravel.
+ blocks: The items dropped when mining blocks.
+ chests: Loot in various structures in chests or barrels.
+ dispensers: The items inside dispensers in trial chambers.
+ entities: The loot dropped by mobs when killed.
+ equipment: The equipment of mobs spawned by trial spawners in trial chambers.
+ gameplay: Gameplay mechanics such as:
+ fishing.json: Items obtained via fishing.
+ cat_morning_gift.json: Items gifted by cats after sleeping.
+ piglin_bartering.json: Items obtained via bartering with piglins.
+ chicken_lay.json: Items dropped when a chicken periodically lays an egg.
+ armadillo_shed.json: Items dropped when an armadillo sheds, either periodically or when brushed.
+ fishing: Loot tables that may be chosen from when fishing.
+ treasure.json: Valuable items that may be dropped when fishing.
+ junk.json: Junk items that may be dropped when fishing.
+ fish.json: Fish that may be caught when fishing.
+ hero_of_the_village: Items gifted by villagers to a player with the Hero of the Village effect.
+ unemployed_gift.json: Gifts given by unemployed villagers.
+ baby_gift.json: Gifts given by baby villagers.
+ pots: The loot inside decorated pots in trial chambers.
+ shearing: The items dropped when shearing sheep, mooshrooms, snow golems, or bogged.
+ spawners: The reward after defeating trial spawners.
+Some blocks, such as bedrock, end portals, and other blocks unbreakable in survival, do not have loot tables, some blocks share loot tables (namely wall and floor variants of blocks) and some drops, such as the wither's nether star, are not covered by loot tables.
+
+NBT data
+The loot tables are structured as a String tag that determines the table to use, and a Long tag determining the seed. Containers or mobs with the same seed and table drop the same items. Loot tables do not determine the container's slot to be used; that is randomly determined based on the seed. Once there is an interaction with the container (e.g. opening or destroying), the two tags are removed, and loots appear in the container.
+For barrel, chest, trapped chest, hopper, minecart with chest, boat with chest, minecart with hopper, dispenser, dropper, shulker box, dyed shulker box, and decorated pot:
+
+[NBT Compound / JSON Object] The root object.
+
+[String] LootTable: Optional. Name of the loot table to use. If this is used in a chest-like container, the loot table generates its content when it is opened. Generating the items in the container removes both loot table tags ([String] LootTable and [Long] LootTableSeed). Represents the loot_table field of the minecraft:container_loot component.
+[Long] LootTableSeed: Optional. Seed for generating the loot table. The default value works similarly to the seeds for worlds, where value of 0 or an omitted value causes the game to use a random seed. If set to 0, the tag is removed. Cannot exist unless the [String] LootTable tag is also present. Represents the seed field of the minecraft:container_loot component.
+
+For mobs:
+
+[NBT Compound / JSON Object] The root object.
+
+[String] DeathLootTable: Name of the loot table to be used when the mob dies. One batch of loot is generated, as defined by the loot table, and the mob drops the generated loot. Works just like [String] LootTable from Chunk format/Lootable.
+[Long] DeathLootTableSeed: Seed for generating the loot table when the mob dies. Works just like [Long] LootTableSeed from Chunk format/Lootable.
+
+Vaults use loot tables in their config to determine the items to eject when unlocking the vault, and items to display in the vault.
+Trial spawners use loot tables in their vault configs to determine the items to give as reward, and the items used by ominous item spawners spawned during the active phase when ominous.
+Monster spawners and trial spawners use loot tables to determine what equipment the spawned mobs have.
+
+Others
+Loot tables can be invoked directly by the /loot command.
+Loot tables can also be invoked in advancement rewards.
+
+Format
+Loot tables are defined using JSON files stored within a data pack in the path data/<namespace>/loot_table.
+In the /loot command, a loot table can be specified in SNBT format.
+
+[NBT Compound / JSON Object] The root.
+[String] type: (Optional. Defaults to generic) Specifies the loot context in which the loot table should be invoked. All item modifiers, predicates and number providers are then validated to ensure the parameters of the context type specified here cover all requirements, and prints a warning message in the output log if any modifier or predicate requires a context parameter that is not covered.
+[NBT List / JSON Array] functions: (Optional) Applies item modifiers in order, onto all item stacks dropped by this table.
+[NBT Compound / JSON Object][NBT List / JSON Array] An item modifier.
+[NBT List / JSON Array] pools: (Optional) A list of all pools for this loot table. Pools are applied in order.
+[NBT Compound / JSON Object] A pool (see below).
+[String] random_sequence: (Optional) A resource location specifying the name of the random sequence that is used to generate loot from this loot table. If only one loot table uses a specific random sequence, the order of the randomized sets of items generated is the same for every world using the same world seed. If multiple loot tables use the same random sequence, the loot generated from any one of them changes depending on how many times and in what order any of the other loot tables were invoked.
+
+Pool
+There are several entries in a pool. The number of rolls of a pool is specified by [NBT Compound / JSON Object] rolls and [Float][NBT Compound / JSON Object] bonus_rolls). In each roll of a pool, the pool draws one entry from all its entries. Each roll of a pool is independent.
+
+[NBT Compound / JSON Object] The root.
+[NBT List / JSON Array] conditions: (Optional) A list of predicates, that must all pass for this pool to be used.
+[NBT Compound / JSON Object] A predicate.
+[NBT List / JSON Array] functions: (Optional) Applies item modifiers in order, onto all item stacks dropped by this pool.
+[NBT Compound / JSON Object][NBT List / JSON Array] An item modifier.
+[Int][NBT Compound / JSON Object] rolls: A number provider. Specifies the number of rolls on the pool.
+[Float][NBT Compound / JSON Object] bonus_rolls: (Optional. Defaults to 0.0) A number provider. Specifies the number of bonus rolls on the pool per level of luck (including luck attribute and fishing_luck_bonus on fishing tool). Rounded down after multiplying. Fishing_luck_bonus applies only to fishing. In vanilla games, luck attribute is from the Luck status effect, and fishing_luck_bonus is from the Luck of the Sea enchantment. This does not work in some context, due to bugs.
+[NBT List / JSON Array] entries: Defines the entries in this pool. One loot entry is chosen per roll as a weighted random selection from all loot entries in the pool. Each roll is independent (Sampling with replacement), so an entry can be chosen multiple times in multiple rolls. It is not the elements in this array that are rolled. Instead, composite entries first expand their children, and then singleton entries that do not meet their conditions are removed from the pool, then entries are rolled afterward.
+[NBT Compound / JSON Object]: An entry (see below).
+
+Entry
+There are two types of loot entry: Singleton Entry and Composite Entry.
+A singleton entry defines an item generating behavior that may generate zero, one or more item stacks. Every singleton entry has a weight. Each roll selects a weighted singleton entry from the pool.
+Composite entries are not weighted entries to be rolled. Instead, they are expanded/flattened before rolling, i.e., some children entries in it are extracted out. If an extracted children entry is also a composite entry, it is further expanded until there are only singleton entries. Then, these singleton entries are added into the pool.
+Once all composite entries have been expanded, there're only singleton entries in the pool. Then, singleton entries that do not meet their conditions ([NBT List / JSON Array] conditions field) are removed from the pool. After that, in the pool are only singleton entries that meet their conditions. Each singleton entry has a weight (defined by the [Int] weight and [Int] quality fields). The game randomly selects one weighted singleton entry from the pool as the result of a roll.
+The tag entry is a special entry. Whether it is a singleton or composite entry is determined by the [Boolean] expand field. If [Boolean] expand is true, it is a composite entry that expands into multiple singleton entries like item but do not apply item modifiers due to a bug.
+The format of an entry is:
+
+[NBT Compound / JSON Object] The root.
+[String] type: Type of the entry as a resource location.
+Extra fields of the entry, described below.
+
+The possible values for [String] type and associated extra fields are listed below.
+
+Singleton entry
+Fields common to all singleton entries:
+
+[NBT List / JSON Array] conditions: (Optional) A list of predicates that must all pass for this singleton entry to be included into the pool. If any predicate is not satisfied, the singleton entry is removed from the pool before rolling.
+[NBT Compound / JSON Object] A predicate.
+[NBT List / JSON Array] functions: (Optional) Applies item modifiers in order, onto all item stacks dropped by this singleton entry.
+[NBT Compound / JSON Object][NBT List / JSON Array] An item modifier.
+[Int] weight: (Optional. Defaults to 1) Determines how often this singleton entry is chosen out of all the singleton entries in the pool. Entries with higher weights are used more often. The chance of an entry being chosen is [this entry's weight ÷ total weight of all entries in the pool].
+[Int] quality: (Optional. Defaults to 0) Modifies this singleton entry's weight based on the level of luck (including luck attribute and fishing_luck_bonus on fishing tool). Formula is max(floor(weight + (quality × luck)),0). Due to known bugs, this does not work in some contexts.
+Even more extra fields of the entry, described below.
+
+Possible singleton entries:
+
+item — Drops a single item stack. The default, if not changed by item modifiers, is a stack of 1 of the item with its default data components.
+[String] name: The resource location of the item, e.g. minecraft:diamond.
+
+loot_table — Drops the loot from another loot table.
+[String] value: One loot table (an [String] ID, or a new [NBT Compound / JSON Object] loot table definition) The loot table to be used. Cannot be the ID of the current loot table file. Recursive calling is not allowed.
+
+dynamic — Drops block-specific loot.
+[String] name: Can be contents which drops the items in a shulker box, or sherds which drops the sherds of a decorated pot. Does not work for other blocks.
+
+empty — Drops nothing.
+
+Tag entry
+If [Boolean] expand is false, it is a singleton entry:
+
+When selected in a roll, generates item stacks for all items in the specified item tag. The default, if not changed by item modifiers, each item stack is 1 item with its default data components.
+If [Boolean] expand is true, it is a composite entry:
+
+Expands into multiple singleton entries with the specified weight and conditions, for each item in the item tag. The item count of each item stack is 1, and each item is generated with its default data components. Item modifiers do not work.
+
+tag
+[String] name: The resource location of the item tag to query, e.g. minecraft:arrows.
+[Boolean] expand: If true, provides one singleton entry per item in the tag with the same weight and conditions. If false, it is a singleton entry that drops all items in the tag.
+[NBT List / JSON Array] conditions: (Optional) A list of predicates that must all pass for this singleton entry to be included into the pool. If any predicate is not satisfied, the singleton entry is removed from the pool before rolling.
+[NBT Compound / JSON Object] A predicate.
+[NBT List / JSON Array] functions: (Optional) Applies item modifiers in order, onto all item stacks dropped by this singleton entry.
+[NBT Compound / JSON Object][NBT List / JSON Array] An item modifier.
+[Int] weight: (Optional. Defaults to 1) Determines how often this singleton entry is chosen out of all the singleton entries in the pool. Entries with higher weights are used more often. The chance of an entry being chosen is [this entry's weight ÷ total weight of all entries in the pool].
+[Int] quality: (Optional. Defaults to 0) Modifies this singleton entry's weight based on the level of luck (including luck attribute and fishing_luck_bonus on fishing tool). Formula is max(floor(weight + (quality × luck)),0). This does not work in some context, due to bugs.
+
+Composite entry
+Fields common to all composite entries:
+
+[NBT List / JSON Array] conditions: (Optional) A list of predicates that must all pass for this composite entry to expand and its children to be added into the pool. If any predicate is not satisfied, the composite entry is ignored, so, no entry is added into the pool.
+[NBT Compound / JSON Object] A predicate.
+[NBT List / JSON Array] children: (Optional) The list of entries. Both singleton and composite entry are allowed.
+[NBT Compound / JSON Object] An entry.
+
+Possible composite entries:
+
+group — All entries in the [NBT List / JSON Array] children are extracted. Can be used for convenience, e.g. if one condition applies for multiple entries.
+
+alternatives — Extracts only the first successful (conditions are met) entry. Conditions are checked in order.
+
+sequence — Extracts the child entries in sequential order, continuing until an entry's conditions fail, then no more children are extracted.
+
+Number provider
+Main article: Number provider
+Loot tables use number providers in some places that accept an [Int] or [Float].
+
+Loot context types
+Main article: Loot context
+The [String] type field is used when loading the data pack to check whether the context parameters used by this loot table match the specified context type. The field makes it possible to check for errors in the loot table files without applying them in-game. If the loot table is used for a specific context, specifying the type field allows the game to check whether the loot table file uses parameters that are not provided in that context.
+
+History
+Individual tables
+Java Edition1.915w43a
+​[more information needed]15w43c
+Renamed "villager_golem.json" to "iron_golem.json"
+
+Added fishing loot tables, sheep without wool, and zombie and skeleton horses.1.9.1pre1
+Added default table chests/jungle_temple_dispenser.1.1418w43a
+Block drops have been changed to use loot tables too.​[more information needed]18w44a
+Added loot tables for cats, cat_morning_gift, players and withers.
+
+Added loot tables for new blocks.18w46a
+Added loot table for illusioners.18w48a
+Added more loot tables for villages, some of which are currently unused.
+
+Removed loot table: village_blacksmith.18w49a
+village_savanna_house and village_snowy_house loot tables are now used.
+
+Added more loot tables for villages.18w50a
+village_desert_house and village_taiga_house loot tables are now used, making all previously unused loot tables no longer unused.?
+Empty loot table is now hardcoded.1.16?
+Fire and soul fire now have defined empty loot tables, rather than being hardcoded to drop nothing.?
+Nether portal blocks now have defined empty loot tables, rather than being hardcoded to drop nothing.1.2023w17a
+Added the loot table sniffer_digging.1.20.524w07a
+Added gameplay/panda_sneeze loot table for drops when pandas sneeze.1.21.224w33a
+Sheep shearing is now controlled by loot tables found as shearing/sheep/<color>.
+
+Mooshroom shearing is now controlled by loot tables found as shearing/mooshroom/<variant>.
+
+Snow golem shearing is now controlled by a loot table found as shearing/snow_golem.24w35a
+Special loot table empty has been removed and is no longer defined in vanilla data pack.
+
+Sheep now always uses a single loot table entities/sheep.
+
+Wool drops are still defined in sub-tables in entities/sheep/<color>, but they are now just dispatched from the main table.
+
+Sheep shearing is now controlled by loot table found as shearing/sheep.
+
+Mooshroom shearing is now controlled by loot table found as shearing/mooshroom.24w37a
+Chickens laying eggs is now controlled by a loot table found at gameplay/chicken_lay.
+
+Armadillos randomly dropping scutes is now controlled by a loot table found at gameplay/armadillo_shed.
+
+The loot given by Villagers is now controlled by two additional loot tables: gameplay/hero_of_the_village/unemployed_gift and gameplay/hero_of_the_village/baby_gift.1.21.925w31a
+Added charged_creeper/root, brush/armadillo, gameplay/turtle_grow, harvest/beehive, harvest/cave_vine, and carve/pumpkin loot tables.25w32a
+Added harvest/sweet_berry_bush loot table.Upcoming Java Edition26.3snap2
+Added till/rooted_dirt loot table for drops when rooted dirt is tilled with a hoe.snap3
+Multiple block loot tables now reference predicates for checking if a tool has Silk Touch and is shears instead of inlining a copy of those checks.snap6
+minecraft:block_interact: origin is now available in context, as the center of the block being interacted with.
+Relevant data
+Unsorted
+Java Edition1.9October 19, 2015
+Dinnerbone announces loot tables.15w43a
+Added loot tables.15w43b
+Added condition entity_scores.15w43c
+Renamed the tag [String] item: to [String] name:, and the tag [NBT Compound / JSON Object] items: to [NBT Compound / JSON Object] entries:
+
+Added the tag [String] type: and support to load a loot table instead of an item.
+
+Added the tag [Int] luck: to default files, though it currently does nothing in the code.
+
+Added the function set_damage.15w44a
+Added the function enchant_randomly and set_attributes.15w44b
+Added the [Int] quality tag.
+
+Removed [Int] luck and [Float] luck_multiplier tags.
+
+Added the [NBT Compound / JSON Object] bonus_rolls tag.15w51a
+A player in spectator mode no longer triggers a container to use its loot table to generate loot.1.9.1pre1
+Loot tables now work with dispensers and droppers.1.1116w32a
+Donkeys, mules, husks and zombie villagers now each draw from their own loot tables, rather than drawing from the horse and zombie loot tables, respectively16w43a
+Villagers, vexes and ender dragons are now able to draw from their own loot tables.1.1317w43a
+Custom loot tables have been moved into data packs.18w01a
+Added the function set_name.1.1418w43a
+Loot tables received a bunch of new options.​[more information needed]
+
+Setting entity to "this" now refers to the player in chest and block loot tables.18w44a
+Added the function set_lore.1.1519w34a
+Added the function copy_state.1.1620w12a
+Added fishing_hook sub-predicate to check properties of the fishing hook.1.2023w12a
+Added the shards dynamic drop.23w14a
+Added the function reference.23w17a
+Renamed the shards dynamic drop to sherds.pre1
+Made random sequences for loot tables deterministic.
+
+Added random_sequence field.pre6
+The ID of the random sequence is now an optional field.1.20.223w32a
+Added sequence loot function.
+
+all_of predicates in loot tables can now be declared implicitly as an inline array without a type.1.20.524w09a
+The name field for entry type loot_table has been renamed to value and now also accepts inline loot tables.24w12a
+Added storage loot number provider to access values from command storage.1.2124w18a
+Score context target entities killer, direct_killer, killer_player were renamed to attacker, direct_attacker, attacking_player
+
+Added enchantment_level number provider24w21a
+Moved loot tables from  loot_tables to  loot_table1.21.224w37a
+The tool value (used for functions like match_tool) is now available for some additional loot table types.1.21.925w31a
+Added minecraft:entity_interact and minecraft:block_interact loot table types.
+
+Fields that specify a target entity in a loot table, such as entity_properties.entity, can additionally target the target_entity and interacting_entity parameter types.1.21.1125w44a
+Added new minecraft:slots loot pool entry.
+
+Removed contents as a supported value for the dynamic loot entry type.25w46a
+Reverted removal of contents as a supported value for the minecraft:dynamic loot pool entry.26.1snap1
+Added minecraft:sum number provider.pre1
+Added minecraft:environment_attribute number provider.Upcoming Java Edition26.3snap3
+Added minecraft:number_dispatcher, minecraft:conditional_value, minecraft:weighted_list number providers.snap4
+The rolls and bonus_rolls fields now accept an inline value or a namespaced ID of a minecraft:number_provider type.
+Loot table types that have a dedicated registry now support registry element and tag references.snap10
+Added minecraft:command_compute_default, minecraft:command_compute_position and minecraft:command_compute_entity.
+Issues
+Issues relating to "Loot" are maintained on the bug tracker. Issues should be reported and viewed there.
+
+External links
+Loot Table Generator on misode.github.io
+References
+
+ MC-149589
+
+ MC-184348MC-120523MC-262347MC-110336
+
+ MC-212671
+
+Navigation

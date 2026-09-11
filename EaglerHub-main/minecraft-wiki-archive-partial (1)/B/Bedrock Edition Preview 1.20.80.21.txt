@@ -1,0 +1,285 @@
+Preview 1.20.80.21
+
+Edition
+
+Bedrock Edition
+
+Release date
+
+March 6, 2024
+
+Server version
+
+1.20.80.21
+
+Editor version
+
+0.5.8
+
+Build version
+
+22548469
+
+Internal version
+
+Windows: 1.20.8021.0Xbox: 1.20.8021.70Android, iOS, iPadOS: 1.20.80.21
+
+Version code
+
+Android:
+952008021（armeabi-v7a，34）
+962008021（x86，34）
+972008021（arm64-v8a，34）
+982008021（x86_64，34）
+
+Type
+
+Preview
+
+Preview for
+
+1.20.80
+
+Downloads
+
+ ServerWindowsLinux
+
+Protocol version
+
+665
+
+◄◄   1.20.73
+1.20.80
+  1.20.81 ►►
+
+◄   Preview 1.20.80.20
+
+ Preview 1.20.80.21
+
+  Preview 1.20.80.22 ►
+
+{
+    "title": "Preview 1.20.80.21",
+    "images": [
+        "Bedrock 1.20.80.21 PatchNotes.png",
+        "Bedrock 1.20.80.21.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Bedrock Edition article, displayed as Bedrock Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "March 6, 2024",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Bedrock Dedicated Server 1.20.80.21 article, displayed as 1.20.80.21)",
+            "label": "Server version"
+        },
+        {
+            "field": "(link to Bedrock Editor 0.5.8 article, displayed as 0.5.8)",
+            "label": "''(link to Bedrock Editor article, displayed as Editor)'' version"
+        },
+        {
+            "field": "22548469",
+            "label": "Build version"
+        },
+        {
+            "field": "'''Windows''': 1.20.8021.0<br>'''Xbox''': 1.20.8021.70<br>'''Android, iOS, iPadOS''': 1.20.80.21",
+            "label": "Internal version"
+        },
+        {
+            "field": "'''Android''':<br>\n952008021（armeabi-v7a，34）<br>\n962008021（x86，34）<br>\n972008021（arm64-v8a，34）<br>\n982008021（x86_64，34）<br>",
+            "label": "Version code"
+        },
+        {
+            "field": "Preview",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Bedrock Edition 1.20.80 article, displayed as 1.20.80)",
+            "label": "Preview for"
+        },
+        {
+            "field": "'''Server'''<br>[https://minecraft.net/bedrockdedicatedserver/bin-win-preview/bedrock-server-1.20.80.21.zip Windows]<br>[https://minecraft.net/bedrockdedicatedserver/bin-linux-preview/bedrock-server-1.20.80.21.zip Linux]",
+            "label": "Downloads"
+        },
+        {
+            "field": "665",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Bedrock Edition  1.20.73|<span style=\"margin-right:-0.35em\">◄</span>◄   1.20.73]]</td>\n<td style=\"padding: 0.4em\">'''[[Bedrock Edition 1.20.80|1.20.80]]'''</td>\n<td style=\"padding: 0.4em\" >[[Bedrock Edition  1.20.81|  1.20.81 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Bedrock Edition  Preview 1.20.80.20|◄   Preview 1.20.80.20]]\n</td>\n<td style=\"padding: 0.4em\">''' Preview 1.20.80.21'''</td>\n<td style=\"padding: 0.4em\">\n[[Bedrock Edition  Preview 1.20.80.22|  Preview 1.20.80.22 ►]]\n</td>\n</tr>\n</table>"
+}
+
+Beta 1.20.80.21 (Android) or Preview 1.20.80.21 (Windows, iOS, iPadOS, Xbox, PlayStation) is the second beta/Preview version for Bedrock Edition 1.20.80, released on March 6, 2024, which adds 8 new types of wolves, changes the server selection menu, and fixes bugs.
+
+Contents
+
+1 Changes
+
+1.1 Textures
+1.2 Items
+1.3 Mobs
+1.4 General
+1.5 Technical
+
+2 Experimental
+
+2.1 Changes
+
+2.1.1 Items
+2.1.2 Mobs
+2.1.3 Technical
+
+3 Fixes
+4 References
+5 Navigation
+
+Changes
+Textures
+Missing tile
+
+ Updated the missing tile texture to a dirt block with brown question mark.
+This change affects blocks and items that use the texture, like unknown, info_update, client request placeholder block, and reserved6.
+Items
+Lead
+
+The Lead item now renders correctly when the "Hide Hand" setting is selected.
+Mobs
+Wolf
+
+Added 8 new wolves variants:
+ Woods Wolf
+ Striped Wolf
+ Spotted Wolf
+ Snowy Wolf
+ Rusty Wolf
+ Chestnut Wolf
+ Black Wolf
+ Ashen Wolf
+An ordinary wolf is now called Pale Wolf.
+Rabbit
+
+Rabbits are now more likely to spawn in Groves than before.
+Fox
+
+Foxes are now less likely to spawn in Groves than before.
+General
+Featured servers screen
+
+Changed the server tab and the add external server screen.
+Added Server Activities and News to each featured server.
+New Server Tab Screen.
+New death screen
+
+Now uses the old death screen tilt.
+This change is not mentioned in the changelog.
+Realms
+
+Applied consistent grayed out behavior across all Stories screens for avatars of players opted out of Realms Stories.
+Players are now redirected to the first Story page upon posting a new Story.
+Selected screenshot will now be saved with story draft if you back out of the "Add Story" page before posting.
+Like/comment/option buttons widened to accommodate languages with longer words.
+UI
+
+On touch devices, item transfer animation is now rendered above static items.
+Technical
+API
+
+Block Custom Components are temporarily removed
+They should be returning in an upcoming Preview.
+Dynamic imports (e.g., import("/my-module.js")) should be functional again.
+BlockTypes will now return valid types for flattened or refactored block names.
+EntityMountTamingComponent
+Renamed EntityMountTamingComponent to EntityTameMountComponent.
+Renamed setTamed to tame.
+Released BlockComponentTypes from beta to 1.10.0
+Released EntityComponentTypes from beta to 1.10.0
+Released ItemComponentTypes from beta to 1.10.0
+Experimental
+These additions and changes are accessible by enabling the "Update 1.21" and "Beta APIs" experimental toggles.
+
+Changes
+Items
+Wind Charge
+
+Wind Charge damage has been reduced to 1HP per hit.
+Dispensed Wind Charges now spawn centered.
+Mobs
+Bogged
+
+The Bogged texture and model have been updated.
+The Bogged now drops two mushrooms (either both red/brown or one of each) when sheared.
+Technical
+Commands
+
+Added item text, status effects, and absorption hearts to the /hud command’s list of hud elements (Ex: /hud @s hide item_text)
+API
+
+EntityQueryOptions
+Added field propertyOptions?: EntityQueryPropertyOptions[];.
+EntityQueryPropertyOptions
+Added field exclude - If exclude propertyId.
+Added field propertyId - Property ID.
+Added field value - Target value or comparison.
+EqualsComparison
+Added equals.
+GreaterThanComparison
+Added greaterThan.
+GreaterThanOrEqualsComparison
+Added greaterThanOrEquals.
+LessThanComparison
+Added lessThan.
+LessThanOrEqualsComparison
+Added lessThanOrEquals.
+NotEqualsComparison
+Added notEquals.
+RangeComparison
+Added lowerBound and upperBound.
+Moved worldInitialize from beta to 1.10.0
+Moved EntityProjectileComponent from beta to 1.10.0
+Removed old Vector Please use Vector3Utils from @minecraft/math as a replacement.
+ModalFormData
+Added submitButton method for setting the text of the form’s submit button.
+Structure APIs
+Added function setBlockPermutation(location: Vector3, blockPermutation?: BlockPermutation, waterlogged?: boolean): void - Sets the block permutation at a given location within the structure.
+Added function saveToWorld(): void - Persists the structure as part of the broader world storage.
+Added function saveAs(identifier: string, saveMode?: StructureSaveMode): Structure - Saves a copy of the structure with a new identifier.
+EntityHitBlockAfterEvent
+Added property hitBlockPermutation to beta.
+Fixes
+18 issues fixed
+From released versions before 1.20.80
+
+MCPE-19740 – Wolves don't jump while chasing mobs.
+MCPE-170317 – Smithing templates cannot be applied to custom armors
+MCPE-176634 – Lava and water can no longer be collected immediately
+MCPE-176919 – Trial Chambers Generate Through Bedrock Layer
+MCPE-178549 – Trail ruins do not generate in the same seed and location on some Android devices
+MCPE-178885 – Trial Chamber is not generated on some Android devices
+MCPE-178886 – Wind charge is not centered horizontally when thrown vertically
+MCPE-178890 – Wind charge briefly blocks vision when thrown
+MCPE-178892 – When using Wind Charge to launch yourself upwards, you will also be sent backwards
+MCPE-178896 – Wind charge is spawned too close to the player when thrown
+MCPE-178897 – Wind charges don't deal extra knockback to crouching players
+MCPE-178903 – Wind charges shot by players deal more damage
+Others
+
+Fixed an issue in the Stories opt in flow where a player could be soft locked.
+Fixed an issue where a user would be unable to see what they were typing if they typed more text than would fit in the textbox.
+Fixed a bug that prevented recipes without unlock criteria from showing up in the recipe book.
+Resolves issue where "Signing in…" text might not show on the main menu while sign in is actually in progress.
+Reduced the strength of saturation in the Deferred Technical Preview.
+Fixed a crash that could occur when Point Light Shadows were turned on in the Deferred Technical Preview.
+References
+
+ "Minecraft Beta & Preview - 1.20.80.21"     – Minecraft Feedback, March 6, 2024.
+
+ "Minecraft Preview 1.20.80.21"     by Matt Gartzke  – Minecraft.net, March 6, 2024.
+
+ MCPE-179365
+
+Navigation

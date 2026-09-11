@@ -1,0 +1,676 @@
+/damage
+
+Permission levelrequired
+
+2‌[JE  only]
+1‌[BE  only]
+
+Restrictions
+
+Cheat only
+
+{
+    "title": "<code>/damage</code>",
+    "rows": [
+        {
+            "field": "\n* 2‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Java Edition\">(link to Java Edition article, displayed as JE)  only</span></i>]</sup>\n* 1‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Bedrock Edition\">(link to Bedrock Edition article, displayed as BE)  only</span></i>]</sup>",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "(link to Cheat article, displayed as Cheat) only<br>",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+Applies a set amount of damage to the specified entities.
+
+Contents
+
+1 Usage
+
+1.1 Undefined behavior
+1.2 Hardcoded behaviors
+
+2 Damage types
+3 Syntax
+4 Arguments
+5 Results
+6 Output
+7 Example
+8 History
+
+8.1 Java Edition
+8.2 Bedrock Edition
+
+9 External links
+10 Navigation
+
+Usage
+/damage applies damage to entities with health or an equivalent statistic. The <damageType>‌[JE  only] or cause: DamageCause‌[BE  only] argument is used to specify the kind of damage which will be applied to the entity.
+When being applied to an applicable entity, /damage uses the same underlying logic when applying damage as is used elsewhere in the game. As such, the damage specified by the <damageType>‌[JE  only] or cause: DamageCause‌[BE  only]  argument is not the exact amount of damage which will be applied to the entity. The resulting damage is affected by statistics which would otherwise modify or nullify said damage based on the damage source and type of damage (for instance players in Creative mode are invulnerable to most types of damage, and damage types categorized as fire damage will be nullified by Fire Resistance and weakened by Fire Protection). Entities will also react to damage inflicted by /damage in the same manner they would if said damage was inflicted through normal means (for instance, endermen will teleport away if the damage source is categorized as a projectile).
+
+Undefined behavior
+
+Mob
+
+Behavior
+
+All mobs
+
+Knocked back.
+Begins an invulnerable cooldown period.
+
+Balloon‌[edu & BE  only]
+
+Damaged with a source entity, the balloon swings.
+
+Bat
+
+When damaged, a sleeping bat begins flying.
+
+End Crystal
+
+Controlled by the ender dragon's fight system.
+
+Enderman
+
+Teleports away.
+
+Guardian
+
+While its spikes are extended, if the damage source is a mob and the cause isn't magic, block_explosion, or projectile, it deals thorn damage to the damage source.
+
+Shulker
+
+Teleports away.
+
+Squid
+
+If the damage source is an entity, it spawns ink particles.
+
+Hardcoded behaviors
+When amount: int is 0, entities are always considered successfully damaged. If not 0, only entities (except armor stands, NPCs, and camera), boats, paintings, leash knots, falling blocks, and minecarts may be recognized as successfully damaged.
+Some behaviors are data-driven (e.g. end crystal explosion, fireball rebounding). These data-driven behaviors do not affect the command's output text, result, and return value. Only hardcoded behaviors can affect them.
+
+Mob
+
+Behavior
+
+Player
+
+Players in Creative mode are invulnerable by most types of damage excluding generic_kill and out_of_world (refer to damage types)
+
+Agent‌[edu & BE  only]
+
+/kill command can always kill the agent. This has the side-effect that /damage with the cause of self_destruct always removes the agent, regardless of whether amount: int is 0 or not.
+
+Armor Stand
+
+Applying /damage command on an armor stand cannot reduce its health value (except for fire and fire_tick causes), and is never considered to have damaged it successfully. It also cannot be detected or controlled with behavior packs.
+Punching an armor stand is not considered as having damaged it.
+Punching an armor stand twice in Survival mode destroys it.
+Running /damage twice within 5 game ticks on an armor stand with the damage source being a player in Survival mode makes the armor stand drop its held items and destroy itself.
+Punching an armor stand in Creative mode removes it.
+Running /damage on an armor stand with the damage source being a player in Creative mode removes it.
+Explosions can always destroy the armor stand. The /kill command can always kill the armor stand.
+/damage commands with the cause of suicide, block_explosion, or entity_explosion make the armor stand drop its held items and destroy itself.
+Void damage can always kill the armor stand.
+/damage commands with the void cause always remove the armor stand.
+Armor stands are set on fire when in lava or fire.
+/damage commands with the fire cause the armor stand to be set on fire and reduce its health value by 0.5.
+Armor stands are damaged when on fire.
+If the cause is fire, and the armor stand is not in a lava or fire block, /damage commands reduce its health value by 1.0.
+If an arrow hits an armor stand, the armor stand is destroyed, and the arrow disappears.
+Running /damage commands on an armor stand with the source being an arrow causes the armor stand to be destroyed and the arrow to disappear.
+If a trident hits an armor stand, the armor stand is destroyed.
+Running /damage commands on an armor stand with the damage source being a trident causes the armor stand to be destroyed.
+When an armor stand falls onto the ground, a landing sound is played.
+Broadcasts a landing sound when an armor stand is damaged with the fall cause.
+
+Balloon‌[edu & BE  only]
+
+Clicking a balloon isn't considered as hurting it. This has the side-effect that running /damage on a balloon cannot reduce its health value, and is never considered to have successfully damaged it.
+Projectiles, fire, lava, and magma can always destroy the balloon. /kill can always kill the balloon. This has the side-effect that the damage causes self_destruct, projectile, fire, fire_tick, lava, or magma destroy the balloon.
+
+Boat
+
+Punching a boat is always considered as hurting it.
+Running /damage on a boat is always considered to have successfully damaged it, but it cannot be detected or controlled with behavior packs.
+Boat uses Structural Integrity instead of health points to control whether it should break or not. A boat has 40 points of Structural Integrity.
+Damage command changes its Structural Integrity value instead of its health value.
+When applying /damage on a boat with the damage source being an ender pearl, the boat's Structural Integrity is reduced, but isn't destroyed even if Structural Integrity becomes less than 0.
+Punching a boat in Creative mode destroys it.
+Running /damage on a boat with the damage source being a player in Creative mode destroys the boat, regardless of whether amount: int is 0 or not.
+
+Camera‌[edu & BE  only]
+
+A camera cannot be damaged.
+Using /damage on a camera is never considered to have successfully damaged it and cannot be detected or controlled with behavior packs.
+A camera cannot be affected by an explosion.
+Using /damage on a camera with the source being a player removes it.
+
+End Crystal
+
+Hurting an end crystal means making it explode.
+Running /damage on an end crystal makes it explode, regardless of whether amount: int is 0 or not, and is never[verify] considered to have successfully damaged it.
+
+Ender Dragon
+
+Hardcoded behavior: An ender dragon is immune to arrows when perching, and makes arrows catch fire.
+/damage with the damage source being an arrow cannot hurt a perching dragon, but the arrow is still set on fire despite the command not being successful.
+A damage command with suffocation cannot hurt an ender dragon and is always considered unsuccessful.
+Only players can hurt an ender dragon.
+Only a player as the source, or the block_explosion as a cause, can hurt an ender dragon and can be detected or controlled with behavior packs.
+/kill can always kill an ender dragon.
+A damage command with the cause of self_destruct always kills an ender dragon and is considered successful, regardless of whether amount: int is 0 or not.
+
+Enderman
+
+Projectiles, except potions, cannot hurt an enderman.
+If the cause is projectile and the source is not a potion entity, /damage makes an enderman teleport away without being hurt, and it cannot be detected or controlled with behavior packs. If the enderman has successfully teleported away, the command is considered to have successfully damaged the entity.
+
+Experience Orb
+
+A player cannot damage an experience orb.
+Running /damage on an experience orb can reduce its health value, but is never considered to have successfully damaged it, and cannot be detected or controlled with behavior packs.
+
+Falling Block
+
+Applying /damage on a falling block is always considered to have successfully damaged it, and cannot be detected or controlled with behavior packs.
+Applying /damage on a falling block with the source being piston always destroys it, and drops an item of the block that the falling block is in (instead of the item form of the falling block).
+
+Ghast
+
+A fireball deals 1000 damage to a ghast if the fireball was rebounded by a player.
+Running a damage command on a ghast with a fireball that has been hit by the player as the damage source deals 1000 damage, regardless of what amount: int is. It cannot be detected or controlled with behavior packs.
+
+Painting and Leash Knot
+
+Pushing a painting or a leash knot destroys the entity.
+Paintings and lead knots are always destroyed when applying /damage on them, and drop items if the damage source is not a player in Creative mode. It is always considered to have successfully damaged it, regardless of whether amount: int is 0 or not, but it cannot be detected or controlled with behavior packs.
+
+Item
+
+A player cannot damage an item.
+Applying /damage on an item can reduce its health value, but is never considered to have successfully damaged it, and cannot be detected or controlled with behavior packs.
+
+Minecart
+
+Punching a minecart is always considered as damaging it.
+Running /damage on a minecart is always considered to have successfully damaged it.
+A minecart uses Structural Integrity to control whether it should break or not, instead of its health value. A minecart has a Structural Integrity of 5.
+/damage changes a minecart's Structural Integrity value instead of its health value.
+An ender pearl can reduce a minecart's Structural Integrity, but cannot destroy it.
+Applying /damage on a minecart with the damage source being an ender pearl reduces Structural Integrity, but doesn't destroy it even if its Structural Integrity becomes less than 0.
+
+Minecart with TNT
+
+/damage with the cause being projectile and the damage source being an arrow that is on fire or a small fireball, or with the cause being fire or lava, primes the minecart and is considered successful. It is never considered to have successfully damaged it, and cannot be detected or controlled with behavior packs.
+Otherwise behaves as a regular minecart.
+
+NPC‌[edu & BE  only]
+
+NPCs cannot be damaged.
+Using /damage on an NPC is never considered to have successfully damaged it, and cannot be detected or controlled with behavior packs.
+Only the void, /kill, or world builder can remove it.
+If the cause is void or self_destruct, or the cause is entity_attack and the source is a world builder, /damage removes the NPC. Otherwise, it does nothing.
+
+Primed TNT
+
+Primed TNT cannot be damaged.
+Using /damage on primed TNT is never considered to have successfully damaged it.
+/kill can always kill primed TNT.
+A damage command with the cause of self_destruct always kills the primed TNT, regardless of whether amount: int is 0 or not.
+
+Shulker
+
+A shulker teleports if it is in lava or fire.
+Applying /damage on a shulker with the cause being lava or fire cannot damage it and makes the shulker teleport away. It is considered unsuccessful and cannot be detected or controlled with behavior packs.
+Projectiles cannot hurt a shulker when it is closed.
+Applying /damage on a closed shulker with the cause being projectile cannot damage it. It is considered unsuccessful and cannot be detected or controlled with behavior packs.
+
+Small fireball
+
+A small fireball cannot be hit.
+Using /damage on a small fireball is never considered to have successfully damaged it and cannot be detected or controlled with behavior packs.
+
+Trident
+
+A trident cannot be damaged.
+Using /damage on a trident is never considered to have successfully damaged it.
+A trident cannot be affected by an explosion.
+Using /damage on a trident with cause being block_explosion or entity_explosion cannot be detected or controlled with behavior packs.
+
+Wither Skull
+
+A wither skull cannot be damaged.
+Using /damage on a wither skull is never considered to have successfully damaged it.
+A black wither skull cannot be hit.
+Using /damage on a black wither skull is never considered to have successfully damaged it and cannot be detected or controlled with behavior packs.
+
+Wither
+
+Drowning and falling cannot hurt a wither.
+If the cause is drowning or fall, /damage does nothing on a wither and it is not considered to have successfully damaged it. It cannot be detected or controlled with behavior packs.
+A wither cannot damage another wither.
+If the cause is not self_destruct and the source is another wither, a damage command does nothing on a wither, and it is not considered to have successfully damaged it. It cannot be detected or controlled with behavior packs.
+If a wither is in its spawning animation, the cause is entity_attack, and the source is a mob, /damage makes the source mob suffer knockback.
+When spawning, a wither cannot be damaged by anything except for the void.
+If a wither is spawning, and the source is not the void, a damage command does nothing on the wither, and it is not considered to have successfully damaged it. It cannot be detected or controlled with behavior packs.
+When dying, a wither cannot be damaged.
+If a wither is dying, /damage does nothing on a wither, and it is not considered to have successfully damaged it. It cannot be detected or controlled with behavior packs.
+In its armored state, a wither is immune to arrows.
+If the wither is in its armored state, /damage with the cause being projectile and the damage source being an arrow does nothing to a wither, and it is not considered to have successfully damaged it. It cannot be detected or controlled with behavior packs.
+
+Damage types
+Below are the types of damage that can be applied. These are used for the <damageType>‌[Java Edition  only] or cause:DamageCause‌[Bedrock Edition  only] arguments (see Syntax below).
+
+Java Edition damage types
+
+Damage type
+Notes
+
+arrow
+
+bad_respawn_point
+
+cactus
+
+campfire
+
+cramming
+bypasses:• armor• shields• wolf armor
+
+dragon_breath
+bypasses:• armor• shields
+
+drown
+bypasses:• armor• shields• wolf armor
+
+dry_out
+
+explosion
+
+fall
+bypasses:• armor• shields
+
+falling_anvil
+bypasses:• shields
+
+falling_block
+
+falling_stalactite
+bypasses:• shields
+
+fireball
+
+fly_into_wall
+bypasses:• armor• shields
+
+freeze
+bypasses:• armor• shields• wolf armor
+
+generic
+bypasses:• armor• shields
+
+generic_kill
+bypasses:• invulnerability• armor• resistance effect• shields• wolf armor
+
+hot_floor
+
+in_fire
+
+in_wall
+bypasses:• armor• shields• wolf armor
+
+indirect_magic
+bypasses:• armor• shields• wolf armor
+
+lava
+
+lightning_bolt
+
+magic
+bypasses:• armor• shields• wolf armor
+
+mob_attack
+
+mob_attack_no_aggro
+
+mob_projectile
+
+on_fire
+bypasses:• armor• shields
+
+out_of_world
+bypasses:• invulnerability• armor• resistance effect• shields• wolf armor
+
+outside_border
+bypasses:• armor• shields• wolf armor
+
+player_attack
+
+player_explosion
+
+sonic_boom
+bypasses:• armor• enchantments• shields
+
+spit
+
+stalagmite
+bypasses:• armor• shields
+
+starve
+bypasses:• armor• effects (including resistance)• shields• wolf armor
+
+sting
+
+sweet_berry_bush
+
+thorns
+bypasses:• wolf armor
+
+thrown
+
+trident
+
+unattributed_fireball
+
+wind_charge
+
+wither
+bypasses:• armor• shields• wolf armor
+
+wither_skull
+
+Bedrock Edition damage types
+
+Name
+
+Description
+
+Notes
+
+anvil
+
+Caused by a falling anvil.
+
+Reduced damage to targets wearing a helmet.
+
+block_explosion
+
+Caused by the explosion of a block.
+
+Reduced damage to targets equipped with armor, with extra reduction per tier of Blast Protection.
+
+campfire
+
+Caused by standing on a campfire.
+
+​[more information needed]
+
+charging
+
+​[more information needed]
+
+​[more information needed]
+
+contact
+
+Caused by contact with a damage-inflicting block (e.g. cactus and sweet berry bushes).
+
+Reduced damage to targets equipped with armor, with extra reduction per tier of Protection.
+
+drowning
+
+Caused by drowning or a mob damaged by rain.
+
+​[more information needed]
+
+entity_attack
+
+Caused by a melee attack from a mob.
+
+Reduced damage to targets equipped with armor, with extra reduction per tier of Protection.
+
+entity_explosion
+
+Caused by the explosion of a mob.
+
+Reduced damage to targets equipped with armor, with extra reduction per tier of Blast Protection.
+
+fall
+
+Caused by falling from a higher ground, or teleporting with an ender pearl.
+
+Main article: Damage § Fall_damageReduced damage to targets equipped with Feather Falling or Protection armor. Some mobs are immune to or take less fall damage.
+
+falling_block
+
+​[more information needed]
+
+​[more information needed]
+
+fire
+
+Caused by standing in fire.
+
+​[more information needed]
+
+fire_tick
+
+Caused by being on fire.
+
+Reduced damage to targets equipped with Fire Protection or Protection. Blazes, ghasts, magma cubes, withers, wither skeletons and zombified piglins are immune to burning.
+
+fireworks
+
+Caused by a firework rocket explosion.
+
+​[more information needed]
+
+fly_into_wall
+
+Caused by colliding with a block when flying with an elytra.
+
+​[more information needed]
+
+freezing
+
+Caused by standing in powder snow.
+
+​[more information needed]
+
+lava
+
+Caused by lava.
+
+​[more information needed]
+
+lightning
+
+Caused by lightning.
+
+​[more information needed]
+
+mace_smash
+
+Caused by a mace smash attack.
+
+​[more information needed]
+
+magic
+
+Caused by potions, dragon breath, evocation fangs or guardians.
+
+​[more information needed]
+
+magma
+
+Caused by magma blocks.
+
+​[more information needed]
+
+none
+
+Caused by /damage without specifying a damage type.
+
+​[more information needed]
+
+override
+
+Caused by overriding the entity's health value using the script API.
+
+​[more information needed]
+
+piston
+
+Caused by pistons.
+
+​[more information needed]
+
+projectile
+
+Caused by projectiles, such as arrows.
+
+​[more information needed]
+
+ram_attack
+
+Caused by a goat ram attack.
+
+​[more information needed]
+
+self_destruct
+
+Caused by /kill.
+
+​[more information needed]
+
+sonic_boom
+
+Caused by a warden sonic boom attack.
+
+​[more information needed]
+
+soul_campfire
+
+Caused by standing on a soul campfire.
+
+​[more information needed]
+
+stalactite
+
+Caused by falling stalactites.
+
+​[more information needed]
+
+stalagmite
+
+Caused by stalagmites.
+
+​[more information needed]
+
+starve
+
+Caused by hunger.
+
+​[more information needed]
+
+suffocation
+
+Caused by suffocation.
+
+​[more information needed]
+
+temperature
+
+Snow golem damaged by biome temperature.
+
+​[more information needed]
+
+thorns
+
+Caused by Thorns.
+
+​[more information needed]
+
+void
+
+Caused by the void.
+
+​[more information needed]
+
+wither
+
+Caused by the Wither effect.
+
+​[more information needed]
+
+Syntax
+Java Edition
+damage <target> <amount> [<damageType>] [at <location>]
+damage <target> <amount> [<damageType>] [by <entity>] [from <cause>]
+Bedrock Edition
+damage <target: target> <amount: int> <cause: DamageCause> entity <damager: target>
+damage <target: target> <amount: int> [cause: DamageCause]
+Arguments
+JE: <target>: entityBE: target: target: CommandSelector<Actor>
+
+Specifies the entity‌[Java Edition  only] or entities‌[Bedrock Edition  only] to damage.
+Must be a player name, a target selector or a UUID‌[Java Edition  only].  In Java Edition, the target selector must be in single type.
+JE: <amount>: float
+
+Specifies the amount of damage to inflict.
+Must be a [Float]Single-precision floating-point number (from -(2-2-23)×2127 (≈-3.4×1038) to (2-2-23)2×127 (≈3.4×1038) ). And it must be greater than or equal to 0.0.
+BE: amount: int: int
+
+Specifies the amount of damage to inflict.
+Must be a [Int]32-bit integer number (from -2147483648 (-231) to 2147483647 (231-1) ). Should be between 0 and 2147483647 (both inclusive).
+JE: <damageType>: resourceBE: cause: DamageCause: enum
+
+Specifies the damage type‌[Java Edition  only] or type of damage‌[Bedrock Edition  only]. Affects death messages and difficulty scaling, among other things.
+In Java Edition, if not specified, defaults to minecraft:generic.
+Must be an existing registered resource location in minecraft:damage_type registry.
+For Bedrock Edition, all possible arguments are listed on the official add-on documentation.
+JE: <location>: vec3
+
+Specifies the location the damage originated at if the cause of the damage is not an entity (e.g., the position of the bed that exploded in the Nether).
+Must be three-dimensional coordinates with double-precision floating-point number elements. Accepts tilde and caret notations.
+JE: <entity>: entityBE: damager: target: CommandSelector<Actor>
+
+Specifies the entity who dealt the damage.
+Must be a player name, a target selector or a UUID‌[Java Edition  only].  In Java Edition, the target selector must be in single type.
+JE: <cause>: entity
+
+Specifies the cause of the damage (for example, the skeleton that shot the arrow).
+Must be a player name, a target selector or a UUID.  And the target selector must be in single type.
+Results
+
+CommandTriggerJava EditionBedrock Edition
+
+AnyThe arguments are not specified correctly. Unparseable Unparseableamount or amount: int is lower than or equal to 0. Failed Failedamount or amount: int is greater than 0 and the damage is considered not having successfully damaged the entity.amount: int is greater than 0 and the entity is not a vanilla entity or has no hardcoded damage behavior.[verify]‌[BE  only]/damage ... by ...‌[JE  only] /damage ... entity ...‌[BE  only]source or damager: target targets multiple entities.AnyOtherwiseSuccessful
+Output
+
+CommandEditionSituationSuccess Count/execute store success .../execute store result ...
+
+AnyJava EditionOn fail000On success111Bedrock EditionOn fail0N/AN/AOn successThe number of entities who are considered to have successfully took the damage.N/AN/A
+Example
+Make a villager named villager_1 deal 1HP damage to the nearest iron golem:
+/damage @e[type=iron_golem, sort=nearest, limit=1] 1 generic by @e[type=villager, limit=1, name="villager_1"]‌[Java Edition  only]
+/damage @e[type=iron_golem, c=1] 1 entity_attack entity @e[type=villager, c=1, name="villager_1"]‌[Bedrock Edition  only]
+History
+Java Edition
+Java Edition1.19.423w06a
+Added /damage.Pre-release 2
+Striders and blazes now have a weakness to freezing damage.
+Bedrock Edition
+Bedrock Edition1.18.10beta 1.18.10.26
+Added /damage.1.20.70Preview 1.20.70.21
+Renamed the suicide damage type to self_destruct.
+External links
+"/damage Command"     – Microsoft Learn, August 16, 2024.
+Navigation

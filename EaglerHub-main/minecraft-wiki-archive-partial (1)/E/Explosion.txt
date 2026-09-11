@@ -1,0 +1,1891 @@
+"Exploding" redirects here.  For the enchantment in Minecraft Dungeons, see MCD:Exploding.
+ "Boom" redirects here.  For the cosmetic in Minecraft Dungeons, see MCD:Boom.
+A TNT explosion.
+An explosion is a physical event, generally destructive, that occurs in several different circumstances. It can destroy nearby blocks, propel and damage nearby entities, and cause fires in some cases. Explosions produce a "shockwave" particle effect. Explosives include ghast fireballs, TNT, End crystals, beds when used outside of the Overworld, and respawn anchors when used outside of the Nether.
+The propulsion effect of explosions is often used for TNT cannons.
+
+Contents
+
+1 Interaction with entities
+
+1.1 Velocity
+1.2 Damage
+1.3 Calculator
+1.4 Exposure
+
+1.4.1 Sample points
+1.4.2 Edge cases
+
+2 Block destruction
+
+2.1 Calculating which blocks to destroy
+2.2 Dropping blocks
+
+3 Causes
+4 Blast resistance
+5 Sounds
+6 History
+
+6.1 Development
+6.2 Java Edition
+6.3 Bedrock Edition
+6.4 Legacy Console Edition
+
+7 Issues
+8 Trivia
+9 References
+10 Navigation
+
+Interaction with entities
+Velocity
+Each affected entity is accelerated by between 0 and 1 blocks per game tick (0 to 20 blocks per second), added to its current velocity. This effect can accumulate over multiple explosions, even within a single tick.
+In Java Edition, the magnitude of the velocity given to each entity in the range of an explosion is calculated with the following code:
+
+magnitude = (1 - distance/(2*power)) * exposure * knockbackMultiplier * (1 - EXPLOSION_KNOCKBACK_RESISTANCE)
+
+Or in formula form, (1−distance2⋅power)⋅exposure⋅knockback multiplier⋅(1−explosion knockback resistance).
+
+In Bedrock Edition, the magnitude of the velocity given to each entity in the range of an explosion is calculated with the following code:magnitude = (1 - (distance - width/2)/(2*power)) * exposure * knockbackMultiplier
+Distance is measured from the explosion center to the entity's feet position. Width is the width of the affected entity's collision box. A list of explosion powers can be found in the Causes section. Exposure is discussed in the Exposure section. Explosion knockback resistance refers to the attribute explosion_knockback_resistance. The knockback multiplier depends on the cause:
+
+Cause
+Knockback multiplier
+
+Default
+1.0
+
+Player-thrown wind charge
+1.22 (float)
+
+Breeze wind charge
+
+0.6 (float)
+
+To calculate the final velocity, the game takes the vector pointing from the explosion center to the entity's eye position ‌[Java Edition  only] / head position ‌[Bedrock Edition  only] and sets its length to the previously calculated magnitude. TNT entities are the only exception, where the direction goes to the tnt's feet instead of its eyes [verify for Bedrock Edition].
+
+Damage
+The following code is used to calculate the damage inflicted on an entity:
+
+impact = (1 - distance/(2*power)) * exposure;
+damage = (float)((impact*impact + impact)/2 * 7*(2*power) + 1)
+
+In formula form, this is:
+impact=(1−distance2⋅power)⋅exposure
+damage=7⋅power⋅(impact2+impact)+1.
+Players are damaged differently depending on difficulty. The main damage value is used to calculate the final damage in other difficulties:
+
+Player damage per difficulty Main article: Damage
+
+Difficulty
+Damage calculation
+
+Peaceful
+No damage
+
+Easy
+min(damage/2 + 1, damage)
+
+Normal
+damage
+
+Hard
+damage * 3/2
+
+At the end of each game tick only the highest single explosion damage is chosen. Note that the main damage value has a +1 at the end, so all entities in range (within 2⋅power) of an explosion receive at least 1 damage even when the explosion is fully blocked. The only exceptions are invulnerable entities, Nether stars, and Peaceful players.
+The Blast Protection enchantment and the Resistance effect are handled separately.
+
+Calculator
+
+Positions
+
+Explosion X
+
+0.0
+
+Entity X
+
+1.0
+
+Explosion Y
+
+0.061250001192092896
+
+Entity Y
+
+0.0
+
+Explosion Z
+
+0.0
+
+Entity Z
+
+0.0
+1.0
+-0.061250001192092896
+0.0
+1.001874025337533
+
+Exposure
+
+Entity width
+
+0.9800000190734863
+
+Entity height
+
+0.9800000190734863
+
+Layout
+
+3×3×3
+
+Spacing
+
+0.33108108325802205 × 0.33108108325802205 × 0.33108108325802205
+
+Negative corner
+
+0.1621621665160441, 0, 0.1621621665160441
+
+Positive corner
+
+0.8243243330320882, 0.6621621665160441, 0.8243243330320882
+
+Effect on the entity
+
+Power
+
+4.0
+
+Exposure
+
+27 / 27 1.0
+
+Knockback multiplier
+
+1.0
+
+Eye height
+
+0.0
+-0.061250001192092896
+1.001874025337533
+
+Knockback resistance
+
+0.0
+
+Velocity X
+
+0.8731294800642211 blocks/tick
+
+Speed
+
+0.8747657468328084 blocks/tick
+
+Velocity Y
+
+-0.053479181694784994 blocks/tick
+
+Damage
+
+46.9375
+
+Velocity Z
+
+0.0 blocks/tick
+
+Exposure
+The sample points for the exposure calculation of TNT.
+The exposure is a measurement of how much of the explosion is blocked by blocks. It ranges from 0 (when the explosion is entirely blocked) to 1 (when there are no obstructions).
+To calculate the exposure, the game picks a set of sample points in the entity and casts rays from the explosion center to each point.
+For each ray, the game checks if it intersects with any block hitbox. If it does, it is considered obstructed. The exposure is then calculated by dividing the number of unobstructed rays by the total number of rays.
+
+Sample points
+The sample points are arranged in a ⌈2⋅𝗐𝗂𝖽𝗍𝗁+1⌉×⌈2⋅𝗁𝖾𝗂𝗀𝗁𝗍+1⌉×⌈2⋅𝗅𝖾𝗇𝗀𝗍𝗁+1⌉ 3D grid. 𝗐𝗂𝖽𝗍𝗁, 𝗁𝖾𝗂𝗀𝗁𝗍, and 𝗅𝖾𝗇𝗀𝗍𝗁 represent the X, Y, and Z dimension of the entity's bounding box respectively (measured in blocks).
+Points on the grid are spaced by
+[width2⋅width+1height2⋅height+1length2⋅length+1]
+With the negative corner at
+[12(1−⌊2⋅width+1⌋2⋅width+1)012(1−⌊2⋅length+1⌋2⋅length+1)]
+
+Edge cases
+An explosion affecting a creeper through a fence gate. The collision boxes debug renderer is enabled to show the fence gate hitbox. Rays are only obstructed (red) if they intersect the full cube containing the fence. Unobstructed (green) rays can go through the fence hitbox otherwise.
+Exposure is directionally biased (and the ray targets can sometimes be outside the entity) due to bug MC-232355. This mostly affects small entities and entities that are far from a multiple of 0.5 wide.
+The top of scaffolding only obstructs exposure rays if the feet position of the affected entity is above it. This has the effect of explosions appearing to travel down through scaffolding but not up.
+For blocks whose collision box extends outside the full cube containing them (walls, fences, the back of piston arms, moving blocks, etc.), they only obstruct exposure rays if the rays intersect the full cube where the block is located.
+Block destruction
+Comparison of explosion craters, from a charged creeper (left), TNT (center) and regular creeper (right).
+The rays from the explosion center to points that are uniformly distributed on the surface of a cube. (this defines only their directions)
+On a small scale, explosions form a roughly spherical crater. The size of that crater is dependent on the power of the explosion and the blast resistance of the destroyed blocks.
+
+Calculating which blocks to destroy
+To calculate the blocks affected, "rays" are created from the explosion center to the outer points of a 16 by 16 by 16 grid. Each of those rays gets an intensity of power⋅(random value from 0.7 to 1.3).
+For each ray, with the position starting at the explosion center:
+
+The game checks the block at the current position (this ignores block shape).
+If the block isn't air, intensity is reduced by (blast resistance+0.3)⋅0.3.
+If the remaining intensity is above 0 and the block can be blown up, it gets added to the list of blocks to blow up.
+Position is moved 0.3 blocks along the ray.
+Intensity is reduced by 0.22500001.
+If the remaining intensity is above 0, repeat from step 1. Otherwise, continue with the next ray.
+This typically results in the maximum sphere of block damage having a radius of approximately 4/3 times the explosion power. This can be experimentally verified by repeating an explosion of a set explosion power at some coordinate inside blocks and measuring the radius of the resulting sphere of air.
+After the process is done, the list of blocks to blow up is shuffled. For explosions that can cause fires, the game attempts to generate fire in 1⁄3 of the blocks in the list. This fire is successfully placed only when above an opaque block.
+Due to the fact that the game ignores block shapes when checking blast resistance, explosions happening inside a non-full block get dampened heavily. Sufficiently weak explosions happening on ender chests, enchanting tables, or any height of water or lava don't do block damage.
+
+Dropping blocks
+Blocks destroyed by explosions have a chance to drop items as if mined with an unenchanted diamond tool. Blocks destroyed by TNT have a 100% chance of dropping. Other explosions have a 1⁄power chance of dropping items. However, dragon eggs, beacons, conduits, heads, shulker boxes and decorated pots always drop from explosions.
+The drop chance of blocks in explosions can be customized via three game rules: blockExplosionDropDecay‌[JE  only] (includes End crystals), mobExplosionDropDecay‌[JE  only] and tntExplosionDropDecay. Only tntExplosionDropDecay is set to false by default. If an explosion's drop decay is set to false, items have a 100% chance of dropping.
+Worlds created before 1.21 retain their old tntExplosionDropDecay settings. Upgraded worlds need to use /gamerule tntExplosionDropDecay false to get the new behavior.‌[BE  only]
+
+Causes
+
+Cause
+
+Power
+
+Max. blast resistance
+
+Max. range
+
+Fire
+
+Affected by mobGriefing
+
+Notes
+
+Fireball (ghast projectile)
+
+1
+
+3.49
+
+Entity: 2Block: 1.5
+
+Yes
+
+Yes
+
+Can have its explosion power modified by editing its Entity data.
+
+Black wither skullDangerous wither skull
+
+1
+
+3.49
+
+Entity: 2Block: 1.5
+
+No
+
+Yes
+
+Dangerous wither skull: Treats blocks breakable in Survival as having ≤ 0.8 blast resistance.
+
+Creeper
+
+3
+
+12.16
+
+Entity: 6Block: 5.1
+
+No
+
+Yes
+
+Can have its explosion power modified by editing its Entity data.
+
+Sulfur cube (with TNT absorbed)TNTMinecart with TNTUnderwater TNT‌[BE & edu  only]
+
+4
+
+16.49
+
+Entity: 8Block: 6.9
+
+No
+
+No
+
+Minecart with TNT:Gets up to an extra 7.5 explosion power (up to 11.5 total) based on the conditions under which it exploded.Underwater TNT‌[BE & edu  only]:Ignores waterThe explosion center is approximately 0.06125 blocks above the TNT's position.
+
+BedsRespawn anchor(when used in a wrong dimension)
+
+5
+
+20.83
+
+Entity: 10Block: 8.4
+
+Yes
+
+No
+
+Death message: "(player) was killed by [Intentional Game Design]"
+
+End crystal (when destroyed)
+
+6
+
+25.16
+
+Entity: 12Block: 10.2
+
+No
+
+No
+
+Charged creeper
+
+6
+
+25.16
+
+Entity: 12Block: 10.2
+
+No
+
+Yes
+
+Drops heads or skulls of mobs killed by explosion.
+Can have its explosion power modified by editing its Entity data.
+
+Wither (when spawned, or when killed‌[BE  only])
+
+7
+
+29.49
+
+Entity: 14Block: 12
+
+No
+
+Yes
+
+Wither (half health charge move)‌[BE  only]
+
+8
+
+--
+
+Entity: 16Block: 13.8
+
+No
+
+Yes
+
+Breaks any block breakable in Survival (except reinforced deepslate), ignoring blast resistance.
+
+Despite doing damage to entities, fireworks do not destroy terrain and as such are not counted as conventional explosions.
+Lab tables sometimes perform a non-terrain-damaging explosion when creating garbage item.‌[BE & edu  only]
+
+Blast resistance
+  This section is about a property of the blocks.   For the enchantment, see Blast Protection.
+
+The following table shows the blast resistance values used in Minecraft's code for all blocks. In add-on documentation for Bedrock Edition, these values are multiplied by 5 when used for the explosion_resistance value in the minecraft:destructible_by_explosion component. For example, cobblestone has a blast resistance of 6, so to make a custom block with the same blast resistance as cobblestone, quintuple that (which is 30) must be stored in its explosion_resistance value.
+[edit values]
+
+Block name
+Blast resistance
+
+Barrier
+
+3,600,000.75
+
+Light
+
+3,600,000.75
+
+Bedrock
+
+3,600,000
+
+Client_request_placeholder_block
+
+3,600,000‌[Bedrock Edition  only]
+
+Command Blocks
+
+3,600,000
+
+End Gateway
+
+3,600,000
+
+End Portal
+
+3,600,000
+
+End Portal Frame
+
+3,600,000
+
+Invisible Bedrock
+
+3,600,000‌[Bedrock Edition  only]
+
+Jigsaw Block
+
+3,600,000
+
+Structure Block
+
+3,600,000
+
+Test Block
+
+3,600,000‌[Java Edition  only]
+
+Test Instance Block
+
+3,600,000‌[Java Edition  only]
+
+Ancient Debris
+
+1,200
+
+Anvil
+
+1,200
+
+Block of Netherite
+
+1,200
+
+Crying Obsidian
+
+1,200
+
+Deprecated Anvil
+
+1,200‌[Bedrock Edition  only]
+
+Enchanting Table
+
+1,200
+
+Glowing Obsidian
+
+1,200‌[Bedrock Edition  only]
+
+Heavy Core
+
+1,200
+
+Obsidian
+
+1,200
+
+Reinforced Deepslate
+
+1,200
+
+Respawn Anchor
+
+1,200
+
+Ender Chest
+
+600
+
+Bubble Column
+
+100
+
+Lava
+
+100
+
+Water
+
+100
+
+Ominous Trial Spawner
+
+50
+
+Ominous Vault
+
+50
+
+Trial Spawner
+
+50
+
+Vault
+
+50
+
+Creaking Heart
+
+10
+
+Dragon Egg
+
+9
+
+End Stone
+
+9
+
+End Stone Bricks
+
+9
+
+End Stone Brick Wall
+
+9
+
+Andesite
+
+6
+
+Blackstone
+
+6
+
+Block of Coal
+
+6
+
+Block of Copper
+
+6
+
+Block of Diamond
+
+6
+
+Block of Emerald
+
+6
+
+Block of Gold
+
+6
+
+Block of Iron
+
+6
+
+Block of Raw Copper
+
+6
+
+Block of Raw Gold
+
+6
+
+Block of Raw Iron
+
+6
+
+Block of Redstone
+
+6
+
+Bricks
+
+6
+
+Brick Stairs
+
+6
+
+Chiseled Deepslate
+
+6
+
+Chiseled Purpur
+
+6‌[Bedrock Edition  only]
+
+Cobbled Deepslate
+
+6
+
+Cobblestone
+
+6
+
+Cobblestone Stairs
+
+6
+
+Copper Chain
+
+6
+
+Copper Door
+
+6
+
+Copper Trapdoor
+
+6
+
+Coral Blocks
+
+6
+
+Deepslate
+
+6
+
+Deepslate Bricks
+
+6
+
+Deepslate Tiles
+
+6
+
+Deprecated_purpur_block_2
+
+6‌[Bedrock Edition  only]
+
+Diorite
+
+6
+
+Gilded Blackstone
+
+6
+
+Granite
+
+6
+
+Grindstone
+
+6
+
+Iron Bars
+
+6
+
+Iron Chain
+
+6
+
+Jukebox
+
+6
+
+Lightning Rod
+
+6
+
+Mossy Cobblestone
+
+6
+
+Nether Bricks
+
+6
+
+Nether Brick Fence
+
+6
+
+Nether Brick Stairs
+
+6
+
+Petrified Oak Slab
+
+6
+
+Polished Deepslate
+
+6
+
+Prismarine
+
+6
+
+Purpur Block
+
+6
+
+Purpur Pillar
+
+6
+
+Purpur Slab
+
+6
+
+Purpur Stairs
+
+6
+
+Red Nether Bricks
+
+6
+
+Smooth Quartz Block
+
+6
+
+Smooth Quartz Slab
+
+6
+
+Smooth Quartz Stairs
+
+6
+
+Smooth Stone
+
+6
+
+Smooth Stone Bricks
+
+6‌[Bedrock Edition  only]
+
+Stone
+
+6
+
+Stone Bricks
+
+6
+
+Stone Brick Stairs
+
+6
+
+Stone Slab
+
+6
+
+Stone Walls (except End, Sandstone)
+
+6
+
+Tuff
+
+6
+
+Bell
+
+5
+
+Iron Door
+
+5
+
+Iron Trapdoor
+
+5
+
+Monster Spawner
+
+5
+
+Hopper
+
+4.8
+
+Basalt
+
+4.2
+
+Polished Basalt
+
+4.2
+
+Smooth Basalt
+
+4.2
+
+Stained Terracotta
+
+4.2
+
+Terracotta
+
+4.2
+
+Cobweb
+
+4
+
+Lodestone
+
+3.5
+
+Blast Furnace
+
+3.5
+
+Dispenser
+
+3.5
+
+Dropper
+
+3.5
+
+Furnace
+
+3.5
+
+Lantern
+
+3.5
+
+Soul Lantern
+
+3.5
+
+Smoker
+
+3.5
+
+Stonecutter
+
+3.5
+
+Block name
+Blast resistance
+
+Observer
+
+3
+
+Beacon
+
+3
+
+Block of Lapis Lazuli
+
+3
+
+Coal Ore
+
+3
+
+Cocoa Beans
+
+3
+
+Conduit
+
+3
+
+Copper Ore
+
+3
+
+Deepslate Coal Ore
+
+3
+
+Deepslate Copper Ore
+
+3
+
+Deepslate Diamond Ore
+
+3
+
+Deepslate Emerald Ore
+
+3
+
+Deepslate Gold Ore
+
+3
+
+Deepslate Iron Ore
+
+3
+
+Deepslate Lapis Lazuli Ore
+
+3
+
+Deepslate Redstone Ore
+
+3
+
+Diamond Ore
+
+3
+
+Emerald Ore
+
+3
+
+Gold Ore
+
+3
+
+Iron Ore
+
+3
+
+Lab Table
+
+3‌[BE & edu  only]
+
+Lapis Lazuli Ore
+
+3
+
+Mud Bricks
+
+3
+
+Nether Quartz Ore
+
+3
+
+Nether Reactor Core
+
+3‌[Bedrock Edition  only]
+
+Packed Mud
+
+3
+
+Planks
+
+3
+
+Pointed Dripstone
+
+3
+
+Redstone Ore
+
+3
+
+Sculk Catalyst
+
+3
+
+Sculk Shrieker
+
+3
+
+Wooden Fences
+
+3
+
+Fence Gates
+
+3
+
+Wooden Doors
+
+3
+
+Wooden Slabs
+
+3
+
+Wooden Stairs
+
+3
+
+Wooden Trapdoors
+
+3
+
+Blue Ice
+
+2.8
+
+Barrel
+
+2.5
+
+Cartography Table
+
+2.5
+
+Chest
+
+2.5
+
+Crafting Table
+
+2.5
+
+Dried Kelp Block
+
+2.5
+
+Fletching Table
+
+2.5
+
+Heat Block
+
+2.5‌[BE & edu  only]
+
+Lectern
+
+2.5
+
+Loom
+
+2.5
+
+Smithing Table
+
+2.5
+
+Trapped Chest
+
+2.5
+
+Bone Block
+
+2
+
+Campfire
+
+2
+
+Cauldron
+
+2
+
+Compound Creator
+
+2‌[BE & edu  only]
+
+Dyed Shulker Box
+
+2
+
+Element Constructor
+
+2‌[BE & edu  only]
+
+Material Reducer
+
+2‌[BE & edu  only]
+
+Shulker Box
+
+2
+
+Soul Campfire
+
+2
+
+Wood
+
+2
+
+Concrete
+
+1.8
+
+Amethyst Bud
+
+1.5
+
+Amethyst Cluster
+
+1.5
+
+Block of Amethyst
+
+1.5
+
+Bookshelf
+
+1.5
+
+Budding Amethyst
+
+1.5
+
+Piston
+
+1.5
+
+Piston Head
+
+1.5
+
+Sculk Sensor
+
+1.5
+
+Sticky Piston
+
+1.5
+
+Glazed Terracotta
+
+1.4
+
+Bamboo
+
+1
+
+Banners
+
+1
+
+Chalkboard
+
+1‌[BE & edu  only]
+
+Dripstone Block
+
+1
+
+Jack o'Lantern
+
+1
+
+Heads
+
+1
+
+Nether Wart Block
+
+1
+
+Pumpkin
+
+1
+
+Shroomlight
+
+1
+
+Signs
+
+1
+
+Warped Wart Block
+
+1
+
+Block of Quartz
+
+0.8
+
+Note Block
+
+0.8
+
+Quartz Stairs
+
+0.8
+
+Red Sandstone
+
+0.8
+
+Red Sandstone Stairs
+
+0.8
+
+Sandstone
+
+0.8
+
+Sandstone Stairs
+
+0.8
+
+Sandstone Wall
+
+0.8
+
+Wool
+
+0.8
+
+Calcite
+
+0.75
+
+Infested Blocks
+
+0.75
+
+Activator Rail
+
+0.7
+
+Detector Rail
+
+0.7
+
+Powered Rail
+
+0.7
+
+Rail
+
+0.7
+
+Mangrove Roots
+
+0.7
+
+Muddy Mangrove Roots
+
+0.7
+
+Dirt Path
+
+0.65
+
+Beehive
+
+0.6
+
+Clay
+
+0.6
+
+Composter
+
+0.6
+
+Farmland
+
+0.6
+
+Grass Block
+
+0.6
+
+Gravel
+
+0.6
+
+Honeycomb Block
+
+0.6
+
+Sponge
+
+0.6
+
+Wet Sponge
+
+0.6
+
+Mycelium
+
+0.6
+
+Block name
+Blast resistance
+
+Brewing Stand
+
+0.5
+
+Buttons
+
+0.5
+
+Cake
+
+0.5
+
+Coarse Dirt
+
+0.5
+
+Concrete Powder
+
+0.5
+
+Dirt
+
+0.5
+
+Frosted Ice
+
+0.5
+
+Hay Bale
+
+0.5
+
+Ice
+
+0.5
+
+Lever
+
+0.5
+
+Magma Block
+
+0.5
+
+Mud
+
+0.5
+
+Packed Ice
+
+0.5
+
+Podzol
+
+0.5
+
+Pressure Plates
+
+0.5
+
+Rooted Dirt
+
+0.5
+
+Sand
+
+0.5
+
+Soul Sand
+
+0.5
+
+Soul Soil
+
+0.5
+
+Target
+
+0.5
+
+Turtle Egg
+
+0.5
+
+Cactus
+
+0.4
+
+Chorus Flower
+
+0.4
+
+Chorus Plant
+
+0.4
+
+Ladder
+
+0.4
+
+Netherrack
+
+0.4
+
+Nylium
+
+0.4
+
+Bee Nest
+
+0.3
+
+Froglight
+
+0.3
+
+Glass
+
+0.3
+
+Glass Pane
+
+0.3
+
+Glowstone
+
+0.3
+
+Redstone Lamp
+
+0.3
+
+Sea Lantern
+
+0.3
+
+Stained Glass
+
+0.3
+
+Stained Glass Panes
+
+0.3
+
+Tinted Glass
+
+0.3
+
+Glow Item Frame
+
+0.25‌[Bedrock Edition  only]
+
+Item Frame
+
+0.25‌[Bedrock Edition  only]
+
+Powder Snow
+
+0.25
+
+Beds
+
+0.2
+
+Daylight Detector
+
+0.2
+
+Glow Lichen
+
+0.2
+
+Leaves
+
+0.2
+
+Mushroom Blocks
+
+0.2
+
+Sculk
+
+0.2
+
+Sculk Vein
+
+0.2
+
+Snow Block
+
+0.2
+
+Vines
+
+0.2
+
+Candle
+
+0.1
+
+Dyed Candle
+
+0.1
+
+Carpets
+
+0.1
+
+Big Dripleaf
+
+0.1
+
+Moss Block
+
+0.1
+
+Moss Carpet
+
+0.1
+
+Snow
+
+0.1
+
+Air
+
+0
+
+Azalea
+
+0
+
+Beetroots
+
+0
+
+Block of Resin
+
+0
+
+Carrots
+
+0
+
+Cave Air
+
+0‌[Java Edition  only]
+
+Cave Vines
+
+0
+
+Colored Torch
+
+0
+
+Corals
+
+0
+
+Coral Fans
+
+0
+
+Dead Bush
+
+0
+
+Dried Ghast
+
+0
+
+Element
+
+0‌[BE & edu  only]
+
+End Rod
+
+0
+
+Fire
+
+0
+
+Flowers
+
+0
+
+Flower Pot
+
+0
+
+Frogspawn
+
+0
+
+Hanging Roots
+
+0
+
+Honey Block
+
+0
+
+Info_update
+
+0‌[Bedrock Edition  only]
+
+Info_update2
+
+0‌[Bedrock Edition  only]
+
+Kelp
+
+0
+
+Lily Pad
+
+0
+
+Locked Chest
+
+0‌[Java Edition  only]
+
+Melon Stem
+
+0
+
+Moving Piston
+
+0
+
+Mushrooms
+
+0
+
+Nether Fungus
+
+0
+
+Nether Sprouts
+
+0
+
+Nether Portal
+
+0
+
+Nether Wart
+
+0
+
+Potatoes
+
+0
+
+Pumpkin Stem
+
+0
+
+Redstone Dust
+
+0
+
+Redstone Comparator
+
+0
+
+Redstone Repeater
+
+0
+
+Redstone Torch
+
+0
+
+Reserved6
+
+0‌[Bedrock Edition  only]
+
+Crimson Roots
+
+0
+
+Warped Roots
+
+0
+
+Saplings
+
+0
+
+Scaffolding
+
+0
+
+Seagrass
+
+0
+
+Sea Pickle
+
+0
+
+Short Grass
+
+0
+
+Slime Block
+
+0
+
+Small Dripleaf
+
+0
+
+Soul Fire
+
+0
+
+Soul Torch
+
+0
+
+Spore Blossom
+
+0
+
+String
+
+0
+
+Structure Void
+
+0
+
+Sugar Cane
+
+0
+
+Sweet Berry Bush
+
+0
+
+TNT
+
+0
+
+Torch
+
+0
+
+Tripwire Hook
+
+0
+
+Twisting Vines
+
+0
+
+Underwater Torch
+
+0
+
+Underwater TNT
+
+0
+
+Unknown
+
+0‌[Bedrock Edition  only]
+
+Void Air
+
+0‌[Java Edition  only]
+
+Weeping Vines
+
+0
+
+Wheat
+
+0
+
+Sounds
+Java Edition
+
+SoundsSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitchAttenuationdistance​ExplosionBlocksWhen something explodesentity.generic.explodesubtitles.entity.generic.explode​4.00.56–0.8416
+Bedrock Edition:
+
+SoundsSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitch​ExplosionBlocksWhen something explodesrandom.explode​ ?4.01.0
+History
+
+
+
+This section is missing information about: New Nintendo 3DS Edition 
+Please expand the section to include this information. Further details may exist on the talk page.
+
+Development
+May 21, 2009
+Notch shows interest in adding an explosive block.October 24, 2009
+Showed off TNT.
+Java Edition
+Java Edition Classic0.24_SURVIVAL_TEST
+Added creepers.0.26 SURVIVAL TEST
+Added TNT.Java Edition Indev0.3120100122-2251
+Explosions are now "better".20100124-2310
+Explosions now lose power when going through stronger materials.Java Edition Alphav1.2.0preview
+Added ghasts, which shoot explosive fireballs.Java Edition Beta1.5
+Creepers now become charged when struck by lightning, increasing the explosion's radius and strength.1.6Test Build 3
+When the player tries to sleep in the Nether, they now cause the bed to explode.1.8Pre-release
+Explosions now emit shockwave particles. Prior to Beta 1.8, explosions emitted only smoke.Sound Update
+The 'Sound Update' on November 11, 2011 gave TNT a new explosion sound.Java Edition1.0.0Beta 1.9 Prerelease 3
+Bed and fireball explosions now cause fires.Beta 1.9 Prerelease 4
+When the player tries to sleep in the End, they now cause the bed to explode.
+
+Enchantment Blast Protection added, which can enhance an armor's resistance against explosions.Beta 1.9 Prerelease 6
+End crystals added, which can be destroyed with a melee or hit with an arrow or snowball, causing an explosion.1.3.112w24a
+Fixed the issue of explosions not propelling players.12w30a
+Explosions now damage the player different amounts on different difficulties. However, no damage is dealt to the player on Peaceful.1.4.212w34a
+Added the wither, which shoots black wither skulls.12w37a
+An emergent wither now makes a massive explosion when its health is fully charged.
+
+Blue wither skulls added.12w38b
+New creeper fall mechanics have been added. Creepers now explode if they fall on the player from a certain height.1.5?
+Destroyed blocks now have a 1/power chance of dropping as items; previously it was a fixed 30% chance.?
+The Nether's biome now controls whether beds explode. As such, superflat worlds with this biome set have beds exploding in the Overworld. It is not known if Overworld biomes in the Nether allow sleeping as a result of this.​[more information needed]1.8.2pre1
+Explosions are no longer directionally biased.pre7
+Explosions no longer deal knockback to players in Creative mode even if they are not flying.1.916w02a
+Explosions once again deal knockback to players in Creative mode but only if they are not flying.1.1419w11a
+Destroyed blocks from TNT or minecart with TNT explosions now have a 100% chance of dropping as items.1.15pre1
+Explosions no longer create smoke particles.
+
+It is stated in bug report MC-165991 that the removal of these particles is as part of a performance optimization, and that they will be reimplemented in a future version once performance is less of a concern.1.1620w12a
+Added respawn anchors, which explode in a similar fashion to a bed, if charged and used in the Overworld and the End dimensions.20w18a
+The Nether wastes biome no longer allows for beds to explode in the Overworld.​[more information needed]1.16.2?
+Custom dimensions can specify whether beds and/or respawn anchors explode when used.1.19.322w44a
+Added the following game rules:
+blockExplosionDropDecay
+mobExplosionDropDecay
+tntExplosionDropDecay
+1.21.925w33a
+Explosions now create smoke particles again.
+Bedrock Edition
+Pocket Edition Alphav0.1.0
+Added TNT.v0.2.1
+TNT now actually explodes.v0.4.0
+Added creepers.v0.12.1build 1
+Creepers now become charged when struck by lightning, increasing the explosion's radius and strength.
+
+Added ghasts, which shoot explosive fireballs.
+
+Enchantment Blast Protection added, which can enhance an armor's resistance against explosions.
+
+When the player tries to sleep in the Nether, they cause beds to explode.build 10
+Added explosion particles.
+
+TNT now uses a new explosion sound.v0.14.0build 1
+An invalid mixture of liquids in cauldrons now result in a non-damaging explosion effect.v0.16.0build 4
+Withers added.Pocket Edition1.0.0alpha 0.17.0.1
+End crystals added.
+
+When the player tries to sleep in the End, they now cause the bed to explode.1.0.7
+Explosions no longer deal damage to a player, if the explosion is in water.Bedrock Edition1.4.0beta 1.2.20.1
+Creating garbage in lab table sometimes causes explosion sound.
+
+Added underwater TNT, which can damage terrain underwater.?
+Removed the non-damaging explosion effect from cauldrons, replaced with a hiss and smoke.1.10.0
+Added minecraft:explosion_resistance to determine the blast resistance for custom blocks.1.19.20Preview 1.19.20.23
+Replaced minecraft:explosion_resistance with minecraft:destructible_by_explosion that can determine the blast resistance of a custom block in add-ons.1.21.0Preview 1.21.0.20
+Added the game rule tntExplosionDropDecay.
+
+TNT explosions now have a 100% item drop rate by default.
+Legacy Console Edition
+Legacy Console EditionXbox 360Xbox OnePS3PS4PS VitaWii USwitchTU1CU11.001.001.00Patch 11.0.1
+Added TNT and creepers, which can explode.TU7
+Enchantment Blast Protection added, which can enhance an armor's resistance against explosions.TU9
+End crystals added, which can be destroyed with a melee or hit with an arrow or snowball, causing an explosion.TU141.04
+Explosions now damage the player different amounts on different difficulties. However, no damage is dealt to the player on Peaceful.TU19CU71.121.121.12
+Added the wither, which shoots black wither skulls and blue wither skulls.TU43CU331.361.361.36Patch 13
+Explosions no longer deal knockback to players, which are flying in Creative mode.
+Issues
+Issues relating to "Explosion" are maintained on the bug tracker. Issues should be reported and viewed there.
+
+Trivia
+Explosions with a power greater than 100 look mostly the same from the outside, as only certain lines are used to determine if a block breaks. However, some of those lines continue underground.
+Explosions that occur in flowing water or lava apply propulsion and damage to entities, but don't affect any blocks, regardless of the blocks' blast resistance.
+Underwater explosions don't emit smoke particles.
+Explosions can redirect projectiles, including ender pearls.
+An explosion just after a mob's death can propel the mob's body.
+If a falling sand entity falls into primed TNT when in water, it deals block damage.
+References
+
+ MC-263554 – resolved as "Works As Intended".
+
+ https://bugs.mojang.com/browse/MCPE-56036?focusedId=1331407&page=com.atlassian.jira.plugin.system.issuetabpanels%3Acomment-tabpanel#comment-1331407
+
+ MC-147255
+
+ MCPE-56036 – TNT Does Not Have 100% Drop Rate – resolved as "Fixed".
+
+Navigation

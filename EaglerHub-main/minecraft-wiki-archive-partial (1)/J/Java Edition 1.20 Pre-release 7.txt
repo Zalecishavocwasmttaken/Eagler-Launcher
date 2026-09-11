@@ -1,0 +1,161 @@
+Minecraft 1.20 Pre-release 7
+
+Edition
+
+Java Edition
+
+Release date
+
+May 29, 2023
+
+Type
+
+Pre-release
+
+Pre-release for
+
+1.20
+
+Downloads
+
+Client (.json)Server
+
+Obfuscation maps
+
+ClientServer
+
+Protocol version
+
+ dec: 1073741964 hex: 4000008C
+
+Data version
+
+3461
+
+Resource pack format
+
+15
+
+Data pack format
+
+15
+
+Minimum Java version
+
+Java SE 17
+
+◄◄   1.19.4
+1.20
+  1.20.1 ►►
+
+◄   1.20 Pre-release 6
+
+ 1.20 Pre-release 7
+
+  1.20 Release Candidate 1 ►
+
+{
+    "title": "Minecraft 1.20 Pre-release 7",
+    "images": [
+        "1.20-pre7.jpg",
+        "Java Edition 1.20 Pre-release 7.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "May 29, 2023",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Pre-release article, displayed as Pre-release)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition 1.20 article, displayed as 1.20)",
+            "label": "Pre-release for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/30d5c2f0f3b10ca0eb7df3ef566eab4fe3bed672/client.jar Client] ([https://piston-meta.mojang.com/v1/packages/fb19ee01ac38901022d76bff8f80479fbb7d0ac1/1.20-pre7.json .json])<br />[https://piston-data.mojang.com/v1/objects/ed6ddd61aeb1f529ef626fae9bcb0a5f51491f71/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/dc4a2b8fb934fce713b82565067815722e3a27e7/client.txt Client]<br />[https://piston-data.mojang.com/v1/objects/3d30c709afce24c9a85daabb900640f2a042f76e/server.txt Server]",
+            "label": "(link to Obfuscation map article, displayed as Obfuscation maps)"
+        },
+        {
+            "field": " <span style=\"font-size:smaller\"><abbr title=\"decimal\">dec</abbr>: </span>1073741964<br /> <span style=\"font-size:smaller\"><abbr title=\"hexadecimal\">hex</abbr>: </span>4000008C",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "3461",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "15",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "15",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Data pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_17_.28LTS.29 Java SE 17]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Java Edition  1.19.4|<span style=\"margin-right:-0.35em\">◄</span>◄   1.19.4]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition 1.20|1.20]]'''</td>\n<td style=\"padding: 0.4em\" >[[Java Edition  1.20.1|  1.20.1 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  1.20 Pre-release 6|◄   1.20 Pre-release 6]]\n</td>\n<td style=\"padding: 0.4em\">''' 1.20 Pre-release 7'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  1.20 Release Candidate 1|  1.20 Release Candidate 1 ►]]\n</td>\n</tr>\n</table>"
+}
+
+1.20 Pre-release 7 (known as 1.20-pre7 in the launcher) is the seventh and final pre-release for Java Edition 1.20, released on May 29, 2023, which adds symbolic link validation, and fixes a bug.
+
+Contents
+
+1 Changes
+
+1.1 General
+
+2 Fixes
+3 Videos
+4 References
+5 Navigation
+
+Changes
+General
+Tag
+
+Added bamboo_mosaic_slab to #slabs block and item tags.
+Added bamboo_mosaic_stairs to #stairs block and item tags.
+General
+
+To improve safety, the game now detects symbolic links used inside world directory.
+If the target of a symbolic link is not on the user-configured allow-list, the game does not proceed with loading the world.
+Note: world directory itself can still be linked.
+The list of allowed symbolic link targets is stored in file allowed_symlinks.txt in client or server top directory.
+The file consists of entries (one per line) with following formats allowed:
+Lines starting with # are comments and are ignored.
+[type]pattern, where type can be glob, regex or prefix.
+prefix matches start of path with given pattern (so for /test paths /test, /test/, and /test/foo.txt would match).
+regex matches regular expression against whole path.
+glob uses OS-specific path matching mechanism (for example *.txt would usually match files with txt extension).
+Note: paths use OS-specific separators.
+pattern, which uses default prefix type.
+Fixes
+1 issue fixed
+From released versions before 1.20
+
+MC-257778 – Bamboo Mosaic Slabs and Stairs are not in the #slabs and #stairs block and item tags.
+Videos
+Video made by slicedlime:
+
+
+
+
+References
+
+ "Minecraft 1.20 Pre-Release 7"     – Minecraft.net, May 29, 2023.
+
+Navigation

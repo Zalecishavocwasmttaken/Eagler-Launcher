@@ -1,0 +1,152 @@
+This feature is exclusive to Java Edition. 
+
+
+
+This article describes content that is currently in development for Java Edition. 
+This content has appeared in  development versions for Java Edition 26.3, but the full update adding it has not been released yet.
+
+
+A decorated pot pattern defines the texture of the decorated pot side, provided by each item via the provides_pottery_pattern data component.
+
+Contents
+
+1 Usage
+
+1.1 Vanilla usages
+1.2 Data component
+
+2 Definition
+3 JSON format
+4 History
+5 Navigation
+
+Usage
+Vanilla usages
+List of pattern usage in vanilla. The 'Item' column lists the item whose provides_pottery_pattern component data contains a specific pattern. The 'Pattern' column shows the pattern name (with the minecraft: namespace omitted). The 'Asset ID' column lists the asset_id defined for each pattern, and the 'Texture' column shows the texture associated with that asset ID.
+
+Item
+Pattern
+Asset ID
+Texture
+
+Angler Pottery Sherd
+angler
+angler_pottery_pattern
+
+Archer Pottery Sherd
+archer
+archer_pottery_pattern
+
+Arms Up Pottery Sherd
+arms_up
+arms_up_pottery_pattern
+
+Blade Pottery Sherd
+blade
+blade_pottery_pattern
+
+Brewer Pottery Sherd
+brewer
+brewer_pottery_pattern
+
+Burn Pottery Sherd
+burn
+burn_pottery_pattern
+
+Danger Pottery Sherd
+danger
+danger_pottery_pattern
+
+Explorer Pottery Sherd
+explorer
+explorer_pottery_pattern
+
+Flow Pottery Sherd
+flow
+flow_pottery_pattern
+
+Friend Pottery Sherd
+friend
+friend_pottery_pattern
+
+Guster Pottery Sherd
+guster
+guster_pottery_pattern
+
+Heart Pottery Sherd
+heart
+heart_pottery_pattern
+
+Heartbreak Pottery Sherd
+heartbreak
+heartbreak_pottery_pattern
+
+Howl Pottery Sherd
+howl
+howl_pottery_pattern
+
+Miner Pottery Sherd
+miner
+miner_pottery_pattern
+
+Mourner Pottery Sherd
+mourner
+mourner_pottery_pattern
+
+Plenty Pottery Sherd
+plenty
+plenty_pottery_pattern
+
+Prize Pottery Sherd
+prize
+prize_pottery_pattern
+
+Scrape Pottery Sherd
+scrape
+scrape_pottery_pattern
+
+Sheaf Pottery Sherd
+sheaf
+sheaf_pottery_pattern
+
+Shelter Pottery Sherd
+shelter
+shelter_pottery_pattern
+
+Skull Pottery Sherd
+skull
+skull_pottery_pattern
+
+Snort Pottery Sherd
+snort
+snort_pottery_pattern
+
+Some decorated pots are naturally generated in trial chambers, with one of these items defining the texture. Additionally, it is possible to craft a decorated pot using any of these items via the vanilla decorate_pot recipe.
+
+Data component
+When used on the shards of the decorated_pot block entity, the item with the provides_pottery_pattern data component defines the corresponding side of the block.
+An item with this component also defines the decorated pot side used in item models; when using the special item model, set the type to decorated_pot, by the pot_decorations component.
+In addition to the use of commands, an item's pot_decorations component can be defined as the result of a recipe of the crafting_decorated_pot type. The shards block entity NBT tag can be set by placing a decorated pot that has the pot_decorations component.
+Items without the component, use the asset ID decorated_pot_side in the corresponding side. The same applies when the side is not defined, or when the shards NBT tag (for blocks) or the pot_decorations component is not defined, using that side texture for all faces.
+
+Definition
+Decorated pot pattern can be defined in data packs, as part of the directory structure below.
+
+ data pack name.zip or  data pack name
+ pack.mcmeta
+ data
+ namespace
+ decorated_pot_pattern
+ <name>.json
+More directories…
+
+JSON format
+Decorated pot pattern have the following format:
+
+[NBT Compound / JSON Object] The root object.
+[String] asset_id: A asset id from texture in assets\minecraft\textures\entity\decorated_pot\<asset_id>.png.
+
+History
+Java Edition26.3snap4
+Decorated pot patterns can now be defined in data packs.
+Navigation

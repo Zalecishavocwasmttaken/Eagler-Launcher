@@ -1,0 +1,229 @@
+For other uses, see Cloud (disambiguation).
+
+Clouds can have different sizes and shapes.
+Clouds are graphical effects in the Overworld sky. While serving a solely aesthetic purpose, they can be used to determine directions because they always move westward.
+
+Contents
+
+1 Appearance
+2 Behavior
+3 History
+
+3.1 Java Edition
+3.2 Bedrock Edition
+3.3 Legacy Console Edition
+
+4 Issues
+5 Trivia
+6 Gallery
+
+6.1 Textures
+6.2 Screenshots
+6.3 Development images
+6.4 In other media
+
+7 References
+8 Navigation
+
+Appearance
+Comparison of Fancy and Fast clouds in Java Edition
+Comparison of Simple, Fancy, and Vibrant Visuals clouds in Bedrock Edition
+The appearance of clouds varies depending on the graphics settings used either on the specific clouds one‌[JE  only] or the general graphics mode:
+
+Fast/Simple: Clouds are opaque instead of transparent. Their color comes from the top of the fancy clouds. Their smallest horizontal dimensions are 8×8 blocks wide. In Java Edition, fast clouds are two-dimensional. Simple clouds in Bedrock Edition are also opaque, but remain 3D (three-dimensional), and are not faded with the render distance in Bedrock Edition.
+Fancy: Clouds are translucent, three-dimensional prisms, approximately four blocks tall and 12×12 blocks wide. The transparency can be affected by the daylight cycle.
+Fabulous! graphics in Java Edition also affect clouds, being the same as Fancy, but also being visible through transparent blocks and water. In Bedrock Edition, clouds are always visible through transparent blocks and water, even with Simple graphics.
+Vibrant Visuals‌[BE  only] adds more layers of lighting to clouds, making them lighter on the edges and darker in the middle. The clouds also create shadows and when a cloud blocks the sunlight, the environment darkens. Because clouds use environment mapping, they are always reflected by water regardless of whether they are visible on the screen. Instead of using specific tints, clouds are dynamically tinted and illuminated by ambient and directional lighting, which has unique colors and strengths for certain biomes and they are constantly changing with the daylight cycle.
+The same clouds during different time and weather conditions
+
+The different cloud colors during sunrise and sunset in Bedrock Edition
+
+Clouds are tinted light gray during the day, which changes to gray or dark gray depending on the weather and the daylight cycle. Specifically, clouds color  rgb(191, 191, 191) during rain or snowfall and  rgb(30, 30, 30) during thunderstorms or when a wither is nearby in Bedrock Edition, blended with regular cloud colors for 95%, and not applied in dry biomes with Vibrant Visuals. During the night, fancy clouds are more transparent. In Bedrock Edition, clouds gradually turn orange during sunset and sunrise at any graphics mode, along with ambient lighting.
+In Java Edition, clouds are faded by environmental fog.
+The shape and dimensions of clouds can be changed by modifying the clouds.png file located within assets\minecraft\textures\environment within the version's JAR file‌[JE  only] or /textures/environment in the resource pack.‌[BE  only] The file's dimensions can be changed to any size.
+Clouds are made from individual square pieces. The game assembles clouds by placing cloud pieces one by one.
+
+Behavior
+Clouds always float westward between layer 192 and 196. They are not interactive, and simply float through blocks and entities. Unlike in real life, clouds themselves do not produce rain or snow, meaning rain or snow continues even above the clouds.
+The maximum distance in which clouds are rendered depends on the cloud distance setting in Java Edition (max 128 chunks), while they are always rendered to 20 chunks in Bedrock Edition, and faded with the render distance on Fancy graphics. With Vibrant Visuals, the cloud distance is controlled by a separate "Clouds" slider, which has for different options at a maximum of 128 chunks.​[more information needed] Clouds do not render with a render distance of 3 chunks or lower.
+The position of the clouds is the same for every player on a server, due to their movement being dependent on world time.
+
+History
+
+
+
+This section is missing information about:
+24w33a visual changes
+Dimension type configurability 
+Please expand the section to include this information. Further details may exist on the talk page.
+
+Java Edition
+Java Edition ClassicMay 23, 2009
+Notch says he accomplished adding "Clouds two tiles above the maximum build height".0.0.14a
+ Added clouds, which float westward between layers 108 and 112.Java Edition Indev?
+The color and height of clouds can now be changed via world editing.Java Edition Infdev20100227-1414
+With the removal of Indev world types and formatting, clouds can no longer be recolored or have their height changed.20100330
+Clouds no longer follow the player horizontally. However, they still follow the player vertically.[verify]20100611
+ Clouds are now 3D, have a top texture, and are translucent.20100615
+A Fast/Fancy graphics setting is added, which toggles clouds between two- and three-dimensional.20100624
+ Clouds no longer have a further texture applied.Java Edition Beta1.8Pre-release
+Now clouds float between layers 128 and 132.Java Edition1.0.0Beta 1.9 Prerelease 5
+Clouds can now be disabled in the Video Options menu.?
+Clouds now completely occlude the rendering of blocks when seen from below.1.513w06a
+Fixed blocks being unable to be seen through clouds from below.13w10b
+Undid the previous fix due to performance reasons.1.8.1pre4
+The shape of clouds on "Fast" and "Fancy" are now controlled with the same option that enables clouds, rather than with the standard Fast and Fancy graphics.1.1318w10d
+Big optimizations to how clouds are rendered.18w14a
+The rendering of clouds has been optimized again.1.1519w38b
+Blocks can now be seen through clouds from below again.19w44a
+Clouds no longer follow the player vertically.1.1721w06a
+Now clouds float between layers 192 and 196.21w13a
+Reverted the above change.1.18experimental snapshot 2
+Clouds once again float between layers 192 and 196.1.21.625w16a
+Clouds now exist all the way to the horizon, at 128 chunks.
+
+The cloud texture now uses bitwise logic, preventing color and alpha transparency from functioning.25w17a
+Cloud rendering distance can now be configured independently of world/chunk render distance.25w21a
+ The texture file used for clouds has been changed.
+
+A creeper face pattern now appears in the clouds.1.21.1125w41a
+Cloud movement and position is now tied to the world time, hence the same for all players on a server.
+Bedrock Edition
+Pocket Edition Alphav0.6.0
+Added clouds. Clouds could be seen only in Fancy graphics, and if so, the clouds appeared opaque and two-dimensional, similar to the Fast clouds seen on Java Edition.v0.7.0
+Clouds are now toggled with the Beautiful Skies option.v0.7.4
+Clouds now have a darker color to match Java Edition.v0.8.0build 1
+Clouds are always three-dimensional, and are opaque and transparent with Fast and Fancy graphics, respectively.v0.9.0build 1
+New culling of clouds.
+
+Clouds have been made translucent, as opposed to being completely opaque.v0.10.0build 1
+New double-sided lighting on clouds that's more coherent with the terrain.build 6
+Better fog on clouds, starting farther away and following the sky color.build 7
+The clouds and the terrain are now tinted red during sunset.Bedrock Edition1.17.40beta 1.17.40.20
+Now clouds float between layers 192 and 196.1.18.0?
+Clouds once again float between layers 128 and 132 in old worlds.1.21.80ExperimentVibrant VisualsPreview 1.21.80.25
+Added a unique pattern of clouds for when Vibrant Visuals is turned on.
+Added a unique lighting model for clouds with Vibrant Visuals, affected by directional lighting.
+Clouds with Vibrant Visuals are rendered up to 128 chunks away regardless of render distance, controlled by a dedicated cloud distance setting.1.21.90Preview 1.21.90.26
+The pattern of clouds has been changed.
+
+Removed the pattern of clouds unique to Vibrant Visuals.
+Legacy Console Edition
+Legacy Console EditionXbox 360Xbox OnePS3PS4PS VitaWii USwitchTU1CU11.001.001.00Patch 11.0.1
+Added clouds.TU5
+Cloud height raised to the top of the map, so clouds can no longer phase through blocks.
+
+Cloud movement syncs with the game's time.
+
+
+
+			Textured infdev clouds
+
+
+
+			Early Pocket Edition clouds
+
+
+
+			The cloud pattern prior to Java Edition 25w21a and Bedrock Edition Preview 1.21.90.26
+
+
+
+			The cloud pattern from Bedrock Edition Preview 1.21.80.25 to Bedrock Edition Preview 1.21.90.26 with Vibrant Visuals turned on
+
+
+Issues
+Issues relating to "Cloud" are maintained on the bug tracker. Issues should be reported and viewed there.
+
+Trivia
+A creeper face that appears in clouds.
+The cloud.png image includes a creeper face as gaps between clouds.
+
+Gallery
+Textures
+
+
+
+			Clouds pattern. A black background was added for visibility.
+
+
+
+			The original texture file
+
+
+Screenshots
+
+
+
+			Comparison of cloud colors in Bedrock Edition during clear weather
+
+
+
+			Rainfall
+
+
+
+			Thunderstorm
+
+
+
+			Standing just above the cloud layer, looking down at the surface
+
+
+
+			Clouds with Vibrant Visuals
+
+
+
+			Cloud reflections on water are blurry in contrast to detailed block reflections.
+
+
+
+			The cloud distance set to Low
+
+
+
+			The cloud distance set to Medium
+
+
+
+			The cloud distance set to High
+
+
+
+			The cloud distance set to Ultra
+
+
+
+			Clouds on the surface in mountain peaks
+
+
+
+			Some clouds inside dripstone caves that generated extremely high in mountain peaks
+
+
+Development images
+
+
+
+			The unimplemented cloud height slider
+
+
+In other media
+
+
+
+			Clouds artwork
+
+
+
+			Goku over the clouds
+
+
+References
+
+ MC-997
+
+ MC-63179
+
+Navigation

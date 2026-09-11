@@ -1,0 +1,44 @@
+See also: Tutorial:Adding custom paintings
+
+
+
+This feature is exclusive to Java Edition. 
+
+A painting variant consists of a texture and a width and height in blocks.
+
+Contents
+
+1 Definition
+2 JSON Format
+3 History
+4 Navigation
+
+Definition
+Painting variants can be defined in data packs, as part of the directory structure below. Until Java Edition 1.21.6 they can also be inlined in the entity data and painting/variant data component.
+
+ data pack name.zip or  data pack name
+ pack.mcmeta
+ data
+ namespace
+ painting_variant
+ <name>.json
+More directories…
+
+JSON Format
+Painting variants are defined using the following format:
+
+[NBT Compound / JSON Object] The root object.
+[String] asset_id: A resource location of the sprite to use. Has to be in the painting atlas.
+[Int] width: The width of the painting in blocks, between 1 and 16.
+[Int] height: The height of the painting in blocks, between 1 and 16.
+[String][NBT List / JSON Array][NBT Compound / JSON Object] title: Text component to use as this painting's title. See Text component format.
+[String][NBT List / JSON Array][NBT Compound / JSON Object] author: Text component to use as this painting's author. See Text component format.
+
+History
+Java Edition1.2124w18a
+Added painting variants to data packs.24w20a
+Painting variants can now be inlined in painting entity data.1.21.224w33a
+Added new optional fields author and title, holding text components to be displayed in the creative menu tooltip.
+Author tooltip has been removed for earth, wind, fire, water and wither variants.1.21.625w16a
+Painting variants can no longer be inlined in entity NBT or the painting/variant component.
+Navigation

@@ -1,0 +1,1006 @@
+This page contains a list of all command argument types.
+
+Contents
+
+1 Java Edition
+
+1.1 brigadier:bool
+1.2 brigadier:double
+1.3 brigadier:float
+1.4 brigadier:integer
+1.5 brigadier:long
+1.6 brigadier:string
+1.7 minecraft:angle
+1.8 minecraft:block_pos
+1.9 minecraft:block_predicate
+1.10 minecraft:block_state
+1.11 minecraft:column_pos
+1.12 minecraft:component
+1.13 minecraft:dialog
+1.14 minecraft:dimension
+1.15 minecraft:entity
+1.16 minecraft:entity_anchor
+1.17 minecraft:feature
+1.18 minecraft:float_range
+1.19 minecraft:function
+1.20 minecraft:game_profile
+1.21 minecraft:gamemode
+1.22 minecraft:heightmap
+1.23 minecraft:hex_color
+1.24 minecraft:int_range
+1.25 minecraft:item_predicate
+1.26 minecraft:item_slot
+1.27 minecraft:item_slots
+1.28 minecraft:item_stack
+1.29 minecraft:loot_modifier
+1.30 minecraft:loot_predicate
+1.31 minecraft:loot_table
+1.32 minecraft:message
+1.33 minecraft:nbt_compound_tag
+1.34 minecraft:nbt_path
+1.35 minecraft:nbt_tag
+1.36 minecraft:objective
+1.37 minecraft:objective_criteria
+1.38 minecraft:operation
+1.39 minecraft:particle
+1.40 minecraft:resource
+1.41 minecraft:resource_key
+1.42 minecraft:resource_location
+1.43 minecraft:resource_or_tag
+1.44 minecraft:resource_or_tag_key
+1.45 minecraft:resource_selector
+1.46 minecraft:rotation
+1.47 minecraft:score_holder
+1.48 minecraft:scoreboard_slot
+1.49 minecraft:slot_source
+1.50 minecraft:style
+1.51 minecraft:swing_animation
+1.52 minecraft:swizzle
+1.53 minecraft:team
+1.54 minecraft:team_color
+1.55 minecraft:template_mirror
+1.56 minecraft:template_rotation
+1.57 minecraft:time
+1.58 minecraft:uuid
+1.59 minecraft:vec2
+1.60 minecraft:vec3
+1.61 Removed
+
+1.61.1 minecraft:entity_summon
+1.61.2 minecraft:item_enchantment
+1.61.3 minecraft:mob_effect
+
+2 Bedrock Edition
+
+2.1 BlockStateCommandParam
+2.2 CommandCompareOperator
+2.3 CommandFilePath
+2.4 CommandIntegerRange
+2.5 CommandMessage
+2.6 CommandOperator
+2.7 CommandPosition
+2.8 CommandPositionFloat
+2.9 CommandRawText
+2.10 CommandSelector<Actor> and CommandSelector<Player>
+2.11 CommandWildcardInt
+2.12 float
+2.13 int
+2.14 Json::Value
+2.15 RelativeFloat
+2.16 std::basic_string
+2.17 std::unique_ptr<Command>
+2.18 WildcardCommandSelector<Actor>
+2.19 Enum
+
+3 History
+4 References
+5 Navigation
+
+Java Edition
+brigadier:bool
+Must be a [Boolean]Boolean (either true or false).
+
+Official examples
+
+true
+false
+
+brigadier:double
+Must be a [Double]Double-precision floating-point number (from -(2-2-52)×21023 (≈-1.8×10308) to (2-2-52)×21023 (≈1.8×10308) ).
+Each double argument may have a custom minimum and maximum value.
+Precision varies throughout number line; the maximum absolute value is about 1.8×10308.
+
+Official examples
+
+0
+1.2
+.5
+-1
+-.5
+-1234.56
+
+JSON properties in command syntax output
+
+[NBT Compound / JSON Object] properties: The root properties object.
+[Double] max: The maximum value of this double argument.
+[Double] min: The minimum value of this double argument.
+
+brigadier:float
+Must be a [Float]Single-precision floating-point number (from -(2-2-23)×2127 (≈-3.4×1038) to (2-2-23)2×127 (≈3.4×1038) ).
+Each float argument type may have a custom minimum and maximum value.
+Precision varies throughout number line; the maximum absolute value is about 3.4×1038.
+
+Official examples
+
+0
+1.2
+.5
+-1
+-.5
+-1234.56
+
+JSON properties in command syntax output
+
+[NBT Compound / JSON Object] properties: The root properties object.
+[Float] max: The maximum value of this float argument.
+[Float] min: The minimum value of this float argument.
+
+brigadier:integer
+Must be a [Int]32-bit integer number (from -2147483648 (-231) to 2147483647 (231-1) ).
+Each integer argument type may have a custom minimum and maximum value.
+Maximum range is from −(231) to (231 − 1), or from (−2,147,483,648) to (2,147,483,647).
+
+Official examples
+
+0
+123
+-123
+
+JSON properties in command syntax output
+
+[NBT Compound / JSON Object] properties: The root properties object.
+[Int] max: The maximum value of this integer argument.
+[Int] min: The minimum value of this integer argument.
+
+brigadier:long
+Must be a [Long] 64-bit long (from -9223372036854775808 (-263) to 9223372036854775807 (263-1) ).
+Note: Although a long argument type is present in brigadier, it is not used by Minecraft.
+Each long argument type may have a custom minimum and maximum value.
+Maximum range is from −(263) to (263−1), or from (−9,223,372,036,854,775,808) to (9,223,372,036,854,775,807).
+
+Official examples
+
+0
+123
+-123
+
+JSON properties in command syntax output
+
+[NBT Compound / JSON Object] properties: The root properties object.
+[Long] max: The maximum value of this long argument.
+[Long] min: The minimum value of this long argument.
+
+brigadier:string
+Must be a string.
+Each string argument type can accept either a single word (no spaces), a quotable phrase (either single word or quoted string), or a greedy phrase (taking the rest of the command as the string argument).
+
+Official examples
+
+Single word
+
+word
+word_with_underscores
+Quotable phrase
+
+"quoted phrase"
+word
+""
+Greedy phrase
+
+word
+words with spaces
+"and symbols"
+
+JSON properties in command syntax output
+
+[NBT Compound / JSON Object] properties: The root properties object.
+[String] type: The type of this string argument. Can be word, phrase, or greedy
+
+minecraft:angle
+Must be a yaw angle, measured in degrees with single-precision floating-point numbers. -180.0 for due north, -90.0 for due east, 0.0 for due south, 90.0 for due west, to 179.9 for just west of due north, before wrapping back around to -180.0. Tilde notation can be used to specify a rotation relative to the execution yaw rotation.
+
+Official examples
+
+0
+~
+~-0.5
+
+minecraft:block_pos
+Must be a block position composed of <X>, <Y> and <Z>, each of which must be an integer or a tilde and caret notation.
+
+Official examples
+
+0 0 0
+~ ~ ~
+^ ^ ^
+^1 ^ ^-5
+~0.5 ~1 ~-5
+
+minecraft:block_predicate
+The format of block_predicate parameters is block_id[block_states]{data_tags}, in which block states and data tags can be omitted when they are not needed.
+
+block_id is required, and it should be in the format of resource location(if namespace isn't set it defaults to minecraft:).
+It can also be the resource location of a block tag prefixed with #, such as #minecraft:planks.
+Block states are inside [], comma-separated and properties and values must be supported by the block or all blocks in the tag. They are optional.
+minecraft:stone[doesntexist=purpleberry] is unparseable, because stone doesn't have doesntexist.
+minecraft:redstone_wire[power=tuesday] is unparseable, because redstone_wire's power is a number between 0 and 15.
+Data tags are inside {}. They are optional.
+When test for block, only the states provided are tested.
+If a command tests for redstone_wire[power=15], it checks only power, but ignores other states such as north.
+
+Official examples
+
+stone
+minecraft:stone
+stone[foo=bar]
+#stone
+#stone[foo=bar]{baz:nbt}
+
+minecraft:block_state
+The format of block_state parameters is block_id[block_states]{data_tags}, in which block states and data tags can be omitted when they are not needed.
+
+block_id is required, and it should be in the format of resource location (if namespace isn't set it defaults to minecraft:).
+Block states are inside [], comma-separated and must be properties/values supported by the blocks. They are optional.
+minecraft:stone[doesntexist=purpleberry] is unparseable, because stone doesn't have doesntexist.
+minecraft:redstone_wire[power=tuesday] is unparseable, because redstone_wire's power is a number between 0 and 15.
+Data tags are inside {}. They are optional.
+When placing blocks, any states provided are set, but anything omitted retain their default values, depending on the block type.
+If a command sets redstone_wire[power=15], it is set power to 15, but north is a default value (in this case, set to none).
+
+Official examples
+
+stone
+minecraft:stone
+stone[foo=bar]
+foo{bar:baz}
+
+minecraft:column_pos
+Must be a column coordinates composed of <X> and <Z>, each of which must be an integer or tilde notation.
+
+Official examples
+
+0 0
+~ ~
+~1 ~-2
+
+minecraft:component
+It must be a valid text component.
+
+Official examples
+
+"hello world"
+""
+{"text":"hello world"}
+[""]
+
+minecraft:dialog
+Specifies a dialog with a resource location or in SNBT format. Must be a valid dialog definition in SNBT format, or a resource location of an existing dialog (an entry in minecraft:dialog registry). For NBT tag, if it is a string tag, the tag is also parsed into a resource location and resolved into an existing dialog; otherwise, the tag is parsed as a new dialog definition.
+
+Official examples
+
+foo
+foo:bar
+
+minecraft:dimension
+It must be a resource location, which resolves into a dimension during command execution.
+
+Official examples
+
+minecraft:overworld
+minecraft:the_nether
+
+minecraft:entity
+Must be a player name, a target selector or a UUID.
+Each entity argument may place limits on the number of entities (single/multiple) selected or the type of entities (player/any entity) selected.
+
+Official examples
+
+Player
+0123
+@e
+@e[type=foo]
+dd12be42-52a9-4a91-a8a1-11c01849e498
+
+JSON properties in command syntax output
+
+[NBT Compound / JSON Object] properties: The root properties object.
+[String] amount: The amount of entities that can be selected. Can be single or multiple.
+[String] type: The target entity type. Can be players or entities.
+
+minecraft:entity_anchor
+Must be either eyes or feet.
+
+Official examples
+
+eyes
+feet
+
+minecraft:feature
+
+
+
+This section describes content that is currently in development for Java Edition. 
+This content has appeared in  development versions for Java Edition 26.3, but the full update adding it has not been released yet.
+
+
+Specifies a feature with a resource location or in SNBT format. Must be a valid feature definition in SNBT format, or a resource location of an existing feature (an entry in minecraft:worldgen/feature registry). For NBT tag, if it is a string tag, the tag is also parsed into a resource location and resolved into an existing feature; otherwise, the tag is parsed as a new feature definition.
+
+Official examples
+
+foo
+foo:bar
+
+minecraft:float_range
+Must be a range acceptable for single-precision floating-point values. (e.g. 0.1 - exact match of 0.1. ..0.1 - less than or equal to 0.1. 0.1.. - more than or equal to 0.1. 0.1..1 - from 0.1 to 1, both inclusive.)
+
+Official examples
+
+0..5.2
+0
+-5.4
+-100.76..
+..100
+
+minecraft:function
+It must be a resource location or one prefixed with a #, which resolves into a function or a function tag during command execution.
+
+Official examples
+
+foo
+foo:bar
+#foo
+
+minecraft:game_profile
+Specifies one or more game profiles (player profiles). Must be a player name (should be a real one if the server is in online mode) or a player-type target selector.
+
+Official examples
+
+Player
+0123
+dd12be42-52a9-4a91-a8a1-11c01849e498
+@e
+
+minecraft:gamemode
+Must be one of the following:survival for Survival modecreative for Creative modeadventure for Adventure modespectator for Spectator modeNote that "hardcore" is not a valid option, as it is technically not a game mode.
+
+Official examples
+
+survival
+creative
+
+minecraft:heightmap
+Must be one of world_surface, motion_blocking, motion_blocking_no_leaves, and ocean_floor.
+
+Official examples
+
+world_surface
+ocean_floor
+
+minecraft:hex_color
+Must be a 3-digit or 6-digit hexadecimal number (000–FFF or 000000–FFFFFF). For example, FF0000 for red, 6495ED for cornflower blue. With three digits, each digit is multiplied by seventeen. For example, 123 is the same as 112233.
+It is allow to place a plus or minus sign (+ or -) for each color; however, the sign will count as a digit. For example, +F+F+F is the same as 0F0F0F, and -F+FF is the same as F10FFF. +FF or +FFF are not allowed.
+
+Official examples
+
+F00
+FF0000
+
+minecraft:int_range
+Must be a range acceptable for 32-bit integer values. (e.g. 0 - exact match of 0. ..0 - less than or equal to 0. 0.. - more than or equal to 0. 0..1 - from 0 to 1, both inclusive.)
+
+Official examples
+
+0..5
+0
+-5
+-100..
+..100
+
+minecraft:item_predicate
+The format of item_predicate parameters is <item_type>[<list of tests>], in which the list of tests with [] can be omitted when not needed.
+
+<item_type> is required.
+It can be in the format of resource location (if namespace isn't set it defaults to minecraft:).
+It can also be the resource location of a block tag or item tag with the prefix of #, such as #minecraft:planks.
+It can also be a wildcard character * to match any item type.
+The list of tests is optional. Test entries are inside [] and separated with <separator>.
+A test entry can be:
+<component_id> - Checks if a component exists.
+<component_id> is the ID of a data component.
+<component_id>=<value> - Matches exact value of a component.
+<value> is a representation of component value in SNBT format.
+<predicate_id>~<value> - Checks an item sub-predicate
+<predicate_id> is the ID of an item sub-predicate.
+<value> is a representation of item sub-predicate in SNBT format.
+Example: *[damage~{durability:{min:3}}] matches any stack with at least 3 uses left.
+minecraft:count -  Matches the stack size.
+count - Always passes.
+count=<positive_int> - Passes only when the stack size equals to the given value.
+count~<positive_int> - Passes only when the stack size equals to the given value.
+count~<int_range> - Passes when the stack size is in the specified range.
+<int_range> is an SNBT of {min:<min value>, max:<max value>}. Both min and max are optional.
+Example: *[count~{max:2}] matches any stack with count <= 2.
+Any test entry above can be negated by prefixing with !.
+Example: *[!count=1] matches any stack that has count other than 1.
+A <separator> can be:
+| - Logical OR.
+, - Logical AND.
+Unlike most programming languages, the precedence of | (Logical OR) is higher than , (Logical AND).
+That means tests entries joined with | are treated as a single entry to check multiple alternatives.
+Example: *[!damage|damage=0, count=1] looks for items without damage component or with 0 damage, and its count must be 1.
+
+Official examples
+
+stick
+minecraft:stick
+#stick
+
+minecraft:item_slot
+Must be a string notation that refer to a single slot in the inventory, which consists of "slot type" and optional "slot number", in the format of <slot_type> or <slot_type>.<slot_number>. See Slot for details.
+
+Official examples
+
+container.5
+weapon
+
+minecraft:item_slots
+Must be a string notation that refer to certain slot(s) in the inventory, which consists of "slot type" and optional "slot number", in the format of <slot_type> or <slot_type>.<slot_number>. Wildcard (*) is accepted. See Slot for details.
+
+Official examples
+
+container.*
+container.5
+weapon
+
+minecraft:item_stack
+The format of item_stack is <item_id>[<list of components>], in which the list of components with [] can be omitted when not needed.
+
+<item_id> is required, and it should be in the format of resource location (if namespace isn't set it defaults to minecraft:).
+The list of data components is optional. Data component entries are inside [] separated with ,.
+A data component entry can be:
+<component_id>=<value> - Sets value of a data component.
+<component_id> is the ID of a data component.
+<value> is a representation of component value in SNBT format.
+!<component_id> - Removes a default data component of the item.
+When giving items, any components provided are set or removed, but anything omitted retain their default values, depending on the item type.
+
+Official examples
+
+stick
+minecraft:stick
+stick{foo=bar}
+
+minecraft:loot_modifier
+Specifies a item modifier with a resource location or in SNBT format. Must be a valid item modifier definition in SNBT format, or a resource location of an existing item modifier (an entry in minecraft:item_modifier registry). For NBT tag, if it is a string tag, the tag is also parsed into a resource location and resolved into an existing item modifier; otherwise, the tag is parsed as a new item modifier definition.
+
+Official examples
+
+foo: bar
+{function: set_components, components: {"!damage": {}}}
+{function: set_count, count: 10, add: true}
+
+minecraft:loot_predicate
+Specifies a predicate with a resource location or in SNBT format. Must be a valid predicate definition in SNBT format, or a resource location of an existing predicate (an entry in minecraft:predicate registry). For NBT tag, if it is a string tag, the tag is also parsed into a resource location and resolved into an existing predicate; otherwise, the tag is parsed as a new predicate definition.
+
+Official examples
+
+foo: bar
+{condition:weather_check, raining:true}
+{condition:random_chance, chance: 0.5}
+
+minecraft:loot_table
+Specifies a loot table with a resource location or in SNBT format. Must be a valid loot table definition in SNBT format, or a resource location of an existing loot table (an entry in minecraft:loot_table registry). For NBT tag, if it is a string tag, the tag is also parsed into a resource location and resolved into an existing loot table; otherwise, the tag is parsed as a new loot table definition.
+
+Official examples
+
+foo: bar
+{pools: [{rolls: 2, entries: [{type: item, weight: 1, name: stick}, {type: item, weight: 1, name: blaze_rod}]}]}
+
+minecraft:message
+It is a greedy phrase string argument (taking the rest of the command as the string argument). Can include spaces as well as target selectors. The game replaces entity selectors in the message with the list of selected entities' names, which is formatted as "name1 and name2" for two entities, or "name1, name2, ... and namen" for n entities.
+
+Official examples
+
+Hello world!
+foo
+@e
+Hello @p :)
+
+minecraft:nbt_compound_tag
+Must be a [NBT Compound / JSON Object] compound NBT in SNBT format.
+
+Official examples
+
+{}
+{foo:bar}
+
+minecraft:nbt_path
+Must be an NBT path.
+
+An example
+
+foo.bar[0]."A [crazy name]".baz.
+
+foo
+bar
+<the first list element>
+A [crazy name]
+baz
+<the second list element>
+
+Official examples
+
+foo
+foo.bar
+foo[0]
+[0]
+[]
+{foo:bar}
+
+minecraft:nbt_tag
+Must be an NBT tag of any type in SNBT format.
+
+Official examples
+
+0
+0b
+0xFF
+0.0
+"foo"
+{foo:bar}
+
+minecraft:objective
+It must be a single word. (Allowed characters include: -, +, ., _, A-Z, a-z, and 0-9) It resolves into a scoreboard objective during command execution.
+
+Official examples
+
+foo
+*
+012
+
+minecraft:objective_criteria
+Must be a scoreboard objective criterion.
+
+Official examples
+
+foo
+foo.bar.baz
+minecraft:foo
+
+minecraft:operation
+Must be an arithmetic operator for /scoreboard.Valid values include = (assignment), += (addition), -= (subtraction), *= (multiplication), /= (floor division), %= (modulus), >< (swapping), < (choosing minimum) and > (choosing maximum).
+
+Official examples
+
+=
+>
+<
+
+minecraft:particle
+It must be in the format of particle_type_id{configuration tags} for particle types with configurations, or the format of particle_type_id for particle types without configurations.
+
+Official examples
+
+foo
+foo:bar
+particle{foo:bar}
+
+minecraft:resource
+Must be an existing registered resource location in correct registry.
+
+Official examples
+
+foo
+foo:bar
+012
+
+JSON properties in command syntax output
+
+[NBT Compound / JSON Object] properties: The root properties object.
+[String] registry: The registry ID.
+
+minecraft:resource_key
+Must be a resource location, which resolves during command execution into a registry entry in correct registry.
+
+Official examples
+
+foo
+foo:bar
+012
+
+JSON properties in command syntax output
+
+[NBT Compound / JSON Object] properties: The root properties object.
+[String] registry: The registry ID.
+
+minecraft:resource_location
+Must be a resource location for an unregistered content. It is resolved during command execution into the unregistered content, or sent to the client to resolve into a client-side content.
+
+Official examples
+
+foo
+foo:bar
+012
+
+minecraft:resource_or_tag
+Must be an existing registered resource location or tag in correct registry.
+
+Official examples
+
+foo
+foo:bar
+012
+#skeletons
+#minecraft:skeletons
+
+JSON properties in command syntax output
+
+[NBT Compound / JSON Object] properties: The root properties object.
+[String] registry: The registry ID.
+
+minecraft:resource_or_tag_key
+Must be a resource location or a tag, which resolves during command execution into an entry or tag in correct registry.
+
+Official examples
+
+foo
+foo:bar
+012
+#skeletons
+#minecraft:skeletons
+
+JSON properties in command syntax output
+
+[NBT Compound / JSON Object] properties: The root properties object.
+[String] registry: The registry ID.
+
+minecraft:resource_selector
+Similar to resource_location except enables the use of wildcard characters * and ?. * matches from 0 to any number of characters and ? matches exactly one character.
+
+Official examples
+
+*:* - matches all IDs
+* - matches everything in the minecraft namespace
+custom:folder/*_test_? - matches IDs in the folder subfolder in the custom namespace that end in _test_ followed by one additional character.
+
+minecraft:rotation
+Must be a rotation consisting of two double number elements, including yaw and pitch, measured in degrees.For the horizontal rotation (yaw), -180.0 for due north, -90.0 for due east, 0.0 for due south, 90.0 for due west, to 179.9 for just west of due north, before wrapping back around to -180.0.For the vertical rotation (pitch), -90.0 for straight up to 90.0 for straight down.Tilde notation can be used to specify a rotation relative to the execution rotation.
+
+Official examples
+
+0 0
+~ ~
+~-5 ~5
+
+minecraft:score_holder
+It must be either a target selector, a player name, a UUID, or * for all score holders being tracked by the scoreboard system. Player names don't need to be of a player that is online or a player that exists and can use almost all unicode characters​[more information needed].
+Each score holder argument may specify if it can select only one score holder or multiple score holders.
+
+Examples
+
+#hidden
+.top
+
+Official examples
+
+Player
+0123
+*
+@e
+
+JSON properties in command syntax output
+
+[NBT Compound / JSON Object] properties: The root properties object.
+[String] amount: The amount of score holders that can be selected. Can be single or multiple.
+
+minecraft:scoreboard_slot
+Must be a scoreboard display slot.
+
+Official examples
+
+sidebar
+foo.bar
+
+minecraft:slot_source
+
+
+
+This section describes content that is currently in development for Java Edition. 
+This content has appeared in  development versions for Java Edition 26.3, but the full update adding it has not been released yet.
+
+
+Specifies a slot source with a resource location or in SNBT format. Must be a valid slot source definition in SNBT format, or a resource location of an existing slot source (an entry in minecraft:slot_source registry). For NBT tag, if it is a string tag, the tag is also parsed into a resource location and resolved into an existing slot source; otherwise, the tag is parsed as a new slot source definition.
+
+Official examples
+
+foo
+foo:bar
+container.*
+container.5
+weapon
+
+minecraft:style
+Must contain style information for text component.
+
+Official examples
+
+{"bold": true}
+
+minecraft:swing_animation
+
+
+
+This section describes content that is currently in development for Java Edition. 
+This content has appeared in  development versions for Java Edition 26.3, but the full update adding it has not been released yet.
+
+
+Must be whack, stab, or none.
+
+Official examples
+
+whack
+stab
+
+minecraft:swizzle
+Any non-repeating combination of the characters 'x', 'y', and 'z'. Axes can be declared in any order, but they cannot duplicate. (For example, x, xz, zyx, or yz.)
+
+Official examples
+
+xyz
+x
+
+minecraft:team
+Must be an unquoted string, which resolves into a team during command execution. Allowed characters include: -, +, ., _, A-Z, a-z, and 0-9.
+
+Official examples
+
+foo
+123
+
+minecraft:team_color
+Must be a text color except for hexadecimal color codes. See Text component format for details.
+
+Official examples
+
+red
+green
+
+minecraft:template_mirror
+Must be one of none, front_back, and left_right.
+
+Official examples
+
+none
+left_right
+
+minecraft:template_rotation
+Must be one of none, clockwise_90, counterclockwise_90, and 180.
+
+Official examples
+
+none
+clockwise_90
+
+minecraft:time
+It must be a single-precision floating-point number suffixed with a unit. It must be not less than 0 gameticks. Units include:d: an in-game day, 24000 gameticks;s: a second, 20 gameticks;t (default and omitable): a single gametick; the default unit.The time is set to the closest integer after unit conversion to gametick. For example. .5d is same as 12000 gameticks.
+
+Official examples
+
+0d
+0s
+0t
+0
+
+JSON properties in command syntax output
+
+[NBT Compound / JSON Object] properties: The root properties object.
+[Int] min: The minimum time in game ticks.
+
+minecraft:uuid
+Must be a UUID in the hyphenated hexadecimal format. Allowed characters include: -, A-F, a-f, and 0-9.
+
+Official examples
+
+dd12be42-52a9-4a91-a8a1-11c01849e498
+
+minecraft:vec2
+Must be two-dimensional coordinates with double-precision floating-point number elements. Accepts tilde notations.
+
+Official examples
+
+0 0
+~ ~
+0.1 -0.5
+~1 ~-2
+
+minecraft:vec3
+Must be three-dimensional coordinates with double-precision floating-point number elements. Accepts tilde and caret notations.
+
+Official examples
+
+0 0 0
+~ ~ ~
+^ ^ ^
+^1 ^ ^-5
+0.1 -0.5 .9
+~0.5 ~1 ~-5
+
+Removed
+
+minecraft:entity_summon
+Must be a resource location of a summonable entity type.
+
+Official examples
+
+minecraft:pig
+cow
+
+minecraft:item_enchantment
+Must be an ID of an enchantment.
+
+Official examples
+
+unbreaking
+silk_touch
+
+minecraft:mob_effect
+Must be an ID of a status effect.
+
+Official examples
+
+spooky
+effect
+
+Bedrock Edition
+
+
+
+This section needs to be updated. 
+Please update this section to reflect recent updates or newly available information. The talk page may contain suggestions.
+
+BlockStateCommandParam
+Also known as BLOCK_STATE_ARRAY.
+Must be a blockstate argument as ["<state1>"=<value1>,"<state2>"=<value2>,...]. For example: ["old_leaf_type"="birch","persistent_bit"=true].
+
+CommandCompareOperator
+Also known as COMPAREOPERATOR.
+Must be one of <, <=, =, >=, and >.
+
+CommandFilePath
+Also known as PATHCOMMAND.
+ It must be of the format path/to/function/file, which resolves into a function located at [behavior_pack]/functions/path/to/function/file.mcfunction during command execution.
+
+CommandIntegerRange
+Also known as FULLINTEGERRANGE.
+Must be a range acceptable for 32-bit integer values. (e.g. 0 - exact match of 0. ..0 - less than or equal to 0. 0.. - more than or equal to 0. 0..1 - from 0 to 1, both inclusive.)
+
+CommandMessage
+Also known as MESSAGE_ROOT.
+It is a greedy phrase string argument (taking the rest of the command as the string argument). Can include spaces as well as target selectors. The game replaces entity selectors in the message with the list of selected entities' names, which is formatted as "name1 and name2" for two entities, or "name1, name2, ... and namen" for n entities.@<player name> can be used to mention a player; @here can be used to mention all players.
+
+CommandOperator
+Also known as OPERATOR.
+Must be an arithmetic operator for /scoreboard.Valid values include = (assignment), += (addition), -= (subtraction), *= (multiplication), /= (floor division), %= (modulus), >< (swapping), < (choosing minimum) and > (choosing maximum).
+
+CommandPosition
+Also known as POSITION.
+Must be a three-dimensional coordinates composed of <X>, <Y> and <Z>, each of which must be a single-precision floating-point number or tilde and caret notation.
+
+CommandPositionFloat
+Also known as POSITION_FLOAT.
+Must be three-dimensional coordinates with single-precision floating-point number elements. Accepts tilde and caret notations.
+
+CommandRawText
+Also known as RAWTEXT.
+It is a greedy phrase string argument (taking the rest of the command as the string argument).
+
+CommandSelector<Actor> and CommandSelector<Player>
+Also known as SELECTION.
+CommandSelector<Actor> is used to specify entities. Must be a player name or a target selector.
+CommandSelector<Player> is used to specify players. Must be a player name or a target selector.
+
+CommandWildcardInt
+Also known as WILDCARDINT.
+Must be a 32-bit integer, or an asterisk (*) to represent MIN_INT(-2,147,483,648),
+
+float
+Also known as VAL.
+Must be a [Float]Single-precision floating-point number (from -(2-2-23)×2127 (≈-3.4×1038) to (2-2-23)2×127 (≈3.4×1038) ).
+
+int
+Also known as INT.
+Must be a [Int]32-bit integer number (from -2147483648 (-231) to 2147483647 (231-1) ).
+
+Json::Value
+Also known as JSON_OBJECT.
+It must be a JSON [NBT Compound / JSON Object]Object.
+
+RelativeFloat
+Also known as RVAL.
+Must be a [Float] float. Accepts tilde notation.
+
+std::basic_string
+Also known as ID.
+Must be a string. And it must be a single word that has no space or a double-quoted string (When quoted, \ can be used to escape characters).
+
+std::unique_ptr<Command>
+Also known as SLASHCOMMAND.
+Represents a complete command.
+
+WildcardCommandSelector<Actor>
+Also known as WILDCARDSELECTION.
+It must be either a target selector, a player name, a unique ID of an entity, or * for all score holders being tracked by the scoreboard system. Player names don't need to be of a player that is online or a player that exists and can use almost all unicode characters​[more information needed].
+
+Enum
+Must be an unquoted string without space.
+
+History
+
+
+
+This article is missing information about: Bedrock Edition 
+Please expand the article to include this information. Further details may exist on the talk page.
+
+Java Edition1.1217w13a
+Added /advancement, Which is the first argument type.1.1317w45a
+Command arguments are now handled with Brigadier.1.1419w08a
+Now allows single quotes for strings in commands.1.1620w17a
+Added minecraft:uuid argument type.1.16.220w29a
+Added angle arguments to /spawnpoint and /setworldspawn, with an argument type that is not registered.20w30a
+Added minecraft:angle argument type.
+
+Now /spawnpoint and /setworldspawn use this argument type.?
+Now minecraft:dimension argument type checks whether the dimension exists during execution instead of parsing.1.1720w45a
+Now minecraft:angle argument type does not accept NaN or Infinite.21w10a
+Now minecraft:block_pos arguments in /spawnpoint and /setworldspawn require <x> and <z> to be in the range of [-30000000, 30000000), and <y> to be in the range of [-20000000, 20000000) when executing.1.1821w37a
+Removed 16-character limit in minecraft:objective argument type.1.18.2Pre-release 3
+Added minecraft:resource and minecraft:resource_or_tag argument types.
+
+Now minecraft:resource_location is used only for pack contents, while minecraft:resource is used for registry entries.1.1922w11a
+Now minecraft:item_predicate and minecraft:block_predicate require tag to exist when parsing instead of executing.22w19a
+Added minecraft:template_mirror and minecraft:template_rotation argument types.1.19.322w42a
+Added minecraft:resource_key and minecraft:resource_or_tag_key argument types, which are used for reloadable registry entries (i.e. registered pack contents).
+
+Now minecraft:resource and minecraft:resource_or_tag are used only for un-reloadable registry entries.
+
+Removed minecraft:mob_effect, minecraft:entity_summon and minecraft:item_enchantment argument types. Replaced by minecraft:resource.22w45a
+Added minecraft:gamemode argument type.1.19.423w03a
+Added min property to minecraft:time argument type.
+
+The min value of minecraft:time is always 0 before this update.1.19.4-pre1
+Added minecraft:heightmap argument type.1.20.323w46a
+Added minecraft:style argument type.1.20.524w10a
+Added minecraft:item_slots argument type.26.2snap5
+Removed minecraft:color argument type. Replaced by minecraft:team_colorUpcoming Java Edition26.3snap1
+Added minecraft:slot_source argument type, replacing all uses of minecraft:item_slots argument type, although the minecraft:item_slots still exists.snap3
+Added minecraft:feature argument type.snap7
+Added minecraft:swing_animation argument type.
+References
+
+ The official code examples include an incorrect example where it is using a mix of the new syntax and the old syntax.
+
+ "Allow single quote in strings by boq · Pull Request #52"     – Mojang/brigadier – GitHub.
+
+ MC-195052 – resolved as "Fixed".
+
+ MC-198414 – resolved as "Fixed".
+
+ MC-210408 – resolved as "Fixed".
+
+ MC-123277 – resolved as "Fixed".
+
+ MC-124984 – resolved as "Fixed".
+
+ MC-122595 – resolved as "Fixed".
+
+Navigation

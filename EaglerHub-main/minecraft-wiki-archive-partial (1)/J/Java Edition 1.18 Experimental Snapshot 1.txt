@@ -1,0 +1,367 @@
+This page covers a development version that has a major issue under certain conditions. 
+The dedicated server for this version has a security vulnerability in the Log4j library that could be used to perform a remote code execution exploit. It can be addressed by appending a certain JVM argument to the server startup command line.
+
+Minecraft 1.18 Experimental Snapshot 1
+
+Edition
+
+Java Edition
+
+Release date
+
+July 13, 2021
+
+Type
+
+Experimental Snapshot
+
+Experimental snapshot for
+
+1.18
+
+Downloads
+
+Client (.json)Server
+
+Obfuscation maps
+
+ClientServer
+
+Protocol version
+
+ dec: 1073741865 hex: 40000029
+
+Data version
+
+2825
+
+Resource pack format
+
+7
+
+Data pack format
+
+7
+
+Minimum Java version
+
+Java SE 16
+
+◄◄   1.17.1
+1.18
+  1.18.1 ►►
+
+ 1.18 Experimental Snapshot 1
+
+  1.18 experimental snapshot 2 ►
+
+{
+    "title": "Minecraft 1.18 Experimental Snapshot 1",
+    "images": [
+        "1.18 Experimental Snapshot 1 banner.jpg",
+        "1.18 Experimental Snapshot 1 reddit.png",
+        "Java Edition 1.18 Experimental Snapshot 1 menu.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "July 13, 2021",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Experimental Snapshot article, displayed as Experimental Snapshot)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition 1.18 article, displayed as 1.18)",
+            "label": "Experimental snapshot for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/b230ccffcf332c9d3619af85727d02e284ff4903/client.jar Client] ([https://piston-data.mojang.com/v1/objects/231bba2a21e18b8c60976e1f6110c053b7b93226/1_18_experimental-snapshot-1.zip .json])<br />[https://piston-data.mojang.com/v1/objects/83a3c2e94b744ad8f0c8bc373dd70a85da59babf/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/117c5938948fb482bffb72e9ebf6f2f77a6d733d/client.txt Client]<br />[https://piston-data.mojang.com/v1/objects/3842b0e3eef95054f464d5de410f774ecead9f0f/server.txt Server]",
+            "label": "(link to Obfuscation map article, displayed as Obfuscation maps)"
+        },
+        {
+            "field": " <span style=\"font-size:smaller\"><abbr title=\"decimal\">dec</abbr>: </span>1073741865<br /> <span style=\"font-size:smaller\"><abbr title=\"hexadecimal\">hex</abbr>: </span>40000029",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "2825",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "7",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "7",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Data pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_16 Java SE 16]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" rowspan=\"2\">[[Java Edition  1.17.1|<span style=\"margin-right:-0.35em\">◄</span>◄   1.17.1]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition 1.18|1.18]]'''</td>\n<td style=\"padding: 0.4em\" >[[Java Edition  1.18.1|  1.18.1 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n\n<td style=\"padding: 0.4em\">''' 1.18 Experimental Snapshot 1'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  1.18 experimental snapshot 2|  1.18 experimental snapshot 2 ►]]\n</td>\n</tr>\n</table>"
+}
+
+1.18 Experimental Snapshot 1 (known as 1_18_experimental-snapshot-1 in the launcher) is the first experimental snapshot for Java Edition 1.18, released on July 13, 2021, which introduces new terrain generation and enables features from the preview data pack. This version is a fork of 1.17.1 Pre-release 1. This is the first experimental snapshot released in 2021.
+
+Contents
+
+1 Additions
+
+1.1 World generation
+1.2 Technical
+
+2 Changes
+
+2.1 Blocks
+2.2 Items
+2.3 Mobs
+2.4 World generation
+2.5 General
+
+3 Gallery
+4 Fixes
+5 Issues
+6 Trivia
+7 Videos
+8 See also
+9 Notes
+10 References
+11 Navigation
+
+Additions
+World generation
+Caves
+
+Completely overhauled.
+Now stretch down to Y=-59.
+The cavern now generates in 2 layers of different stone bases depending on the depth.
+Cavern layer above Y=0 is made up of regular stone.
+Stone transitions to deepslate from Y=0 to Y=-7.
+Deepslate now completely replaces stone from Y=-8 to bedrock.
+Certain types of ores and structures still generate in the deepslate layer, as well as tuff.
+Dirt, diorite, granite and andesite do not generate in this layer.
+Contain aquifers, bodies of water with different heights, independent of sea level (Y=63).
+Aquifers below Y=0 sometimes generate with lava instead of water.
+Improved old caves, adding more variation.
+New noise caves, coming in 3 forms: cheese, spaghetti, and noodle.
+The original caves still exist with their generation slightly tweaked to better blend in with noise caves.
+Cheese caves have large stone towers stretching from the bottom of the cave to the top.
+Very large, often large enough to fly with elytra.
+Abundant with springs, aquifers and ores.
+Spaghetti caves are long, thin caves that have small aquifers and are more similar to original caves.
+Noodle caves are thinner, squigglier and more claustrophobic variants of spaghetti caves.
+Mountains
+
+Come in 5 sub-biomes:
+Meadow
+A flat but elevated biome that looks like a flowery and colder plains, with an aqua grass color and dark blue water color.
+Generates in plateaus and the lowest layers of some mountains, usually near plains and other temperate biomes.
+Contains grass, tall grass, dandelions, azure bluets, cornflowers, blue orchids, poppies, oxeye daisies and alliums.
+Only rabbits and donkeys spawn in this biome.
+Grove
+Reminiscent of a snowy taiga with snow blocks instead of grass blocks.
+Generates in the slopes of a snowy mountain when next to forested biomes.
+Covered in snow, snow blocks, powder snow and is filled with spruce trees.
+Rabbits, wolves, foxes, sheep, pigs, chickens and cows spawn in this biome.
+Snowy Slopes
+Generates in the slopes of a mountain when next to plains and snowy tundras.
+Covered in snow layers, snow blocks, powder snow and ice.
+Only rabbits and goats spawn in this biome.
+Lofty Peaks
+One of the biomes that generate in the mountain peaks.
+Covered in snow, snow blocks and ice.
+Only goats spawn in this biome.
+Snowcapped Peaks
+One of the biomes that generate in the mountain peaks.
+Generates if the surrounding biomes are too cold for lofty peaks.
+Covered in snow, snow blocks, ice, and packed ice.
+Only goats spawn in this biome.
+Ore Veins
+
+Long and rare ore formations.
+Copper ore veins mixed with granite and raw copper block generate above Y=0.
+Iron ore veins mixed with tuff and raw iron block generate below Y=0.
+Technical
+Debug screen
+
+Added two new lines: "Multinoise" and "Terrain".
+Only appear if the dimension where the player is uses the multi-noise biome source type.
+Multinoise lists the parameters used at the player's position in order to place a biome. C is continentalness, E is erosion, T is temperature, H is humidity and W is weirdness.
+Terrain lists values related to terrain generation.​[more information needed]
+Changes
+Blocks
+Sculk sensor
+
+Have been re-added to Creative inventory.
+Snow block
+
+Plants can now be placed on snow blocks.
+Items
+Bundle
+
+Have been re-added to Creative inventory.
+Can once again be crafted.
+Mobs
+Axolotls
+
+Now only spawn in lush caves.
+Goat
+
+Now only spawn in the new mountain biomes.
+General
+
+Block light level now must be 0 for many hostile mobs to spawn.
+World generation
+Overworld
+
+Now uses the multi-noise biome source type.
+Lush caves and dripstone caves
+
+Now generate naturally underground and inside hills or mountains.
+Azalea trees now generate above lush caves.
+Deep warm ocean
+
+Now generates naturally.
+Swamp
+
+Does not generate correctly. This is fixed in 1.18 experimental snapshot 2.
+Sub-biomes
+
+Wooded hills, birch forest hills, tall birch hills, taiga hills, taiga mountains, gravelly mountains+, desert hills, desert lakes, savanna plateau, shattered savanna plateau, swamp hills, dark forest hills, ice spikes, snowy mountains, snowy taiga hills, snowy taiga mountains, modified jungle, jungle hills, bamboo jungle hills, jungle edge, modified jungle edge, giant tree taiga hills, giant spruce taiga hills, eroded badlands, badlands plateau, modified badlands plateau, modified wooded badlands plateau, and mushroom field shore biomes no longer generate naturally.
+Ice spikes, eroded badlands and savanna plateau were added back in 1.18 experimental snapshot 2.
+Jungle edge was added back in 1.18 experimental snapshot 5.
+The new ore generation for 1.18 Experimental Snapshot 1.
+Ore distribution
+
+Changed ore generation of all ores making them have a spread value like lapis lazuli ore. Some still retain a linear generation alongside a spread generation.
+Coal ore, emerald ore, and copper ore no longer generate below Y=0.
+Copper ore generates between Y=0 and Y=96 and like all other ores, uses spread. It peaks at Y=48.
+Emerald ore generates above Y=32 as a spread, peaking at Y=256 and decreasing in quantity as the altitude decreases.
+Coal ore attempts to generate twice: once, evenly between an altitude of Y=136 and Y=256; and as a spread, peaking at an altitude of Y=96 and generating between an altitude of Y=0 and Y=192.
+Other ores also generate differently.
+Iron ore attempts to generate three times: once as a spread peaking at an altitude of Y=256, generating above Y=128; another as a spread peaking at Y=16 and generating with a minimum height of Y=-24 and a maximum height of Y=57, and a smaller one spreading evenly between the altitudes of Y=-64 and Y=72.
+Gold ore generates between the altitudes of Y=-64 and Y=32, peaking at Y=-16. The extra gold that generates in the badlands biome was left untouched.
+Lapis lazuli ore attempts to generate twice: once, as a spread between the altitudes of Y=32 and Y=-32, peaking at an altitude of 0; and evenly between the altitudes of Y=64 and Y=-64, generating buried like ancient debris.
+Redstone ore attempts to generate twice: once, evenly between an altitude of Y=15 and Y=-64; and as a spread, peaking at an altitude of -64 and generating below an altitude of Y=-32.
+Diamond ore now generate as a spread, generating below Y=16 and peaking at altitudes near Y=-64.
+General
+
+Terrain generation is now independent from biomes, with biomes adapting to whatever terrain they happen to generate throughout.
+This allows for natural variation in the terrain of any individual biome, both in terms of shape and elevation.
+For example, forests and deserts could form up on a hill without needing a special biome just for that purpose.
+This additionally allows for smoother transitions between biomes.
+Terrain is now smoother and more extreme.
+General
+Height limit
+
+Has been increased to 384 blocks, expanding 64 blocks up and 64 blocks down, with 320 being the limit upward and -64 being the limit downward.
+World types
+
+"Large Biomes" and "AMPLIFIED" worlds can no longer be created.
+Gallery
+
+
+
+			Taiga village generated in plains biome in experimental 1.18 snapshot
+
+
+
+			Plains biome became a lot hillier with hills reaching all the way over Y=130.
+
+
+
+			Entrance to the new cave systems which looks like a underground river coming from the mountain
+
+
+
+			An entrance to a deep cave
+
+
+
+			Waterfalls like this became very common.
+
+
+
+			Biomes blend more smoothly, as this frozen river is connecting two frozen oceans.
+
+
+
+			Stone shore biome became more common. In previous versions, it was found only where mountains were connected to ocean biomes.
+
+
+
+			Another example of new biome blending
+
+
+
+			Third example of biome blending
+
+
+
+			Frozen river going deep into giant tree taiga biome
+
+
+
+			Azalea tree generated in a taiga
+
+
+
+			Snowy giant spruce taiga
+
+
+
+			A lush cave extends above the ground.
+
+
+Fixes
+MC-126009 could be considered fixed by this version.
+Issues
+This version is not supported on the bug tracker, and therefore issues affecting it will be resolved as "Invalid".
+
+Trivia
+This is the first time that the light level requirement for common hostile mob spawning has been changed for more than 10 years. The "light level 7 and below" rule was originally implemented on February 4, 2010, while the game was still in its Indev phase, and remained constant since with the exception of Java Edition Alpha v1.2.0 through Java Edition Alpha v1.2.0_02, where the restrictions were height based.
+This is not the first "experimental snapshot", as it was preceded by Java Edition Combat Tests, but this is the first one to be available on Minecraft.net and the first to lead to a proper snapshot.
+This is the first time the terrain has been changed since Java Edition 1.13 in 2018, and is the first time the terrain has been completely overhauled since Java Edition 1.7.2 in 2013.
+Unlike later experimental snapshots, the title of this version is in title case.
+Videos
+Video made by slicedlime:
+
+
+
+
+See also
+Bedrock Edition 1.17.10#Experimental
+Notes
+
+ Unzip this file in the .minecraft/versions folder.
+
+References
+
+ "Important Message: Security vulnerability in Java Edition"     – Minecraft.net, December 10, 2021.
+
+ "New world generation in Java available for testing"     by Henrik Kniberg  – Minecraft.net, July 13, 2021.
+
+ "Minecraft Snapshot 21w16a"     – Minecraft.net, April 21, 2021.
+
+ "Oh forgot to mention in the changelog* we also added some more variation to the old cave carvers (width, heigh, floor cutoff, etc). Just to make them blend in a bit better with the noise caves instead of being instantly recognizable."  – @henrikkniberg  on X (formerly Twitter), February 25, 2021
+
+ "Some more information about: "Monsters will only spawn in complete darkness" * This means that generic monster spawning is now only in complete darkness. (Mobs that have special rules like slimes or phantoms are unaffected by this) * This only affects block-light, not sky-light"  – @_Ulraf_  on X (formerly Twitter), July 13, 2021
+
+ "Noticed some biomes were missing or not generating properly in the experimental snapshot. Re-adding swamps, ice spikes, and eroded badlands. Also experimenting with the cloud level."  – @henrikkniberg  on X (formerly Twitter), July 15, 2021
+
+ "Minecraft 1.18 experimental snapshot"  – Henrik Kniberg on YouTube, July 13, 2021
+
+ MC-231984
+
+Navigation

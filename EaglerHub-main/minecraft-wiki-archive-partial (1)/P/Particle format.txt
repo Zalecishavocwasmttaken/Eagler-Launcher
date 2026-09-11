@@ -1,0 +1,101 @@
+This feature is exclusive to Java Edition. 
+
+When particles are spawned using the /particle command, by biomes or enchantments, they can be configured using NBT or JSON data.
+
+Contents
+
+1 Usage
+2 Configurations of particle types
+3 History
+4 See also
+5 Navigation
+
+Usage
+When referenced from a biome or enchantment definition, a particle is defined using:
+
+[NBT Compound / JSON Object]: The particle object
+[String] type: The id of the particle type, see Particles (Java Edition) for valid options
+Additional fields based on the type, see below
+
+Configurations of particle types
+Some particle types have configurations that need to be specified. These types and the configuration fields are:
+
+block, block_crumble, block_marker, dust_pillar, and falling_dust
+[NBT Compound / JSON Object] block_state: Contains the block state used for the particle.
+Block state see Template:Nbt inherit/block state/template
+Alternative syntax:
+[String] block_state: The resource location of the block to use.
+
+dragon_breath
+[Float] power: Optional, defaults to 1.0 — Scaling of the velocity after randomness.
+
+dust
+[Int][NBT List / JSON Array] color: Three floats representing the red, green, and blue components of the dust color. Each value must be between 0 and 1. Can alternatively be an rgb packed integer.
+[Float] scale: Controls the size scale multiplier and lifetime multiplier of the particle. The particle's lifetime is a random integer from 8 to 40 game ticks, then multiplied by this scale value, with a minimum of 0.01 and a maximum of 4.
+
+dust_color_transition
+[NBT List / JSON Array] from_color: Three floats representing the red, green, and blue components of the start color. Each should be from 0 to 1. If any color value is less than 0 or higher than 1, the particle color has undefined behavior.
+[NBT List / JSON Array] to_color: Three floats representing the red, green, and blue components of the end color. Each should be from 0 to 1. If any color value is less than 0 or higher than 1, the particle color has undefined behavior.
+[Float] scale: Controls the size scale multiplier and lifetime multiplier of the particle. The particle's lifetime is a random integer from 8 to 40 game ticks, then multiplied by this scale value, with a minimum of 0.01 and a maximum of 4.
+
+effect, instant_effect
+[Float] power: Optional, defaults to 1.0 — Scaling of the velocity after randomness.
+[NBT List / JSON Array][Int] color: Optional, defaults to white — [NBT List / JSON Array] list of 3 [Float] between 0.0 and 1.0 representing red, green, blue of the color; or [Int] packed as Red<<16 + Green<<8 + Blue.
+
+entity_effect
+[NBT List / JSON Array][Int] color: [NBT List / JSON Array] list of 4 [Float] between 0.0 and 1.0 representing red, green, blue, alpha of the color; or [Int] packed as Alpha << 24 +Red<<16 + Green<<8 + Blue.
+
+flash
+[NBT List / JSON Array][Int] color: [NBT List / JSON Array] list of 4 [Float] between 0.0 and 1.0 representing red, green, blue, alpha of the color; or [Int] packed as Alpha << 24 +Red<<16 + Green<<8 + Blue.
+
+item
+[NBT Compound / JSON Object] item: Contains the item data used for the particle.
+A single item stack see Template:Nbt inherit/itemnocount/template
+Alternative syntax:
+[String] item: The resource location of the item to use.
+
+sculk_charge
+[Float] roll: The angle the particle displays at in radians.
+
+shriek
+[Int] delay: The delay in ticks.
+
+trail
+[NBT List / JSON Array] target: The coordinates the trail particles will go to.
+[Int] color: The particle color, as an RGB integer.
+[Int] duration: The number of ticks the particle will take to travel to the target.
+
+vibration
+[NBT Compound / JSON Object] destination: The destination.
+[String] type: Must be block.
+[NBT List / JSON Array] pos: The block position.
+[Int]: X
+[Int]: Y
+[Int]: Z
+[Int] arrival_in_ticks: The duration of the move.
+
+All other types don't have any configuration.
+
+History
+Java Edition1.20.524w14a
+Added particle types dust_pillar, infested, item_cobweb, ominous_spawning, raid_omen, small_gust, trial_omen, and trial_spawner_detection_ominous.pre1
+Particle options in SNBT format are now used in the /particle command.
+
+Changes to item particle: renamed value field to item, now also allows a string item ID as shorthand.
+
+Changes to block particle: renamed value field to block_state, now also allows a string block ID as shorthand.
+
+Changes to entity_effect particle: renamed value field to color, now also allows a list of 4 floats.
+
+Changes to dust_color_transition particle: renamed fromColor to from_color and toColor to to_color.1.21.4
+Added particle types block_crumble and trail.1.21.525w04a
+The particle type tinted_leaves now has a parameter: color1.21.925w36a
+dragon_breath now optionally takes a power parameter, which is multiplied onto its initial velocity, after all randomness.
+
+instant_effect and effect now optionally take power and color parameters.
+
+flash now requires a color parameter.
+See also
+Biome definition
+Enchantment definition
+Navigation

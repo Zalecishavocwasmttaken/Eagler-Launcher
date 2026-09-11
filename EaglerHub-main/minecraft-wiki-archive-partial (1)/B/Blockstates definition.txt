@@ -1,0 +1,73 @@
+See also: Tutorial:Models § Block states
+
+
+
+This feature is exclusive to Java Edition. 
+
+Blockstates definition (also known as block state model dispatch) are used to render blocks there are several different variants of them (like doors, which can be open or closed). Each block has its own blockstates definition file, which lists all the existing variants and links them to their corresponding model. Blocks can also be composed of several different models at the same time, called "multipart". The models are then used depending on the block state of the block.
+The blockstates definitions are stored as JSON files in a resource pack in the assets/<namespace>/blockstates folder.
+
+Contents
+
+1 JSON format
+2 History
+3 References
+4 Navigation
+
+JSON format
+
+[NBT Compound / JSON Object] Root object
+[NBT Compound / JSON Object] variants: Holds the names of all the variants of the block.​[more information needed]
+[NBT Compound / JSON Object][NBT List / JSON Array] A variant: Name of a variant, which consists of the relevant block states separated by commas. A block with just one variant uses "" as a name for its variant. Each variant can have one model or an array of models and contains their properties. If set to an array, the model is chosen randomly from the options given, with each option being specified in separate subsidiary [NBT Compound / JSON Object]-tags. Item frames are treated as blocks and use "map=false" for a map-less item frame, and "map=true" for item frames with maps.
+[NBT Compound / JSON Object] A model: Contains the properties of a model, if more than one model is used for the same variant. All specified models alternate in the game.
+[String] model: Specifies the path to the model file of the block, in form of a resource location.
+[Int] x: Rotation of the model on the x-axis in increments of 90 degrees.
+[Int] y: Rotation of the model on the y-axis in increments of 90 degrees.
+[Int] z: Rotation of the model on the z-axis in increments of 90 degrees.
+[Byte] uvlock: Can be true or false (default). Locks the rotation of the texture of a block, if set to true. This way the texture does not rotate with the block when using the x and y-tags above.
+[Int] weight: Sets the probability of the model for being used in the game, defaults to 1 (=100%). If more than one model is used for the same variant, the probability is calculated by dividing the individual model's weight by the sum of the weights of all models. (For example, if three models are used with weights 1, 1, and 2, then their combined weight would be 4 (1+1+2). The probability of each model being used would then be determined by dividing each weight by 4: 1/4, 1/4 and 2/4, or 25%, 25% and 50%, respectively.)
+[String] model: Specifies the path to the model file of the block, in form of a resource location.
+[Int] x: Rotation of the model on the x-axis in increments of 90 degrees.
+[Int] y: Rotation of the model on the y-axis in increments of 90 degrees.
+[Int] z: Rotation of the model on the z-axis in increments of 90 degrees.
+[Byte] uvlock: Can be true or false (default). Locks the rotation of the texture of a block, if set to true. This way the texture does not rotate with the block when using the x and y-tags above.
+[NBT List / JSON Array] multipart: Used instead of variants to combine models based on block state attributes.
+[NBT Compound / JSON Object] A case Determines a case and the model that should apply in that case.
+[NBT Compound / JSON Object] when: A list of cases that have to be met for the model to be applied. If unset, the model always applies.
+[NBT List / JSON Array] OR: Matches if any of the contained cases return true. Cannot be set alongside other cases.
+[NBT Compound / JSON Object] A condition A list of cases that all have to match the block to return true.
+[String] State Name of a block state. A single case that has to match one of the block states. It can be set to a list separated by | to allow multiple values to match.
+[NBT List / JSON Array] AND: Matches if all of the contained cases return true. Cannot be set alongside other cases.
+[NBT Compound / JSON Object] A condition A list of cases that all have to match the block to return true.
+[String] State Name of a block state. A single case that has to match one of the block states. It can be set to a list separated by | to allow multiple values to match.
+[String] State Name of a block state. A single case that has to match one of the block states. It can be set to a list separated by | to allow multiple values to match. Cannot be set alongside the OR-tag or AND-tag.
+[NBT Compound / JSON Object][NBT List / JSON Array] apply: Determines the model(s) to apply and its properties. There can be one model or an array of models. If set to an array, the model is chosen randomly from the options given, with each option being specified in separate subsidiary [NBT Compound / JSON Object]-tags.
+[NBT Compound / JSON Object] A model: Contains the properties of a model, if more than one model is used for the same variant. All specified models alternate in the game.
+[String] model: Specifies the path to the model file of the block, in form of a resource location.
+[Int] x: Rotation of the model on the x-axis in increments of 90 degrees.
+[Int] y: Rotation of the model on the y-axis in increments of 90 degrees.
+[Int] z: Rotation of the model on the z-axis in increments of 90 degrees.
+[Byte] uvlock: Can be true or false (default). Locks the rotation of the texture of a block, if set to true. This way the texture does not rotate with the block when using the x and y-tags above.
+[Int] weight: Sets the probability of the model for being used in the game, defaults to 1 (=100%). If more than one model is used for the same variant, the probability is calculated by dividing the individual model's weight by the sum of the weights of all models. (For example, if three models are used with weights 1, 1, and 2, then their combined weight would be 4 (1+1+2). The probability of each model being used would then be determined by dividing each weight by 4: 1/4, 1/4 and 2/4, or 25%, 25% and 50%, respectively.)
+[String] model: Specifies the path to the model file of the block, in form of a resource location.
+[Int] x: Rotation of the model on the x-axis in increments of 90 degrees.
+[Int] y: Rotation of the model on the y-axis in increments of 90 degrees.
+[Int] z: Rotation of the model on the z-axis in increments of 90 degrees.
+[Byte] uvlock: Can be true or false (default). Locks the rotation of the texture of a block, if set to true. This way the texture does not rotate with the block when using the x and y-tags above.
+
+"uvlock": true
+
+"uvlock": false
+
+History
+Java Edition1.814w10a
+Added first blockstates definitions into the assets/<namespace>/models/block folder. They come with a warning that this format is unstable and highly likely to change even more in the future.14w25a
+Moved assets/<namespace>/models/block to assets/<namespace>/blockstates.14w27a
+Format change to the current one.​[more information needed]14w28a
+Blockstates definition are no longer considered unstable.1.21.1125w46a
+New optional field z for rotate the model of a variant.
+References
+
+ Name used by Mojang "Minecraft Snapshot 25w46a"     – Minecraft.net.
+
+Navigation

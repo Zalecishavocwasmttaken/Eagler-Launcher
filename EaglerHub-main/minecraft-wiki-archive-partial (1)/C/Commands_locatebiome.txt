@@ -1,0 +1,83 @@
+This page describes content that has been removed from Java Edition. 
+This feature was present in earlier versions of Java Edition, but has since been removed.
+
+
+
+This feature is exclusive to Java Edition. 
+
+/locatebiome
+
+Permission levelrequired
+
+2
+
+Restrictions
+
+None
+
+{
+    "title": "<code>/locatebiome</code>",
+    "rows": [
+        {
+            "field": "2",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "None",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+Displays the coordinates for the closest biome of a given biome ID or a biome tag in the chat for the player who executed the command.
+
+Contents
+
+1 Syntax
+2 Arguments
+3 Note
+4 Result
+5 Output
+6 Example
+7 History
+8 References
+9 Navigation
+
+Syntax
+locatebiome <biome>
+Arguments
+<biome>: resource_or_tag
+
+Specifies the biome(s) to be located. See Biome/ID for a list of available biome IDs.
+Must be an existing registered resource location or tag in correct registry.
+Note
+The horizonal search resolution is 32 blocks, and vertical resolution is 64 blocks, which means biomes that are too narrow may not be found.
+If successful, the following message is sent to chat: "The nearest <biome name> is at [<x> ~ <z>] (<distance> blocks away)"/"The nearest <biome tag> (<biome name>) is at [<x> ~ <z>] (<distance> blocks away)", in which <distance> is the horizontal distance between the executor and the biome. The coordinates can be clicked, which can put the command /tp @s <x> ~ <z> in the chat box. The command can then be executed, and the player will be sent to those coordinates.
+
+Result
+
+CommandTriggerJava Edition
+
+Anythe arguments are not specified correctly Unparseableunable to locate the requested biome or biome tag within a square of 12801×12801 blocks area FailedOtherwiseDisplays the coordinates for the closest biome of the given type in the chat
+Output
+
+CommandEditionSituationSuccess Count/execute store success .../execute store result ...
+
+AnyJava EditionOn fail000On success11horizontal distance between the executor and the biome
+Example
+To obtain the coordinates of the nearest desert: /locatebiome desert
+History
+Java Edition1.1620w06a
+Added /locatebiome.Pre-release 1
+The biome ID in the error messages for an invalid biome or a valid biome that could not be found is now in quotes.
+Changed the error message for an invalid biome from "There is no biome named <biome ID>" to "There is no biome with type '<biome ID>'".1.18.2Pre-release 1
+/locatebiome now supports tags, using # prefix to distinguish from normal IDs.1.1922w12a
+/locatebiome now locates cave biomes more consistently.22w19a
+Removed /locatebiome and merged it into /locate.
+References
+
+ MC-239019 – resolved as "Fixed".
+
+Navigation

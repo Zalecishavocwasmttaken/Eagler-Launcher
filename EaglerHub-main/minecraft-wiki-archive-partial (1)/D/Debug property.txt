@@ -1,0 +1,419 @@
+This feature is exclusive to Java Edition. 
+
+
+
+These features are intended for debugging purposes only, and should not be used during normal play. They might cause crashes and corrupt world saves.
+
+Debug properties or debug flags are JVM properties that enable various debug features in the game.
+
+Contents
+
+1 Usage
+2 List of debug properties
+3 History
+
+3.1 Removed debug properties
+
+4 Issues
+5 Navigation
+
+Usage
+To enable debug features, JVM properties must be set when launching the game. To enable any feature, the global flag -DMC_DEBUG_ENABLED must be set. Then a specific feature can be enabled using -DMC_DEBUG_<name> or -DMC_DEBUG_<name>=<value> flag.
+
+List of debug properties
+
+Name
+
+Description
+
+[Boolean] ENABLED
+
+Enables the effects of all properties listed below.
+
+[Boolean] PRINT_PROPERTIES
+
+Prints all available debug properties to the output log on startup.
+
+[Boolean] OPEN_INCOMPATIBLE_WORLDS
+
+Allows opening worlds otherwise deemed incompatible without confirmation, such as from April Fools' versions.
+
+[Boolean] ALLOW_LOW_SIM_DISTANCE
+
+Allows setting the client simulation distance to a value as low as 2, instead of 5.
+
+[Boolean] HOTKEYS
+
+Adds additional debug hotkeys. See Debug hotkey § Disabled hotkeys for the full list.
+
+[Boolean] UI_NARRATION
+
+Allows narration code to run even when the text-to-speech library cannot load the operating system's narrator (as long as the operating system is supported).
+
+[Boolean] SHUFFLE_UI_RENDERING_ORDER
+
+Constantly shuffles the rendering order of many UI elements.
+
+[Boolean] SHUFFLE_MODELS
+
+Constantly shuffles the render order of entity and block entity model elements.
+
+[Boolean] RENDER_UI_LAYERING_RECTANGLES
+
+Renders bounding boxes for UI elements as translucent blue rectangles.
+
+[Boolean] PATHFINDING
+
+Enables debug rendering of the pathfinding of mobs.
+
+[Boolean] SHOW_LOCAL_SERVER_ENTITY_HIT_BOXES
+
+Extends the entity hitbox debug renderer with the hitbox as seen by the server (only works in singleplayer).
+
+[Boolean] SHAPES
+
+Renders the general interaction box (white), collision box (gray), occlusion shape (green) and auxiliary interaction box (blue) of the targeted block.
+
+[Boolean] NEIGHBORSUPDATE
+
+Enables debug rendering showing the amount of block updates each block received in a single tick the last time it got updated, using white, shrinking cubic outlines with an accompanying number representing the number of block updates in that specific coordinate, that persist for 10 seconds until ultimately disappearing.
+
+[Boolean] EXPERIMENTAL_REDSTONEWIRE_UPDATE_ORDER
+
+Enables debug rendering of the orientation of redstone wire when the "Redstone Experiments" experiment is enabled. Shows the forward (blue), side (yellow), and up (red) directions of each redstone wire update.
+
+[Boolean] STRUCTURES
+
+Enables debug rendering of the bounding boxes of structures and structure pieces.
+
+[Boolean] GAME_EVENT_LISTENERS
+
+Highlights blocks and entities that listen to game events. When a game event occurs, its origin position is shown along with the game event type.
+
+[Boolean] DUMP_TEXTURE_ATLAS
+
+Dumps all texture atlases to the .minecraft/screenshots/debug directory on every resource load or reload, similarly to the F3 + S debug keybind.
+
+[Boolean] STRUCTURE_EDIT_MODE
+
+When loading a structure file in a structure block, structure voids are preserved. Also, containers with random loot do not get the [Long] LootTableSeed field set. This allows re-saving the structure file without modifications.
+
+[Boolean] SAVE_STRUCTURES_AS_SNBT
+
+When saving a structure using a structure block, the structure is saved as SNBT in a .snbt file, instead of NBT in a .nbt file.
+
+[Boolean] SYNCHRONOUS_GL_LOGS
+
+Sets the GL_DEBUG_OUTPUT_SYNCHRONOUS OpenGL flag. See the OpenGL docs and LWJGL docs for details. Requires OpenGL 4.3 or later.
+
+[Boolean] VERBOSE_SERVER_EVENTS
+
+Adds lines in the game log:
+When a chunk's load level changes.
+When a new chunk task (new chunk generation, light engine, or player load) is submitted.
+When the game computes chunk load levels.
+When a chunk's lighting is updated.
+When a chunk is sent to a client.
+When a chunk load ticket is added.
+When a chunk load ticket is removed.
+
+[Boolean] NAMED_RUNNABLES
+
+Adds debugging names to certain Runnable and Supplier objects, useful for modders and developers. Has no effect on the vanilla game.
+
+[Boolean] GOAL_SELECTOR
+
+Displays the goals of most mobs above their head, highlighting the currently running goals in green.
+
+[Boolean] VILLAGE_SECTIONS
+
+Highlights chunk sections within the bounds of a village.
+
+[Boolean] BRAIN
+
+Displays information about the brain AI of villagers, armadillos, frogs, goats, sniffers, camels, axolotls, allays, breezes, piglins, piglin brutes, hoglins, zoglins, tadpoles, wardens, creakings, happy ghasts, and copper golems.
+
+[Boolean] POI
+
+Visualizes the location of points of interest and shows data about them.
+
+[Boolean] BEES
+
+Renders the goals of bees like with brains, and assigns each bee a unique, randomly generated name. When a bee seeks for a flower to pollinate, that flower is highlighted with a yellow transparent cube with the name of said bee attached to it, and beehives list the names of bees that are expected to return. Names are unique and randomly constructed using a prefix and a suffix based on their UUID.
+
+[Boolean] RAIDS
+
+Displays the following information about raids:
+Raid center position
+Raid wave number in the bossbar
+Number of raiders alive in the bossbar
+If the wave is an extra wave in the bossbar
+Raid status (ongoing, victory, loss, or stopped) in the bossbar
+
+[Boolean] BLOCK_BREAK
+
+Adds lines in the game log when the player starts, aborts, or completes the breaking of a block, and when receiving a block breaking event from the server.
+
+[Boolean] MONITOR_TICK_TIMES
+
+Whenever a single tick takes longer than 300ms, saves profiler results to debug/Renderer (if on the client), or debug/Server (if on the server).
+
+[Boolean] KEEP_JIGSAW_BLOCKS_DURING_STRUCTURE_GEN
+
+Prevents replacing jigsaw blocks when generating jigsaw structures.
+
+[Boolean] DONT_SAVE_WORLD
+
+Disables saving chunks, entities (excluding players), and points of interest to disk. This results in all chunks to be regenerated every time they get reloaded, and all player modifications to be deleted. Advancements, statistics, active raids, world borders, random sequences, and everything in level.dat are still saved.
+
+[Boolean] LARGE_DRIPSTONE
+
+When generating large dripstone features:
+Replaces all dripstone blocks with glass.
+Places a diamond block at the top of the stalactite and a gold block at the bottom of the stalagmite.
+Places creeper heads in the empty space between the stalactite and the stalagmite.
+
+[Boolean] CARVERS​[until: JE 26.3]
+
+Enables debug_mode for all cave carvers. For vanilla worldgen:
+Fills the area carved with crimson buttons (cave carvers), oak buttons ("extra underground" cave carvers), or warped buttons (canyon carvers).
+Places candles in water.
+Replaces lava with orange stained glass.
+Places glass on the barrier between aquifers and the carved area.
+
+[Boolean] ORE_VEINS
+
+Generates oak buttons instead of the filler blocks when generating ore veins. No other blocks are generated other than structures and bodies of water and lava.
+
+[Boolean] SCULK_CATALYST
+
+Stores additional statistics in the sculk catalyst block entity data about the total, single maximum value and average cursor charge, as well as how many cursors are present.
+[Int] stats.total: The sum of all sculk charge experience.
+[Int] stats.count: The number of sculk charges.
+[Int] stats.max: The amount of experience stored in the largest sculk charge.
+[Int] stats.avg: The average experience stored across all sculk charges.
+
+[Boolean] BYPASS_REALMS_VERSION_CHECK
+
+Bypasses all Realms availability checks, including version checking, authentication, and whether the user is allowed to access Realms. This only allows opening the Realms menus and cannot be used to join Realms without authentication.
+
+[Boolean] SOCIAL_INTERACTIONS
+
+Allows opening the social interactions menu in singleplayer. Adds the current player and any blocked players to the reporting screen. Allows opening the report screen even if chat is disabled due to options, a launcher argument, or Minecraft account settings.
+
+[Boolean] CHAT_DISABLED
+
+In multiplayer servers, acts as if chat is disabled in the user's account settings.
+
+[Boolean] CHAT_FRIENDS_ONLY
+
+Makes chat act as if the player's online option that handles communication with other users is set to friends only.
+
+[Boolean] VALIDATE_RESOURCE_PATH_CASE
+
+Forces resource packs to only load files if the case matches exactly (for example, if a resource pack tries to find path/to/file.json but the file is actually at path/to/File.json, it will fail). If the file is on a different file system type than the system's default (such as the file system for loading files bundled with the game's JAR file), validation is skipped.
+
+[Boolean] UNLOCK_ALL_TRADES
+
+Villagers immediately choose and unlock trades up to their max level.
+
+[Boolean] BREEZE_MOB
+
+Draws a blue line from every breeze to its current target, and draws three concentric rings around it: a green ring with radius 4, an orange ring with radius 8, and a red ring with radius 24. A breeze must be within the green and red ring (4-24 blocks) to jump, and it will pick a block to jump to within the green and orange rings (4-8 blocks). The breeze's jump target is highlighted in red, and a pink line is drawn from the breeze to its jump target.
+
+[Boolean] TRIAL_SPAWNER_DETECTS_SHEEP_AS_PLAYERS
+
+Makes trial spawners react to nearby sheep instead of players.
+
+[Boolean] VAULT_DETECTS_SHEEP_AS_PLAYERS
+
+Makes vaults react to nearby sheep instead of players.
+
+[Boolean] FORCE_ONBOARDING_SCREEN
+
+Shows the accessibility onboarding screen on game startup, even if this is not the first startup.
+
+[Boolean] CURSOR_POS
+
+Shows the current cursor coordinates below the cursor, with (0, 0) being the top left of the Minecraft window.
+
+[Boolean] DEFAULT_SKIN_OVERRIDE
+
+Disables custom skins, causing all players to have a default skin.
+
+[Boolean] PANORAMA_SCREENSHOT
+
+Allows pressing ⎈ Control + F2 to capture a panoramic screenshot. Saved as panorama_0.png to panorama_5.png in the screenshots folder, overwriting any previously captured panoramic screenshot.
+
+[Boolean] CHASE_COMMAND
+
+Enables the /chase command.
+
+[Boolean] VERBOSE_COMMAND_ERRORS
+
+Instead of printing "An unexpected error occurred trying to execute that command", prints the error message and logs the exception stack trace.
+
+[Boolean] DEV_COMMANDS
+
+Enables the /raid, /debugpath, /debugmobspawning, /warden_spawn_tracker, /spawn_armor_trims, and /serverpack commands. On a dedicated server also enables the /debugconfig command.
+
+[Boolean] ACTIVE_TEXT_AREAS
+
+Highlights text components rendered in the UI. The highlights alternate between light and dark colors every character.
+Normal text is highlighted in blue.
+Text with a click_event tag is highlighted in light purple.
+Text with a hover_event tag is highlighted in aqua.
+Text with both click_event and hover_event tags is highlighted in yellow.
+
+[Boolean] PREFER_WAYLAND​[until: JE 26.3]
+
+On Linux, when both X11 and Wayland are available, prefer Wayland instead of X11.
+
+[Boolean] SIMULATE_LIBRARY_LOAD_FAILURE
+
+Simulates a library load failure.
+
+[Boolean] IGNORE_LOCAL_MOB_CAP
+
+Mob spawns ignore the local, per-player mob cap. The global mob cap is not ignored.
+
+[Boolean] DISABLE_LIQUID_SPREADING
+
+Disables the flowing of liquids.
+
+[Boolean] AQUIFERS
+
+At positive Z coordinates, places strips of slime blocks (below sea level) and honey blocks (above sea level) marking the position 8 blocks above the preliminary surface height.
+
+[Boolean] JFR_PROFILING_ENABLE_LEVEL_LOADING
+
+Automatically enables JFR profiling for the level loading, and stops when level loading is complete.
+
+[Boolean] ENTITY_BLOCK_INTERSECTION
+
+Highlights blocks in green that intersect an entity, e.g. when a chicken is standing inside tall grass. Also highlights all air blocks in grey that the player touched recently.
+
+[Boolean] GENERATE_SQUARE_TERRAIN_WITHOUT_NOISE
+
+Only generates terrain between 0, 0 and 8207, 1039. In the Overworld, generates simplified terrain where:
+Desert and badlands biomes generate when erosion noise matches certain ranges.
+Snowy taiga biomes generate when continentalness noise matches certain ranges.
+Plains biomes generate everywhere else.
+
+[Boolean] ONLY_GENERATE_HALF_THE_WORLD
+
+Only generate blocks with Z ≥ 0. Features may extend into negative Z positions. Liquids can't flow onto blocks with Z < 0. If WORLD_RECREATE is also enabled, the spawn point is set to 0, -100.
+
+[Boolean] DISABLE_FLUID_GENERATION
+
+Disables fluid generation. Features and structures can still generate fluids.
+
+[Boolean] DISABLE_AQUIFERS
+
+Disables aquifer generation.
+
+[Boolean] DISABLE_SURFACE
+
+Disables surface rules, causing the Overworld to generate without its surface grass and dirt layers.
+
+[Boolean] DISABLE_CARVERS
+
+Worlds generate without cave carvers.
+
+[Boolean] DISABLE_STRUCTURES
+
+Worlds generate without structures.
+
+[Boolean] DISABLE_FEATURES
+
+Disables feature generation. Explorer maps will not try to find nearby structures.
+
+[Boolean] DISABLE_ORE_VEINS
+
+Disables ore vein generation.
+
+[Boolean] DISABLE_BLENDING
+
+Disables easing the transition between chunks generated in different versions, known as blending. Also disables scheduling ticks for blocks in old chunks on the border of a newly generated chunk to assist with blending.
+
+[Boolean] DISABLE_BELOW_ZERO_RETROGENERATION
+
+Worlds created before 1.18 will not generate caves under the old bedrock floor.
+
+[Boolean] SUBTITLES
+
+Shows IDs of sound events for the subtitles, and a warning when a sound event is missing.
+
+[Int] FAKE_LATENCY_MS
+
+Introduces artificial latency between the client and server, similar to slow internet connections.
+
+[Int] FAKE_JITTER_MS
+
+Introduces a random artificial latency within 0 and jitter - 1 milliseconds between the client and server, similar to slow internet connections.
+
+[Boolean] COMMAND_STACK_TRACES
+
+Adds stack traces to Brigadier CommandSyntaxException, allowing developers to investigate the code path before the exception occurred.
+
+[Boolean] WORLD_RECREATE
+
+Adds a "DEBUG recreate" button to the world selection screen, that creates a world with name "DEBUG world" (deleting a world with that name if it already exists) with seed "test1" (110251487) in Spectator mode.Changes the default values for the advance_time‌ and advance_weather game rules to false in all new worlds.
+
+[Boolean] SHOW_SERVER_DEBUG_VALUES
+
+Adds server-side biome and light levels to the debug screen, and replaces the client-side looking at block/fluid values with server-side values.
+
+[Boolean] FEATURE_COUNT
+
+Keeps track of how many times features were placed over time. Press F3+L to print feature counts and other debugging information in the following order:
+Whether the dimension is "running" or "dead".
+The dimension.
+The number of times the feature was placed.
+The average feature placements per chunk.
+The placed feature used for biome checking, may or may not be present.
+The configured feature.
+The feature itself that was placed.
+Press F3+R to reset the feature placement counts.
+
+[Boolean] CALCULATE_SOLID​[upcoming: JE 26.3]
+
+Prints a report of which blocks are solid or non-solid to debug logs, along with the reason each block was marked solid or non-solid. If the game marks a block as solid but later switches to non-solid or vice versa (due to a block's possible block states having conflicting properties), a message is printed to debug logs.
+
+[Boolean] FORCE_TELEMETRY
+
+Forces recording telemetry data when the game is run in an IDE. Has no effect in the vanilla game.
+
+[Boolean] DONT_SEND_TELEMETRY_TO_BACKEND
+
+Disables sending any telemetry to Mojang servers when the game is run in an IDE. Has no effect in the vanilla game.
+
+History
+Java Edition1.21.925w37a
+Added debug flags.pre1
+Added the VERBOSE_COMMAND_ERRORS and DEV_COMMANDS debug properties.
+BRAIN, CHUNKS and GENERATE_SQUARE_TERRAIN_WITHOUT_NOISE no longer crash the game.
+DONT_SEND_TELEMETRY_TO_BACKEND now only disables sending telemetry when run in an IDE.1.21.1125w41a
+The following flags have been removed and replaced with in-game debug renderers: WATER, HEIGHTMAP, COLLISION, SUPPORT_BLOCKS, LIGHT, SKY_LIGHT_SECTIONS, SOLID_FACE, and CHUNKS.25w42a
+Added the ACTIVE_TEXT_AREAS debug property.26.1snap7
+Added the CHAT_DISABLED debug property.snap8
+Added the PREFER_WAYLAND debug property.
+Removed the DUMP_INTERPOLATED_TEXTURE_FRAMES debug property.26.2snap2
+Added the SIMULATE_LIBRARY_LOAD_FAILURE debug property.snap7
+Added the DEBUG_CHAT_FRIENDS_ONLY and NATIVE_WEBRTC_LOGS debug properties.snap8
+Renamed the DEBUG_CHAT_FRIENDS_ONLY debug property to CHAT_FRIENDS_ONLY.pre1
+Removed the NATIVE_WEBRTC_LOGS debug property.Upcoming Java Edition26.3snap1
+Added the CALCULATE_SOLID debug property.snap2
+Removed the CARVERS debug property.snap4
+Removed the PREFER_WAYLAND debug property.
+Removed debug properties
+
+
+
+This section of the article is empty. 
+You can help by expanding it.
+
+Issues
+Issues relating to "Debug property" are maintained on the bug tracker. Issues should be reported and viewed there.
+
+Navigation

@@ -1,0 +1,13 @@
+This page describes content that has been removed and was only present in earlier versions of Java Edition. 
+In Java Edition 1.20.5, this format has been replaced with the data component format.
+
+[NBT List / JSON Array] CanDestroy: The only blocks this item may break when used by a player in adventure mode.
+[String]: A block ID. Validated the same way as the block_predicate command argument, meaning block states and block tags are accepted, as well as client-side only block entity NBT tags.
+[NBT List / JSON Array] CanPlaceOn: Determines which blocks that blocks with this tag can be placed against in adventure mode.
+[String]: A block ID. Validated the same way as the block_predicate command argument, meaning block states and block tags are accepted, as well as client-side only block entity NBT tags.
+[NBT Compound / JSON Object] BlockEntityTag: Block entity NBT tags which are applied when this block is placed. Used to store data on banners and shields or on blocks obtained in creative by holding ⎈ Control (or ⌘ Command on mac) and pressing pick block on a block containing a block entity.
+See Block entity format. Excludes x, y, z, and id tags.
+[NBT Compound / JSON Object] BlockStateTag: A compound where each key is a block state key, and the value is the block state value to force place for this block.
+[String] Block state key: The block state value of the block to edit, for example, facing: "east".
+
+ Assuming the block is of a type that creates a block entity at all. If not, BlockEntityTag has no effect.

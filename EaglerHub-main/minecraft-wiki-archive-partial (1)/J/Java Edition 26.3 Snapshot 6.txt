@@ -1,0 +1,345 @@
+Minecraft 26.3 Snapshot 6
+
+Edition
+
+Java Edition
+
+Release date
+
+July 28, 2026
+
+Type
+
+Snapshot
+
+Snapshot for
+
+26.3
+
+Downloads
+
+Client (.json)Server
+
+Protocol version
+
+ dec: 1073742152 hex: 40000148
+
+Data version
+
+5005
+
+Resource pack format
+
+94.0
+
+Data pack format
+
+113.0
+
+Minimum Java version
+
+Java SE 25
+
+◄◄   26.2
+26.3
+
+◄   26.3 Snapshot 5
+
+ 26.3 Snapshot 6
+
+  26.3 Snapshot 7 ►
+
+{
+    "title": "Minecraft 26.3 Snapshot 6",
+    "images": [
+        "26.3-snapshot-6.jpg",
+        "Java Edition 26.3 Snapshot 6.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "July 28, 2026",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Snapshot article, displayed as Snapshot)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition 26.3 article, displayed as 26.3)",
+            "label": "Snapshot for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/29d988294f7cefb55e0f8e089462c41de0b5e957/client.jar Client] ([https://piston-meta.mojang.com/v1/packages/beecc910cc6a57aabdc9bfbc8b47d1ed5f0bbe78/26.3-snapshot-6.json .json])<br />[https://piston-data.mojang.com/v1/objects/14406bf8b96c4126ed01371a62e50703a7481247/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": " <span style=\"font-size:smaller\"><abbr title=\"decimal\">dec</abbr>: </span>1073742152<br /> <span style=\"font-size:smaller\"><abbr title=\"hexadecimal\">hex</abbr>: </span>40000148",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "5005",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "94.0",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "113.0",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Data pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_25_.28LTS.29 Java SE 25]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Java Edition  26.2|<span style=\"margin-right:-0.35em\">◄</span>◄   26.2]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition 26.3|26.3]]'''</td>\n<td style=\"padding: 0.4em\" ></td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  26.3 Snapshot 5|◄   26.3 Snapshot 5]]\n</td>\n<td style=\"padding: 0.4em\">''' 26.3 Snapshot 6'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  26.3 Snapshot 7|  26.3 Snapshot 7 ►]]\n</td>\n</tr>\n</table>"
+}
+
+
+26.3 Snapshot 6 (known as 26.3-snapshot-6 in the launcher) is the sixth snapshot for Java Edition 26.3, released on July 28, 2026, which tweaks the abandoned camps, makes technical changes, and fixes bugs.
+
+Contents
+
+1 Additions
+
+1.1 General
+
+2 Changes
+
+2.1 World generation
+2.2 Command format
+2.3 General
+
+3 Fixes
+4 Videos
+5 References
+6 Navigation
+
+Additions
+General
+Entity data
+
+Added invulnerable_time tag which makes a mob temporarily invulnerable for a specific number of ticks.
+Options
+
+Added Quit Shortcuts option.
+Can be accessed in the Controls section.
+Allows keyboard shortcuts that close the game, such as ⌥ Alt + F4 on Windows and ⌘ Command + Q or ⌘ Command + W on macOS.
+Disabled by default.
+Changes
+World generation
+Abandoned camp
+
+Added a new campsite variant for each biome.
+Minor tweaks to abandoned camp structures.
+Command format
+/publish
+
+The gamemode argument has been removed.
+Instead, the default game mode of the world should be set using the /defaultgamemode command or the Game Mode button in the World Options screen, while player-specific game modes should be set using the /gamemode command.
+General
+Data component format
+
+minecraft:cooking_fuel
+burn_time and speed_multiplier can now additionally be defined by an inline number.
+minecraft:brewing_fuel
+uses and speed_multiplier can now additionally be defined by an inline number.
+minecraft:compostable
+layers can now additionally be defined by an inline number.
+Data pack
+
+The pack format version is now 113.0.
+Equipment assets
+
+The trim_palette_replacements field has been replaced with trim_overrides. This can be used to swap out the texture or palette used with specific trim materials or patterns for a given equipment asset, not just swap specific palettes.
+Format: list of override entries with fields:
+when – object with fields, the material and/or pattern to match.
+material – optional trim material ID, the material to match (if specified).
+pattern – optional trim pattern ID, the pattern to match (if specified).
+Note: this is not the palette ID, as trim_palette_replacements used to be.
+At least one of material or pattern must be specified.
+If both are specified, both must match for the entry to be used.
+texture – optional trim pattern asset ID, a replacement texture to use if this entry matches.
+Textures are specified in the same format as asset_id
+If not specified, the default texture for the pattern will be used.
+palette – optional palette ID, a replacement palette to use if this entry matches.
+If not specified, no palette remapping will be applied to the texture.
+The first matching entry will always be selected.
+At least one of texture or palette must be defined.
+Loot table types
+
+minecraft:block_interact
+origin is now available in context, as the center of the block being interacted with.
+Rendering
+
+Terrain blocks are now rendered with MultiDrawIndirect on supported devices.
+Resource pack
+
+The version is now 94.0.
+Settings
+
+New World Options UI
+The World Options button has been moved to the Game Menu where the Open to LAN button used to be, replacing it.
+The World Options screen is divided into two sections: "General" and "Multiplayer".
+The "General" section contains the same options as the previous World Options screen.
+The Lock World screen has been changed.
+The "Multiplayer" section contains three options:
+LAN: changes the multiplayer scope of the world.
+Command Access: Controls whether players that join a world can use commands or not.
+Port: the port number to use when opening the world to LAN.
+The Online button used to access the Online Options screen will now always be shown in the Options menu.
+Shaders
+
+terrain.vsh and terrain.fsh shaders are refactored to support multi-draw.
+Some of the members in Globals and DynamicTransforms are shuffled to use less memory for those uniform blocks.
+Introduced new define: RENDERPEARL_EXPLICIT_DEPTH_INVARIANCE – if present, indicates that an OIT shader should explicitly output a depth value because a device it is running on can produce a slightly different implicit value.
+World generation
+
+Noises
+The format of noises (defined in the worldgen/noise registry, or inline in noise-based block state providers) has been updated.
+Noises define a fractal brownian motion configuration with the following properties:
+Produces output values (approximately) fitting a normal distribution.
+Unless otherwise specified, fits the output amplitude to [-1; 1]
+Due to the normal distribution, in practice this means that 99.7% of all samples will fit in that range – but values may still be encountered outside of this range.
+Parameterized by persistence=0.5, lacunarity=2.0
+i.e. between each octave, the amplitude is halved and the frequency doubled.
+Has stable seeding such that an octave can be boosted, muted, or added without affecting the rest of the octaves.
+Renamed firstOctave to base_octave.
+Added base_amplitude – non-negative float, a scale factor to apply to the noise output.
+If not specified, defaults to 1.0.
+Added octave_count – integer between 1 and 32, the number of octaves to sample.
+Added normalize – boolean, or "legacy", controls how the output amplitude should be normalized.
+If true, base_amplitude is the expected amplitude of the output (i.e. 99.7% of all samples in [-base_amplitude; base_amplitude])
+If false, base_amplitude is the amplitude of the first octave.
+If "legacy", inherits the same normalization behavior as expressed by the previous format.
+This would generally fit to a range smaller than expected.
+If not specified, defaults to true.
+Note: normalization is not affected by the amplitude_modifiers field – as such, modifying the amplitude of a single octave will not affect the amplitude of others.
+Renamed amplitudes to amplitude_modifiers – list of floats, a scaling factor to apply to each octave.
+The number of elements in this list must match octave_count.
+As described above, this scaling factor bypasses normalization and will affect the output amplitude.
+This field is no longer required – if not specified, defaults to all 1.0.
+Density functions
+Added pow
+Raises the given base value to an exponent.
+Format: object with fields:
+base – density function, the base value.
+exponent – density function, the exponent.
+Added sqrt
+Computes the square root of the given input.
+Format: object with fields:
+input – density function, the value for which to compute the square root.
+Added log
+Computes the natural logarithm of the given input.
+Format: object with fields:
+input – density function, the value for which to compute the natural logarithm.
+Added sign
+Computes the sign of the input:
+If the input is positive, returns 1
+If the input is 0, returns 0
+If input is negative, returns -1
+Format: object with fields:
+input – density function, the value of which to compute the sign.
+Added distance_to_point
+Computes the distance to a fixed point using the specified distance function.
+Format: object with fields:
+point – array of 3 integers in form [x, y, z], the point to compute distance to.
+metric – one of:
+euclidean – i.e. sqrt(dx2+dy2+dz2)
+euclidean_squared – i.e. dx2+dy2+dz2
+manhattan – i.e. abs(dx)+abs(dy)+abs(dz)
+chebyshev – i.e. max(abs(dx),abs(dy),abs(dz))
+Updated gradient (renamed from y_clamped_gradient)
+Format: object with fields:
+axis – x, y, or z, the axis over which to define this gradient.
+tiling – one of:
+clamp_to_edge – outside the gradient boundaries, the value at the nearest boundary will be used.
+repeat – the gradient will be repeated outside its boundaries.
+mirrored_repeat – the gradient will be repeated such that odd repetitions are mirrored, ensuring continuity between repetitions.
+from_coordinate – int, the coordinate at which the gradient starts.
+to_coordinate – int, the coordinate at which the gradient ends.
+Must not be equal to from_coordinate
+from_value – float, the value at which the gradient starts.
+to_value – float, the value at which the gradient ends.
+Added slice
+Removes a dimension from the input domain by taking a "slice" along an axis with a specific coordinate. For example, with axis=y and coordinate=0, a slice will be taken along the XZ plane, with all values sampled at y=0.
+Format: object with fields:
+axis – x, y, or z, the axis to remove.
+coordinate – int, the fixed coordinate to be passed to the input function.
+input – density function, the input function.
+Changed end_outer_islands
+Renamed from end_islands. No longer computes the density of the main island.
+Structure pool elements
+Changed minecraft:feature_pool_element
+Can now connect to jigsaw blocks with any target name, instead of just minecraft:bottom.
+Fixes
+40 issues fixed
+From released versions before 26.3
+
+MC-159283 – The End terrain does not generate in multiple rings centered around the world center.
+MC-299582 – Special crafting recipes behave differently than other recipe types with /recipe and the limited_crafting game rule.
+MC-304195 – The arm overlay textures of parched have unused pixels not used by the model.
+MC-307206 – Std140Builder incorrectly pads vec3s and ivec3s.
+MC-307996 – The game cannot use hardware acceleration on devices lacking the fillModeNonSolid Vulkan feature.
+MC-308694 – Using /defaultgamemode changes everyone's game mode to the one set in "Settings for Other Players" in LAN worlds.
+MC-308699 – Switching the host's game mode causes new LAN players to ignore the forced game mode.
+MC-308749 – Exiting and rejoining the same LAN session resets your game mode.
+From the 26.3 development versions
+
+MC-309720 – The texture of straw beds has missing and extra pixels.
+MC-309958 – Off-by-one error in SynchedEntityData.Builder#define.
+MC-310088 – The taskbar icon displays the Java logo instead of the game's logo.
+MC-310099 – The game freezes if the head part of straw beds has a different facing than the foot part.
+MC-310101 – ⌘ Command + W now closes the game on macOS.
+MC-310122 – Traversing the pie chart with keys does not work correctly.
+MC-310132 – Armor trim textures can no longer be overridden.
+MC-310134 – The "Exclusive Fullscreen" button and "Exclusive Fullscreen Mode" slider are still present and enabled on macOS.
+MC-310136 – Player skin rendering is messed up when the "Improved Transparency" setting is enabled.
+MC-310143 – IME candidates are invisible in fullscreen mode even when the "Exclusive Fullscreen" option is disabled.
+MC-310155 – After entering macOS fullscreen by clicking the "Fullscreen" button in the Video Settings menu, you cannot reveal the menu bar or dock by navigating to the edge of the screen.
+MC-310168 – When editing a glowing sign, the glow on the placed sign temporarily disappears.
+MC-310195 – ⎈ Control + ← Left click no longer counts as a right click on macOS.
+MC-310213 – On-screen keyboard handling is inconsistent.
+MC-310228 – The game freezes when a player destroys a bed at the exact same moment a villager sleeps in it.
+MC-310235 – The game crashes when a piston pushes a water cauldron with the "Improved Transparency" option enabled.
+MC-310241 – Brewing recipes show up in the command suggestions for /recipe, but cannot be granted or revoked.
+MC-310281 – Using keyboard shortcuts to navigate tabs within UIs doesn't work correctly.
+From the previous development version
+
+MC-310311 – Item modifiers that reference themselves crash the game when invoked.
+MC-310313 – Predicates that reference themselves crash the game when invoked.
+MC-310314 – Number providers that reference themselves crash the game when invoked.
+MC-310315 – Slot sources that reference themselves crash the game when invoked.
+MC-310319 – The game crashes when the spider post effect is applied.
+MC-310321 – The creeper post effect is ineffective.
+MC-310357 – The OpenGL rendering backend passes 3 to GL_UNPACK_ALIGNMENT, which is invalid.
+MC-310359 – mipLevel is not respected when copyTextureToTexture is used.
+MC-310360 – clearColorTexture and clearDepthTexture clear all mipmaps with the Vulkan rendering backend, unlike with the OpenGL one.
+MC-310382 – The game crashes when applying a resource pack with a shader that uses #include with uppercase characters in the path.
+MC-310383 – The per-target blend state diverges between the OpenGL and Vulkan rendering backends.
+MC-310388 – The caves and floating_islands noise settings no longer generate as intended.
+MC-310455 – copyTextureToBuffer produces padded rows with the OpenGL rendering backend but tightly-packed rows with the Vulkan one.
+Other
+
+Fixed an issue where Realm owners could not select automatic region preference as their Realm region.
+Videos
+Videos made by slicedlime:
+
+
+
+
+
+
+
+
+References
+
+ "Minecraft 26.3 Snapshot 6"     – Minecraft.net, July 28, 2026.
+
+Navigation

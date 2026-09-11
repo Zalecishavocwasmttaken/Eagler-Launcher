@@ -1,0 +1,67 @@
+This feature is exclusive to Bedrock Edition and Minecraft Education. 
+
+/event
+
+Permission levelrequired
+
+1
+
+Restrictions
+
+Cheat only
+
+{
+    "title": "<code>/event</code>",
+    "rows": [
+        {
+            "field": "1",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "(link to Cheat article, displayed as Cheat) only<br>",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+Used to trigger an event on an entity.
+
+Contents
+
+1 Syntax
+2 Arguments
+3 Result
+4 Output
+5 History
+6 External links
+7 Navigation
+
+Syntax
+event entity <target: target> <eventName: string>
+Arguments
+target: target: CommandSelector<Actor>
+
+Must be a player name or a target selector.
+Specifies the target(s) to execute an entity event.
+eventName: string: basic_string
+
+Specifies the in-game event for the entity. Should be a spawn event (event name for entities in behavior pack).
+Must be a string. And it must be a single word that has no space or a double-quoted string (When quoted, \ can be used to escape characters).
+Result
+
+CommandTriggerBedrock Edition
+
+AnyThe command is incomplete, or any argument is not specified correctly. Unparseabletarget: target fails to resolve to one or more entities (named players must be online). FailedAll selected entities don't have this specified events declared in the events section of the entity definition file.OtherwiseSuccessful
+Output
+
+CommandEditionSituationSuccess Count
+
+AnyBedrock EditionOn fail0On successthe number of types of entities that is executed entity event
+History
+Bedrock Edition1.16.100beta 1.16.100.57
+Added /event.
+External links
+"/event Command"     – Microsoft Learn, October 11, 2023.
+Navigation

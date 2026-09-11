@@ -1,0 +1,275 @@
+This page describes content that has been removed and was only present in earlier versions of Java Edition. 
+McRegion has been deprecated since Java Edition 1.2.1.
+
+
+
+This article needs cleanup to comply with the style guide. [discuss]
+Please help improve this page. The talk page may contain suggestions.Reason: why, for a page explicitly discussing a legacy format, are modern block and entity sprites still being used?
+
+Chunks store the terrain and entities within a 16x16x128 area. They also store precomputed lighting, heightmap data for Minecraft's performance and other meta information.
+Chunks were first introduced in Minecraft Infdev. Before the addition of the region file format in Beta 1.3, chunks were stored as individual chunk files. The file names contained the chunk's position encoded in Base36 and the extension ".dat".
+The Data, SkyLight, and BlockLight are arrays of 4-bit values.  The low bits of the first byte of one of these corresponds to the first block in the Blocks array.
+Prior to 1.2, chunk sizes changed to 16x16x256, for higher building.
+
+Contents
+
+1 NBT Structure
+2 Block Format
+3 Tile Tick Format
+4 Entity Format
+
+4.1 Mobs
+4.2 Projectiles
+4.3 Items
+4.4 Vehicles
+4.5 Dynamic Tiles
+
+5 Tile Entity Format
+
+5.1 Unique Tile Entity fields
+5.2 Furnace
+5.3 Sign
+5.4 MobSpawner
+5.5 Chest
+5.6 Music
+5.7 Trap
+5.8 RecordPlayer
+5.9 Piston
+5.10 Cauldron
+5.11 EnchantTable
+5.12 End Portal
+
+6 References
+7 Navigation
+
+NBT Structure
+
+[NBT Compound / JSON Object] Level Chunk data
+[Byte Array] Blocks 32768 bytes of block IDs defining the terrain. 8 bits per block. See Block Format below for byte ordering.
+[Byte Array] Data 16384 bytes of block data additionally defining parts of the terrain. 4 bits per block.
+[Byte Array] SkyLight 16384 bytes recording the amount of sun or moonlight hitting each block. 4 bits per block. Makes day/night transitions smoother compared to recomputing per level change.
+[Byte Array] BlockLight 16384 bytes recording the amount of block-emitted light in each block. 4 bits per block. Makes load times faster compared to recomputing at load time.
+[Byte Array] HeightMap 256 bytes of heightmap data. 16 x 16. Each byte records the lowest level in each column where the light from the sky is at full strength. Speeds computing of the SkyLight. Note: This array's indexes are ordered Z,X whereas the other array indexes are ordered X,Z,Y.
+[NBT List / JSON Array] Entities Each TAG_Compound in this list defines an entity in the chunk. See Entity Format below.
+[NBT List / JSON Array] TileEntities Each TAG_Compound in this list defines a tile entity in the chunk. See Tile Entity Format below.
+[NBT List / JSON Array] TileTicks Each TAG_Compound in this list is an "active" block in this chunk waiting to be updated. These are used to save the state of redstone machines, falling sand or water, and other activity. See Tile Tick Format below.
+[Long] LastUpdate Tick when the chunk was last saved.
+[Int] xPos X position of the chunk. Should match the file name.
+[Int] zPos Z position of the chunk. Should match the file name.
+[Byte] TerrainPopulated 1 or not present (true/false) indicate whether the terrain in this chunk was populated with special things. (Ores, special blocks, trees, dungeons, flowers, waterfalls, etc.) If set to zero then minecraft will regenerate the chunk.
+
+Block Format
+Blocks are laid out in sets of vertical columns, with the rows going east-west through chunk, and columns going north-south. Blocks in each chunk are accessed via the following method:
+unsigned char BlockID = Blocks[ y + z * ChunkSizeY(=128) + x * ChunkSizeY(=128) * ChunkSizeZ(=16) ];
+The coordinate system is as follows:
+
+X increases East, decreases West
+Y increases upwards, decreases downwards
+Z increases South, decreases North
+The Data, BlockLight, and SkyLight arrays have four bits (a nibble) for each byte of the Blocks array. Note that these arrays use a kind of 'little endian' nibble order: e.g. the least significant four bits of the first byte of the Data, BlockLight, or SkyLight arrays correspond to the first byte of the Blocks array, and the most significant four bits correspond to the second byte, etc.
+
+Tile Tick Format
+(added in version RC2)
+
+[NBT Compound / JSON Object] Tile Tick data
+[Int] i Block ID
+[Int] t Number of ticks until processing. May be negative when processing is overdue.
+[Int] x Position
+[Int] y Position
+[Int] z Position
+
+Entity Format
+Every entity is an unnamed TAG_Compound contained in the Entities list of a chunk file. The sole exception is the Player entity, stored in level.dat.
+All entities share this base:
+
+[NBT Compound / JSON Object] Entity data
+[String] id Entity ID
+[NBT List / JSON Array] Pos 3 TAG_Doubles describing the current X,Y,Z position of the entity.
+[NBT List / JSON Array] Motion 3 TAG_Doubles describing the current dX,dY,dZ velocity of the entity. (Note: Falling into the Void appears to set this to ridiculously high speeds. 0,0,0 is no motion.)
+[NBT List / JSON Array] Rotation Two TAG_Floats representing rotation in degrees.
+[Float] [0] The entity's rotation clockwise around the Y axis (called yaw). Due west is 0. Can have large values because it accumulates all of the entity's lateral rotation throughout the game.
+[Float] [1] The entity's declination from the horizon (called pitch). Horizontal is 0. Positive values look downward. Does not exceed positive or negative 90 degrees.
+[Float] FallDistance Distance the entity has fallen. Larger values cause more damage when the entity lands.
+[Short] Fire Number of ticks until the fire is put out. Negative values reflect how long the entity can stand in fire before burning.
+[Short] Air How much air the entity has, in ticks. Fills to a maximum of 200 in air, giving 10 seconds submerged before the entity starts to drown, and a total of up to 20 seconds before the entity dies. Decreases while underwater. If 0 while underwater, the entity loses 1 health per second.
+[Byte] OnGround 1 if the entity is touching the ground.
+
+ Mobs
+Known Mob Entity ids: Blaze, CaveSpider, Chicken, Cow, Creeper, EnderDragon, Enderman, Ghast, Giant, LavaSlime, Mob, Monster, MushroomCow, Ozelot, Pig, Sheep, Silverfish, Skeleton, Slime, SnowMan, Spider, Squid, Villager, Wolf, Zombie, and PigZombie
+Additional fields for mobs:
+
+[Short] AttackTime Number of ticks the entity's "invincibility shield" is lasting after the entity was last struck.
+[Short] DeathTime Number of ticks the entity has been dead for. Controls death animations.
+[Short] Health Amount of health the entity has. Players and enemies normally have up to 20 health. Livestock has up to 10 health.
+[Short] HurtTime Unknown, maybe time invincible after being hit
+
+ Pig has one additional field:
+
+[Byte] Saddle 1 or 0 (true/false) - true if there is a saddle on the pig.
+
+ Sheep has two additional fields:
+
+[Byte] Sheared 1 or 0 (true/false) - true if the sheep has been shorn.
+[Byte] Color 0 to 15 - see wool data values for a mapping to colors.
+
+ Creeper has one additional/optional field:
+
+[Byte] powered 1 or 0 (true/false) - true if the creeper was struck by lightning (doubles the explosive power). This tag is only written if value is 1 (true).
+
+ Slime has one additional field, and it can't be used as the Entity ID of a Monster Spawner:
+
+[Int] Size The size of the slime
+
+ Wolf has three additional fields:
+
+[String] Owner Name of the player that owns this wolf. Empty string if no owner.
+[Byte] Sitting 1 or 0 (true/false) - true if the wolf is sitting.
+[Byte] Angry 1 or 0 (true/false) - true if the wolf is angry.
+
+ PigZombie has one additional field:
+
+[Short] Anger Anger level. Determines the aggressivity of the creature towards players.
+
+ Enderman has two additional fields:
+
+[Short] carried Id of the block carried by the Enderman.
+[Short] carriedData Additional data about the block carried by the Enderman.
+
+ Projectiles
+Known Projectile Entity ids: Arrow, Snowball, Egg, Fireball, SmallFireball, ThrownEnderpearl
+     Additional fields for Arrow, Snowball, Egg, Fireball (from Ghasts), SmallFireball (from Blazes), and ThrownEnderpearl:
+
+[Short] xTile X coordinate of the item's position in the chunk.
+[Short] yTile Y coordinate of the item's position in the chunk.
+[Short] zTile Z coordinate of the item's position in the chunk.
+[Byte] inTile For arrows being stuck into blocks.
+[Byte] shake The "shake" when arrows hit a block.
+[Byte] inGround 1 or 0 (true/false) - Unknown
+
+ Items
+Known Item Entity ids: Item,  Painting, XPOrb
+ Additional fields for Item:
+
+[Short] Health Starts at 5, and currently only decreases as the item takes fire damage. When health reaches 0, the item is destroyed.
+[Short] Age The amount of time an item has been "untouched" on the ground. After 6000 'ticks' (5 minutes ) the item is destroyed.
+[NBT Compound / JSON Object] Item Item data
+[Short] id Item or Block ID.
+[Short] Damage The amount of wear each item has suffered. 0 means undamaged. When the Damage exceeds the item's durability, it breaks and disappears. Only tools and armor accumulate damage normally.
+[Byte] Count Number of items stacked in this inventory slot. Any item can be stacked, including tools, armor, and vehicles. Range is 1-255. Values above 127 are not displayed in-game.
+[NBT Compound / JSON Object] tag
+[NBT List / JSON Array] ench Contains enchantments for this item
+[NBT Compound / JSON Object] Make one of these for each enchantment
+[Short] id Id of the Enchantment
+[Short] lvl Level of the Enchantment
+
+ Additional fields for Painting:
+
+[Byte] Dir Direction the painting faces:  0 is east, 1 is north, 2 is west, and 3 is south.
+[String] Motive The name of this Painting's art.
+[Int] TileX X coordinate of the block the painting is hanging on.
+[Int] TileY Y coordinate of the block the painting is hanging on.
+[Int] TileZ Z coordinate of the block the painting is hanging on.
+
+ Additional fields for XPOrb:
+
+[Short] Health Starts at 5, and currently only decreases as the item takes fire damage. When health reaches 0, the item is destroyed.
+[Short] Age The amount of time an orb has been "untouched" on the ground. After a certain amount of ticks, the orb is destroyed.
+[Short] Value The amount of experience the orb gives when picked up.
+
+ Vehicles
+Known Vehicle Entity ids: Minecart, Boat
+ Additional fields for Minecart:
+
+[Int] Type The type of the cart: 0 - empty, 1 - with a chest, 2 - with a furnace.
+
+ For a minecart with a furnace there are three additional fields:
+
+[Double] PushX Unknown
+[Double] PushZ Unknown
+[Short] Fuel Unknown, but probably number of ticks until fuel runs out.[assumption]
+
+ For a minecart with a chest there is one additional field:
+
+[NBT List / JSON Array] Items List of items in the slots, same as for a chest.
+
+Dynamic Tiles
+Known Dynamic Tile Entity ids: PrimedTnt, FallingSand
+ Additional fields for PrimedTnt
+
+[Byte] Fuse Ticks until explosion.
+
+ Additional fields for FallingSand:
+
+[Byte] Tile Block ID.
+
+Tile Entity Format
+Known TileEntity ids: Furnace, Sign, MobSpawner, Chest, Music, Trap, RecordPlayer, Piston, Cauldron, EnchantTable, and End portal
+All tile entities share this base:
+
+[NBT Compound / JSON Object] Tile entity data
+[String] id Tile entity ID
+[Int] x
+[Int] y
+[Int] z Coordinates of the TileEntity.
+
+Unique Tile Entity fields
+  Furnace
+
+[Short] BurnTime Fuel time
+[Short] CookTime Cooking time
+[NBT List / JSON Array] Items List of items in the furnace slots. Each item is a TAG_Compound identical to the ones in the Inventory list. The first entry corresponds to the burning item, the second one is for the fuel and the last one for the result. The list may be empty.
+
+ Sign
+
+[String] Text1 First row of text
+[String] Text2 Second row of text
+[String] Text3 Third row of text
+[String] Text4 Fourth row of text
+
+ MobSpawner
+
+[String] EntityId The id of the mob.
+[Short] Delay Ticks until next spawn.
+
+ Chest
+
+[NBT List / JSON Array] Items List of items in the chest. Each item is a TAG_Compound identical to the ones in the Inventory list. Chest slots are numbered 0-26 with 0 in the top left corner.
+
+ Music
+
+[Byte] note Pitch (number of right-clicks)
+
+ Trap
+
+[NBT List / JSON Array] Items List of items in the dispenser, numbered 0-8.
+
+ RecordPlayer
+
+[Int] Record Record currently playing. 0 is no record. Max value currently used is 2.
+
+ Piston
+This tile entity is that of Block 36, not any part of the piston itself.
+
+[Int] blockId ID of the block being moved
+[Int] blockData Additional data about the block being moved
+[Int] facing Direction in which the block is being pushed
+[Float] progress How far the block as been pushed
+[Byte] extending Boolean value indicating if the piston is extending (1) or contracting (0).
+
+ Cauldron
+Note that despite being called "Cauldron", this Tile Entity only appears on Brewing Stands as of 1.9pre3.
+
+[NBT List / JSON Array] Items List of items in the brewing stand. Each item is a TAG_Compound identical to the ones in the Inventory list. The slots are numbered from 0-3.
+[Int] BrewTime Time brewing in ticks.
+
+ EnchantTable
+The enchantment table has no extra tags besides the base ones. It is used for the rotation and opening/closing of the floating book.
+
+ End Portal
+This is the tile entity associated with the enterable End Portal (not the End Portal Frame). It has no extra tags.
+
+References
+
+ Items decay after 5 minutes: https://x.com/notch/status/121676594581340177
+
+Navigation

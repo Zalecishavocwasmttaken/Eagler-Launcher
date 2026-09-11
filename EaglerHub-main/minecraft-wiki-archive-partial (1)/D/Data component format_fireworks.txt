@@ -1,0 +1,11 @@
+[NBT Compound / JSON Object] minecraft:fireworks
+[Byte] flight_duration: The flight duration of this firework rocket (and the number of gunpowders used to craft it). Must be an integer between -128 and 127. Defaults to 1. If specified, gray "Flight Duration: <flight_duration>" text is added to the item's tooltip.
+[NBT List / JSON Array] explosions: List of the explosion effects caused by this firework rocket. Has a maximum of 256 explosions. Each explosion is listed in the item's tooltip as its shape on the first line, then additional information such as color indented on further lines.
+[NBT Compound / JSON Object]: A single explosion effect.
+[String] shape: The shape of the explosion. Can be small_ball, large_ball, star, creeper, or burst.
+[NBT List / JSON Array] colors: The colors of the initial particles of the explosion, randomly selected from.
+[Int][NBT List / JSON Array] A color as a packed integer or list of three floats.
+[NBT List / JSON Array] fade_colors: The colors of the fading particles of the explosion, randomly selected from.
+[Int][NBT List / JSON Array] A color as a packed integer or list of three floats.
+[Boolean] has_trail: Whether or not the explosion has a trail effect (diamond).
+[Boolean] has_twinkle: Whether or not the explosion has a twinkle effect (glowstone dust).

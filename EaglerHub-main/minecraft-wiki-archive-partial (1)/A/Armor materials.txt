@@ -1,0 +1,621 @@
+This article is about materials of armor.   For tiers of tools and weapons, see Tiers.   For materials of blocks, see Materials.
+
+Armor materials refer to the material that an armor item uses.
+
+Contents
+
+1 Materials
+2 Usage
+3 Affected items
+4 See also
+5 Navigation
+
+Materials
+There are currently nine armor materials in the game: leather, copper, chainmail, iron, gold, diamond, netherite, turtle, and armadillo scute. The armor material of an item determines its durability multiplier, armor values, enchantability, sound events, toughness, knockback resistance, repair items, and equipament asset.
+
+Material Name
+
+Durability
+
+Defense Points
+
+Enchantability
+
+Toughness
+
+KR
+
+Repair Item
+
+Sound Event & Sounds
+
+Equipment Asset
+
+Head
+Chest
+Legs
+Feet
+Body
+
+Leather
+
+5
+
+1
+3
+2
+1
+3
+
+15
+
+0
+
+0
+
+#repairs_leather_armor
+Leather
+
+item.armor.equip_leather
+
+leather
+
+Copper
+
+11
+
+2
+4
+3
+2
+4
+
+8
+
+0
+
+0
+
+#repairs_copper_armor
+Copper Ingot
+
+item.armor.equip_copper
+
+copper
+
+Chainmail
+
+15
+
+2
+5
+4
+1
+4
+
+12
+
+0
+
+0
+
+#repairs_chain_armor
+Iron Ingot
+
+item.armor.equip_chain
+
+chainmail
+
+Iron
+
+15
+
+2
+6
+5
+2
+5
+
+9
+
+0
+
+0
+
+#repairs_iron_armor
+Iron Ingot
+
+item.armor.equip_iron
+
+iron
+
+Turtle
+
+25
+
+2
+6
+5
+2
+5
+
+9
+
+0
+
+0
+
+#repairs_turtle_armor
+Turtle Scute
+
+item.armor.equip_turtle
+
+turtle_scute
+
+Gold
+
+7
+
+2
+5
+3
+1
+7
+
+25
+
+0
+
+0
+
+#repairs_gold_armor
+Gold Ingot
+
+item.armor.equip_gold
+
+gold
+
+Diamond
+
+33
+
+3
+8
+6
+3
+11
+
+10
+
+2
+
+0
+
+#repairs_diamond_armor
+Diamond
+
+item.armor.equip_diamond
+
+diamond
+
+Netherite
+
+37
+
+3
+8
+6
+3
+19
+
+15
+
+3
+
+0.1
+
+#repairs_netherite_armor
+Netherite Ingot
+
+item.armor.equip_netherite
+
+netherite
+
+Armadillo Scute
+
+4
+
+3
+8
+6
+3
+11
+
+10
+
+0
+
+0
+
+#repairs_wolf_armor
+Armadillo Scute
+
+item.armor.equip_wolf
+
+armadillo_scute
+
+ The durability multiplier multiplies each item slot's base durability. The base values are: 11 for head, 16 for chest, 15 for legs, 13 for feet. The durability of the item is the durability multiplier for its material times the base value for the armor slot it goes in.
+
+ Knockback resistance
+
+ The resource location of the equipment model to use when equipped. The directory this refers to is assets/minecraft/equipment/<id>.json
+
+ Referred to as both "chain" and "chainmail" in the code. Not used in the slot body
+
+ Although the turtle material is currently used only by turtle shells, it has unused protection values for other armor slots.
+
+ Although the armadillo scute material is currently used only by wolf armors, it has unused protection values for other armor slots.
+
+Usage
+Armor materials are used to define certain properties of armor items. Which properties are defined by the materials depends of the mobs that use this armor. Only the humanoid armor has a variable slot; all other armors are only defined by the slot body.
+
+Armor
+
+Material properties
+
+Other properties
+
+Durability
+Attributes
+Enchantable
+Equip Sound
+Asset Id
+Repair Ingredient
+Allowed Entities
+Can Be Sheared
+Shearing Sound
+Damage On Hurt
+Equip On Interact
+
+Humanoid Armor
+Defined by the material
+Defined by the material
+Defined by the material
+Defined by the material
+Defined by the material
+Defined by the material
+All entities
+False
+None
+True
+False
+
+Wolf Armor
+Defined by the material
+Defined by the material
+None
+Defined by the material
+Defined by the material
+Defined by the material
+Wolf
+True
+item.armor.unequip_wolf
+
+True
+False
+
+Horse Armor
+None
+Defined by the material
+None
+entity.horse.armor
+
+Defined by the material
+None
+#can_wear_horse_armor
+
+Horse
+Zombie Horse
+
+True
+item.horse_armor.unequip
+
+False
+False
+
+Nautilus Armor
+None
+Defined by the material
+None
+item.armor.equip_nautilus
+
+Defined by the material
+None
+#can_wear_nautilus_armor
+
+Nautilus
+Zombie Nautilus
+
+True
+item.armor.unequip_nautilus
+
+False
+True
+
+Other equipable items do not use armor material.
+
+Items
+
+Equipable properties
+
+Other properties
+
+Slot
+Equip Sound
+
+Asset Id
+
+Allowed Entities
+Swappable
+
+Damage On Hurt
+
+Equipe On Interact
+Camera Overlay
+Can Be Sheared
+Shearing Sound
+
+Attributes
+
+Durability
+
+Repair Ingredient
+
+Glider
+
+Carved Pumpkin
+Hand
+item.armor.equip_generic
+None
+All entities
+False
+True
+
+False
+misc/pumpkinblur
+False
+None
+
+Hidden waypoint
+None
+None
+False
+
+Carpets
+Body
+llama_swag
+<color>_carpet
+
+Llama
+Trader Llama
+
+True
+True
+
+False
+None
+True
+llama_carpet_unequip
+
+None
+
+None
+
+None
+False
+
+Saddle
+Saddle
+horsse_saddle
+saddle
+
+#can_equip_saddle
+
+Camel
+Camel Husk
+Donkey
+Horse
+Mule
+Nautilus
+Pig
+Skeleton Horse
+Strider
+Zombie Horse
+Zombie Nautilus
+
+True
+True
+
+True
+None
+True
+saddle_unequip
+
+None
+None
+
+None
+False
+
+Harnesses
+Body
+harness_equip
+<color>_harness
+#can_equip_harness
+Happy Ghast
+
+True
+True
+True
+None
+True
+harness_unequip
+
+None
+None
+
+None
+False
+
+Elytra
+Chest
+armor_equip_elytra
+elytra
+All entities
+True
+False
+False
+None
+False
+None
+
+None
+432
+Phantom Membrane
+True
+
+Heads
+Head
+item.armor.equip_generic
+None
+All entities
+False
+True
+False
+None
+False
+None
+
+Hidden waypoint
+None
+None
+False
+
+Shield
+Offhand
+item.armor.equip_generic
+None
+All entities
+False
+True
+False
+None
+False
+None
+
+None
+
+336
+#wooden_tool_materials
+Planks
+
+False
+
+ Used so that when pick up by mobs, it can be held in the offhand instead of the mainhand
+
+Pseudo-equipments:
+
+Chest – When interacting with donkey, mule, lamma, or trader llama, the animal transforms into a chested animal; however, the item is not actually equipped on it. Chests do not have the component equippable, but it has a hardcoded interaction property.
+
+Affected items
+
+Material
+
+Items by slot
+
+Humanoid slots
+
+Body
+
+Head
+Chest
+Legs
+Feet
+
+Leather
+Leather Cap
+Leather Tunic
+Leather Pants
+Leather Boots
+Leather Horse Armor
+
+Copper
+Copper Helmet
+Copper Chestplate
+Copper Leggings
+Copper Boots
+
+Copper Horse Armor
+Copper Nautilus Armor
+
+Chainmail
+Chainmail Helmet
+Chainmail Chestplate
+Chainmail Leggings
+Chainmail Boots
+None
+
+Iron
+Iron Helmet
+Iron Chestplate
+Iron Leggings
+Iron Boots
+
+Iron Horse Armor
+Iron Nautilus Armor
+
+Turtle
+Turtle Shell
+None
+None
+None
+None
+
+Gold
+Golden Helmet
+Golden Chestplate
+Golden Leggings
+Golden Boots
+
+Golden Horse Armor
+Golden Nautilus Armor
+
+Diamond
+Diamond Helmet
+Diamond Chestplate
+Diamond Leggings
+Diamond Boots
+
+Diamond Horse Armor
+Diamond Nautilus Armor
+
+Netherite
+Netherite Helmet
+Netherite Chestplate
+Netherite Leggings
+Netherite Boots
+
+Netherite Horse Armor
+Netherite Nautilus Armor
+
+Armadillo Scute
+None
+None
+None
+None
+Wolf Armor
+
+See also
+Tiers
+Materials
+Navigation

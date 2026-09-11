@@ -1,0 +1,109 @@
+Not to be confused with Ominous Trial Spawner.
+
+ "Item Spawner" redirects here.  For the regular item ejection spawner, see Trial Spawner.
+
+Ominous Item Spawner
+
+Health points
+
+None
+
+Hitbox size
+
+Height: 0.25 blocksWidth: 0.25 blocks
+
+{
+    "title": "Ominous Item Spawner",
+    "rows": [
+        {
+            "field": "None",
+            "label": "(link to Health article, displayed as Health points)"
+        },
+        {
+            "field": "Height: 0.25 blocks<br>Width: 0.25 blocks",
+            "label": "(link to Hitbox article, displayed as Hitbox size)"
+        }
+    ],
+    "invimages": [],
+    "images": [
+        "Ominous_Item_Spawner.png"
+    ]
+}
+
+Ominous item spawners are entities spawned by ominous trial spawners that display an item for 3 to 6 seconds before dispensing it downwards.
+
+Contents
+
+1 Spawning
+2 Behavior
+3 Sounds
+4 Data values
+
+4.1 ID
+4.2 Entity data
+
+5 History
+
+5.1 Java Edition
+5.2 Bedrock Edition
+
+6 Issues
+7 References
+8 Navigation
+
+Spawning
+Main article: Ominous Trial Spawner § Projectile spawning
+When an ominous trial spawner detects at least one player within its activation range, every 8 seconds it spawns an ominous item spawner above any such player or any mob that was spawned by this ominous trial spawner. The location where it should spawn is determined by first performing a raycast from the feet of the entity to a random height between 2 and 5 blocks above the entity. If it hits a block, this block is used, otherwise the end of the line is used. Which block can be hit is determined by the visual box. The item spawns in the center of the block below it, unless the block has a collision box.
+
+Behavior
+An ominous item spawner displays an item rotating in the air for a specified amount of time. When spawned by an ominous trial spawner, that time varies between 3 and 6 seconds. After that time, the item is dispensed downwards. If the item is a projectile, it is shot as an entity. Otherwise the item is dropped.
+
+Sounds
+Java Edition:
+
+SoundsSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitchAttenuationdistance​Ominous item preparesFriendly MobsWhen a trial spawner is about to spawn an ominous item spawnerblock.trial_spawner.about_to_spawn_itemsubtitles.block.trial_spawner.about_to_spawn_item​1.01.016​Ominous item dropsBlocksWhen an ominous item spawner summons an itemblock.trial_spawner.spawn_itemsubtitles.block.trial_spawner.spawn_item​1.00.8–1.216​Ominous item appearsBlocksWhen an ominous item spawner is summonedblock.trial_spawner.spawn_item_beginsubtitles.block.trial_spawner.spawn_item_begin​1.00.8–1.216
+Bedrock Edition:
+
+SoundsSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitch​ ?BlocksWhen a trial spawner is about to spawn an ominous item spawnerominous_item_spawner.about_to_spawn_item​ ?1.00.8–1.1​ ?BlocksWhen an ominous item spawner summons an itemominous_item_spawner.spawn_item​ ?1.00.8–1.1​ ?BlocksWhen an ominous item spawner is summonedominous_item_spawner.spawn_item_begin​ ?1.00.8–1.1
+Data values
+ID
+Java Edition:
+
+NameIdentifier
+Translation key Ominous Item Spawnerominous_item_spawner
+entity.minecraft.ominous_item_spawner
+Bedrock Edition:
+
+NameIdentifierNumeric ID
+Translation key Ominous Item Spawnerominous_item_spawner145
+entity.ominous_item_spawner.name
+Entity data
+Ominous item spawners have entity data associated with them that contain various properties.
+Java Edition:
+
+Main article: Entity format
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+[NBT Compound / JSON Object] item: The item to display and dispense.
+A single item stack see Template:Nbt inherit/itemnoslot/template
+[Long] spawn_item_after_ticks: Total time in ticks to display the item, before dispensing it.
+
+History
+Java Edition
+Java Edition1.20.5ExperimentUpdate 1.2124w13a
+Added ominous item spawners.1.2124w18a
+Ominous item spawners are now available without using the "Update 1.21" experimental data pack.24w21a
+spawn_item_after_ticks is now read from nbt.
+Bedrock Edition
+Bedrock Edition1.21.0ExperimentUpdate 1.21Preview 1.21.0.21
+Added ominous item spawners.1.21.0Preview 1.21.0.22
+Ominous item spawners are now available without using the "Update 1.21" experimental toggle.
+Issues
+Issues relating to "Ominous Item Spawner" are maintained on the bug tracker. Issues should be reported and viewed there.
+
+References
+
+ MC-269964 – Ominous item spawners are missing an NBT load for spawn_item_after_ticks – resolved as "Fixed".
+
+Navigation

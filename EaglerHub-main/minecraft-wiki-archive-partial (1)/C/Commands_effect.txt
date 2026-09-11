@@ -1,0 +1,168 @@
+/effect
+
+Permission levelrequired
+
+2 ‌[JE  only]
+1 ‌[BE  only]
+
+Restrictions
+
+Cheat only‌[BE  only]
+
+{
+    "title": "<code>/effect</code>",
+    "rows": [
+        {
+            "field": "\n* 2 ‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Java Edition\">(link to Java Edition article, displayed as JE)  only</span></i>]</sup>\n* 1 ‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Bedrock Edition\">(link to Bedrock Edition article, displayed as BE)  only</span></i>]</sup>",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "(link to Cheat article, displayed as Cheat) only‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Bedrock Edition\">(link to Bedrock Edition article, displayed as BE)  only</span></i>]</sup>",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+Adds or removes status effects of players and other entities.
+
+Contents
+
+1 Usage
+2 Syntax
+3 Arguments
+4 Result
+5 Output
+6 Examples
+7 History
+
+7.1 Java Edition
+7.2 Bedrock Edition
+
+8 References
+9 External links
+10 Navigation
+
+Usage
+In Java Edition, if a target already has a status effect with the same id, a new effect only with a longer duration or a higher amplifier can be added.
+If the new effect has a higher amplifier and a shorter duration, the original effect is hidden.
+If the new effect has a lower amplifier and a longer duration, the new effect is hidden.
+If their "hideParticles" values are different, the active effect's value is set to the specified value.
+Otherwise, the original active effect is replaced by the new effect, without changing hidden effects.
+Only if the active effect is changed does the command succeed, no matter whether the hidden effects are changed or not.
+In Bedrock Edition, if a target already has the status effect, a new status effect with the same amplifier overrides the old duration if it is longer, but a new status effect with a higher amplifier overrides any previous effect.
+In Bedrock Edition, no matter whether the new effect can override the original effect, "hideParticles" value is always applied.
+In Bedrock Edition, if the player uses an NBT editor to get negative levels of effects, the level of the effect jumps to 255 instead.
+Syntax
+Java Edition
+effect clear [<targets>] [<effect>]
+Removes all effects or an effect.
+effect give <targets> <effect> [<seconds>] [<amplifier>] [<hideParticles>]
+Gives an effect.
+effect give <targets> <effect> infinite [<amplifier>] [<hideParticles>]
+Gives an effect with infinite duration, which displays as ∞ in the GUI.
+Bedrock Edition
+effect <player: target> <effect: Effect> [seconds: int] [amplifier: int] [hideParticles: Boolean]
+Gives or removes an effect.
+effect <player: target> <effect: Effect> infinite [amplifier: int] [hideParticles: Boolean]
+Gives an effect with infinite duration, which displays as ∞ in the GUI.
+effect <player: target> clear [effect: Effect]
+Removes all effects or an effect.
+Arguments
+JE: <targets>: entityBE: player: target: CommandSelector<Actor>
+
+Specifies the target(s). In Java Edition, if not specified, defaults to the player who executes the command.
+Must be a player name, a target selector or a UUID‌[Java Edition  only].
+JE: <effect>: resourceBE: effect: Effect: enum
+
+Specifies the effect to be added or removed.
+In Java Edition, must be an existing registered resource location in minecraft:mob_effect registry. In Bedrock Edition, must be an ID of a status effect (without namespace)
+JE: <seconds>: integerBE: seconds: int: int
+
+Specifies the effect's duration in seconds (or in gameticks for instant_damage, instant_health, and saturation). If not specified, defaults to 30 seconds (or 1 gameticks for instant_damage, instant_health, and saturation).
+Must be a [Int]32-bit integer number (from -2147483648 (-231) to 2147483647 (231-1) ). In Java Edition, it must be between 0 and 1000000 (inclusive). In Bedrock Edition, it must be between 0 and 2147483647 (inclusive), and values higher than 1000000 are treated as 1000000.
+JE: <amplifier>: integerBE: amplifier: int: int
+
+Specifies the number of additional levels to add to the effect. If not specified, defaults to 0. Note that the first tier of a status effect (e.g. Regeneration I) is 0, so the second tier, for example Regeneration II, would be specified by an amplifier level of 1.
+Must be a [Int]32-bit integer number (from -2147483648 (-231) to 2147483647 (231-1) ). And it must be between 0 and 255 (inclusive).
+JE: <hideParticles>: boolBE: hideParticles: Boolean: enum
+
+Specifies whether the particles and the HUD indicator‌[Java Edition  only] of the status effect should be hidden. If not specified, defaults to false.
+Must be a [Boolean]Boolean (either true or false).
+Result
+
+CommandTriggerJava EditionBedrock Edition
+
+AnyThe command is incomplete, or any argument is not specified correctly. Unparseable Failed<targets> or player: target fails to resolve to one or more entities (named player must be online). Failed/effect give ...All the selected entities meets one or more of the following conditions:
+The entity is immune to the specified effect.
+The entity already has a status effect with the same id and the same "hideParticles" value, but the new effect doesn't have a higher amplifier or a longer duration.
+The entity already has a status effect with the same id and the same "hideParticles" value, and the new effect has a lower amplifier and a longer duration. Successful/effect clear<targets> is not specified when the command's executor is not a player. N/A/effect clear ...There's no effect removed from any entity./effect ... clearThere's no effect removed from any entity. N/A FailedAnyOtherwiseSuccessful
+Output
+
+CommandEditionSituationSuccess Count/execute store success .../execute store result ...
+
+AnyJava EditionOn fail000On success11the number of entities that are given or revoked effect(s).Bedrock EditionOn fail0N/AN/AOn successthe number of entities that are given or revoked effect(s).N/AN/A
+Examples
+
+Java Edition
+
+Bedrock Edition
+
+To grant a Resistance V effect to the current entity for 1 million seconds, hiding particles:
+
+effect give @s minecraft:resistance 1000000 4 true
+
+effect @s resistance 1000000 4 true
+
+To grant a Speed II effect to the nearest player for 60 seconds:
+
+effect give @p minecraft:speed 60 1
+
+effect @p speed 60 1
+
+To grant a Speed III effect to the nearest player for 60 seconds:
+
+effect give @p minecraft:speed 60 2
+
+effect @p speed 60 2
+
+To clear any Haste effects from all players:
+
+effect clear @a minecraft:haste
+
+effect @a haste 0
+
+To clear all effects from all zombies:
+
+effect clear @e[type=zombie]
+
+effect @e[type=zombie] clear
+
+History
+Java Edition
+Java Edition1.513w09b
+Added /effect.1.6.1pre
+Added clear argument to /effect.1.814w06a
+Added hideParticles argument to /effect1.1317w45a
+Syntax of the /effect command has been split into /effect give <entity> <effect> and /effect clear <entity> <effect>.1.1519w41a
+The /effect clear command now defaults to the executor if no target argument is given.1.15.2Pre-Release 1
+When a stronger effect overwrites a weaker effect, the weaker effect is now  hidden.1.19.322w42a
+<effect> now accepts a resource argument, instead of mob_effect.1.19.423w05a
+Added infinite mode to give an effect with infinite duration.
+Bedrock Edition
+Pocket Edition1.0.5alpha 1.0.5.0
+Added /effect.alpha 1.0.5.3
+The amplifier on /effect can no longer have negative values.Bedrock Edition?
+Max value for <seconds> argument was changed to 32 bit integer limit, although gives effect only at 2040109465 or below.1.16.200beta 1.16.200.52
+Duration is now capped at 1,000,000 seconds .1.21.40Preview 1.21.40.20
+Added infinite duration option to the command: /effect <player: target> <effect: Effect> infinite [amplifier: int] [hideParticles: Boolean].
+
+Added specific effect removal option to the command: /effect <player: target> clear [effect: Effect].
+References
+
+ MC-1541 – Beacon effect removes potion effect of the same type – resolved as "Fixed".
+
+External links
+"/effect Command"     – Microsoft Learn, September 11, 2024.
+Navigation

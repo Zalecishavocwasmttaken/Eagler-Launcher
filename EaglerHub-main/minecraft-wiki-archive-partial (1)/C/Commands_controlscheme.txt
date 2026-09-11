@@ -1,0 +1,79 @@
+This feature is exclusive to Bedrock Edition and Minecraft Education. 
+
+/controlscheme
+
+Permission levelrequired
+
+1
+
+Restrictions
+
+Cheat only
+
+{
+    "title": "<code>/controlscheme</code>",
+    "rows": [
+        {
+            "field": "1",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "(link to Cheat article, displayed as Cheat) only<br>",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+Modifies player's control scheme of camera presets.
+This command needs to be used together with /camera command.
+
+Contents
+
+1 Syntax
+2 Arguments
+3 Result
+4 Output
+5 History
+6 External links
+7 Navigation
+
+Syntax
+controlscheme <players: target> clear
+Clears the control scheme.
+controlscheme <players: target> set <control scheme: controlscheme>
+Sets the control scheme.
+Arguments
+players: target: CommandSelector<Player>
+
+Specifies the player that the control scheme will be modified.
+Must be a player name or a target selector.
+control scheme: controlscheme: Enum
+
+Specifies the control scheme.
+Must be a string. And it must be a single word that has no space or a double-quoted string (When quoted, \ can be used to escape characters).
+Must be one of the following:
+camera_relative — Move relative to the camera, keep the viewing angle horizontal and follow the direction of movement.
+camera_relative_strafe — Move relative to the camera, keep the viewing angle horizontal and follow the facing.
+locked_player_relative_strafe — Move relative to the player and follow the facing.
+player_relative — Move relative to the player, keep the viewing angle horizontal and follow the direction of movement.
+player_relative_strafe — Move relative to the player, keep the viewing angle horizontal and follow the facing.
+Result
+
+CommandTriggerBedrock Edition
+
+AnyThe command is incomplete, or any argument is not specified correctly. Unparseableplayers: target fails to resolve to one or more online players. FailedOtherwiseSuccessful
+Output
+
+CommandEditionSituationSuccess Count
+
+AnyBedrock EditionOn fail0On successThe number of targeted players
+History
+Bedrock Edition1.21.80ExperimentExperimental Creator Camera FeaturesPreview 1.21.80.27
+Added /controlscheme behind the "Experimental Creator Camera Features" experimental toggle.1.21.90Preview 1.21.90.23
+/controlscheme is now available without using the "Experimental Creator Camera Features" experimental toggle.Preview 1.21.90.26
+Control scheme camera_relative_strafe is now available without using the "Experimental Creator Camera Features" experimental toggle.
+External links
+"/controlscheme Command"     – Microsoft Learn, April 8, 2025.
+Navigation

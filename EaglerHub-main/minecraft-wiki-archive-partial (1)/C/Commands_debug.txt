@@ -1,0 +1,145 @@
+This article is about the command that runs time profiler and function trace.   For the performance profiler, see Commands/perf.   For the jvm profiler, see Commands/jfr.  For other uses of "debug", see Debug.
+
+
+
+This feature is exclusive to Java Edition. 
+
+/debug
+
+Permission levelrequired
+
+3
+
+Restrictions
+
+None
+
+{
+    "title": "<code>/debug</code>",
+    "rows": [
+        {
+            "field": "3",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "None",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+Starts or stops a time profiler session. Gets more detailed information of function execution.
+
+Contents
+
+1 Syntax
+2 Arguments
+3 Result
+4 Output
+5 File structure
+
+5.1 Function trace
+5.2 Profile result
+5.3 Report
+
+6 History
+7 Navigation
+
+Syntax
+debug start
+
+Starts a new debug time profiler session.
+debug stop
+
+Stops the active debug time profiler session.
+debug function <name>
+
+Used the same way as /function to get more detailed information of commands' execution. Could not be called directly or indirectly by /return run or another /debug function.
+Arguments
+<name>: function
+
+It must be a resource location or one prefixed with a #, which resolves into a function or a function tag during command execution.
+Result
+
+CommandTriggerJava Edition
+
+AnyThe command is incomplete, or any argument is not specified correctly. Unparseable/debug startA debug profiling session has already been started. Failed/debug stopThere's no debug profiling session running./debug functionThe specified functions or function tags do not exist./debug functionThis command execution is caused by /return run or another /debug function.AnyOtherwiseSuccessful
+Output
+
+CommandEditionSituationSuccess Count/execute store success .../execute store result ...
+
+AnyJava EditionOn failN/A00/debug startOn successN/A10/debug stopOn successN/A1the average tps (ticks per second) during debug profiling/debug functionOn successN/A1the total number of commands in the functions
+File structure
+Function trace
+When using /debug function, a txt file titled debug-trace-yyyy-MM-dd_HH.mm.ss.txt is created in .minecraft/debug.
+In this file,
+
+[C] <command> means the <command> is executed.
+[M] <message> means a message is returned.
+[E] <message> means a failure message is returned.
+[R = <num>] <command> means the <command> returns a brigadier return value.
+[C] <command> -> <num> means the <command> is executed and returns a brigadier return value.
+[F] <function> size=<num> means a function is called.
+For most commands, the brigadier return value is equal to the result value that can be stored with /execute store result.
+But for /execute ... with one or more of the following subcommands, each branch returns its success value as its brigadier return value:
+
+... if ... (not at the end)
+... unless ... (not at the end)
+... as <targets> ...
+... at <targets> ...
+... positioned as <targets> ...
+... rotated as <targets> ...
+... facing entity <targets> <anchor> ...
+Some commands like /return and /function have no brigadier return value.
+
+Profile result
+
+
+
+This section describes content that has been removed from Minecraft. 
+This feature was present in earlier versions of Minecraft, but has since been removed.
+
+When using /debug stop, a txt file titled profile-results-yyyy-MM-dd_HH.mm.ss.txt is created in .minecraft/debug, which includes the result of profile dump.
+
+Report
+
+
+
+This section describes content that has been removed from Minecraft. 
+This feature was present in earlier versions of Minecraft, but has since been removed.
+
+When using /debug report, a ZIP file is created with in .minecraft/debug/profiling the following structure:
+
+debug-report-yyyy-MM-dd_HH.mm.ss.zip
+levels
+minecraft or <other custom namespaces>
+overworld or the_end or the_nether or <other custom dimensions>
+block_entities.csv: Contains a list of block entities in the world in the format x,y,z,type.
+chunks.csv: Contains a list of chunk information in the format x,z,level,in_memory,status,full_status,accessible_ready,ticking_ready,entity_ticking_ready,ticket,spawning,entity_count,block_entity_count.
+entities.csv: Contains a list of entities in the world in the format x,y,z,uuid,type,alive,custom_name.
+example_crash.txt: An example crash file.
+stats.txt: Contains some stats.
+classpath.txt: Contains the file paths of the external jars Minecraft uses.
+example_crash.txt: An example crash file.
+gamerules.txt: A plain text file containing a list of game rules and their values (<gamerule>=<value>).
+stats.txt: Contains some stats.
+threads.txt: All running threads.
+
+History
+Java Edition1.3.112w27a
+Added /debug.1.814w31a
+/debug can now be run in single-player.
+
+Added /debug chunk.1.8.1pre1
+Removed /debug chunk.1.1318w03a
+Added commands to the profiler.1.14.4pre1
+Added /debug report, used to get more detailed information while debugging performance.1.1721w15a
+Added /debug function.Pre-release 1
+Removed /debug report. Replaced by F3+L and /perf.1.20.323w41a
+Now the result value of /debug function is the total number of commands in the functions.
+
+Now /debug function cannot be called by /debug function.23w44a
+Now /debug function cannot be called by /return run.
+Navigation

@@ -1,0 +1,92 @@
+This feature is exclusive to Bedrock Edition. 
+
+
+
+This page describes content that has been removed from Java Edition. 
+This feature was present in earlier versions of Java Edition, but has since been removed.
+
+
+
+/testfor
+
+Permission levelrequired
+
+2 ‌[JE  only]
+1 ‌[BE  only]
+
+Restrictions
+
+Cheat only
+
+{
+    "title": "<code>/testfor</code>",
+    "rows": [
+        {
+            "field": "\n* 2 ‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Java Edition\">(link to Java Edition article, displayed as JE)  only</span></i>]</sup>\n* 1 ‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Bedrock Edition\">(link to Bedrock Edition article, displayed as BE)  only</span></i>]</sup>",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "(link to Cheat article, displayed as Cheat) only<br>",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+Counts entities (players, mobs, items, etc.) matching specified conditions.
+
+Contents
+
+1 Syntax
+2 Arguments
+3 Result
+4 Output
+5 Examples
+6 History
+
+6.1 Java Edition
+6.2 Bedrock Edition
+
+7 External links
+8 Navigation
+
+Syntax
+testfor <victim: target>
+Arguments
+victim: target: CommandSelector<Actor>
+
+Specifies the entities to test.
+Must be a player name or a target selector.
+Result
+
+CommandTriggerBedrock Edition
+
+AnyThe command is incomplete, or any argument is not specified correctly. Unparseablevictim: target fails to resolve to one or more entities (named players must be online). FailedOtherwiseSuccessful
+Output
+
+CommandEditionSituationSuccess Count
+
+AnyBedrock EditionOn fail0On successthe number of the specified entities.
+Examples
+To test if Alice is online: testfor Alice
+To count the number of players in Survival mode within a 3-block radius of (0,64,0): testfor @a[x=0,y=64,z=0,r=3,m=0]
+To count the number of zombies within a 20-block radius of (0,64,0): testfor @e[x=0,y=64,z=0,r=20,type=zombie]
+To check if a random player has iron ingots in their inventory  testfor @r[hasitem={item=iron_ingot}]
+To check if a random player does not have iron ingots in their inventory  testfor @r[hasitem={item=iron_ingot},quantity=0]
+To check if a random is holding iron ingots in their inventory  testfor @r[hasitem={item=iron_ingot},location=slots.weapon.mainhand]
+History
+Java Edition
+Java Edition1.513w03a
+Added /testfor.1.814w02a
+Added dataTag argument to /testfor.
+
+/testfor is no longer exclusive to command blocks.14w07a
+/testfor can now test for partial NBT tag matches.1.1317w45a
+Removed /testfor.
+Bedrock Edition
+Pocket Edition1.0.5alpha 1.0.5.0
+Added /testfor.
+External links
+"/testfor Command"     – Microsoft Learn, October 11, 2023.
+Navigation

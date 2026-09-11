@@ -1,0 +1,98 @@
+This page describes content that has been removed and was only present in earlier versions of Java Edition. 
+This format was replaced starting with Infdev.
+
+The .mclevel map format is an old map format created by Notch. It is based on the NBT format and is GZip compressed.
+The map format was in use since Indev 0.31 20100122-2251 up until Indev 20100223, after which it became non-functional and would stay that way until Infdev 20100327 when it was outright removed.
+While Alpha (and Infdev) levels use NBT files, they have a very different file format.
+For details on the infinite map format, see Java Edition Alpha level format.
+
+Contents
+
+1 NBT structure
+2 Blocks
+3 Data
+4 Lighting
+5 External links
+6 Navigation
+
+NBT structure
+
+[NBT Compound / JSON Object] MinecraftLevel: The root tag.
+[NBT Compound / JSON Object] About: Information about the level.
+[Long] CreatedOn: The Unix time when the level was created.
+[String] Name: The name of the level, always "A Nice World."
+[String] Author: The name of the user who created the level.
+[NBT Compound / JSON Object] Environment: Information about the level's environment, which varies based on the map generation settings.
+[Short] TimeOfDay: The time in ticks affecting daylight cycle. Range 0 - 24000.
+[Byte] SkyBrightness: The sky light level, 0 to 15.
+[Int] SkyColor: The RGB color of the sky, 24 bits. Red is SkyColor >> 16 & 255, green is SkyColor >> 8 & 255, blue is SkyColor & 255.
+[Int] FogColor: The RGB color of the fog, 24 bits. Red is FogColor >> 16 & 255, green is FogColor >> 8 & 255, blue is FogColor & 255.
+[Int] CloudColor: The RGB color of the clouds, 24 bits. Red is CloudColor >> 16 & 255, green is CloudColor >> 8 & 255, blue is CloudColor & 255.
+[Short] CloudHeight: The height of the clouds (Y coordinate).
+[Byte] SurroundingGroundType: The block ID of the "surrounding ground".
+[Short] SurroundingGroundHeight: The height of the "surrounding ground".
+[Byte] SurroundingWaterType: The block ID of the "surrounding water".
+[Short] SurroundingWaterHeight: The height of the "surrounding water".
+[NBT Compound / JSON Object] Map: The actual map data.
+[Short] Width: The width of the level.
+[Short] Length: The length of the level.
+[Short] Height: The height of the level.
+[NBT List / JSON Array] Spawn: List of 3 TAG_Shorts for the X, Y, and Z spawn coordinates.
+[Byte Array] Blocks: Width*Length*Height bytes of block IDs. (8 bits)
+[Byte Array] Data: Width*Length*Height bytes of block data (4 bit) and light value (next 4 bit).
+[NBT List / JSON Array] Entities: List of TAG_Compounds for the entities in the level.
+[NBT Compound / JSON Object] An entity. The player has its own entity, shown below as an example.
+[String] id: The entity ID. In this case, "LocalPlayer".
+[NBT List / JSON Array] Pos: List of 3 TAG_Floats for the X, Y, and Z position of the player.
+[NBT List / JSON Array] Rotation: List of 2 TAG_Floats for the yaw and pitch of the player's view.
+[NBT List / JSON Array] Motion: List of 3 TAG_Floats for the X, Y, and Z motion in meters per tick.
+[Float] FallDistance: How far the player has fallen.
+[Short] Health: The number of hit points the player has. 20 is 10 hearts.
+[Short] AttackTime: Number of ticks the player is immune to attacks.
+[Short] HurtTime: Number of ticks the player is red from being attacked.
+[Short] DeathTime: Number of ticks the player has been dead for - used for controlling the death animation.
+[Short] Air: The number of ticks before the player starts to drown. It starts at 300.
+[Short] Fire: When negative, the number of ticks before the player can catch on fire. When positive, the number of ticks before the fire is extinguished.
+[Int] Score: The player's score.
+[NBT List / JSON Array] Inventory: List of TAG_Compounds representing items in the player's inventory.
+[NBT Compound / JSON Object] An item stack.
+[Byte] Slot: The Slot the item is in.
+[Short] id: The Item ID.
+[Short] Damage: The item's data value, or damage value for tools.
+[Byte] Count: The number of this item in the stack. Range -128 to 127. Values less than 2 are not displayed in-game.
+[NBT List / JSON Array] TileEntities: List of TAG_Compounds for the tile entities in the level.
+[NBT Compound / JSON Object] A tile entity.
+[String] id: Tile entity id. In this case, "Chest".
+[Int] Pos: Position of the tile entity, explained later.
+[NBT List / JSON Array] Items: List of TAG_Compounds representing items in the chest.
+[NBT Compound / JSON Object] An item stack.
+[Byte] Slot: The Slot the item is in.
+[Short] id: The Item ID.
+[Short] Damage: The item's data value, or damage value for tools.
+[Byte] Count: The number of this item in the stack. Range -128 to 127. Values less than 2 are not displayed in-game.
+Calculating "Pos" tag of the tile entity:
+pos = x + (y << 10) + (z << 20)
+Calculating X, Y, and Z from "Pos" tag:
+x = pos % 1024
+y = (pos >> 10) % 1024
+z = (pos >> 20) % 1024
+
+Blocks
+The block byte array is used to define the types of blocks that occupy a map.
+The number of bytes in the array may be calculated by multiplying the dimensions of the map.
+Y being the up direction rather than Z.
+For hex values see Block IDs.
+To access a specific block from either the block or data array from XYZ coordinates, use the following formula:
+arrayindex=(y*length+z)*width+x
+
+Data
+The data byte array is used for lighting and extra block data.
+For extended information on block metadata, refer to Java Edition data value/Indev.
+
+Lighting
+
+There are 16 levels of lighting for a block ranging from 0x0 (0, no light) to 0xF (15, full light).
+
+External links
+Indev level format specification on minecraft.net (archived)
+Navigation

@@ -1,0 +1,102 @@
+/setworldspawn
+
+Permission levelrequired
+
+2 ‌[JE  only]
+1 ‌[BE  only]
+
+Restrictions
+
+Cheat only‌[BE  only]
+
+{
+    "title": "<code>/setworldspawn</code>",
+    "rows": [
+        {
+            "field": "\n* 2 ‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Java Edition\">(link to Java Edition article, displayed as JE)  only</span></i>]</sup>\n* 1 ‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Bedrock Edition\">(link to Bedrock Edition article, displayed as BE)  only</span></i>]</sup>",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "(link to Cheat article, displayed as Cheat) only‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Bedrock Edition\">(link to Bedrock Edition article, displayed as BE)  only</span></i>]</sup>",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+Sets the world spawn.
+
+Contents
+
+1 Usage
+2 Syntax
+3 Arguments
+4 Result
+5 Output
+6 History
+
+6.1 Java Edition
+6.2 Bedrock Edition
+
+7 See also
+8 References
+9 External links
+10 Navigation
+
+Usage
+In Java Edition, this command can be used to set the world spawn in any dimension other than the Overworld.
+Normal spawn spreading still applies, and can be set with a gamerule.
+
+Syntax
+Java Edition
+setworldspawn [<pos>] [<angle>]
+Bedrock Edition
+setworldspawn [spawnPoint: x y z]
+Arguments
+JE: <pos>: block_posBE: spawnPoint: x y z: CommandPositionFloat
+
+Specifies the coordinates of the world spawn. If not specified, defaults to the block position of the command's execution.
+In Java Edition, <x> and <z> should be in the range of [-30000000, 30000000), and <y> should be in the range of [-20000000, 20000000).
+In Bedrock Edition, <x> and <z> that are greater than 30,000,000 or less than -30,000,000 are reverted to 30,000,000 and -30,000,000 respectively; <y> values which are greater than 319 and less than -64 are reverted to 319 and -64 respectively.
+In Java Edition:
+Must be a block position composed of <X>, <Y> and <Z>, each of which must be an integer or a tilde and caret notation.
+In Bedrock Edition:
+Must be three-dimensional coordinates with single-precision floating-point number elements. Accepts tilde and caret notations.
+JE: <angle>: angle
+
+Specified the yaw angle to spawn with. Defaults to 0.0.
+Must be a yaw angle, measured in degrees with single-precision floating-point numbers. -180.0 for due north, -90.0 for due east, 0.0 for due south, 90.0 for due west, to 179.9 for just west of due north, before wrapping back around to -180.0. Tilde notation can be used to specify a rotation relative to the execution yaw rotation.
+Result
+
+CommandTriggerJava EditionBedrock Edition
+
+AnyThe command is incomplete, or any argument is not specified correctly. Unparseable UnparseableThe execution dimension is not the Overworld. Successful FailedThe <x> or <z> exceed the range of [-30000000, 30000000), or the <y> argument exceeds the range of [-20000000, 20000000). Failed SuccessfulOtherwiseSuccessful
+Output
+
+CommandEditionSituationSuccess Count/execute store success .../execute store result ...
+
+AnyJava EditionOn fail000On success111Bedrock EditionOn fail0N/AN/AOn success1N/AN/A
+History
+Java Edition
+Java Edition1.7.213w43a
+Added /setworldspawn.1.16.220w29a
+Added angle parameter for setting the default facing angle of a respawning player.1.1721w10a
+Now /setworldspawn does not accept positions where <x> or <z> exceeds the range of [-30000000, 30000000), or <y> exceeds the range of [-20000000, 20000000)1.20.524w03a
+Now /setworldspawn success only in the Overworld. Before, if executed in another dimension, the command acts as if it succeeded, but the world spawn is not changed.1.21.925w31a
+Spawn chunks have been removed, which until now were moved when /setworldspawn was used.Pre-Release 1
+/setworldspawn can now be used to set spawn point to another dimension than Overworld.
+It now also takes in an optional pitch argument.
+Bedrock Edition
+Pocket Edition Alphav0.16.0build 1
+Added /setworldspawn.
+See also
+/spawnpoint
+/clearspawnpoint
+References
+
+ MC-210408 – resolved as "fixed".
+
+External links
+"/setworldspawn Command"     – Microsoft Learn, October 11, 2023.
+Navigation

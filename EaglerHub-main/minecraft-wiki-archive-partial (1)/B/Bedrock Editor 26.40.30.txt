@@ -1,0 +1,91 @@
+This article would benefit from the addition of more images. 
+Please remove this notice once you have added  suitable images to the article.
+
+26.40.30
+
+Edition
+
+Bedrock Editor
+
+Release date
+
+PreviewJuly 7, 2026StableAugust 4, 2026
+
+Client version
+
+Preview26.40.30Stable26.40
+
+◄◄   1.4.0
+26.40.30
+
+◄   26.40.27
+
+  26.50.20 ►
+
+{
+    "title": "26.40.30",
+    "images": [],
+    "rows": [
+        {
+            "field": "''(link to Bedrock Editor article, displayed as Bedrock Editor)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "'''Preview'''<br>July 7, 2026<br>'''Stable'''<br>August 4, 2026",
+            "label": "Release date"
+        },
+        {
+            "field": "'''Preview'''<br>(link to Bedrock Edition Preview 26.40.30 article, displayed as 26.40.30)<br>'''Stable'''<br>(link to Bedrock Edition 26.40 article, displayed as 26.40)",
+            "label": "Client version"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Bedrock Editor  1.4.0|<span style=\"margin-right:-0.35em\">◄</span>◄   1.4.0]]</td>\n<td rowspan=\"2\" style=\"padding: 0.4em\">'''26.40.30'''</td>\n<td style=\"padding: 0.4em\" ></td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Bedrock Editor  26.40.27|◄   26.40.27]]\n</td>\n\n<td style=\"padding: 0.4em\">\n[[Bedrock Editor  26.50.20|  26.50.20 ►]]\n</td>\n</tr>\n</table>"
+}
+
+26.40.30 (released as v26.40) is a release for the Bedrock Editor released in Preview on July 7, 2026, and in retail on August 4, 2026.
+
+Contents
+
+1 Additions
+2 Changes
+3 Fixes
+4 References
+5 Navigation
+
+Additions
+Added a Timeline panel to the Cinematic Tool for visualizing and editing keyframes along the camera path.
+Added pending transaction support for ClipboardItem.writeToWorld and BrushShapeManager APIs.
+Added a drag handle to the cinematics timeline so the timeline duration can be adjusted directly in the editor.
+Changes
+The Block Inspector tool now highlights the currently selected block with a bounding box, giving a clear visual indicator of which block is being inspected.
+Editor property pane items no longer display an empty tooltip when there is no tooltip text to show, such as the Flood Tool progress bar
+The Dimensions tool now returns the player to their last-known position in the target dimension, or the origin on first visit.
+The Farm Generator tool now offers Pale Oak, Dark Oak, Nether Brick, and Mangrove fence options.
+Renamed "Control Points" to "Keyframes" throughout the Cinematic Tool to align with standard animation terminology
+Removed all transaction recording and management functionality from the TransactionManager API and moved it to the PendingTransaction object. Transactions are now created through createPendingTransaction function, while staged changes are finalized using the submit and discard methods.
+The Navigation panel's minimap now uses the new minimap control.
+World locations are now stored per-dimension and shared across all clients.
+Lowered the Nether's minimap scan Y-level so the map skips the bedrock ceiling.
+Removed the "X" button from progress windows for the Custom Mesh, Primitive, and Flood tools.
+Fixes
+Fixed a bug where copying and pasting a double chest with the Paste Preview or Structure tool pasted it as two separate single chests instead of a single double chest.
+Fixed the Primitives Tool preview and placement to follow the Fixed Distance cursor projection.
+The Flood Tool no longer errors when pressing Ctrl+D to remove a preview that has already been removed.
+Fixed a bug in the Biome Data Assignment tool where the Allow biome tag list was matched with a logical AND, so only biomes containing every allowed tag were eligible; allowed tags are now matched with a logical OR, so a biome is eligible if it has any of the allowed tags.
+Fixed a bug in the Vibrant Visuals color settings where dragging a timeline playhead no longer scrubbed the viewport time, so color and value keyframes could not be previewed across the day/night cycle.
+Fixed a bug that caused the sliders connected to any Vibrant Visuals "Enabled" checkbox to be manipulated with the checkbox toggled off.
+Fixed a bug that caused incorrect theme color to display for disabled text field
+Fixed a bug that caused placeholder string in text field to be incorrectly styled
+Fixed a bug that appears in Layout Template Manager during "Copy Template" operation when copying a template with structures. The template is copied along with name and display name. The fix is that the name and display name metadata are set from the caller.
+Fixed a bug where the custom cursor does not change from wait/load icon after canceling the flood operation.
+Fixed a bug that caused Collection Tree UI element width to be incorrect.
+References
+
+ "Preview 26.40.30"     – GitHub, July 7, 2026.
+
+ "Editor 26.40 is now in retail via the Launcher"     – GitHub, August 4, 2026.
+
+ "Minecraft Beta & Preview - 26.40.30"     – Minecraft Feedback, July 7, 2026.
+
+Navigation

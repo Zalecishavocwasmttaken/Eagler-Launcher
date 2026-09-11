@@ -1,0 +1,367 @@
+This page covers a development version that has a major issue under certain conditions. 
+The dedicated server for this version has a security vulnerability in the Log4j library that could be used to perform a remote code execution exploit. It can be addressed by appending a certain JVM argument to the server startup command line.
+
+Minecraft 1.14.3 - Combat Test
+
+Edition
+
+Java Edition
+
+Release date
+
+June 26, 2019
+
+Type
+
+Snapshot
+
+Compilation date
+
+June 20, 2019
+
+Snapshot for
+
+Combat Tests
+
+Downloads
+
+Client (.json)Server
+
+Protocol version
+
+500
+
+Data version
+
+2067
+
+Resource pack format
+
+4
+
+Data pack format
+
+4
+
+Minimum Java version
+
+Java SE 8
+
+◄◄   1.14.3 Pre-Release 4
+Combat Tests
+
+ 1.14.3 - Combat Test
+
+  Combat Test 2 ►
+
+{
+    "title": "Minecraft 1.14.3 - Combat Test",
+    "images": [
+        "Release 1.14.3 Combat Test.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "June 26, 2019",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Snapshot article, displayed as Snapshot)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "June 20, 2019",
+            "label": "Compilation date"
+        },
+        {
+            "field": "(link to Java Edition Combat Tests article, displayed as Combat Tests)",
+            "label": "Snapshot for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/98cb56935c762c412b64ddda8e3851544243fb2d/client.jar Client] ([https://piston-data.mojang.com/experiments/combat/610f5c9874ba8926d5ae1bcce647e5f0e6e7c889/1_14_combat-212796.zip .json])<br />[https://piston-data.mojang.com/v1/objects/168ae89abc66fd4ee2d84c844cd980ddae26e784/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "500",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "2067",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "4",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "4",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Data pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_8_.28LTS.29 Java SE 8]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" rowspan=\"2\">[[Java Edition  1.14.3 Pre-Release 4|<span style=\"margin-right:-0.35em\">◄</span>◄   1.14.3 Pre-Release 4]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition Combat Tests|Combat Tests]]'''</td>\n<td style=\"padding: 0.4em\" ></td>\n</tr>\n<tr style=\"background: inherit;\">\n\n<td style=\"padding: 0.4em\">''' 1.14.3 - Combat Test'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  Combat Test 2|  Combat Test 2 ►]]\n</td>\n</tr>\n</table>"
+}
+
+1.14.3 - Combat Test is the first experimental version of a future combat update. Although it is a version for a future major release, this combat experiment is a fork of 1.14.3 Pre-Release 4. This version was released only on Reddit, so it does not appear in the launcher or in any Minecraft.net blog post.
+
+Contents
+
+1 Additions
+
+1.1 Gameplay
+
+2 Changes
+
+2.1 Gameplay
+2.2 Items
+
+3 Videos
+4 Issues
+5 References
+6 Navigation
+
+Additions
+Gameplay
+Combat
+
+New attribute: generic.attackReach.
+Represents the attack reach of a player.
+Only used by players.
+Default base: 3.0; minimum: 0.0; maximum: 6.0.
+Value is the number of blocks away the player can attack from.
+Weapon modifier now modifies generic.attackReach with Operation 0 and UUID 26cb07a3-209d-4110-8e10-1010243614c8.
+Added a "Combat Reach" parameter (using attribute generic.attackReach) to swords, hoes and tridents.
+Changes
+Gameplay
+Combat
+
+Players can now only attack when the weapon is fully charged.
+Different weapons and items have different attack ranges, all separate from the block breaking reach.
+3.5 blocks for all swords.
+4 blocks for tridents and hoes.
+3 for all other items.
+The attack timer can be charged to 200%.
+The attack timer reaches 200% after the recharging animation of the sword is fully complete.
+A 200% charge is required for critical hits and the sweeping attack.
+A 200% charge also deals higher knockback while sprinting.
+Weapons with shorter cooldowns give victims shorter attack invulnerability times (invincibility frames).
+The attack control can now be held down, attacking whenever the attack cooldown reaches 100%.
+It is now possible to hit mobs through non-full-sized blocks such as grass.
+HUD
+
+Changed how the attack indicator works.
+When on crosshair mode:
+The meter only appears after the attack is 100% recharged, showing the progress of reaching 200% charge instead.
+The "+" now only appears below the attack indicator when at 200% charge.
+When on hotbar mode:
+The meter only appears while charging the initial 100%.
+Sweep attack
+
+Performing a sweep attack now requires the Sweeping Edge enchantment.
+Now requires the attack timer to be at 200%.
+Is now performed regardless of whether an entity is hit.
+Items
+Axes
+
+Increased attack speed for all axes to 2.
+All axes deal 1HP more damage than their sword counterparts.
+Attack reach remains at 3 blocks.
+Hoes
+
+Changed the attack speed for most hoes:
+Wooden: 2; stone: 2.5; diamond and gold: 3.5.
+Changed the damage dealt for all hoes:
+Wooden, stone, and gold: 2HP; iron and diamond: 3HP.
+Increased attack reach to 4 blocks.
+Pickaxes
+
+Increased attack speed for all pickaxes to 2.5.
+Increased damage for all pickaxes by 1HP.
+Attack reach remains at 3 blocks.
+Shield
+
+Critical hits bypass shields.
+Removed warm-up delay from shields (0.25 second activation cooldown).
+When in the off-hand, shields activate when sneaking.
+Shields no longer knockback attackers when they block.
+Shovels
+
+Increased attack speed for all shovels to 2.
+Decreased damage for all shovels by 1HP.
+Attack reach remains at 3 blocks.
+Swords
+
+Increased attack speed for all swords to 3.
+Increased damage for all swords by 1HP.
+Increased attack reach to 3.5 blocks.
+Trident
+
+Increased attack speed to 2.
+Decreased base damage from 9HP to 7HP.
+Increased attack reach to 4 blocks.
+
+Tool
+
+Axe
+
+Hoe
+
+Pickaxe
+
+Shovel
+
+Sword
+
+Damage
+
+Speed
+
+Damage
+
+Speed
+
+Damage
+
+Speed
+
+Damage
+
+Speed
+
+Damage
+
+Speed
+
+Wood
+
+6HP
+
+2
+
+2HP
+
+2
+
+3HP
+
+2.5
+
+2HP
+
+2
+
+5HP
+
+3
+
+Gold
+
+6HP
+
+2
+
+2HP
+
+3.5
+
+3HP
+
+2.5
+
+2HP
+
+2
+
+5HP
+
+3
+
+Stone
+
+7HP
+
+2
+
+2HP
+
+2.5
+
+4HP
+
+2.5
+
+3HP
+
+2
+
+6HP
+
+3
+
+Iron
+
+8HP
+
+2
+
+3HP
+
+3
+
+5HP
+
+2.5
+
+4HP
+
+2
+
+7HP
+
+3
+
+Diamond
+
+9HP
+
+2
+
+3HP
+
+3.5
+
+6HP
+
+2.5
+
+5HP
+
+2
+
+8HP
+
+3
+
+Videos
+Video made by slicedlime:
+
+
+
+
+Issues
+This version is not supported on the bug tracker, and as such issues relating to this version will not be fixed.
+
+References
+
+ "Important Message: Security vulnerability in Java Edition"     – Minecraft.net, December 10, 2021.
+
+  "A custom Java Edition snapshot to test new combat mechanics" – u/jeb_ on Reddit, June 26, 2019
+
+Navigation

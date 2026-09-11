@@ -1,0 +1,183 @@
+/clone
+
+Permission levelrequired
+
+2 ‌[JE  only]
+1 ‌[BE  only]
+
+Restrictions
+
+Cheat only‌[BE  only]
+
+{
+    "title": "<code>/clone</code>",
+    "rows": [
+        {
+            "field": "\n* 2 ‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Java Edition\">(link to Java Edition article, displayed as JE)  only</span></i>]</sup>\n* 1 ‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Bedrock Edition\">(link to Bedrock Edition article, displayed as BE)  only</span></i>]</sup>",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "(link to Cheat article, displayed as Cheat) only‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Bedrock Edition\">(link to Bedrock Edition article, displayed as BE)  only</span></i>]</sup>",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+Clones blocks from one region to another.
+
+Contents
+
+1 Syntax
+2 Arguments
+3 Result
+4 Output
+5 History
+
+5.1 Java Edition
+5.2 Bedrock Edition
+
+6 References
+7 See also
+8 External links
+9 Navigation
+
+Syntax
+Java Edition
+clone . . .
+clone from <sourceDimension> . . .
+... <begin> <end> . . .
+... <destination> . . .
+... to <targetDimension> <destination> . . .
+... [strict] [replace] [force|move|normal]
+Clones all blocks.
+... [strict] masked [force|move|normal]
+Clones non-air blocks.
+... [strict] filtered <filter> [force|move|normal]
+Clones only blocks with the block id specified by <filter>.
+Syntax displayed in various ways
+
+Simplified tree:
+
+clone <begin> <end> . . .
+clone from <sourceDimension> <begin> <end> . . .
+... <destination> . . .
+... to <targetDimension> <destination> . . .
+... [strict] [replace|masked] [force|move|normal]
+... [strict] filtered <filter> [force|move|normal]
+
+Maximised:
+
+clone <begin> <end> <destination>
+clone from <sourceDimension> <begin> <end> <destination>
+clone <begin> <end> <destination> replace [force|move|normal]
+clone from <sourceDimension> <begin> <end> <destination> replace [force|move|normal]
+clone <begin> <end> <destination> masked [force|move|normal]
+clone from <sourceDimension> <begin> <end> <destination> masked [force|move|normal]
+clone <begin> <end> <destination> filtered <filter> [force|move|normal]
+clone from <sourceDimension> <begin> <end> <destination> filtered <filter> [force|move|normal]
+clone <begin> <end> to <targetDimension> <destination>
+clone from <sourceDimension> <begin> <end> to <targetDimension> <destination>
+clone <begin> <end> to <targetDimension> <destination> replace [force|move|normal]
+clone from <sourceDimension> <begin> <end> to <targetDimension> <destination> replace [force|move|normal]
+clone <begin> <end> to <targetDimension> <destination> masked [force|move|normal]
+clone from <sourceDimension> <begin> <end> to <targetDimension> <destination> masked [force|move|normal]
+clone <begin> <end> to <targetDimension> <destination> filtered <filter> [force|move|normal]
+clone from <sourceDimension> <begin> <end> to <targetDimension> <destination> filtered <filter> [force|move|normal]
+
+Bedrock Edition
+clone <begin: x y z> <end: x y z> <destination: x y z> [maskMode: MaskMode] [cloneMode: CloneMode]
+Clones all blocks or only non-air blocks.
+clone <begin: x y z> <end: x y z> <destination: x y z> filtered <cloneMode: CloneMode> <tileName: Block> [blockStates: block states]
+Clones only blocks with the block id specified by <tileName: Block>.
+Arguments
+JE: <sourceDimension>: dimension
+
+Specifies the dimension to clone the blocks from. If unspecified, defaults to current execution dimension.
+It must be a resource location, which resolves into a dimension during command execution.
+JE: <begin>: block_pos and <end>: block_pos
+BE: begin: x y z: CommandPosition and end: x y z: CommandPosition
+
+Specifies the coordinates of two opposing corner blocks of the source region.
+In Java Edition, must be a block position composed of <X>, <Y> and <Z>, each of which must be an integer or a tilde and caret notation. In Bedrock Edition, must be a three-dimensional coordinates composed of <X>, <Y> and <Z>, each of which must be a single-precision floating-point number or tilde and caret notation.
+Block position is the coordinates of the point at the lower northwest corner of a block. Because of this, the lesser coordinates of each axis falls right on the region boundary, but the greater coordinates are one block from the boundary, and the block volume of the source region is (xgreater - xlesser + 1) × (ygreater - ylesser + 1) × (zgreater - zlesser + 1). For example, 0 0 0 0 0 0 has a 1-block volume, and 0 0 0 1 1 1 and 1 1 1 0 0 0 both identify the same region with an 8-block volume.
+JE: <targetDimension>: dimension
+
+Specifies the dimension to clone the blocks to. If unspecified, defaults to current execution dimension.
+It must be a resource location, which resolves into a dimension during command execution.
+JE: <destination>: block_posBE: destination: x y z: CommandPosition
+
+Specifies the lower northwest corner of the destination region.
+In Java Edition, must be a block position composed of <X>, <Y> and <Z>, each of which must be an integer or a tilde and caret notation. In Bedrock Edition, must be a three-dimensional coordinates composed of <X>, <Y> and <Z>, each of which must be a single-precision floating-point number or tilde and caret notation.
+JE: replace and masked
+BE: maskMode: MaskMode: enum
+
+Specifies whether to filter the blocks being cloned. Must be one of the following:
+replace — Copy all blocks, overwriting all blocks of the destination region with the blocks from the source region.
+masked — Copy only non-air blocks. Blocks in the destination region that would otherwise be overwritten by air are left unmodified.
+If unspecified, defaults to replace.
+JE：strict
+
+Makes the command place blocks as-is without triggering block updates and shape updates.
+JE: force|move|normal
+BE: cloneMode: CloneMode: enum
+
+Specifies how to treat the source region. Must be one of the following:
+force — Force the clone even if the source and destination regions overlap.
+move — Clone the source region to the destination region, then replace the source region with air. When used in filtered mask mode, only the cloned blocks are replaced with air.
+normal — Don't move or force.
+If unspecified, defaults to normal.
+JE: <filter>: block_predicateBE: tileName: Block: enum
+
+Specifies the block id to copy in filtered mode.
+In Java Edition, must be in the format of block_id[block_states]{data_tags}(accepts block tags), in which block states and data tags can be omitted when they are not needed. In Bedrock Edition, must be a block id.
+BE: blockStates: block states: BlockStateCommandParam
+
+Specifies the block states to use for the block.
+Must be a blockstate argument as ["<state1>"=<value1>,"<state2>"=<value2>,...]. For example: ["old_leaf_type"="birch","persistent_bit"=true].
+Result
+
+CommandTriggerJava EditionBedrock Edition
+
+AnyThe command is incomplete, or any argument is not specified correctly. Unparseable UnparseableOne or both specified regions are unloaded or out of the world. Failed FailedThe volume of the source region is greater than commandModificationBlockLimit gamerule value. N/AThe volume of the source region is greater than 655360. N/A Failed/clone ... normal ...The source and destination region overlap. Failed/clone ... replace move ...The source region and destination region overlap. Successful/clone ... filtered ...There is no specified block in the source region. Failed/clone ... replace ...All the blocks in the source region are barriers. Failed N/A/clone ... masked ...There is no non-air and non-barrier block in the source region./clone ... filtered ...The specified block is barrier./clone ... masked ...There is no non-air block in the source region. N/A FailedAnyOtherwiseSuccessful
+Output
+
+CommandEditionSituationSuccess Count/execute store success .../execute store result ...
+
+AnyJava EditionOn fail000On success11the number of blocks that are successfully cloned.Bedrock EditionOn fail0N/AN/AOn success1N/AN/A
+History
+Java Edition
+Java Edition1.814w03a
+Added /clone.14w10a
+Added force option.14w20a
+Added move option.1.1317w45a
+
+The syntax of /clone has been changed.
+
+ /clone <begin> <end> <destination> filtered [force|move|normal] [<block>] [<data>] becomes /clone <begin> <end> <destination> filtered [<block>] [force|move|normal].
+
+ /clone <begin> <end> <destination> [replace|masked] [force|move|normal] [<block>] [<data>] becomes /clone <begin> <end> <destination> [replace|masked] [force|move|normal].1.19.423w03a
+Added dimension argument.
+
+Now the limit volume of the clone region is controlled by commandModificationBlockLimit gamerule, instead of a hardcoded value 32768.1.21.525w02a
+Accepts a new option: strict.
+New syntax for commands to use the new strict option.
+Bedrock Edition
+Pocket Edition Alphav0.16.0build 1
+Added /clone.
+Functionality is almost equivalent to Java Edition 1.10 usage, except /clone cannot use forced cloneMode.Bedrock Edition1.16.210beta 1.16.210.53
+Added block state support to /clone.beta 1.16.210.57
+Cloning a block of the same type is no longer treated as a failed operation.1.18.0?
+The limit volume of /clone is 655360 now, instead of 524288.1.19.70Preview 1.19.70.21
+Removed tileData: int argument.1.21.0Preview 1.21.0.20
+Containers being cloned over no longer keep their container screens open.
+References
+
+ MC-231566
+
+See also
+/fill – fill a region with a block.
+External links
+"/clone Command"     – Microsoft Learn, July 17, 2024.
+Navigation

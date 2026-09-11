@@ -1,0 +1,234 @@
+This page covers a development version that has a major issue under certain conditions. 
+The dedicated server for this version has a security vulnerability in the Log4j library that could be used to perform a remote code execution exploit. It can be addressed by appending a certain JVM argument to the server startup command line.
+
+Minecraft 1.18 experimental snapshot 2
+
+Edition
+
+Java Edition
+
+Release date
+
+July 20, 2021
+
+Type
+
+Experimental Snapshot
+
+Experimental snapshot for
+
+1.18
+
+Downloads
+
+Client (.json)Server
+
+Obfuscation maps
+
+ClientServer
+
+Protocol version
+
+ dec: 1073741866 hex: 4000002A
+
+Data version
+
+2826
+
+Resource pack format
+
+7
+
+Data pack format
+
+7
+
+Minimum Java version
+
+Java SE 16
+
+◄◄   1.17.1
+1.18
+  1.18.1 ►►
+
+◄   1.18 Experimental Snapshot 1
+
+ 1.18 experimental snapshot 2
+
+  1.18 experimental snapshot 3 ►
+
+{
+    "title": "Minecraft 1.18 experimental snapshot 2",
+    "images": [
+        "1.18 Experimental Snapshot 1 banner.jpg",
+        "1.18 experimental snapshot 2 reddit.png",
+        "Java Edition 1.18 experimental snapshot 2 menu.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "July 20, 2021",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Experimental Snapshot article, displayed as Experimental Snapshot)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition 1.18 article, displayed as 1.18)",
+            "label": "Experimental snapshot for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/1108159d2734fda202c782ff08e74bf1e399bad4/client.jar Client] ([https://piston-data.mojang.com/v1/objects/0adfe4f321aa45248fc88ac888bed5556633e7fb/1_18_experimental-snapshot-2.zip .json])<br />[https://piston-data.mojang.com/v1/objects/9fa3fd2939f9785bafc6a0a3507c3c967fbeafed/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/e40574bb0e42a3a2e9fd486db7f7dcd5e5d0c165/client.txt Client]<br />[https://piston-data.mojang.com/v1/objects/dde78de8bc0937fa8324efd62d78244febd431e9/server.txt Server]",
+            "label": "(link to Obfuscation map article, displayed as Obfuscation maps)"
+        },
+        {
+            "field": " <span style=\"font-size:smaller\"><abbr title=\"decimal\">dec</abbr>: </span>1073741866<br /> <span style=\"font-size:smaller\"><abbr title=\"hexadecimal\">hex</abbr>: </span>4000002A",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "2826",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "7",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "7",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Data pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_16 Java SE 16]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Java Edition  1.17.1|<span style=\"margin-right:-0.35em\">◄</span>◄   1.17.1]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition 1.18|1.18]]'''</td>\n<td style=\"padding: 0.4em\" >[[Java Edition  1.18.1|  1.18.1 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  1.18 Experimental Snapshot 1|◄   1.18 Experimental Snapshot 1]]\n</td>\n<td style=\"padding: 0.4em\">''' 1.18 experimental snapshot 2'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  1.18 experimental snapshot 3|  1.18 experimental snapshot 3 ►]]\n</td>\n</tr>\n</table>"
+}
+
+
+1.18 Experimental Snapshot 2 (known as 1_18_experimental-snapshot-2 in the launcher) is the second experimental snapshot for Java Edition 1.18, released on July 20, 2021, which makes numerous changes to world generation and mob spawning functionality related to monster spawners.
+
+Contents
+
+1 Additions
+
+1.1 General
+
+2 Changes
+
+2.1 Mobs
+2.2 World generation
+2.3 General
+
+3 Issues
+4 Gallery
+5 Videos
+6 Notes
+7 References
+8 Navigation
+
+Additions
+A map of biome placement in the first snapshot.
+A map of biome placement in this snaphot.
+General
+NBT format
+
+Spawners now have a new [NBT Compound / JSON Object] CustomeSpawnRules [sic] tag, which lets players override the spawn rules of the spawned mob.
+In the tag, players can specify [Int] BlockLightLimit, which indicates the highest block-light the spawner spawns mobs at.
+Changes
+Mobs
+General
+
+Zombie, skeleton, spider, and cave spider spawners now spawn mobs up to block-light level 11.
+World generation
+Beaches
+
+Beaches are generally wider.
+In some places there is a chance where no beaches generate at all, to provide some variation.
+Extreme hills
+
+Renamed mountains to extreme hills, and gravelly mountains to gravelly hills.
+Mountains
+
+Sheep now spawn in meadows.
+Rabbits now spawn more frequently in meadows.
+Donkeys now spawn less frequently in meadows.
+Blue orchid no longer spawns in meadows.
+Meadows sometimes spawn a lone oak or birch, often with a bee nest.
+Hostile mobs now spawn in the new mountain biomes.
+Infested stone now generate in the new mountain biomes.
+Ore distribution
+
+Emerald ores now generate in the new mountain biomes.
+Ore veins
+
+Made ore veins slightly larger and more frequent.
+Biomes
+
+Ice spikes, eroded badlands, and savanna plateau generate naturally.
+Swamp
+
+Swamps now generate properly.
+Lush caves
+
+Are now slightly smaller and slightly less common.
+General
+
+Biome placement is a bit smoother and less noisy. Fewer microbiomes dotting the terrain. Biomes tend to be a bit larger and less fragmented.
+Underground biomes interfere less with surface biomes. They can still leak out of cave entrances sometimes.
+Increased the height of some of the peaks.
+Now can rarely reach up to Y=260.
+Slightly increased the chance of finding large areas with flat terrain.
+Structures now mostly show up in the right biomes.
+Toned down the megacave entrances a little bit, and made them less likely to go all the way down to deepslate level.
+Made cheese caves a little bit smaller on average, and a bit less likely to intersect the surface.
+Reduced the chance of sand and gravel being placed in such a way that they immediately fall down on generation.
+Some are now replaced with sandstone or stone.
+General
+Clouds
+
+Raised cloud level from 128 to 192.
+Issues
+This version is not supported on the bug tracker, and therefore issues affecting it will be resolved as "Invalid".
+
+Gallery
+
+
+
+
+
+
+
+
+
+
+Videos
+Video made by slicedlime:
+
+
+
+
+Notes
+
+ Unzip this file in the .minecraft/versions folder.
+
+References
+
+ "Important Message: Security vulnerability in Java Edition"     – Minecraft.net, December 10, 2021.
+
+ "New world generation in Java available for testing"     by Henrik Kniberg  – Minecraft.net, July 20, 2021.
+
+  "Minecraft 1.18 experimental snapshot 2 is out!" – u/MrHenrik2 on Reddit, July 20, 2021
+
+ MC-231984
+
+Navigation

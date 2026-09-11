@@ -1,0 +1,128 @@
+For the item category, see Creative inventory § Bedrock Edition.
+
+Equipment refers to items that can be inserted into a specialized slot in a mob's inventory in order to change certain aspects of its behavior and appearance. Equipment objects typically do not flash red when the mob takes damage and remain visible if the mob has the Invisibility effect.
+
+Contents
+
+1 Specification
+2 Equipment Layer Types
+3 History
+4 Navigation
+
+Specification
+Custom equipment can be defined and referenced by the equippable item component.
+Equipment definitions are stored in the assets/<namespace>/equipment directory of a resource pack.
+
+[NBT Compound / JSON Object]: The root tag.
+[NBT Compound / JSON Object] layers: Layer types for this equipment model. If a layer is omitted, the armor piece does not render when in the respective slot (with the exception of the head slot, where the regular item model is rendered instead).
+[NBT List / JSON Array] Layer definitions: The layers for this layer type.
+[String] texture: A namespaced id pointing to a texture for this layer. namespace:path resolves to assets/<namespace>/textures/entity/equipment/<layer_type>/<path>.png.
+[NBT Compound / JSON Object] dyeable: (optional) Specifies how this layer behaves when the item is dyed. An item is considered as "dyed" when it has the dyed_color data component.
+[Int] color_when_undyed: (optional) An rgb int in decimal representation. The color to tint this layer if the item is undyeable or not dyed. If this is not present and the item is not dyed, the layer is hidden.
+[Boolean] use_player_texture: (optional, default: false) If set to true, the layer texture is overridden by a texture given by the player. This is currently used only for the wings layer type, where the player's cape texture is used instead if this is set to true.
+
+An interactive widget is being loaded. If this does not work for you, please reload the page or check if JavaScript is working or enabled.
+Equipment Layer Types
+Equipment layer types are used for the following inventory slots:
+
+Equipment model layer type
+
+Inventory slots
+
+wolf_body
+
+A wolf's body slot.
+
+horse_body
+
+A horse's or zombie horse's body slot.
+
+llama_body
+
+A llama's or trader llama's body slot.
+
+humanoid
+
+A humanoid's head or chest or feet slot.
+
+humanoid_leggings
+
+A humanoid's legs slot.
+
+wings
+
+A humanoid's chest slot if the equipment has the glider data component.
+
+pig_saddle
+
+A pig's saddle slot.
+
+strider_saddle
+
+A strider's saddle slot.
+
+camel_saddle
+
+A camel's saddle slot.
+
+horse_saddle
+
+A horse's saddle slot.
+
+donkey_saddle
+
+A donkey's saddle slot.
+
+mule_saddle
+
+A mule's saddle slot.
+
+skeleton_horse_saddle
+
+A skeleton horse's saddle slot.
+
+zombie_horse_saddle
+
+A zombie horse's saddle slot.
+
+happy_ghast_body
+
+A happy ghast's body slot.
+
+nautilus_body
+
+A nautilus or zombie nautilus's body slot.
+
+nautilus_saddle
+
+A nautilus or zombie nautilus's saddle slot.
+
+camel_husk_saddle
+
+A camel husk's saddle slot.
+
+humanoid_baby
+
+A baby humanoid's head or chest or legs or feet slot.
+
+ Player, piglin, piglin brute, all skeleton (wither skeleton, stray, parched, bogged), all zombies (husk, drowned, zombie villager, zombified piglin), giant, armor stand and mannequin. The endermens are technically humanoids, but they don't render armor. Villagers are not considered humanoid by the game's code.
+
+History
+Java Edition1.21.224w36a
+Equipment is now defined in resource pack using the files in assets/[namespace]/models/equipment.
+
+The appearance of equipment when equipped by players or certain mobs can now be customized by defining 'equipment models' in the Resource Pack.1.21.424w45a
+Equipment is now defined at assets/[namespace]/equipment.
+
+equipment directory has been moved one level up, i.e. models/equipment/ becomes equipment/.1.21.525w03a
+Saddles are now counted as equipment.
+
+Added 8 new equipment model layers for saddles: pig_saddle, strider_saddle, camel_saddle, horse_saddle, donkey_saddle, mule_saddle, skeleton_horse_saddle and zombie_horse_saddle. These layers are only used for the respective entities' saddle slots.25w06a
+The offhand inventory slot NBT Slot:-106 was moved to be under the equipment tag as offhand.25w08a
+Equipment layers configured to be dyeable will now show if the dyed_color component is present on the item, even if the item is not in the dyeable item tag.1.21.625w15a
+Added a new equipment model layer happy_ghast_body for happy ghasts.1.21.1125w41a
+Added a new equipment model layers nautilus_body and nautilus_saddle for nautilus.25w44a
+Added a new equipment model layer camel_husk_saddle for camel husk.Pre-Release 1
+The leather equipment assets have been split into a tinted base layer and an overlay layer.26.1snap7
+Added a new equipment model layer humanoid_baby for baby mobs.
+Navigation

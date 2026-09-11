@@ -1,0 +1,234 @@
+14w05a
+
+Edition
+
+Java Edition
+
+Release date
+
+January 30, 2014
+
+Type
+
+Snapshot
+
+Snapshot for
+
+1.8
+
+Downloads
+
+Client (.json)Server (.exe)
+
+Protocol version
+
+9
+
+Resource pack format
+
+1
+
+Minimum Java version
+
+Java SE 6
+
+◄◄   1.7.10
+1.8
+  1.8.1 ►►
+
+◄   14w04b
+
+ 14w05a
+
+  14w05b ►
+
+{
+    "title": "14w05a",
+    "images": [
+        "14w05a Banner.png",
+        "Java Edition 14w05a.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "January 30, 2014",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Snapshot article, displayed as Snapshot)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition 1.8 article, displayed as 1.8)",
+            "label": "Snapshot for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/3b7c6e09b60d4aecdddf1e453a8b10ebd90becd4/client.jar Client] ([https://piston-meta.mojang.com/v1/packages/fb2600e556a199c81b238795ee3a3a05ddb02c59/14w05a.json .json])<br />[https://piston-data.mojang.com/v1/objects/27abecb729cab3a6e11f635dae2cf9be5f620a75/server.jar Server] ([https://piston-data.mojang.com/v1/objects/66baa6d77dd04a432734aad75ef7270da321675e/windows_server.exe .exe])",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "9",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "1",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_6 Java SE 6]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Java Edition  1.7.10|<span style=\"margin-right:-0.35em\">◄</span>◄   1.7.10]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition 1.8|1.8]]'''</td>\n<td style=\"padding: 0.4em\" >[[Java Edition  1.8.1|  1.8.1 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  14w04b|◄   14w04b]]\n</td>\n<td style=\"padding: 0.4em\">''' 14w05a'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  14w05b|  14w05b ►]]\n</td>\n</tr>\n</table>"
+}
+
+
+14w05a is the eighth snapshot for Java Edition 1.8, released on January 30, 2014, which adds Spectator mode and barrier blocks.
+
+Contents
+
+1 Additions
+
+1.1 Blocks
+1.2 Gameplay
+1.3 General
+
+2 Changes
+
+2.1 Blocks
+2.2 Items
+2.3 General
+
+3 Fixes
+4 Trivia
+5 References
+6 Navigation
+
+Additions
+Blocks
+ Barriers
+
+Act like a solid block but are completely transparent.
+Can transfer redstone signals and allow blocks to be placed on it.
+Indestructible like bedrock.
+Can only be obtained using /give @p minecraft:barrier.
+Use the lava texture as its breaking particle.
+Gameplay
+Spectator
+
+New game mode.
+Usage: /gamemode spectator, /gamemode sp or /gamemode 3.
+No interaction with the world.
+Player can move through any entity or block without interfering with it (commonly referred to as 'noclip' or as if in the far lands because they have fake chunks).
+Collecting or using items is impossible, as is placing, destroying or interacting with blocks in any way.
+A bug in this version allows the selected item from the hotbar to be dropped.
+Viewing inventories and GUIs is possible, but it is not possible to interact with them.
+The heads-up display is disabled, except for the cross hair when looking at a mob.
+Player selectors (in commands) can target spectators.
+Using /give on a spectator causes the item(s) to drop at their location.
+Spectators are not noticed by mobs, and do not trigger spawners or spawning.
+A spectator's presence keeps a mob from despawning.
+Only the void and /kill can damage a spectator.
+Flying mode.
+Landing is not possible—the player can fly through the ground.
+The  Scroll Wheel, the sprint key, and the Slowness and Speed effects all affect the flying speed.
+First-person view through another player or mob's eyes.
+Left-clicking an entity locks the player's position and camera to the entity's.
+The spectator cannot control where the entity moves or looks.
+Certain mobs have a different vision.
+Creeper applies the new creeper.json shader.
+Endermen applies the invert.json shader.
+Spider and cave spider apply the new spider.json shader.
+Viewing oneself using F5 shows the entity.
+Pressing the dismount key (⇧ Shift by default) returns the player to flying mode.
+Viewing privileges.
+Spectators can see other spectators.
+Appear as a translucent disembodied head.
+The selected item from the hotbar is also visible.
+Invisible players and mobs appear visible, but translucent.
+General
+Shaders
+
+creeper.json.
+Shows the world in pixelated shades of green, similar to green.json.
+Is applied when the player uses Spectator mode on a creeper.
+spider.json.
+A segmented-eyes effect.
+Is applied when the player uses Spectator mode on a spider.
+Splashes
+
+Added the following splashes:
+"pls rt"
+"Do you want to join my server?"
+"Put a little fence around it!"
+"Throw a blanket over it!"
+"One day, somewhere in the future, my work will be quoted!"
+"Now with additional stuff!"
+"Extra things!"
+Changes
+Blocks
+Activator rail
+
+Powered activator rails now shake minecarts, causing riders to dismount.
+End portal (block)
+
+Inventory image is now the missing texture instead of the nether portal.
+Items
+Armor
+
+No longer gets colored when mobs/players are hurt.
+Written books
+
+Copying written books now marks them as copies/copies of copies.
+The copying status of a book (i.e. original, copy of original or copy of a copy) is denoted in a separate line in the tooltip, beneath the author's name.
+Copies of copies cannot be copied.
+General
+Debug screen
+
+Text now has a background.
+Replaced x, y, z, b, bl and other labels with more understandable labels.
+"Light" is now the light levels at feet, not eyes.
+Currently missing LC value.
+Redwood Taiga Hills M biome now shows its name in worlds created since 13w49a.
+Worlds created from 13w36a to 13w48b that already generated chunks with the biome don't show it in the debug screen, as they show Mega Spruce Taiga instead. In these worlds, Redwood Taiga Hills M generates normaly but it only shows in the debug screen in newly chunks generated since 13w49a.
+GUI code
+
+Improvements to allow "cooler things".
+Fixes
+15 issues fixed
+From released versions before 1.8
+
+MC-9752 – The command block will detect players who are dead, but have not yet hit respawn.
+MC-38944 – Joining Realms world "cancel" button misplaced.
+From the 1.8 development versions
+
+MC-44521 – @a, @e, and any UUID references work incorrectly after a player dies.
+MC-45041 – /setblock on a tile entity with "replace" doesn't seem to work.
+MC-45050 – /fill … skull | Hitbox bug.
+MC-45159 – Blocks with tile entities don't get removed when you clone / fill an airblock to their position.
+MC-45239 – /clear @a does not work in Minecraft 14w03b.
+MC-45453 – Items & Blocks placed in item frames are rendered incorrectly.
+MC-45470 – Items don't render on the ground properly.
+MC-45478 – Pre-snapshot14w04a villagers break crops but don't replant them.
+MC-45492 – Transparent blocks are much darker.
+MC-45554 – Two tall flowers variants are not generating.
+From the previous development version
+
+MC-45764 – Map will not show in item frame.
+MC-45795 – Villagers can not place or pick up any crops.
+MC-45847 – /summon Villager farmer NBT tag canPickUpLoot will default to 0.
+Trivia
+14w05a was previously removed from the launcher for some time, but was added back in September 2018.
+References
+
+ "Minecraft snapshot 14w05a is out!"  – @Dinnerbone (Nathan Adams) on X (formerly Twitter), January 30, 2014
+
+ "Minecraft snapshot 14w05a"  (archived)   by Dinnerbone  – Mojang.com, Janaury 30, 2014.
+
+ "Trying to clean up the GUI code so that we can do cooler things. This is both fun and not fun."  – @Dinnerbone (Nathan Adams) on X (formerly Twitter), January 28, 2014
+
+Navigation

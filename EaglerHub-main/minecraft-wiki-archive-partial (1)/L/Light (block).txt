@@ -1,0 +1,463 @@
+This article is about the invisible light-producing block.   For light producing blocks in general, see Light § Light level.
+
+Light
+
+
+
+
+Java Edition
+
+Bedrock Edition
+
+
+
+
+
+
+View all renders
+
+Rarity tier
+
+Epic‌[JE  only]
+Common‌[BE  only]
+
+Renewable
+
+No
+
+Stackable
+
+Yes (64)
+
+Tool
+
+None
+
+Blast resistance
+
+3,600,000.75
+
+Hardness
+
+-1
+
+Luminous
+
+See § Usage
+
+Transparent
+
+Yes
+
+Waterloggable
+
+Yes
+
+Flammable
+
+No
+
+Catches firefrom lava
+
+No
+
+Map color
+
+No waterlogging:  0 NONE
+Waterlogging::  12 WATER
+
+Note block instrument
+
+Default (Harp)
+
+{
+    "extratext": "View [[#Renders|all renders]]",
+    "title": "Light",
+    "images": [
+        "Light 15.png",
+        "Light 15 BE1.png",
+        "Light (shown).png"
+    ],
+    "rows": [
+        {
+            "field": "\n* Epic‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Java Edition\">(link to Java Edition article, displayed as JE)  only</span></i>]</sup>\n* Common‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Bedrock Edition\">(link to Bedrock Edition article, displayed as BE)  only</span></i>]</sup>",
+            "label": "(link to Rarity article, displayed as Rarity tier)"
+        },
+        {
+            "field": "No",
+            "label": "(link to Renewable resource article, displayed as Renewable)"
+        },
+        {
+            "field": "Yes (64)",
+            "label": "Stackable"
+        },
+        {
+            "field": "None",
+            "label": "Tool"
+        },
+        {
+            "field": "3,600,000.75",
+            "label": "(link to Explosion#Blast resistance article, displayed as Blast resistance)"
+        },
+        {
+            "field": "-1",
+            "label": "(link to Breaking#Blocks by hardness article, displayed as Hardness)"
+        },
+        {
+            "field": "See (link to #Usage article, displayed as <span style=\"white-space: nowrap;\">§ Usage</span>)",
+            "label": "(link to Light article, displayed as Luminous)"
+        },
+        {
+            "field": "Yes",
+            "label": "(link to Opacity article, displayed as Transparent)"
+        },
+        {
+            "field": "Yes",
+            "label": "(link to Waterlogging article, displayed as Waterloggable)"
+        },
+        {
+            "field": "No",
+            "label": "(link to Fire#Flammable blocks article, displayed as Flammable)"
+        },
+        {
+            "field": "No",
+            "label": "Catches fire<br>from (link to lava article, displayed as lava)"
+        },
+        {
+            "field": "'''No waterlogging:''' <span style=\"white-space: nowrap;\"><span style=\"display: inline-block; background-color: rgb(); border: 1px solid #888; border-radius: 0.3em; color: transparent; width: 1em; height: 1em; vertical-align: -0.36em; margin-right: -0.1em\"><br></span> 0 NONE</span>\n'''Waterlogging:''': <span style=\"white-space: nowrap;\"><span style=\"display: inline-block; background-color: rgb(64, 64, 255); border: 1px solid #888; border-radius: 0.3em; color: transparent; width: 1em; height: 1em; vertical-align: -0.36em; margin-right: -0.1em\"><br></span> 12 WATER</span>",
+            "label": "(link to Map item format#Color table article, displayed as Map color)"
+        },
+        {
+            "field": "Default (Harp)",
+            "label": "(link to Note Block#Instruments article, displayed as Note block instrument)"
+        }
+    ],
+    "invimages": [
+        "Light",
+        "Light 15 BE"
+    ]
+}
+
+Lights are invisible blocks, primarily intended for map makers, that can produce any light level from 0 to 15.
+
+Contents
+
+1 Obtaining
+2 Usage
+
+2.1 Placement and interaction
+2.2 Behavior
+2.3 Light source
+
+3 Sounds
+4 Data values
+
+4.1 ID
+4.2 Block states
+
+5 History
+
+5.1 Java Edition
+5.2 Bedrock Edition
+
+6 Gallery
+
+6.1 Renders
+6.2 Screenshots
+
+7 Issues
+8 References
+9 Navigation
+
+Obtaining
+Light blocks cannot be mined, similar to air, and can be targeted only if the player is holding a light item in the main hand. Light blocks with a light level of 0 are functionally identical to air.
+They do not attach to any block, meaning that breaking an adjacent block does not remove the light block. However, they can be broken by replacing them with another block. The exception is water (including, in Bedrock Edition, flowing water), which can occupy the same space as a light block. See Waterlogging for more information.
+In Java Edition, light blocks are available in the Creative inventory. Across both Java Edition and Bedrock Edition, they can also be obtained by using commands such as /give. Using /give <target> minecraft:light[block_state={level:"<int>"}] can give a light block with a specific light level and corresponding texture. If the block_state component is removed or the level is not an integer from 0 to 15, the yellow stars texture is used by the item model, and a light level of 15 is emitted when the block is placed.
+In Bedrock Edition, specifying the data value from 0 to 15 determines the block's light level; if the data value is not specified, the light block emits a light level of 0. The command is: /give <target> light_block [amount: int] [data: int (0 - 15)] [components: json].
+
+Usage
+The difference between air (top left) and light (bottom right) when "show invisible blocks" is enabled
+A light block with a light level of 9
+Each light block has an associated light level, which can be any value from 0 to 15. In the player's inventory, light blocks display their light level in the top-left corner with a unique sprite for each light level.
+
+Placement and interaction
+Light blocks are mainly used in Creative mode, so the description below mainly applies to that mode.
+Light blocks are not visible, and have no hitbox unless the player is holding another light block in their main hand. When the player holds a light block, any placed light block become interactive, displaying a small icon in the center indicating the block's location and current light level. The block icon is a particle, and does not become visible if particles are set to their lowest setting, although the hitbox remains visible and interactive until the light block leaves the player's main hand.
+When holding a light block in the main hand, clicking use on a light block that is already placed on the ground causes the light level of the light block to increase by one. If the light level is already 15, it resets to 0. If a light block's level has been modified, it can be copied back into the player's hotbar by using the pick block button while holding another light block.
+In Survival mode, a light block can be placed, however only its hitbox is visible, and the block is not interactive (it does not allow to increase its level).
+In Adventure mode, a light block cannot be placed, and already placed blocks are completely invisible and inaccessible (only the light they produce is visible).
+
+Behavior
+Liquids such as water and lava cannot pass through light blocks unless they are waterlogged (either with the debug stick or by placing water on either side of the block.) but falling blocks like sand, gravel, and anvils pass through the light block as if it is air. If a falling block lands on a light block, or another block is placed over it, the light block is destroyed.
+Light blocks are detected by observers, and in Bedrock Edition they can be pushed and pulled by pistons.
+
+Light source
+Since light blocks produce light, their primary use is to illuminate certain areas of the world.
+
+Sounds
+Java Edition:
+
+v
+t
+e stone sound typeSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitchAttenuationdistance​Block brokenBlocksOnce the block has brokenblock.stone.breaksubtitles.block.generic.break​1.00.816​Block placedBlocksWhen the block is placedblock.stone.placesubtitles.block.generic.place​1.00.816​Block breakingBlocksWhile the block is in the process of being brokenblock.stone.hitsubtitles.block.generic.hit​0.250.516​Something falls on a blockEntity-DependentFalling on the block with fall damageblock.stone.fallsubtitles.block.generic.fall​0.50.7516​FootstepsEntity-DependentWalking on the blockblock.stone.stepsubtitles.block.generic.footsteps​0.151.016
+Bedrock Edition:
+
+v
+t
+e stone sound typeSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitch​Block brokenBlocksOnce the block has brokendig.stonesubtitles.block.generic.break​1.00.8–1.0​Block placedBlocksWhen the block is placedplace.stonesubtitles.block.generic.place​1.00.8–1.0​Block breakingBlocksWhile the block is in the process of being brokenhit.stonesubtitles.block.generic.hit​0.370.5​FootstepsPlayersFalling on the block with fall damagefall.stonesubtitles.block.generic.footsteps​0.41.0​FootstepsPlayersWalking on the blockstep.stonesubtitles.block.generic.footsteps​0.31.0​FootstepsBlocksJumping from the blockjump.stonesubtitles.block.generic.footsteps​0.121.0​FootstepsBlocksFalling on the block without fall damageland.stonesubtitles.block.generic.footsteps​0.221.0
+Data values
+ID
+Java Edition:
+
+NameIdentifierFormBlock tags
+Translation key LightlightBlock & Itemdragon_transparentwither_immune
+block.minecraft.light
+Bedrock Edition:
+
+NameIdentifierAlias ID Numeric ID FormItem ID
+Translation key Lightlight_block_0light_block / 0470Block & Giveable ItemIdentical(Numeric: -215)
+tile.light_block.name
+ Lightlight_block_1light_block / 11184Block & Giveable ItemIdentical(Numeric: -929)
+tile.light_block.name
+ Lightlight_block_2light_block / 21185Block & Giveable ItemIdentical(Numeric: -930)
+tile.light_block.name
+ Lightlight_block_3light_block / 31186Block & Giveable ItemIdentical(Numeric: -931)
+tile.light_block.name
+ Lightlight_block_4light_block / 41187Block & Giveable ItemIdentical(Numeric: -932)
+tile.light_block.name
+ Lightlight_block_5light_block / 51188Block & Giveable ItemIdentical(Numeric: -933)
+tile.light_block.name
+ Lightlight_block_6light_block / 61189Block & Giveable ItemIdentical(Numeric: -934)
+tile.light_block.name
+ Lightlight_block_7light_block / 71190Block & Giveable ItemIdentical(Numeric: -935)
+tile.light_block.name
+ Lightlight_block_8light_block / 81191Block & Giveable ItemIdentical(Numeric: -936)
+tile.light_block.name
+ Lightlight_block_9light_block / 91192Block & Giveable ItemIdentical(Numeric: -937)
+tile.light_block.name
+ Lightlight_block_10light_block / 101193Block & Giveable ItemIdentical(Numeric: -938)
+tile.light_block.name
+ Lightlight_block_11light_block / 111194Block & Giveable ItemIdentical(Numeric: -939)
+tile.light_block.name
+ Lightlight_block_12light_block / 121195Block & Giveable ItemIdentical(Numeric: -940)
+tile.light_block.name
+ Lightlight_block_13light_block / 131196Block & Giveable ItemIdentical(Numeric: -941)
+tile.light_block.name
+ Lightlight_block_14light_block / 141197Block & Giveable ItemIdentical(Numeric: -942)
+tile.light_block.name
+ Lightlight_block_15light_block / 151198Block & Giveable ItemIdentical(Numeric: -943)
+tile.light_block.name
+ ID of block's direct item form, which is used in savegame files and addons.
+
+ Available with /give command.
+
+ The block's direct item form has the same ID as the block.
+
+Block states
+See also: Block states
+
+Java Edition:
+
+  Name
+  Default value
+  Allowed values
+  Description
+  waterloggedfalsetruefalseWhether or not there's water in the same place as this light block.
+level150123456789101112131415The amount of light this block outputs.
+History
+Java Edition
+Java Edition1.1721w13a
+                Added lights.
+
+ Unlike in Bedrock Edition, while a player is holding the item, a particle is displayed similar to a barrier.21w18a
+                The textures of lights have been changed.21w20a
+                The textures of lights have been changed, again.
+
+The rarity of light has been changed from "Common" to "Epic".1.1821w42a
+The respective item texture of lights is now used as the particle instead of four yellow stars, matching Bedrock Edition.
+
+The texture for the four stars now used only as placeholder texture by item model.1.1922w11a
+Withers and ender dragons can no longer break light blocks.1.19.322w44a
+Light blocks are now available in the Creative inventory, but only if cheats are enabled.22w45a
+Moved light blocks behind the "Operator Utilities" tab in the Creative inventory. The tab is available only if cheats are enabled and the "Operator Items Tab" option in the controls menu is turned on.Upcoming Java Edition26.3snap3
+The placeholder light texture has been removed.
+Bedrock Edition
+Bedrock Edition1.13.0beta 1.13.0.4
+Added textures for light blocks.
+
+                Added light blocks.
+
+ Light blocks have a second form with an ID of -215 and the following identifier: item.light_block. They also use the placeholder texture.1.13.0beta 1.13.0.13
+The second form of the light block has been removed.1.17.30beta 1.17.20.22
+Light blocks now reveal a particle when the player is holding the item, showing the respective item texture as the particle.beta 1.17.30.20
+Right-clicking a light block with another now changes its light level by 1.
+
+Left-clicking a light block while holding a light block now removes it.1.18.0beta 1.18.0.22
+Light blocks are now invulnerable to explosions.1.20.30Preview 1.20.20.21
+Increased the blast resistance of light blocks from 3,600,000 to 3,600,000.8.1.20.70Preview 1.20.70.22
+Light block no longer drops itself when breaking.1.21.20Preview 1.21.20.21
+The different block states for the light_block ID have been split up into their own IDs.1.21.30Preview 1.21.30.22
+Changed name from "Light Block" to "Light" to match Java Edition.
+Gallery
+Renders
+Java Edition
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Bedrock Edition
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Screenshots
+
+
+
+			The light block as seen with a structure block in save mode
+
+
+
+			A screenshot displaying the way light blocks can prevent the flow of water and lava, as well as being waterlogged
+
+
+Issues
+Issues relating to "Light block" or "Light blocks" are maintained on the bug tracker. Issues should be reported and viewed there.
+
+References
+
+ MC-263398 – resolved as "Works As Intended".
+
+ MC-233771 – Parity issue: Light blocks do not display their light level when shown via a held light block item – resolved as "Fixed".
+
+ MC-239401
+
+Navigation

@@ -1,0 +1,46 @@
+A root system is a feature that spawns below naturally generated azalea trees.
+
+
+== Generation ==
+A root system is a mess of rooted dirt blocks in a clump.
+
+
+== Data values ==
+
+
+=== ID ===
+Java Edition:
+
+
+=== Config ===
+
+Java Edition:
+If the initial position is not air, root system fails to place. Root system checks every position, starting from the initial position and moving upward by [Int] root_column_max_height blocks.
+If it goes above the WORLD_SURFACE heightmap, root system fails to place.
+At each position in order:
+
+If the amount of air and water blocks above the position is less than [Int] required_vertical_space_for_tree or the highest water block is higher than [Int] allowed_vertical_water_for_tree, the position is not valid;
+[NBT Compound / JSON Object] allowed_tree_position block predicate;
+If [Int] level_test_distance is not 0, in each cardinal direction with an offset [Int] level_test_distance by XZ 2 points are checked with offset [Int] max_level_deviation by Y above and below. If below point is air or above point is not air, the position is not valid. That means if [Int] max_level_deviation is set to 0, this check will always fail;
+If below block is lava or not solid, the position is not valid;
+If [String][NBT Compound / JSON Object] feature fails to place, the position is not valid.
+After a position is found, roots are placed within a [Int] root_radius along XZ [Int] root_placement_attempts times. They can replace only [String][NBT List / JSON Array] root_replaceable blocks. After roots are placed, hanging roots are placed within a radius, defined by [Int] hanging_root_radius along XZ and [Int] hanging_roots_vertical_span along Y [Int] hanging_root_placement_attempts times. If a block is air, then block predicates has_sturdy_face above and would_survive are applied.
+
+
+== History ==
+
+
+=== Java Edition ===
+
+
+=== Bedrock Edition ===
+
+
+== Issues ==
+Issues relating to "Root System" are maintained on the bug tracker. Issues should be reported and viewed there.
+
+
+== References ==
+
+
+== Navigation ==

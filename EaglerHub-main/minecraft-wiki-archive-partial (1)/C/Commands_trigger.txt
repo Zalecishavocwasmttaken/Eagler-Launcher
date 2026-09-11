@@ -1,0 +1,77 @@
+This article is about the command.   For triggers in advancement definitions, see Advancement definition § List of triggers.
+
+
+
+This feature is exclusive to Java Edition. 
+
+/trigger
+
+Permission levelrequired
+
+0
+
+Restrictions
+
+None
+
+{
+    "title": "<code>/trigger</code>",
+    "rows": [
+        {
+            "field": "0",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "None",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+Changes the executor player's score in a scoreboard objective with a "trigger" criterion, and un-enables the objective for this player. Allows non-operator players to modify their own scoreboard objectives under tightly controlled conditions. Often used to let players activate systems controlled by data packs or command blocks.
+
+Contents
+
+1 Syntax
+2 Arguments
+3 Result
+4 Output
+5 History
+6 Navigation
+
+Syntax
+trigger <objective>
+
+Adds 1 to the current value of <objective>.
+trigger <objective> add <value>
+
+Adds <value> to the current value of <objective>.
+trigger <objective> set <value>
+
+Sets the value of <objective> to <value>.
+Arguments
+<objective>: objective
+
+An enabled scoreboard objective with the "trigger" criterion.
+It must be a single word. (Allowed characters include: -, +, ., _, A-Z, a-z, and 0-9) It resolves into a scoreboard objective during command execution.
+<value>: integer
+
+Specifies the value to be set to or added to the objective.
+Must be a [Int]32-bit integer number (from -2147483648 (-231) to 2147483647 (231-1) ).
+Result
+
+CommandTriggerJava Edition
+
+Anythe arguments are not specified correctly Unparseablethe objective does not exist Failedthe objective isn't the "trigger" typethe executor is not a playerthe executor isn't on the scoreboard objective.the objective has not been "enabled" for the playerOtherwiseSuccessful
+Output
+
+CommandEditionSituationSuccess Count/execute store success .../execute store result ...
+
+AnyJava EditionOn fail000On success11The objective's score of the player after the command is executed.
+History
+Java Edition1.814w06a
+Added /trigger.1.1317w45a
+Added /trigger <objective> as a new syntax as a shortcut for /trigger <objective> add 1.
+Navigation

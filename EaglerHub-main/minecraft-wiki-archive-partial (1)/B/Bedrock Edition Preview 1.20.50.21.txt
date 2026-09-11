@@ -1,0 +1,229 @@
+Preview 1.20.50.21
+
+Edition
+
+Bedrock Edition
+
+Release date
+
+October 18, 2023
+
+Server version
+
+1.20.50.21
+
+Build version
+
+18975808
+
+Internal version
+
+Windows: 1.20.5021.0Xbox One: 1.20.5021.70Android, iOS, iPadOS: 1.20.50.21
+
+Version code
+
+Android:
+952005021（armeabi-v7a，33）
+962005021（x86，33）
+972005021（arm64-v8a，33）
+982005021（x86_64，33）
+
+Type
+
+Preview
+
+Preview for
+
+1.20.50
+
+Downloads
+
+ ServerWindowsLinux
+
+Protocol version
+
+627
+
+◄◄   1.20.41
+1.20.50
+  1.20.51 ►►
+
+◄   Preview 1.20.50.20
+
+ Preview 1.20.50.21
+
+  Preview 1.20.50.22 ►
+
+{
+    "title": "Preview 1.20.50.21",
+    "images": [
+        "Bedrock 1.20.50.21 PatchNotes.jpg",
+        "Bedrock 1.20.50.21.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Bedrock Edition article, displayed as Bedrock Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "October 18, 2023",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Bedrock Dedicated Server 1.20.50.21 article, displayed as 1.20.50.21)",
+            "label": "Server version"
+        },
+        {
+            "field": "18975808",
+            "label": "Build version"
+        },
+        {
+            "field": "'''Windows''': 1.20.5021.0<br>'''Xbox One''': 1.20.5021.70<br>'''Android, iOS, iPadOS''': 1.20.50.21",
+            "label": "Internal version"
+        },
+        {
+            "field": "'''Android''':<br>\n952005021（armeabi-v7a，33）<br>\n962005021（x86，33）<br>\n972005021（arm64-v8a，33）<br>\n982005021（x86_64，33）<br>",
+            "label": "Version code"
+        },
+        {
+            "field": "Preview",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Bedrock Edition 1.20.50 article, displayed as 1.20.50)",
+            "label": "Preview for"
+        },
+        {
+            "field": "'''Server'''<br>[https://minecraft.net/bedrockdedicatedserver/bin-win-preview/bedrock-server-1.20.50.21.zip Windows]<br>[https://minecraft.net/bedrockdedicatedserver/bin-linux-preview/bedrock-server-1.20.50.21.zip Linux]",
+            "label": "Downloads"
+        },
+        {
+            "field": "627",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Bedrock Edition  1.20.41|<span style=\"margin-right:-0.35em\">◄</span>◄   1.20.41]]</td>\n<td style=\"padding: 0.4em\">'''[[Bedrock Edition 1.20.50|1.20.50]]'''</td>\n<td style=\"padding: 0.4em\" >[[Bedrock Edition  1.20.51|  1.20.51 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Bedrock Edition  Preview 1.20.50.20|◄   Preview 1.20.50.20]]\n</td>\n<td style=\"padding: 0.4em\">''' Preview 1.20.50.21'''</td>\n<td style=\"padding: 0.4em\">\n[[Bedrock Edition  Preview 1.20.50.22|  Preview 1.20.50.22 ►]]\n</td>\n</tr>\n</table>"
+}
+
+Beta 1.20.50.21 (Android) or Preview 1.20.50.21 (Windows, iOS, iPadOS, Xbox) is the second beta/Preview version for Bedrock Edition 1.20.50, released on October 18, 2023, which adds the crafter behind an experimental toggle and fixes bugs.
+
+Contents
+
+1 Additions
+
+1.1 General
+
+2 Changes
+
+2.1 Blocks
+
+3 Experimental
+
+3.1 Additions
+
+3.1.1 Blocks
+
+3.2 Changes
+
+3.2.1 Technical
+
+4 Fixes
+5 References
+6 Navigation
+
+Additions
+General
+Experiments
+
+Added the "Update 1.21" experimental toggle.
+Contains new features for Minecraft 1.21.
+Particles
+
+Added new white_smoke_particle particle type.
+Changes
+Blocks
+Decorated Pot
+
+Inverted the direction in which decorated pots wobble when unsuccessfully interacted with.
+Experimental
+These additions and changes are accessible by enabling the "Update 1.21" and "Beta APIs" experimental toggles.
+
+Additions
+Blocks
+Crafter
+
+A variant of crafting table, can be crafted with five iron ingots, a crafting table, two redstone dusts, and a dropper in the crafting table.
+Crafters can be oriented in any direction when placed.
+A pickaxe can increase the speed of mining them.
+Have a user interface similar to crafting table.
+Have 3×3 interactable crafting grid.
+Their crafting grid slots are toggleable, meaning that the player can change the behavior of a slot by clicking or pressing on a slot with an empty hand.
+A toggled slot cannot hold any items and therefore cannot have items placed into it by other blocks such as hoppers and droppers.
+A toggled slot can be toggled off by player, whether clicked directly or holding item(s), pressing slot keys associated with an empty or a not empty hotbar slot.
+Unlike the crafting table, the slots display a preview of the crafted item which will be crafted and ejected on the next redstone pulse, but cannot be manually taken out by the player.
+The user interface is shared between all players interacting with them, meaning that multiple players can interact with them at the same time, similar to chests and hoppers.
+The user interface does not have a recipe book to provide help, so the player must know the recipes.
+The crafter ejects one crafted item at a time when powered by a new redstone pulse, a redstone signal that is not a continuous signal.
+Upon receiving this new signal, crafters eject the recipe result from the front face.
+All the result items will be ejected together when the output result has multiple type of items.
+They can interact with hoppers and droppers, to input/output automatically.
+Hoppers can be used to both insert and pull items out of them.
+Droppers can be used to insert items into them.
+Moving items in from another block with a hopper or a dropper prioritizes filling items into slots, by following these rules:
+If there is a toggled slot, skipped.
+If there is not a toggled slot, crafters prioritize the first empty slot from left-to-right and top-to-bottom.
+If there is not a toggled slot, and there are no empty slots, crafters prioritize the smallest stack of the same item. If there are multiple possible stacks, pick the first from left-to-right and top-to-bottom.
+If failed to select a slot, hoppers and droppers will not take any action.
+When read by a redstone comparator, the redstone signal strength is 0 to 9, where each non-empty or toggled slot adds 1 strength.
+Changes
+Technical
+API
+
+Events
+Moved PlayerInteractWithBlockAfterEvent from beta to 1.7.0.
+Moved PlayerInteractWithBlockBeforeEvent from beta to 1.7.0.
+Moved PlayerInteractWithEntityAfterEvent from beta to 1.7.0.
+Moved PlayerInteractWithEntityBeforeEvent from beta to 1.7.0.
+Moved PlayerLeaveBeforeEvent from beta to 1.7.0.
+Moved NumberRange interface to minecraft/common.
+Moved heightRange: NumberRange from beta to 1.7.0.
+Moved matches from beta to 1.7.0.
+Moved function clearDynamicProperties from beta to 1.7.0.
+Moved function getDynamicProperties from beta to 1.7.0.
+Moved function getDynamicPropertyIds from beta to 1.7.0.
+Moved function getDynamicPropertyTotalByteCount from beta to 1.7.0.
+Moved function setDynamicProperty from beta to 1.7.0.
+Moved function clearDynamicProperties from beta to 1.7.0.
+Moved function getDynamicProperties from beta to 1.7.0.
+Moved function getDynamicPropertyIds from beta to 1.7.0.
+Moved function getDynamicPropertyTotalByteCount from beta to 1.7.0.
+Moved function setDynamicProperty from beta to 1.7.0.
+TicksPerSecond
+Moved from beta to 1.7.0.
+Moved offset from beta to 1.7.0.
+Moved above from beta to 1.7.0.
+Moved below from beta to 1.7.0.
+Moved north from beta to 1.7.0.
+Moved east from beta to 1.7.0.
+Moved south from beta to 1.7.0.
+Moved west from beta to 1.7.0.
+Moved center from beta to 1.7.0.
+Moved bottomCenter from beta to 1.7.0.
+Fixes
+6 issues fixed
+From 1.20.0
+
+MCPE-171597 – If the end rod is placed horizontally, it has a hitbox as if placed vertically.
+MCPE-171870 – Sniffers, camels, horses, donkeys and mules can get into boats when they are babies and get stuck when they grow up.
+Others
+
+Fixed an issue with upgrading loaded values that have multiple string names.
+Enhanced the bloom pipeline to utilize HDR scene information to more naturally emphasize bright pixels in the "Deferred Technical Preview".
+Fixed an issue where shadows from non-existent mobs would be rendered in the "Deferred Technical Preview".
+Fixed a crash that could occur when switching Dimensions in the "Deferred Technical Preview".
+References
+
+ "Minecraft - Beta & Preview 1.20.50.21"     – Minecraft Feedback, October 18, 2023.
+
+Navigation

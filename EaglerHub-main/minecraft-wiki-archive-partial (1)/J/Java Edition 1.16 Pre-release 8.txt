@@ -1,0 +1,175 @@
+This page covers a development version that has a major issue under certain conditions. 
+The dedicated server for this version has a security vulnerability in the Log4j library that could be used to perform a remote code execution exploit. It can be addressed by appending a certain JVM argument to the server startup command line.
+
+Minecraft 1.16 Pre-release 8
+
+Edition
+
+Java Edition
+
+Release date
+
+June 17, 2020
+
+Type
+
+Pre-release
+
+Pre-release for
+
+1.16
+
+Downloads
+
+Client (.json)Server
+
+Obfuscation maps
+
+ClientServer
+
+Protocol version
+
+733
+
+Data version
+
+2564
+
+Resource pack format
+
+5
+
+Data pack format
+
+5
+
+Minimum Java version
+
+Java SE 8
+
+◄◄   1.15.2
+1.16
+  1.16.1 ►►
+
+◄   1.16 Pre-release 7
+
+ 1.16 Pre-release 8
+
+  1.16 Release Candidate 1 ►
+
+{
+    "title": "Minecraft 1.16 Pre-release 8",
+    "images": [
+        "1.16 Pre-release 6.jpg",
+        "Java Edition 1.16 Pre-release 8.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "June 17, 2020",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Pre-release article, displayed as Pre-release)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition 1.16 article, displayed as 1.16)",
+            "label": "Pre-release for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/23b14c93185398af577353c47af04248991b72b4/client.jar Client] ([https://piston-meta.mojang.com/v1/packages/ce8e10c877e56be5d3ea163cb6a47e87c30a0a59/1.16-pre8.json .json])<br />[https://piston-data.mojang.com/v1/objects/d6a747371b200216653be9b4140cd2862eddbb0e/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/a8c539fd4bef5f07f5feec4c18a4b870c167a1a0/client.txt Client]<br />[https://piston-data.mojang.com/v1/objects/82bf7b8ffb8e9ead5fe03e4324ba542a1e5ecc7c/server.txt Server]",
+            "label": "(link to Obfuscation map article, displayed as Obfuscation maps)"
+        },
+        {
+            "field": "733",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "2564",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "5",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "5",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Data pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_8_.28LTS.29 Java SE 8]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Java Edition  1.15.2|<span style=\"margin-right:-0.35em\">◄</span>◄   1.15.2]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition 1.16|1.16]]'''</td>\n<td style=\"padding: 0.4em\" >[[Java Edition  1.16.1|  1.16.1 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  1.16 Pre-release 7|◄   1.16 Pre-release 7]]\n</td>\n<td style=\"padding: 0.4em\">''' 1.16 Pre-release 8'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  1.16 Release Candidate 1|  1.16 Release Candidate 1 ►]]\n</td>\n</tr>\n</table>"
+}
+
+1.16 Pre-release 8 (known as 1.16-pre8 in the launcher) is the eighth and final pre-release for Java Edition 1.16, released on June 17, 2020, which fixes some bugs.
+
+Contents
+
+1 Fixes
+2 Videos
+3 Trivia
+4 References
+5 Navigation
+
+Fixes
+26 issues fixed
+From released versions before 1.16
+
+MC-77176 – When retracted by sticky piston, activated detector rails do not update their orientation.
+MC-77820 – Ender dragon death light glitch/bug.
+MC-82995 – Blocking with two shields in 3rd person mode.
+MC-114030 – Structure blocks take and apply NBT data of entities and tile entities directly instead of a copy when loading and saving structures.
+MC-127971 – Trying to throw a trident while having a shield or bow equipped will make the trident appear backwards in your hand.
+MC-147625 – Ender dragon tries to regenerate from destroyed ender crystals.
+MC-149799 – When a crossbow is loaded and in the offhand, you do not see it anymore if you carry an item in the main hand.
+MC-153483 – When swapping tridents between hands the trident being held does not swap visually, it just flips backwards.
+MC-159820 – 3rd person reverse trident bug.
+MC-177873 – Trident and shield holding model is activated as you use an item with a right click function in another hand.
+MC-178572 – Using a shield triggers model for other poses if respective item is held in the other hand.
+MC-179309 – Trident animates backwards while eating.
+From the 1.16 development versions
+
+MC-185282 – Debug worlds start generating normal Overworld terrain after reentering world.
+MC-187953 – Adding items to #minecraft:small_flowers item tag and feeding them to brown mooshrooms crashes the game.
+MC-188746 – Not selecting a biome for the Floating Islands world type generates an empty world.
+MC-188859 – Incorrect throwing animation for tridents.
+MC-189007 – When entering or leaving swimming mode both arms now move in parallel instead of symmetrically.
+MC-189782 – Large ferns only drop one small fern when harvested.
+MC-189858 – Leads can disappear when transporting a mob through a Nether portal.
+MC-189937 – Saddled pigs accumulate speed when ridden in water.
+MC-189970 – Selected worlds using keyboard nav does not enable world-specific options such as Play, Edit, Delete, and Re-Create.
+MC-189973 – ClassCastException when bee with passenger flies through village at night.
+MC-190005 – Piglins can spawn with gear with too many enchantments, including multiple enchantments of the same type.
+MC-190036 – Passive mobs do not spawn in the Floating Islands world type.
+From the previous development version
+
+MC-190124 – Grass decays too quickly when covered in water.
+MC-190166 – Game crashes when burning a tree in a custom dimension: java.lang.NullPointerException: Exception while ticking.
+Videos
+Video made by slicedlime:
+
+
+
+
+Trivia
+In the launcher, the introduction of this version’s patch note is “Squish, squash is the sound bugs make when you squish them. Or was it squash them? Anyway, here’s pre-release 8 with more bug fixes.”
+This is the second time to feature an eighth pre-release, after 1.13-pre8.
+References
+
+ "Important Message: Security vulnerability in Java Edition"     – Minecraft.net, December 10, 2021.
+
+ "Minecraft 1.16 Pre-Release 8"     – Minecraft.net, June 17, 2020.
+
+Navigation

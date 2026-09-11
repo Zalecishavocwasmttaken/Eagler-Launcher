@@ -1,0 +1,199 @@
+For a comprehensive history of block texture changes, see Bedrock Edition history of textures/Blocks.
+
+
+
+This feature is exclusive to Bedrock Edition and Minecraft Education. 
+
+
+
+This article is a stub. 
+You can help by expanding it. The talk page may contain suggestions.
+
+
+atlas.terrain as of 1.21.111.
+atlas.terrain is a texture atlas used to store all block textures defined in terrain_textures.json.
+
+Contents
+
+1 Format
+2 Viewing
+
+2.1 External programs
+
+3 History
+
+3.1 Versions of the atlas
+
+3.1.1 Mipmapped versions
+3.1.2 Minecraft Education features
+
+3.1.2.1 Mipmapped versions
+
+4 Navigation
+
+Format
+
+
+
+This section is missing information about:
+Is it deterministic like Java Edition's?
+If Minecraft Earth was based on the BE engine, does it also have this atlas?
+Does Minecraft Education have the same atlas as Bedrock Edition?
+How exactly are Vibrant Visuals related texture augmentations, such as bump/normal maps and emissivity (if this exist), dealt with? 
+Please expand the section to include this information. Further details may exist on the talk page.
+
+atlas.terrain is a 2048×1024 pixel file that is usually split into 16×16-pixel squares with 8 pixels of padding for blocks. Its textures are generated from terrain_textures.json, ordered alphabetically by entry, when a world is loaded. Textures with animations (defined in flipbook_textures.json) are placed at the end, due to the texture being large, and are additionally animated within the atlas texture. If a texture file is referenced in multiple entries within terrain_textures.json, it will appear once in the first spot it occurs. If a broken or nonexistent texture is referenced, a missing texture will appear in its spot, even if there is a missing texture occurred before it. This does not necessarily mean that the missing texture ends up being visible in-game for relevant such blocks.
+Any textures added to terrain_textures.json in loaded resource packs will show up in atlas.terrain, including those in add-ons and in internal packs such as chemistry.
+
+Viewing
+
+
+
+This section is missing information about:
+method to export or even just see the atlas from versions a0.15.0-b1 to 1.1.7 without external programs
+method to get mipmapped versions without external programs 
+Please expand the section to include this information. Further details may exist on the talk page.
+
+The file generated for atlas.terrain can be extracted by using a structure block to 3D export a structure. There has to be a semi-transparent block like stained glass to export the right image.[needs testing] The exported file can then be converted into an OBJ file, where its UV, identical to the atlas, can be accessed.​[more information needed]
+Like other atlases in Bedrock Edition, atlas.terrain can also be viewed in-game by applying the resource location "atlas.terrain" to another object (e.g. an entity or a particle). ​[more information needed]
+
+External programs
+
+
+
+This section is missing information about: can this be used to obtain blocks-atlas and items-atlas from 13w18a to 13w37b? From testing it crashes in older versions. 
+Please expand the section to include this information. Further details may exist on the talk page.
+
+
+
+The contents of this section are not supported by Mojang Studios or the Minecraft Wiki.
+
+Using external programs such as RenderDoc, you can obtain the texture atlas and its mipmapped versions. The image needs to be flipped vertically after being downloaded as a png.
+
+History
+Pocket Edition Alphav0.15.0build 1
+Added atlas.terrain following the deprecation of terrain-atlas.tga
+
+Empty areas which are not used by any textures are solid black.?
+Mipmapped versions now have anisotropic filtering.Unknown?
+Mipmapped versions use normal padding again.
+
+Unused space is no longer filled with black.​[more information needed]Bedrock Edition1.21.60Preview 1.21.60.21
+Improved logic for handling very large textures within atlases.26.30Preview 26.30.20
+Removed padding from terrain atlas on RenderDragon. There is currently an issue where RTX cannot handle this correctly and renders all block textures with the terrain atlas, also showing MERS textures and animations.Preview 26.30.27
+Fixed the above issue.
+The RTX terrain atlas issue. Note that the grass on the right has biome-tinted pixels.
+
+Versions of the atlas
+
+Game version
+
+Atlas
+
+Additions
+
+Changes
+
+Removals
+
+Notes
+
+Main
+
+Development
+
+v0.15.0 alpha
+
+build 1
+
+Introduction
+
+More information needed
+
+1.21.111
+
+Preview 1.21.110.20
+
+File:Atlas.terrain 1.21.110.20.png
+
+Added shelves.[verify]
+
+Preview 1.21.110.22
+
+File:Atlas.terrain 1.21.110.22.png
+
+Added lightning rod oxidization states.[verify]
+
+Preview 1.21.110.23
+
+Added copper bars, copper chain, copper lantern, and copper torch.[verify]
+
+1.21.120
+
+Preview 1.21.120.21
+
+File:Atlas.terrain 1.21.120.png
+
+Changed copper lanterns, copper torches, and weathered copper bars.
+
+Mipmapped versions
+
+
+
+This section of the article is empty. 
+You can help by expanding it.
+
+Minecraft Education features
+
+Game version
+
+Atlas
+
+Additions
+
+Changes
+
+Removals
+
+Notes
+
+Main
+
+Development
+
+More information needed
+
+1.21.111
+
+Bedrock Edition Preview 1.21.110.20
+
+File:Atlas.terrain ME features 1.21.110.20.png
+
+Added shelves.[verify]
+
+Bedrock Edition Preview 1.21.110.22
+
+File:Atlas.terrain ME features 1.21.110.22.png
+
+Added lightning rod oxidization states.[verify]
+
+Preview 1.21.110.23
+
+Added copper bars, copper chain, copper lantern, and copper torch.[verify]
+
+1.21.120
+
+Preview 1.21.120.21
+
+File:Atlas.terrain ME features 1.21.120.png
+
+Changed copper lanterns, copper torches, and weathered copper bars.
+
+Mipmapped versions
+
+
+
+This section of the article is empty. 
+You can help by expanding it.
+
+Navigation

@@ -1,0 +1,389 @@
+Falling Block
+
+Hitbox size
+
+Height: 0.98 blocksWidth: 0.98 blocks
+
+{
+    "title": "Falling Block",
+    "rows": [
+        {
+            "field": "Height: 0.98 blocks<br>Width: 0.98 blocks",
+            "label": "(link to Hitbox article, displayed as Hitbox size)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+
+
+ There is a related tutorial page for this topic! 
+See Tutorial:Falling blocks.
+
+A falling block is the entity form of a block that appears when a gravity-affected block loses its support.
+
+Contents
+
+1 Spawning
+2 Behavior
+
+2.1 Interactions with projectiles
+
+3 Sounds
+4 Data values
+
+4.1 ID
+4.2 Entity data
+
+5 History
+
+5.1 Java Edition
+5.2 Bedrock Edition
+5.3 Legacy Console Edition
+5.4 New Nintendo 3DS Edition
+5.5 Data history
+
+6 Issues
+7 See also
+8 Notes
+9 References
+10 Navigation
+
+Spawning
+Falling blocks naturally spawn where gravity-affected blocks lose their base of support. These blocks include:
+
+Block
+
+Falls when
+
+Deals damage
+
+Upon landing
+
+Notes
+
+Sand
+Red Sand
+Gravel
+Dragon Egg
+
+Block below is replaceable
+
+No
+
+Becomes a block again
+
+Concrete Powder
+
+Becomes concrete if it intersects water while falling or after landing
+
+Suspicious Sand
+Suspicious Gravel
+
+Breaks and plays a sound
+
+Contained items are lost; unlike other falling blocks, if a suspicious block lands on a non-full block it does not drop as an item
+
+Snow‌[Bedrock Edition  only]
+
+Becomes a block again
+
+Adds levels to existing snow layers
+
+Anvil
+Chipped Anvil
+Damaged Anvil
+
+Yes
+
+Becomes a block again and plays a sound
+
+May progress to the next damage stage if the fall height is greater than 1, if the Anvil cannot progress further it will break
+
+Pointed Dripstone
+Sulfur Spike
+
+Block forming part of a stalactite has its support block destroyed
+
+Yes
+
+Breaks and plays a sound
+
+Only applies to pointed dripstone or sulfur spikes facing down
+
+Scaffolding
+
+Has a distance of at least 7 from the closest supported scaffolding
+
+No
+
+Becomes a block again
+
+ 2HP per block fallen after the first.
+
+ 1HP per block fallen after the first, per dripstone or sulfur spike. Damage is capped at 40HP × 20.
+
+In Java Edition, falling block entities can be spawned through /summon. By tweaking the BlockState NBT tag, it is possible to summon any block as a falling block entity.
+Although it has the same appearance as its corresponding block and is also affected by gravity, primed TNT is a different entity.
+
+Behavior
+A falling block continues falling until it lands on another block with a solid top surface. If it lands with the bottom center of its hitbox in a replaceable block, and the block below can support it (i.e. not a replaceable block), then the falling block returns to its block state. Otherwise, it breaks and drops as an item.
+Like most other entities, falling blocks are affected by explosions and bubble columns, can be launched by a moving slime block, can be pushed by pistons, can be slowed down by cobwebs, can slide down the side of a honey block, and can travel through nether and end portals. However, they do not bounce on a stationary slime block and can neither be pushed nor slowed down by water or lava.
+Falling blocks pass through most entities without colliding with them, although projectiles such as arrows bounce off them. They do not have health, cannot be attacked and do not take damage. They are also immune to all status effects.
+By default, a falling block that has existed for more than 600 ticks (30 seconds) destroys itself and drops as an item. This can be changed by modifying the entity's Time NBT value. Suspicious sand and suspicious gravel also drop themselves after falling for more than 30 seconds, making this the only way to obtain suspicious blocks in Survival mode.‌[Java Edition  only]
+Commands such as /data‌[Java Edition  only] can change the moving and facing directions of a falling block, although there are no in-game mechanics that can alter a falling block's facing direction. They can be removed with the /kill command.
+Some falling blocks, like anvils and pointed dripstone, deal damage to players and mobs in the same block space where they land. The damage is dealt only on landing, and is not dealt to players and mobs that collide with them in mid-air. A falling block that deals damage can be summoned if its HurtEntities tag is set to true. The amount of damage dealt per block fallen can be customized via the FallHurtAmount tag, and the maximum damage dealt can be customized via the FallHurtMax tag.
+
+Initial conditions1 Angle  0 Vector
+
+X
+
+0
+
+VXYaw
+
+ m/tick0 deg
+
+Y
+
+0
+
+VYPitch
+
+ m/tick-30 deg
+
+Z
+
+0
+
+VZSpeed
+
+ m/tick3 m/tick
+
+Falling block dynamics
+
+Drag-H
+
+0.99
+
+Gravity
+
+-0.04 m/tick2
+
+Drag-Y
+
+0.98
+
+Ticking order
+
+3
+
+TimeRadius
+
+0 0 ticks
+0 0 m
+1 Time 0 Radius
+
+Position
+
+X = , Y = , Z = Maximum height:  m ( ticks)noneHorizontal range:   m ( ticks)
+
+Velocity
+
+VX = , VY = , VZ =  (m/tick)Terminal speed:  m/tick
+
+Launch angle calculator
+
+Given a target coordinate and an initial speed, calculate the falling block launch angle to hit the target. Target is hit after  ticks.
+
+X
+
+10
+
+Yaw
+
+ deg
+
+Y
+
+10
+
+Pitch
+
+ degUnreachable1 Direct hit
+
+Z
+
+10
+
+Speed
+
+3 m/tick
+
+ Yaw and pitch follow the Minecraft's convention, thus zero yaw is directed at +Z (south) and looking upwards corresponds to negative values of pitch.
+
+Interactions with projectiles
+Projectile hits the falling block
+
+Bottle o' Enchanting
+Egg
+Ender Pearl
+Fire Charge
+Firework Rocket
+Lingering Potion
+Snowball
+Splash Potion
+Wind Charge
+Projectile passes through the falling block
+
+Eye of Ender
+Fireball
+Llama Spit
+Projectile ricochets on the falling block
+
+Arrow
+Spectral Arrow
+Trident
+Sounds
+
+
+
+This section would benefit from the addition of more sounds. 
+Please remove this notice once you have added  suitable sounds to the section.The specific instructions are:
+sulfur spike sound event
+sounds when an anvil lands and immediately breaks
+
+Some falling blocks produce sounds when they land.
+Java Edition
+
+SoundsSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitchAttenuationdistance​Anvil landedBlocksWhen an anvil lands and survivesblock.anvil.landsubtitles.block.anvil.land​0.30.9–1.016None​​BlocksWhen a pointed dripstone lands from fallingblock.pointed_dripstone.landNone​​2.00.9–1.016​Block brokenBlocksWhen a suspicious sand block lands from fallingblock.suspicious_sand.breaksubtitles.block.generic.break​1.00.816​Block brokenBlocksWhen a suspicious gravel block lands from fallingblock.suspicious_gravel.breaksubtitles.block.generic.break​1.00.816
+ ​MC-213647​
+
+Bedrock Edition:
+
+SoundsSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitch​ ?BlocksWhen an anvil lands and survivesrandom.anvil_land​ ?0.50.8–1.0​ ?PlayersWhen a pointed dripstone lands from fallingland.pointed_dripstone​ ???​ ?BlocksWhen a suspicious sand block lands from fallingblock.suspicious_sand.break​ ???​ ?BlocksWhen a suspicious gravel block lands from fallingbreak.suspicious_gravel​ ?1.00.8–1.0
+Data values
+ID
+Java Edition:
+
+NameIdentifier
+Translation key Falling Blockfalling_block
+entity.minecraft.falling_block
+Bedrock Edition:
+
+NameIdentifierNumeric ID
+Translation key Falling Blockfalling_block66
+entity.falling_block.name
+Entity data
+Java Edition:
+
+Main article: Entity format
+
+[NBT Compound / JSON Object] Dynamic block entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+[NBT Compound / JSON Object] BlockState: The falling block represented by this entity.
+Block state see Template:Nbt inherit/block state/template
+[NBT Compound / JSON Object] TileEntityData: Optional. The tags of the block entity for this block.
+Tags common to all block entities see Template:Nbt inherit/blockentity/template
+[Byte] CancelDrop: 1 or 0 (true/false) - true if the block should be destroyed instead of placed after landing on a solid block. When true, the block is not dropped as an item, even if the DropItem tag is set to true. However, if the entity is deleted due to its Time value being too high, this tag is ignored and an item is dropped depending on the DropItem tag. CancelDrop defaults to 1 for falling suspicious sand and suspicious gravel, and 0 for the other vanilla falling blocks and any summoned falling block.
+[Byte] DropItem: 1 or 0 (true/false) – true if the block should drop as an item when it breaks. Any block that does not have an item form with the same ID as the block does not drop even if this is set.
+[Float] FallHurtAmount: Multiplied by the FallDistance to calculate the amount of damage to inflict. By default this value is 2HP for anvils, and 6HP for pointed dripstone.
+[Int] FallHurtMax: The maximum hit points of damage to inflict on entities that intersect this falling block. For vanilla falling blocks, always 40HP × 20.
+[Byte] HurtEntities: 1 or 0 (true/false) – true if the block should hurt entities it falls on. Defaults to 1 for anvils and pointed dripstone and to 0 for the other vanilla falling blocks and any summoned falling block.
+[Int] Time: The number of ticks the entity has existed. When Time goes above 600, or above 100 while the block is at Y=-64 or is outside building height, the entity is deleted.
+
+Bedrock Edition:
+
+See Bedrock Edition level format/Entity format.
+History
+Java Edition
+Java Edition Infdev20100618
+Added falling block entities for handling sand and gravel. Before this, they would snap directly to where they would fall to.Java Edition1.0.0Beta 1.9 Prerelease 6
+Added dragon eggs, which create falling blocks.1.3.112w30a
+The Time nbt property of falling blocks is now saved when exiting the world. As a result, falling block entities do not get removed when loading a world unless they're inside of a block of the same kind anymore.1.4.212w41a
+Added anvils, which create falling blocks.1.7.213w39a
+Added red sand, which creates falling blocks.1.814w06a
+The bottom of the falling block is now used to determine the vertical position when landing (before, the middle of the block was used instead). As a result, falling blocks now drop as an item when landing on blocks that are shorter than a full block but taller then a slab. Previously they used to turn back into blocks one tile above.1.915w38a
+Falling blocks now turn back into blocks only if they land on a surface in a specific height range. If this height requirement isn't met, the falling block stays as an entity and isn't removed even if its Time nbt property is above 600. Because of this change, falling blocks no longer turn back into blocks when landing on fences, closed fence gates, walls or boats (depending on their vertical position).1.1116w32a
+The falling block's entity ID has been changed from FallingSand to falling_block. This affects command syntax.1.1217w06a
+Added concrete powder, which creates falling blocks.1.13.118w30a
+Gravity affected blocks can no longer be supported by replaceable blocks. Previously they were able to replace them when landing inside them but would not start falling when placed above them.
+Falling blocks can no longer replace snow with multiple layers.1.1418w45a
+Added scaffolding, which creates falling blocks.19w06a
+Falling blocks now always turn back into blocks when landing on a surface if there is a replaceable block at their position, even without a support block below them. As such, falling blocks once again turn back into blocks when landing on fences, closed fence gates, walls or boats.
+
+Falling blocks are once again able to replace snow with multiple layers.19w07a
+Falling blocks now drop as an item when landing on snow with multiple layers instead of replacing it.1.1519w46a
+Upon landing on a surface, falling block entities now turn back into blocks only if they have a support block below them, otherwise they are destroyed.1.1720w48a
+Added pointed dripstone, which creates falling blocks if the block above it gets destroyed while the pointed dripstone is a stalactite.1.18.222w03a
+Blocks that can fall have been changed to get removed in the scheduled tick phase of the tick, rather than the entity phase, in order to fix a bug. Due to this change, some redstone contraptions that relied on the previous ticking order do not work anymore.1.19.4ExperimentUpdate 1.2023w07a
+Added suspicious sand, which creates falling blocks.1.2023w12a
+Added suspicious gravel, which creates falling blocks.1.2124w19a
+Falling blocks can now travel through nether portals.
+Bedrock Edition
+Pocket Edition Alpha?
+Falling blocks have been implemented, but none of the blocks are currently gravity-bound.v0.6.0
+Sand and gravel are now affected by gravity.v0.8.0build 8
+Falling blocks now drop their item form when falling onto blocks they cannot replace.v0.9.0build 1
+Added red sand, which creates falling blocks.v0.12.1build 1
+Added anvils, which create falling blocks.
+
+Snow now creates falling blocks.Pocket Edition1.0.0alpha 0.17.0.1
+Added dragon eggs, which create falling blocks.1.1.0alpha 1.1.0.0
+Added concrete powder, which creates falling blocks.Bedrock Edition1.8.0beta 1.8.0.8
+Added scaffolding, which creates falling blocks.1.17.0beta 1.16.210.56
+Added pointed dripstone, which creates falling blocks if the block above it gets destroyed while the pointed dripstone is a stalactite.1.19.70ExperimentNext Major UpdatePreview 1.19.70.23
+Added suspicious sand, which creates falling blocks.1.19.80ExperimentNext Major UpdatePreview 1.19.80.20
+Added suspicious gravel, which creates falling blocks.
+Legacy Console Edition
+Legacy Console EditionXbox 360Xbox OnePS3PS4PS VitaWii USwitchTU1CU11.001.001.00Patch 11.0.1
+Added sand and gravel along with falling blocks.TU9
+Added dragon eggs, which create falling blocks.TU141.05
+Added anvils, which create falling blocks.TU31CU191.221.221.22Patch 3
+Added red sand.TU46CU361.381.381.38Patch 15
+Falling blocks no longer turn back into blocks when landing on fences, closed fence gates or walls.TU53CU431.491.501.49Patch 231.0.3
+Added concrete powder, which creates falling blocks.TU69 1.761.761.76Patch 38
+Snow now creates falling blocks.  1.83
+Added scaffolding, which creates falling blocks.
+New Nintendo 3DS Edition
+New Nintendo 3DS Edition0.1.0
+Added falling blocks along with sand, red sand, gravel, and anvils.1.7.10
+Added dragon eggs, which create falling blocks.1.9.19
+Added concrete powder, which creates falling blocks.
+Data history
+Java Edition Infdev20100618
+Added falling block entity with the ID FallingSand, although it affects gravel as well.Java Edition1.1116w32a
+The entity ID has been changed from FallingSand to falling_block.1.1317w47a
+Numeric IDs for entities were presumably deprecated in this version.​[more information needed]
+Issues
+Issues relating to "Falling Block" are maintained on the bug tracker. Issues should be reported and viewed there.
+
+See also
+Tutorial:Falling blocks
+Entity
+Notes
+
+ Although the falling block entity itself would not be removed in this situation, the block would be.
+
+ The decimal height of the surface must be lower than 0.009999999776482582. For example, if the vertical position of a falling sand block entity upon landing is 53.008, it will turn back into a sand block.
+
+References
+
+ MC-260073 – Suspicious sand/gravel drops as an item after 30 seconds of existing as falling block – resolved as "Won't Fix".
+
+ MC-90523
+
+ MC-99244
+
+ MC-90523 – resolved as "Fixed".
+
+ MC-139493
+
+ MC-243015 – resolved as "Fixed".
+
+ MC-9644 – Launched falling_block entities do not travel through portals – resolved as "Fixed".
+
+ Meet the Pocket Edition Team - MINECON 2012 Panel @ 14:30 – YouTube
+
+Navigation

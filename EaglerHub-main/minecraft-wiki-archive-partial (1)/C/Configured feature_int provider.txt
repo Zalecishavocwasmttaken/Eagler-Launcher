@@ -1,0 +1,22 @@
+[String] type: The type of the int provider. One of constant, uniform, biased_to_bottom, clamped, clamped_normal, or weighted_list.
+If type is constant, additional fields are as follows:
+[Int] value: The constant value to use.
+If type is uniform or biased_to_bottom, additional fields are as follows:
+[Int] min_inclusive: The minimum possible value.
+[Int] max_inclusive: The maximum possible value. Cannot be less than [Int] min_inclusive.
+If type is clamped, additional fields are as follows:
+[Int] min_inclusive: The minimum allowed value that the number will be.
+[Int] max_inclusive: The maximum allowed value that the number will be. Cannot be less than [Int] min_inclusive.
+[Int][NBT Compound / JSON Object] source: The source int provider
+Int provider see Template:Nbt inherit/int_provider/template
+If type is clamped_normal, additional fields are as follows:
+[Float] mean: The mean value of the normal distribution.
+[Float] deviation: The deviation of the normal distribution.
+[Int] min_inclusive: The minimum allowed value that the number will be.
+[Int] max_inclusive: The maximum allowed value that the number will be.
+If type is weighted_list, additional fields are as follows:
+[NBT List / JSON Array] distribution: A random pool of int providers.
+[NBT Compound / JSON Object]: One entry in the random pool.
+[Int][NBT Compound / JSON Object] data: An int.
+Int provider see Template:Nbt inherit/int_provider/template
+[Int] weight: The weight of this entry.

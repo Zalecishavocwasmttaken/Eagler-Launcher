@@ -1,0 +1,186 @@
+This page covers a development version that has a major issue under certain conditions. 
+The dedicated server for this version has a security vulnerability in the Log4j library that could be used to perform a remote code execution exploit. It can be addressed by appending a certain JVM argument to the server startup command line.
+
+Minecraft Combat Test 3
+
+Edition
+
+Java Edition
+
+Release date
+
+November 1, 2019
+
+Type
+
+Snapshot
+
+Compilation date
+
+October 31, 2019
+
+Snapshot for
+
+Combat Tests
+
+Downloads
+
+Client (.json)Server
+
+Protocol version
+
+502
+
+Data version
+
+2069
+
+Resource pack format
+
+4
+
+Data pack format
+
+4
+
+Minimum Java version
+
+Java SE 8
+
+Combat Tests
+
+◄   Combat Test 2
+
+ Combat Test 3
+
+  Combat Test 4 ►
+
+{
+    "title": "Minecraft Combat Test 3",
+    "images": [
+        "Release Combat Test 3.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "November 1, 2019",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Snapshot article, displayed as Snapshot)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "October 31, 2019",
+            "label": "Compilation date"
+        },
+        {
+            "field": "(link to Java Edition Combat Tests article, displayed as Combat Tests)",
+            "label": "Snapshot for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/fd8f2712d8d5089f4f0ee817a6f6fbe7f9d4c6f1/client.jar Client] ([https://piston-data.mojang.com/experiments/combat/0f209c9c84b81c7d4c88b4632155b9ae550beb89/1_14_combat-3.zip .json])<br />[https://piston-data.mojang.com/v1/objects/8f8ff833e6c775286a54935dad282f8499578f9a/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "502",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "2069",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "4",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "4",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Data pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_8_.28LTS.29 Java SE 8]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0\" ></td>\n<td style=\"padding: 0.4em\">'''[[Java Edition Combat Tests|Combat Tests]]'''</td>\n<td style=\"padding: 0\" ></td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  Combat Test 2|◄   Combat Test 2]]\n</td>\n<td style=\"padding: 0.4em\">''' Combat Test 3'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  Combat Test 4|  Combat Test 4 ►]]\n</td>\n</tr>\n</table>"
+}
+
+
+Combat Test 3 is the third experimental version of a future combat update. Although it is a version for a future major release, this combat experiment is a fork of 1.14.4. This version was released only on Reddit, so it does not appear in the launcher or in any Minecraft.net blog post.
+
+Contents
+
+1 Additions
+
+1.1 Gameplay
+
+2 Changes
+
+2.1 Items
+2.2 Non-mob entities
+2.3 Gameplay
+
+3 Videos
+4 Notes
+5 References
+6 Navigation
+
+Additions
+Combat Test 3 block and item additions
+Gameplay
+Enchantments
+
+Added the Cleaving enchantment for axes.
+Adds 1 damage and 0.5 seconds (10 game ticks) of shield stunning per level.
+Maximum level is III.
+Mutually exclusive with Sharpness.
+Shields
+
+Added a "Shield Indicator" option that displays when the shield is active, similar to the attack indicator.
+Found in video settings, the available options are "OFF", "Crosshair" or "Hotbar".
+Added an option to hide shields when active.
+Found in video settings and labeled "Shield Animation".
+Changes
+Items
+Axes
+
+Now always disable shields for 1.6 seconds (32 game ticks), instead of having a 25% to disable them for 5 seconds (100 game ticks).
+Now only use 1 durability when attacking instead of 2.
+Swords
+
+Changed attack speed from 2.5 back to 3.0.
+The attack key can again be held down to automatically attack when the attack meter is full.
+Attacks now only happen when the sword is at 120% charge, slower than if attacks were timed.
+Non-mob entities
+Projectiles
+
+No longer trigger a mob's invulnerability timer, which means that Multishot can hit and deal damage to the same mob with all three arrows.
+Gameplay
+Knockback
+
+Knockback resistance is now on a scale instead of being random.
+Shields
+
+Arc of available protection has been decreased to 100 degrees instead of 180 degrees (i.e., attacks from outside this arc of 100° aren't blocked).
+Videos
+Video made by slicedlime:
+
+
+
+
+Notes
+
+ Unzip this file in the .minecraft/versions folder.
+
+References
+
+ "Important Message: Security vulnerability in Java Edition"     – Minecraft.net, December 10, 2021.
+
+  "Updated Combat Test Snapshot (number 3) and a custom map for combat testing" – u/jeb_ on Reddit, November 1, 2019
+
+Navigation

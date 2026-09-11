@@ -1,0 +1,274 @@
+This article documents an April Fools' Day joke. 
+This feature was exclusively part of a joke version and is not currently planned for addition to regular Minecraft.
+
+Pickaxe Block
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Renewable
+
+Yes
+
+Stackable
+
+Yes (64)
+
+Tool
+
+Blast resistance
+
+3
+
+Hardness
+
+3
+
+Luminous
+
+No
+
+Transparent
+
+No
+
+Flammable
+
+No
+
+Catches firefrom lava
+
+No
+
+Note block instrument
+
+Bass Drum
+
+{
+    "title": "Pickaxe Block",
+    "rows": [
+        {
+            "field": "Yes",
+            "label": "(link to Renewable resource article, displayed as Renewable)"
+        },
+        {
+            "field": "Yes (64)",
+            "label": "Stackable"
+        },
+        {
+            "field": "<span class=\"sprite-file\" style=\"height:32px;width:32px;--vertical-align:middle\">(link to File:Invicon Wooden Pickaxe.png article, displayed as 32x32px|link=|alt=Invicon Wooden Pickaxe.png: Sprite image for Wooden Pickaxe in Minecraft|class=pixel-image|A wooden pickaxe or better is required to mine this block)</span>",
+            "label": "Tool"
+        },
+        {
+            "field": "3",
+            "label": "(link to Explosion#Blast resistance article, displayed as Blast resistance)"
+        },
+        {
+            "field": "3",
+            "label": "(link to Breaking#Blocks by hardness article, displayed as Hardness)"
+        },
+        {
+            "field": "No",
+            "label": "(link to Light article, displayed as Luminous)"
+        },
+        {
+            "field": "No",
+            "label": "(link to Opacity article, displayed as Transparent)"
+        },
+        {
+            "field": "No",
+            "label": "(link to Fire#Flammable blocks article, displayed as Flammable)"
+        },
+        {
+            "field": "No",
+            "label": "Catches fire<br>from (link to lava article, displayed as lava)"
+        },
+        {
+            "field": "Bass Drum",
+            "label": "(link to Note Block#Instruments article, displayed as Note block instrument)"
+        }
+    ],
+    "invimages": [
+        "Pickaxe Block"
+    ],
+    "images": [
+        "Pickaxe Block (S).png",
+        "Pickaxe Block (W).png",
+        "Pickaxe Block (N).png",
+        "Pickaxe Block (E).png",
+        "Pickaxe Block (U).png",
+        "Pickaxe Block (D).png"
+    ]
+}
+
+The pickaxe block is a joke block existing only in Java Edition 23w13a_or_b. It can instantly destroy any other block (including blocks indestructible in Survival) when given a redstone signal.
+
+Contents
+
+1 Obtaining
+
+1.1 Breaking
+1.2 Crafting
+
+2 Usage
+
+2.1 Activation
+2.2 Basic utility
+
+3 Sounds
+4 Data values
+
+4.1 ID
+4.2 Block states
+
+5 Issues
+6 See also
+7 Navigation
+
+Obtaining
+Breaking
+A pickaxe block can be mined with a pickaxe, in which case it drops itself. If mined without a pickaxe, it drops nothing.
+
+Block
+
+Pickaxe Block
+
+Hardness
+
+3
+
+Tool
+
+Breaking time (sec)
+
+Default
+
+15
+
+Wooden
+
+2.25
+
+Stone
+
+1.15
+
+Iron
+
+0.75
+
+Diamond
+
+0.6
+
+Netherite
+
+0.5
+
+Golden
+
+0.4
+
+OptionsEfficiency000Haste0011JEBE
+
+Legend
+ incorrect tool, drops nothing
+ correct tool, drops nothing or something other than the block itself
+ correct tool, drops the block itself
+italicized can be instant mined
+
+ These durations ignore any other influential factors (e.g., Mining Fatigue) and are measured in seconds. For more information, see Breaking § Mining efficiency.
+
+Crafting
+
+Ingredients
+Crafting recipe
+
+Cobblestone +Any Pickaxe + Redstone Dust
+
+Usage
+The pickaxe block can be "used" only when the vote for minecraft:pickaxe_block was approved earlier. If this is not the case, the block cannot get:
+
+placed (nothing happens).
+dropped (the block gets removed from the inventory but no item appears).
+activated (the block loses its functionality and does not react to redstone signals).
+crafted (the output of the crafting table stays empty).
+Activation
+A pickaxe block can be activated by:
+
+an adjacent active power component (Exceptions: a redstone torch does not turn ON a pickaxe block it is attached to)
+an adjacent powered opaque block (strongly-powered or weakly-powered)
+a powered redstone repeater or redstone comparator facing the pickaxe block
+powered redstone dust configured to point at the pickaxe block, or on top of it, or a directionless "dot" next to it; a pickaxe block is not activated by adjacent powered redstone dust that is configured to point in another direction.
+Basic utility
+A pickaxe block can be placed so that its mining side faces in any direction, including up or down. When placed, the mining side faces toward the player. The texture of this side is identical to the output of an observer.
+When activated, a pickaxe block instantly breaks any block in front of it, including unobtainable blocks in Creative mode and indestructible blocks in Survival mode, but does not include water or lava.
+When broken, most blocks react as if they had been destroyed by an unenchanted diamond or netherite pickaxe, regardless of the pickaxe used in the crafting recipe:
+
+Grass block drops dirt, stone drops cobblestone
+Coal ore drops one coal and experience, lapis lazuli ore drops 4–9 lapis lazuli and experience
+Monster spawner drops only experience
+Infested blocks drop nothing and spawn a silverfish
+Gilded blackstone drops itself 90% of the time, and golden nuggets 10% of the time
+Exceptions include:
+
+All blocks indestructible in Survival mode drop nothing
+Snow block drops 4 snowballs (when player mines it with a pickaxe, block drops nothing – a shovel is required to get snowballs)
+Additionally, snow layers drop nothing when destroyed by a pickaxe block
+Amethyst cluster drops 2 amethyst shards (when player mines it with a pickaxe, block drops 4 shards)
+Cobweb drops a string (when player mines it with a pickaxe, block drops nothing – a sword or shears are required to get string)
+Ice does not melt into water, and disappears
+Bee nest and beehive disappear and no bees are spawned
+The pickaxe block can also destroy (and drop) the dragon egg without it teleporting away.
+
+Sounds
+
+
+
+This section uses a sound table which may not accurately represent the sounds associated with this feature. 
+Because of MC-177082, subtitles for falling on blocks may not have existed at this point in development, so a dedicated sound table accounting for this may be required.
+
+v
+t
+e stone sound typeSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitchAttenuationdistance​Block brokenBlocksOnce the block has brokenblock.stone.breaksubtitles.block.generic.break​1.00.816​Block placedBlocksWhen the block is placedblock.stone.placesubtitles.block.generic.place​1.00.816​Block breakingBlocksWhile the block is in the process of being brokenblock.stone.hitsubtitles.block.generic.hit​0.250.516​Something falls on a blockEntity-DependentFalling on the block with fall damageblock.stone.fallsubtitles.block.generic.fall​0.50.7516​FootstepsEntity-DependentWalking on the blockblock.stone.stepsubtitles.block.generic.footsteps​0.151.016
+Data values
+ID
+NameIdentifierForm
+Translation key Pickaxe Blockpickaxe_blockBlock & Item
+block.minecraft.pickaxe_block
+Block states
+See also: Block states
+
+
+
+This section of the article is empty. 
+You can help by expanding it.
+
+Issues
+Issues relating to "Pickaxe Block" are not maintained on the bug tracker because it is an April Fools' joke, and is therefore not in the newest stable version or snapshot. Issues reported there are closed as "Invalid".
+
+See also
+Place block
+Navigation

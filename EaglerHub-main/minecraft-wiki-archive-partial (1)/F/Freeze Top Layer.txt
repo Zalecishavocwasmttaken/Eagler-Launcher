@@ -1,0 +1,126 @@
+Freeze Top Layer
+
+Biomes
+
+All Overworld biomes except the Void
+
+Generates inexisting chunks  
+
+No‌[JE  only]Yes‌[BE  only]
+
+Consists of
+
+Ice
+Snow
+
+{
+    "title": "Freeze Top Layer",
+    "rows": [
+        {
+            "field": "All <span class=\"nowrap\"><span class=\"sprite-file\" style=\"\">(link to File:EnvSprite overworld.png article, displayed as 16x16px|link=Overworld|alt=|class=pixel-image|)</span>(link to Overworld article, displayed as <span class=\"sprite-text\">Overworld</span>)</span> biomes except <span class=\"nowrap\"><span class=\"sprite-file\" style=\"\">(link to File:BiomeSprite the-void.png article, displayed as 16x16px|link=the Void|alt=|class=pixel-image|)</span>(link to the Void article, displayed as <span class=\"sprite-text\">the Void</span>)</span>",
+            "label": "(link to Biome article, displayed as Biomes)"
+        },
+        {
+            "field": "No‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Java Edition\">(link to Java Edition article, displayed as JE)  only</span></i>]</sup><br>Yes‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Bedrock Edition\">(link to Bedrock Edition article, displayed as BE)  only</span></i>]</sup>",
+            "label": "Generates in<br>existing chunks  "
+        },
+        {
+            "field": "\n* <span class=\"nowrap\"><span class=\"sprite-file\" style=\"\">(link to File:BlockSprite ice.png article, displayed as 16x16px|link=Ice|alt=|class=pixel-image|)</span>(link to Ice article, displayed as <span class=\"sprite-text\">Ice</span>)</span>\n* <span class=\"nowrap\"><span class=\"sprite-file\" style=\"\">(link to File:BlockSprite snow.png article, displayed as 16x16px|link=Snow|alt=|class=pixel-image|)</span>(link to Snow article, displayed as <span class=\"sprite-text\">Snow</span>)</span>",
+            "label": "Consists of"
+        }
+    ],
+    "invimages": [],
+    "images": [
+        "Ice.png",
+        "Snow.png"
+    ]
+}
+
+A freeze top layer is a feature found throughout the Overworld.
+
+Contents
+
+1 Generation
+
+1.1 Ice
+1.2 Snow
+
+2 Data values
+
+2.1 ID
+2.2 Config
+
+3 History
+4 Issues
+5 Navigation
+
+Generation
+The freeze top layer is a feature that is used to add snow and ice to mountains and cold biomes.
+It attempts to generate in all chunks in the Overworld. In each chunk, it tries at each block column to generate snow or ice on the terrain surface if the biome temperature there is cold enough (below 0.15) and the block light level is less than 10. The temperature increases with the altitude, and is randomized per block up to 8 blocks using a noise.
+
+Ice
+If the upper-most block on the surface is water, an ice block replaces the water.
+
+Snow
+Snow attempts to generate on the surface if the block is supported for snow layers, e.g. not on ice or dirt path. In Java Edition, one snow layer is simply placed on the surface. Bedrock Edition uses a biome-dependent snow accumulation algorithm.
+Each biome has two values for snow accumulation. The first value determines the random variation of snow layers. When 0, in most warmer biomes and a few cold, one snow layer is simply added to the surface like in Java Edition. When this value is higher, snow layers are randomized:
+
+A noise calculates random patches where no snow generates. Anywhere else, one layer is generated.
+When a snow layer generates horizontally bordering a full block, one layer is added for each bordering block.
+A second noise calculates random patches where multiple snow layers generate. The higher the snow accumulation value above 0.125, the larger these patches are and higher snow can accumulate.
+For all snow accumulation values, see Biome § List of biome climates.
+
+
+			The default snow accumulation
+
+
+
+			Snow accumulation of 0.125: randomized, but no stacked areas
+
+
+
+			Some colder biomes have random piles of multiple layers.
+
+
+
+			The ice spikes biome has the highest snow accumulation
+
+
+Data values
+ID
+Java Edition:
+
+Feature typeIdentifier
+ [No displayed name]freeze_top_layer
+
+Configured featureIdentifier
+ [No displayed name]freeze_top_layer
+
+In Bedrock Edition, it is technically not a feature. The game simply iterates through each horizontal coordinate after the chunk generation to generate ice and snow, configured in biome.json.
+
+Config
+Main article: Configured feature
+Java Edition:
+
+[NBT Compound / JSON Object] config: Empty
+
+An example
+
+{
+  "type": "minecraft:freeze_top_layer",
+  "config": {}
+}
+
+History
+
+
+
+This section needs expansion. 
+You can help by expanding it.
+
+Java Edition1.1821w41a
+Freeze top layer now becomes a feature technically.[verify]
+Issues
+Issues relating to "Freeze Top Layer" are maintained on the bug tracker. Issues should be reported and viewed there.
+
+Navigation

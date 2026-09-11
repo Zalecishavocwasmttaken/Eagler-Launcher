@@ -1,0 +1,269 @@
+This page covers a snapshot version that has multiple major issues under certain conditions. 
+The dedicated server for this version has a security vulnerability in the Log4j library that could be used to perform a remote code execution exploit. It can be addressed by appending a certain JVM argument to the server startup command line.
+
+ Exiting a world whilst respawning the ender dragon makes the world unopenable
+
+Minecraft 17w17a
+
+Edition
+
+Java Edition
+
+Release date
+
+April 26, 2017
+
+Type
+
+Snapshot
+
+Snapshot for
+
+1.12
+
+Downloads
+
+Client (.json)Server
+
+Protocol version
+
+324
+
+Data version
+
+1128
+
+Resource pack format
+
+3
+
+Minimum Java version
+
+Java SE 8
+
+◄◄   1.11.2
+1.12
+  1.12.1 ►►
+
+◄   17w16b
+
+ 17w17a
+
+  17w17b ►
+
+{
+    "title": "Minecraft 17w17a",
+    "images": [
+        "17w17a.png",
+        "Java Edition 17w17a.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "April 26, 2017",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Snapshot article, displayed as Snapshot)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition 1.12 article, displayed as 1.12)",
+            "label": "Snapshot for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/fa78ab696aa02914171deb57e31cfb737506f272/client.jar Client] ([https://piston-meta.mojang.com/v1/packages/b2ffee6fc34b1f2cba708c544492ea939d6773fc/17w17a.json .json])<br />[https://piston-data.mojang.com/v1/objects/3795d253cfef44f1f1467422b4399d1770484dc0/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "324",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "1128",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "3",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_8_.28LTS.29 Java SE 8]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Java Edition  1.11.2|<span style=\"margin-right:-0.35em\">◄</span>◄   1.11.2]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition 1.12|1.12]]'''</td>\n<td style=\"padding: 0.4em\" >[[Java Edition  1.12.1|  1.12.1 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  17w16b|◄   17w16b]]\n</td>\n<td style=\"padding: 0.4em\">''' 17w17a'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  17w17b|  17w17b ►]]\n</td>\n</tr>\n</table>"
+}
+
+
+17w17a is the eighth snapshot for Java Edition 1.12, released on April 26, 2017.
+
+Contents
+
+1 Additions
+
+1.1 General
+
+2 Changes
+
+2.1 Blocks
+2.2 Mobs
+2.3 Command format
+2.4 General
+
+3 Fixes
+4 Videos
+5 Trivia
+6 References
+7 Navigation
+
+Additions
+General
+Advancements
+
+Added 11 advancements and 2 advancement tabs: "Nether" and "The End".
+Advancements added in this version include:
+NetherIconAdvancementIn-game descriptionParentActual requirements (if different)Resource locationRewards
+NetherBring summer clothes—Enter the nether portal block.nether/root—
+Return to SenderDestroy a Ghast with a fireballNetherKill a ghast by deflecting a ghast fireball back into it via hitting or shooting a projectile at the fireball.nether/return_to_sender—
+A Terrible FortressBreak your way into a Nether FortressNetherEnter a nether fortress.nether/find_fortress—
+Spooky Scary SkeletonObtain a wither skeleton's skullA Terrible FortressHave an blaze rod in the inventory.nether/get_wither_skull—
+
+The EndIconAdvancementIn-game descriptionParentActual requirements (if different)Resource locationRewards
+The EndOr the beginning?—Enter the end portal block.end/root—
+Free the EndGood luckThe EndKill the ender dragon.end/kill_dragon—
+The Next GenerationHold the Dragon EggFree the EndHave a dragon egg in the inventory.end/dragon_egg—
+The End... Again...Respawn the ender dragonFree the End—end/respawn_dragon—
+You Need a MintCollect dragon's breath in a glass bottleFree the EndHave a bottle of dragon's breath in the inventory.end/dragon_breath—
+City at the End of the GameGo on in, what could happen?Remote GetawayEnter an end city.end/find_end_city—
+Great View From Up HereLevitate for at least 30 secondsCity at the End of the GameHave the Levitation effect for at least 30 seconds.end/levitate—
+
+New levitation trigger, with the following conditions:
+duration - number of ticks the player is levitating for.
+distance - distance the player levitated so far.
+Both can be either a range (min and / or max) or a value (value)
+New feature condition added to the location trigger.
+The value is a feature name as used in the /locate command.
+NBT format
+
+UpdateLastExecution (byte):
+Defaults to 1b. If set to 0b, loops can be created, where the same command block can run multiple times in one tick.
+LastExecution (long):
+Stores the tick a chain command block was last executed in.
+toBeDisplayed (list):
+Added into the recipeBook compound of the player.
+Within are recipe names that the player has unlocked but not viewed in the crafting helper yet.
+Used for remembering to play the animation for new recipes.
+Sounds
+
+New note block sounds:
+Bone block = xylophone
+Block of gold = bell
+Clay = flute
+Packed ice = chime
+Wool = guitar
+New sound effects:
+Parrots
+Illusioners
+Casting a fishing rod
+Reeling in a fishing rod
+Throwing an eye of ender
+An eye of ender exploding or popping back into item form
+Putting ender eye in end portal frames
+Completing the end portal and activating it
+Boat paddles
+Changes
+Blocks
+Terracotta
+
+It has now unique colors on the map.
+Beds
+
+Each leg can now be textured individually.
+Mobs
+Illusioners
+
+Its Blindness spell is only cast if the regional difficulty is 3 or above.
+Shulkers
+
+Reverted the purple shulker color change from 17w16a.
+Command format
+/advancement:
+Added five modifiers to the /advancement grant and /advancement revoke commands:
+"everything" - all advancements, no specification required (same as "*")
+"from" - this advancement, its children, and their children, etc.
+"until" - this advancement, its parent, and its parent, etc.
+"through" - both of the above
+"only" - this advancement, and nothing else
+Examples:
+/advancement grant dinnerbone until story/form_obsidian
+/advancement revoke dinnerbone everything
+General
+Advancements
+
+Changed and moved around many existing advancements:
+"Withering Heights" is now an offspring of "Spooky Scary Skeleton".
+"Into Fire" is now an offspring of "A Terrible Fortress".
+"Remote Getaway" is now an offspring of "Free the End", and works properly when player throws an ender pearl into the gateway.
+"Sky's the Limit" is now an offspring of "City at the End of the Game", and is now a "goal" type advancement.
+"Zombie Doctor" and "Eye Spy" are now offspring of "We Need to Go Deeper".
+"Eye Spy" now requires the player to enter the stronghold.
+"A Weak Brew" was replaced with "Local Brewery" (nether/brew_potion), which is an offspring of "Into Fire" and requires the player to retrieve any potion from a brewing stand.
+Illusioner now counts for "Monster Hunter" and is required for "Monsters Hunted", which makes the advancement unobtainable.
+"Sniper Duel" not requires a skeleton to be killed.
+Advancements can now execute commands when achieved.
+The command written in the rewards section of the advancement is executed as the player (for example writing /say @s would be equivalent to /execute <the_player_who_obtained_this_advancement> ~ ~ ~ say @s)
+Advancement icons now allow data values.
+Specifically, icon has switched from being a string to an object.
+Within it are a required item string (specifying the item ID) and an optional data integer, specifying the metadata of the item
+The "damage flags object" now contains two new entity objects:
+source_entity - specifies the "owner" of the damage that was dealt.
+direct_entity - specifies the direct cause of the damage.
+Crafting
+
+Optimized the recipe book.
+Fixes
+20 issues fixed
+From released versions before 1.12
+
+MC-116623 – Stained hardened clay / terracotta blocks do not have correct color on map
+From the 1.12 development versions
+
+MC-114979 – advancement command doesn't allow bulk grant/revoking
+MC-115056 – "Remote Getaway" advancement cannot be obtained by using ender pearls
+MC-115170 – Advancements Test Command Success Uses the Wrong Translation
+MC-115173 – Unsuccessful advancement test command has player and advancement name interchanged
+MC-115442 – Advancement alerts aren't aligned to the top-right corner
+MC-115574 – "Sniper Duel" advancement triggered when killing non-skeleton mob at distance
+MC-115740 – Inconsistent error message for /advancement grant @p *
+MC-115805 – Fences/panes/walls/bars/torches connect to a number of non-solid blocks
+MC-115821 – Tooltips with long titles in the advancements menu are cut off
+MC-115880 – 'Take Aim' advancement granted by projectiles other than arrows
+MC-115936 – Narrator does not properly read output from /say, /tell and /tellraw command
+MC-115940 – Division by zero crash with alternating /recipe commands
+MC-116016 – Advancement "adventure/trade" uses criteria named "shot_arrow"
+MC-116245 – "Zombie Doctor" advancement description has a period, while others don't
+From the previous development version
+
+MC-116471 – Conditional command blocks SuccessCount doesn't update
+MC-116514 – "durability" option for item-based triggers succeeds for items without durability
+MC-116516 – "item_durability_changed" triggers when base change is 0, but not when Unbreaking reduces the change to 0
+MC-116536 – Recipe red/white outline is inconsistent while searching
+MC-116650 – Wooden fences connect to nether brick fence
+Videos
+Video made by slicedlime:
+
+
+
+
+Trivia
+17w17a was previously removed from the launcher for some time, but was added back in September 2018.
+References
+
+ "Minecraft Snapshot 17w17a"     – Minecraft.net, April 26, 2017.
+
+Navigation

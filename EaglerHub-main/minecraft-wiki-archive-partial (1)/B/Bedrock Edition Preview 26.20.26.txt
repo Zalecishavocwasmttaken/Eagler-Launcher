@@ -1,0 +1,257 @@
+Preview 26.20.26
+
+Edition
+
+Bedrock Edition
+
+Release date
+
+April 8, 2026
+
+Server version
+
+1.26.20.26
+
+Editor version
+
+1.3.4
+
+Build version
+
+Windows: 43049657Android:43049668 (armeabi-v7a)43049662 (arm64-v8a)iOS/iPadOS: 43049656
+
+Internal version
+
+Windows, Xbox: 1.26.2026.0Android: 1.26.20.26
+
+Version code
+
+Android:
+952602026 (armeabi-v7a, 35)
+962602026 (x86, 35)
+972602026 (arm64-v8a, 35)
+982602026 (x86_64, 35)
+
+Type
+
+Preview
+
+Preview for
+
+26.20
+
+Downloads
+
+ ServerWindowsLinux
+
+Protocol version
+
+974
+
+◄◄   26.13
+26.20
+  26.21 ►►
+
+◄   Preview 26.20.23
+
+ Preview 26.20.26
+
+  Preview 26.20.27 ►
+
+{
+    "title": "Preview 26.20.26",
+    "images": [
+        "Bedrock 26.20.26.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Bedrock Edition article, displayed as Bedrock Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "April 8, 2026",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Bedrock Dedicated Server 1.26.20.26 article, displayed as 1.26.20.26)",
+            "label": "Server version"
+        },
+        {
+            "field": "(link to Bedrock Editor 1.3.4 article, displayed as 1.3.4)",
+            "label": "''(link to Bedrock Editor article, displayed as Editor)'' version"
+        },
+        {
+            "field": "'''Windows''': 43049657<br>'''Android''':<br>43049668 (armeabi-v7a)<br>43049662 (arm64-v8a)<br>'''iOS/iPadOS''': 43049656",
+            "label": "Build version"
+        },
+        {
+            "field": "'''Windows, Xbox''': 1.26.2026.0<br>'''Android''': 1.26.20.26",
+            "label": "Internal version"
+        },
+        {
+            "field": "'''Android''':<br />\n952602026 (armeabi-v7a, 35)<br />\n962602026 (x86, 35)<br />\n972602026 (arm64-v8a, 35)<br />\n982602026 (x86_64, 35)",
+            "label": "Version code"
+        },
+        {
+            "field": "Preview",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Bedrock Edition 26.20 article, displayed as 26.20)",
+            "label": "Preview for"
+        },
+        {
+            "field": "'''Server'''<br>[https://www.minecraft.net/bedrockdedicatedserver/bin-win-preview/bedrock-server-1.26.20.26.zip Windows]<br>[https://www.minecraft.net/bedrockdedicatedserver/bin-linux-preview/bedrock-server-1.26.20.26.zip Linux]",
+            "label": "Downloads"
+        },
+        {
+            "field": "974",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Bedrock Edition  26.13|<span style=\"margin-right:-0.35em\">◄</span>◄   26.13]]</td>\n<td style=\"padding: 0.4em\">'''[[Bedrock Edition 26.20|26.20]]'''</td>\n<td style=\"padding: 0.4em\" >[[Bedrock Edition  26.21|  26.21 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Bedrock Edition  Preview 26.20.23|◄   Preview 26.20.23]]\n</td>\n<td style=\"padding: 0.4em\">''' Preview 26.20.26'''</td>\n<td style=\"padding: 0.4em\">\n[[Bedrock Edition  Preview 26.20.27|  Preview 26.20.27 ►]]\n</td>\n</tr>\n</table>"
+}
+
+Beta 26.20.26 (ChromeOS, Android) or Preview 26.20.26 (Windows, iOS, iPadOS, Xbox, PlayStation) is the fifth beta/Preview for Bedrock Edition 26.20, released on April 8, 2026, which fixes bugs, and adds custom dimensions to the Beta APIs experiment.
+
+Contents
+
+1 Changes
+
+1.1 General
+1.2 Technical
+
+2 Experimental
+
+2.1 Changes
+
+2.1.1 Mobs
+2.1.2 Technical
+
+3 Fixes
+4 Videos
+5 References
+6 Navigation
+
+Changes
+General
+Realms
+
+Added the Admin log feature to the Realms Hub.
+Logs changes performed by Realm administrators, such as settings changes, add-ons, and world management.
+Technical
+Accounts
+
+Added platform subscription checks as part of multiplayer allowance check and return new platform-subscription-specific permission deny reasons if the check failed.
+AI Goals
+
+Made the schemas for the following goals stricter when parsing and will fail to load an entity json that has invalid data in versions 1.26.20 and newer:
+minecraft:behavior.go_and_give_items_to_noteblock
+minecraft:behavior.go_and_give_items_to_owner
+minecraft:behavior.go_home
+minecraft:behavior.random_hover
+minecraft:behavior.random_sitting
+minecraft:behavior.random_stroll
+The hover_height field in minecraft:behavior.random_hover now only accepts an object with min and max values.
+Block components
+
+Released the component minecraft:chest_obstruction from experimental for block format versions 1.26.20 or higher.
+Blocks
+
+Added content warning for component minecraft:item_visual trying to use texture variations.
+Variation textures are not supported for this component.
+The minecraft:selection_box component will correctly give an error again when the y is over the 16 limit.
+Entity components
+
+The component minecraft:apply_knockback_rules now takes an array of presets.
+presets is an array of elements with the same parameters as minecraft:apply_knockback_rules had previously.
+The preset elements have the following new field:
+filter is an actor filter with the default syntax.
+Added the filters parameter to minecraft:spawn_on_death.
+Experimental
+These additions and changes are accessible by enabling the "Beta APIs", "Upcoming Creator Features", "Render Dragon Features for Creators", "Experimental Voxel Shape Features", and "Drop 2 of 2026" experimental toggles.
+
+Changes
+Mobs
+Sulfur cube
+
+When hit by a player, its knockback is now affected by the attacker's hit angle, position and damage.
+Technical
+API
+
+Changed the maximum length of the text param of setText on TextPrimitive, to be 128 lines and 128 characters per line.
+Class DimensionRegistry:
+Added the method registerCustomDimension to allow registrations of new custom dimensions in beta.
+Startup event:
+Added the ability to register custom dimensions during the before startup event.
+DDUI
+
+Added support for multiline texts for MessageBox.body, CustomForm.label, and CustomForm.header using \n.
+Entities
+
+Added a new entity_version description field to entity behavior definitions that enables per-entity versioning and upgrade handling.
+The entity_version field is a JSON object containing an upgrades array, where each entry specifies an integer upgrade_to version and a name string referencing an upgrade handler defined in a new top-level upgrades section of the entity definition.
+Upgrade versions must start at 1 and be contiguous. Gaps or duplicates are rejected with a content error.
+Version 0 is reserved for entities that have no version set ("versionless"), which is the default for all existing entities.
+When an entity is loaded with a version older than the current definition version, all upgrade handlers between the entity's saved version and the current version are executed sequentially
+Newly spawned entities are set directly to the latest version without running any upgrade handlers.
+Upgrade handlers reuse the existing event system but are defined in a separate upgrades section, keeping them distinct from regular events.
+The entity's version is persisted and loaded/saved automatically.
+Entity components
+
+The following fields have been added to the preset element exclusively in the beta version of minecraft:apply_knockback_rules:
+scale_previous_velocity scales the previous velocity of the target when hit.
+horizontal_hit_angle_scale scales the horizontal angle response of the target when hit based on the attacker's aim direction.
+vertical_hit_angle_scale scales the vertical angle response of the target when hit based on the attacker's aim direction.
+vertical_position_angle_scale scales the vertical angle response of the target when hit based on the attacker's relative feet position.
+scale_with_damage enables scaling the magnitude of knocback based on the inverse square of the damage.
+Graphical
+
+Added static light shading to weather.
+Voxel Shapes
+
+Added non-unit-cube voxel shapes for 19 blocks when the Voxel Shapes experiment is enabled:
+Cake shapes (1 block): 7 bite-counter shapes for each slice of cake.
+Candle cake shape (17 blocks).
+Composter shapes (1 block): 8 fill-level shapes for each stage of composting.
+Fixes
+20 issues fixed
+From released versions before 26.20
+
+MCPE-227535 – Armor swapping & interacting with jukebox or composter creates ghost item.
+MCPE-236601 – No sound when placing partial blocks in water.
+MCPE-236872 – "Joystick & tap to interact" and "D-Pad & tap to interact" control modes are missing the 'Delay Breaking Blocks (Creative Mode Only)' option in the new Settings UI.
+From the 26.20 development versions
+
+MCPE-237071 – Custom multi-blocks using random offset component have outline and collision incorrectly offset.
+MCPE-237089 – Custom multi-blocks with no selection component do not have rendered outline.
+MCPE-237222 – Custom pottable blocks with item overrides have incorrect interaction behavior with filled flower pots.
+MCPE-237404 – Smelting damaged weapons, tools, and armor no longer gives nuggets.
+MCPE-237498 – Custom multi-blocks do not respect survivability rules.
+MCPE-237713 – Custom entity components locked behind runtime IDs.
+MCPE-237757 – Ravager Changes Break Redstone Machines Relying on Block Breaking
+Other
+
+Fixed a crash in Realms Stories for high member count Realms.
+Fixed an issue in Realms Stories where the Members tab did not load in correctly.
+Fixed a bug where emojis were not rendering at the small text tooltip when selecting an item in the HUD's hotbar.
+Fixed content warning regarding texture variations for block components minecraft:item_visual and minecraft:embedded_visual.
+Fixed legacy tag: entries in block permutations being silently dropped when upgrading to format version 1.26.20, which could cause scripts relying on permutation-specific tags to fail.
+Fixed player friction not resetting for older content.
+Fixed a bug where in-flight http requests could freeze the game when the http client is destroyed in scripting.
+Fixed an issue that caused websockets to not complete their connection with the server.
+Fixing a bug with Debug Drawing and Primitive Shapes where they could get into a bad state when used with Simulated Players.
+Fixed minecraft:replaceable to work with all parts of a multi-block. The component can no longer be defined in the permutations array, only allowed in the base components object.
+Videos
+Updates for Creators
+
+
+
+
+
+References
+
+ "Minecraft Beta & Preview - 26.20.26"     – Minecraft Feedback, April 8, 2026.
+
+Navigation

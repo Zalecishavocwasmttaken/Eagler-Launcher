@@ -1,0 +1,13 @@
+This page describes content that has been removed and was only present in earlier versions of Java Edition. 
+In Java Edition 1.20.5, this format has been replaced with the data component format.
+
+[NBT List / JSON Array] custom_potion_effects: The custom potion effects (status effects) this potion or tipped arrow has.
+[NBT Compound / JSON Object] One of these for each effect.
+[String] id: The resource location of the effect.
+[Byte] amplifier: The amplifier of the effect, with level I having value 0.  Negative levels are discussed here. Optional, and defaults to level I.
+[Int] duration: The duration of the effect in ticks.  Values 0 or lower are treated as 1.  Optional, and defaults to 1 tick.
+[Byte] ambient: 1 or 0 (true/false) - whether or not this is an effect provided by a beacon and therefore should be less intrusive on the screen. Optional, and defaults to false.
+[Byte] show_particles: 1 or 0 (true/false) - whether or not this effect produces particles. Optional, and defaults to true.
+[Byte] show_icon: 1 or 0 (true/false) - true if effect icon is shown. false if no icon is shown.
+[String] Potion: The name of the default potion effect. This name differs from the status effect name. For example, the value for an "Instant Health II" potion is "minecraft:strong_healing".  A potion or tipped arrow getting its effects from this tag is named with the proper effect. The default value is "minecraft:empty", which gives it the "Uncraftable" name.
+[Int] CustomPotionColor: The item uses this custom color, and area-of-effect clouds, arrows, and splash and lingering potions use it for their particle effects. This color does not extend, however, to the particles given off by entities who ultimately receive the effect. The numeric color codes are equal to the hex code of the color converted to a decimal number, or can alternatively be calculated from the Red, Green and Blue components using this formula: Red<<16 + Green<<8 + Blue. For positive values larger than 0x00FFFFFF, the top byte is ignored. All negative values produce white.

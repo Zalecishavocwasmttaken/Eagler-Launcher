@@ -1,0 +1,354 @@
+This feature is exclusive to Java Edition. 
+
+Models are used for defining the fundamental geometry for the vast majority of blocks in the game. Some blocks have additional visual data associated with them which are effectively fixed in nature; while their textures can often be modified, their geometry, positioning and fundamental presence usually cannot be.
+
+Contents
+
+1 Render models, but have additional graphics
+2 Do not render model elements
+3 History
+
+3.1 April Fools' exclusive blocks
+
+4 References
+
+Render models, but have additional graphics
+
+Blocks
+
+Relevant element
+
+Render
+
+Chest
+Trapped Chest
+Ender Chest
+Copper Chest
+Exposed Copper Chest
+Weathered Copper Chest
+Oxidized Copper Chest
+Waxed Copper Chest
+Waxed Exposed Copper Chest
+Waxed Weathered Copper Chest
+Waxed Oxidized Copper Chest
+
+Entire block
+
+Copper Golem Statue
+Exposed Copper Golem Statue
+Weathered Copper Golem Statue
+Oxidized Copper Golem Statue
+Waxed Copper Golem Statue
+Waxed Exposed Copper Golem Statue
+Waxed Weathered Copper Golem Statue
+Waxed Oxidized Copper Golem Statue
+
+Entire block
+
+Shulker Box
+Dyed Shulker Box, all 16 colours
+
+Entire block
+
+Banner, all 16 colours
+
+Entire block
+
+Wall Banner, all 16 colours
+
+Entire block
+
+Conduit
+
+Entire block
+
+Decorated Pot
+
+Entire block
+
+Zombie Head
+Creeper Head
+Skeleton Skull
+Wither Skeleton Skull
+Player Head
+Dragon Head
+Piglin Head
+
+Entire block
+
+Zombie Wall Head
+Creeper Wall Head
+Skeleton Wall Skull
+Wither Skeleton Wall Skull
+Player Wall Head
+Dragon Wall Head
+Piglin Wall Head
+
+Entire block
+
+Oak Sign
+Birch Sign
+Spruce Sign
+Jungle Sign
+Acacia Sign
+Dark Oak Sign
+Mangrove Sign
+Cherry Sign
+Pale Oak Sign
+Bamboo Sign
+Crimson Sign
+Warped Sign
+
+Text
+
+Oak Wall Sign
+Birch Wall Sign
+Spruce Wall Sign
+Jungle Wall Sign
+Acacia Wall Sign
+Dark Oak Wall Sign
+Mangrove Wall Sign
+Cherry Wall Sign
+Pale Oak Wall Sign
+Bamboo Wall Sign
+Crimson Wall Sign
+Warped Wall Sign
+
+Text
+
+Oak Hanging Sign
+Birch Hanging Sign
+Spruce Hanging Sign
+Jungle Hanging Sign
+Acacia Hanging Sign
+Dark Oak Hanging Sign
+Mangrove Hanging Sign
+Cherry Hanging Sign
+Pale Oak Hanging Sign
+Bamboo Hanging Sign
+Crimson Hanging Sign
+Warped Hanging Sign
+
+Text
+
+Oak Wall Hanging Sign
+Birch Wall Hanging Sign
+Spruce Wall Hanging Sign
+Jungle Wall Hanging Sign
+Acacia Wall Hanging Sign
+Dark Oak Wall Hanging Sign
+Mangrove Wall Hanging Sign
+Cherry Wall Hanging Sign
+Pale Oak Wall Hanging Sign
+Bamboo Wall Hanging Sign
+Crimson Wall Hanging Sign
+Warped Wall Hanging Sign
+
+Text
+
+Beacon, when active
+Test Instance Block, when in use
+
+Beam
+
+Bell
+
+Bell itself
+
+Enchanting Table
+
+Book
+
+Lectern
+
+Book
+
+Monster Spawner
+Trial Spawner
+
+Entity inside
+
+Vault
+
+Items inside
+
+Oak Shelf
+Birch Shelf
+Spruce Shelf
+Jungle Shelf
+Acacia Shelf
+Dark Oak Shelf
+Mangrove Shelf
+Cherry Shelf
+Pale Oak Shelf
+Bamboo Shelf
+Crimson Shelf
+Warped Shelf
+
+Items inside
+
+Campfire
+Soul Campfire
+
+Items placed
+
+Suspicious Sand
+Suspicious Gravel
+
+Item during extraction
+
+Do not render model elements
+
+Block
+
+Reason
+
+Air
+Cave Air
+Void Air
+Barrier
+Light
+Structure Void
+
+The block is hardcoded to be invisible. Despite having empty physical model data, defining such a model does not change it.
+
+Moving Piston
+
+This is a highly technical block which is only used in specific circumstances, with its own special rendering method.
+
+End Gateway
+End Portal
+
+These blocks display a starfield which is completely separate from models. Unlike other block entities, a block model specified with these IDs will not render.
+
+Lava
+Water
+
+Fluid rendering is hardcoded and their handling differs significantly from blocks. Defining a model will change the associated particles, but will add no geometry.
+
+Bubble Column
+
+This is intended to render mostly as water and uses particles, however custom models still do not render planes within it, unlike in Bedrock Edition.
+
+History
+
+
+
+This section is missing information about: when each block's model could be changed in 1.8, even though only particles were affected (note: despite the fact that not all blocks became remodellable at once, not being able to change a block's model in a given version does not qualify it for this page). to test:
+sign (not in 1.8)
+wall sign (not in 1.8)
+chest (not in 1.8)
+trapped chest (not in 1.8)
+ender chest (not in 1.8)
+skull (not in 1.8)
+moving piston
+maybe banners i guess 
+Please expand the section to include this information. Further details may exist on the talk page.
+
+Java Edition InfdevMinecraft Infdev20100607
+Standing signs have been added as a block, using the previous texture file used for sign entities.20100625-1917
+Spawners have been added; an entity is rendered within to indicate what is spawned.Java Edition Alphav1.0.1
+Wall signs have been added, also rendering as an entity rather than as part of the main block mesh.v1.1.0
+Spawners no longer contain a miniature model of the mob that is to be spawned.Java Edition Beta1.2
+Spawners once again contain a miniature model of the mob that is to be spawned.1.8Pre-release
+Chests now render as entities; prior to this version they were part of the block mesh like other blocks. This change has been instituted to accommodate the new opening animation.Java Edition1.0.0Beta 1.9 Prerelease 3
+ Enchanting tables have been added; the main body of the table is rendered as part of the chunk mesh, but the rotating, openable book renders as an entity.
+
+ End portals have been added, which render a section of starfield. A normal untinted grass block texture plane exists on the underside, implying that the block can use normal geometry at this point, unlike in later versions.Beta 1.9 Prerelease 4
+End portals have been changed; the starfield now renders two pixels lower. The excess plane on the bottom has been removed. It is not known whether there was an internal change in this version to force this block ID to not render chunk geometry even if it tried, or if such a change was made later (presumably in 1.13-pre3 or an earlier version).1.3.112w21a
+Ender chests have been implemented, using the same rendering system as chests.1.4.212w32a
+ Beacons have been added, whose beams are rendered separately from the block mesh.12w36a
+Five types of heads (zombie head, creeper head, skeleton skull, wither skeleton skull, creeper head) have been added, which render as entities.
+
+ A bonus object is now rendered inside of beacons, resembling the end crystal.12w38a
+ The beacon's beam is now a 3D object, unlike previously, where it rendered as a series of translucent rectangles.
+
+ The object added to placed beacon blocks in 12w36a has been removed.12w40a
+ The beacon's beam geometry has been changed, alongside the assigned texture.1.513w01a
+Trapped chests have been implemented, using the same rendering system as chests and ender chests.1.814w30a
+Banners have been added, which render as entities.1.915w31a
+Dragon heads have been added, which render as entities.
+
+End gateways have been added, which also use a starfield, much like end portals.1.1116w39a
+16 distinct types of shulker box have been added, which render as entities.1.1217w15a
+Beds now render as entities; prior to this version they were part of the block mesh like other blocks. This change has been instituted to accommodate the alternate colors in a way that would not exceed the block ID limit, however this system considerably outlasted the circumstances requiring it.1.1318w10b
+A seventeenth shulker box variant has been implemented, which uses much the same rendering system.18w15a
+Conduits have been added, which render as entities.pre3
+It is now possible to assign models to end portal and end gateway blocks through the blockstates system, however these will still only be used for particles and will not render any quads as would be done for other block IDs.1.1418w43a
+Birch, spruce, jungle, acacia and dark oak signs, alongside their wall variants, have been implemented, using the same rendering system as oak signs and oak wall signs.18w50a
+ Bells, specifically the bell itself, now render as entities due to the introduction of a swinging animation. The stand they hang from remains customizable through the usual block model system.19w02a
+ Lecterns may now hold books; the same model is used as with the enchanting table with different behaviour.
+
+ Campfires have been added; the four slots for items render independently of the block model of the campfire itself.19w03a
+ Campfire item positioning has changed.1.1519w39a
+Each half of a large chest renders the whole large chest. In practice, this means that a large chest is comprised of two identical, overlapping large chest models. Previously, rendering large chests was entirely handled by the "right" block state, which represents the left half of a given large chest, and the "left" block state, which represents the right half of a given large chest, was completely invisible.19w41a
+ The beacon beam geometry has changed once again, removing inner faces.19w42a
+Each half of a large chest now only renders that half.1.1620w06a
+Crimson and warped signs, alongside their wall variants, have been implemented, using the same rendering system as preceding such signs.20w15a
+Soul campfires have been added, which use an identical system to campfires for rendering items.October 3, 2020
+ It seems likely that sculk sensor tendrils were separate from the model at this point in development, as they moved in a way impossible via standard texture animation and were absent from the item form.November 13, 2020
+Sculk sensor tendrils appear to now be part of the model geometry itself, rather than separate, matching the form of the block that was ultimately implemented.1.1922w11a
+Mangrove signs and mangrove wall have been implemented, using the same rendering system as preceding such signs.1.19.322w42a
+Ten variants of hanging sign have been added (oak, birch, spruce, jungle, acacia, dark oak, mangrove, bamboo, crimson, warped), which can either be placed on the ceiling or wall, resulting in 20 distinct block IDs; in either case, all of these render as entities as typical signs do.
+
+Bamboo signs and bamboo wall have been implemented, using the same rendering system as preceding such signs.22w46a
+Piglin heads have been added, which render as entities.1.19.423w07a
+Decorated pots have been added, which render as entities.
+
+Suspicious sand and suspicious gravel have been added; the item that emerges during brushing is rendered independently of the block model of the block itself.
+
+Cherry signs and cherry hanging signs, alongside their wall variants, have been implemented, using the same rendering system as preceding such signs.1.20.323w45a
+Trial spawners have been added; much like regular spawners, a miniaturised version of the output mob is displayed within.1.20.524w13a
+Vaults have been added; much like spawners, a miniaturised version of the potential output item pool is displayed within.1.21.224w40a
+Pale oak signs and pale oak hanging signs, alongside their wall variants, have been implemented, using the same rendering system as preceding such signs.1.21.424w46a
+Many block entities will now render block model elements if assigned them, rather than rendering nothing at all but the entity and only using the model for defining the particles.
+
+For unknown reasons, end portal and end gateway blocks, as well as moving piston blocks, were not given this treatment and continue to ignore custom model geometry.1.21.525w03a
+ Test instance blocks have been added, which emit beacon-like beams.1.21.925w31a
+Copper golem statues have been added, which render as entities.
+
+Copper chests have been implemented, using the same rendering system as chests, ender chests and trapped chests.
+
+ Shelves have been added; the three slots for items render independently of the block model of the shelf itself. The items are centered vertically.25w32a
+ Items on shelves have been moved downward.25w33a
+Items on shelves can be configured to be either vertically centered or shifted downward.26.2snap3
+Beds now use block models fully rather than only for particles, changing them from  to .snap7
+Signs of all types now use block models for their main body, such that only the text is rendered specially.
+
+Standing signs have been changed from  to .
+
+Wall signs have been changed from  to .
+
+Hanging signs have been changed from  to .
+
+Wall hanging signs have been changed from  to .
+April Fools' exclusive blocks
+
+
+
+This section is missing information about:
+use magenta dummy cube:
+Potato Sign
+Potato Wall Sign
+Potato Hanging Sign
+Potato Wall Hanging Sign
+to test:
+How did we get here? (block)
+Golden Chest
+uses the assigned model but renders it differently - unsure if this should be included or not:
+Mine Travelling Block 
+Please expand the section to include this information. Further details may exist on the talk page.
+
+References
+
+ MC-270987
+
+ MC-279011
+
+ MC-308377
+
+ MC-308413
+
+ https://www.minecraft.net/en-us/article/minecraft-snapshot-24w46a
+
+ MC-279011

@@ -1,0 +1,165 @@
+Not to be confused with Commands/msg or Commands/say.
+
+  This article is about the command that sends JSON messages.   For the command to whisper, see Commands/tell.
+
+/tellraw
+
+Permission levelrequired
+
+2 ‌[JE  only]
+1 ‌[BE  only]
+
+Restrictions
+
+None
+
+{
+    "title": "<code>/tellraw</code>",
+    "rows": [
+        {
+            "field": "\n* 2 ‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Java Edition\">(link to Java Edition article, displayed as JE)  only</span></i>]</sup>\n* 1 ‌<sup class=\" nowrap Inline-Template \" title=\"\">[<i><span title=\"This statement only applies to Bedrock Edition\">(link to Bedrock Edition article, displayed as BE)  only</span></i>]</sup>",
+            "label": "(link to Permission level article, displayed as Permission level<br>required)"
+        },
+        {
+            "field": "None",
+            "label": "(link to Commands#Restrictions article, displayed as Restrictions)"
+        }
+    ],
+    "invimages": [],
+    "images": []
+}
+
+Sends a JSON message to players.
+
+Contents
+
+1 Syntax
+2 Arguments
+3 Result
+4 Output
+5 Examples
+6 History
+
+6.1 Java Edition
+6.2 Bedrock Edition
+
+7 See also
+8 External links
+9 Navigation
+
+Syntax
+Java Edition
+tellraw <targets> <message>
+Bedrock Edition
+tellraw <target: target> <raw json message: json>
+Arguments
+JE: <targets>: entityBE: target: target: CommandSelector<Player>
+
+Specifies the player(s) to send the message to.
+Must be a player name, a target selector or a UUID‌[Java Edition  only].  And the target selector must‌[JE  only]/should‌[BE  only] be of player type. In Bedrock Edition, the target selector should be of player type.
+JE: <message>: componentBE: raw json message: json: Json::Value
+
+Specifies the message to send.
+In Java Edition, must be a valid text component. In Bedrock Edition, must be a JSON [NBT Compound / JSON Object]Object.
+Result
+
+CommandTriggerJava EditionBedrock Edition
+
+AnyThe command is incomplete, or any argument is not specified correctly. Unparseable Unparseableraw json message: json is not a raw JSON text. N/A Failedplayer: target is a target selector that is not in player type.<targets> or player: target fails to resolve to one or more online players. FailedOtherwiseSuccessful
+Output
+
+CommandEditionSituationSuccess Count/execute store success .../execute store result ...
+
+AnyJava EditionOn fail000On success11the number of targeted playersBedrock EditionOn fail0N/AN/AOn success1N/AN/A
+Examples
+
+
+
+This section would benefit from the addition of more images. 
+Please remove this notice once you have added  suitable images to the article.
+
+Java Edition
+
+Bedrock Edition
+
+Preview
+
+To send the message "Hello" in chat:
+
+/tellraw @a "Hello"
+
+/tellraw @a {"rawtext":[{"text":"Hello"}]}
+
+To send the message "I am blue" colored blue in chat:
+
+/tellraw @a {"text":"I am blue","color":"blue"}
+/tellraw @a {text:"I am blue",color:blue}
+
+/tellraw @a {"rawtext":[{"text":"§9I am blue"}]}
+
+To send the message "Hover me!" in chat, which displays the text "Hi!" when hovered over:
+
+/tellraw @a {text:"Hover me!",hover_event:{action:show_text,value:"Hi!"}}
+
+To send the message-colored dark red in chat:
+
+/tellraw @a {text:"Y0U G3T B4CK H3R3 N0W",color:dark_red}
+/tellraw @a {"text":"Y0U G3T B4CK H3R3 N0W","color":"dark_red"}
+
+/tellraw @a {"rawtext":[{"text":"§4Y0U G3T B4CK H3R3 N0W"}]}
+
+To send the message "Read the fine print." in italics in chat:
+
+/tellraw @a {text:"Read the fine print.","italic":true}
+
+/tellraw @a {"rawtext":[{"text":"§oRead the fine print."}]}
+
+Use '\n' to insert a new line:
+
+/tellraw @a {text:"Text1\nText2"}
+/tellraw @a {"text":"Text1\nText2"}
+
+/tellraw @a {"rawtext":[{"text":"Text1\nText2"}]}
+
+Use '\uE100' to insert a hunger bar emoji:
+
+/tellraw @a {"rawtext":[{"text":"Text1\uE100Text2"}]}
+
+Display a message in the Enchanting Table's glyphs:
+
+/tellraw @a {text:"Hello World",font:alt}
+/tellraw @a {"text":"Hello World","font":"alt"}
+
+Display a message in the illager runes:
+
+/tellraw @a {"text":"Hello World","font":"illageralt"}
+/tellraw @a {text:"Hello World",font:illageralt}
+
+Display a translated string:
+
+/tellraw @p {"translate":"item.minecraft.diamond"}
+/tellraw @p {translate:item.minecraft.diamond}
+
+/tellraw @s {"rawtext":[{"translate":"item.diamond.name"}]}
+
+Simulate the output of /say @p loves Minecraft!, run through a command block:
+
+/tellraw @a {"translate":"chat.type.announcement","with":[{"text":"@"},[{"selector":"@p"},{"text":" loves Minecraft!"}]]}
+
+History
+ For changes to the raw JSON text used by this command, see Raw JSON text format § History.
+
+Java Edition
+Java Edition1.7.213w37a
+Added /tellraw.1.21.525w02a
+Text Components are now specified with SNBT instead of JSON.Upcoming Java Edition26.3snapshot1
+The nbt component in a raw chat message will only be resolved up to 64k times.
+Bedrock Edition
+Bedrock Edition1.9.0beta 1.9.0.0
+Added /tellraw.
+See also
+/say — send a plain text message to all players
+/tell — send a plain private text message to specific players
+External links
+"/tellraw Command"     – Microsoft Learn, October 11, 2023.
+Navigation

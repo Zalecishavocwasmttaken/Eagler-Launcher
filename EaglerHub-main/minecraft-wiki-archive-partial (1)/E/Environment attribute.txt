@@ -1,0 +1,880 @@
+For the entity attribute system, see Attribute.
+
+Environment attributes control various visual and gameplay features depending on the dimension, biome, time, and weather.
+
+Contents
+
+1 Usage
+2 List of attributes
+3 Modifiers
+
+3.1 Environment modifiers
+3.2 Boolean modifiers
+3.3 Float modifiers
+3.4 RGB and ARGB modifiers
+
+4 History
+5 Navigation
+
+Usage
+All environment attributes have a default value, which can be overwritten or modified by the following sources (from low priority to high priority):
+
+Dimension types
+Biome definitions
+Timelines
+Weather (not data-driven)
+Dimension types and biome definitions can overwrite and modify environment attributes using the format below. (Timelines modify environment attributes using a different format, which is detailed on their own wiki page.)
+
+[NBT Compound / JSON Object] attributes
+[Undefined] <attribute id>: Attribute value depending on the attribute
+or
+[NBT Compound / JSON Object] <attribute id>:
+[String] modifier: Modifier type. Available types depend on the value type of the attribute.
+[Undefined] argument: Argument of the modifier. Valid values depend on the modifier.
+
+List of attributes
+
+Environment attribute
+
+Explanation
+
+Value type
+
+Modifiers
+
+Default Value
+
+Interpolated
+
+Resolved at
+
+audio/ambient_sounds
+
+Controls ambient sounds that are played around the camera.
+
+[NBT Compound / JSON Object] minecraft:audio/ambient_sounds
+[NBT Compound / JSON Object] mood: A sound event played occasionally when in an enclosed space (like a cave, or a forest)
+[Int] block_search_extent: The cubic size used to determine if the space is "enclosed" enough
+[Int] offset: The max offset between the player and the sound
+[String][NBT Compound / JSON Object] sound: One server-side sound event (an [String] ID, or a new [NBT Compound / JSON Object] server-side sound event definition)
+A sound event see Template:Nbt inherit/sound event/template
+[Int] tick_delay: The average delay between each sound
+[NBT Compound / JSON Object] additions: A sound event played occasionally in a 3D space around the player
+[String][NBT Compound / JSON Object] sound: One server-side sound event (an [String] ID, or a new [NBT Compound / JSON Object] server-side sound event definition)
+A sound event see Template:Nbt inherit/sound event/template
+[Int] tick_chance: The chance to play this sound every tick
+[String][NBT Compound / JSON Object] loop: One server-side sound event (an [String] ID, or a new [NBT Compound / JSON Object] server-side sound event definition) — A loopable sound played continuously
+A sound event see Template:Nbt inherit/sound event/template
+
+override only
+
+{}
+
+No
+
+Camera position
+
+audio/background_music
+
+The background music to play.
+
+[NBT Compound / JSON Object] minecraft:audio/background_music
+[NBT Compound / JSON Object] default: Default music to play in this environment
+[Int] max_delay: Max delay between each song
+[Int] min_delay: Min delay between each song
+[String][NBT Compound / JSON Object] sound: One server-side sound event (an [String] ID, or a new [NBT Compound / JSON Object] server-side sound event definition)
+A sound event see Template:Nbt inherit/sound event/template
+[Boolean] replace_current_music: Whether or not to replace music which is already playing. Defaults to false
+[NBT Compound / JSON Object] creative: Creative mode music to play in this environment (overrides default)
+[Int] max_delay: Max delay between each song
+[Int] min_delay: Min delay between each song
+[String][NBT Compound / JSON Object] sound: One server-side sound event (an [String] ID, or a new [NBT Compound / JSON Object] server-side sound event definition)
+A sound event see Template:Nbt inherit/sound event/template
+[Boolean] replace_current_music: Whether or not to replace music which is already playing. Defaults to false
+[NBT Compound / JSON Object] underwater: Music to play in this environment when the player is submerged (overrides default)
+[Int] max_delay: Max delay between each song
+[Int] min_delay: Min delay between each song
+[String][NBT Compound / JSON Object] sound: One server-side sound event (an [String] ID, or a new [NBT Compound / JSON Object] server-side sound event definition)
+A sound event see Template:Nbt inherit/sound event/template
+[Boolean] replace_current_music: Whether or not to replace music which is already playing. Defaults to false
+
+override only
+
+{}
+
+No
+
+Camera position
+
+audio/firefly_bush_sounds
+
+Whether a firefly bush plays ambient sounds when not under an opaque block.
+
+[Boolean] boolean
+
+Boolean modifiers
+
+false
+
+No
+
+Position of the firefly bush
+
+audio/music_volume
+
+Volume of the music. Music volume will fade over time to this value.
+
+[Float] float
+
+Float modifiers
+
+1.0
+
+No
+
+Camera position
+
+gameplay/baby_villager_activity
+
+Controls the default AI activity of baby villagers.
+[String]core, hide, idle, meet, panic, play, pre_raid, raid, or rest. Other activities are allowed causing the villager to do nothing.
+
+override only
+
+idle
+
+No
+
+Position of the villager
+
+gameplay/bed_rule
+
+Controls behavior of interacting with beds.
+
+[NBT Compound / JSON Object]
+[String] can_sleep: When it is possible to sleep. One of:
+always
+when_dark — global skylight level is less than 4
+never
+[String] can_set_spawn: When it is possible to set the spawn point. Same options as [String] can_sleep.
+[Boolean] explodes: (Optional, defaults to false) Whether the bed explodes when interacted with.
+[String][NBT List / JSON Array][NBT Compound / JSON Object] error_message: Text component to display when it is impossible to sleep.
+
+override only
+
+No
+
+Head position of the bed
+
+gameplay/bees_stay_in_hive
+
+When true bees will pathfind to beehives and not exit (except when the Hive is broken or next to fire).
+
+[Boolean] boolean
+
+Boolean modifiers
+
+false
+
+No
+
+Position of the bee or beehive
+
+gameplay/can_pillager_patrol_spawn
+
+Whether patrols can spawn when the global skylight is greater than 11.
+
+[Boolean] boolean
+
+Boolean modifiers
+
+true
+
+No
+
+Position of the patrol spawn attempt.
+
+gameplay/can_start_raid
+
+Whether a player with Raid Omen can start a raid.
+
+[Boolean] boolean
+
+Boolean modifiers
+
+true
+
+No
+
+Position the raid would start
+
+gameplay/cat_waking_up_gift_chance
+
+Chance of a cat dropping a gift when the player wakes up.
+
+[Float] float (0 to 1)
+
+Float modifiers
+
+0.0
+
+Yes
+
+Position of the cat
+
+gameplay/creaking_active
+
+When true, a creaking heart will become active. When false, it will become inactive.
+
+[Boolean] boolean
+
+Boolean modifiers
+
+false
+
+No
+
+Position of the creaking heart block
+
+gameplay/eyeblossom_open
+
+How eyeblossoms should behave.
+[Boolean]true: eyeblossoms will open
+[Boolean]false: eyeblossoms will close
+[String]"default": eyeblossom will stay in their current state
+
+override only
+
+"default"
+
+No
+
+Position of the eyeblossom
+
+gameplay/fast_lava
+
+Whether lava should spread faster and further, and have a stronger pushing force on entities.
+
+[Boolean] boolean
+
+Boolean modifiers
+
+false
+
+No
+
+Not positional
+
+gameplay/increased_fire_burnout
+
+Whether fire should burn out more quickly.
+
+[Boolean] boolean
+
+Boolean modifiers
+
+false
+
+No
+
+Position of the fire block
+
+gameplay/monsters_burn
+
+Whether monsters burn when exposed to the sky.
+
+[Boolean] boolean
+
+Boolean modifiers
+
+false
+
+No
+
+Position of the monster.
+
+gameplay/nether_portal_spawns_piglin
+
+Whether a nether portal can spawn zombified piglins.
+
+[Boolean] boolean
+
+Boolean modifiers
+
+false
+
+No
+
+Position of a random nether portal block.
+
+gameplay/piglins_zombify
+
+Whether piglins and hoglins zombify.
+
+[Boolean] boolean
+
+Boolean modifiers
+
+true
+
+No
+
+Position the piglin or hoglin
+
+gameplay/respawn_anchor_works
+
+Whether a respawn anchor can be used to set spawn. If set to false a respawn anchor explodes once used.
+
+[Boolean] boolean
+
+Boolean modifiers
+
+false
+
+No
+
+Position the respawn anchor
+
+gameplay/sky_light_level
+
+The internal sky light level (inversely known as the "darkening" sky light level), not the actual sky light level. This affects mechanics such as monster spawning, daylight detector power, and ice melting. The visual effect is controlled by visual/sky_light_factor.
+
+[Float] float
+
+Float modifiers
+
+15.0
+
+Yes
+
+Not positional
+
+gameplay/snow_golem_melts
+
+Whether snow golems should take damage.
+
+[Boolean] boolean
+
+Boolean modifiers
+
+false
+
+No
+
+Position the snow golem.
+
+gameplay/surface_slime_spawn_chance
+
+Chance of an additional slime spawn on the surface in biomes in the #allows_surface_slime_spawns tag.
+
+[Float] float (0 to 1)
+
+Float modifiers
+
+0.0
+
+Yes
+
+Position the slime spawn attempt.
+
+gameplay/turtle_egg_hatch_chance
+
+Chance for a turtle egg to progress to its next hatching state on a random tick.
+
+[Float] float (0 to 1)
+
+Float modifiers
+
+0.002
+
+Yes
+
+Position of the turtle egg
+
+gameplay/villager_activity
+
+Controls the default AI activity of villagers.
+[String]core, hide, idle, meet, panic, pre_raid, raid, rest, or work. Other activities are allowed causing the villager to do nothing.
+
+override only
+
+idle
+
+No
+
+Position of the villager
+
+gameplay/water_evaporates
+
+Whether water can be placed from a bucket, or by melting ice, or whether wet sponge will dry out.
+
+[Boolean] boolean
+
+Boolean modifiers
+
+false
+
+No
+
+Position of the interaction
+
+visual/ambient_light_color
+
+Defines both the ambient light tint and brightness
+This light is applied to the world at 0 light level. Block and sky light are added on top of it.
+
+RGB color
+
+RGB Modifiers
+
+ #000000
+
+Yes
+
+Camera position
+
+visual/ambient_particles
+
+Particles that spawn randomly around the camera
+
+[NBT List / JSON Array] List of particles to spawn
+[NBT Compound / JSON Object]
+[NBT Compound / JSON Object] particle: the particle to spawn
+A particle see Template:Nbt inherit/particle/template
+[Float] probability: the proability to spawn a particle in an empty space
+
+override only
+
+[]
+
+No
+
+Camera position
+
+visual/block_light_tint
+
+Tint of the block light
+Block light color start as dark grey at low light levels, becomes tinted by this attribute at medium levels and turns white at high levels. By default, it provides the yellowish tint of torches.
+
+RGB color
+
+RGB Modifiers
+
+ #FFD88C
+
+Yes
+
+Camera position
+
+visual/cloud_color
+
+Opacity of the clouds.
+If fully transparent Happy Ghast do not regenerate health faster when at cloud height.
+
+ARGB color
+
+ARGB modifier
+
+ #00000000
+(fully transparent)
+
+Yes
+
+Camera position or Happy Ghast position
+
+visual/cloud_fog_end_distance
+
+Distance in blocks when the fog affecting the clouds reaches maximum density.
+(also affected by cloud distance option)
+
+[Float] float
+
+Float modifiers
+
+2048.0
+
+Yes
+
+Camera position
+
+visual/cloud_height
+
+Height of the clouds
+
+[Float] float
+
+Float modifiers
+
+192.33
+
+Yes
+
+Camera position or Happy Ghast position
+
+visual/default_dripstone_particle
+
+The particle generated by downward pointed dripstone when no liquid is above.
+
+[NBT Compound / JSON Object]
+A particle see Template:Nbt inherit/particle/template
+
+override only
+
+No
+
+Position of the dripstone block
+
+visual/fog_color
+
+Color of the fog
+(also affected by time of day, weather, and potion effects)
+
+RGB color
+
+RGB modifiers
+
+ #000000
+
+Yes
+
+Camera position
+
+visual/fog_end_distance
+
+Distance in blocks when the fog reaches maximum density.
+(also affected by weather)
+
+[Float] float
+
+Float modifiers
+
+1024.0
+
+Yes
+
+Camera position
+
+visual/fog_start_distance
+
+Distance in blocks from where the fog starts to have an effect. If negative, fog already exists at 0 distance.
+
+[Float] float
+
+Float modifiers
+
+0.0
+
+Yes
+
+Camera position
+
+visual/moon_angle
+
+Position of the moon in degrees from east to west. 0 is directly up. Only used with overworld skybox type.
+
+[Float] float angle
+
+Float modifiers
+
+0.0
+
+Yes
+
+Camera position
+
+visual/moon_phase
+
+Phase of the moon. Only used with overworld skybox type.
+[String]full_moon, waning_gibbous, third_quarter, waning_crescent, new_moon, waxing_crescent, first_quarter, or waxing_gibbous
+
+override only
+
+full_moon
+
+No
+
+Camera position
+
+visual/night_vision_color
+
+Used similarly to ambient light color
+When the night vision effect is active, per-component maximum of minecraft:visual/night_vision_color and minecraft:visual/ambient_light_color is used as ambient color. Night Vision is not tinted by default.
+
+RGB color
+
+RGB Modifiers
+
+ #999999
+
+Yes
+
+Camera position
+
+visual/sky_color
+
+Color of the sky
+(also affected by time of day and weather)
+
+RGB color
+
+RGB modifier
+
+ #000000
+
+Yes
+
+Camera position
+
+visual/sky_fog_end_distance
+
+Distance in blocks when the fog affecting the sky reaches maximum density.
+(also affected by the render distance)
+
+[Float] float
+
+Float modifiers
+
+512.0
+
+Yes
+
+Camera position
+
+visual/sky_light_color
+
+Color of the sky light. Has no effect on blocks with a sky light of 0. This value is passed to the lightmap.fsh shader as SkyLightColor
+
+RGB color
+
+RGB modifier
+
+ #FFFFFF
+
+Yes
+
+Camera position
+
+visual/sky_light_factor
+
+Visual brightness of the sky light. The sky light color is mulitplied with this value and passed to the lightmap.fsh shader as SkyFactor
+
+[Float] float
+
+Float modifiers
+
+1.0
+
+Yes
+
+Camera position
+
+visual/star_angle
+
+Position of the stars in degrees from east to west. Only used with overworld skybox type.
+
+[Float] float angle
+
+Float modifiers
+
+0.0
+
+Yes
+
+Camera position
+
+visual/star_brightness
+
+Brightness of the stars. 0.5 is the default night start brightness. Only used with overworld skybox type.
+
+[Float] float
+
+Float modifiers
+
+0.0
+
+Yes
+
+Camera position
+
+visual/sun_angle
+
+Position of the sun in degrees from east to west. 0 is directly up. Only used with overworld skybox type.
+
+[Float] float angle
+
+Float modifiers
+
+0.0
+
+Yes
+
+Camera position
+
+visual/sunrise_sunset_color
+
+Color and intensity of sunrise and sunset. Only used with overworld skybox type.
+
+ARGB color
+
+ARGB modifiers
+
+ #00000000
+(fully transparent)
+
+Yes
+
+Camera position
+
+visual/water_fog_color
+
+Color of the fog when underwater
+(also affected by time of day, weather, and potion effects)
+
+RGB color
+
+RGB modifiers
+
+ #050533
+
+Yes
+
+Camera position
+
+visual/water_fog_end_distance
+
+Distance in blocks when the underwater fog reaches maximum density
+(also affected by how long the player has been underwater)
+
+[Float] float
+
+Float modifiers
+
+96.0
+
+Yes
+
+Camera position
+
+visual/water_fog_start_distance
+
+Distance in blocks from where the underwater fog starts to have an effect. If negative, fog already exists at 0 distance.
+(also affected by how long the player has been underwater)
+
+[Float] float
+
+Float modifiers
+
+-8.0
+
+Yes
+
+Camera position
+
+ Default value for gameplay/bed_rule: {
+  "can_sleep": "when_dark",
+  "can_set_spawn": "always",
+  "error_message": {
+    "translate": "block.minecraft.bed.no_sleep"
+  }
+}
+
+ RGB colors can be represented as:
+[String] string using #RRGGBB
+packed [Int] converted from hex to decimal
+a [NBT List / JSON Array] list of 3 [Float] floats between 0 and 1.
+
+ ARGB colors can be represented as:
+[String] string using #AARRGGBB
+packed [Int] converted from hex to decimal, as a signed 64 bit integer.
+a [NBT List / JSON Array] list of 4 [Float] floats between 0 and 1.
+
+ Default value for visual/default_dripstone_particle:{
+  "type": "minecraft:dripping_dripstone_water"
+}
+
+Modifiers
+Environment modifiers
+Environment attribute modifiers are used to modify the value of an environment attribute.
+
+override
+Overrides the existing value with a new value. Functions identical to directly specifying the value. This modifier is available for all value types.
+
+[NBT Compound / JSON Object] <attribute_id>
+[String] modifier: override
+[Undefined] argument: The new value. The accepted type depends on the value type of the environment attribute.
+
+Boolean modifiers
+Boolean modifiers are used to modify boolean values. They apply a boolean operator on the old value and a given argument.
+
+[NBT Compound / JSON Object] <attribute_id>
+[String] modifier: and, nand, or, nor, xor, or xnor
+[Boolean] argument: Argument of the modifier.
+
+Float modifiers
+Float modifiers are used to modify float values.
+
+simple arithmatic
+Applies a simple arithmatic operation to the old value and a given argument.
+
+[NBT Compound / JSON Object] <attribute_id>
+[String] modifier: add, subtract, multiply, minimum, or maximum
+[Float] argument: Argument of the modifier.
+
+alpha_blend
+Applies a alpha blending between the old value and a new value.
+
+[NBT Compound / JSON Object] <attribute_id>
+[String] modifier: alpha_blend
+[NBT Compound / JSON Object] argument:
+[Float] value: The new value
+[Float] alpha: Optional value between 0 and 1 — Weight of the new value
+
+RGB and ARGB modifiers
+RGB and ARGB modifiers are used to modify RGB or ARGB color values.
+
+component-wise color blending
+Applies a component-wise additive, subtractive, or multiplicative color blending of the old color and a given argument color.
+
+[NBT Compound / JSON Object] <attribute_id>
+[String] modifier: add, subtract, or multiply
+[Int][String][NBT List / JSON Array] argument: RGB to blend with. The ARGB multiply modifier also allows a ARGB argument.
+
+alpha_blend
+Applies traditional alpha blending between colors
+
+[NBT Compound / JSON Object] <attribute_id>
+[String] modifier: alpha_blend
+[Int][String][NBT List / JSON Array] argument: ARGB color to blend with.
+
+blend_to_gray
+Applies component-wise blending of the RGB components towards a grayscale color.
+
+[NBT Compound / JSON Object] <attribute_id>
+[String] modifier: blend_to_gray
+[NBT Compound / JSON Object] argument:
+[Float] brightness: Fraction of the brightness of the original color to blend towards (0.0 - 1.0).
+[Float] factor: Blend factor towards the grayscale color (0.0 - 1.0). Behaves like the alpha component.
+History
+
+
+
+This section is missing information about:
+Can we use the NBT template to indicate the data type of each of these like in Dimension type#History?
+Upon implementation, many of these replaced biome tags and some settings in json files. Can what was replaced also be listed here? 
+Please expand the section to include this information. Further details may exist on the talk page.
+
+Java Edition1.21.1125w42a
+Introduced minecraft:visual/fog_color, minecraft:visual/extra_fog, minecraft:visual/water_fog_color, minecraft:visual/water_fog_radius, minecraft:visual/extra_fog, minecraft:visual/cloud_opacity, minecraft:visual/cloud_height, minecraft:visual/default_dripstone_particle, minecraft:visual/ambient_particles, minecraft:audio/background_music, minecraft:audio/music_volume, minecraft:audio/ambient_sounds, minecraft:gameplay/can_start_raid, minecraft:gameplay/water_evaporates, minecraft:gameplay/bed_rule, minecraft:gameplay/respawn_anchor_works, minecraft:gameplay/nether_portal_spawns_piglin, minecraft:gameplay/minecraft:gameplay/fast_lava, minecraft:gameplay/increased_fire_burnout, minecraft:gameplay/piglins_zombify, and minecraft:gameplay/snow_golem_melts.25w44a
+Added minecraft:visual/water_fog_start_distance, minecraft:visual/fog_start_distance, minecraft:visual/fog_end_distance, minecraft:visual/sky_fog_end_distance, minecraft:visual/cloud_fog_end_distance, and minecraft:visual/cloud_color.
+Renamed minecraft:visual/water_fog_radius to minecraft:visual/water_fog_end_distance.
+Removed minecraft:visual/extra_fog.
+Replaced minecraft:visual/cloud_opacity with minecraft:visual/cloud_color.
+Added modifiers on ARGB Color Values.25w45a
+Added minecraft:visual/sunrise_sunset_color, minecraft:visual/sun_angle, minecraft:visual/moon_angle, minecraft:visual/star_angle, minecraft:visual/moon_phase, minecraft:visual/star_brightness, minecraft:visual/sky_light_color, minecraft:visual/sky_light_factor, minecraft:audio/firefly_bush_sounds, minecraft:gameplay/sky_light_level, minecraft:gameplay/eyeblossom_open, minecraft:gameplay/turtle_egg_hatch_chance, minecraft:gameplay/creaking_active, minecraft:gameplay/surface_slime_spawn_chance, minecraft:gameplay/cat_waking_up_gift_chance, minecraft:gameplay/bees_stay_in_hive, minecraft:gameplay/monsters_burn, minecraft:gameplay/can_pillager_patrol_spawn, minecraft:gameplay/villager_activity, and minecraft:gameplay/baby_villager_activity.26.1snap1
+Added minecraft:visual/block_light_tint, minecraft:visual/ambient_light_color, and minecraft:visual/night_vision_color.snap5
+Updated the gameplay/turtle_egg_hatch_chance environment attribute to have a default value of 0.002.Upcoming Java Edition26.3snap3
+Added minecraft:gameplay/straw_bed_rule.
+minecraft:gameplay/bed_rule: field explodes has been renamed to destroy_on_use, added destroy_on_leave.snap4
+Added minecraft:gameplay/natural_mob_spawns, and minecraft:gameplay/creature_world_gen_spawn_probability attributes.
+minecraft:visual/ambient_particles: Now supports interpolation between Timeline keyframes (probabilities will be crossfaded). Introduced support for new modifier: append.
+Navigation

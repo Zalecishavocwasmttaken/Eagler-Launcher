@@ -1,0 +1,163 @@
+This page covers a release version that has a major issue under certain conditions. 
+The dedicated server for this version has a security vulnerability in the Log4j library that could be used to perform a remote code execution exploit. It can be addressed by appending a certain JVM argument to the server startup command line.
+
+Minecraft 1.7.6
+
+Edition
+
+Java Edition
+
+Release date
+
+April 9, 2014
+
+Development versions
+
+Pre-releases (2) (View all)
+
+Downloads
+
+Client (.json)Server (.exe)
+
+Protocol version
+
+5
+
+Resource pack format
+
+1
+
+Minimum Java version
+
+Java SE 6
+
+◄◄   1.7.2
+1.7.6
+  1.8 ►►
+
+◄   1.7.5
+
+  1.7.7 ►
+
+{
+    "title": "Minecraft 1.7.6",
+    "images": [
+        "Java Edition 1.7.6.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "April 9, 2014",
+            "label": "Release date"
+        },
+        {
+            "field": "<div class=\"hlist\"><span style=\"white-space:nowrap;\">(link to :Category:Java Edition 1.7.6 pre-releases article, displayed as '''Pre-releases''') (2) </span><br/>((link to Java Edition 1.7.6/Development versions article, displayed as View all))</div>",
+            "label": "<span style=\"white-space: normal;\">Development versions</span>"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/6b2c5827994e17f904f0852f962dd6fccfbb8bdc/client.jar Client] ([https://piston-meta.mojang.com/v1/packages/4cdba7fb4ea885d508bf7469812bdcee6b490681/1.7.6.json .json])<br />[https://piston-data.mojang.com/v1/objects/41ea7757d4d7f74b95fc1ac20f919a8e521e910c/server.jar Server] ([https://piston-data.mojang.com/v1/objects/99615bc71d0a6e178961edc13be57cf4b7d0ef75/windows_server.exe .exe])",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "5",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "1",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_6 Java SE 6]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Java Edition  1.7.2|<span style=\"margin-right:-0.35em\">◄</span>◄   1.7.2]]</td>\n<td rowspan=\"2\" style=\"padding: 0.4em\">'''1.7.6'''</td>\n<td style=\"padding: 0.4em\" >[[Java Edition  1.8|  1.8 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  1.7.5|◄   1.7.5]]\n</td>\n\n<td style=\"padding: 0.4em\">\n[[Java Edition  1.7.7|  1.7.7 ►]]\n</td>\n</tr>\n</table>"
+}
+
+1.7.6 is a minor update to Java Edition that was released on April 9, 2014, which implemented a new player skin system and support for player name changing. It is incompatible with 1.7.2–1.7.5 servers. It was replaced the same day by 1.7.7 to fix a major bug, and then again the next week by 1.7.8 and 1.7.9.
+
+Contents
+
+1 Changes
+
+1.1 General
+
+2 Fixes
+3 Reupload
+4 Trivia
+5 Notes
+6 References
+7 Navigation
+
+Changes
+General
+Minecraft Realms
+
+Improved 'configure' screen.
+Can now OP players from the config screen.
+Easier to invite and uninvite players.
+New button to close and unclose realm.
+Name changing
+
+Support for name changing.
+Only the support for changing names, actually being able to change name came on February 4, 2015.
+Options
+
+The server resource packs option is now per-server, and has three settings: prompt, enabled, and disabled.
+The minimum setting for the FOV option is now 30 instead of 70.
+Skins
+
+Skins and capes are now distributed through servers.
+Skins server outages occur less frequently and have less impact.
+Skin changes no longer require client restarting, at worst re-logging updates the skin for everybody.
+Server-altered skins and capes are not possible - only signed URLs are stored server-side.
+Duplicate skins no longer need to be downloaded twice.
+Server traffic is barely affected.
+Fixes
+6 issues fixed
+From releases before 1.7.2
+
+MC-33086 – Save-all causes lag spikes on larger maps.
+From 1.7.2
+
+MC-31468 – Holes in bedrock and Replaced any block using Arbitrary TNT and flame bows.
+MC-39228 – Zombies kill villagers instead of transforming them on Hard difficulty.
+From earlier released 1.8 development versions
+
+MC-47723 – Broadcast settings - report to Mojang, links to previous bug reporting facility.
+From 1.7.4
+
+MC-48826 – "replace" directive in sounds.json does not work.
+From 1.7.5
+
+MC-51953 – Almost instant motion sickness due to distorted rendering.
+Reupload
+The json date is 18 minutes before our jar.
+
+Trivia
+As a result of the old skin server being shut down, 1.7.6 is the oldest version of the game where skins still work without the use of modifications or third-party programs.
+Notes
+
+ Marked as fixed in 14w02a at the bug tracker, but was also fixed in 1.7.6-pre2.
+
+References
+
+ "Important Message: Security vulnerability in Java Edition"     – Minecraft.net, December 10, 2021.
+
+ "Minecraft 1.7.6"  (archived)   by Searge  – Mojang.com, April 9, 2014.
+
+ "Minecraft 1.7.6 is out! It includes some improvements to Realms, like being able to OP your buddies."  – @xlson  on X (formerly Twitter), April 9, 2014
+
+ "Minecraft snapshot 14w10a"   (Archive)  by Dinnerbone  – Mojang.com, March 6, 2014.
+
+ "Minecraft profile name changes are live. To change your name log in to account.mojang.com"  – @KrisJelbring (Kristoffer Jelbring) on X (formerly Twitter), February 4, 2015
+
+ "Rewriting how skins/capes are distributed. Servers will download the info from us and redistribute it clients, should be much more stable!"  – @Dinnerbone (Nathan Adams) on X (formerly Twitter), January 13, 2014
+
+ "It basically means that skins shouldn't go down as much (if they do it won't matter as much too), and changing your skin is more instant."  – @Dinnerbone (Nathan Adams) on X (formerly Twitter), January 13, 2014
+
+Navigation

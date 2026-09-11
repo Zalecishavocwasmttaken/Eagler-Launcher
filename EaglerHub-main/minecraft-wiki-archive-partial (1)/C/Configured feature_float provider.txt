@@ -1,0 +1,15 @@
+[String] type: The type of the float provider. One of constant, uniform, clamped_normal, or trapezoid.
+If type is constant, additional fields are as follows:
+[Float] value: The constant value to use.
+If type is uniform, additional fields are as follows:
+[Float] min_inclusive: The minimum possible value (inclusive).
+[Float] max_exclusive: The maximum possible value (exclusive). Must be larger than [Float] min_inclusive.
+If type is clamped_normal, additional fields are as follows:
+[Float] mean: The mean.
+[Float] deviation: The deviation.
+[Float] min: The minimum value to clamp to.
+[Float] max: The maximum value to clamp to. Must be larger than [Float] min.
+If type is trapezoid, additional fields are as follows:
+[Float] min: The minimum value.
+[Float] max: The maximum value. Must be larger than [Float] min.
+[Float] plateau: The range in the middle of the trapezoid distribution that has a uniform distribution. Must be less than or equal to max - min

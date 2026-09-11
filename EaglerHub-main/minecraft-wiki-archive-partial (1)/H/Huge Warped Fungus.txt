@@ -1,0 +1,179 @@
+Huge Warped Fungus
+
+Biomes
+
+Warped Forest
+
+Generates inexisting chunks  
+
+Yes
+
+Consists of
+
+Warped Stem
+Warped Wart Block
+Shroomlight
+
+{
+    "title": "Huge Warped Fungus",
+    "rows": [
+        {
+            "field": "<span class=\"nowrap\"><span class=\"sprite-file\" style=\"\">(link to File:BiomeSprite warped-forest.png article, displayed as 16x16px|link=Warped Forest|alt=|class=pixel-image|)</span>(link to Warped Forest article, displayed as <span class=\"sprite-text\">Warped Forest</span>)</span>",
+            "label": "(link to Biome article, displayed as Biomes)"
+        },
+        {
+            "field": "Yes",
+            "label": "Generates in<br>existing chunks  "
+        },
+        {
+            "field": "\n* <span class=\"nowrap\"><span class=\"sprite-file\" style=\"\">(link to File:BlockSprite warped-stem.png article, displayed as 16x16px|link=Warped Stem|alt=|class=pixel-image|)</span>(link to Warped Stem article, displayed as <span class=\"sprite-text\">Warped Stem</span>)</span>\n* <span class=\"nowrap\"><span class=\"sprite-file\" style=\"\">(link to File:BlockSprite warped-wart-block.png article, displayed as 16x16px|link=Warped Wart Block|alt=|class=pixel-image|)</span>(link to Warped Wart Block article, displayed as <span class=\"sprite-text\">Warped Wart Block</span>)</span>\n* <span class=\"nowrap\"><span class=\"sprite-file\" style=\"\">(link to File:BlockSprite shroomlight.png article, displayed as 16x16px|link=Shroomlight|alt=|class=pixel-image|)</span>(link to Shroomlight article, displayed as <span class=\"sprite-text\">Shroomlight</span>)</span>",
+            "label": "Consists of"
+        }
+    ],
+    "invimages": [],
+    "images": [
+        "Huge Warped fungi.png"
+    ]
+}
+
+A huge warped fungus is a large tree-like feature that generates in the Nether and can be grown from warped fungi.
+
+Contents
+
+1 Appearance
+2 Generation
+3 Growth
+4 Data values
+
+4.1 ID
+4.2 Config
+
+5 History
+6 Issues
+7 Gallery
+
+7.1 Screenshots
+
+8 See also
+9 References
+10 Navigation
+
+Appearance
+The trunks of huge warped fungi are made of warped stems. Huge warped fungus trunks can be either thick or thin: thick trunks grow up in a 3×3-plus shape, with stray stems sometimes in the corners, while thin trunks grow straight up as a 1×1 column.
+To determine the size of huge warped fungi, a random integer is chosen between 4 and 13 [inclusive]. There is a 1⁄12 chance of that integer doubling. The resulting value is the height of the trunk. A layer of wart blocks and shroomlights is then spread around the trunk, being able to generate up to 3 blocks out from the trunk, and are the "leaves" of the fungus. There is a 3×3×2 hollow ring that surrounds the lowest block of a fungus where no blocks generate.
+
+Generation
+Huge warped fungi in a warped forest
+Huge warped fungi generate only in warped forests.
+
+Growth
+The smallest a huge fungus structure can be
+When bone meal is used on a warped fungus that is planted on warped nylium, this has a 40% chance to grow into its huge equivalent. The stem, shroomlight, or nether wart block do not replace blocks. A fungus does not grow by itself through random ticks, unlike saplings.
+Huge warped fungi grow even with blocks above them, and do not replace any solid blocks when grown; however, they do not grow if blocked by the world height limit, or if situated outside of the world.
+Huge warped fungi can grow up to 27 blocks tall. The maximum space they can take up is 9×27×9 blocks (partially hollow), and the average is 213 blocks of volume.
+Warped wart blocks and shroomlights persist when the stem of the huge fungus is removed, unlike how leaves decay when logs of a tree are removed.
+
+Data values
+ID
+Java Edition:
+
+Feature typeIdentifier
+ [No displayed name]huge_fungus
+
+Configured featureIdentifier
+ [No displayed name]warped_fungus
+
+ [No displayed name]warped_fungus_planted
+
+Config
+Main article: Configured feature
+Java Edition:
+
+[NBT Compound / JSON Object] config
+[NBT Compound / JSON Object] hat_state The block to use for the hat.
+Block state see Template:Nbt inherit/block state/template
+[NBT Compound / JSON Object] decor_state The block to use as decoration.
+Block state see Template:Nbt inherit/block state/template
+[NBT Compound / JSON Object] stem_state The block to use for the stem.
+Block state see Template:Nbt inherit/block state/template
+[NBT Compound / JSON Object] valid_base_block The block to place this feature on.
+Block state see Template:Nbt inherit/block state/template
+[Boolean] planted (optional, defaults to false) Whether this huge fungus is planted. If false, it can't exceed the world ceiling, can replace blocks whose material is plant, and doesn't drop items when replaced by other blocks.
+[NBT Compound / JSON Object] replaceable_blocks A block predicate. The predicate must pass for a block to be replaced by this feature.
+
+[String] type: The type of the block predicate. See Block predicate § Types for options.
+additional fields depending on [String] type. See Block predicate § Types.
+
+An example
+
+{
+  "type": "minecraft:huge_fungus",
+  "config": {
+    "decor_state": {
+      "Name": "minecraft:shroomlight"
+    },
+    "hat_state": {
+      "Name": "minecraft:warped_wart_block"
+    },
+    "planted": false,
+    "replaceable_blocks": {
+      "type": "minecraft:matching_blocks",
+      "blocks": [
+        "minecraft:warped_fungus",
+        "minecraft:crimson_fungus",
+        "minecraft:weeping_vines",
+        "minecraft:weeping_vines_plant",
+        "minecraft:twisting_vines",
+        "minecraft:twisting_vines_plant"
+      ]
+    },
+    "stem_state": {
+      "Name": "minecraft:warped_stem",
+      "Properties": {
+        "axis": "y"
+      }
+    },
+    "valid_base_block": {
+      "Name": "minecraft:warped_nylium"
+    }
+  }
+}
+
+History
+Java EditionSeptember 28, 2019
+Huge warped fungi was shown as part of warped forest biome.1.1620w06a
+Added huge warped fungi.20w09a
+Warped fungi must now be placed on the warped nylium to grow into huge warped fungi.1.2023w17a
+Added replaceable_blocks field to the huge_fungus feature config.Bedrock Edition1.16.0beta 1.16.0.51
+Added huge warped fungi.
+Issues
+Issues relating to "Huge Warped Fungi" are maintained on the bug tracker. Issues should be reported and viewed there.
+
+Gallery
+Screenshots
+
+
+
+			A huge warped fungus in a Nether fortress
+
+
+
+			A huge warped fungus in the warped forest
+
+
+
+			The shortest huge fungus and the tallest huge fungus
+
+
+
+			The theoretical maximum amount of shroomlights a huge fungus can generate with
+
+
+See also
+Huge Crimson Fungus
+Tutorial:Huge fungus generation
+References
+
+ MC-170858 – Crimson and Warped trees do not check for empty space when growing – resolved as "Works as Intended".
+
+Navigation

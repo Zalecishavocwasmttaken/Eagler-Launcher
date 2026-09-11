@@ -1,0 +1,18 @@
+[NBT Compound / JSON Object] minecraft:equippable: If present, this item can be equipped in the specified slot.
+[String] slot: The slot to put the item on. Can be one of head, chest, legs, feet, body, mainhand, offhand, or saddle
+[String][NBT Compound / JSON Object] equip_sound: One server-side sound event (an [String] ID, or a new [NBT Compound / JSON Object] server-side sound event definition) to play when the item is equipped. Defaults to item.armor.equip_generic.
+A sound event see Template:Nbt inherit/sound event/template
+[String] asset_id: The resource location of the equipment model to use when equipped. The directory this refers to is assets/<namespace>/equipment/<id>.json. If not specified, falls back to rendering as the item itself when in the head slot (if not applicable, the item does not render).
+[String][NBT List / JSON Array] allowed_entities: Entity ID, Entity Tag, or list of Entity IDs to limit which entities can equip this item. Defaults to all entities.
+[Boolean] dispensable: Whether the item can be dispensed by using a dispenser. Defaults to true.
+[Boolean] swappable: Whether the item can be equipped into the relevant slot by right-clicking. Defaults to true.
+[Boolean] damage_on_hurt: Whether this item is damaged when the wearing entity is damaged. Defaults to true.
+[Boolean] equip_on_interact: Whether this item can be equipped onto a target mob by pressing use on it (as long as this item can be equipped on the target at all). Defaults to false.
+[String] camera_overlay: The resource location of the overlay texture to use when equipped. The directory this refers to is assets/<namespace>/textures/<id>. Assets which do not exist will use the missing texture, rather than falling back to a default such as the pumpkin overlay.
+[Boolean] can_be_sheared: Whether this item can be unequipped from a target mob by right-clicking with Shears. Defaults to false.
+[String][NBT Compound / JSON Object] shearing_sound: One server-side sound event (an [String] ID, or a new [NBT Compound / JSON Object] server-side sound event definition) to play when the item is sheared. Defaults to item.shears.snip.
+A sound event see Template:Nbt inherit/sound event/template
+
+Notes
+
+ If the item type has special dispenser behavior, this has no effect.

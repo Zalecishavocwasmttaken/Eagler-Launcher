@@ -1,0 +1,281 @@
+This page covers a release version that has a major issue under certain conditions. 
+The dedicated server for this version has a security vulnerability in the Log4j library that could be used to perform a remote code execution exploit. It can be addressed by appending a certain JVM argument to the server startup command line.
+
+Minecraft 1.17.1
+
+Edition
+
+Java Edition
+
+Release date
+
+July 6, 2021
+
+Development versions
+
+Pre-releases (3) Release candidates (2) (View all)
+
+Downloads
+
+Client (.json)Server Data pack
+
+Obfuscation maps
+
+ClientServer
+
+Protocol version
+
+756
+
+Data version
+
+2730
+
+Resource pack format
+
+7
+
+Data pack format
+
+7
+
+Minimum Java version
+
+Java SE 16
+
+◄◄   1.17
+1.17.1
+  1.18 ►►
+
+{
+    "title": "Minecraft 1.17.1",
+    "images": [
+        "1.17.1 banner.jpg",
+        "Java Edition 1.17.1 menu.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "July 6, 2021",
+            "label": "Release date"
+        },
+        {
+            "field": "<div class=\"hlist\"><span style=\"white-space:nowrap;\">(link to :Category:Java Edition 1.17.1 pre-releases article, displayed as '''Pre-releases''') (3) </span><br/><span style=\"white-space:nowrap;\">(link to :Category:Java Edition 1.17.1 release candidates article, displayed as '''Release candidates''') (2) </span><br/>((link to Java Edition 1.17.1/Development versions article, displayed as View all))</div>",
+            "label": "<span style=\"white-space: normal;\">Development versions</span>"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/8d9b65467c7913fcf6f5b2e729d44a1e00fde150/client.jar Client] ([https://piston-meta.mojang.com/v1/packages/8b976413591b4132fc4f27370dcd87ce1e50fb2f/1.17.1.json .json])<br />[https://piston-data.mojang.com/v1/objects/a16d67e5807f57fc4e550299cf20226194497dc2/server.jar Server] <br />[https://piston-data.mojang.com/v1/objects/622bf0fd298e1e164ecd05d866045ed5941283cf/CavesAndCliffsPreview.zip Data pack]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/e4d540e0cba05a6097e885dffdf363e621f87d3f/client.txt Client]<br />[https://piston-data.mojang.com/v1/objects/f6cae1c5c1255f68ba4834b16a0da6a09621fe13/server.txt Server]",
+            "label": "(link to Obfuscation map article, displayed as Obfuscation maps)"
+        },
+        {
+            "field": "756",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "2730",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "7",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "7",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Data pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_16 Java SE 16]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" rowspan=\"2\">[[Java Edition  1.17|<span style=\"margin-right:-0.35em\">◄</span>◄   1.17]]</td>\n<td rowspan=\"2\" style=\"padding: 0.4em\">'''1.17.1'''</td>\n<td style=\"padding: 0.4em\" rowspan=\"2\">[[Java Edition  1.18|  1.18 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n</tr>\n</table>"
+}
+
+
+
+Other editions with a version "1.17.1": 
+
+Bedrock Edition
+
+
+1.17.1 is a minor update to Java Edition, released on July 6, 2021, which changes some game mechanics and fixes bugs and crashes. It is not compatible with 1.17 servers. It is the last version to require Java 16.
+
+Contents
+
+1 Additions
+
+1.1 General
+
+2 Changes
+
+2.1 Blocks
+2.2 Items
+2.3 Mobs
+2.4 General
+
+3 Fixes
+4 Trivia
+5 Gallery
+6 Videos
+7 References
+8 Notes
+9 Navigation
+
+Additions
+General
+Death messages
+
+Two previously untranslated death messages for some underwater mobs have been given messages:
+<Name> died from dehydration.
+<Name> died from dehydration whilst trying to escape <Name>.
+Languages
+
+Added Classical Chinese.
+Enchanting
+
+All enchantments are now capped at level 255 in both display and power.
+Changes
+Blocks
+ Cauldrons
+
+Powder snow now fills cauldrons twice as fast as before.
+Items
+ Spyglass
+
+Tweaked held model texture to include glass on the backside.
+Mobs
+ Axolotl
+
+Blue axolotls now only spawn through breeding.
+ Drowned
+
+Increased the drop probability of a copper ingot from 5% to 11%, and increased the drop rate with each level of Looting from 1% to 2%.
+This change is to match Bedrock Edition's drop rates.
+ Goats
+
+Breeding common goats now have a 2% chance to produce screaming goats.
+Status effects applied to goats now also apply when the goat is jumping or ramming.
+ Zombies, Zombie Villagers, Husks and Drowned
+
+No longer pick up glow ink sacs.
+This prevents zombies from persisting after picking up the loot of a dead glow squid, which can cause performance issues with a large group of zombies.
+General
+Protocol
+
+Handshake packet padding method for "hostname" and "port" field has reverted to pre-1.17 when the server address which used is a SRV record.
+Now, data padded in these field uses the address and port which SRV record pointed at, instead of using "server address" as "hostname" and 25565 as "port".
+Fonts
+
+Some new characters have been added.
+Includes several currency symbols and some new emoji.
+The new characters are: ✂🍖🪣🔔⏳⚑₠₡₢₣₤₥₦₩₫₭₮₰₱₲₳₵₶₷₸₹₺₻₼₿
+Languages
+
+Removed the following languages due to incomplete translations:
+East Allgovian German
+Manx
+Sicilian
+Logging
+
+Deaths of named mobs are now logged.
+Fixes
+49 issues fixed
+From released versions before 1.17
+
+MC-123654 – Sun, moon, and/or clouds are not showing if render distance is below 4.
+MC-131290 – Enchantments are saved as shorts, but are loaded as and function with integer values.
+MC-148635 – Dolphins do not swim with or give "Dolphin's Grace" to creative players.
+MC-156155 – Turkish lira sign (₺) appears as □ in the game.
+MC-156977 – When TNT is powered at the moment it's pushed, it creates a ghost block.
+MC-194736 – Duplicate text mapping for U+00B7.
+MC-196999 – U+1FEC is wrong in Minecraft's font.
+MC-202164 – "Times Crafted" statistics & corresponding objectives increase incorrectly when using the stonecutter.
+MC-223350 – Loaded chunks sometimes don't render until the player moves their head slightly.
+MC-224894 – Light tickets are released too early.
+From 1.17
+
+MC-213986 – Pistons and dispensers can be used to create ghost blocks using powder snow.
+MC-219018 – Ghost items can be created using /item (server doesn't update client inventory correctly).
+MC-219290 – Calcite is too quiet compared to other blocks.
+MC-221656 – Creative mode obtained bucket of axolotl/tropical fish only spawns one kind axolotl/tropical fish.
+MC-222731 – Captured axolotl constantly tries to leave water.
+MC-223368 – Strength and weakness potions / custom attack damage attributes does not change damage from goats.
+MC-225816 – Hanging roots appear large when an item entity.
+MC-226461 – Logs can be replaced with stone near lava pools.
+MC-226505 – Goat's long jump is not affected by the jump boost effect.
+MC-226512 – Goats do not use the damage of held items when ramming entities.
+MC-226926 – Emerald ore generates too often.
+MC-226948 – Withers are now affected by potion effects.
+MC-227387 – World gen datapacks will likely crash or softlock the game.
+MC-227435 – Lag when placing heads of non-existent players when on servers.
+MC-227483 – root_system feature config's codec uses a wrong field.
+MC-227520 – Overworld Fossils always generate at bedrock level.
+MC-227557 – End portal texture appears stretched after world conversion.
+MC-227618 – Small dripleaf is consumed without being placed when used on tall seagrass.
+MC-227651 – Group for lapis lazuli ore smelting and blasting recipes is misspelled.
+MC-227821 – Client crash when trying to create/edit realm immediately after deleting previous one.
+MC-227891 – Ender pearls despawn when a player logs out of a server.
+MC-228219 – Thrown ender pearls disappear upon entering the exit end portal.
+MC-228343 – java.lang.NullPointerException when random_selector default feature isn't found.
+MC-228430 – Very long loading pause while booting the game ("Failed to add PDH Counter", caused by oshi).
+MC-228599 – Attempting to walk through flowing water constantly switches the player from swimming into normal mode.
+MC-228802 – Chunks not loading on a server / Cannot invoke cmq.a(int, int, int) because ☃ is null.
+MC-228828 – Specifying the --server parameter when starting the game, causes the game to crash.
+MC-228858 – Axolotls despawning though named and on leashes.
+MC-229169 – Piglins can no longer hear players breaking protected blocks through walls.
+MC-229191 – Diamond ore distribution changed between 1.16.5 and 1.17.
+MC-229246 – Piglins and piglin brutes no longer call other piglins after attacking one of them behind walls.
+MC-229299 – Blue axolotls can spawn naturally.
+MC-229441 – You can steal the item a villager is holding for trade by killing it.
+MC-229614 – Wandering Trader obtained tropical fish are only white kob.
+MC-230716 – death.attack.dryout and death.attack.dryout.player display raw translation strings (are untranslated).
+Other
+
+Duplication exploit with anvils.
+Fixed crashes.
+A private issue was fixed.
+Fixed some critical issues.
+Trivia
+The last time that a major version had only one minor release (i.e., ending at 1.x.1) was with 1.0.1, released almost 10 years prior in 2011.
+Gallery
+
+
+
+			Terrain in this version.
+
+
+Videos
+Videos made by slicedlime:
+
+
+
+
+
+
+
+
+References
+
+ "Important Message: Security vulnerability in Java Edition"     – Minecraft.net, December 10, 2021.
+
+ "Minecraft Java Edition 1.17.1"     – Minecraft.net, July 6, 2021.
+
+Notes
+
+ Re-enables features set to release for 1.18.
+
+ Also available for versions since 19w34a.
+
+ Also removed from 1.15's assets.
+
+ Also removed from 1.15's and 1.16's assets.
+
+Navigation

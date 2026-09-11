@@ -1,0 +1,342 @@
+For other uses, see Chest (disambiguation).
+
+Bonus Chest
+
+Biomes
+
+Any
+
+Generates inexisting chunks  
+
+No
+
+Consists of
+
+Chest
+Torch
+Terrain-generated blocks can disrupt the creation of torches.
+For more information, see § Construction
+
+{
+    "title": "Bonus Chest",
+    "rows": [
+        {
+            "field": "Any",
+            "label": "(link to Biome article, displayed as Biomes)"
+        },
+        {
+            "field": "No",
+            "label": "Generates in<br>existing chunks  "
+        },
+        {
+            "field": "\n* <span class=\"nowrap\"><span class=\"sprite-file\" style=\"\">(link to File:BlockSprite chest.png article, displayed as 16x16px|link=Chest|alt=|class=pixel-image|)</span>(link to Chest article, displayed as <span class=\"sprite-text\">Chest</span>)</span>\n* <span class=\"nowrap\"><span class=\"sprite-file\" style=\"\">(link to File:BlockSprite torch.png article, displayed as 16x16px|link=Torch|alt=|class=pixel-image|)</span>(link to Torch article, displayed as <span class=\"sprite-text\">Torch</span>)</span>\n* Terrain-generated blocks can disrupt the creation of torches.\n* For more information, see (link to #Construction article, displayed as <span style=\"white-space: nowrap;\">§ Construction</span>)",
+            "label": "Consists of"
+        }
+    ],
+    "invimages": [],
+    "images": [
+        "Bonus Chest.png"
+    ]
+}
+
+The bonus chest is a structure-like feature that appears near the player's spawn toggled in the create new world screen. It generates with a semi-random collection of basic items to help the player survive early on and gather necessary resources, including tools, blocks, and food.
+
+Contents
+
+1 Generation
+2 Construction
+3 Loot
+4 Data values
+
+4.1 ID
+4.2 Config
+
+5 History
+
+5.1 Java Edition
+5.2 Bedrock Edition
+5.3 Legacy Console Edition
+5.4 Minecraft Education
+
+6 Issues
+7 Gallery
+8 Navigation
+
+Generation
+A bonus chest as seen in-game
+If the "Bonus Chest" option is enabled in the create new world screen, in the "More World Options..." section in Java Edition or "Advanced" tab in Bedrock Edition, a single bonus chest is generated in the world, no matter how many players there are. It appears somewhere near the player's initial spawn point, within the chunk at the world spawn point, with four torches generated around it on adjacent blocks. It always generates on the highest block, and cannot generate naturally nor with the /place command if it reaches the build limit.
+The Bonus Chest option is not available in Hardcore mode, thus making the bonus chest unavailable as well.
+In Java Edition, on servers, the bonus chest can be enabled by running the server with the --bonusChest argument.
+
+Construction
+Bonus chests contain a single chest surrounded by four torches. The torches may be overridden if the torch locations are obstructed by other blocks such as uneven ground, trees, or leaves, or they may instead float.‌[JE  only]
+
+Loot
+
+Chest24
+
+Example of loot in a bonus chest in Java Edition
+
+Chest224
+
+Example of loot in a bonus chest in Bedrock Edition
+
+In Java Edition, each bonus chest contains  items drawn from 4 pools,  with the following distribution:
+
+ Item
+  Stack Size
+  Weight
+  Chance
+  Avg.per chest
+  Avg. # cheststo search
+
+1×
+1×
+3×
+4×
+1×
+1×
+3×
+4×
+
+Apple
+——1–2———5⁄11—83.8%2.0451.2
+
+Wooden Axe
+1———3⁄4———75.0%0.7501.3
+
+Wooden Pickaxe
+—1———3⁄4——75.0%0.7501.3
+
+Oak Planks
+———1–12———10⁄4167.3%6.3411.5
+
+Stick
+———1–12———10⁄4167.3%6.3411.5
+
+Bread
+——1–2———3⁄11—61.5%1.2271.6
+
+Raw Salmon
+——1–2———3⁄11—61.5%1.2271.6
+
+Acacia Log
+———1–3———3⁄4126.2%0.5853.8
+
+Birch Log
+———1–3———3⁄4126.2%0.5853.8
+
+Dark Oak Log
+———1–3———3⁄4126.2%0.5853.8
+
+Jungle Log
+———1–3———3⁄4126.2%0.5853.8
+
+Mangrove Log
+———1–3———3⁄4126.2%0.5853.8
+
+Oak Log
+———1–3———3⁄4126.2%0.5853.8
+
+Spruce Log
+———1–3———3⁄4126.2%0.5853.8
+
+Stone Axe
+1———1⁄4———25.0%0.2504.0
+
+Stone Pickaxe
+—1———1⁄4——25.0%0.2504.0
+{ "chestNames": [ "bonus" ], "gameVersion": "Java", "loot": { "bonus": { "poolsJava": [ { "items": { "stone-axe": [ 1, 1, 1 ], "wooden-axe": [ 1, 1, 3 ] }, "rolls": [ 1, 1 ], "totalweight": 4 }, { "items": { "stone-pickaxe": [ 1, 1, 1 ], "wooden-pickaxe": [ 1, 1, 3 ] }, "rolls": [ 1, 1 ], "totalweight": 4 }, { "items": { "apple": [ 1, 2, 5 ], "bread": [ 1, 2, 3 ], "raw-salmon": [ 1, 2, 3 ] }, "rolls": [ 3, 3 ], "totalweight": 11 }, { "items": { "oak-planks": [ 1, 12, 10 ], "acacia-log": [ 1, 3, 3 ], "stick": [ 1, 12, 10 ], "mangrove-log": [ 1, 3, 3 ], "dark-oak-log": [ 1, 3, 3 ], "oak-log": [ 1, 3, 3 ], "spruce-log": [ 1, 3, 3 ], "birch-log": [ 1, 3, 3 ], "jungle-log": [ 1, 3, 3 ] }, "rolls": [ 4, 4 ], "totalweight": 41 } ], "poolsBedrockUpcoming": [], "itemDataJava": { "oak-planks": { "sortsize": [ 0, 0, 0, 6.5 ], "weights": [ "—", "—", "—", "<sup>10</sup>&frasl;<sub>41</sub>" ], "chanceany": 0.6731779510015179, "sizes": [ "—", "—", "—", "1–12" ], "sortweight": [ 0, 0, 0, 10 ], "armor": 0, "material": 0, "avgamount": 6.341463414634147, "itemname": "oak-planks" }, "stone-axe": { "sortsize": [ 1, 0, 0, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>4</sub>", "—", "—", "—" ], "chanceany": 0.25, "sizes": [ 1, "—", "—", "—" ], "sortweight": [ 1, 0, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.25, "itemname": "stone-axe" }, "mangrove-log": { "sortsize": [ 0, 0, 0, 2 ], "weights": [ "—", "—", "—", "<sup>3</sup>&frasl;<sub>41</sub>" ], "chanceany": 0.26209753761906973, "sizes": [ "—", "—", "—", "1–3" ], "sortweight": [ 0, 0, 0, 3 ], "armor": 0, "material": 0, "avgamount": 0.5853658536585366, "itemname": "mangrove-log" }, "wooden-pickaxe": { "sortsize": [ 0, 1, 0, 0 ], "weights": [ "—", "<sup>3</sup>&frasl;<sub>4</sub>", "—", "—" ], "chanceany": 0.75, "sizes": [ "—", 1, "—", "—" ], "sortweight": [ 0, 3, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.75, "itemname": "wooden-pickaxe" }, "spruce-log": { "sortsize": [ 0, 0, 0, 2 ], "weights": [ "—", "—", "—", "<sup>3</sup>&frasl;<sub>41</sub>" ], "chanceany": 0.26209753761906973, "sizes": [ "—", "—", "—", "1–3" ], "sortweight": [ 0, 0, 0, 3 ], "armor": 0, "material": 0, "avgamount": 0.5853658536585366, "itemname": "spruce-log" }, "oak-log": { "sortsize": [ 0, 0, 0, 2 ], "weights": [ "—", "—", "—", "<sup>3</sup>&frasl;<sub>41</sub>" ], "chanceany": 0.26209753761906973, "sizes": [ "—", "—", "—", "1–3" ], "sortweight": [ 0, 0, 0, 3 ], "armor": 0, "material": 0, "avgamount": 0.5853658536585366, "itemname": "oak-log" }, "raw-salmon": { "sortsize": [ 0, 0, 1.5, 0 ], "weights": [ "—", "—", "<sup>3</sup>&frasl;<sub>11</sub>", "—" ], "chanceany": 0.6153268219383922, "sizes": [ "—", "—", "1–2", "—" ], "sortweight": [ 0, 0, 3, 0 ], "armor": 0, "material": 0, "avgamount": 1.2272727272727273, "itemname": "raw-salmon" }, "acacia-log": { "sortsize": [ 0, 0, 0, 2 ], "weights": [ "—", "—", "—", "<sup>3</sup>&frasl;<sub>41</sub>" ], "chanceany": 0.26209753761906973, "sizes": [ "—", "—", "—", "1–3" ], "sortweight": [ 0, 0, 0, 3 ], "armor": 0, "material": 0, "avgamount": 0.5853658536585366, "itemname": "acacia-log" }, "wooden-axe": { "sortsize": [ 1, 0, 0, 0 ], "weights": [ "<sup>3</sup>&frasl;<sub>4</sub>", "—", "—", "—" ], "chanceany": 0.75, "sizes": [ 1, "—", "—", "—" ], "sortweight": [ 3, 0, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.75, "itemname": "wooden-axe" }, "stick": { "sortsize": [ 0, 0, 0, 6.5 ], "weights": [ "—", "—", "—", "<sup>10</sup>&frasl;<sub>41</sub>" ], "chanceany": 0.6731779510015179, "sizes": [ "—", "—", "—", "1–12" ], "sortweight": [ 0, 0, 0, 10 ], "armor": 0, "material": 0, "avgamount": 6.341463414634147, "itemname": "stick" }, "stone-pickaxe": { "sortsize": [ 0, 1, 0, 0 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>4</sub>", "—", "—" ], "chanceany": 0.25, "sizes": [ "—", 1, "—", "—" ], "sortweight": [ 0, 1, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.25, "itemname": "stone-pickaxe" }, "dark-oak-log": { "sortsize": [ 0, 0, 0, 2 ], "weights": [ "—", "—", "—", "<sup>3</sup>&frasl;<sub>41</sub>" ], "chanceany": 0.26209753761906973, "sizes": [ "—", "—", "—", "1–3" ], "sortweight": [ 0, 0, 0, 3 ], "armor": 0, "material": 0, "avgamount": 0.5853658536585366, "itemname": "dark-oak-log" }, "apple": { "itemname": "apple", "sizes": [ "—", "—", "1–2", "—" ], "sortsize": [ 0, 0, 1.5, 0 ], "sortweight": [ 0, 0, 5, 0 ], "weights": [ "—", "—", "<sup>5</sup>&frasl;<sub>11</sub>", "—" ], "avgamount": 2.0454545454545454, "chanceany": 0.8377160030052592 }, "bread": { "sortsize": [ 0, 0, 1.5, 0 ], "weights": [ "—", "—", "<sup>3</sup>&frasl;<sub>11</sub>", "—" ], "chanceany": 0.6153268219383922, "sizes": [ "—", "—", "1–2", "—" ], "sortweight": [ 0, 0, 3, 0 ], "armor": 0, "material": 0, "avgamount": 1.2272727272727273, "itemname": "bread" }, "birch-log": { "sortsize": [ 0, 0, 0, 2 ], "weights": [ "—", "—", "—", "<sup>3</sup>&frasl;<sub>41</sub>" ], "chanceany": 0.26209753761906973, "sizes": [ "—", "—", "—", "1–3" ], "sortweight": [ 0, 0, 0, 3 ], "armor": 0, "material": 0, "avgamount": 0.5853658536585366, "itemname": "birch-log" }, "jungle-log": { "sortsize": [ 0, 0, 0, 2 ], "weights": [ "—", "—", "—", "<sup>3</sup>&frasl;<sub>41</sub>" ], "chanceany": 0.26209753761906973, "sizes": [ "—", "—", "—", "1–3" ], "sortweight": [ 0, 0, 0, 3 ], "armor": 0, "material": 0, "avgamount": 0.5853658536585366, "itemname": "jungle-log" } }, "structID": "day", "poolsJavaUpcoming": [], "structure": "Bonus Chest", "container": "", "itemDataJavaUpcoming": [], "allRollsJavaUpcoming": [], "itemDataBedrock": { "oak-planks": { "itemname": "oak-planks", "sizes": [ "—", "—", "—", "—", "—", "—", "1–12", "—", "—", "—", "—", "—", "—", "—" ], "sortsize": [ 0, 0, 0, 0, 0, 0, 6.5, 0, 0, 0, 0, 0, 0, 0 ], "sortweight": [ 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0 ], "weights": [ "—", "—", "—", "—", "—", "—", "<sup>1</sup>&frasl;<sub>1</sub>", "—", "—", "—", "—", "—", "—", "—" ], "avgamount": 6.5, "chanceany": 1 }, "melon-seeds": { "itemname": "melon-seeds", "sizes": [ "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "1–2", "—", "—" ], "sortsize": [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1.5, 0, 0 ], "sortweight": [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0 ], "weights": [ "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "<sup>3</sup>&frasl;<sub>9</sub>", "—", "—" ], "avgamount": 0.5, "chanceany": 0.33333333333333337 }, "spruce-sapling": { "itemname": "spruce-sapling", "sizes": [ "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", 4, "—", "—", "—" ], "sortsize": [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0 ], "sortweight": [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0 ], "weights": [ "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "<sup>2</sup>&frasl;<sub>14</sub>", "—", "—", "—" ], "avgamount": 0.5714285714285714, "chanceany": 0.1428571428571429 }, "wooden-pickaxe": { "itemname": "wooden-pickaxe", "sizes": [ "—", 1, "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—" ], "sortsize": [ 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ], "sortweight": [ 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ], "weights": [ "—", "<sup>3</sup>&frasl;<sub>4</sub>", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—" ], "avgamount": 0.75, "chanceany": 0.75 }, "brown-mushroom": { "itemname": "brown-mushroom", "sizes": [ "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "1–2" ], "sortsize": [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1.5 ], "sortweight": [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 ], "weights": [ "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "<sup>2</sup>&frasl;<sub>2</sub>" ], "avgamount": 1.5, "chanceany": 1 }, "acacia-log": { "itemname": "acacia-log", "sizes": [ "—", "—", "—", "—", "—", "—", "—", "1–3", "—", "—", "—", "—", "—", "—" ], "sortsize": [ 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0 ], "sortweight": [ 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0 ], "weights": [ "—", "—", "—", "—", "—", "—", "—", "<sup>1</sup>&frasl;<sub>3</sub>", "—", "—", "—", "—", "—", "—" ], "avgamount": 0.6666666666666666, "chanceany": 0.33333333333333337 }, "wooden-axe": { "itemname": "wooden-axe", "sizes": [ 1, "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—" ], "sortsize": [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ], "sortweight": [ 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ], "weights": [ "<sup>3</sup>&frasl;<sub>4</sub>", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—" ], "avgamount": 0.75, "chanceany": 0.75 }, "stick": { "itemname": "stick", "sizes": [ "—", "—", "—", "—", "—", "1–12", "—", "—", "—", "—", "—", "—", "—", "—" ], "sortsize": [ 0, 0, 0, 0, 0, 6.5, 0, 0, 0, 0, 0, 0, 0, 0 ], "sortweight": [ 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0 ], "weights": [ "—", "—", "—", "—", "—", "<sup>1</sup>&frasl;<sub>1</sub>", "—", "—", "—", "—", "—", "—", "—", "—" ], "avgamount": 6.5, "chanceany": 1 }, "jungle-sapling": { "itemname": "jungle-sapling", "sizes": [ "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", 4, "—", "—", "—" ], "sortsize": [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0 ], "sortweight": [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0 ], "weights": [ "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "<sup>4</sup>&frasl;<sub>14</sub>", "—", "—", "—" ], "avgamount": 1.1428571428571428, "chanceany": 0.2857142857142857 }, "dark-oak-log": { "itemname": "dark-oak-log", "sizes": [ "—", "—", "—", "—", "—", "—", "—", "1–3", "—", "—", "—", "—", "—", "—" ], "sortsize": [ 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0 ], "sortweight": [ 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0 ], "weights": [ "—", "—", "—", "—", "—", "—", "—", "<sup>1</sup>&frasl;<sub>3</sub>", "—", "—", "—", "—", "—", "—" ], "avgamount": 0.6666666666666666, "chanceany": 0.33333333333333337 }, "apple": { "itemname": "apple", "sizes": [ "—", "—", "1–2", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—" ], "sortsize": [ 0, 0, 1.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ], "sortweight": [ 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ], "weights": [ "—", "—", "<sup>1</sup>&frasl;<sub>1</sub>", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—" ], "avgamount": 1.5, "chanceany": 1 }, "bread": { "itemname": "bread", "sizes": [ "—", "—", "—", "1–2", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—" ], "sortsize": [ 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ], "sortweight": [ 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ], "weights": [ "—", "—", "—", "<sup>1</sup>&frasl;<sub>1</sub>", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—" ], "avgamount": 1.5, "chanceany": 1 }, "birch-log": { "itemname": "birch-log", "sizes": [ "—", "—", "—", "—", "—", "—", "—", "—", "1–3", "—", "—", "—", "—", "—" ], "sortsize": [ 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0 ], "sortweight": [ 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0 ], "weights": [ "—", "—", "—", "—", "—", "—", "—", "—", "<sup>1</sup>&frasl;<sub>4</sub>", "—", "—", "—", "—", "—" ], "avgamount": 0.5, "chanceany": 0.25 }, "jungle-log": { "itemname": "jungle-log", "sizes": [ "—", "—", "—", "—", "—", "—", "—", "—", "1–3", "—", "—", "—", "—", "—" ], "sortsize": [ 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0 ], "sortweight": [ 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0 ], "weights": [ "—", "—", "—", "—", "—", "—", "—", "—", "<sup>1</sup>&frasl;<sub>4</sub>", "—", "—", "—", "—", "—" ], "avgamount": 0.5, "chanceany": 0.25 }, "pumpkin-seeds": { "itemname": "pumpkin-seeds", "sizes": [ "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "1–2", "—", "—" ], "sortsize": [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1.5, 0, 0 ], "sortweight": [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0 ], "weights": [ "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "<sup>3</sup>&frasl;<sub>9</sub>", "—", "—" ], "avgamount": 0.5, "chanceany": 0.33333333333333337 }, "cactus": { "itemname": "cactus", "sizes": [ "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "1–2", "—" ], "sortsize": [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1.5, 0 ], "sortweight": [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0 ], "weights": [ "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "<sup>3</sup>&frasl;<sub>5</sub>", "—" ], "avgamount": 0.9, "chanceany": 0.6 }, "cocoa-beans": { "itemname": "cocoa-beans", "sizes": [ "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "1–2", "—" ], "sortsize": [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1.5, 0 ], "sortweight": [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0 ], "weights": [ "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "<sup>2</sup>&frasl;<sub>5</sub>", "—" ], "avgamount": 0.6, "chanceany": 0.4 }, "mangrove-log": { "itemname": "mangrove-log", "sizes": [ "—", "—", "—", "—", "—", "—", "—", "1–3", "—", "—", "—", "—", "—", "—" ], "sortsize": [ 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0 ], "sortweight": [ 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0 ], "weights": [ "—", "—", "—", "—", "—", "—", "—", "<sup>1</sup>&frasl;<sub>3</sub>", "—", "—", "—", "—", "—", "—" ], "avgamount": 0.6666666666666666, "chanceany": 0.33333333333333337 }, "birch-sapling": { "itemname": "birch-sapling", "sizes": [ "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", 4, "—", "—", "—" ], "sortsize": [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0 ], "sortweight": [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0 ], "weights": [ "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "<sup>2</sup>&frasl;<sub>14</sub>", "—", "—", "—" ], "avgamount": 0.5714285714285714, "chanceany": 0.1428571428571429 }, "oak-sapling": { "itemname": "oak-sapling", "sizes": [ "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", 4, "—", "—", "—" ], "sortsize": [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0 ], "sortweight": [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0 ], "weights": [ "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "<sup>2</sup>&frasl;<sub>14</sub>", "—", "—", "—" ], "avgamount": 0.5714285714285714, "chanceany": 0.1428571428571429 }, "raw-salmon": { "itemname": "raw-salmon", "sizes": [ "—", "—", "—", "—", "1–2", "—", "—", "—", "—", "—", "—", "—", "—", "—" ], "sortsize": [ 0, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, 0, 0, 0 ], "sortweight": [ 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 ], "weights": [ "—", "—", "—", "—", "<sup>1</sup>&frasl;<sub>1</sub>", "—", "—", "—", "—", "—", "—", "—", "—", "—" ], "avgamount": 1.5, "chanceany": 1 }, "dark-oak-sapling": { "itemname": "dark-oak-sapling", "sizes": [ "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", 4, "—", "—", "—" ], "sortsize": [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0 ], "sortweight": [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0 ], "weights": [ "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "<sup>2</sup>&frasl;<sub>14</sub>", "—", "—", "—" ], "avgamount": 0.5714285714285714, "chanceany": 0.1428571428571429 }, "carrot": { "itemname": "carrot", "sizes": [ "—", "—", "—", "—", "—", "—", "—", "—", "—", "1–2", "—", "—", "—", "—" ], "sortsize": [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 1.5, 0, 0, 0, 0 ], "sortweight": [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0 ], "weights": [ "—", "—", "—", "—", "—", "—", "—", "—", "—", "<sup>3</sup>&frasl;<sub>6</sub>", "—", "—", "—", "—" ], "avgamount": 0.75, "chanceany": 0.5 }, "spruce-log": { "itemname": "spruce-log", "sizes": [ "—", "—", "—", "—", "—", "—", "—", "—", "1–3", "—", "—", "—", "—", "—" ], "sortsize": [ 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0 ], "sortweight": [ 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0 ], "weights": [ "—", "—", "—", "—", "—", "—", "—", "—", "<sup>1</sup>&frasl;<sub>4</sub>", "—", "—", "—", "—", "—" ], "avgamount": 0.5, "chanceany": 0.25 }, "stone-pickaxe": { "itemname": "stone-pickaxe", "sizes": [ "—", 1, "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—" ], "sortsize": [ 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ], "sortweight": [ 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>4</sub>", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—" ], "avgamount": 0.25, "chanceany": 0.25 }, "acacia-sapling": { "itemname": "acacia-sapling", "sizes": [ "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", 4, "—", "—", "—" ], "sortsize": [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0 ], "sortweight": [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0 ], "weights": [ "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "<sup>2</sup>&frasl;<sub>14</sub>", "—", "—", "—" ], "avgamount": 0.5714285714285714, "chanceany": 0.1428571428571429 }, "stone-axe": { "itemname": "stone-axe", "sizes": [ 1, "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—" ], "sortsize": [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ], "sortweight": [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>4</sub>", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—" ], "avgamount": 0.25, "chanceany": 0.25 }, "beetroot-seeds": { "itemname": "beetroot-seeds", "sizes": [ "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "1–2", "—", "—" ], "sortsize": [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1.5, 0, 0 ], "sortweight": [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0 ], "weights": [ "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "<sup>3</sup>&frasl;<sub>9</sub>", "—", "—" ], "avgamount": 0.5, "chanceany": 0.33333333333333337 }, "potato": { "itemname": "potato", "sizes": [ "—", "—", "—", "—", "—", "—", "—", "—", "—", "1–2", "—", "—", "—", "—" ], "sortsize": [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 1.5, 0, 0, 0, 0 ], "sortweight": [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0 ], "weights": [ "—", "—", "—", "—", "—", "—", "—", "—", "—", "<sup>3</sup>&frasl;<sub>6</sub>", "—", "—", "—", "—" ], "avgamount": 0.75, "chanceany": 0.5 }, "oak-log": { "itemname": "oak-log", "sizes": [ "—", "—", "—", "—", "—", "—", "—", "—", "1–3", "—", "—", "—", "—", "—" ], "sortsize": [ 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0 ], "sortweight": [ 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0 ], "weights": [ "—", "—", "—", "—", "—", "—", "—", "—", "<sup>1</sup>&frasl;<sub>4</sub>", "—", "—", "—", "—", "—" ], "avgamount": 0.5, "chanceany": 0.25 } }, "poolsBedrock": [ { "items": { "stone-axe": [ 1, 1, 1 ], "wooden-axe": [ 1, 1, 3 ] }, "rolls": [ 1, 1 ], "totalweight": 4 }, { "items": { "stone-pickaxe": [ 1, 1, 1 ], "wooden-pickaxe": [ 1, 1, 3 ] }, "rolls": [ 1, 1 ], "totalweight": 4 }, { "items": { "apple": [ 1, 2, 1 ] }, "rolls": [ 1, 1 ], "totalweight": 1 }, { "items": { "bread": [ 1, 2, 1 ] }, "rolls": [ 1, 1 ], "totalweight": 1 }, { "items": { "raw-salmon": [ 1, 2, 1 ] }, "rolls": [ 1, 1 ], "totalweight": 1 }, { "items": { "stick": [ 1, 12, 1 ] }, "rolls": [ 1, 1 ], "totalweight": 1 }, { "items": { "oak-planks": [ 1, 12, 1 ] }, "rolls": [ 1, 1 ], "totalweight": 1 }, { "items": { "acacia-log": [ 1, 3, 1 ], "mangrove-log": [ 1, 3, 1 ], "dark-oak-log": [ 1, 3, 1 ] }, "rolls": [ 1, 1 ], "totalweight": 3 }, { "items": { "oak-log": [ 1, 3, 1 ], "spruce-log": [ 1, 3, 1 ], "birch-log": [ 1, 3, 1 ], "jungle-log": [ 1, 3, 1 ] }, "rolls": [ 1, 1 ], "totalweight": 4 }, { "items": { "potato": [ 1, 2, 3 ], "carrot": [ 1, 2, 3 ] }, "rolls": [ 1, 1 ], "totalweight": 6 }, { "items": { "acacia-sapling": [ 4, 4, 2 ], "spruce-sapling": [ 4, 4, 2 ], "dark-oak-sapling": [ 4, 4, 2 ], "jungle-sapling": [ 4, 4, 4 ], "oak-sapling": [ 4, 4, 2 ], "birch-sapling": [ 4, 4, 2 ] }, "rolls": [ 1, 1 ], "totalweight": 14 }, { "items": { "melon-seeds": [ 1, 2, 3 ], "beetroot-seeds": [ 1, 2, 3 ], "pumpkin-seeds": [ 1, 2, 3 ] }, "rolls": [ 1, 1 ], "totalweight": 9 }, { "items": { "cactus": [ 1, 2, 3 ], "cocoa-beans": [ 1, 2, 2 ] }, "rolls": [ 1, 1 ], "totalweight": 5 }, { "items": { "brown-mushroom": [ 1, 2, 2 ] }, "rolls": [ 1, 1 ], "totalweight": 2 } ], "allRollsBedrockUpcoming": [], "allRollsBedrock": [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ], "itemDataBedrockUpcoming": [], "header": "[[Bonus Chest]]", "allRollsJava": [ 1, 1, 3, 4 ], "link": "[[bonus chest]]" } } }
+
+ The size of stacks (or for unstackable items, number) of this item on any given roll.
+
+ The weight of this item relative to other items in the pool.
+
+ The odds of finding any of this item in a single chest.
+
+ The number of items expected per chest, averaged over a large number of chests.
+
+ The average number of chests the player should expect to search to find any of this item.
+
+In Bedrock Edition, each bonus chest contains  items drawn from 14 pools,  with the following distribution:
+
+ Item
+  Chance
+  Avg.per chest
+  Avg. # cheststo search
+
+Oak Planks
+100.0%6.5001.0
+
+Stick
+100.0%6.5001.0
+
+Apple
+100.0%1.5001.0
+
+Bread
+100.0%1.5001.0
+
+Brown Mushroom
+100.0%1.5001.0
+
+Raw Salmon
+100.0%1.5001.0
+
+Wooden Axe
+75.0%0.7501.3
+
+Wooden Pickaxe
+75.0%0.7501.3
+
+Cactus
+60.0%0.9001.7
+
+Carrot
+50.0%0.7502.0
+
+Potato
+50.0%0.7502.0
+
+Cocoa Beans
+40.0%0.6002.5
+
+Acacia Log
+33.3%0.6673.0
+
+Dark Oak Log
+33.3%0.6673.0
+
+Mangrove Log
+33.3%0.6673.0
+
+Beetroot Seeds
+33.3%0.5003.0
+
+Melon Seeds
+33.3%0.5003.0
+
+Pumpkin Seeds
+33.3%0.5003.0
+
+Jungle Sapling
+28.6%1.1433.5
+
+Birch Log
+25.0%0.5004.0
+
+Jungle Log
+25.0%0.5004.0
+
+Oak Log
+25.0%0.5004.0
+
+Spruce Log
+25.0%0.5004.0
+
+Stone Axe
+25.0%0.2504.0
+
+Stone Pickaxe
+25.0%0.2504.0
+
+Acacia Sapling
+14.3%0.5717.0
+
+Birch Sapling
+14.3%0.5717.0
+
+Dark Oak Sapling
+14.3%0.5717.0
+
+Oak Sapling
+14.3%0.5717.0
+
+Spruce Sapling
+14.3%0.5717.0
+{ "chestNames": [ "bonus" ], "gameVersion": "Bedrock", "loot": { "bonus": { "poolsJava": [ { "items": { "stone-axe": [ 1, 1, 1 ], "wooden-axe": [ 1, 1, 3 ] }, "rolls": [ 1, 1 ], "totalweight": 4 }, { "items": { "stone-pickaxe": [ 1, 1, 1 ], "wooden-pickaxe": [ 1, 1, 3 ] }, "rolls": [ 1, 1 ], "totalweight": 4 }, { "items": { "apple": [ 1, 2, 5 ], "bread": [ 1, 2, 3 ], "raw-salmon": [ 1, 2, 3 ] }, "rolls": [ 3, 3 ], "totalweight": 11 }, { "items": { "oak-planks": [ 1, 12, 10 ], "acacia-log": [ 1, 3, 3 ], "stick": [ 1, 12, 10 ], "mangrove-log": [ 1, 3, 3 ], "dark-oak-log": [ 1, 3, 3 ], "oak-log": [ 1, 3, 3 ], "spruce-log": [ 1, 3, 3 ], "birch-log": [ 1, 3, 3 ], "jungle-log": [ 1, 3, 3 ] }, "rolls": [ 4, 4 ], "totalweight": 41 } ], "poolsBedrockUpcoming": [], "itemDataJava": { "oak-planks": { "itemname": "oak-planks", "sizes": [ "—", "—", "—", "1–12" ], "sortsize": [ 0, 0, 0, 6.5 ], "sortweight": [ 0, 0, 0, 10 ], "weights": [ "—", "—", "—", "<sup>10</sup>&frasl;<sub>41</sub>" ], "avgamount": 6.341463414634147, "chanceany": 0.6731779510015179 }, "stone-axe": { "itemname": "stone-axe", "sizes": [ 1, "—", "—", "—" ], "sortsize": [ 1, 0, 0, 0 ], "sortweight": [ 1, 0, 0, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>4</sub>", "—", "—", "—" ], "avgamount": 0.25, "chanceany": 0.25 }, "mangrove-log": { "itemname": "mangrove-log", "sizes": [ "—", "—", "—", "1–3" ], "sortsize": [ 0, 0, 0, 2 ], "sortweight": [ 0, 0, 0, 3 ], "weights": [ "—", "—", "—", "<sup>3</sup>&frasl;<sub>41</sub>" ], "avgamount": 0.5853658536585366, "chanceany": 0.26209753761906973 }, "wooden-pickaxe": { "itemname": "wooden-pickaxe", "sizes": [ "—", 1, "—", "—" ], "sortsize": [ 0, 1, 0, 0 ], "sortweight": [ 0, 3, 0, 0 ], "weights": [ "—", "<sup>3</sup>&frasl;<sub>4</sub>", "—", "—" ], "avgamount": 0.75, "chanceany": 0.75 }, "spruce-log": { "itemname": "spruce-log", "sizes": [ "—", "—", "—", "1–3" ], "sortsize": [ 0, 0, 0, 2 ], "sortweight": [ 0, 0, 0, 3 ], "weights": [ "—", "—", "—", "<sup>3</sup>&frasl;<sub>41</sub>" ], "avgamount": 0.5853658536585366, "chanceany": 0.26209753761906973 }, "oak-log": { "itemname": "oak-log", "sizes": [ "—", "—", "—", "1–3" ], "sortsize": [ 0, 0, 0, 2 ], "sortweight": [ 0, 0, 0, 3 ], "weights": [ "—", "—", "—", "<sup>3</sup>&frasl;<sub>41</sub>" ], "avgamount": 0.5853658536585366, "chanceany": 0.26209753761906973 }, "raw-salmon": { "itemname": "raw-salmon", "sizes": [ "—", "—", "1–2", "—" ], "sortsize": [ 0, 0, 1.5, 0 ], "sortweight": [ 0, 0, 3, 0 ], "weights": [ "—", "—", "<sup>3</sup>&frasl;<sub>11</sub>", "—" ], "avgamount": 1.2272727272727273, "chanceany": 0.6153268219383922 }, "acacia-log": { "itemname": "acacia-log", "sizes": [ "—", "—", "—", "1–3" ], "sortsize": [ 0, 0, 0, 2 ], "sortweight": [ 0, 0, 0, 3 ], "weights": [ "—", "—", "—", "<sup>3</sup>&frasl;<sub>41</sub>" ], "avgamount": 0.5853658536585366, "chanceany": 0.26209753761906973 }, "wooden-axe": { "itemname": "wooden-axe", "sizes": [ 1, "—", "—", "—" ], "sortsize": [ 1, 0, 0, 0 ], "sortweight": [ 3, 0, 0, 0 ], "weights": [ "<sup>3</sup>&frasl;<sub>4</sub>", "—", "—", "—" ], "avgamount": 0.75, "chanceany": 0.75 }, "stick": { "itemname": "stick", "sizes": [ "—", "—", "—", "1–12" ], "sortsize": [ 0, 0, 0, 6.5 ], "sortweight": [ 0, 0, 0, 10 ], "weights": [ "—", "—", "—", "<sup>10</sup>&frasl;<sub>41</sub>" ], "avgamount": 6.341463414634147, "chanceany": 0.6731779510015179 }, "stone-pickaxe": { "itemname": "stone-pickaxe", "sizes": [ "—", 1, "—", "—" ], "sortsize": [ 0, 1, 0, 0 ], "sortweight": [ 0, 1, 0, 0 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>4</sub>", "—", "—" ], "avgamount": 0.25, "chanceany": 0.25 }, "dark-oak-log": { "itemname": "dark-oak-log", "sizes": [ "—", "—", "—", "1–3" ], "sortsize": [ 0, 0, 0, 2 ], "sortweight": [ 0, 0, 0, 3 ], "weights": [ "—", "—", "—", "<sup>3</sup>&frasl;<sub>41</sub>" ], "avgamount": 0.5853658536585366, "chanceany": 0.26209753761906973 }, "apple": { "itemname": "apple", "sizes": [ "—", "—", "1–2", "—" ], "sortsize": [ 0, 0, 1.5, 0 ], "sortweight": [ 0, 0, 5, 0 ], "weights": [ "—", "—", "<sup>5</sup>&frasl;<sub>11</sub>", "—" ], "avgamount": 2.0454545454545454, "chanceany": 0.8377160030052592 }, "bread": { "itemname": "bread", "sizes": [ "—", "—", "1–2", "—" ], "sortsize": [ 0, 0, 1.5, 0 ], "sortweight": [ 0, 0, 3, 0 ], "weights": [ "—", "—", "<sup>3</sup>&frasl;<sub>11</sub>", "—" ], "avgamount": 1.2272727272727273, "chanceany": 0.6153268219383922 }, "birch-log": { "itemname": "birch-log", "sizes": [ "—", "—", "—", "1–3" ], "sortsize": [ 0, 0, 0, 2 ], "sortweight": [ 0, 0, 0, 3 ], "weights": [ "—", "—", "—", "<sup>3</sup>&frasl;<sub>41</sub>" ], "avgamount": 0.5853658536585366, "chanceany": 0.26209753761906973 }, "jungle-log": { "itemname": "jungle-log", "sizes": [ "—", "—", "—", "1–3" ], "sortsize": [ 0, 0, 0, 2 ], "sortweight": [ 0, 0, 0, 3 ], "weights": [ "—", "—", "—", "<sup>3</sup>&frasl;<sub>41</sub>" ], "avgamount": 0.5853658536585366, "chanceany": 0.26209753761906973 } }, "structID": "day", "poolsJavaUpcoming": [], "structure": "Bonus Chest", "container": "", "itemDataJavaUpcoming": [], "allRollsJavaUpcoming": [], "itemDataBedrock": { "oak-planks": { "sortsize": [ 0, 0, 0, 0, 0, 0, 6.5, 0, 0, 0, 0, 0, 0, 0 ], "weights": [ "—", "—", "—", "—", "—", "—", "<sup>1</sup>&frasl;<sub>1</sub>", "—", "—", "—", "—", "—", "—", "—" ], "chanceany": 1, "sizes": [ "—", "—", "—", "—", "—", "—", "1–12", "—", "—", "—", "—", "—", "—", "—" ], "sortweight": [ 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0 ], "armor": 0, "material": 0, "avgamount": 6.5, "itemname": "oak-planks" }, "melon-seeds": { "sortsize": [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1.5, 0, 0 ], "weights": [ "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "<sup>3</sup>&frasl;<sub>9</sub>", "—", "—" ], "chanceany": 0.33333333333333337, "sizes": [ "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "1–2", "—", "—" ], "sortweight": [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.5, "itemname": "melon-seeds" }, "spruce-sapling": { "sortsize": [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0 ], "weights": [ "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "<sup>2</sup>&frasl;<sub>14</sub>", "—", "—", "—" ], "chanceany": 0.1428571428571429, "sizes": [ "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", 4, "—", "—", "—" ], "sortweight": [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.5714285714285714, "itemname": "spruce-sapling" }, "wooden-pickaxe": { "sortsize": [ 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ], "weights": [ "—", "<sup>3</sup>&frasl;<sub>4</sub>", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—" ], "chanceany": 0.75, "sizes": [ "—", 1, "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—" ], "sortweight": [ 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.75, "itemname": "wooden-pickaxe" }, "brown-mushroom": { "sortsize": [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1.5 ], "weights": [ "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "<sup>2</sup>&frasl;<sub>2</sub>" ], "chanceany": 1, "sizes": [ "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "1–2" ], "sortweight": [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 ], "armor": 0, "material": 0, "avgamount": 1.5, "itemname": "brown-mushroom" }, "acacia-log": { "sortsize": [ 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0 ], "weights": [ "—", "—", "—", "—", "—", "—", "—", "<sup>1</sup>&frasl;<sub>3</sub>", "—", "—", "—", "—", "—", "—" ], "chanceany": 0.33333333333333337, "sizes": [ "—", "—", "—", "—", "—", "—", "—", "1–3", "—", "—", "—", "—", "—", "—" ], "sortweight": [ 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.6666666666666666, "itemname": "acacia-log" }, "wooden-axe": { "sortsize": [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ], "weights": [ "<sup>3</sup>&frasl;<sub>4</sub>", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—" ], "chanceany": 0.75, "sizes": [ 1, "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—" ], "sortweight": [ 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.75, "itemname": "wooden-axe" }, "stick": { "sortsize": [ 0, 0, 0, 0, 0, 6.5, 0, 0, 0, 0, 0, 0, 0, 0 ], "weights": [ "—", "—", "—", "—", "—", "<sup>1</sup>&frasl;<sub>1</sub>", "—", "—", "—", "—", "—", "—", "—", "—" ], "chanceany": 1, "sizes": [ "—", "—", "—", "—", "—", "1–12", "—", "—", "—", "—", "—", "—", "—", "—" ], "sortweight": [ 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0 ], "armor": 0, "material": 0, "avgamount": 6.5, "itemname": "stick" }, "jungle-sapling": { "itemname": "jungle-sapling", "sizes": [ "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", 4, "—", "—", "—" ], "sortsize": [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0 ], "sortweight": [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0 ], "weights": [ "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "<sup>4</sup>&frasl;<sub>14</sub>", "—", "—", "—" ], "avgamount": 1.1428571428571428, "chanceany": 0.2857142857142857 }, "dark-oak-log": { "sortsize": [ 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0 ], "weights": [ "—", "—", "—", "—", "—", "—", "—", "<sup>1</sup>&frasl;<sub>3</sub>", "—", "—", "—", "—", "—", "—" ], "chanceany": 0.33333333333333337, "sizes": [ "—", "—", "—", "—", "—", "—", "—", "1–3", "—", "—", "—", "—", "—", "—" ], "sortweight": [ 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.6666666666666666, "itemname": "dark-oak-log" }, "apple": { "sortsize": [ 0, 0, 1.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ], "weights": [ "—", "—", "<sup>1</sup>&frasl;<sub>1</sub>", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—" ], "chanceany": 1, "sizes": [ "—", "—", "1–2", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—" ], "sortweight": [ 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ], "armor": 0, "material": 0, "avgamount": 1.5, "itemname": "apple" }, "bread": { "sortsize": [ 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ], "weights": [ "—", "—", "—", "<sup>1</sup>&frasl;<sub>1</sub>", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—" ], "chanceany": 1, "sizes": [ "—", "—", "—", "1–2", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—" ], "sortweight": [ 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ], "armor": 0, "material": 0, "avgamount": 1.5, "itemname": "bread" }, "birch-log": { "sortsize": [ 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0 ], "weights": [ "—", "—", "—", "—", "—", "—", "—", "—", "<sup>1</sup>&frasl;<sub>4</sub>", "—", "—", "—", "—", "—" ], "chanceany": 0.25, "sizes": [ "—", "—", "—", "—", "—", "—", "—", "—", "1–3", "—", "—", "—", "—", "—" ], "sortweight": [ 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.5, "itemname": "birch-log" }, "jungle-log": { "sortsize": [ 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0 ], "weights": [ "—", "—", "—", "—", "—", "—", "—", "—", "<sup>1</sup>&frasl;<sub>4</sub>", "—", "—", "—", "—", "—" ], "chanceany": 0.25, "sizes": [ "—", "—", "—", "—", "—", "—", "—", "—", "1–3", "—", "—", "—", "—", "—" ], "sortweight": [ 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.5, "itemname": "jungle-log" }, "pumpkin-seeds": { "sortsize": [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1.5, 0, 0 ], "weights": [ "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "<sup>3</sup>&frasl;<sub>9</sub>", "—", "—" ], "chanceany": 0.33333333333333337, "sizes": [ "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "1–2", "—", "—" ], "sortweight": [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.5, "itemname": "pumpkin-seeds" }, "cactus": { "itemname": "cactus", "sizes": [ "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "1–2", "—" ], "sortsize": [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1.5, 0 ], "sortweight": [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0 ], "weights": [ "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "<sup>3</sup>&frasl;<sub>5</sub>", "—" ], "avgamount": 0.9, "chanceany": 0.6 }, "cocoa-beans": { "itemname": "cocoa-beans", "sizes": [ "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "1–2", "—" ], "sortsize": [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1.5, 0 ], "sortweight": [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0 ], "weights": [ "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "<sup>2</sup>&frasl;<sub>5</sub>", "—" ], "avgamount": 0.6, "chanceany": 0.4 }, "mangrove-log": { "sortsize": [ 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0 ], "weights": [ "—", "—", "—", "—", "—", "—", "—", "<sup>1</sup>&frasl;<sub>3</sub>", "—", "—", "—", "—", "—", "—" ], "chanceany": 0.33333333333333337, "sizes": [ "—", "—", "—", "—", "—", "—", "—", "1–3", "—", "—", "—", "—", "—", "—" ], "sortweight": [ 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.6666666666666666, "itemname": "mangrove-log" }, "birch-sapling": { "sortsize": [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0 ], "weights": [ "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "<sup>2</sup>&frasl;<sub>14</sub>", "—", "—", "—" ], "chanceany": 0.1428571428571429, "sizes": [ "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", 4, "—", "—", "—" ], "sortweight": [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.5714285714285714, "itemname": "birch-sapling" }, "oak-sapling": { "sortsize": [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0 ], "weights": [ "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "<sup>2</sup>&frasl;<sub>14</sub>", "—", "—", "—" ], "chanceany": 0.1428571428571429, "sizes": [ "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", 4, "—", "—", "—" ], "sortweight": [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.5714285714285714, "itemname": "oak-sapling" }, "raw-salmon": { "sortsize": [ 0, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, 0, 0, 0 ], "weights": [ "—", "—", "—", "—", "<sup>1</sup>&frasl;<sub>1</sub>", "—", "—", "—", "—", "—", "—", "—", "—", "—" ], "chanceany": 1, "sizes": [ "—", "—", "—", "—", "1–2", "—", "—", "—", "—", "—", "—", "—", "—", "—" ], "sortweight": [ 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 ], "armor": 0, "material": 0, "avgamount": 1.5, "itemname": "raw-salmon" }, "dark-oak-sapling": { "sortsize": [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0 ], "weights": [ "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "<sup>2</sup>&frasl;<sub>14</sub>", "—", "—", "—" ], "chanceany": 0.1428571428571429, "sizes": [ "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", 4, "—", "—", "—" ], "sortweight": [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.5714285714285714, "itemname": "dark-oak-sapling" }, "carrot": { "sortsize": [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 1.5, 0, 0, 0, 0 ], "weights": [ "—", "—", "—", "—", "—", "—", "—", "—", "—", "<sup>3</sup>&frasl;<sub>6</sub>", "—", "—", "—", "—" ], "chanceany": 0.5, "sizes": [ "—", "—", "—", "—", "—", "—", "—", "—", "—", "1–2", "—", "—", "—", "—" ], "sortweight": [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.75, "itemname": "carrot" }, "spruce-log": { "sortsize": [ 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0 ], "weights": [ "—", "—", "—", "—", "—", "—", "—", "—", "<sup>1</sup>&frasl;<sub>4</sub>", "—", "—", "—", "—", "—" ], "chanceany": 0.25, "sizes": [ "—", "—", "—", "—", "—", "—", "—", "—", "1–3", "—", "—", "—", "—", "—" ], "sortweight": [ 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.5, "itemname": "spruce-log" }, "stone-pickaxe": { "sortsize": [ 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ], "weights": [ "—", "<sup>1</sup>&frasl;<sub>4</sub>", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—" ], "chanceany": 0.25, "sizes": [ "—", 1, "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—" ], "sortweight": [ 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.25, "itemname": "stone-pickaxe" }, "acacia-sapling": { "sortsize": [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0 ], "weights": [ "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "<sup>2</sup>&frasl;<sub>14</sub>", "—", "—", "—" ], "chanceany": 0.1428571428571429, "sizes": [ "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", 4, "—", "—", "—" ], "sortweight": [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.5714285714285714, "itemname": "acacia-sapling" }, "stone-axe": { "sortsize": [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ], "weights": [ "<sup>1</sup>&frasl;<sub>4</sub>", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—" ], "chanceany": 0.25, "sizes": [ 1, "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—" ], "sortweight": [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.25, "itemname": "stone-axe" }, "beetroot-seeds": { "sortsize": [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1.5, 0, 0 ], "weights": [ "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "<sup>3</sup>&frasl;<sub>9</sub>", "—", "—" ], "chanceany": 0.33333333333333337, "sizes": [ "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "1–2", "—", "—" ], "sortweight": [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.5, "itemname": "beetroot-seeds" }, "potato": { "sortsize": [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 1.5, 0, 0, 0, 0 ], "weights": [ "—", "—", "—", "—", "—", "—", "—", "—", "—", "<sup>3</sup>&frasl;<sub>6</sub>", "—", "—", "—", "—" ], "chanceany": 0.5, "sizes": [ "—", "—", "—", "—", "—", "—", "—", "—", "—", "1–2", "—", "—", "—", "—" ], "sortweight": [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.75, "itemname": "potato" }, "oak-log": { "sortsize": [ 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0 ], "weights": [ "—", "—", "—", "—", "—", "—", "—", "—", "<sup>1</sup>&frasl;<sub>4</sub>", "—", "—", "—", "—", "—" ], "chanceany": 0.25, "sizes": [ "—", "—", "—", "—", "—", "—", "—", "—", "1–3", "—", "—", "—", "—", "—" ], "sortweight": [ 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0 ], "armor": 0, "material": 0, "avgamount": 0.5, "itemname": "oak-log" } }, "poolsBedrock": [ { "items": { "stone-axe": [ 1, 1, 1 ], "wooden-axe": [ 1, 1, 3 ] }, "rolls": [ 1, 1 ], "totalweight": 4 }, { "items": { "stone-pickaxe": [ 1, 1, 1 ], "wooden-pickaxe": [ 1, 1, 3 ] }, "rolls": [ 1, 1 ], "totalweight": 4 }, { "items": { "apple": [ 1, 2, 1 ] }, "rolls": [ 1, 1 ], "totalweight": 1 }, { "items": { "bread": [ 1, 2, 1 ] }, "rolls": [ 1, 1 ], "totalweight": 1 }, { "items": { "raw-salmon": [ 1, 2, 1 ] }, "rolls": [ 1, 1 ], "totalweight": 1 }, { "items": { "stick": [ 1, 12, 1 ] }, "rolls": [ 1, 1 ], "totalweight": 1 }, { "items": { "oak-planks": [ 1, 12, 1 ] }, "rolls": [ 1, 1 ], "totalweight": 1 }, { "items": { "acacia-log": [ 1, 3, 1 ], "mangrove-log": [ 1, 3, 1 ], "dark-oak-log": [ 1, 3, 1 ] }, "rolls": [ 1, 1 ], "totalweight": 3 }, { "items": { "oak-log": [ 1, 3, 1 ], "spruce-log": [ 1, 3, 1 ], "birch-log": [ 1, 3, 1 ], "jungle-log": [ 1, 3, 1 ] }, "rolls": [ 1, 1 ], "totalweight": 4 }, { "items": { "potato": [ 1, 2, 3 ], "carrot": [ 1, 2, 3 ] }, "rolls": [ 1, 1 ], "totalweight": 6 }, { "items": { "acacia-sapling": [ 4, 4, 2 ], "spruce-sapling": [ 4, 4, 2 ], "dark-oak-sapling": [ 4, 4, 2 ], "jungle-sapling": [ 4, 4, 4 ], "oak-sapling": [ 4, 4, 2 ], "birch-sapling": [ 4, 4, 2 ] }, "rolls": [ 1, 1 ], "totalweight": 14 }, { "items": { "melon-seeds": [ 1, 2, 3 ], "beetroot-seeds": [ 1, 2, 3 ], "pumpkin-seeds": [ 1, 2, 3 ] }, "rolls": [ 1, 1 ], "totalweight": 9 }, { "items": { "cactus": [ 1, 2, 3 ], "cocoa-beans": [ 1, 2, 2 ] }, "rolls": [ 1, 1 ], "totalweight": 5 }, { "items": { "brown-mushroom": [ 1, 2, 2 ] }, "rolls": [ 1, 1 ], "totalweight": 2 } ], "allRollsBedrockUpcoming": [], "allRollsBedrock": [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ], "itemDataBedrockUpcoming": [], "header": "[[Bonus Chest]]", "allRollsJava": [ 1, 1, 3, 4 ], "link": "[[bonus chest]]" } } }
+
+ The odds of finding any of this item in a single chest.
+
+ The number of items expected per chest, averaged over a large number of chests.
+
+ The average number of chests the player should expect to search to find any of this item.
+
+Data values
+ID
+Java Edition:
+
+Feature typeIdentifier
+ [No displayed name]bonus_chest
+
+Configured featureIdentifier
+ [No displayed name]bonus_chest
+
+Bedrock Edition:
+
+FeatureIdentifier
+ [No displayed name][No ID]
+
+Config
+Main article: Configured feature
+Java Edition:
+
+[NBT Compound / JSON Object] config: Empty
+
+An example
+
+{
+  "type": "minecraft:bonus_chest",
+  "config": {}
+}
+
+History
+
+
+
+This section is missing information about: Historial loot tables and Bedrock Edition history. 
+Please expand the section to include this information. Further details may exist on the talk page.
+
+Java Edition
+Java Edition1.3.112w16a
+Added the 'bonus chest' option to the Create New World menu.12w17a
+The player can no longer have a bonus chest in Hardcore mode.12w19a
+Torches now spawn around bonus chests if each side has a block at the same height around it.
+
+The server jar now accepts the command-line argument --bonusChest.1.7.21.7
+Bonus chests can now contain acacia logs.1.915w43a
+Wood found in bonus chests can now be of any type, rather than just acacia or oak. Acacia and dark oak wood have a slightly higher chance of appearing.
+Planks found in bonus chests can now be of any type, rather than just oak.15w44a
+The loot table of bonus chests was split into three pools, therefore they now always contain one axe, one pickaxe, some food and some wood items.
+The average amount of sticks, and planks found in bonus chests was increased, and the amount of wood was reduced.
+Other types of planks, except oak, were removed.
+Bonus chests can now contain raw salmon.1.1317w47a
+All types of wood now have an equal chance of appearing.
+The chance of oak planks and sticks appearing was slightly increased.1.1922w15a
+Bonus chests can now contain mangrove logs.
+Bedrock Edition
+Bedrock Edition1.2.0beta 1.2.0.2
+Added the Bonus Chest option, which can be toggled in World Options.
+Legacy Console Edition
+Legacy Console EditionXbox 360Xbox OnePS3PS4PS VitaWii USwitchTU5CU11.001.001.00Patch 11.0.1
+Added the 'bonus chest' option to the options menu.TU141.04
+Bonus chests can now contain cocoa beans, potatoes, carrots, brown mushrooms, melon seeds, pumpkin seeds, birch saplings, cacti, and jungle tree saplings.TU19CU71.121.121.12
+Bonus chests are now labeled as "Bonus Chest" in its UI.[is this the correct version?]
+Minecraft Education
+Minecraft Education1.0.21
+Added the Bonus Chest option, which can be toggled in World Options.
+Issues
+Issues relating to "Bonus Chest" are maintained on the bug tracker. Issues should be reported and viewed there.
+
+Gallery
+
+
+
+			First image of the bonus chest option in Bedrock Edition.
+
+
+
+			First image of a bonus chest in Bedrock Edition.
+
+
+Navigation

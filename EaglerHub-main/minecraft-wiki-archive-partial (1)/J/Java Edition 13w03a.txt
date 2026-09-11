@@ -1,0 +1,251 @@
+This page covers a  version that has a major issue under certain conditions. 
+If a minecart with hopper falls into the void, the game crashes. Once this happens, the world is unopenable.
+
+
+
+The pre-reupload version    of this release is lost. 
+While this version is known to exist, it has not been archived in the launcher or elsewhere, and is therefore considered lost.
+If you believe you have a copy of this version, please post it on the talk page.
+
+Minecraft 13w03a
+
+Edition
+
+Java Edition
+
+Release date
+
+January 17, 2013
+
+Type
+
+Snapshot
+
+Snapshot for
+
+1.5
+
+Downloads
+
+Original:
+Client unavailable Server
+Reupload 1:
+Client
+(.json)
+Server unavailable
+Reupload 2:
+
+Client(.json)
+Server (.exe)
+
+Protocol version
+
+54
+
+Minimum Java version
+
+Java SE 5
+
+◄◄   1.4.7
+1.5
+  1.5.1 ►►
+
+◄   13w02b
+
+ 13w03a
+
+  13w04a ►
+
+{
+    "title": "Minecraft 13w03a",
+    "images": [
+        "13w03a Banner.png",
+        "Java Edition 13w03a.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "January 17, 2013",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Snapshot article, displayed as Snapshot)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition 1.5 article, displayed as 1.5)",
+            "label": "Snapshot for"
+        },
+        {
+            "field": "'''Original:'''\nClient unavailable <br />[https://vault.omniarchive.uk/archive/java/server-release/1.5/pre/13w03a-1538.jar Server]<br>\n'''Reupload 1:'''\n<br>[https://vault.omniarchive.uk/archive/java/client-release/1.5/pre/13w03a-1613.jar Client] \n([https://archive.org/download/Minecraft-JSONs/13w03a.json .json])<br>\nServer unavailable<br>\n'''Reupload 2:'''\n<br>\n[https://vault.omniarchive.uk/archive/java/client-release/1.5/pre/13w03a-1647.jar Client]([https://archive.org/download/Minecraft-JSONs/13w03a.json .json])<br>\n[https://vault.omniarchive.uk/archive/java/server-release/1.5/pre/13w03a-1647.jar Server](link to Category:Versions using legacy download site article, displayed as Category:Versions using legacy download site) ([https://vault.omniarchive.uk/archive/java/server-release/1.5/pre/13w03a-1647.exe .exe](link to Category:Versions using legacy download site article, displayed as Category:Versions using legacy download site))",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "54",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_5 Java SE 5]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Java Edition  1.4.7|<span style=\"margin-right:-0.35em\">◄</span>◄   1.4.7]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition 1.5|1.5]]'''</td>\n<td style=\"padding: 0.4em\" >[[Java Edition  1.5.1|  1.5.1 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  13w02b|◄   13w02b]]\n</td>\n<td style=\"padding: 0.4em\">''' 13w03a'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  13w04a|  13w04a ►]]\n</td>\n</tr>\n</table>"
+}
+
+13w03a is the fifth snapshot for Java Edition 1.5, released on January 17, 2013 which adds droppers, minecarts with hoppers, and the /testfor command.
+13w03a was reuploaded twice. The first time was later on January 17, 2013, to fix an issue with droppers duplicating items, and it was soon reuploaded for a second time half an hour later fixing the inability to break blocks by punching, and random crashes when breaking blocks and items.
+
+Contents
+
+1 Additions
+
+1.1 Blocks
+1.2 Non-mob entities
+1.3 Command format
+1.4 General
+
+2 Changes
+
+2.1 Blocks
+2.2 Mobs
+2.3 Non-mob entities
+2.4 General
+
+3 Fixes
+4 References
+5 Navigation
+
+Additions
+Blocks
+ Droppers
+
+Places items in containers in front of them.
+If there is no container it will eject the item without using it.
+A dispenser "shoots" items at the player, while a dropper "throws" items at them.
+Crafted using cobblestone, a hopper, and a piece of redstone:
+
+Ingredients
+Crafting recipe
+
+Cobblestone +Hopper +Redstone
+
+Non-mob entities
+ Minecart with hopper
+
+Crafting recipe is a hopper on top of a minecart.
+Can only be emptied by passing over a hopper.
+Can pick up items it passes over.
+Command format
+/testfor
+
+Command to test for players.
+Uses comparators to get an analog redstone signal indicating the amount of found players.
+General
+Minecraft Realms
+
+Strings related to Realms have been added to the localization files.
+At this point, it is named Minecraft Online.
+It is not accessible, and it is currently unknown if any proper code related to Realms exists in this version.
+Changes
+Blocks
+Pillar quartz blocks
+
+Can now be placed in any orientation – placement works like with wooden logs.
+Command blocks
+
+Comparators fed by command blocks will now indicate whether the last run command was run successfully.
+Detector rails
+
+Comparators powered by them now give out a signal depending on the fullness of the container on the rail.
+Locked chests
+
+Now have their crash fixed causing their texture to be changed again.
+Water
+
+It is now possible to form a source block above another source block. This prevents players from ruining oceans or rivers with buckets.
+Mobs
+Skeletons
+
+Now shoot faster when their target is closer.
+They shoot players even from one block away.
+Zombies
+
+Now call other zombies to attack in a group (radius scales with difficulty).
+Deal more damage if low on health (also scales with difficulty).
+When on fire, they can set players on fire.
+Now become aggressive and come towards the player when shot from further away.
+Non-mob entities
+Minecart with TNT
+
+When blown up using activator rails, they no longer destroy rails and supporting blocks.
+Still blows up redstone materials.
+General
+Options
+
+Added some new chat options in multiplayer menu:
+Focused Height
+Unfocused Height
+Width
+Moved the texture packs button (no longer appears on the main menu).
+Players can now change texture packs in-game.
+Fixes
+36 issues fixed
+From released versions before 1.5
+
+MC-547 – Arrows don't land properly.
+MC-592 – Dying stacked leather armor duplicates the armor.
+MC-916 – Water does not form source blocks properly on top of existing source blocks.
+MC-1570 – Levers have random orientation when placed.
+MC-2582 – Powered/activator rail on slope stays powered/activated.
+MC-2711 – Jukebox crashes when breaking with no record inside.
+MC-2989 – Block "resets" when right clicked with a food item.
+MC-3169 – Wither In Peaceful spawns very glitchy.
+MC-3449 – Block breaking resets when the item you're holding changes.
+MC-4770 – Chat Shown: commands only broken - displays all chats but prevents me from submitting commands with "cannot send chat message".
+From the 1.5 development versions
+
+MC-5719 – Clicking on items in inventory is delayed or does not work.
+MC-5737 – World generating in stripped parts.
+MC-5744 – Daylight sensor emits power in the nether even though there's no day or night there.
+MC-6757 – Game crashes trying to render blocks 55, 64, 71, 95 as items.
+MC-6833 – Doubled up TNT minecarts creates huge lag ("Nuclear minecarts").
+MC-6900 – Locked chest crashes game.
+MC-7019 – Minecart with TNT explodes prematurely before derailing.
+MC-7111 – Melon and Pumpkin seed stems use the fully grown texture scaled down to the right size.
+MC-7119 – Cake uses inside texture on all sides when placed.
+From the previous development version
+
+MC-7084 – Game crashes when looking into a chest that contains items that crash the game.
+MC-7085 – Debug file "stitched_items.png" overlays textures on itself.
+MC-7108 – Hoppers grab/put items from/into chests that aren't connected.
+MC-7125 – Hopper doesn't get the correct powered state when placed.
+MC-7141 – More items going into a hopper than it can hold can duplicate the items.
+MC-7143 – The game crashes after several seconds in the End with NullPointerException.
+MC-7277 – Texturepack-Textures won't load (Mac OSX).
+MC-7301 – Single hopper does not properly grab items form double trapped chests.
+MC-7323 – TNT Minecart explodes after derailing even if it was already activated.
+MC-7342 – Death message shows java entity name (w/ fireballs).
+MC-7349 – TNT minecart "Ticking Entity" crash.
+From the current version, hotfixed
+
+MC-7620 – Dropper duping glitch.
+MC-7622 – Snapshot Crash when trying to break sugar cane.
+MC-7623 – Thrown splash potion doesn't show "potion" inside it.
+MC-7625 – Can't break blocks with nothing in hand.
+MC-7775 – Minecart with TNT and activator track have no names.
+Others
+
+Fixed "<player> was knocked into the void by <player>" failing to show.
+References
+
+ https://web.archive.org/web/20130119145655/http://www.mojang.com/2013/01/minecraft-snapshot-13w03a/
+
+ "Sneaky ninja re-upload of 13w03a to fix an item corrupting issue with the Dropper. Redownload the snapshot!"  – @Dinnerbone (Nathan Adams) on X (formerly Twitter), January 17, 2013
+
+ "If you experienced crashing with breaking blocks, re-re-download the snapshot. Sorry..."  – @Dinnerbone (Nathan Adams) on X (formerly Twitter), January 17, 2013
+
+Navigation

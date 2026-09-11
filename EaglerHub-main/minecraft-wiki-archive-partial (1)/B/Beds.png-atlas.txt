@@ -1,0 +1,114 @@
+For a comprehensive history of block texture changes, see Java Edition history of textures.
+
+
+
+This page describes content that has been removed from Java Edition. 
+This feature was present in earlier versions of Java Edition, but has since been removed.
+
+beds.png-atlas in Java Edition 1.21.6.
+beds.png-atlas was a procedurally-generated texture atlas used to store textures for beds.
+
+Contents
+
+1 Format
+2 History
+
+2.1 Versions of the atlas
+
+2.1.1 Mipmapped versions
+
+3 References
+4 Navigation
+
+Format
+beds.png-atlas was a fixed-width 512×256-pixel file that stores textures for all of the bed block entities.
+
+History
+Java Edition1.15Pre-release 1
+Added beds.png-atlas, following the splitting of textures-atlas.1.19.322w42a
+As an optimization to resource pack loading, everything in the relevant directory is compiled into this atlas, rather than only those sprites which are used by the game. For this specific atlas, there is no resulting visual change.22w46a
+A customizable atlas json file has been added which can be used to control which graphics are added to this atlas.1.19.4Pre-release 3
+The way in which sprites are arranged on atlases has been changed considerably, resulting in atlas dimensions being generally smaller.
+
+This atlas can now be exported to the screenshots folder using F3+S.1.21.925w31a
+Mipmapped versions of this atlas are no longer generated.1.21.1125w44a
+All textures now have an extra pixel of padding in all four directions.26.2snap4
+Removed beds.png-atlas, as beds no longer use block entity rendering.
+Versions of the atlas
+
+Game version
+
+Atlas
+
+Changes
+
+Notes
+
+Main
+
+Development
+
+1.15
+
+Pre-release 1
+
+Introduction
+
+1.19.4
+
+Pre-release 3
+
+Rearranged due to packing optimization
+
+1.21.11
+
+25w44a
+
+All textures now have an extra pixel of padding in all four directions. This negatively impacts tiling efficiency.
+
+26.2
+
+Snapshot 3
+
+Beds have been changed to use normal block rendering, and thus their textures have been moved to blocks.png-atlas. However, beds.png-atlas is still generated in this version, albeit with only the missing texture present.
+
+Mipmapped versions
+Minecraft (until version 1.21.9) used to also generates mipmapped versions of this atlas, for unknown reasons. They are not used by the game at all - only blocks placed in the world which use the json model system use mipmapped textures.
+
+Game version
+
+Atlas
+
+Notes
+
+Main
+
+Development
+
+Mipmap level
+
+1
+
+2
+
+3
+
+4
+
+1.15
+
+Pre-release 1
+
+1.19.4
+
+Pre-release 3
+
+References
+
+ MC-307549
+
+ MC-303675
+
+ MC-277470
+
+Navigation

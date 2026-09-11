@@ -1,0 +1,6 @@
+[NBT List / JSON Array] minecraft:bees: A list of the entities currently in the beehive or bee nest. If present on an item, text is added to the item's tooltip that says how many entries are in the list (e.g. if there are two entries, the tooltip will say "Bees: 2 / 3") and each item is considered a full stack for the minecraft:bundle_contents components. Despite the tooltip suggesting there is a maximum of 3 entries, there is no limit to the size of this component.
+[NBT Compound / JSON Object]: A single entity.
+[NBT Compound / JSON Object] entity_data: Must include id tag. If the id is not minecraft:bee then the entity will never leave the hive. The Passengers, Pos, Rotation, and UUID tags are ignored when the bee spawns (the bee will always spawn in front of the hive with a random UUID, facing south, and without any passengers).
+See Entity format.
+[Int] min_ticks_in_hive: The minimum amount of time in ticks for this entity to stay in the hive.
+[Int] ticks_in_hive: The amount of ticks the entity has stayed in the hive.

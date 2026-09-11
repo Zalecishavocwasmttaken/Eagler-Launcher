@@ -1,0 +1,18 @@
+[NBT Compound / JSON Object] minecraft:kinetic_weapon: Enables a charge-type attack when using the item where, while being used, the damage is dealt along a ray every tick based on the relative speed of the entities
+[Int] delay_ticks: The time in ticks required before weapon is effective. Defaults to 0.
+[NBT Compound / JSON Object] damage_conditions: The condition under which the charge attack deals damage.
+Kinetic weapon conditions: see Template:Nbt inherit/kinetic_weapon_conditions/template
+[NBT Compound / JSON Object] dismount_conditions: The condition under which the charge attack dismounts the target.
+Kinetic weapon conditions: see Template:Nbt inherit/kinetic_weapon_conditions/template
+[NBT Compound / JSON Object] knockback_conditions: The condition under which the charge attack deals knockback.
+Kinetic weapon conditions: see Template:Nbt inherit/kinetic_weapon_conditions/template
+[Float] forward_movement: The distance the item moves out of the wielder's hand during its animation. Defaults to 0.0.
+[Float] damage_multiplier: The multiplier for the final damage from the relative speed. Defaults to 1.0.
+[String][NBT Compound / JSON Object] sound: Optional sound event to play when the weapon is engaged.
+A sound event see Template:Nbt inherit/sound event/template
+[String][NBT Compound / JSON Object] hit_sound: Optional sound event to play when the weapon hits an entity.
+A sound event see Template:Nbt inherit/sound event/template
+
+Notes
+
+ The damage dealt is calculated as floor(relative_speed * damage_multiplier), where relative_speed is the difference of speed vectors of the attacker and the target as projected onto the axis of the attacker's view vector. Any additional damage from enchantments or attribute modifiers is added after this calculation.

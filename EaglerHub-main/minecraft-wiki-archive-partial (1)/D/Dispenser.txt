@@ -1,0 +1,780 @@
+This article is about the block that can fire arrows and other items.   For the block that would drop arrows and others as an item, see Dropper.
+
+Dispenser
+
+View all renders
+
+Renewable
+
+Yes
+
+Stackable
+
+Yes (64)
+
+Tool
+
+Blast resistance
+
+3.5
+
+Hardness
+
+3.5
+
+Luminous
+
+No
+
+Transparent
+
+No
+
+Flammable
+
+No
+
+Catches firefrom lava
+
+No
+
+Map color
+
+ 11 STONE
+
+Note block instrument
+
+Bass Drum
+
+{
+    "extratext": "View [[#Renders|all renders]]",
+    "title": "Dispenser",
+    "images": [
+        "Dispenser.png"
+    ],
+    "rows": [
+        {
+            "field": "Yes",
+            "label": "(link to Renewable resource article, displayed as Renewable)"
+        },
+        {
+            "field": "Yes (64)",
+            "label": "Stackable"
+        },
+        {
+            "field": "<span class=\"sprite-file\" style=\"height:32px;width:32px;--vertical-align:middle\">(link to File:Invicon Wooden Pickaxe.png article, displayed as 32x32px|link=|alt=Invicon Wooden Pickaxe.png: Sprite image for Wooden Pickaxe in Minecraft|class=pixel-image|A wooden pickaxe or better is required to mine this block)</span>",
+            "label": "Tool"
+        },
+        {
+            "field": "3.5",
+            "label": "(link to Explosion#Blast resistance article, displayed as Blast resistance)"
+        },
+        {
+            "field": "3.5",
+            "label": "(link to Breaking#Blocks by hardness article, displayed as Hardness)"
+        },
+        {
+            "field": "No",
+            "label": "(link to Light article, displayed as Luminous)"
+        },
+        {
+            "field": "No",
+            "label": "(link to Opacity article, displayed as Transparent)"
+        },
+        {
+            "field": "No",
+            "label": "(link to Fire#Flammable blocks article, displayed as Flammable)"
+        },
+        {
+            "field": "No",
+            "label": "Catches fire<br>from (link to lava article, displayed as lava)"
+        },
+        {
+            "field": "<span style=\"white-space: nowrap;\"><span style=\"display: inline-block; background-color: rgb(112, 112, 112); border: 1px solid #888; border-radius: 0.3em; color: transparent; width: 1em; height: 1em; vertical-align: -0.36em; margin-right: -0.1em\"><br></span> 11 STONE</span>",
+            "label": "(link to Map item format#Color table article, displayed as Map color)"
+        },
+        {
+            "field": "Bass Drum",
+            "label": "(link to Note Block#Instruments article, displayed as Note block instrument)"
+        }
+    ],
+    "invimages": [
+        "Dispenser"
+    ]
+}
+
+A dispenser is a low-capacity storage block that can fire projectiles, use certain items and tools, as well as place certain blocks, fluids, or entities when given a redstone signal. Items that do not have unique dispenser functions are instead ejected into the world like a dropper.
+
+Contents
+
+1 Obtaining
+
+1.1 Breaking
+1.2 Natural generation
+1.3 Crafting
+
+2 Usage
+
+2.1 Container
+2.2 Redstone component
+
+2.2.1 Activation
+2.2.2 Behavior
+
+3 Sounds
+
+3.1 Generic
+3.2 Unique
+
+4 Data values
+
+4.1 ID
+4.2 Block states
+4.3 Block data
+
+5 Achievements
+6 Videos
+7 History
+
+7.1 Development
+7.2 Java Edition
+7.3 Bedrock Edition
+7.4 Legacy Console Edition
+7.5 New Nintendo 3DS Edition
+7.6 Historical images
+7.7 Data history
+
+8 Issues
+9 Trivia
+10 Gallery
+
+10.1 Renders
+
+10.1.1 Java Edition
+10.1.2 Bedrock Edition
+
+10.2 Screenshots
+10.3 In other media
+
+11 See also
+12 Notes
+13 References
+14 External links
+15 Navigation
+
+Obtaining
+Breaking
+Dispensers can be mined using a pickaxe, in which case it drops itself and its contents. If mined without a pickaxe, the dispenser drops only its contents.
+
+Block
+
+Dispenser
+
+Hardness
+
+3.5
+
+Tool
+
+Breaking time (sec)
+
+Default
+
+17.5
+
+Wooden
+
+2.65
+
+Stone
+
+1.35
+
+Copper
+
+1.05
+
+Iron
+
+0.9
+
+Diamond
+
+0.7
+
+Netherite
+
+0.6
+
+Golden
+
+0.45
+
+OptionsEfficiency000Haste0011JEBE
+
+Legend
+ incorrect tool, drops nothing
+ correct tool, drops nothing or something other than the block itself
+ correct tool, drops the block itself
+italicized can be instant mined
+
+ These durations ignore any other influential factors (e.g., Mining Fatigue) and are measured in seconds. For more information, see Breaking § Mining efficiency.
+
+Natural generation
+Jungle temples
+
+Two dispensers are naturally generated in every jungle temple.
+Trial chambers
+
+Several dispensers can generate inside trial chambers with random items from a loot table.
+Crafting
+
+Ingredients
+Crafting recipe
+Notes
+
+Cobblestone +Bow +Redstone Dust
+
+The bow can be of any durability.Enchantments on the bow do not affect the resulting dispenser.
+
+Usage
+A dispenser can be used as a container and as a redstone component that dispenses items when activated, with results varying based on the item dispensed. For example, the trap in a jungle pyramid incorporates arrows inside a dispenser, which shoots the arrows when activated.
+To place a dispenser, use it while pointing at a surface adjacent to the space it should occupy. A dispenser can be placed so that its output faces any direction, always facing the direction of the player placing it.
+In Java Edition, dispensers cannot be moved by pistons.
+
+Container
+The GUI of the dispenser
+A dispenser has 9 slots of inventory space.
+To open the dispenser GUI, use the Use Item control. To move items between the dispenser inventory and the player inventory or hotbar while the dispenser GUI is open, drag or shift-click the items. To exit the dispenser GUI, use the Esc control.
+By default, the GUI of a dispenser is labeled "Dispenser". A dispenser's GUI label can be changed by naming the dispenser in an anvil before placing it, or by using the /data command.‌[Java Edition  only] For example, to label a dispenser at (0,64,0) "My Dispenser", use /data merge block 0 64 0 {CustomName:'"My Dispenser"'}
+A dispenser can be "locked" by setting the dispenser's lock tag. If a dispenser's lock tag is not blank, the dispenser cannot be accessed except by players holding an item that matches the item predicate in the lock tag. A dispenser's lock tag can be set or unset with the data command. For example, to lock a dispenser at (0,64,0) so that only players holding an item named "My Key" can access the dispenser, use /data merge block 0 64 0 {lock:{components:{"custom_name":"My Key"}}}
+
+Redstone component
+See also: Redstone circuit
+
+A dispenser can be used to dispense a randomly selected item out of the ones it contains.
+
+Activation
+A dispenser is a redstone mechanism and can be activated by:
+
+an adjacent active power component: for example, a redstone torch (except that a redstone torch does not activate a dispenser it is attached to), a block of redstone, a daylight sensor, etc.
+an adjacent powered conductive block (for example, a block with an active redstone torch under it)
+a powered redstone repeater or redstone comparator facing the dispenser
+powered redstone dust configured to point at the dispenser, or on top of it, or a directionless "cross" next to it; a dispenser is not activated by adjacent powered redstone dust that is configured to point in another direction.
+Some of these methods can activate a dispenser (in the sense of triggering an action) without powering the dispenser (in the sense of whether the dispenser can power adjacent redstone dust, etc.).
+In addition to the methods above, a dispenser can also be activated by quasi-connectivity.‌[Java Edition  only] A dispenser becomes activated if one of the methods above would activate a mechanism component in the block above the dispenser, even if there is no mechanism component there (even if the block above the dispenser is air or a non-conductive block), but only when the dispenser receives a block update (including a redstone update within two blocks of the dispenser).
+A dispenser has a 4 game tick (0.2 seconds, barring lag) delay between activation and a response. During this time, additional inputs are ignored.
+In Bedrock Edition, the dispenser can only activate on the input/consumer redstone tick (C-tick).
+
+Behavior
+When activated, a dispenser waits for 4 game ticks (0.2 seconds, barring lag) and then ejects one item. The dispenser does not continue to eject items while activated; ejection occurs only on the initial activation (the rising edge of an input signal). To eject multiple items, repeatedly activate the dispenser with a clock circuit.
+If multiple slots are occupied by items, a random occupied slot is chosen for ejection. The slot is chosen when an item is ejected, not when the dispenser is initially activated; thus it is possible to move items into or out of a dispenser between its activation and item dispensing.
+The effects of being activated vary with the type of ejected item. Most items are thrown in the direction the dispenser is facing as if a player had used the Drop Item control. Other items behave differently when dispensed, as described in the table below. In general, a dispenser cannot place blocks into the world, aside for a few exceptions, such as shulker boxes, powder snow, and certain cases where the placed block would do something unusual. When a dispenser uses an item that has durability, such as flint and steel and shears, the item's durability decreases.
+Unlike a dropper, a dispenser can't push items inside another container.
+
+Dispenser behavior
+
+Item
+
+Effect
+
+ArmorElytra
+
+Equips on a player, armor stand, skeleton, wither skeleton, stray, bogged, zombie, husk, pillager, drowned, parched, villager‌[Java Edition  only], piglin or zombified piglin within the block the dispenser is facing with empty appropriate armor slot (any armor, made from any material).
+In Java Edition, zombies can only be equipped if they are capable of picking up items.
+
+Armor stand
+
+Placed as an entity in the block the dispenser is facing.‌[Java Edition  only]
+
+ArrowSpectral arrow‌[JE  only]Tipped arrow
+
+Fired in the direction the dispenser is facing.
+
+BoatBoat with chest
+
+Placed as an entity (i.e., a right-clickable vehicle) in the block the dispenser is facing, if the dispenser is facing the water or an empty block above water — otherwise dropped.
+
+Bone mealSuper fertilizer‌[BE & edu  only]
+
+Uses bone meal (as fertilizer) or super fertilizer on the block the dispenser is facing, if possible. If the block faced does not react to fertilizers, no bone meal or super fertilizer is used.
+
+Bottle o' enchantingEggIce bomb‌[BE & edu  only]SnowballSplash potionLingering potionWind charge
+
+Thrown in the direction the dispenser is facing as if the player had right-clicked the item in their inventory. Splash potions and lingering potions are fired farther.
+
+Bucket
+
+Collects lava, water source blocks, or powder snow that the dispenser is facing, adding the newly filled bucket to an empty slot in the dispenser's inventory. If there isn't room in the dispenser for the newly-filled bucket (i.e. the empty bucket was part of a stack and all other slots in the dispenser are also full), it drops the filled bucket. If no source block is in front of the dispenser, it drops an empty bucket.
+
+Fire charge
+
+Launches fireball (as if produced by a blaze) in the direction the dispenser is facing. When a dispensed fireball hits a mob (including a player) or a block, the mob or block is set on fire. When a dispensed fireball hits a boat or minecart, the vehicle is destroyed and drops itself as an item.
+
+Firework rocket
+
+Launches in the direction the dispenser is facing. It can be used to inflict damage if it was crafted with stars.
+
+Flint and steel
+
+If the dispenser is facing an air block and having an available block below this air block, places fire in the air block. If the dispenser is facing TNT, it ignites the TNT. If the dispenser is facing an extinguished campfire, the campfire is ignited. Otherwise, does nothing.
+
+Lava bucketWater bucketBucket of codBucket of salmonBucket of tropical fishBucket of pufferfishBucket of axolotlPowder snow bucketBucket of tadpoleBucket of sulfur cube
+
+Places lava or water in the block the dispenser is facing (replacing the lava or water bucket in the dispenser with an empty bucket) if the block the dispenser is facing is one that the player could use lava or water buckets on (e.g., air, flowers, grass, etc. — doesn't work with a cauldron) — otherwise the bucket is dropped. Water dispensed in the Nether disappears instantly, leaving only the empty bucket in the dispenser. If the bucket contains an axolotl or fish, the mob is spawned along with the block of water. A dispenser can place or remove powder snow in the block in front of where the dispenser is facing.
+
+MinecartMinecart with chestMinecart with command blockMinecart with furnaceMinecart with hopperMinecart with TNT
+
+Placed as an entity (i.e., a right-clickable vehicle) in the block the dispenser is facing, if the dispenser is facing a type of rails — otherwise dropped.
+
+HeadsCarved pumpkin
+
+If placement completes the construction of an iron golem, snow golem, or wither, the entity is created as if constructed by a player. If the difficulty is set to peaceful, dispensers never place wither skeleton skulls. Equips on a player, mob (with exceptions), or armor stand with an empty helmet slot, within the block the dispenser is facing. Otherwise, does nothing.
+Placement of wither skulls fails under water, even though withers can be manually built under water.
+
+Shulker box
+
+Placed as a block.
+
+Spawn egg
+
+Summons a mob in front of the dispenser.
+
+TNTUnderwater TNT‌[BE & edu  only]
+
+Summons a TNT entity in the block the dispenser is facing, with upward motion and a small velocity in a random horizontal direction.
+
+Trident
+
+Thrown in the direction the dispenser is facing.‌[Bedrock Edition  only]​[upcoming: JE Combat Tests]
+
+Shears
+
+Unleash leashed mobs that is in the block in front of it.
+Shear any bogged, sheep, snow golem, mooshroom, or sulfur cube that is in the block in front of it.Harvests honeycombs from a full beehive or bee nest.
+
+Glass bottle
+
+Fills bottle with water if the dispenser is facing a water source block or with honey if the dispenser is facing a full beehive or bee nest. If there is no room for the newly-filled bottle (i.e. there are no empty slots in the dispenser), drops the filled bottle. If the dispenser is facing anything else, the empty glass bottle is dropped.
+
+Horse armor
+
+Place horse armor on any tamed horse or zombie horse that is in the block in front of it.
+
+Nautilus armor
+
+Place nautilus armor on any tamed nautilus or zombie nautilus that is in the block in front of it.
+
+Saddle
+
+Place a saddle on any pig, strider, camel, camel husk, tamed horse, donkey, mule, zombie horse, skeleton horse,‌[Java Edition  only] nautilus, or zombie nautilus that is in the block in front of it.
+
+Harness
+
+Place a harness on any happy ghast that is in the block in front of it.
+
+Carpet
+
+Place a carpet on any tamed llama that is in the block in front of it.
+
+Chest
+
+Place a chest on any tamed llama, donkey, or mule that is in the block in front of it.
+
+Glowstone
+
+Charges any empty or partially filled respawn anchor. If facing a full respawn anchor, it does nothing.
+
+Honeycomb
+
+Wax any copper block that is in the block in front of it.
+
+Water bottle
+
+Turns dirt, coarse dirt, and rooted dirt into mud.
+
+Brush
+
+Brushes an armadillo in front of the dispenser.
+
+Others
+
+Dropped: Ejected toward the block the dispenser is facing as if a player had used the drop item control.
+
+When a dispenser dispenses an item, it emits a clicking sound (unless the item is a projectile or a spawn egg) and a smoke particle. If it is empty when activated, it emits a slightly higher-pitched click. The noise of a dispenser can be heard up to 16 blocks away.
+A dispenser is a conductive block, so powering it directly can cause adjacent mechanism components (including other dispensers) to activate as well.
+
+Sounds
+Generic
+Java Edition:
+
+v
+t
+e stone sound typeSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitchAttenuationdistance​Block brokenBlocksOnce the block has brokenblock.stone.breaksubtitles.block.generic.break​1.00.816​Block placedBlocksWhen the block is placedblock.stone.placesubtitles.block.generic.place​1.00.816​Block breakingBlocksWhile the block is in the process of being brokenblock.stone.hitsubtitles.block.generic.hit​0.250.516​Something falls on a blockEntity-DependentFalling on the block with fall damageblock.stone.fallsubtitles.block.generic.fall​0.50.7516​FootstepsEntity-DependentWalking on the blockblock.stone.stepsubtitles.block.generic.footsteps​0.151.016
+Bedrock Edition:
+
+v
+t
+e stone sound typeSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitch​Block brokenBlocksOnce the block has brokendig.stonesubtitles.block.generic.break​1.00.8–1.0​Block placedBlocksWhen the block is placedplace.stonesubtitles.block.generic.place​1.00.8–1.0​Block breakingBlocksWhile the block is in the process of being brokenhit.stonesubtitles.block.generic.hit​0.370.5​FootstepsPlayersFalling on the block with fall damagefall.stonesubtitles.block.generic.footsteps​0.41.0​FootstepsPlayersWalking on the blockstep.stonesubtitles.block.generic.footsteps​0.31.0​FootstepsBlocksJumping from the blockjump.stonesubtitles.block.generic.footsteps​0.121.0​FootstepsBlocksFalling on the block without fall damageland.stonesubtitles.block.generic.footsteps​0.221.0
+Unique
+Java Edition:
+
+SoundsSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitchAttenuationdistance​Dispensed itemBlocksWhen a dispenser drops an itemblock.dispenser.dispensesubtitles.block.dispenser.dispense​1.01.016​Dispenser failsBlocksWhen a dispenser fails to activateblock.dispenser.failsubtitles.block.dispenser.fail​1.01.216​Dispensed item BlocksWhen a dispenser shootsblock.dispenser.launch​​subtitles.block.dispenser.dispense​​​1.01.216​Chest lockedBlocksWhen a player attempts to open a dispenser locked using the [NBT Compound / JSON Object] lock tagblock.chest.locked​​subtitles.block.chest.locked​​​1.01.016
+ MC-98316 – Wrong subtitles caused by missing distinction
+
+Bedrock Edition:
+
+SoundsSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitch​ ?BlocksWhen a dispenser drops or uses an itemblock.click​ ?1.01.0​ ?BlocksWhen a dispenser fails to activateblock.click​ ?1.01.2​ ?PlayersWhen a dispenser shootsrandom.bow​ ?1.00.83–1.25
+Data values
+ID
+Java Edition:
+
+NameIdentifierForm
+Translation key DispenserdispenserBlock & Item
+block.minecraft.dispenser
+NameIdentifier
+ Block entitydispenser
+
+Bedrock Edition:
+
+NameIdentifierNumeric ID FormItem ID
+Translation key Dispenserdispenser23Block & Giveable ItemIdentical
+tile.dispenser.name
+ ID of block's direct item form, which is used in savegame files and addons.
+
+ Available with /give command.
+
+ The block's direct item form has the same ID as the block.
+
+NameSavegame ID
+ Block entityDispenser
+
+Block states
+See also: Block states
+
+Java Edition:
+
+  Name
+  Default value
+  Allowed values
+  Description
+  facingnorthdowneastnorthsouthupwestThe direction in which contents are shot or dropped.The opposite from the direction the player faces while placing the block.
+triggeredfalsefalsetrueTrue if this block is activated.
+Bedrock Edition:
+
+  NameMetadata Bits
+  Default value
+  Allowed valuesValues forMetadata Bits
+  Description
+  facing_direction0x10x20x400123456701234567The direction in which contents are shot or dropped.
+0: facing down
+1: facing up
+2: facing north
+3: facing south
+4: facing west
+5: facing east
+triggered_bit0x8falsefalsetrue01True if this block is activated.
+Block data
+A dispenser has a block entity associated with it that holds additional data about the block.
+Java Edition:
+
+See also: Block entity format
+
+[NBT Compound / JSON Object] Block entity data
+Tags common to all block entities see Template:Nbt inherit/blockentity/template
+Tags common to all objects that can be renamed see Template:Nbt inherit/nameable/template
+Tags common to all containers that can be locked see Template:Nbt inherit/lockable/template
+Tags common to all objects that use loot tables to produce items see Template:Nbt inherit/lootable/template
+[NBT List / JSON Array] Items: List of items in this container. Represents the minecraft:container component. The component is still present on the block entity, even if the tag does not exist (due to a loot table existing instead).
+[NBT Compound / JSON Object]: An item, including the slot tag. Dispenser slots are numbered 0-8 with 0 in the top left corner.
+An item stack in a container slot see Template:Nbt inherit/item/template
+
+Bedrock Edition:
+
+See Bedrock Edition level format/Block entity format.
+Achievements
+IconAchievementIn-game descriptionActual requirements (if different)Gamerscore earnedTrophy type (PS)PS4OtherDispense With ThisConstruct a Dispenser.—20Bronze
+Videos
+
+
+
+
+
+
+
+
+
+History
+Development
+January 10, 2011
+ Shown dispenser in development as part of Minecraft: The Story of Mojang.
+
+Currently dispensers dispense items to a fixed distance ~2 blocks away.January 18, 2013
+Dinnerbone stated that dispensers are to have more features in the future, so players should stick to using droppers to dispense items.
+Java Edition
+Java Edition Beta1.2
+    Added dispensers.
+
+The top and bottom textures of dispensers currently remain fixed regardless of the facing direction.
+
+Dispensers can currently only fire arrows, snowballs, and eggs. All other items are thrown out as entities.Java Edition1.0.0Beta 1.9 Prerelease 6
+Dispensers now take less time to destroy, and the breaking time is now tier dependent.1.2.112w03a
+Dispensers can spawn mobs from a spawn egg.12w04a
+    The texture of dispensers has been changed.
+
+Dispensers can shoot fire charges and bottles o' enchanting.1.3.112w15a
+Dispensers can place boats and minecarts.12w21a
+Dispensers can now place the liquids inside water and lava buckets.
+
+Dispensers can now suck up liquids if activated again, filling up the buckets with the liquid dropped.12w22a
+Dispensers can naturally generate within jungle temples and are filled with a random amount of arrows that shoot the player should they touch the tripwire connected to it or destroy it without shears.1.4.612w49a
+Dispensers now shoot firework rockets.1.513w04a
+  Dispensers can now face all 6 directions.
+
+Dispensers use many new items, including TNT, bone meal, flint and steel, and armor.13w10b
+Powered dispensers no longer fire if they receive a redstone update.1.814w04a
+Dispensers can be used to place pumpkins to activate iron golems and snow golems.
+
+Dispensers can place wither skeleton skulls to activate the wither.14w07a
+Dispensers can place command blocks instead of shooting them out.14w10a
+ Upward-facing dispensers no longer have a model.14w10b
+ Upward-facing dispensers have a valid model again.14w25a
+     The models of dispenser have been changed - the top and bottom faces for horizontal dispensers now rotate accordingly, and are rotated for downward-facing.1.8.6
+Dispensers no longer place command blocks, as it constituted a vulnerability.1.915w33a
+Dispensers can shoot splash potions and lingering potions much farther than before.15w33c
+Dispensers can shoot fire charges as ender dragon fireballs, instead of as blaze fireballs.15w39c
+Dispensers can equip mob heads and pumpkins.15w44b
+Dispensers can once again shoot fire charges as blaze fireballs.1.9.1pre1
+Dispensers can use loot tables.
+
+Dispensers generated in jungle temples use loot tables.1.1016w21a
+Dispensers can equip shields, like armor.1.1116w39a
+Dispensers can place shulker boxes.16w39c
+Dispensers can dispense boats facing the same way as the dispenser, instead of toward the dispenser.1.1317w47a
+Crafting a dispenser no longer requires the bow to be at full durability.1.1418w43a
+      The textures of the dispenser have been changed.
+
+Dispensers with shears in them now shear sheep with wool.1.1519w34a
+Dispensers can harvest honeycombs when dispensing shears on bee nests and beehives filled with honey.
+
+Dispensers can collect honey bottles when dispensing glass bottles on beehives.
+
+Dispensers can collect water bottles when dispensing glass bottles on water.19w36a
+Fireworks dispensed from a dispenser now travel in the direction fired.19w41a
+Dispensers now eject empty bottles properly when not facing water.19w42a
+Dispensers can place armor stands.1.1620w13a
+Dispensers can charge respawn anchors.20w15a
+Dispensers can saddle pigs, striders, and tamed horses, donkeys, and mules.
+
+Dispensers can put horse armor on horses.
+
+Dispensers can put carpets on llamas.
+
+Dispensers can put chests on llamas, donkeys, and mules.
+
+Dispensers can shear a mooshroom.
+
+Dispensers can shear snow golems.1.1720w46a
+Can place powder snow using a powder snow bucket. Also can remove it using a bucket.21w11a
+Dispensers can dispense honeycomb onto copper blocks to wax them.1.1922w11a
+Dispensers can turn dirt, coarse dirt, and rooted dirt into mud.22w13a
+Dispensers can place a boat with chest.1.19.3ExperimentUpdate 1.2022w42a
+Dispensers can saddle camels.1.20.3ExperimentUpdate 1.2123w45a
+Dispensers now generate in trial chambers.1.20.523w51a
+Dispensers can brush armadillos.1.2124w18a
+Entities shot by dispensers now receive knockback.1.21.11pre4
+Dispensers can now equip saddles and nautilus armor on tamed nautiluses and zombie nautiluses.
+Bedrock Edition
+Pocket Edition Alphav0.14.0build 1
+      Added dispensers.build 5
+The inventory for dispensers is now more consistent with other inventories.v0.15.0build 1
+Dispensers can be moved by pistons.
+
+Dispensers now generate in jungle temples.Bedrock Edition1.10.0beta 1.10.0.3
+      The textures of the dispenser have been changed.
+
+Dispensers with shears in them now shear sheep with wool.1.13.0beta 1.13.0.15
+Damaged bows can no longer be used to craft dispensers.1.14.0beta 1.14.0.1
+Dispensers can harvest honeycombs when dispensing shears on bee nests and beehives filled with honey.
+
+Dispensers can collect honey bottles when dispensing glass bottles on beehives.
+
+Dispensers can collect water bottles when dispensing glass bottles on water.1.16.0beta 1.15.0.51
+Crafting a dispenser no longer requires the bow to be at full durability.1.16.210ExperimentCaves and Cliffsbeta 1.16.210.57
+Dispensers can wax copper blocks.1.19.60Preview 1.19.60.22
+Dispensers can saddle pigs, striders, tamed horses, donkeys, and mules.
+
+Dispensers can put horse armor on tamed horses.
+
+Dispensers can shear snow golems and mooshrooms.
+
+Dispensers can put carpets and chests on llamas.
+
+Dispensers with shears now only shear one sheep at a time.1.19.60ExperimentNext Major UpdatePreview 1.19.60.22
+Dispensers can saddle camels.1.20.60ExperimentUpdate 1.21Preview 1.20.60.20
+Dispensers now generate in trial chambers.1.21.50Preview 1.21.50.24
+Dispensers drop themselves only if mined using a pickaxe, matching Java Edition.
+Legacy Console Edition
+Legacy Console EditionXbox 360Xbox OnePS3PS4PS VitaWii USwitchTU1CU11.001.001.00Patch 11.0.1
+    Added dispensers.TU3
+    The dispenser texture has been changed to the Java Edition 1.2.1 (12w04a) texture.TU5
+Added quick move to the dispenser.TU9
+Dispensers can spawn mobs from a spawn egg.
+
+Dispensers can shoot out the liquids inside water and lava buckets.
+
+Dispensers can suck up the liquids if activated again, but do not fill up the buckets with the liquid dropped due to a bug.TU10
+Dispensers can place boats and minecarts.TU12
+The bug where the liquid from dispensers did not properly fill empty buckets has been fixed.TU19CU71.121.121.12
+  Dispensers now face in any direction.
+Dispensers use many new items, including TNT, bone meal, flint and steel, and armor.TU31CU191.221.221.22Patch 3
+Dispensers can place pumpkins or wither skeleton skulls to spawn golems and withers providing the body is already built in a valid configuration.TU53CU431.491.501.49Patch 231.0.3
+Dispensers can place shulker boxes.TU60CU511.641.641.64Patch 301.0.11
+Fireworks dispensed from a dispenser now travel in the direction fired.   1.90
+      The textures of the dispenser have been changed.
+
+Dispensers with shears in them now shear sheep with wool.
+New Nintendo 3DS Edition
+New Nintendo 3DS Edition0.1.0
+      Added dispensers.
+Historical images
+
+
+
+			Frame from first video of dispensers.
+
+
+
+			The first image released by Mojang showing the new vertical placement of dispensers and droppers. The dispenser can be seen on the top.
+
+
+Data history
+Java Edition1.814w06a
+Dispensers now use the newly-implemented model json file models/block/cube.json; previously the geometry was defined in the game code itself.1.1116w32a
+The block entity ID for dispensers has been changed from Trap to minecraft:dispenser.1.1317w47a
+Prior to The Flattening, this block's numeral ID was 23.
+Issues
+Issues relating to "Dispenser" are maintained on the bug tracker. Issues should be reported and viewed there.
+
+Trivia
+A dispenser was shown inside a minecart in one of the Java Edition 1.5 teaser images, although this was never added to the game.
+Gallery
+Renders
+Java Edition
+
+
+
+			Facing south
+
+
+
+			Facing west
+
+
+
+			Facing north
+
+
+
+			Facing east
+
+
+
+			Facing up
+
+
+
+			Facing down
+
+
+Bedrock Edition
+
+
+
+			Facing south
+
+
+
+			Facing west
+
+
+
+			Facing north
+
+
+
+			Facing east
+
+
+
+			Facing up
+
+
+
+			Facing down
+
+
+Screenshots
+
+
+
+			Dispensers can be placed facing up and down, as well as the side orientation.
+
+
+
+			A distribution of arrows shot straight up by a dispenser.
+
+
+In other media
+
+
+
+			Artwork of dispensers used in Block of the Week
+
+
+
+			A dispenser as it appeared in MCC x Minecraft 15th Anniversary Party
+
+
+
+			A dispenser as it appeared in Minecraft Earth
+
+
+See also
+Some other blocks can also be used to move items:
+
+Droppers can throw items or push them into adjacent containers.
+Hoppers can push items into adjacent containers.
+Ice, packed ice, and blue ice have reduced friction to the item entity movement.
+Slime blocks can impart velocity to item entities when pushed by a piston.
+Water can push item entities.
+Quasi-connectivity applies to dispensers.
+Notes
+
+ Supposed time when fragment was filmed. Based on modified date of client.jar/gui/trap.png in Beta 1.2.
+
+References
+
+ "Villagers cannot be equipped with anything by a dispenser, but that would be a separate issue and a feature request rather than a bug." – Cannot dispense armor or mob heads onto villagers or zombies – resolved as "Cannot Reproduce".
+
+ MC-190027 – Dispensers can only put armor onto zombies with CanPickUpLoot set to true
+
+ MCPE-80145
+
+ MC-114111
+
+ MC-165196 – resolved as "Invalid".
+
+ "Minecraft Snapshot 19w42a"     – Minecraft.net, October 16, 2019.
+
+ MC-50259 – resolved as "Fixed".
+
+ https://bugs.mojang.com/browse/MC-80671?focusedCommentId=228546&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-228546
+
+ MC-122844 – resolved as "Works As Intended".
+
+ MC-44280 – Entities don't receive knockback from projectiles fired from dispensers – resolved as "Fixed".
+
+External links
+"Block of the Week: Dispenser"     by Duncan Geere  – Minecraft.net, March 16, 2018.
+Navigation

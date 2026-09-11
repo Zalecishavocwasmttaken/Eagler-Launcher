@@ -1,0 +1,176 @@
+"Client" redirects here.  For the entity sometimes called "client", see Player.  For the block in Bedrock Edition, see Client request placeholder block.
+
+
+
+This feature is exclusive to Java Edition. 
+
+client.jar
+
+Author(s)
+
+ Mojang Studios
+
+Platform(s)
+
+ and other platforms that support running a JVM
+
+Written in
+
+ Java
+
+Latest version
+
+Release: 26.2
+Snapshot: 26.3 Snapshot 10
+
+Release date
+
+May 16, 2009 (mc-161607)
+
+Size
+
+≈ 53 MiB (26.2)
+≈ 76 MiB (as of 26.3 Snapshot 10)
+
+License
+
+EULA
+
+Source available
+
+Partial
+
+Links
+
+Website
+Downloads
+
+26.2
+26.3 Snapshot 10
+
+{
+    "title": "client.jar",
+    "rows": [
+        {
+            "field": "\n* (link to File:Mojang Studios logo.svg article, displayed as x20px|link=Mojang Studios) (link to Mojang Studios article, displayed as Mojang Studios)",
+            "label": "Author(s)"
+        },
+        {
+            "field": "(link to File:Windows.svg article, displayed as x20px|Windows|link=wikipedia:Microsoft Windows)<span class=\"os-icon\">(link to File:macOS.svg article, displayed as x10px|macOS|link=wikipedia:macOS|class=darkmode-invert)</span><span class=\"os-icon\">(link to File:Tux.svg article, displayed as x20px|Linux|link=wikipedia:Linux)</span> and other platforms that support running a JVM",
+            "label": "Platform(s)"
+        },
+        {
+            "field": "(link to File:Java.svg article, displayed as x20px|Java|link=wikipedia:Java (programming language)) (link to wikipedia:Java (programming language) article, displayed as Java)",
+            "label": "Written in"
+        },
+        {
+            "field": "\n* '''Release''': (link to Java Edition_26.2 article, displayed as 26.2)\n* '''Snapshot''': (link to Java Edition_26.3 Snapshot 10 article, displayed as 26.3 Snapshot 10)",
+            "label": "Latest version"
+        },
+        {
+            "field": "May 16, 2009 ((link to Java Edition Classic mc-161607 article, displayed as mc-161607))",
+            "label": "Release date"
+        },
+        {
+            "field": "\n* ≈ 53 MiB ((link to Java Edition_26.2 article, displayed as 26.2))\n* ≈ 76 MiB (as of (link to Java Edition_26.3 Snapshot 10 article, displayed as 26.3 Snapshot 10))",
+            "label": "Size"
+        },
+        {
+            "field": "[https://www.minecraft.net/en-us/eula EULA]",
+            "label": "License"
+        },
+        {
+            "field": "Partial",
+            "label": "<span style=\"white-space:normal\">Source available</span>"
+        },
+        {
+            "field": "\n* [https://www.minecraft.net/en-us/download Website] \n'''Downloads'''\n* [https://piston-data.mojang.com/v1/objects/2dc72797acbc1b63fc16a11c4ac393605f453754/client.jar 26.2]\n* [https://piston-data.mojang.com/v1/objects/b36eac90fae6cce3c83c5cb42e11d3ea8cd04f19/client.jar 26.3 Snapshot 10]",
+            "label": "Links"
+        }
+    ],
+    "invimages": [],
+    "images": [
+        "Java Edition 26.2.png"
+    ]
+}
+
+
+
+ There is a related tutorial page for this topic! 
+See Tutorial:See Minecraft's code.
+
+client.jar is a JAR file containing the Minecraft program and some default resources. It is launched by the user using the Minecraft Launcher.
+The client.jar file is named using the version number after download, e.g., 1.21.5.jar. The name client.jar is used on the distribution server, and commonly as a general term for all versions of the file. It is located at .minecraft/versions/version/version.jar, next to the client.json file.
+It can be opened with a file archiving program that supports ZIP files.
+
+Contents
+
+1 Contents
+
+1.1 Directory structure
+1.2 Blaze3D
+
+2 History
+3 See also
+4 References
+5 Navigation
+
+Contents
+The file contains the Minecraft program in form of compiled Java class files. It also contains some, but not all, default resources; for instance, textures from the vanilla resource pack are stored here, but sound files are stored separately.
+
+Directory structure
+The client.jar file has the following directory structure. Note that Java class files have been omitted for brevity.
+
+ version.jar META-INF: Information for the JVM, including signature information, which may be used to check if the game is modified.
+ LICENSE MANIFEST.MF MOJANGCS.RSA MOJANGCS.SF assets: The vanilla resource pack.
+
+ minecraft
+ atlases blockstates font
+		 include items lang
+         en_us.json: The default language file. models particles shaders texts
+		 splashes.txt: Splash text file. end.txt: End poem text file. postcredits.txt credits.json textures gpu_warnlist.json: 76 byte file to check and warn about incompatible GPUs. regional_compliancies.json: 301 byte file to check and warn users in-game playing for too long in South Korea.
+
+ .mcassetsroot: Empty file identifying the vanilla resource pack. com
+ mojang
+     blaze3d realmsclient math data: The vanilla data pack.
+
+ minecraft
+ advancement banner_pattern cat_variant chat_type chicken_variant cow_variant damage_type datapacks
+         minecart_improvements: The Minecart Improvements data pack. redstone_improvements: The Redstone Improvements data pack. trade_rebalance: The Villager Trade Rebalance data pack. dialog
+		 custom_options.json quick_actions.json server_links.json dimension_type enchantment enchantment_provider
+         raid frog_variant instrument jukebox_song loot_table painting_variant pig_variant recipe structure: Structure data. tags test_environment: Introduced in 1.21.5. test_instance: Introduced in 1.21.5. timeline: Timeline data. trade_set trial_spawner: Trial spawner data. Introduced in 1.21. trim_material trim_pattern villager_trade wolf_variant wolf_sound_variant world_clock worldgen zombie_nautilus_variant
+
+ .mcassetsroot: Empty file identifying the vanilla data pack. net
+ minecraft
+     client data obfuscate server util flightrecorder-config.jfc pack.png: Vanilla resource pack and data pack icon. version.json
+Blaze3D
+Blaze3D is a private library that provides the graphics backend for LWJGL/OpenGL and Vulkan used in the game's rendering, while also providing some low-level abstraction for OpenAL and glyph typographic information for audio control and fonts respectively.
+When used for rendering, Blaze3D sets up the render system and the graphics backend, managing the program's window, GPU devices, memory buffers, view states, and other resources. When used for audio, it provides audio devices, channeling, and playback control for the game's own sound engine.
+In the future, Mojang Studios plans to rework the codebase, which includes separating the game's rendering and gameplay codebase, and a dedicated thread for rendering.
+
+History
+Java Edition Classicmc-161607
+Notch started distributing the game to other people, constituting the creation of client.jar.0.0.14a_08
+Signature files, MOJANG_C.SF and MOJANG_C.DSA have been added to the META-INF folder.Java Edition Indev0.3120091223-0040
+Java class files have been moved from client.jar/com/mojang/minecraft to client.jar/net/minecraft.Java Edition Infdev20100627
+Java class files are now all located in the root directory of client.jar.Java Edition1.2.5
+The signature files, MOJANG_C.SF and MOJANG_C.DSA have been moved to CODESIGN.SF and CODESIGN.RSA, respectively.1.21.424w45a
+New entry point net.minecraft.client.data.Main is present in client.jar, with similar command line structure as data generator in server.jar.26.1snap1
+The Java class files in client.jar are no longer obfuscated, and are no longer located in the root directory of client.jar.
+
+All files inside of client.jar (except for those inside the META-INF folder) now always have a last modified date of February 1, 1980. This is done by Gradle as part of its reproducable builds behavior.
+See also
+Bedrock Edition installation files, which contain the game client executable for Bedrock Edition.
+.minecraft
+server.jar
+References
+
+ "Another step towards Vibrant Visuals"     – Minecraft.net, February 18, 2026.
+
+ "Vibrant Visuals on Java Edition"     – Minecraft.net, April 16, 2025.
+
+ "The road to Vibrant Visuals on Java"     – Minecraft.net, October 22, 2025.
+
+ ZipEntryConstants.java: L24-L39 – gradle/gradle on GitHub.
+
+Navigation

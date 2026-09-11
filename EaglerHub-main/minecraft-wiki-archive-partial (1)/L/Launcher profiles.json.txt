@@ -1,0 +1,58 @@
+This feature is exclusive to Java Edition. 
+
+
+
+This article is missing information about: the JSON format, which is likely outdated for the latest launcher 
+Please expand the article to include this information. Further details may exist on the talk page.
+
+launcher_profiles.json is a JSON file located in  .minecraft, which contains all of the Minecraft Launcher's settings, profiles, selected user/profile, as well as the cached user information (email, access token, etc.). This file allows flexible updating from older launcher versions to newer builds and vice versa, without having to worry about things such as profiles and login session getting lost.
+
+JSON format
+launcher_profiles.json uses JSON structures to save and retrieve data. The main JSON keys are explained in the figure below.
+
+[NBT Compound / JSON Object] The root object
+[NBT Compound / JSON Object] profiles: All the launcher profiles and their configurations.
+[NBT Compound / JSON Object] <profile ID>
+[String] name: The profile name. Can include characters, numbers, punctuation, and whitespace.
+[String] type: The profile type. Types are custom (manually created by the user), latest-release (uses the latest stable release), and latest-snapshot (uses the latest build of Minecraft).
+[String] created: An ISO 8601 formatted date which represents the time the profile was created.
+[String] lastUsed: An ISO 8601 formatted date which represents the last time the profile was used.
+[String] icon: A Base64-encoded image which represents the icon of the profile in the profiles menu.
+[String] lastVersionId: The version ID that the profile targets. Version IDs are determined in the version.json in every directory in ~/versions.
+[String] gameDir: The directory that this profile should use to save its content.
+[String] javaDir: The Java directory that the game runs from. This is by default the system's Java directory.
+[String] javaArgs: The start-up arguments for the profile. Those can have tangible experience in the game performance.
+[String] logConfig: The path to the logging configuration for the profile. This can be a XML file if the below setting is true.
+[Boolean] logConfigIsXML: Whether the logging configuration is a XML file or not.
+[NBT Compound / JSON Object] resolution: The start-up resolution of the game window.
+[Int] height: Height of the game window.
+[Int] width: Width of the game window.
+[String] clientToken: The currently logged in client token.
+[NBT Compound / JSON Object] authenticationDatabase: All the logged in accounts. Every account in this key contains a UUID-hashed map (which is used to save the selected user) which in turn includes the access token, e-mail, and a profile (which contains the account display name).​[more information needed]
+[NBT Compound / JSON Object] <UUID hashed key>
+[String] accessToken: The token which saves the log-in sessions.
+[String] username: The e-mail of the account.
+[NBT Compound / JSON Object] profiles: The profile of the account. This map contains the UUID of the account, and contain the display name of it.
+[String] <UUID>: The display name of the account.
+[NBT Compound / JSON Object] launcherVersion: Contains the current launcher build name, format and profiles format.
+[String] name: The current name of the launcher build.
+[Int] format: Format version of file.
+[Int] profilesFormat: Format version of profiles section.
+[NBT Compound / JSON Object] settings: Contains all the launcher settings.
+[Boolean] enableSnapshots: Whether or not include version IDs of game snapshots when browsing profiles.
+[Boolean] enableAdvanced: Whether or not enable changing advanced Java settings when adding new launch arguments.
+[Boolean] keepLauncherOpen: Whether or not keep the launcher open while the game is running.
+[Boolean] showGameLog: Whether or not create a separate window which contains all the game logs.
+[String] locale: The selected language for the launcher. Default value is en-us.
+[Boolean] showMenu: Whether or not show the sliding menu under the Minecraft logo (which contains News, Skins, Settings and Launch options).
+[Boolean] enableHistorical: Whether or not enable the usage of historical versions.
+[String] profileSorting: The way profiles are sorted in the profiles menu. There are 2 sorting types: byName and byLastPlayed. byName sorts them on the alphabetical order, and byLastPlayed sorts them based on the latest profiles you used.
+[Boolean] crashAssistance: Whether or not contact Mojang when a crash occurs.
+[Boolean] enableAnalytics: Whether or not enable analyzing the user session or not. This is usually not maintainable/cannot be controlled from the launcher.
+[String] analyticsToken: The latest token for tracking analysts. Those are used locally by the launcher for managing and tracking sessions
+[Int] analyticsFailcount: The fail count for analytics.​[more information needed]
+[NBT Compound / JSON Object] selectedUser: Contains the UUID-hashed account and the UUID of the currently selected user.
+[String] account: The UUID-hashed key of the currently selected account.
+[String] profile: The UUID of the currently selected player.
+
+Navigation

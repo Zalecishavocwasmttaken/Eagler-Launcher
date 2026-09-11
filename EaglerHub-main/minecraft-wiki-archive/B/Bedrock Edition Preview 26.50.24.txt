@@ -1,0 +1,219 @@
+Beta 26.50.24 (ChromeOS, Android, Nintendo Switch 2) or Preview 26.50.24 (Windows, iOS, iPadOS, Xbox, PlayStation) is the third beta/Preview for Bedrock Edition 26.50, released on August 2, 2026, for iOS and iPadOS, on August 5, 2026, for most remaining devices, which adds concrete stairs and slabs, updates maps and explorer maps, and fixes bugs.
+This version was released for the Nintendo Switch 2 closed beta on August 11, 2026, being the second closed beta.
+
+
+== Additions ==
+
+
+=== Blocks ===
+ Concrete stairs and slabs
+
+New variants of concrete blocks that can be dyed in sixteen colors.
+
+
+=== Items ===
+Explorer maps
+
+ Added abandoned campsite maps showing the location of other abandoned camps in the following biomes:
+Bamboo Jungle
+Cherry Grove
+Birch Forest
+Dappled Forest
+Flower Forest
+Pale Garden
+Swamp
+Windswept Forest
+Added explorer maps for the following structures:
+ Ancient City
+ Mineshaft
+ Desert Pyramid
+ Warm Ocean Ruins
+
+
+== Changes ==
+
+
+=== Blocks ===
+Straw bed
+
+The sleeping camera is no longer positioned too high above the player when sleeping.
+Sulfur spike and pointed dripstone
+
+Restored the growth speed after a recent change accidentally made them grow 25 times faster.
+
+
+=== Items ===
+Cushion
+
+Breaking a named cushion no longer drops the default item.
+Cushions now pop into an item when pushed by blocks.
+ Locator map, map, empty map, and explorer maps
+
+Updated existing inventory icons.
+The player icon on maps shows the facing direction when outside the map once again, with a new texture.
+Explorer maps can no longer be zoomed out, neither in a crafting table nor in a cartography table.
+
+
+=== World generation ===
+Abandoned camp
+
+Explorer maps leading to other abandoned camps, mineshafts, ancient cities, desert pyramids, and warm ocean ruins can now be found in abandoned camp chests.
+
+
+=== General ===
+UI
+
+All remaining poplar items are now listed between the mangrove and cherry items in the Creative inventory.
+Skins can now have names consisting entirely of numbers.
+Friend profiles now have a Realm-specific join button when the Realm is available.
+Updated the Chat Settings UI to increase readability of the Chat Color and My Mentions Color dropdowns.
+Added Marketplace wishlist pagination with gamepad bumper navigation.
+Added dynamic wishlist grid row sizing for Marketplace wishlist cards.
+Improved inventory item tooltips with a new description in blue:
+
+Some tools now show their efficiency on the tooltip:
+Axes show their "Chop Efficiency".
+Pickaxes show their "Mining Efficiency".
+Shovels show their "Dig Efficiency".
+Changed the color of §9 from  #5555FF to  #447FFF.
+Changed the color of §h from  #E3D4D1 to  #D9CCB8.
+Changed the color of §i from  #CECACA to  #A9B4B7.
+Changed the color of §j from  #443A3B to  #8F727D.
+Changed the color of §m from  #971607 to  #EE222C.
+Changed the color of §n from  #B4684D to  #C87363.
+Changed the color of §p from  #DEB12D to  #FFBF1E.
+Changed the color of §q from  #119F36 to  #13A045.
+Changed the color of §s from  #2CBAA8 to  #5FECFF.
+Changed the color of §t from  #21497B to  #577BFF.
+Changed the color of §u from  #9A5CC6 to  #B66CDD.
+Changed the color of §v from  #EB7114 to  #FF6A00.
+
+
+=== Technical ===
+AI Goals
+
+Made the schema for minecraft:behavior.follow_mob stricter when parsing, now will fail to load an entity json that has invalid data in versions 1.26.50 and newer.
+API
+
+Entity.teleport now throws an Error when the entity has passengers and the target dimension is different from the entity's current dimension. Passengers must be dismounted before teleporting to another dimension. Current solution is scoped to fix current game breaking interruptions with future improvements backlogged.
+Tamed pets no longer attempt to follow their owner when the owner travels to or from a custom dimension.
+The rotation property of DebugShape now applies to DebugLine, DebugArrow, DebugCircle, DebugSphere, and DebugBox.
+World now exposes a soundDefinitionRegistry property that returns a SoundDefinitionRegistry for querying registered server sound definitions.
+Added SoundDefinitionRegistry with a getDefinitions() method that returns the registered SoundDefinition entries and accepts an optional SoundDefinitionFilter.
+Added SoundDefinition with a soundEventId property, a durationInfo property, a musicInfo property, and a tags property.
+Added SoundDefinitionDurationInfo with a duration property.
+Added SoundDefinitionMusicInfo with genres, moods, artist, and title properties.
+Added SoundDefinitionFilter with minDuration, maxDuration, genres, moods, artists, titles, and tags properties.
+Player.playSound now accepts a SoundDefinition in addition to a sound event id.
+Block components
+
+Thin fences and tripwire:
+Vanilla glass panes, iron bars, copper bars, and tripwire blocks now expose minecraft:connection_north, minecraft:connection_east, minecraft:connection_south, and minecraft:connection_west block states reflecting which cardinal neighbors they connect to.
+For new worlds, thin fence and tripwire connection state changes now trigger neighbor block updates for parity with Java Edition; existing worlds keep the prior client-only update behavior.
+Blocks
+
+Extended /fill command behaviour with multi-blocks to Scripting fill block APIs, such as Dimension.fillBlocks.
+The block component minecraft:block_entity no longer requires the experimental toggle from format version 1.26.20 onward.
+Removed minecraft:block_entity component restrictions for multi-blocks, each part will have its own block entity by design.
+Commands
+
+Added the /serveridentity command, which lets dedicated-server operators save, delete, and check the status of the server identity key.
+Dedicated server
+
+NetherNet is now the default transport used by dedicated servers.
+Windows dedicated servers now use the correct application data directory.
+Added a dedicated server option to unpack optimized creator packs into loose files.
+Entity components
+
+Made the minecraft:instant_despawn component schema stricter for entity JSON at format version 1.26.50 and later.
+Added the minecraft:can_stand_on_powder_snow component for entity definitions with a format version of 1.26.50 and later.
+Entities with this component can stand on top of powder snow.
+The lightweight type family no longer grants this behavior to entity definitions using format version 1.26.50 or later.
+Entity definitions using an older format version that include the lightweight type family are automatically upgraded to include this component.
+The endermite, fox, rabbit, and silverfish entity definitions no longer include the lightweight type family.
+Added the minecraft:block_movement_slowdown_immunity entity component.
+When set, the entity is immune to movement slowdown from the specified blocks.
+Sounds
+
+Released minecaft:sound block component out of experimental.
+It can be used to assign a set of sounds to block and its permutations similar to sound field in blocks.json.
+blocks.json overrides values of minecraft:sound component, including values in all permutations.
+Structure Files
+
+Added version 2 of the structure (.mcstructure) file format.
+The block_indices arrays are now stored as NBT IntArrayTags instead of a ListTag containing one IntTag per block, which significantly reduces the time and memory needed to save and load structures.
+The second block_indices array is now optional in version 2 structure (.mcstructure) files, and is left out when nothing is stored in the extra block layer, making those files ~50% smaller.
+Version 1 structures still load correctly, and are upgraded to version 2 the next time they are saved.
+All entity data has been saved again, even when it has default values.
+
+
+== Experimental ==
+These additions and changes are accessible by enabling the "Beta APIs" and "Creator World Clocks Features" experimental toggles.
+
+
+=== Changes ===
+
+
+==== Technical ====
+API
+
+Added new tech and support for using scripting to interface with the VS Code debugger live diagnostics:
+Added the class DiagnosticsManager to access the new debugger diagnostics tech.
+Added the class DiagnosticsTab, used to represent a tab view in the debugger live diagnostics page.
+Added the class DiagnosticsView, used to represent a single display view within a tab.
+Added the class DiagnosticsStat for representing data to be used with the live diagnostics.
+Added the class DiagnosticsError for diagnostics related errors.
+Added the WorldClock class to @minecraft/server in beta.
+Has properties for name, time, and isPaused to retrieve state of the world clock.
+Added WorldClockRegistry class to @minecraft/server in beta.
+Has a registerClock function to allow registrations of new world clocks during startup.
+Added the WorldClockRegistrationError class to @minecraft/server in beta. This is thrown by WorldClockRegistry.registerClock when registration of a world clock fails.
+Added the WorldClockReloadNewWorldClockError class to @minecraft/server in beta. This is thrown when trying to register a new world clock after reloading scripts.
+Added the WorldClockInvalidRegistryError class to @minecraft/server in beta. This is thrown when trying to register world clocks outside of the BeforeStartupEvent.
+Added the WorldClockNotFoundError class to @minecraft/server in beta. This is thrown by World.getClock when a world clock does not exist.
+Added the theWorldClockRegistry to BeforeStartupEvent in beta
+Added the getClock function to the World class in beta
+BlockUtilityTasks:
+Added the optional directionMask parameter to floodSearch for restricting traversal directions.
+Features
+
+Added scripting API to query Points of Interest in the current dimension.
+
+
+== Fixes ==
+25 issues fixed
+From released versions before 26.50
+
+MCPE-184162 – PlayStation: Eye of Ender death explode particle crashes the game.
+MCPE-234954 – Player skin model becomes visually distorted during gameplay, causing limbs and body parts to appear misaligned or rotated incorrectly.
+MCPE-235086 – Idle framerate reduction increases CPU usage, power consumption, and clock speed when the CPU is being lightly loaded.
+MCPE-240019 – No color of poplar leaves smelts into leaf litter.
+MCPE-240038 – Torches and Stonecutters cannot be crafted using the Recipe Book.
+MCPE-240467 – You can clip under solid blocks if a cushion is broken while sitting in it.
+MCPE-240483 – A pixel of the straw bed appears more reflecting than others on straw bed MERS texture.
+MCPE-240504 – Players sitting on the cushion will sink one block after using /kill to clear the cushion.
+MCPE-240730 – Renamed cushions do not display their custom name when placed.
+MCPE-240731 – Cushion does not produce breaking particle and sound when break due to no supporting block.
+MCPE-240849 – Cushions do not break over lava and water.
+Other
+
+Fixed the straw bed texture so it no longer contains floating pixels or extra pixels that are never visible in-game.
+Fixed totem of undying activation not synchronizing health when final health equals the original value.
+Fixed an issue where players and mobs could load in a world at (0,0,0) and lose all their items after reloading world.
+Fixed a bug with item in hand jittering with temporal anti-aliasing upscaling enabled.
+Fixed a bug where spiders and cave spiders would occasionally be slowed by cobwebs.
+Fixed an issue where mobs and players could reload with an inconsistent movement speed.
+Fixed realm role actions not showing correctly for certain roles.
+Fixed a crash that could occur while retrieving network addresses on Android.
+Fixed 'out of space' error displaying when attempting to download large items regardless of available space.
+Fixed an issue where setting the Cheats toggle to OFF during world creation would not reset cheats to default values.
+Fixed the scale property on DebugShape when used with DebugCone, DebugEllipsoid, DebugPyramid, and DebugCylinder.
+Fixed screens visited not mounting if another global route action happened while the screen was unmounting.
+Fixed book and quill's lighting value when on a lectern when block Light quality is set to volumetric lights or above.
+Fixed an issue that caused the brightness of some point lights to oscillate.
+
+
+== References ==
+
+
+== Navigation ==

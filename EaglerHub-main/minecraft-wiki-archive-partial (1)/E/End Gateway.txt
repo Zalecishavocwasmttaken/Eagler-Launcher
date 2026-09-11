@@ -1,0 +1,389 @@
+This article is about the feature.   For the block, see End Gateway (block).   For the portal for accessing the End, see End portal.
+ "Gateway" redirects here.  For the fence, see Fence Gate.
+
+End Gateway
+
+Biomes
+
+Any End biome
+
+Generates inexisting chunks  
+
+Yes, when an ender dragon is defeated, or when a gateway on the central island is used for the first time
+
+Consists of
+
+Bedrock
+End Gateway
+
+{
+    "title": "End Gateway",
+    "rows": [
+        {
+            "field": "Any (link to The End article, displayed as End) biome",
+            "label": "(link to Biome article, displayed as Biomes)"
+        },
+        {
+            "field": "Yes, when an (link to ender dragon article, displayed as ender dragon) is defeated, or when a gateway on the central island is used for the first time",
+            "label": "Generates in<br>existing chunks  "
+        },
+        {
+            "field": "\n* <span class=\"nowrap\"><span class=\"sprite-file\" style=\"\">(link to File:BlockSprite bedrock.png article, displayed as 16x16px|link=Bedrock|alt=|class=pixel-image|)</span>(link to Bedrock article, displayed as <span class=\"sprite-text\">Bedrock</span>)</span>\n* <span class=\"nowrap\"><span class=\"sprite-file\" style=\"\">(link to File:BlockSprite end-gateway.png article, displayed as 16x16px|link=End Gateway (block)|alt=|class=pixel-image|)</span>(link to End Gateway (block) article, displayed as <span class=\"sprite-text\">End Gateway</span>)</span>",
+            "label": "Consists of"
+        }
+    ],
+    "invimages": [],
+    "images": [
+        "End gateway.png"
+    ]
+}
+
+End gateways are intradimensional portals generated in the End: some are spawned around the central island after each death of the ender dragon; others are randomly generated throughout the outer islands.
+On the central island, up to 20 gateways can be spawned. These can send the player far away to the outer islands, each of which has a corresponding gateway that returns the player back to the central island. There are other randomly-generated gateways that always lead the player back to the End platform. They provide quick access to the different parts of the End dimension.
+
+Contents
+
+1 Generation
+
+1.1 By defeating the dragon
+
+1.1.1 On the central island
+1.1.2 On the outer islands
+
+1.2 By natural generation
+
+2 Construction
+3 Behavior
+4 Sounds
+5 Data values
+
+5.1 ID
+5.2 Block data
+5.3 Config
+
+6 Advancements
+7 Videos
+8 History
+
+8.1 Reveal
+8.2 Java Edition
+8.3 Bedrock Edition
+8.4 Legacy Console Edition
+8.5 New Nintendo 3DS Edition
+
+9 Issues
+10 Trivia
+11 Gallery
+
+11.1 Screenshots
+
+12 Notes
+13 References
+14 See also
+15 Navigation
+
+Generation
+20 End gateways with beacons to mark their positions
+An example of End gateway generation shown on a graph in X-Z coordinatesBlue dots: gateways on the central islandRed dots: gateways on the outer islandsLines: the connections between gateways
+By defeating the dragon
+On the central island
+A group of 20 End gateways can be spawned around the edge of the central island, one at a time by defeating the dragon. Their configuration resembles a circle, equally distributed, surrounding the island at Y-level 75, at a distance of 96 blocks (regardless of angle) away from the center (0,0) in random order.
+These gateways are referred in the game as END_GATEWAY_DELAYED. They function by sending the player far away to the outer islands, in the exact direction that that gateway is located relative to the island center (0,0).
+They do not regenerate after the ender dragon has been defeated 20 times.
+The position of these gateways are always fixed, as is shown below:
+
+Number
+
+Position
+
+1
+
+x:96 y:75 z:0
+
+2
+
+x:91 y:75 z:29
+
+3
+
+x:77 y:75 z:56
+
+4
+
+x:56 y:75 z:77
+
+5
+
+x:29 y:75 z:91
+
+6
+
+x:-1 y:75 z:96
+
+7
+
+x:-30 y:75 z:91
+
+8
+
+x:-57 y:75 z:77
+
+9
+
+x:-78 y:75 z:56
+
+10
+
+x:-92 y:75 z:29
+
+11
+
+x:-96 y:75 z:-1
+
+12
+
+x:-92 y:75 z:-30
+
+13
+
+x:-78 y:75 z:-57
+
+14
+
+x:-57 y:75 z:-78
+
+15
+
+x:-30 y:75 z:-92
+
+16
+
+x:0 y:75 z:-96
+
+17
+
+x:29 y:75 z:-92
+
+18
+
+x:56 y:75 z:-78
+
+19
+
+x:77 y:75 z:-57
+
+20
+
+x:91 y:75 z:-30
+
+The formulas for these coordinates are (where the ⌊⌋ symbols mean "round down" and k∈ℕ, k≤20):
+
+x=⌊96⋅cos⁡πk10⌋
+z=⌊96⋅sin⁡πk10⌋
+The order in which these gateways are created as dragons are killed depends on the world seed.
+
+On the outer islands
+Each of the 20 gateways on the central island, when it is first activated, spawns an additional gateway linked to it. These linked gateways are located much farther away, reaching out in all directions to the outer islands in the End dimension. They still arrange in a circular way, but their distances to the central island vary depending on the distance to the first land in their direction.
+Their function is to send the player back to the original End gateway on the central island.
+
+Details
+
+
+
+This feature is exclusive to Java Edition. 
+
+The game first draws a line with a length of 1024 blocks from the center (0,0) through the northwest corner of the activated gateway. If the chunk at the end of the line contains any blocks above Y=15, the line is progressively shortened by 16 blocks until a chunk is found with no such blocks or the line reaches a length of 768. Then, if the chunk at the end of the line has no blocks above Y=15, the line is progressively lengthened by 16 blocks until a chunk is found with any such block or the line reaches a length of 1280.
+Once a chunk is selected, it is scanned for any End stone blocks at or above Y=30 that have two non-full blocks above. If such a block exists the south-east corner of the chunk is selected, or if no such block exists in the chunk then a small island is generated at the end of the line at Y=75 and that position is selected. The position is then moved to the highest full block within ±16 on the X and Z axes (favoring the north and west in case of ties) and a gateway structure is generated 10 blocks above that position.
+Knowing this, the position of the outer gateway can be manipulated. However, once an End gateway on the central island has been activated, it is indefinitely linked to the position of the generated gateway on the outer islands. Changing the position of the outer gateway is then no longer possible.
+
+By natural generation
+End gateways also generate naturally throughout the outer End islands (in the End Highlands in Java Edition). They are referred to in the game as end_gateway_return. Unlike the aforementioned gateways, these gateways teleport entities back to the End platform, allowing players to escape from the End without having to find their way back to the gateways generated when using one on the main island, which could be very far away. This makes it feasible to go deep into the End to search for end cities.
+Entities that teleport through End gateways in this fashion do not cause the End platform to regenerate.
+
+An interactive widget is being loaded. If this does not work for you, please reload the page or check if JavaScript is working or enabled.
+Construction
+Main article: /Structure
+The End gateway is composed of an End gateway block confined within a vaguely octahedral formation made up of 12 bedrock blocks.
+
+Behavior
+Main article: End Gateway (block)
+A magenta   beam shoots out vertically from the top and bottom of the gateway when it is generated. The beam disappears after 10 seconds. When an entity enters the gateway, the gateway emits a purple   beam instead for 2 seconds. In addition, this purple beam also emits automatically every 2 minutes (2400 game ticks).
+The bedrock arrangement prevents the player from entering the gateway directly. Throwing an ender pearl or flying with elytra straight into the End gateway block teleports the player to the outer End islands. Players can also access the inside of an End gateway by constructing a water channel leading into it and sprint-swimming through the channel and into the gateway, or by crawling.
+Once the gateway is activated, another End gateway generates in the outer End islands near to where the player is teleported; this gateway teleports the player back to the original gateway, providing a way to return to the main island.
+
+11 × 11 horizontal teleportation range
+
+In Java Edition, the position where the player or entity lands after teleporting is determined by a systematic algorithm: The gateway searches for a full block that isn't bedrock, starting from the northwest corner at the topmost height (Y=255) within a 5-block radius around the gateway block (shown as the block of gold in the image on the right). If there is a block at that position, then the entity is teleported onto that block. If there is no block, then the next position along the Z-axis is searched (shown as the block of lapis lazuli in the image on the right). This continues along each column in an 11×11 area at the same Y-level with the exception of blocks above, below, or directly adjacent (including diagonals) to the gateway block. If there are no blocks, it moves one Y-level down and repeats the sequence from the northwest corner again. It continues doing this until every height is checked. If there are no blocks within any of these points, it always teleports the entity exactly two blocks above the gateway block.
+In Bedrock Edition, End gateways teleport the player using a different algorithm, but the exact details are not known.​[more information needed] A few notable differences are:
+
+Entities can land on slabs and other partial blocks. Conversely, there seem to be certain situations when a teleport location is not considered valid.
+Entities can land considerably farther away from the gateway than an 11×11 area.
+If there are no valid locations, the game generates a small floating island near the gateway, and the entity lands on this island.
+End gateways allow entities with passengers (e.g., a player in a boat, a shulker in a minecart) to go through them.
+
+Sounds
+Java Edition
+
+SoundsSoundClosed captionsSourceDescriptionIdentifierTranslation keyVolumePitchAttenuationdistance​ExplosionBlocksWhen an End gateway is spawned on the central End islandblock.end_gateway.spawnsubtitles.entity.generic.explosion​1.00.5–0.916
+Bedrock Edition: None
+
+Data values
+ID
+Java Edition:
+
+Feature typeIdentifier
+ [No displayed name]end_gateway
+
+Configured featureIdentifier
+ [No displayed name]end_gateway_delayed
+
+ [No displayed name]end_gateway_return
+
+Bedrock Edition:
+
+FeatureIdentifier
+ [No displayed name][No ID]
+
+Block data
+An End gateway has a block entity associated with it that holds additional data about the block.
+Java Edition:
+
+See also: Block entity format
+
+[NBT Compound / JSON Object] Block entity data
+Tags common to all block entities see Template:Nbt inherit/blockentity/template
+[Boolean] ExactTeleport: (optional) Whether the gateway should teleport entities in the exact exit position. Exists only if true (defaults to false). Set to true for naturally generated end gateways in the end highlands.
+[Int Array] exit_portal: (optional) The block location that those who enter get teleported to. If this is not set, the game generates a linked outer gateway when the first entity goes through and set it to the location of the gateway block. This is set to the location of the end platform for naturally generated end gateways in the end highlands.
+[Long] Age: The number of ticks that the end gateway has existed for. Used to display the purple "beacon" beam. Setting this to an arbitrarily low number prevents the beam from appearing within a practical time period.
+
+Bedrock Edition:
+
+See Bedrock Edition level format/Block entity format.
+Config
+Main article: Configured feature
+Java Edition:
+
+[NBT Compound / JSON Object] config
+[Boolean] exact: Whether the gateway should teleport entities to the exact exit position.
+[NBT List / JSON Array] exit: (optional) The block position where the gateway should exit.
+[Int] X coordinate.
+[Int] Y coordinate.
+[Int] Z coordinate.
+
+An example
+
+{
+  "type": "minecraft:end_gateway",
+  "config": {
+    "exact": true,
+    "exit": [
+      100,
+      50,
+      0
+    ]
+  }
+}
+
+Advancements
+IconAdvancementIn-game descriptionActual requirements (if different)Remote GetawayEscape the islandEnter an End gateway.
+Videos
+
+
+
+
+
+History
+An early End gateway design shown during MINECON 2015
+End gateways used to emit yellow beams when entities would enter them.
+Reveal
+July 05, 2015
+ End gateways were previewed during MINECON 2015.
+
+At the time, End gateways were structured in the shape of small cubes.
+Java Edition
+Java Edition1.915w31a
+ Added End gateways.
+
+End gateways now take on their modern roughly octahedral shape.15w33a
+ Gateway blocks' starfield effect now behaves differently.
+
+The beam has now been changed to use a separate texture from the beacon beam.1.1116w39a
+End gateways now generate randomly throughout the End outer islands, that return the player to the End platform on the central island.
+
+End gateways now emit magenta beams (previously yellow) when teleporting entities.
+End gateway cooldown increased from 20 to 40 ticks.1.1418w50a
+ The texture of the End gateway has been changed.1.14.1Pre-Release 1
+The formula for calculating central End island End gateways was changed from a truncating cast to a floor, old worlds may have some off-by-1 block End gateways.26.1pre1
+End gateway should now look the same when rendered on a block display as they look when placed in world.
+Bedrock Edition
+Pocket Edition1.0.0alpha 0.17.0.1
+File:End gateway BE1.png Added End gateways.
+Legacy Console Edition
+Legacy Console EditionXbox 360Xbox OnePS3PS4PS VitaWii USwitchTU46CU361.381.381.38Patch 151.0.1
+[verify] Added End gateways.
+
+A maximum of one End gateway can generate on Xbox 360 Edition, PlayStation 3 Edition, PlayStation Vita Edition, and Wii U Edition.
+
+A maximum of four End gateways can generate on Xbox One Edition, PlayStation 4 Edition, and Nintendo Switch Edition. They can generate at the following coordinates:
+x:65 y:75 z:0
+Leads to the southern island and is guaranteed to generate an End city with an End ship.
+x:-65 y:75 z:0
+Leads to the eastern island.
+x:0 y:75 z:65
+Leads to the northern island.
+x:0 y:75 z:-65
+Leads to the western island.
+The first End gateway always generates at x:65 y:75 z:0. The End gateways at the outer islands generate at a random position in a random corner and always 10 blocks above the ground just like in Java Edition.
+New Nintendo 3DS Edition
+New Nintendo 3DS Edition1.7.10
+File:End gateway N3DSE.png Added End gateways.
+
+A maximum of four End gateways can generate. The coordinates are at (X=67, Z=67), (X=-67, Z=67), (X=-67, Z=-67), and (X=67, Z=-67), teleporting to each corner. The ender dragon has to be killed before loading any outside terrain for that respective corner, as the End gateway portals link correctly only when done in that order.
+
+End gateways teleport the player further out on larger world sizes.
+Issues
+Issues relating to "End Gateway" are maintained on the bug tracker. Issues should be reported and viewed there.
+
+Trivia
+If an End gateway is broken (e.g. in Creative), players can still enter the gateway on the other end. This teleports the player to the broken portal, which does not regenerate.
+Using the [NBT Compound / JSON Object] exit_portal tag and commands such as /setblock, it is possible to create a gateway portal in the Overworld or any other dimension and program it to go to a location.
+Gallery
+Screenshots
+
+
+
+			An End gateway emitting a magenta beam
+
+
+
+			An End gateway generated above a small island
+
+
+
+			An End gateway generated above an End city
+
+
+
+			An End gateway generated somewhere in the End
+
+
+
+			An End gateway floating above the outer islands
+
+
+Notes
+
+ A "full block" in this context is one that has a full-block collision box. Chorus plant blocks do not have a full-block collision box, but chorus flowers do.
+
+References
+
+ MC-173351 – When creating an exit End gateway, the method findPortalPosition does not return a proper BlockPos
+
+ MC-107824 – End Gateway shows beacon beam every 2400 ticks even if no entity teleported – resolved as "Works As Intended".
+
+See also
+End portal
+The End
+Nether portal
+Ender Dragon
+Navigation

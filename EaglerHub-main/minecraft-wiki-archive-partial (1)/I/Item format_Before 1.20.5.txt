@@ -1,0 +1,325 @@
+This page describes content that has been removed and was only present in earlier versions of Java Edition. 
+In Java Edition 1.20.5, this format has been replaced with the data component format.
+
+Items are used both in the player's inventory and ender chest, in container block entities, in some item entities, and in structure files.
+
+Contents
+
+1 NBT structure
+
+1.1 Display Properties
+1.2 Attribute Modifiers
+1.3 Enchantments
+1.4 Block Tags
+1.5 Durability
+1.6 Potion Effects
+1.7 Armors
+1.8 Armor Stands, Spawn Eggs, Item Frames and Paintings
+1.9 Book and Quills
+1.10 Written Books
+1.11 Knowledge Books
+1.12 Buckets of Aquatic Mob
+1.13 Bundle
+1.14 Compasses
+1.15 Crossbows
+1.16 Debug Sticks
+1.17 Firework Rockets
+1.18 Firework Stars
+1.19 Goat Horns
+1.20 Maps
+1.21 Player Heads
+1.22 Suspicious Stew
+
+2 History
+3 References
+4 Navigation
+
+NBT structure
+Items are stored in the NBT format. Sometimes a [Byte] Slot tag is used to specify the slot the item is in, such as with chests; other times there is no [Byte] Slot tag, such as with dropped items.
+
+[NBT Compound / JSON Object] The root tag.
+[Byte] Count: Number of items stacked in this inventory slot. Any item can be stacked, even if unstackable through normal means. Values below 0 cause the item to be treated as air, resulting in the item being removed.
+[Byte] Slot: The inventory slot the item is in.
+[String] id: Item/Block ID. If not specified, gets treated as air, resulting in the item being removed.
+[NBT Compound / JSON Object] tag: Additional information about the item; see below. This tag is optional for most items. Unlike other entity or block NBT, this tag is never deserialized and can hold user defined tags that are not used by the game by standard.
+
+Display Properties
+All items can have custom display names and lore, as well as a custom model data. Various tooltips can also be hidden.
+
+[NBT Compound / JSON Object] tag: Parent tag.
+[NBT Compound / JSON Object] display: Display properties.
+[String] Name: The JSON text component to use to display the item.
+[NBT List / JSON Array] Lore: List of strings to display as lore for the item.
+[String] A text component representing a line of text for the lore of an item.
+[Int] HideFlags: Bit field determining which parts of the tooltip to hide on an item. 1 for "Enchantments", 2 for "AttributeModifiers", 4 for "Unbreakable", 8 for "CanDestroy", 16 for "CanPlaceOn", 32 for various other information (including potion effects, "StoredEnchantments", written book "generation" and "author", "Explosion", "Fireworks", amount of items in a bundle, and map tooltips), 64 for "Dyed" on leather armor, and 128 for armor trim information. For example, setting to 3 (1 + 2) would hide both "Enchantments" (1) and "AttributeModifiers" (2) tags, and setting to 255 would hide everything.
+[Int] CustomModelData: A value used in the "custom_model_data" item tag in the overrides of item models.
+
+Attribute Modifiers
+All items can be given Modifiers which affect various Attributes of the player or mob wearing or holding them. Note that if an item has default attribute modifiers, these cease to exist if this tag is added (e.g. a diamond sword given an empty AttributeModifiers list no longer provides a boost to damage). Also note that default attribute modifiers do not use this tag, and as such, it does not appear on a natural item.
+
+[NBT Compound / JSON Object] tag: Parent tag.
+[NBT List / JSON Array] AttributeModifiers: Contains Attribute Modifiers on this item which modify Attributes of the wearer or holder (if the item is not in the hand or armor slots, it has no effect).
+[NBT Compound / JSON Object]: A single Attribute Modifier.
+[String] AttributeName: The name of the Attribute this Modifier is to act upon.
+[String] Name: The name of the Modifier. Has no known effect.
+[String] Slot: Slot the item must be in for the modifier to take effect. Can be mainhand, offhand, feet, legs, chest, or head.
+[Int] Operation: Modifier Operation. See Attribute Modifiers for info.
+[Double] Amount: Amount of change from the modifier.
+[Int Array] UUID: The modifier's UUID, stored as four ints. Used when equipping and unequipping the item to identify which modifier to add or remove from the entity.
+
+Enchantments
+There are two ways enchantments are associated with items; the first way is that the item is actually enchanted and the enchantment affects the behavior of the item, and the second way is that the item is an enchanted book which simply stores the enchantments without actually affecting the behavior of the item. There is also the RepairCost tag which tracks anvil usage for items, making them more costly with every use of the anvil.
+
+[NBT Compound / JSON Object] tag: Parent tag.
+[NBT List / JSON Array] Enchantments: Contains enchantments on this item that affect the way the item works.
+[NBT Compound / JSON Object]: A single enchantment.
+[String] id: The name of the enchantment.
+[Short] lvl: The level of the enchantment, where 1 is level 1. Values are clamped between 0 and 255 when reading.
+[NBT List / JSON Array] StoredEnchantments: Contains enchantments for enchanted books.
+[NBT Compound / JSON Object]: A stored enchantment, identical structure to each enchantment in Enchantments.
+[Int] RepairCost: Number of experience levels to add to the base level cost when repairing, combining, or renaming this item with an Anvil.
+
+StoredEnchantments tooltips are not displayed if edited onto an item other than an enchanted book. Enchantments stored in Enchantments, however, are always displayed in the tooltip and cause the item to glow, even if they cannot have any effect.
+
+Block Tags
+All items can have specifications for Adventure mode, to describe which blocks may be broken with them. Block items can also be given tags to specify what blocks they may be placed against in Adventure mode, and to specify what Tile Entity NBT tags to apply to them when placed.
+
+[NBT Compound / JSON Object] tag: Parent tag
+[NBT List / JSON Array] CanDestroy: The only blocks this item may break when used by a player in adventure mode.
+[String]: A block ID. Validated the same way as the block_predicate command argument, meaning block states and block tags are accepted, as well as client-side only block entity NBT tags.
+[NBT List / JSON Array] CanPlaceOn: Determines which blocks that blocks with this tag can be placed against in adventure mode.
+[String]: A block ID. Validated the same way as the block_predicate command argument, meaning block states and block tags are accepted, as well as client-side only block entity NBT tags.
+[NBT Compound / JSON Object] BlockEntityTag: Block entity NBT tags which are applied when this block is placed. Used to store data on banners and shields or on blocks obtained in creative by holding ⎈ Control (or ⌘ Command on mac) and pressing pick block on a block containing a block entity.
+See Block entity format. Excludes x, y, z, and id tags.
+[NBT Compound / JSON Object] BlockStateTag: A compound where each key is a block state key, and the value is the block state value to force place for this block.
+[String] Block state key: The block state value of the block to edit, for example, facing: "east".
+
+Durability
+Items with durability (tools and armors) can be made unbreakable and never lose any durability.
+
+[NBT Compound / JSON Object] tag: Parent tag.
+[Int] Damage: The number of uses consumed (not remaining) of the item's durability.
+[Byte] Unbreakable: 1 or 0 (true/false) - if true, the item doesn't lose durability when used.
+
+Potion Effects
+Potions, splash potions, lingering potions, and tipped arrows can have multiple, customized effects via the custom_potion_effects tag. These effects are added to the default effect under the Potion tag if present. In addition the color can be overridden with the CustomPotionColor tag.
+
+[NBT Compound / JSON Object] tag: Parent tag.
+[NBT List / JSON Array] custom_potion_effects: The custom potion effects (status effects) this potion or tipped arrow has.
+[NBT Compound / JSON Object] One of these for each effect.
+[String] id: The resource location of the effect.
+[Byte] amplifier: The amplifier of the effect, with level I having value 0.  Negative levels are discussed here. Optional, and defaults to level I.
+[Int] duration: The duration of the effect in ticks.  Values 0 or lower are treated as 1.  Optional, and defaults to 1 tick.
+[Byte] ambient: 1 or 0 (true/false) - whether or not this is an effect provided by a beacon and therefore should be less intrusive on the screen. Optional, and defaults to false.
+[Byte] show_particles: 1 or 0 (true/false) - whether or not this effect produces particles. Optional, and defaults to true.
+[Byte] show_icon: 1 or 0 (true/false) - true if effect icon is shown. false if no icon is shown.
+[String] Potion: The name of the default potion effect. This name differs from the status effect name. For example, the value for an "Instant Health II" potion is "minecraft:strong_healing".  A potion or tipped arrow getting its effects from this tag is named with the proper effect. The default value is "minecraft:empty", which gives it the "Uncraftable" name.
+[Int] CustomPotionColor: The item uses this custom color, and area-of-effect clouds, arrows, and splash and lingering potions use it for their particle effects. This color does not extend, however, to the particles given off by entities who ultimately receive the effect. The numeric color codes are equal to the hex code of the color converted to a decimal number, or can alternatively be calculated from the Red, Green and Blue components using this formula: Red<<16 + Green<<8 + Blue. For positive values larger than 0x00FFFFFF, the top byte is ignored. All negative values produce white.
+
+An interactive widget is being loaded. If this does not work for you, please reload the page or check if JavaScript is working or enabled.
+Armors
+Every armor can be trimmed. Additionally, leather armor can be colored.
+
+[NBT Compound / JSON Object] tag: Parent Tag.
+[NBT Compound / JSON Object] Trim: Properties of Armor Trim.
+[String] material: The material which decides the color of armor trim.
+[String] pattern: The pattern of armor trim.
+[NBT Compound / JSON Object] display: The display tag.
+[Int] color: The color of the leather armor. The tooltip displays "Dyed" if advanced tooltips are disabled, otherwise it displays the hexadecimal color value. Color codes are the hex code of the color converted to a decimal number, or can be calculated from the Red, Green and Blue components using this formula:Red<<16 + Green<<8 + Blue
+
+An interactive widget is being loaded. If this does not work for you, please reload the page or check if JavaScript is working or enabled.
+Armor Stands, Spawn Eggs, Item Frames and Paintings
+Armor stands, spawn eggs, item frames and paintings may contain potential entity data.
+
+[NBT Compound / JSON Object] tag: Parent tag.
+[NBT Compound / JSON Object] EntityTag: Stores entity data that is applied to the entity when created.
+See Entity Format.
+
+Book and Quills
+Book and quills use NBT data to save their contents.
+
+[NBT Compound / JSON Object] tag: Parent tag.
+[NBT Compound / JSON Object] filtered_pages: Only in Realms. The pages shown to players with the profanity filter turned on instead of some of the regular pages. This compound is automatically given a tag named after the page number and set to "" when a player with the profanity filter turned off closes a book with that specific page containing one or more blocked words, so players with the filter on cannot see the blocked words. If a player with the filter on tries to use blocked words in one or more of the pages, this compound is not given any new tags and the specific page(s) in [NBT List / JSON Array] pages are instead set to "", which makes the page(s) render completely blank. If multiple pages have been edited before the book is closed, only the pages containing blocked words are blanked.
+[NBT List / JSON Array] pages: The list of pages in the book.
+[String]: A single page in the book. Each page is a string and uses the escape sequence \n for a line break. However, the command parser does not accept \n, so line breaks need to be set by a player or using loot tables.
+
+Written Books
+Written books use NBT data to save their contents as well as miscellaneous extra information.
+
+[NBT Compound / JSON Object] tag: Parent tag.
+[NBT Compound / JSON Object] filtered_pages: Only in Realms. The pages shown to players with the profanity filter turned on instead of some of the regular pages. This compound is automatically given a tag named after the page number and set to "" when a player with the profanity filter turned off closes or signs a book with that specific page containing one or more blocked words, so players with the filter on cannot see the blocked words. If a player with the filter on tries to use blocked words in one or more of the pages, this compound is not given any new tags and the specific page(s) in [NBT List / JSON Array] pages are instead set to "", which makes the page(s) render completely blank. If multiple pages have been edited before the book is closed, only the pages containing blocked words are blanked.
+[String] filtered_title: Only in Realms. The title shown to players with the profanity filter turned on instead of the regular title. This tag is automatically set to "" when a player with the profanity filter turned off signs a book with a title containing one or more blocked words, so players with the filter on cannot see the blocked words. If a player with the filter on tries to use blocked words in the title, this tag is not added and the [String] title tag is instead set to "", which makes the title render as "Written Book", as if it weren't named.
+[Byte] resolved: Optional. Created and set to 1 when the book (or a book from the stack) is opened for the first time after being created. Used to determine whether to resolve advanced components within JSON, because their values become fixed at that point.
+[Int] generation: Optional. The copy tier of the book. 0 = original, 1 = copy of original, 2 = copy of copy, 3 = tattered. If the value is greater than 1, the book cannot be copied. Does not exist for original books. If this tag is missing, it is assumed the book is an original. 'Tattered' is unused in normal gameplay, and functions identically to the 'copy of copy' tier.
+[String] author: The author of the written book.
+[String] title: The title of the written book. Lower priority than the item name set by tag.display.Name. Cannot be used to open locked containers.
+[NBT List / JSON Array] pages: The list of pages in the book.
+[String]: A single page in the book. Each page is a serialized JSON text.
+
+Knowledge Books
+Knowledge books use NBT data to indicate the recipes they contain.
+
+[NBT Compound / JSON Object] tag: Parent tag.
+[NBT List / JSON Array] Recipes: The list of recipes this book contains.
+[String]: The name of a recipe, for instance minecraft:gold_nugget or minecraft:gold_ingot_from_nuggets.
+
+Buckets of Aquatic Mob
+Buckets of aquatic mob may contain potential entity data.
+
+[NBT Compound / JSON Object] tag: Parent tag.
+[Int] BucketVariantTag: The variant data of the tropical fish in the bucket. Applies only to Bucket of Tropical Fish.
+[NBT Compound / JSON Object] EntityTag: Stores entity data that is applied to the aquatic mob when it is poured out. If this data includes a tropical fish variant, it overrides the one provided in BucketVariantTag.
+See entity format.
+
+Bundle
+Bundles use NBT data to save what item is stored.
+
+[NBT Compound / JSON Object] tag: Parent tag.
+[NBT List / JSON Array] Items: List of items in the bundle.
+[NBT Compound / JSON Object]: An item in the bundle.
+A single item stack see Template:Nbt inherit/itemnoslot/template
+
+Compasses
+When used as a lodestone compass, compasses store information about their targeted lodestone.
+
+[NBT Compound / JSON Object] tag: Parent tag.
+[Byte] LodestoneTracked: Optional. 1 or 0 (true/false) - true if the compass is connected to a lodestone. When false, LodestoneDimension and LodestonePos is not automatically removed when the lodestone is destroyed, but the compass still points to that location.
+[String] LodestoneDimension: Optional. The dimension of the lodestone to which the compass is pointing.
+[NBT Compound / JSON Object] LodestonePos: Optional. The coordinates of the lodestone to which the compass is pointing.
+[Int] X: x coordinate
+[Int] Y: y coordinate
+[Int] Z: z coordinate
+
+Crossbows
+Crossbows use NBT data to save what item is charged in the crossbow
+
+[NBT Compound / JSON Object] tag: Parent tag.
+[NBT List / JSON Array] ChargedProjectiles: The items this crossbow has charged, normally one entry (three if enchanted with multishot)
+[NBT Compound / JSON Object]: A charged item.
+A single item stack see Template:Nbt inherit/itemnoslot/template
+[Byte] Charged: If the crossbow is charged.
+
+Debug Sticks
+Debug sticks use the NBT to save the block state to edit for each block.
+
+[NBT Compound / JSON Object] tag: Parent tag.
+[NBT Compound / JSON Object] DebugProperty: A compound where each key is a block ID, and the value is the block state key to edit for that block ID. Block tags are not supported.
+[String] Block ID: The block state key of the block to edit, for example "minecraft:oak_fence": "east".
+
+Firework Rockets
+Firework rockets use the tag tag to store information about their effects.
+
+[NBT Compound / JSON Object] tag: Parent tag.
+[NBT Compound / JSON Object] Fireworks: One of these may appear on a firework rocket.
+[NBT List / JSON Array] Explosions: List of compounds representing each explosion this firework causes.
+[NBT Compound / JSON Object]: A firework explosion.
+Firework explosion effect see Template:Nbt inherit/firework explosion/template
+[Byte] Flight: Indicates the flight duration of the firework (equals the amount of gunpowder used in crafting the rocket). Can be anything from -128 to 127.
+
+Firework Stars
+Firework stars use the tag tag to store information about their effects.
+
+[NBT Compound / JSON Object] tag: Parent tag.
+[NBT Compound / JSON Object] Explosion: The explosion effect contributed by this firework star.
+Firework explosion effect see Template:Nbt inherit/firework explosion/template
+
+Goat Horns
+Goat horns use the instrument tag to control which sound can be played when using them.
+
+[NBT Compound / JSON Object] tag: Parent tag.
+[String] instrument: The identifier of the goat horn variant.
+
+Maps
+Maps may be scaled, locked and contain icons.
+
+[NBT Compound / JSON Object] tag: Parent tag.
+[Int] map: The map number.
+[Int] map_scale_direction: Only internally used when scaling a map, after that directly removed: The amount to increase the current map scale by when crafting. Always 1.
+[Byte] map_to_lock: 1 or 0 (true/false) - true if the map should be locked after being taken out of the cartography table. Only internally used when locking a map, after that directly removed.
+[NBT List / JSON Array] Decorations: A list of optional icons to display on the map. Decorations that are removed or modified do not update until the world is reloaded.
+[NBT Compound / JSON Object] An individual decoration.
+[String] id: An arbitrary unique string identifying the decoration.
+[Byte] type: The ID of the map icon to display.
+[Double] x: The world X position of the decoration.
+[Double] z: The world Z position of the decoration.
+[Double] rot: The rotation of the symbol, ranging from 0.0 to 360.0, measured clockwise. A rotation of 0 displays the icon upside-down compared to its appearance in the icon texture.
+[NBT Compound / JSON Object] display: The display tag.
+[Int] MapColor: The color of the markings on the item's texture.
+
+Player Heads
+Heads of the player variety can be associated with a specific username to take on the skin of that player when placed. The hand-held item is also updated with the new skin. Within this section, the "owner" of a head means the player whose head it is a copy of, and a player whose inventory contains a head is called the "holder".
+
+[NBT Compound / JSON Object] tag: Parent tag.
+[String] SkullOwner: The username of the player this is a skull of. This gets converted to the compound version on almost any action.
+[NBT Compound / JSON Object] SkullOwner: Different definition for the skull's owner.
+
+[Int Array] Id: UUID of owner, stored as four ints. Optional. Used to update the other tags when the chunk loads or the holder logs in, in case the owner's name has changed.
+[String] Name: Username of owner. If missing or empty, the head appears as a Steve head. Otherwise, used to store or retrieve the downloaded skin in the cache. Need not be a valid player name, but must not be all spaces.
+[NBT Compound / JSON Object] Properties
+[NBT List / JSON Array] textures
+[NBT Compound / JSON Object]: An individual texture.
+[String] Value: A Base64-encoded JSON object.
+[Boolean] isPublic: Optional.
+[Boolean] signatureRequired
+[String] profileId: Optional: The hexadecimal text form of the player's UUID, without hyphens.
+[String] profileName: Optional: Player name.
+[NBT Compound / JSON Object] textures
+[NBT Compound / JSON Object] CAPE: Optional.
+[String] url: URL of a player cape (64x32 PNG).
+[NBT Compound / JSON Object] SKIN
+[String] url: URL of a player skin on textures.minecraft.net.
+[NBT Compound / JSON Object] metadata
+[String] model: The model of the player skin. Can be "classic" or "slim".
+[Long] timestamp: Optional: Unix time in milliseconds.
+[String] Signature: Optional.
+
+Suspicious Stew
+Suspicious stews store their potion effects.
+
+[NBT Compound / JSON Object] tag: Parent tag.
+[NBT List / JSON Array] effects: The status effects this suspicious stew has.
+[NBT Compound / JSON Object] One of these for each effect.
+[String] id: The resource location of the effect.
+[Int] duration: The duration of the effect in ticks. Values 0 or lower are treated as 1. Optional, and defaults to 160 ticks (8 seconds).
+
+History
+Java Edition1.4.212w40a
+Added Name and Lore tags. They use plain text rather than text components.1.7.213w37a
+Added Unbreakable tag for tools.1.814w02a
+Added CanDestroy for tools.14w06a
+Added HideFlags to items.
+
+Added CanPlaceOn for blocks.
+
+Added ShowParticles for potion effect.14w07a
+Added BlockEntityTag for all blocks.14w10a
+Added a 5th bit (value of 32) to HideFlags that hides potion effects.1.1116w39a
+Added LocName to the display tag. If present, the item tooltip displays translated text for the item name.​[more information needed]1.1318w01a
+Name tag is now a text component.
+
+Removed the LocName tag.  Instead of LocName:"gui.toTitle", use Name:"{\"translate\":\"gui.toTitle\"}".18w21a
+ench tag has been renamed Enchantments.1.1418w43a
+Lore tag is now a text component.
+
+Added CustomModelData tag to set custom item model with resource packs.19w06a
+Added BlockStateTag for item forms of blocks.1.16.220w27a
+Added Flag 64 to HideFlags to hide "Dyed" on leather armor.1.17.1Pre-release 1
+Enchantments[].lvl tag is now read as short and clamped between 0 and 255.1.19.423w04a
+Added flag 128 to HideFlags to hide armor trim tooltips.1.20.223w32a
+In NBT format for item type potion, lingering_potion, splash_potion, and tipped_arrow, renamed CustomPotionEffects to custom_potion_effects.
+
+In NBT format for item type suspicious_stew, renamed Effects to effects, also changed following fields in this field: EffectId (integer) -> id (string, resource location), EffectDuration -> duration1.20.524w09a
+Unstructured NBT data attached to stacks of items (tag field) has been replaced with structured 'components'.
+References
+
+ Assuming the block is of a type that creates a block entity at all. If not, BlockEntityTag has no effect.
+
+ For positive values larger than 0x00FFFFFF, the top byte is ignored. All negative values produce white.
+
+ MC-119659
+
+ MC-49476 – resolved as "Fixed".
+
+ MC-131290 – resolved as "Fixed".
+
+Navigation

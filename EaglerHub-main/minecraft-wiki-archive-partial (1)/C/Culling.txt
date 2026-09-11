@@ -1,0 +1,41 @@
+This article is a stub. 
+You can help by expanding it. The talk page may contain suggestions.
+
+
+Culling is a rendering technique in which elements which would be rendered are instead ignored. This is most often employed for performance-enhancing reasons, and is also sometimes implemented for aesthetic purposes.
+
+Contents
+
+1 Frustum culling
+2 Occlusion culling
+3 Block face culling
+4 History
+5 Navigation
+
+Frustum culling
+Only chunks which are present in the viewing frustum (a rectangle-based pyramid with the apex truncated, representing what of the environment can be seen on-screen) are generally rendered - chunks directly behind the camera, as well as far enough to the side, are skipped entirely to save on resources. Since these chunks are out of view, this effect is generally unnoticeable and results in an increase in framerate at neglicible visual quality cost.
+
+Occlusion culling
+Occlusion culling is used to strip away subchunks which are entirely, or at least mostly, hidden by other chunk geometry. In practice, this most often applies to caves and other underground structures and constructions - this geometry does not need to be rendered if the player is aboveground and does not have line of sight to anything underground, and so is skipped.
+Occlusion culling is disabled in Spectator mode while intersecting solid blocks, resulting in a noticeable performance hit, but allowing for structures underground to be clearly seen. Intersecting a block in any other gamemode will not turn off occlusion culling as an anti-exploit measure (not all blocks produce a suffocation overlay, but even when they don't, this limits unwanted underground visibility).
+
+Block face culling
+
+
+
+This section is missing information about: primarily for JE: explain the groups of blocks and how they're allowed to cull each other. code analysis, like is done in Hitbox, would be appreciated 
+Please expand the section to include this information. Further details may exist on the talk page.
+
+The geometry of individual blocks, when in physical contact, is often simplified by eliminating occluded faces. For example, a stone block which is entirely underground does not render at all, as it is never visible unless a surrounding block is removed, in which case the chunk mesh is re-evaluated and any exposed faces are then permitted to render.
+What faces of a block can cull, and when, is controlled by the cullface parameter in model json files. However, much of the behaviour remains hardcoded, as certain blocks cull in fundamentally different ways. Full, opaque blocks such as stone will cull most other blocks, whereas blocks such as glass and powder snow will only cull other blocks of the same ID, and not cull other blocks, even if they themselves can be culled by other blocks such as stone. For leaves, the culling behaviour depends on whether the transparent leaves setting is switched on or off. In addition, the shape and hitbox of the block is also taken into account - for example, a torch's bottom face will be culled by a fence below it since that face is smaller, but the top face of the fence is not culled by the torch as that face is still visible from above.
+In cases where the faces are internal, or have zero area, the model file can simply eliminate individual faces from the model entirely, resulting in the game renderer simply never having to render said face in the first place.
+Blocks which render as entities make no attempts to cull any of their constituent faces.
+
+History
+
+
+
+This section of the article is empty. 
+You can help by expanding it.
+
+Navigation

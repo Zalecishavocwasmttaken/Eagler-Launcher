@@ -1,0 +1,191 @@
+Minecraft 1.21.5 Pre-Release 1
+
+Edition
+
+Java Edition
+
+Release date
+
+March 11, 2025
+
+Type
+
+Pre-release
+
+Pre-release for
+
+1.21.5
+
+Downloads
+
+Client (.json)Server
+
+Obfuscation maps
+
+ClientServer
+
+Protocol version
+
+ dec: 1073742063 hex: 400000EF
+
+Data version
+
+4320
+
+Resource pack format
+
+55
+
+Data pack format
+
+70
+
+Minimum Java version
+
+Java SE 21
+
+◄◄   1.21.4
+1.21.5
+  1.21.6 ►►
+
+◄   25w10a
+
+ 1.21.5 Pre-Release 1
+
+  1.21.5 Pre-release 2 ►
+
+{
+    "title": "Minecraft 1.21.5 Pre-Release 1",
+    "images": [
+        "1.21.5-pre1.jpg",
+        "Java Edition 1.21.5 Pre-Release 1.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "March 11, 2025",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Pre-release article, displayed as Pre-release)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition 1.21.5 article, displayed as 1.21.5)",
+            "label": "Pre-release for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/8b708817d1997e46bcdd03bdf106533d05ff1bfa/client.jar Client] ([https://piston-meta.mojang.com/v1/packages/95d86e05c61b1b8fbaa589aecd909a28f5563629/1.21.5-pre1.json .json])<br />[https://piston-data.mojang.com/v1/objects/b663ce11b5951546a74947c1896e0d4713188833/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/bbbdc77f9732e640f6a6d91de87a3836a93ce1b9/client.txt Client]<br />[https://piston-data.mojang.com/v1/objects/cdfaeb62e5d35aeeaa0c648fdd8dc28309791377/server.txt Server]",
+            "label": "(link to Obfuscation map article, displayed as Obfuscation maps)"
+        },
+        {
+            "field": " <span style=\"font-size:smaller\"><abbr title=\"decimal\">dec</abbr>: </span>1073742063<br /> <span style=\"font-size:smaller\"><abbr title=\"hexadecimal\">hex</abbr>: </span>400000EF",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "4320",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "55",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "70",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Data pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_21_.28LTS.29 Java SE 21]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Java Edition  1.21.4|<span style=\"margin-right:-0.35em\">◄</span>◄   1.21.4]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition 1.21.5|1.21.5]]'''</td>\n<td style=\"padding: 0.4em\" >[[Java Edition  1.21.6|  1.21.6 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  25w10a|◄   25w10a]]\n</td>\n<td style=\"padding: 0.4em\">''' 1.21.5 Pre-Release 1'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  1.21.5 Pre-release 2|  1.21.5 Pre-release 2 ►]]\n</td>\n</tr>\n</table>"
+}
+
+1.21.5 Pre-Release 1 (known as 1.21.5-pre1 in the launcher) is the first pre-release for Java Edition 1.21.5, released on March 11, 2025. This is the first pre-release released in 2025.
+
+Contents
+
+1 Changes
+
+1.1 Items
+1.2 World generation
+1.3 Command format
+1.4 General
+
+2 Fixes
+3 Videos
+4 References
+5 Navigation
+
+Changes
+Items
+Spawn eggs
+
+Added textures for Programmer Art resource pack.
+World generation
+Fallen trees
+
+The longer versions of fallen birch trees now generate properly.
+This version is up to 15 blocks long, as opposed to the shorter version which can only reach 8 blocks at most.
+Command format
+General
+
+Arguments in commands that accept inline values like loot tables, predicates, modifiers, data components, formatted text (/loot, /give, /tellraw, /execute if predicate, data components in /execute if items, etc.) have been reverted to accept numbers in place of booleans.
+General
+Network protocol
+
+The client-bound player_chat packet now contains an index increasing for every message sent to the client.
+The index starts at 0 when logging in (or is reset by configuration phase and the login packet).
+For every message, the server should increment this value by 1.
+If this value updates in an unexpected way, the client will disconnect.
+As the protocol requires that every chat packet reaches the client in produced order, the goal is to enable faster detection of missed/reordered chat messages for custom server developers.
+The server-bound chat and chat_command_signed packets now contain a checksum byte along with the 'last seen' update.
+This is a simple hash of the 'last seen' signatures which should be reconstructed by the server, allowing quicker detection of desynchronized state.
+This can be passed as 0 to disable the check, for compatibility with protocol translation.
+Resource pack
+
+The version is now 55.
+Tweaked leaf litter block models.
+Fixes
+15 issues fixed
+From released versions before 1.21
+
+MC-170134 – Minecraft uses several times more VRAM than needed after exploring terrain for a while.
+From the 1.21.5 development versions
+
+MC-279350 – Leaf litter multipart model system is unoptimized, causing render lag.
+MC-280141 – Baby farm animals from spawn eggs with a variant differing from the parent flash the wrong variant initially.
+MC-280241 – Cold Cows have improperly mirrored and incorrectly aligned ear textures.
+MC-280249 – Spawn eggs don't use their old textures with the Programmer Art resource pack enabled.
+MC-280278 – Sheep wool uses 1.14 texture with Programmer Art resource pack enabled.
+MC-280326 – When teleporting across dimensions an error is often thrown.
+MC-280361 – When a fallen tree replaces the bottom half of tall vegetation, the top part of the vegetation still generates.
+From the previous development version
+
+MC-280474 – TNT minecarts explode regardless of tntExplodes gamerule.
+MC-280477 – TNT still explodes when summoned or dispensed while tntExplodes gamerule is false.
+MC-280479 – TNT is completely deleted when attempting to ignite it using redstone pulses when the "tntExplodes" gamerule is disabled.
+MC-280480 – No flint and steel clicking sound when attempting to ignite. TNT with a flint and steel when the "tntExplodes" gamerule is disabled.
+MC-280493 – If the tntExplodes game rule is changed to false while primed TNT already exists in the world, the primed TNT explodes as normal.
+MC-280501 – The "Fire extinguishes" sound plays every game tick while on fire in rain.
+MC-280520 – ItemDropChance on an item frame is not serialized when there is no item anymore, leading to inconsistencies.
+Videos
+Video made by slicedlime:
+
+
+
+
+References
+
+ "Minecraft 1.21.5 Pre-Release 1"     – Minecraft.net, March 11, 2025.
+
+Navigation

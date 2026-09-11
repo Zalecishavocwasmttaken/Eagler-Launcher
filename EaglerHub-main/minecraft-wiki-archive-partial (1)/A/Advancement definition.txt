@@ -1,0 +1,2314 @@
+This feature is exclusive to Java Edition. 
+
+Custom advancements in data packs of a Minecraft world store the advancement data for that world as separate JSON files.
+
+Contents
+
+1 File format
+
+1.1 Legend
+
+2 Display
+
+2.1 Advancement tabs
+2.2 Positioning
+2.3 Lack of display
+
+3 Criteria
+4 List of triggers
+
+4.1 minecraft:allay_drop_item_on_block
+4.2 minecraft:any_block_use
+4.3 minecraft:avoid_vibration
+4.4 minecraft:bee_nest_destroyed
+4.5 minecraft:bred_animals
+4.6 minecraft:brewed_potion
+4.7 minecraft:changed_dimension
+4.8 minecraft:channeled_lightning
+4.9 minecraft:construct_beacon
+4.10 minecraft:consume_item
+4.11 minecraft:crafter_recipe_crafted
+4.12 minecraft:cured_zombie_villager
+4.13 minecraft:default_block_use
+4.14 minecraft:effects_changed
+4.15 minecraft:enchanted_item
+4.16 minecraft:enter_block
+4.17 minecraft:entity_hurt_player
+4.18 minecraft:entity_killed_player
+4.19 minecraft:fall_after_explosion
+4.20 minecraft:fall_from_height
+4.21 minecraft:filled_bucket
+4.22 minecraft:fishing_rod_hooked
+4.23 minecraft:hero_of_the_village
+4.24 minecraft:impossible
+4.25 minecraft:inventory_changed
+4.26 minecraft:item_durability_changed
+4.27 minecraft:item_used_on_block
+4.28 minecraft:kill_mob_near_sculk_catalyst
+4.29 minecraft:killed_by_arrow
+4.30 minecraft:levitation
+4.31 minecraft:lightning_strike
+4.32 minecraft:location
+4.33 minecraft:nether_travel
+4.34 minecraft:placed_block
+4.35 minecraft:player_generates_container_loot
+4.36 minecraft:player_hurt_entity
+4.37 minecraft:player_interacted_with_entity
+4.38 minecraft:player_killed_entity
+4.39 minecraft:player_sheared_equipment
+4.40 minecraft:recipe_crafted
+4.41 minecraft:recipe_unlocked
+4.42 minecraft:ride_entity_in_lava
+4.43 minecraft:shot_crossbow
+4.44 minecraft:slept_in_bed
+4.45 minecraft:slide_down_block
+4.46 minecraft:spear_mobs
+4.47 minecraft:started_riding
+4.48 minecraft:summoned_entity
+4.49 minecraft:tame_animal
+4.50 minecraft:target_hit
+4.51 minecraft:thrown_item_picked_up_by_entity
+4.52 minecraft:thrown_item_picked_up_by_player
+4.53 minecraft:tick
+4.54 minecraft:used_ender_eye
+4.55 minecraft:used_totem
+4.56 minecraft:using_item
+4.57 minecraft:villager_trade
+4.58 minecraft:voluntary_exile
+
+5 Removed triggers
+
+5.1 minecraft:arbitrary_player_tick
+5.2 minecraft:item_delivered_to_player
+5.3 minecraft:player_damaged
+5.4 minecraft:safely_harvest_honey
+
+6 Temporary triggers
+
+6.1 23w13a_or_b
+
+6.1.1 minecraft:voted
+
+6.2 24w14potato
+
+6.2.1 minecraft:bring_home_corruption
+6.2.2 minecraft:compost_staff
+6.2.3 minecraft:eat_armor
+6.2.4 minecraft:get_peeled
+6.2.5 minecraft:peel_block
+6.2.6 minecraft:peel_potato_armor
+6.2.7 minecraft:peel_potato_sheep
+6.2.8 minecraft:potato_refined
+6.2.9 minecraft:rumble_plant
+6.2.10 minecraft:said_potato
+6.2.11 minecraft:throw_lubricated
+
+6.3 25w14craftmine
+
+6.3.1 minecraft:consume_poisonous_potatoes
+6.3.2 minecraft:inventory_cashed_in
+6.3.3 minecraft:level_completed
+6.3.4 minecraft:level_failed
+6.3.5 minecraft:mine_crafter_upgraded
+6.3.6 minecraft:mine_revisitor_activated
+6.3.7 minecraft:player_unlock_bought
+6.3.8 minecraft:player_unlock_unlocked
+6.3.9 minecraft:special_mine_completed
+
+6.4 26w14a
+
+6.4.1 minecraft:barrel_roll
+6.4.2 minecraft:built_house
+6.4.3 minecraft:built_trap
+6.4.4 minecraft:end_portal_crafted
+6.4.5 minecraft:eye_frame_combination
+6.4.6 minecraft:nether_portal_crafted
+6.4.7 minecraft:use_item
+
+7 History
+8 External links
+9 References
+10 Navigation
+
+File format
+All advancement JSON files are structured according to the following format.
+
+Legend
+*: If parent field is written, this field is required.
+
+[NBT Compound / JSON Object] The root tag.
+[String] parent: The parent advancement directory of this advancement. If absent, this advancement is a root advancement. Circular references cause a loading failure.
+[NBT Compound / JSON Object] display: Data related to the advancement's display.
+[NBT Compound / JSON Object] icon*: Object containing data for the advancement's icon.
+[String] id*: An item ID.
+[Int] count: Optional. The amount of the item. Falls back to 1 if the field is absent.
+[NBT Compound / JSON Object] components: Optional. Additional information about the item. See item components.
+[String][NBT Compound / JSON Object][NBT List / JSON Array] title*: A JSON text component for the title of this advancement.
+[String][NBT Compound / JSON Object][NBT List / JSON Array] description*: A JSON text component for the description text of this advancement.
+[String] frame: Type of frame for the icon. challenge for , goal for , task for . Defaults to task.
+[String] background: The directory for the background to use in this advancement tab (used only for the root advancement).
+[Boolean] show_toast: Whether to show a toast to the player when this advancement has been completed. Defaults to true.
+[Boolean] announce_to_chat: Whether to announce in the chat when this advancement has been completed. Defaults to true.
+[Boolean] hidden: Whether to hide this advancement and all its children from the advancement screen until this advancement has been completed. Has no effect on root advancements themselves, but still affects all their children. Defaults to false.
+[NBT Compound / JSON Object] criteria*: The criteria to be tracked by this advancement.
+[NBT Compound / JSON Object] <criterionName>: The key is a unique name given to the criterion. Can be any valid text.
+See below for details.
+[NBT List / JSON Array] requirements: Defines how these criteria above are completed to grant the advancement. Contains sublists, which in turn contain names of criteria from this advancement (all the <criterionName>s). When a criterion is newly completed or revoked, the advancement is granted if all sublists have at least one criterion within them completed. Optional, defaults to requiring all criteria completed.
+[NBT List / JSON Array] Sublist within [NBT List / JSON Array] requirements, contains strings of <criterionName>s. If a sublist is empty, the advancement is unachievable without cheats.
+[String] A criterion name.
+[NBT Compound / JSON Object] rewards: An object representing the rewards provided when this advancement is obtained.
+[Int] experience: To give an amount of experience. Defaults to 0.
+[NBT List / JSON Array] recipes: To unlock recipes.
+[String] The identifier of a recipe.
+[NBT List / JSON Array] loot: To give items from loot tables to the player.
+[String] The identifier of a loot table.
+[String] function: To run a function. Function tags are not allowed.
+[Boolean] sends_telemetry_event: Determines whether telemetry data should be collected when this advancement is achieved or not. Defaults to false.
+
+Display
+Within the root tag of an advancement JSON object, the [NBT Compound / JSON Object] display object and the [String] parent string, both optional, are related to the display of the advancement.
+If the [NBT Compound / JSON Object] display tag is present, it must have the [String][NBT Compound / JSON Object] title, [String][NBT Compound / JSON Object] description and [NBT Compound / JSON Object] icon fields present in order to be considered as valid advancement display data.
+The [String] parent field, albeit not directly associated with the display data of an advancement, affects only the display data effectively. When an advancement does not have a display data and none of its children has a display data, the parent of the advancement affects only /advancement ... through|from|until usage.
+
+Advancement tabs
+Creating a root advancement (no [String] parent) with valid [NBT Compound / JSON Object] display data automatically creates a tab in the advancement menu. When loaded, the root advancement shows as a tab in the menu when any advancement in its advancement tree is granted to the player viewing the menu.
+The missing texture displays on the tab's background if the root advancement does not have a background.
+If a root advancement successfully creates a tab, child advancements of the root appear inside of that tab, provided they also have valid [NBT Compound / JSON Object] display data.
+
+Positioning
+The game automatically arranges advancements, positions them when it loads advancements from data packs, and sends the arrangement to the client. Each advancement has an arrow from its closest visible ancestor (i.e. if its parent does not have a display, it has a link from its grandparent, and so on). The root advancement appears on the leftmost column while each arrow points to an advancement in the next column. The arrangement of advancements within a column is chosen at random upon the player joining the world or server.
+
+Lack of display
+Some advancements, such as the vanilla recipe unlocking advancements, may lack a display so that they can utilize triggers and rewards instead of excessive commands or functions for more functionalities and a more flexible control. These advancements should not have the [NBT Compound / JSON Object] display field defined in order to hide from users and enjoy a better loading performance.
+
+Criteria
+*: If parent field is written, this field is required.
+The format of a criterion:
+
+[NBT Compound / JSON Object] <criterionName>: Root object. The key can be any valid text.
+[String] trigger*: The trigger for this criterion.
+[NBT Compound / JSON Object] conditions: Object containing conditions that need to be met when the trigger gets activated. The criterion is marked completed when the trigger activates and all conditions passed.
+[NBT Compound / JSON Object] player: Checks properties of the player that would get the advancement. Not available for minecraft:impossible trigger.
+entity predicate see Template:Nbt inherit/conditions/entity/template
+[NBT List / JSON Array] player: Another format for "player". Specifies a list of predicates that must pass in order for the criterion to be granted. Not available for minecraft:impossible trigger.
+[NBT Compound / JSON Object]: A single predicate.
+Extra contents depend on selected [String] trigger.
+
+List of triggers
+All JSON fields in the conditions are optional unless marked with "*".
+The possible values for [String] trigger and associated extra contents in [NBT Compound / JSON Object] conditions:
+
+allay_drop_item_on_block
+any_block_use
+avoid_vibration
+bee_nest_destroyed
+bred_animals
+brewed_potion
+changed_dimension
+channeled_lightning
+construct_beacon
+consume_item
+crafter_recipe_crafted
+cured_zombie_villager
+default_block_use
+effects_changed
+enchanted_item
+enter_block
+entity_hurt_player
+entity_killed_player
+fall_after_explosion
+fall_from_height
+filled_bucket
+fishing_rod_hooked
+hero_of_the_village
+impossible
+inventory_changed
+item_durability_changed
+item_used_on_block
+kill_mob_near_sculk_catalyst
+killed_by_arrow
+levitation
+lightning_strike
+location
+nether_travel
+placed_block
+player_generates_container_loot
+player_hurt_entity
+player_interacted_with_entity
+player_killed_entity
+player_sheared_equipment
+recipe_crafted
+recipe_unlocked
+ride_entity_in_lava
+shot_crossbow
+slept_in_bed
+slide_down_block
+spear_mobs
+started_riding
+summoned_entity
+tame_animal
+target_hit
+thrown_item_picked_up_by_entity
+thrown_item_picked_up_by_player
+tick
+used_ender_eye
+used_totem
+using_item
+villager_trade
+voluntary_exile
+minecraft:allay_drop_item_on_block
+Triggers when an allay drops an item on a block. Available extra conditions:
+
+[NBT Compound / JSON Object] conditions:
+[NBT List / JSON Array] location: Specifies a list of predicates that must pass in order for the criterion to be granted. The origin is the location of the block the item was dropped on, the block state belongs to that block, and the tool is the item dropped on the block. The this entity is the player that would get the advancement.
+[NBT Compound / JSON Object]: A single predicate.
+
+An example
+
+{
+  "criteria": {
+    "example": {
+      "trigger": "minecraft:allay_drop_item_on_block",
+      "conditions": {
+        "location": {
+          "biome": "minecraft:meadow",
+          "block": {
+            "blocks": [
+              "minecraft:note_block"
+            ]
+          }
+        },
+        "item": {
+          "items": [
+            "minecraft:cookie"
+          ]
+        }
+      }
+    }
+  }
+}
+
+minecraft:any_block_use
+Triggers under the same conditions as both minecraft:default_block_use and minecraft:item_used_on_block. Available extra conditions:
+
+[NBT Compound / JSON Object] conditions:
+[NBT List / JSON Array] location: Specifies a list of predicates that must pass in order for the criterion to be granted. The origin is the location of the block that was interacted with, the block state belongs to that block, and the tool is either the item used on the block (for the item_used_on_block case) or simply the item in the player's main hand (for the default_block_use case). The this entity is the player that would get the advancement.
+[NBT Compound / JSON Object]: A single predicate.
+
+An example
+
+{
+  "criteria": {
+    "example": {
+      "trigger": "minecraft:any_block_use",
+      "conditions": {
+        "location": [
+          {
+            "condition": "minecraft:location_check",
+            "predicate": {
+              "block": {
+                "blocks": "minecraft:grass_block"
+              }
+            }
+          },
+          {
+            "condition": "minecraft:match_tool",
+            "predicate": {
+              "items": "minecraft:iron_shovel"
+            }
+          }
+        ]
+      }
+    }
+  }
+}
+
+minecraft:avoid_vibration
+Triggers when a vibration event is ignored because the source player is crouching. No extra conditions.
+
+An example
+
+{
+  "criteria": {
+    "example": {
+      "trigger": "minecraft:avoid_vibration",
+      "conditions": {
+        "player": {
+          "location": {
+            "biome": "minecraft:deep_dark"
+          }
+        }
+      }
+    }
+  }
+}
+
+minecraft:bee_nest_destroyed
+Triggers when the player breaks a bee nest or beehive. Available extra conditions:
+
+[NBT Compound / JSON Object] conditions:
+[String] block​[until: JE 26.2]blocks​[upcoming: JE 26.3]: Checks the block that was destroyed. Accepts block IDs.
+[NBT Compound / JSON Object] item: The item used to break the block.
+item predicate see Template:Nbt inherit/conditions/item/template
+[Int] num_bees_inside: The number of bees that were inside the bee nest/beehive before it was broken.
+[NBT Compound / JSON Object] num_bees_inside: Another form for [Int] num_bees_inside.
+[Int] max: The maximum value.
+[Int] min: The minimum value.
+
+An example
+
+{
+  "criteria": {
+    "example": {
+      "trigger": "minecraft:bee_nest_destroyed",
+      "conditions": {
+        "block": "minecraft:beehive",
+        "item": {
+          "items": [
+            "minecraft:wooden_axe"
+          ]
+        },
+        "num_bees_inside": 3
+      }
+    }
+  }
+}
+
+minecraft:bred_animals
+Triggers after the player breeds 2 animals. Available extra conditions:
+
+[NBT Compound / JSON Object] conditions:
+[NBT Compound / JSON Object] child: Checks properties of the child that results from the breeding.
+entity predicate see Template:Nbt inherit/conditions/entity/template
+[NBT List / JSON Array] child: Another format for "child". Specifies a list of predicates that must pass in order for the criterion to be granted. The origin of the predicate is the position of the player that would get the advancement.
+[NBT Compound / JSON Object]: A single predicate.
+[NBT Compound / JSON Object] parent: The parent.
+entity predicate see Template:Nbt inherit/conditions/entity/template
+[NBT List / JSON Array] parent: Another format for "parent". Specifies a list of predicates that must pass in order for the criterion to be granted. The origin of the predicate is the position of the player that would get the advancement.
+[NBT Compound / JSON Object]: A single predicate.
+[NBT Compound / JSON Object] partner: The partner (The entity the parent was bred with).
+entity predicate see Template:Nbt inherit/conditions/entity/template
+[NBT List / JSON Array] partner: Another format for "partner". Specifies a list of predicates that must pass in order for the criterion to be granted. The origin of the predicate is the position of the player that would get the advancement.
+[NBT Compound / JSON Object]: A single predicate.
+
+An example
+
+{
+  "criteria": {
+    "example": {
+      "trigger": "minecraft:bred_animals",
+      "conditions": {
+        "child": {
+          "type": "minecraft:mule"
+        },
+        "parent": {
+          "location": {
+            "biome": "minecraft:beach"
+          }
+        },
+        "partner": {
+          "effects": {
+            "minecraft:speed": {
+              "amplifier": {
+                "min": 2
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+minecraft:brewed_potion
+Triggers after the player takes any item out of a brewing stand. Available extra conditions:
+
+[NBT Compound / JSON Object] conditions:
+[String] potion: A brewed potion ID.
+
+An example
+
+{
+  "criteria": {
+    "example": {
+      "trigger": "minecraft:brewed_potion",
+      "conditions": {
+        "potion": "minecraft:strong_swiftness"
+      }
+    }
+  }
+}
+
+minecraft:changed_dimension
+Triggers after the player travels between two dimensions. Available extra conditions:
+
+[NBT Compound / JSON Object] conditions:
+[String] from: The dimension the entity traveled from. This tag is an identifier for a dimension (only these in vanilla; more can be added with data packs).
+[String] to: The dimension the entity traveled to. Same accepted values as above.
+
+An example
+
+{
+  "criteria": {
+    "example": {
+      "trigger": "minecraft:changed_dimension",
+      "conditions": {
+        "from": "minecraft:the_end",
+        "to": "minecraft:overworld"
+      }
+    }
+  }
+}
+
+minecraft:channeled_lightning
+Triggers after the player successfully uses the Channeling enchantment on an entity or a lightning rod. Available extra conditions:
+
+[NBT Compound / JSON Object] conditions:
+[NBT List / JSON Array] victims: The victims hit by the lightning summoned by the Channeling enchantment. All entities in this list must be hit.
+[NBT Compound / JSON Object]: A victim.
+entity predicate see Template:Nbt inherit/conditions/entity/template
+[NBT List / JSON Array]: Another format for the victim. Specifies a list of predicates that must pass in order for the criterion to be granted. The checks are applied to the victim hit by the lighting, with the origin being the position of the player that would get the advancement.
+[NBT Compound / JSON Object]: A single predicate.
+
+An example
+
+{
+  "criteria": {
+    "example": {
+      "trigger": "minecraft:channeled_lightning",
+      "conditions": {
+        "victims": [
+          {
+            "type": "minecraft:skeleton_horse",
+            "nbt": "{SkeletonTrap: true}"
+          }
+        ]
+      }
+    }
+  }
+}
+
+minecraft:construct_beacon
+Triggers after the player changes the structure of a beacon. (When the beacon updates itself). Available extra conditions:
+
+[NBT Compound / JSON Object] conditions:
+[Int] level: The level of the updated beacon structure.
+[NBT Compound / JSON Object] level: Another format.
+[Int] max: The maximum value.
+[Int] min: The minimum value.
+
+An example
+
+{
+  "criteria": {
+    "example": {
+      "trigger": "minecraft:construct_beacon",
+      "conditions": {
+        "level": {
+          "min": 3
+        }
+      }
+    }
+  }
+}
+
+minecraft:consume_item
+Triggers when the player consumes an item. Available extra conditions:
+
+[NBT Compound / JSON Object] conditions:
+[NBT Compound / JSON Object] item: The item that was consumed.
+item predicate see Template:Nbt inherit/conditions/item/template
+
+An example
+
+{
+  "criteria": {
+    "example": {
+      "trigger": "minecraft:consume_item",
+      "conditions": {
+        "item": {
+          "items": [
+            "minecraft:enchanted_golden_apple"
+          ],
+          "components": {"minecraft:custom_name":"Enchanted apple"}
+        }
+      }
+    }
+  }
+}
+
+minecraft:crafter_recipe_crafted
+Triggers when the player is ±8 blocks on any axis of a crafter when it crafts a recipe. Available extra conditions:
+
+[NBT Compound / JSON Object] conditions:
+[String] recipe_id*: The recipe that was crafted.
+[NBT List / JSON Array] ingredients: An array of item predicates for the recipe ingredients. Each item can match only one predicate, and every predicate needs to pass for the criterion to be granted.
+[NBT Compound / JSON Object]: A single predicate.
+item predicate see Template:Nbt inherit/conditions/item/template
+
+An example
+
+{
+  "criteria": {
+    "example": {
+      "trigger": "minecraft:crafter_recipe_crafted",
+      "conditions": {
+        "recipe_id": "minecraft:furnace",
+        "ingredients": [
+          {
+            "items": [
+              "minecraft:cobblestone"
+            ]
+          },
+          {
+            "items": [
+              "minecraft:blackstone"
+            ]
+          },
+          {
+            "items": [
+              "minecraft:cobbled_deepslate"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
+
+minecraft:cured_zombie_villager
+Triggers when the player cures a zombie villager. Available extra conditions:
+
+[NBT Compound / JSON Object] conditions:
+[NBT Compound / JSON Object] villager: The villager that is the result of the conversion. The 'type' tag is redundant since it is always "villager".
+entity predicate see Template:Nbt inherit/conditions/entity/template
+[NBT List / JSON Array] villager: Another format for "villager". Specifies a list of predicates that must pass in order for the criterion to be granted. The checks are applied to the villager, with the origin being the position of the player that would get the advancement.
+[NBT Compound / JSON Object]: A single predicate.
+[NBT Compound / JSON Object] zombie: The zombie villager right before the conversion is complete (not when it is initiated). The 'type' tag is redundant since it is always "zombie_villager".
+entity predicate see Template:Nbt inherit/conditions/entity/template
+[NBT List / JSON Array] zombie: Another format for "zombie". Specifies a list of predicates that must pass in order for the criterion to be granted. The checks are applied to the zombie villager, with the origin being the position of the player that would get the advancement.
+[NBT Compound / JSON Object]: A single predicate.
+
+An example
+
+{
+  "criteria": {
+    "example": {
+      "trigger": "minecraft:cured_zombie_villager",
+      "conditions": {
+        "villager": {
+          "location": {
+            "biome": "minecraft:plains"
+          }
+        },
+        "zombie": {
+          "distance": {
+            "horizontal": {
+              "max": 10
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+minecraft:default_block_use
+Triggers when the player activates a block's default use action (opening a door, pushing a button, opening a crafting grid, etc). Available extra conditions:
+
+[NBT Compound / JSON Object] conditions:
+[NBT List / JSON Array] location: Specifies a list of predicates that must pass in order for the criterion to be granted. The origin is the location of the block that was interacted with and the block state belongs to that block. Note that for this trigger, a "tool" is not provided. The this entity is the player that would get the advancement.
+[NBT Compound / JSON Object]: A single predicate.
+
+An example
+
+{
+  "criteria": {
+    "example": {
+      "trigger": "minecraft:default_block_use",
+      "conditions": {
+        "location": [
+          {
+            "condition": "minecraft:location_check",
+            "predicate": {
+              "block": {
+                "blocks": "minecraft:oak_door"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}
+
+minecraft:effects_changed
+Triggers after the player gets a status effect applied or taken from them. Available extra conditions:
+
+[NBT Compound / JSON Object] conditions:
+[NBT Compound / JSON Object] effects: A list of active status effects the player currently has.
+[NBT Compound / JSON Object] <minecraft:effect_name>: The key name is a status effect name.
+[Boolean] ambient: Whether the effect is from a beacon.
+[Int] amplifier: The effect amplifier.
+[NBT Compound / JSON Object] amplifier: Another format.
+[Int] max: The maximum value.
+[Int] min: The minimum value.
+[Int] duration: The effect duration in ticks.
+[NBT Compound / JSON Object] duration: Another format.
+[Int] max: The maximum value.
+[Int] min: The minimum value.
+[Boolean] visible: Whether the effect has visible particles.
+[NBT Compound / JSON Object] source: The entity that was the source of the status effect. When there is no entity or when the effect was self-applied or removed, the test passes only if the source is not specified.
+entity predicate see Template:Nbt inherit/conditions/entity/template
+[NBT List / JSON Array] source: Another format for "source". Specifies a list of predicates that must pass in order for the criterion to be granted. The checks are applied to the source, with the origin being the position of the player that would get the advancement.
+[NBT Compound / JSON Object]: A single predicate.
+
+An example
+
+{
+  "criteria": {
+    "example": {
+      "trigger": "minecraft:effects_changed",
+      "conditions": {
+        "effects": {
+          "minecraft:weakness": {},
+          "minecraft:slowness": {
+            "amplifier": 2,
+            "duration": {
+              "min": 100,
+              "max": 500
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+minecraft:enchanted_item
+Triggers after the player enchants an item through an enchanting table (does not get triggered through an anvil, or through commands). Available extra conditions:
+
+[NBT Compound / JSON Object] conditions:
+[NBT Compound / JSON Object] item: The item after it has been enchanted.
+item predicate see Template:Nbt inherit/conditions/item/template
+[Int] levels: The levels spent by the player on the enchantment.
+[NBT Compound / JSON Object] levels: Another format.
+[Int] max: The maximum value.
+[Int] min: The minimum value.
+
+An example
+
+{
+  "criteria": {
+    "example": {
+      "trigger": "minecraft:enchanted_item",
+      "conditions": {
+        "item": {
+          "items": [
+            "minecraft:wooden_sword"
+          ],
+          "enchantments": [
+            {
+              "enchantment": "minecraft:sharpness",
+              "levels": {
+                "min": 2
+              }
+            }
+          ]
+        },
+        "levels": {
+          "min": 3
+        }
+      }
+    }
+  }
+}
+
+minecraft:enter_block
+Triggers once for each block the player's hitbox is inside (up to 12 blocks, the maximum number of blocks the player can stand in), twice per tick plus once more for every time the player moves or looks around during the same tick. This results in the trigger activating tens of times per tick, and in extreme cases, even hundreds of times per tick. Available extra conditions:
+
+[NBT Compound / JSON Object] conditions:
+[String] block: The block that the player is standing in. Accepts block IDs.
+[NBT Compound / JSON Object] state: A map of block property names to values. Errors if the block doesn't have these properties.
+[String] key: Block property key and value pair.
+[NBT Compound / JSON Object] key: Another format.
+[String] max: A maximum value.
+[String] min: A minimum value.
+
+An example
+
+{
+  "criteria": {
+    "example": {
+      "trigger": "minecraft:enter_block",
+      "conditions": {
+        "block": "minecraft:rose_bush",
+        "state": {
+          "half": "lower"
+        }
+      }
+    }
+  }
+}
+
+minecraft:entity_hurt_player
+Triggers after a player gets hurt (even when it's not caused by an entity). Available extra conditions:
+
+[NBT Compound / JSON Object] conditions:
+[NBT Compound / JSON Object] damage: Checks the damage done to the player.
+Damage predicate see Template:Nbt inherit/conditions/damage/template
+
+An example
+
+{
+  "criteria": {
+    "example": {
+      "trigger": "minecraft:entity_hurt_player",
+      "conditions": {
+        "damage": {
+          "type": {
+            "source_entity": {
+              "type": "minecraft:skeleton"
+            },
+            "direct_entity": {
+              "type": "minecraft:arrow"
+            }
+          },
+          "taken": {
+            "min": 4.0
+          }
+        }
+      }
+    }
+  }
+}
+
+minecraft:entity_killed_player
+Triggers after a living entity kills a player. Available extra conditions:
+
+[NBT Compound / JSON Object] conditions:
+[NBT Compound / JSON Object] entity: Checks the entity that was the source of the damage that killed the player (for example: The skeleton that shot the arrow).
+entity predicate see Template:Nbt inherit/conditions/entity/template
+[NBT List / JSON Array] entity: Another format for "entity". Specifies a list of predicates that must pass in order for the criterion to be granted. The checks are applied to the entity that kills the player, with the origin being the position of the player that would get the advancement.
+[NBT Compound / JSON Object]: A single predicate.
+[NBT Compound / JSON Object] killing_blow: Checks the type of damage that killed the player.
+Damage type predicate see Template:Nbt inherit/conditions/damage_type/template
+
+An example
+
+{
+  "criteria": {
+    "example": {
+      "trigger": "minecraft:entity_killed_player",
+      "conditions": {
+        "entity": {
+          "type": "minecraft:skeleton"
+        },
+        "killing_blow": {
+          "is_projectile": true
+        }
+      }
+    }
+  }
+}
+
+minecraft:fall_after_explosion
+Triggers when a player lands after being launched upward by an explosion or wind burst. Available extra conditions:
+
+[NBT Compound / JSON Object] conditions:
+[NBT Compound / JSON Object] start_position: A location predicate for the last position before the falling started.
+location predicate see Template:Nbt inherit/conditions/location/template
+[NBT Compound / JSON Object] distance: The distance between the start position and the player's position.
+Distance predicate see Template:Nbt inherit/conditions/distance/template
+[NBT Compound / JSON Object] source: Checks the entity that was the source of the explosion or wind burst that launched the player upward.
+entity predicate see Template:Nbt inherit/conditions/entity/template
+[NBT List / JSON Array] source: Another format for "source". Specifies a list of predicates that must pass in order for the criterion to be granted. The checks are applied to the entity that kills the player, with the origin being the position of the player that would get the advancement.
+
+An example
+
+{
+  "criteria": {
+    "example": {
+      "trigger": "minecraft:fall_after_explosion",
+      "conditions": {
+        "distance": {
+          "y": {
+            "min": 10
+          }
+        },
+        "cause": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "minecraft:tnt"
+            }
+          }
+        ]
+      }
+    }
+  }
+}
+
+minecraft:fall_from_height
+Triggers when a player lands after falling. Available extra conditions:
+
+[NBT Compound / JSON Object] conditions:
+[NBT Compound / JSON Object] start_position: A location predicate for the last position before the falling started.
+location predicate see Template:Nbt inherit/conditions/location/template
+[NBT Compound / JSON Object] distance: The distance between the start position and the player's position.
+Distance predicate see Template:Nbt inherit/conditions/distance/template
+
+An example
+
+{
+  "criteria": {
+    "example": {
+      "trigger": "minecraft:fall_from_height",
+      "conditions": {
+        "start_position": {
+          "position": {
+            "y": {
+              "min": -13,
+              "max": 256
+            }
+          }
+        },
+        "distance": {
+          "y": {
+            "min": 50,
+            "max": 320
+          }
+        }
+      }
+    }
+  }
+}
+
+minecraft:filled_bucket
+Triggers after the player fills a bucket. Available extra conditions:
+
+[NBT Compound / JSON Object] conditions:
+[NBT Compound / JSON Object] item: The item resulting from filling the bucket.
+item predicate see Template:Nbt inherit/conditions/item/template
+
+An example
+
+{
+  "criteria": {
+    "example": {
+      "trigger": "minecraft:filled_bucket",
+      "conditions": {
+        "item": {
+          "items": [
+            "minecraft:lava_bucket"
+          ]
+        }
+      }
+    }
+  }
+}
+
+minecraft:fishing_rod_hooked
+Triggers after the player successfully catches an item with a fishing rod or pulls an entity with a fishing rod. Available extra conditions:
+
+[NBT Compound / JSON Object] conditions:
+[NBT Compound / JSON Object] entity: The entity that was pulled, or the fishing bobber if no entity is pulled.
+entity predicate see Template:Nbt inherit/conditions/entity/template
+[NBT List / JSON Array] entity: Another format for "entity". Specifies a list of predicates that must pass in order for the criterion to be granted. The checks are applied to the entity pulled or the bobber, with the origin being the position of the player that would get the advancement.
+[NBT Compound / JSON Object]: A single predicate.
+[NBT Compound / JSON Object] item: The item that was caught.
+item predicate see Template:Nbt inherit/conditions/item/template
+[NBT Compound / JSON Object] rod: The fishing rod used.
+item predicate see Template:Nbt inherit/conditions/item/template
+
+An example
+
+{
+  "criteria": {
+    "example": {
+      "trigger": "minecraft:fishing_rod_hooked",
+      "conditions": {
+        "item": {
+          "items": [
+            "minecraft:bamboo"
+          ]
+        }
+      }
+    }
+  }
+}
+
+minecraft:hero_of_the_village
+Triggers when a raid ends in victory and the player has attacked at least one raider from that raid. No extra conditions.
+
+An example
+
+{
+  "criteria": {
+    "example": {
+      "trigger": "minecraft:hero_of_the_village",
+      "conditions": {
+        "player":{
+          "location": {
+            "biome": "minecraft:plains",
+            "dimension": "minecraft:overworld",
+            "position": {
+              "z": {
+                "min": -10,
+                "max": 10
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+minecraft:impossible
+Never triggers. No available conditions.
+Criteria with this trigger can only be granted from commands.
+
+An example
+
+{
+  "criteria": {
+    "example": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}
+
+minecraft:inventory_changed
+Triggers after any changes happen to a slot in the player's inventory, except for the player.cursor and player.crafting.* slots. Available extra conditions:
+
+[NBT Compound / JSON Object] conditions:
+[NBT List / JSON Array] items: A list of items to be checked against the item(s) that were added to the player's inventory when the advancement was triggered. For the trigger to pass, each item predicate in this list must match at least one item that was added.
+[NBT Compound / JSON Object]: An item stack.
+item predicate see Template:Nbt inherit/conditions/item/template
+[NBT Compound / JSON Object] slots:
+[Int] empty: The amount of slots empty in the inventory.
+[NBT Compound / JSON Object] empty: Another format.
+[Int] max: The maximum value.
+[Int] min: The minimum value.
+[Int] full: The amount of slots completely filled (stacksize) in the inventory.
+[NBT Compound / JSON Object] full: Another format.
+[Int] max: The maximum value.
+[Int] min: The minimum value.
+[Int] occupied: The amount of slots occupied in the inventory.
+[NBT Compound / JSON Object] occupied: Another format.
+[Int] max: The maximum value.
+[Int] min: The minimum value.
+
+An example
+
+{
+  "criteria": {
+    "example": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:polished_granite"
+            ],
+            "count": {
+              "min": 5,
+              "max": 10
+            }
+          },
+          {
+            "items": [
+              "minecraft:lime_wool"
+            ]
+          },
+          {
+            "items": [
+              "minecraft:wooden_sword"
+            ],
+            "durability": {
+              "min": 50
+            },
+            "components": {
+                "minecraft:custom_name": "Example"
+            }
+          }
+        ],
+        "slots": {
+          "occupied": 3
+        }
+      }
+    }
+  }
+}
+
+minecraft:item_durability_changed
+Triggers after any item in the inventory has been damaged in any form. Available extra conditions:
+
+[NBT Compound / JSON Object] conditions:
+[Int] delta: The change in durability (negative numbers are used to indicate a decrease in durability).
+[NBT Compound / JSON Object] delta: Another format.
+[Int] max: The maximum value.
+[Int] min: The minimum value.
+[Int] durability: The remaining durability of the item.
+[NBT Compound / JSON Object] durability: Another format.
+[Int] max: The maximum value.
+[Int] min: The minimum value.
+[NBT Compound / JSON Object] item: The item before it was damaged, allows you to check the durability before the item was damaged.
+item predicate see Template:Nbt inherit/conditions/item/template
+
+An example
+
+{
+  "criteria": {
+    "example": {
+      "trigger": "minecraft:item_durability_changed",
+      "conditions": {
+        "delta": -2,
+        "item": {
+          "items": [
+            "minecraft:wooden_axe"
+          ],
+          "durability": {
+            "max": 1
+          }
+        }
+      }
+    }
+  }
+}
+
+minecraft:item_used_on_block
+Triggers when the player uses their hand or an item on a block. Note that the item (or lack thereof) must be able to interact with the block, e.g. an item cannot be "used" on a campfire if there isn't a recipe that allows the item to be cooked on a campfire (however, placing a block by using on the campfire does count as an interaction). See also minecraft:default_block_use for detecting non-item-specific uses.
+Available extra conditions:
+
+[NBT Compound / JSON Object] conditions:
+[NBT List / JSON Array] location: Specifies a list of predicates that must pass in order for the criterion to be granted. The origin is the location of the block the item was used on, the block state belongs to that block, and the tool is the item used on the block. The this entity is the player that would get the advancement.
+[NBT Compound / JSON Object]: A single predicate.
+
+An example
+
+{
+  "criteria": {
+    "example": {
+      "trigger": "minecraft:item_used_on_block",
+      "conditions": {
+        "location": [
+          {
+            "condition": "minecraft:match_tool",
+            "predicate": {
+              "items": [
+                "minecraft:glow_ink_sac"
+              ]
+            }
+          },
+          {
+            "condition": "minecraft:location_check",
+            "predicate": {
+              "block": {
+                "tag": "minecraft:all_signs"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}
+
+minecraft:kill_mob_near_sculk_catalyst
+Triggers after a player is the source of a mob or player being killed within the range of a sculk catalyst. Available extra conditions:
+
+[NBT Compound / JSON Object] conditions:
+[NBT Compound / JSON Object] entity: The entity that was killed.
+entity predicate see Template:Nbt inherit/conditions/entity/template
+[NBT List / JSON Array] entity: Another format for "entity". Specifies a list of predicates that must pass in order for the criterion to be granted. The checks are applied to the mob, with the origin being the position of the player that would get the advancement.
+[NBT Compound / JSON Object]: A single predicate.
+[NBT Compound / JSON Object] killing_blow: The type of damage that killed an entity.
+Damage type predicate see Template:Nbt inherit/conditions/damage_type/template
+
+An example
+
+{
+  "criteria": {
+    "example": {
+      "trigger": "minecraft:kill_mob_near_sculk_catalyst",
+      "conditions": {
+        "entity": {
+          "type": "minecraft:creeper",
+          "nbt": "{powered:1b}",
+          "location": {
+            "biome": "minecraft:the_void"
+          },
+          "effects": {
+            "minecraft:slowness": {},
+            "minecraft:weakness": {
+              "amplifier": {
+                "min": 2
+              }
+            }
+          }
+        },
+        "killing_blow": {
+          "source_entity": {
+            "nbt": "{SelectedItem:{id:\"minecraft:wooden_sword\"}}"
+          }
+        }
+      }
+    }
+  }
+}
+
+minecraft:killed_by_arrow
+Triggers after the player kills a mob or player using an arrow in ranged combat. Available extra conditions:
+
+[NBT Compound / JSON Object] conditions:
+[NBT Compound / JSON Object] fired_from_weapon: The weapon that fired the arrow.
+item predicate see Template:Nbt inherit/conditions/item/template
+[Int] unique_entity_types: The exact count of types of entities killed.
+[NBT Compound / JSON Object] unique_entity_types: Another format. The acceptable range of count of types of entities killed.
+[Int] max: The maximum value.
+[Int] min: The minimum value.
+[NBT List / JSON Array] victims: A list of victims. All of the entries must be matched, and one killed entity may match only one entry.
+[NBT Compound / JSON Object]: A killed entities.
+entity predicate see Template:Nbt inherit/conditions/entity/template
+[NBT List / JSON Array]: Another format for the victim. Specifies a list of predicates that must pass in order for the criterion to be granted. The checks are applied to the victim, with the origin being the position of the player that would get the advancement.
+[NBT Compound / JSON Object]: A single predicate.
+
+An example
+
+{
+  "criteria": {
+    "example": {
+      "trigger": "minecraft:killed_by_arrow",
+      "conditions": {
+        "unique_entity_types": 5,
+        "fired_from_weapon": {
+          "items": "minecraft:crossbow"
+        },
+        "victims": [
+          {
+            "type": "minecraft:phantom"
+          },
+          {
+            "type": "minecraft:phantom"
+          }
+        ]
+      }
+    }
+  }
+}
+
+minecraft:levitation
+Triggers when the player has the levitation status effect. Available extra conditions:
+
+[NBT Compound / JSON Object] conditions:
+[NBT Compound / JSON Object] distance: The distance between the position where the player started levitating and the player's current position.
+Distance predicate see Template:Nbt inherit/conditions/distance/template
+[Int] duration: The duration of the levitation in ticks.
+[NBT Compound / JSON Object] duration: Another format.
+[Int] max: The maximum value.
+[Int] min: The minimum value.
+
+An example
+
+{
+  "criteria": {
+    "example": {
+      "trigger": "minecraft:levitation",
+      "conditions": {
+        "distance": {
+          "horizontal": {
+            "min": 5
+          },
+          "y": {
+            "min": 2
+          }
+        },
+        "duration": {
+          "min": 100
+        }
+      }
+    }
+  }
+}
+
+minecraft:lightning_strike
+Triggers when a lightning bolt disappears from the world, only for players within a 256 block radius of the lightning bolt. Available extra conditions:
+
+[NBT Compound / JSON Object] conditions:
+[NBT Compound / JSON Object] lightning: The lightning bolt that disappeared.
+entity predicate see Template:Nbt inherit/conditions/entity/template
+[NBT List / JSON Array] lightning: Another format for "lightning". Specifies a list of predicates that must pass in order for the criterion to be granted. The checks are applied to the lightning, with the origin being the position of the player that would get the advancement.
+[NBT Compound / JSON Object]: A single predicate.
+[NBT Compound / JSON Object] bystander: An entity not hurt by the lightning strike but in a certain area around it.
+entity predicate see Template:Nbt inherit/conditions/entity/template
+[NBT List / JSON Array] bystander: Another format for "bystander". Specifies a list of predicates that must pass in order for the criterion to be granted. The checks are applied to the bystander, with the origin being the position of the player that would get the advancement.
+[NBT Compound / JSON Object]: A single predicate.
+
+An example
+
+{
+  "criteria": {
+    "example": {
+      "trigger": "minecraft:lightning_strike",
+      "conditions": {
+        "lightning": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "lightning_bolt": {
+                "entity_struck": {
+                  "type": "minecraft:creeper"
+                }
+              }
+            }
+          }
+        ],
+        "bystander": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "minecraft:pig"
+            }
+          }
+        ]
+      }
+    }
+  }
+}
+
+minecraft:location
+Triggers every 20 ticks (1 second). No extra conditions.
+
+An example
+
+{
+  "criteria": {
+    "example": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": {
+          "location": {
+            "position": {
+              "x": {
+                "min": -10,
+                "max": 10
+              }
+            },
+            "biomes": "minecraft:jungle",
+            "structures": "minecraft:jungle_pyramid",
+            "dimension": "minecraft:overworld"
+          }
+        }
+      }
+    }
+  }
+}
+
+minecraft:nether_travel
+Triggers when the player travels to the Nether and then returns to the Overworld. Available extra conditions:
+
+[NBT Compound / JSON Object] conditions:
+[NBT Compound / JSON Object] start_position: A location predicate for the last position before the player teleported to the Nether.
+location predicate see Template:Nbt inherit/conditions/location/template
+[NBT Compound / JSON Object] distance: The distance between the position where the player teleported to the Nether and the player's position when they returned.
+Distance predicate see Template:Nbt inherit/conditions/distance/template
+
+An example
+
+{
+  "criteria": {
+    "example": {
+      "trigger": "minecraft:nether_travel",
+      "conditions": {
+        "distance": {
+          "horizontal": {
+            "min": 1000
+          },
+          "absolute": {
+            "min": 1100
+          }
+        }
+      }
+    }
+  }
+}
+
+minecraft:placed_block
+Triggers when the player places a block. Available extra conditions:
+
+[NBT Compound / JSON Object] conditions:
+[NBT List / JSON Array] location: Specifies a list of predicates that must pass in order for the criterion to be granted. The origin is the location of the block placed, the block state belongs to that block, and the tool is the item used to place the block. The this entity is the player that would get the advancement.
+[NBT Compound / JSON Object]: A single predicate.
+
+An example
+
+{
+  "criteria": {
+    "example": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "location": [
+          {
+            "condition": "location_check",
+            "predicate": {
+              "block": {
+                "blocks": "wall_torch",
+                "state": {
+                  "facing": "west"
+                }
+              },
+              "position": {
+                "x": 10,
+                "z": 14
+              },
+              "biome": "minecraft:plains"
+            }
+          }
+        ]
+      }
+    }
+  }
+}
+
+minecraft:player_generates_container_loot
+Triggers when the player generates the contents of a container (container block, minecart with chest, minecart with hopper, boat with chest and suspicious block) with a loot table set. Available extra conditions:
+
+[NBT Compound / JSON Object] conditions:
+[String] loot_table*: The identifier of the generated loot table.
+
+An example
+
+{
+  "criteria": {
+    "example": {
+      "trigger": "minecraft:player_generates_container_loot",
+      "conditions": {
+        "loot_table": "minecraft:chests/jungle_temple_dispenser"
+      }
+    }
+  }
+}
+
+minecraft:player_hurt_entity
+Triggers after the player hurts a mob or player. Available extra conditions:
+
+[NBT Compound / JSON Object] conditions:
+[NBT Compound / JSON Object] damage: The damage that was dealt.
+Damage predicate see Template:Nbt inherit/conditions/damage/template
+[NBT Compound / JSON Object] entity: The entity that was damaged.
+entity predicate see Template:Nbt inherit/conditions/entity/template
+[NBT List / JSON Array] entity: Another format for "entity". Specifies a list of predicates that must pass in order for the criterion to be granted. The checks are applied to the entity, with the origin being the position of the player that would get the advancement.
+[NBT Compound / JSON Object]: A single predicate.
+
+An example
+
+{
+  "criteria": {
+    "example": {
+      "trigger": "minecraft:player_hurt_entity",
+      "conditions": {
+        "damage": {
+          "blocked": true,
+          "type": {
+            "direct_entity": {
+              "type": "minecraft:arrow"
+            }
+          }
+        },
+        "entity": {
+          "type": "minecraft:player",
+          "nbt": "{Tags:[\"example\"]}"
+        }
+      }
+    }
+  }
+}
+
+minecraft:player_interacted_with_entity
+Triggers when the player interacts with an entity. Available extra conditions:
+
+[NBT Compound / JSON Object] conditions:
+[NBT Compound / JSON Object] item: The item that was in the player's hand during interaction.
+item predicate see Template:Nbt inherit/conditions/item/template
+[NBT Compound / JSON Object] entity: The entity that was interacted with.
+entity predicate see Template:Nbt inherit/conditions/entity/template
+[NBT List / JSON Array] entity: Another format for "entity". Specifies a list of predicates that must pass in order for the criterion to be granted. The checks are applied to the entity, with the origin being the position of the player that would get the advancement.
+[NBT Compound / JSON Object]: A single predicate.
+
+An example
+
+{
+  "criteria": {
+    "example": {
+      "trigger": "minecraft:player_interacted_with_entity",
+      "conditions": {
+        "item": {
+          "items": [
+            "minecraft:iron_ingot"
+          ]
+        },
+        "entity": {
+          "type": "minecraft:iron_golem"
+        }
+      }
+    }
+  }
+}
+
+minecraft:player_killed_entity
+Triggers after a player is the source of a mob or player being killed. Available extra conditions:
+
+[NBT Compound / JSON Object] conditions:
+[NBT Compound / JSON Object] entity: The entity that was killed.
+entity predicate see Template:Nbt inherit/conditions/entity/template
+[NBT List / JSON Array] entity: Another format for "entity". Specifies a list of predicates that must pass in order for the criterion to be granted. The checks are applied to the entity, with the origin being the position of the player that would get the advancement.
+[NBT Compound / JSON Object]: A single predicate.
+[NBT Compound / JSON Object] killing_blow: The type of damage that killed an entity.
+Damage type predicate see Template:Nbt inherit/conditions/damage_type/template
+
+An example
+
+{
+  "criteria": {
+    "example": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": {
+          "type": "minecraft:creeper",
+          "nbt": "{powered:1b}",
+          "location": {
+            "biome": "minecraft:the_void"
+          },
+          "effects": {
+            "minecraft:slowness": {},
+            "minecraft:weakness": {
+              "amplifier": {
+                "min": 2
+              }
+            }
+          }
+        },
+        "killing_blow": {
+          "source_entity": {
+            "equipment": {
+              "mainhand": {
+                "items": "minecraft:wooden_sword"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+minecraft:player_sheared_equipment
+Triggers after a player shears equipment off of a mob, such as wolf armor. Available extra conditions:
+
+[NBT Compound / JSON Object] conditions:
+[NBT Compound / JSON Object] entity: The entity whose equipment was sheared.
+entity predicate see Template:Nbt inherit/conditions/entity/template
+[NBT List / JSON Array] entity: Another format for "entity". Specifies a list of predicates that must pass in order for the criterion to be granted. The checks are applied to the entity, with the origin being the position of the player that would get the advancement.
+[NBT Compound / JSON Object] item: The item of equipment that was sheared off.
+item predicate see Template:Nbt inherit/conditions/item/template
+
+An example
+
+{
+  "criteria": {
+    "example": {
+      "trigger": "minecraft:player_sheared_equipment",
+      "conditions": {
+        "entity": {
+          "type": "minecraft:pig",
+          "location": {
+            "biome": "minecraft:forest"
+          },
+        },
+        "item": {
+          "items": "minecraft:saddle"
+        }
+      }
+    }
+  }
+}
+
+minecraft:recipe_crafted
+Triggers when the player crafts a recipe in a crafting table, stonecutter or smithing table. Available extra conditions:
+
+[NBT Compound / JSON Object] conditions:
+[String] recipe_id*: The recipe that was crafted.
+[NBT List / JSON Array] ingredients: An array of item predicates for the recipe ingredients. Each item can match only one predicate, and every predicate needs to pass for the criterion to be granted.
+[NBT Compound / JSON Object]: A single predicate.
+item predicate see Template:Nbt inherit/conditions/item/template
+
+An example
+
+{
+  "criteria": {
+    "example": {
+      "trigger": "minecraft:recipe_crafted",
+      "conditions": {
+        "recipe_id": "minecraft:furnace",
+        "ingredients": [
+          {
+            "items": [
+              "minecraft:cobblestone"
+            ]
+          },
+          {
+            "items": [
+              "minecraft:blackstone"
+            ]
+          },
+          {
+            "items": [
+              "minecraft:cobbled_deepslate"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
+
+minecraft:recipe_unlocked
+Triggers after the player unlocks a recipe (using a knowledge book for example). Available extra conditions:
+
+[NBT Compound / JSON Object] conditions:
+[String] recipe*: The recipe that was unlocked.
+
+An example
+
+{
+  "criteria": {
+    "example": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:wooden_sword"
+      }
+    }
+  }
+}
+
+minecraft:ride_entity_in_lava
+Triggers when a player mounts an entity walking on lava and while the entity moves with them. Available extra conditions:
+
+[NBT Compound / JSON Object] conditions:
+[NBT Compound / JSON Object] start_position: A location predicate for the last position before the player mounted the entity.
+location predicate see Template:Nbt inherit/conditions/location/template
+[NBT Compound / JSON Object] distance: The distance between the start position and the player's position.
+Distance predicate see Template:Nbt inherit/conditions/distance/template
+
+An example
+
+{
+  "criteria": {
+    "example": {
+      "trigger": "minecraft:ride_entity_in_lava",
+      "conditions": {
+        "distance": {
+          "horizontal": {
+            "min": 10,
+            "max": 100
+          }
+        }
+      }
+    }
+  }
+}
+
+minecraft:shot_crossbow
+Triggers when the player shoots a crossbow. Available extra conditions:
+
+[NBT Compound / JSON Object] conditions:
+[NBT Compound / JSON Object] item: The crossbow that is used.
+item predicate see Template:Nbt inherit/conditions/item/template
+
+An example
+
+{
+  "criteria": {
+    "example": {
+      "trigger": "minecraft:shot_crossbow",
+      "conditions": {
+        "item": {
+          "items": [
+            "minecraft:crossbow"
+          ]
+        }
+      }
+    }
+  }
+}
+
+minecraft:slept_in_bed
+Triggers when the player enters a bed. No extra conditions.
+
+An example
+
+{
+  "criteria": {
+    "example": {
+      "trigger": "minecraft:slept_in_bed",
+      "conditions": {
+        "player": {
+          "location": {
+            "position": {
+              "x": {
+                "min": -10,
+                "max": 10
+              }
+            },
+            "biome": "minecraft:jungle",
+            "structure": "minecraft:jungle_pyramid",
+            "dimension": "minecraft:overworld"
+          }
+        }
+      }
+    }
+  }
+}
+
+minecraft:slide_down_block
+Triggers when the player slides down a block. Available extra conditions:
+
+[NBT Compound / JSON Object] conditions:
+[String] block: The block that the player slid on.
+[NBT Compound / JSON Object] state: A map of block property names to values. Errors if the block doesn't have these properties.
+[String] key: Block property key and value pair.
+[NBT Compound / JSON Object] key: Another format.
+[String] max: A maximum value.
+[String] min: A minimum value.
+
+An example
+
+{
+  "criteria": {
+    "example": {
+      "trigger": "minecraft:slide_down_block",
+      "conditions": {
+        "block": "minecraft:honey_block"
+      }
+    }
+  }
+}
+
+minecraft:spear_mobs
+Triggers when the player charges with a spear and hits a set amount of entities. Available extra conditions:
+
+[NBT Compound / JSON Object] conditions:
+[String] player: The player that triggers the advancement. It is optional and can be omitted.
+[Int] count: The count of entities killed by the spear.
+
+An example
+
+{
+  "criteria": {
+    "example": {
+      "trigger": "minecraft:spear_mobs",
+      "conditions": {
+        "count": 5
+      }
+    }
+  }
+}
+
+minecraft:started_riding
+Triggers when the player starts riding a vehicle or an entity starts riding a vehicle currently ridden by the player. No extra conditions.
+
+An example
+
+{
+  "criteria": {
+    "example": {
+      "trigger": "minecraft:started_riding",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "vehicle": {
+                "type": "minecraft:strider"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}
+
+minecraft:summoned_entity
+Triggers after an entity has been summoned. Works with iron golems (iron blocks and pumpkin), snow golems (snow blocks and pumpkin), copper golems (copper block and pumpkin), the ender dragon (end crystals) and the wither (soul sand/soul soil and wither skulls). Using dispensers, commands, or pistons to place the wither skulls or pumpkins still activate this trigger. Available extra conditions:
+
+[NBT Compound / JSON Object] conditions:
+[NBT Compound / JSON Object] entity: The summoned entity.
+entity predicate see Template:Nbt inherit/conditions/entity/template
+[NBT List / JSON Array] entity: Another format for "entity". Specifies a list of predicates that must pass in order for the criterion to be granted. The checks are applied to the entity, with the origin being the position of the player that would get the advancement.
+[NBT Compound / JSON Object]: A single predicate.
+
+An example
+
+{
+  "criteria": {
+    "example": {
+      "trigger": "minecraft:summoned_entity",
+      "conditions": {
+        "entity": {
+          "type": "minecraft:snow_golem"
+        }
+      }
+    }
+  }
+}
+
+minecraft:tame_animal
+Triggers after the player tames an animal. Available extra conditions:
+
+[NBT Compound / JSON Object] conditions:
+[NBT Compound / JSON Object] entity: Checks the entity that was tamed.
+entity predicate see Template:Nbt inherit/conditions/entity/template
+[NBT List / JSON Array] entity: Another format for "entity". Specifies a list of predicates that must pass in order for the criterion to be granted. The checks are applied to the entity, with the origin being the position of the player that would get the advancement.
+[NBT Compound / JSON Object]: A single predicate.
+
+An example
+
+{
+  "criteria": {
+    "example": {
+      "trigger": "minecraft:tame_animal",
+      "conditions": {
+        "entity": {
+          "type": "minecraft:parrot",
+          "nbt": "{Variant:2}"
+        }
+      }
+    }
+  }
+}
+
+minecraft:target_hit
+Triggers when the player shoots a target block. Available extra conditions:
+
+[NBT Compound / JSON Object] conditions:
+[Int] signal_strength: The redstone signal that the target block emits.
+[NBT Compound / JSON Object] signal_strength: Another format.
+[Int] max: The maximum value.
+[Int] min: The minimum value.
+[NBT Compound / JSON Object] projectile: The projectile hit the target block.
+entity predicate see Template:Nbt inherit/conditions/entity/template
+[NBT List / JSON Array] projectile: Another format for "projectile". Specifies a list of predicates that must pass in order for the criterion to be granted. The checks are applied to the projectile, with the origin being the position of the player that would get the advancement.
+[NBT Compound / JSON Object]: A single predicate.
+
+An example
+
+{
+  "criteria": {
+    "example": {
+      "trigger": "minecraft:target_hit",
+      "conditions": {
+        "signal_strength": 15,
+        "projectile": [
+		  {
+		    "condition": "minecraft:entity_properties",
+		    "predicate": {
+			  "type": "minecraft:snowball"
+			},
+			"entity": "this"
+		  }
+		]
+      }
+    }
+  }
+}
+
+minecraft:thrown_item_picked_up_by_entity
+Triggers after the player throws an item and another entity picks it up. Available extra conditions:
+
+[NBT Compound / JSON Object] conditions:
+[NBT Compound / JSON Object] item: The thrown item that was picked up.
+item predicate see Template:Nbt inherit/conditions/item/template
+[NBT Compound / JSON Object] entity: The entity that picked up the item.
+entity predicate see Template:Nbt inherit/conditions/entity/template
+[NBT List / JSON Array] entity: Another format for "entity". Specifies a list of predicates that must pass in order for the criterion to be granted. The checks are applied to the entity, with the origin being the position of the player that would get the advancement.
+[NBT Compound / JSON Object]: A single predicate.
+
+An example
+
+{
+  "criteria": {
+    "example": {
+      "trigger": "minecraft:thrown_item_picked_up_by_entity",
+      "conditions": {
+        "item": {
+          "items": [
+            "minecraft:diamond"
+          ]
+        },
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "predicate": {
+              "type": "minecraft:player"
+            },
+            "entity": "this"
+          }
+        ]
+      }
+    }
+  }
+}
+
+minecraft:thrown_item_picked_up_by_player
+Triggers when a player picks up an item thrown by another entity. Available extra conditions:
+
+[NBT Compound / JSON Object] conditions:
+[NBT Compound / JSON Object] item: The item thrown.
+item predicate see Template:Nbt inherit/conditions/item/template
+[NBT Compound / JSON Object] entity: The entity that threw the item.
+entity predicate see Template:Nbt inherit/conditions/entity/template
+[NBT List / JSON Array] entity: Another format for "entity". Specifies a list of predicates that must pass in order for the criterion to be granted. The checks are applied to the entity, with the origin being the position of the player that would get the advancement.
+[NBT Compound / JSON Object]: A single predicate.
+
+An example
+
+{
+  "criteria": {
+    "example": {
+      "trigger": "minecraft:thrown_item_picked_up_by_player",
+      "conditions": {
+        "item": {
+          "items": [
+            "minecraft:cookie"
+          ]
+        },
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "predicate": {
+              "type": "minecraft:allay"
+            },
+            "entity": "this"
+          }
+        ]
+      }
+    }
+  }
+}
+
+minecraft:tick
+Triggers every tick (20 times a second). No extra conditions.
+
+An example
+
+{
+  "criteria": {
+    "example": {
+      "trigger": "minecraft:tick",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "predicate": {
+              "team": "red"
+            },
+            "entity": "this"
+          }
+        ]
+      }
+    }
+  }
+}
+
+minecraft:used_ender_eye
+Triggers when the player uses an eye of ender (in a world where strongholds generate). Available extra conditions:
+
+[NBT Compound / JSON Object] conditions:
+[Double] distance: The horizontal distance between the player and the stronghold.
+[NBT Compound / JSON Object] distance: Another format.
+[Double] max: A maximum value.
+[Double] min: A minimum value.
+
+An example
+
+{
+  "criteria": {
+    "example": {
+      "trigger": "minecraft:used_ender_eye",
+      "conditions": {
+        "distance": {
+          "min": 100,
+          "max": 200
+        }
+      }
+    }
+  }
+}
+
+minecraft:used_totem
+Triggers when the player uses a totem. Available extra conditions:
+
+[NBT Compound / JSON Object] conditions:
+[NBT Compound / JSON Object] item: The item, works only with totem items.
+item predicate see Template:Nbt inherit/conditions/item/template
+
+An example
+
+{
+  "criteria": {
+    "example": {
+      "trigger": "minecraft:used_totem",
+      "conditions": {
+        "item": {
+          "items": [
+            "minecraft:totem_of_undying"
+          ]
+        }
+      }
+    }
+  }
+}
+
+minecraft:using_item
+Triggers for every tick that the player uses an item that is used continuously. It is known to trigger for bows, crossbows, honey bottles, milk buckets, potions, shields, spyglasses, tridents, food items, eyes of ender, etc. Most items that activate from a single click, such as fishing rods, do not affect this trigger. Available extra conditions:
+
+[NBT Compound / JSON Object] conditions:
+[NBT Compound / JSON Object] item: The item that is used.
+item predicate see Template:Nbt inherit/conditions/item/template
+
+An example
+
+{
+  "criteria": {
+    "example": {
+      "trigger": "minecraft:using_item",
+      "conditions": {
+        "item": {
+          "items": [
+            "minecraft:enchanted_golden_apple"
+          ],
+          "components": {
+            "minecraft:item_name": "Example"
+          }
+        }
+      }
+    }
+  }
+}
+
+minecraft:villager_trade
+Triggers after the player trades with a villager or a wandering trader. Available extra conditions:
+
+[NBT Compound / JSON Object] conditions:
+[NBT Compound / JSON Object] item: The item that was purchased. The "count" tag checks the count from one trade, not multiple.
+item predicate see Template:Nbt inherit/conditions/item/template
+[NBT Compound / JSON Object] villager: The villager the item was purchased from.
+entity predicate see Template:Nbt inherit/conditions/entity/template
+[NBT List / JSON Array] villager: Another format for "villager". Specifies a list of predicates that must pass in order for the criterion to be granted. The checks are applied to the villager, with the origin being the position of the player that would get the advancement.
+[NBT Compound / JSON Object]: A single predicate.
+
+An example
+
+{
+  "criteria": {
+    "example": {
+      "trigger": "minecraft:villager_trade",
+      "conditions": {
+        "item": {
+          "items": [
+            "minecraft:emerald"
+          ],
+          "count": {
+            "min": 1
+          }
+        },
+        "villager": {
+          "nbt": "{VillagerData:{profession:\"minecraft:librarian\"}}"
+        }
+      }
+    }
+  }
+}
+
+minecraft:voluntary_exile
+Triggers when the player causes a raid. No extra conditions.
+
+An example
+
+{
+  "criteria": {
+    "example": {
+      "trigger": "minecraft:voluntary_exile",
+      "conditions": {
+        "player":{
+          "location": {
+            "biome": "minecraft:savanna",
+            "dimension": "minecraft:overworld",
+            "position": {
+              "z": {
+                "min": -10,
+                "max": 10
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+Removed triggers
+minecraft:arbitrary_player_tick
+Triggers every tick for one player only. No available conditions.
+Only exists in 17w18b.
+
+minecraft:item_delivered_to_player
+Triggers when an allay delivers an item to the player. No extra conditions.
+
+An example
+
+{
+  "criteria": {
+    "example": {
+      "trigger": "minecraft:item_delivered_to_player",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "predicate": {
+              "location": {
+                "dimension": "minecraft:the_nether"
+              }
+            },
+            "entity": "this"
+          }
+        ]
+      }
+    }
+  }
+}
+
+Only exists in 22w14a.
+
+minecraft:player_damaged
+Triggers when the player receives damage. Available conditions:
+
+[NBT Compound / JSON Object] conditions:
+[NBT Compound / JSON Object] damage: Damage predicate.
+Damage predicate see Template:Nbt inherit/conditions/damage/template
+
+Removed in 17w14a.
+
+minecraft:safely_harvest_honey
+Triggers when the player harvests honey from a bee nest/beehive with a campfire below it. Available extra conditions:
+
+[NBT Compound / JSON Object] conditions:
+[NBT Compound / JSON Object] block: The block that the player harvested the honey from.
+[String] block: A block ID.
+[String] tag: A block tag.
+[NBT Compound / JSON Object] item: The item that the player used to harvest the honey.
+item predicate see Template:Nbt inherit/conditions/item/template
+
+An example
+
+{
+  "criteria": {
+    "example": {
+      "trigger": "minecraft:safely_harvest_honey",
+      "conditions": {
+        "block": {
+          "tag": "minecraft:beehives"
+        },
+        "item": {
+          "item": "minecraft:shears"
+        }
+      }
+    }
+  }
+}
+
+This trigger was made redundant by the item_used_on_block trigger. Removed in 20w20a.
+
+Temporary triggers
+23w13a_or_b
+minecraft:voted
+Triggers when the player casts a vote. No extra conditions.
+
+24w14potato
+minecraft:bring_home_corruption
+Triggers when the player uses corrupted potato peels on the top side of terre de pomme placed in the Overworld. No extra conditions.
+
+minecraft:compost_staff
+Triggers when the player uses a Potatiesh, Greatstaff of the Peasant on a composter. No extra conditions.
+
+minecraft:eat_armor
+Triggers when the player eats a part of an equipped poisonous potato chestplate. No extra conditions.
+
+minecraft:get_peeled
+Triggers when the player is peeled by another player while wearing a poisonous potato chestplate. No extra conditions.
+
+minecraft:peel_block
+Triggers when the player uses a potato peeler on a block that can be peeled. No extra conditions.
+
+minecraft:peel_potato_armor
+Triggers when the player uses a potato peeler on an entity wearing a poisonous potato chestplate. No extra conditions.
+
+minecraft:peel_potato_sheep
+Triggers when the player uses a potato peeler on a sheep in the Potato dimension. No extra conditions.
+
+minecraft:potato_refined
+Triggers when the player takes an item out of the output slot of a potato refinery. Available extra conditions:
+
+[NBT Compound / JSON Object] conditions:
+[NBT Compound / JSON Object] result_predicate*: The result of the refining recipe.
+[String] type*: The type of refining recipe. Must be either standard for a recipe that outputs a different item than the input, or lubrication for a recipe that increments the lubrication factor of an item.
+[NBT Compound / JSON Object] item_predicate*: The output item.
+item predicate see Template:Nbt inherit/conditions/item/template
+[Int] min_lubrication: The minimum lubrication factor the output item must have. Must exist if [String] type is lubrication and has no effect otherwise.
+
+minecraft:rumble_plant
+Triggers when the player equips a poisonous potato plant on their head. No extra conditions.
+
+minecraft:said_potato
+Triggers when the player sends a chat message containing "potato" (case-sensitive). No extra conditions.
+
+minecraft:throw_lubricated
+Triggers when the player throws a lubricated item. Available extra conditions:
+
+[NBT Compound / JSON Object] conditions:
+[Int] min_lubrication*: The minimum lubrication factor the thrown item must have. This condition does not support a min-max range.
+
+25w14craftmine
+minecraft:consume_poisonous_potatoes
+Triggers when the player consumes a poisonous potato that causes their minecraft.used:minecraft.poisonous_potato statistic to increase to 100. Available extra conditions:
+
+[NBT Compound / JSON Object] conditions:
+[NBT Compound / JSON Object] item: The item that was consumed.
+item predicate see Template:Nbt inherit/conditions/item/template
+
+minecraft:inventory_cashed_in
+Triggers when the player cashes in an item by returning to the hub from a successful mine. Available extra conditions:
+
+[NBT Compound / JSON Object] conditions:
+[NBT List / JSON Array] location: Specifies a list of predicates that must pass in order for the criterion to be granted. The origin is the location of the mine crafter, the block state belongs to that block, and the tool is the item that was cashed in. The this entity is the player that would get the advancement.
+[NBT Compound / JSON Object]: A single predicate.
+
+minecraft:level_completed
+Triggers when the player returns to the hub after successfully exiting a mine. No extra conditions.
+
+minecraft:level_failed
+Triggers when the player returns to the hub after failing a mine. No extra conditions.
+
+minecraft:mine_crafter_upgraded
+Triggers when the player upgrades a mine crafter using experience. No extra conditions.
+
+minecraft:mine_revisitor_activated
+Triggers when the player places a mine on a mine revisitor. No extra conditions.
+
+minecraft:player_unlock_bought
+Triggers when the player buys an unlock. No extra conditions.
+
+minecraft:player_unlock_unlocked
+Triggers when the player gets the ability to buy a new unlock by buying its parent unlock. No extra conditions.
+
+minecraft:special_mine_completed
+Triggers when the player returns to the hub after successfully exiting a special mine. No extra conditions.
+
+26w14a
+minecraft:barrel_roll
+Triggers when a living barrel commanded by the player moves. No extra conditions.
+
+minecraft:built_house
+Triggers when 23 living blocks and a living door combine into a house, if the player commanded any of them. No extra conditions.
+
+minecraft:built_trap
+Triggers when 8 living iron bars or copper bars combine into a trap, if the player commanded any of them. No extra conditions.
+
+minecraft:end_portal_crafted
+Triggers when 12 living end portal frames with eyes of ender in them combine into an end portal, if the player commanded any of them. No extra conditions.
+
+minecraft:eye_frame_combination
+Triggers when a living eye of ender combines with a living end portal frame, if the player commanded either of them. No extra conditions.
+
+minecraft:nether_portal_crafted
+Triggers when 12 living obsidian and a living flint and steel combine into a nether portal, if the player commanded any of them. No extra conditions.
+
+minecraft:use_item
+Triggers when the player uses an item that can be instantly used from their hotbar. Available extra conditions:
+
+[NBT Compound / JSON Object] conditions:
+[NBT Compound / JSON Object] item: The item that is used.
+item predicate see Template:Nbt inherit/conditions/item/template
+
+History
+Java Edition1.1217w13a
+Added advancements, replacing achievements.
+
+Advancements can be progressed with advancement definitions.17w16b
+Added item_durability_changed trigger.17w17a
+Added the command reward.
+
+Added the [String] item, [Int] count and [NBT Compound / JSON Object] nbt parameters have been added to [NBT Compound / JSON Object] icon.17w17b
+All default advancements now pull titles and descriptions from the localization files.
+
+Added change_dimension trigger17w18a
+Re-introduced announcements to chat when someone earns an advancement.
+
+Added breed_animal, tame_animal and tick triggers.
+
+Added /reload, which can reload advancements.
+
+Added /gamerule announceAdvancements, which toggles announcing of advancements, replacing the old server.properties entry.17w18b
+Added consume_item, placed_block and arbitrary_player_tick triggers.pre1
+Replaced the command reward with the function reward.
+
+Added the hidden parameter.
+
+Added effects_changed, used_totem and nether_travel triggers.
+
+Removed arbitrary_player_tick trigger.1.1317w43a
+Added data packs which can be used to create custom advancements.18w14a
+Added channeled_lightning, filled_bucket and fishing_rod_hooked triggers.1.1519w46a
+Added bee_nest_destroyed, safely_harvest_honey and slide_down_block triggers.1.1620w10a
+Changed target_hit trigger: renamed signalStrength to signal_strength, added projectile and shooter.20w18a
+Criteria can now use loot table conditions.
+
+Added player condition to all triggers, except impossible.20w20a
+Removed safely_harvest_honey trigger.
+
+Added item_used_on_block, player_generates_container_loot and thrown_item_picked_up_by_entity triggers.pre6
+Added player_interacted_with_entity trigger.1.1821w39a
+Added fall_from_height and ride_entity_in_lava triggers.1.1922w14a
+Removed location condition from location, slept_in_bed, hero_of_the_village and voluntary_exile triggers. Is now handled with player.location condition.1.1922w15a
+Removed thrown_item_picked_up_by_player and item_delivered_to_player triggers.
+
+Added avoid_vibration trigger.1.19.423w07a
+Added player_interacted_with_entity and player_hurt_entity triggers.1.2023w16a
+Added recipe_crafted trigger.1.20.524w03a
+Added any_block_use and default_block_use triggers.24w09a
+Renamed the [String] item parameter to [String] id.
+
+Renamed the [NBT Compound / JSON Object] nbt parameter to [NBT Compound / JSON Object] components.24w12a
+Added crafter_recipe_crafted and fall_after_explosion triggers.1.2124w21a
+Renamed  advancements to  advancement in the data pack folder directory.1.21.224w37a
+Renamed killed_by_crossbow trigger to killed_by_arrow.1.21.525w04a
+Removed textures/ prefix and .png suffix from background parameter.1.21.6pre3
+Added player_sheared_equipment trigger.1.21.1125w45a
+Added spear_mobs trigger.Upcoming Java Edition26.3snap4
+The loot sub-field in the rewards field now accepts an inline value, a single namespaced ID, a list of namespaced IDs, a list of inline values, or a hash-prefixed tag ID of a minecraft:loot_table type.
+Multiple trigger fields that accepted a list of loot conditions (AKA predicates) are now stricter.
+Changed several triggers: minecraft:any_block_use, minecraft:bee_nest_destroyed, minecraft:bred_animals, minecraft:brewed_potion, minecraft:channeled_lightning, minecraft:cured_zombie_villager, minecraft:default_block_use, minecraft:effects_changed, minecraft:enter_block, minecraft:fall_after_explosion, minecraft:fishing_rod_hooked, minecraft:placed_block, minecraft:item_used_on_block, minecraft:allay_drop_item_on_block, minecraft:player_killed_entity, minecraft:entity_killed_player, minecraft:kill_mob_near_sculk_catalyst, minecraft:lightning_strike, minecraft:player_generates_container_loot, minecraft:thrown_item_picked_up_by_player, minecraft:thrown_item_picked_up_by_entity, minecraft:player_hurt_entity, minecraft:entity_hurt_player, minecraft:player_interacted_with_entity, minecraft:player_sheared_equipment, minecraft:crafter_recipe_crafted, minecraft:recipe_crafted, minecraft:recipe_unlocked, minecraft:slide_down_block, minecraft:summoned_entity, minecraft:tame_animal, minecraft:target_hit, minecraft:villager_trade.
+External links
+Advancement Generator on misode.github.io
+References
+
+ MC-116922
+
+Navigation

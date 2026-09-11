@@ -1,0 +1,1535 @@
+This article is about unused features in Legacy Console Edition.   For removed features, see Legacy Console Edition removed features.
+
+
+
+These features are exclusive to Legacy Console Edition. 
+
+Since the beginning of Minecraft's development, numerous features have been added that are inaccessible and have no actual use. Legacy Console Edition contains a wide variety of such features, namely remnants from other editions, leftover debug material utilized during development and other scrapped elements.
+
+Contents
+
+1 Blocks
+
+1.1 Command blocks
+1.2 Barrier
+1.3 Wood
+1.4 Petrified oak slab
+1.5 Unused block entity data
+
+2 Items
+
+2.1 debug_fourj_item
+2.2 Minecart with command block
+2.3 Spectral arrow
+2.4 Shield
+2.5 Tattered written book
+2.6 Unused item data
+
+3 Entities
+
+3.1 Giant
+3.2 The Killer Bunny
+3.3 Illusioner
+3.4 Unused entity data
+
+4 Status effects
+
+4.1 Glowing
+4.2 Saturation
+4.3 Blindness
+4.4 Health Boost
+4.5 Bad Luck
+
+5 Gameplay
+
+5.1 Hardcore mode
+5.2 Build Off
+5.3 Unsendable death messages
+
+6 Music
+
+6.1 Build Off music track list
+6.2 Unused texture pack music track lists
+6.3 Unused music
+
+7 Sounds
+
+7.1 Corrupted cave sounds
+7.2 Sound loops
+7.3 Combat sounds
+7.4 Log stripping sounds
+7.5 Unused mob sounds
+7.6 Crafting failed duplicate
+7.7 Glide mini game sounds
+7.8 Other
+
+8 Graphics
+
+8.1 Blocks and items
+8.2 Particles
+8.3 Map icons
+8.4 Other
+
+9 Text strings
+
+9.1 Commands
+9.2 Alliance mode
+9.3 Mini game maps
+
+9.3.1 Early Battle map strings
+9.3.2 Tumble arena strings
+
+9.4 Mini game options
+9.5 Controls
+9.6 Custom superflat presets
+9.7 Death messages
+9.8 Exclusive features
+9.9 Removed features
+
+10 Worlds
+
+10.1 Battle map areas
+10.2 Old tutorial world
+
+11 Developer tools
+12 Other
+
+12.1 UI data DLC file
+12.2 Biome preview menu
+12.3 Player format
+12.4 World settings
+
+13 Notes
+14 References
+15 Navigation
+
+Blocks
+Command blocks
+Main article: Command Block
+All three variants of the command block are obtainable solely via external inventory editors, as opposed to Java Edition and Bedrock Edition, where command blocks are easily accessible through cheats. They are completely stripped from any in-game functionality, lacking a corresponding GUI and the ability to run commands. The game still calls on and applies the textures accordingly which seems to imply command blocks were functional in development builds of the game and used by 4J Studios. Several functions and NBT data relating to opening and using command blocks as well as for running many different types of commands are also present in the game data. Equally inoperative conditional variants are acquired by incrementing a command block's data value.
+
+The blocks' descriptions state "Used to execute commands."
+
+
+			Impulse command block
+
+
+
+			Chain command block
+
+
+
+			Repeating command block
+
+
+Barrier
+
+Main article: Barrier
+A barrier is a solid and invisible block, only obtainable through inventory editing. It mostly behaves like its Java Edition counterpart, aside from casting shadows like a normal block, making it moderately visible as a result. 4J Studios utilized barriers in official world templates, notably in the Update Aquatic tutorial world and various mini game maps including the glide track Shrunk. The barrier blocks have later been removed from the Update Aquatic tutorial world in Xbox 360 Edition TU73/PlayStation 3 Edition 1.82/PlayStation 4 Edition 1.83/PlayStation Vita Edition 1.82/Wii U Edition Patch 42.
+Its description states "An invisible but solid block."
+
+Wood
+Main article: Wood
+A block with the log's bark texture on all six sides is referred to as wood. They have multiple variants, corresponding to each wood type and their stripped forms. They are broken with an axe. Unlike in modern editions of the game, they can not be crafted into planks. Furthermore, wood is not flammable despite its appearance, although it does catch fire from lava. Furnaces accept wood as fuel.
+All variants of wood have later been added as obtainable blocks in both Creative and Survival in PlayStation 4 Edition 1.90, it being the only version of Legacy Console Edition to have received the Village & Pillage update.
+Their descriptions state "Chopped using an axe, and can be crafted into planks or used as a fuel."
+
+Petrified oak slab
+
+Main article: Petrified Oak Slab
+The original wooden slab was merely another variant of the stone slab. Thus, it was not flammable and had to be broken with a pickaxe, in spite of being optically identical to a current oak slab. The spruce and birch wooden slab variants added in Xbox 360 Edition TU9 use the correct block type and do not share these traits. Jungle slabs added in Xbox 360 Edition TU12 also use the correct block type.
+The petrified oak slab had finally been replaced with the proper wooden oak slab in the crafting and Creative inventory menus in Xbox 360 Edition TU17/PlayStation 3 Edition 1.07, marking it inaccessible through normal means. However, petrified oak slabs were not converted upon upgrading a world in Legacy Console Edition. Thereby, it is still possible to obtain petrified slabs by loading a save prior to TU17/1.07.
+Its description states "Used for making long staircases. Two slabs placed on top of each other will create a normal-sized double slab block."
+
+Unused block entity data
+
+Block Entity
+
+Tag
+
+Description
+
+Notes
+
+Cauldron
+
+[NBT List / JSON Array] Items
+
+Non-functional, possibly a remnant from brewing potions in cauldrons.
+
+Present on all cauldrons by default.
+
+End Gateway
+
+[Byte] ExactTeleport
+
+When set to 1, the end gateway teleports the player to the exact specified coordinates upon entering.
+
+End gateways normally teleport players to the approximate coordinates.
+
+Heads
+
+[String] ExtraType
+
+Non-functional, possibly a remnant from custom player heads.
+
+Present on all heads with an empty value by default.
+
+Shulker Box
+
+[String] Lock
+
+Specifies the name of the held item needed to open the box. When trying to open it without the key, the sound of a wooden door closing is played and a chat message containing the name of the container, or blank if a custom one isn't provided, is displayed for the player attempting to open it.
+
+Signs
+
+[Byte] Censored
+
+When set to 1, every line of the sign reads "Censored". The actual text strings are still stored in the sign's data.
+
+Present on all signs with value 0 by default.
+
+Items
+debug_fourj_item
+Main article: debug_fourj_item
+debug_fourj_item has the texture of a barrier, no display name nor description. As its ID suggests, it was utilized during development for debugging purposes. When used on a mob, it sets that mob to be persistent. Oddly, the item texture ID barrier only applies to this item, as the actual barrier uses the block texture ID barrier.
+
+Minecart with command block
+
+Main article: Minecart with Command Block
+The minecart with command block only exists in item form. Trying to place one down will summon a regular minecart instead. According to Java Edition and Bedrock Edition, its intended purpose was to execute commands upon interacting with an activator rail.
+The game's localization data contains the unused description for this item, which states "Used to execute commands on the move!"
+
+Spectral arrow
+
+Main article: Spectral Arrow
+Since Legacy Console Edition never received Combat Update's combat changes, the spectral arrow has gone unused. It can be shot using a bow and even has its particle trail ported over. Due to the absence of a functional Glowing effect, it acts identically to a normal arrow.
+Its description states "Gives the victim a glowing outline that can be seen through blocks."
+
+Shield
+Main article: Shield
+Code for the shield is present in the game data, but needs to be assigned an item form manually to be obtained in-game. Despite having a model present in the game's code, it is not seen in-game. It further lacks a texture, display name, and description. It functions like intended, absorbing most of the damage dealt to the player.
+The shield was later added properly in PlayStation 4 Edition 1.90.
+
+Tattered written book
+The "Tattered" fourth generation for written books is not obtainable in standard gameplay. It can only be acquired by setting the [Int] generation tag of a written book to 3.
+
+Unused item data
+
+Item
+
+Tag
+
+Description
+
+All items
+
+[NBT Compound / JSON Object] tag
+[NBT List / JSON Array] CanDestroy
+
+Intended to define which blocks the item can destroy. Even though it is non-functional, the defined blocks still show up in the item's tooltip.
+
+[NBT Compound / JSON Object] tag
+[NBT List / JSON Array] CanPlaceOn
+
+Intended to define on which blocks the held block can be placed on. Even though it is non-functional, the defined blocks still show up in the item's tooltip.
+
+[NBT Compound / JSON Object] tag
+[Int] HideFlags
+
+Hides the specified flags from the item's tooltip.
+
+Weapons, tools and armor
+
+[NBT Compound / JSON Object] tag
+[Byte] Unbreakable
+
+The item will not lose any durability when used. Flag shows up as "Unbreakable" in item's tooltip.
+
+Player head
+
+[NBT Compound / JSON Object] tag
+[NBT Compound / JSON Object] SkullOwner
+[String] Name
+
+Partially functional, does not apply the specified player's skin texture to the head. The head's display name is changed accordingly to "<Player>'s head".
+
+PotionSplash potionLingering potionTipped arrow
+
+[NBT Compound / JSON Object] tag
+[Int] CustomPotionColor
+
+Specifies the color of the effect particles, but not that of the potion texture itself.
+
+[NBT Compound / JSON Object] tag
+[NBT List / JSON Array] CustomPotionEffects
+
+Adds status effects to the potion or tipped arrow with the specified potency and duration. They are listed in the potion's or arrow's tooltip.
+
+Entities
+Giant
+
+Main article: Giant
+A giant is a 12 block tall hostile mob carried over from Java Edition. Due to its lack of AI, it will not move unless hit by a player and is never actually aggravated towards them. A giant can pick up dropped items and equip gear. It was intended to resemble a zombie, ultimately however only uses its model but not its texture file, applying arrows.png instead. It has 100HP × 50 health points and drops 5 experience points in addition to any equipped items upon death.
+
+The Killer Bunny
+
+Main article: The Killer Bunny
+The killer bunny is a hostile variant of the rabbit, summoned by setting a rabbit's [Int] RabbitType tag to 99. In-game, it will automatically be given the custom name "entity.KillerBunny.name". It will not despawn when the difficulty is set to peaceful. It attacks nearby players, dealing 5HP damage on easy, 8HP on normal and 12HP × 6 on hard difficulty. A killer bunny becomes passive when it is lured by a player with a carrot in their hand. It has 3HP health points and the same drops as normal rabbits.
+Its description states "A hostile rabbit that will attack you if you get too close! May drop a rabbit hide or a rabbit's foot when killed."
+
+Illusioner
+
+Main article: IllusionerAn illusioner is an unused illager from Java Edition. An illusioner attacks players, iron golems and villagers with a bow once manually equipped with one. When lacking its weapon, it becomes passive. It creates four fake duplicates when attacking, while being invisible itself. The duplicates vanish as soon as the real illusioner's Invisibility effect fades. It can also cast Blindness for 20 seconds on its victim. An illusioner has 32HP × 16 health points and can drop its bow as well as other equipped items along with 5 experience points.
+Its description states "Illusioners are hostile. They attack with a bow, and use magic to confuse!"
+
+Unused entity data
+
+Entity
+
+Tag
+
+Description
+
+Notes
+
+All entities
+
+[Byte] Invulnerable
+
+Non-functional, intended to make the entity invulnerable to damage.
+
+Present on all entities with value 0 by default.
+
+[Byte] Silent
+
+When set to 1, the entity no longer emits sounds.
+
+[Byte] NoGravity
+
+When set to 1, the entity ignores gravity and will not fall.
+
+[Byte] CustomNameVisible
+
+When set to 1, the entity's custom name is always visible, regardless of being directly looked at or not.
+
+Oddly, this only works on some non-mob entities. This used to work on all entities until Xbox 360 Edition TU25/PlayStation 3 Edition 1.17/PlayStation 4 Edition 1.17/Xbox One Edition CU14/PlayStation Vita Edition 1.17, and worked on even fewer entities after Xbox 360 Edition TU69/PlayStation 3 Edition 1.76/PlayStation 4 Edition 1.76/PlayStation Vita Edition 1.76/Wii U Edition Patch 38.
+
+All mobs
+
+[Byte] NoAI
+
+When set to 1, the mob's movement and behavior are disabled.
+
+[Byte] LeftHanded
+
+When set to 1, the mob holds main hand items in its left hand.
+
+Present on all entities with value 0 by default.
+
+[Byte] PersistenceRequired
+
+When set to 1, the mob will not despawn.
+
+Present on all entities with value 0 by default. Can be enabled in-game through debug_fourj_item.
+
+Armor stand
+
+[Byte] Invisible
+
+When set to 1, the armor stand is invisible and indestructible.
+
+[Byte] NoBasePlate
+
+When set to 1, the armor stand lacks its bottom stone plate.
+
+[Byte] Small
+
+When set to 1, the armor stand is small.
+
+[Byte] Marker
+
+When set to 1, the armor stand loses its hitbox, renders brightly and becomes indestructible.
+
+[Int] DisabledSlots
+
+Disables the placing, removing and replacing of items inside the specified slots.
+
+Item
+
+[Short] PickupDelay
+
+Delays the time in ticks required to pick up the dropped item.
+
+Item frame
+
+[Float] ItemDropChance
+
+Specifies the chance of the displayed item actually dropping when removed.
+
+MinecartMinecart with ChestMinecart with FurnaceMinecart with HopperMinecart with TNT
+
+[Byte] CustomDisplayTile
+
+When set to 1, a custom block can be displayed inside the minecart. It has a solely optical purpose.
+
+Has no effect by itself.
+
+[Int] DisplayData
+
+Specifies the data value of the displayed block.
+
+[Int] DisplayOffset
+
+Specifies the y-position offset of the displayed block.
+
+[String] DisplayTile
+
+Specifies the string ID of the displayed block.
+
+Shulker
+
+[Byte] Color
+
+Changes the color of the shulker's shell to one of the 16 main colors.
+
+Status effects
+Glowing
+Main article: Glowing
+Glowing is an unused status effect that lacks functionality. It was intended to be inflicted on players or mobs hit by spectral arrows and give its victim a glowing outline that is seen through blocks.
+
+Saturation
+Main article: Saturation (effect)
+Saturation is another non-functional status effect, intended to instantly replenish empty hunger points in the hunger bar. Unlike the other unused effects, it has no effect icon.
+
+Blindness
+Main article: Blindness
+Blindness impairs the player's vision down to a four block radius, engulfing the rest in a thick black fog. It prevents sprinting and dealing critical hits. The aforementioned illusioner is capable of inflicting this effect.
+
+Health Boost
+Main article: Health Boost
+Health Boost increases the maximum health points by four per level. The additional health is not visible in the player's health bar, whereas the health bars of ridden mobs with the effect do show it. It shares Absorption's effect icon and functions similarly, with the difference of having to regenerate the added health points manually. When the effect fades, the screen jolts as if taking damage.
+
+Bad Luck
+Main article: Bad Luck
+Bad Luck is a status effect contrary to Luck. Whereas the latter is leastwise obtainable from the Creative inventory, Bad Luck goes unused entirely. It subtracts the effect level from the player's luck attribute, decreasing the chances of getting high-quality loot through fishing.
+
+Gameplay
+Hardcore mode
+Main article: Hardcore
+Remnants of Java Edition's Hardcore mode are still present in the game data. The mode can be unlocked by externally modifying the world data, though any leftover functionality is sparse. It locks the difficulty to hard, as any attempt to change it will result in the difficulty slider reverting back. The player's health bar remains normal and players can still respawn after death.
+
+Build Off
+Main article: Mini Games § Build OffBuild Off was a planned mini game similar to "Build Battle" on Java Edition and Bedrock Edition servers. Despite being cancelled before Legacy Console Edition was discontinued, the game's code contains multiple references to the scrapped mode. Calls for music cues as well as leaderboard functions also exist in the game data. It is implied that texture pack support for the mode was planned as texture packs have the ability to overridde the music cues for it.
+Unsendable death messages
+
+Death message
+
+Trigger
+
+Notes
+
+{*PLAYER*} was squashed by a falling block. [sic]
+
+Appears when the player is killed by a falling block modified to deal damage that is not an anvil.
+
+Besides an anvil, no falling block deals damage upon hitting a player in regular gameplay.
+
+Music
+Main article: Music (Legacy Console Edition)
+Build Off music track list
+A music track list, called "categories" in Java Edition and Bedrock Edition, has been programmed for the Build Off mini game and is completely functional if set to play. The track list calls for MG04_01.binka, which does not exist in any version of Legacy Console Edition, and the six vanilla Creative mode tracks.
+
+Unused texture pack music track lists
+Similar to other editions, texture packs have support for overriding music cues of all of the vanilla track lists, but not all of them have been utilized by packs. The music overrides for Creative mode, the Tumble mini game, despite using texture packs for its festive arenas, and the aforementioned Build Off mini game are not used in any pack but are completely functional.
+
+Unused music
+EgyptianOverworld9.binka is present in the Egyptian Mythology Mash-Up Pack but erroneously was not defined in the music cues and consequently does not play in the pack. This track is included as track 10 on the Minecraft: Egyptian Mythology Soundtrack titled "Renenutet & Meshkenet (Interlude)".
+
+Renenutet & Meshkenet (Interlude)
+
+Track
+
+EgyptianOverworld9.binka
+
+Sounds
+Corrupted cave sounds
+Earlier builds of the game contained corrupted cave sounds. The non-corrupted versions used in-game have been stored separately under cave1_fixed and cave8_fixed.
+
+Corrupted cave sounds
+
+Track
+
+cave1
+
+cave8
+
+Sound loops
+The four unused audio loops from C418's early Java Edition sound tests existed in Xbox 360 Edition's resident.xwb sound bank file as early as 1.66.0033.0 until removed in TU57's audio update from XWB to Bink Audio and in the other versions of Legacy Console Edition in the Minecraft.msscmp sound bank file until removed in PlayStation 3 Edition 1.38/PlayStation 4 Edition 1.38/Xbox One Edition CU36/PlayStation Vita Edition 1.38/Wii U Edition Patch 15. These sounds were removed despite other legacy Java Edition sound effects having remained until the discontinuation of Legacy Console Edition. It was never included in Nintendo Switch Edition. The waterfall loop was extremely compressed, perhaps erroneously, in the sound banks for PlayStation 3 Edition, PlayStation 4 Edition, Xbox One Edition, and PlayStation Vita Edition until PlayStation 3 Edition 1.21/PlayStation 4 Edition 1.21/Xbox One Edition CU18/PlayStation Vita Edition 1.21. It appeared already fixed in Wii U Edition Patch 1.
+
+Sound loops
+
+Track
+
+loops_waterfall ‌[Xbox 360 Edition  only]​[until: TU57]
+Minecraft/loops/waterfall.binka
+
+loops_ocean ‌[Xbox 360 Edition  only]​[until: TU57]
+Minecraft/loops/ocean.binka
+
+loops_cave chimes ‌[Xbox 360 Edition  only]​[until: TU57]
+Minecraft/loops/cave_chimes.binka
+
+loops_birds screaming loop ‌[Xbox 360 Edition  only]​[until: TU57]
+Minecraft/loops/birds_screaming_loop.binka
+
+Combat sounds
+Multiple unused sounds from the Java Edition Combat Update are present within the game files.
+
+Knockback attacks
+
+Track
+
+knockback1
+
+knockback2
+
+knockback3
+
+knockback4
+
+Sweeping attacks
+
+Track
+
+sweep1
+
+sweep2
+
+sweep3
+
+sweep4
+
+sweep5
+
+sweep6
+
+sweep7
+
+Log stripping sounds
+Unused sounds for stripping logs with an axe.
+
+Log stripping sounds
+
+Track
+
+strip1
+
+strip2
+
+strip3
+
+strip4
+
+Unused mob sounds
+Several unused sound files from Java Edition for different mobs are present in the game files.
+
+Ghast affectionate scream
+
+Track
+
+affectionate_scream
+
+Silverfish/endermite walking
+
+Track
+
+step1
+
+step2
+
+step3
+
+step4
+
+Wolf howling
+
+Track
+
+howl1
+
+howl2
+
+Crafting failed duplicate
+A duplicate of the sound played when failing to craft an item.
+
+Crafting failed duplicate
+
+Track
+
+btn_Back
+
+Glide mini game sounds
+Unused sounds found amongst those used for the Glide mini game.
+
+Glide mini game sounds
+
+Track
+
+far_alert_loop
+
+far_alert_solo
+
+redalert_loop
+
+redalert_solo
+
+Other
+Aforementioned leftover sounds from early versions of Java Edition which have not found a use in Legacy Console Edition.
+
+Other
+
+Track
+
+breath
+
+click
+
+drr
+
+hurt
+
+old_explosion
+
+successful_hit
+
+wood_click
+
+Graphics
+Blocks and items
+Structure block textures
+
+terrain.png contains unused textures for structure blocks. These texture resources are called on and used by the game for the structure block which implies that structure blocks were used in development builds of the game. There are also several functions relating to opening and using structure blocks in the game data.
+Structure void
+
+The texture for the structure void is impossible to see in the retail version of the game as the structure void itself is not obtainable. Structure voids are present in all versions of Legacy Console Edition and function identically to Java Edition if loaded in a structure file.
+Duplicate stems
+
+Duplicate stem textures in terrain.png are left over. This was almost certainly to split the textures used by melon stems and pumpkin stems, similar to how birch and oak leaves have been split on the atlas, although it is not clear which it was meant to be.
+Placeholder textures
+Several textures found in terrain.png and items.png are, by a technicality, unused due to animated textures being used for their tiles. Technically these textures are used while loading the animated textures, but disappear nearly instantaneously due to the simple nature of most animations in the game. However, they can appear for a noticeable amount of time if the animation is quite large, which is why the first frame of the animations are usually the ones used on the terrain atlas. If the animated textures are removed, these textures are displayed as any other tile on the atlas would be. By extension, this makes any tile on the atlases eligible for an animated texture, as long as the correct resource identifier is provided in the file path.
+Unused shulker box overlay tile
+
+A comparison of terrain atlases displaying the unused shulker box overlay tile
+terrain.png has an unused tile which was intended to be used in texture packs as a non-tinted overlay for shulker boxes because Legacy Console Edition shulkers have tinted layers, unlike in other editions. The shulker box tile present is used for the particles that appear when breaking a block. The intended use of the unused tile can be found in the Norse Mythology Mash-Up Pack's files where the previously assumed empty space on terrain.png is filled by the top of the shulker box texture. However, the programmers erroneously did not put the tile into the game and the tile does not have a valid resource location. This results in a strange phenomenon in the Norse Mythology Mash-Up Pack where the particles of a broken shulker box appear to only be of the colored markings on the top of the shulker box, but not of the box itself.
+
+Particles
+Old Bubble
+
+Sprite for bubbles that have gone unused after Xbox 360 Edition TU69/PlayStation 3 Edition 1.76/PlayStation 4 Edition 1.76/PlayStation Vita Edition 1.76/Wii U Edition Patch 38. Instead, a grayscale bubble sprite from Bedrock Edition is used and tinted using biome specific water colors. The old sprite is still used on Xbox One Edition and Nintendo Switch Edition due to not receiving Update Aquatic.
+Angry villager
+
+Unused particle depicting an angry villager.
+Bubble pop
+
+
+
+
+
+Unused textures for bubbles popping, originally intended to appear at the top of bubble columns.
+Camera shoot explosion
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Unused explosion particles from Bedrock Edition and Minecraft Education. On those editions, they appear when shooting pictures with a camera.
+
+Map icons
+Target point
+
+Unused map icon of a red triangle.
+
+Other
+Minecraft icon
+
+The user interface assets contain numerous unutilized duplicates of the same Minecraft icon. Such are only sometimes seen when world icons fail to load, although they are sourced from a separate, standalone file in these instances.
+Checkbox texture
+
+Unused textures of a selected checkbox can infrequently be found in addition to the aforementioned Minecraft icons.
+PS3 Marketing Guide Graphic
+
+This graphic is found in PlayStation 3 Edition's and Wii U Edition's DebugUIMarketingGuide720.fui. It was designed to help artists create UI and marketing material for the game. The option to display this graphic is referenced in the debug menu data of other editions with the label "Show Marketing Guide". This graphic is called as a reference in the same UI file in Xbox 360 Edition but does not exist.
+Xbox One Marketing Guide Graphic
+
+A graphic similar to that of the previous entry is found within DebugUIMarketingGuide1080.swf in old versions of PlayStation 4 Edition and Xbox One Edition, and is referenced in but missing from the DebugUIMarketingGuide1080.fui in later versions of PlayStation 4 Edition and Xbox One Edition.
+Update Aquatic graphic
+
+The Update Aquatic artwork is shown in the dialog box used to access the store page for Bedrock Edition on Xbox One Edition and Nintendo Switch Edition since Legacy Console Edition was discontinued. However, it was also left in the game files of old-gen editions which did not receive Bedrock Edition and thus do not utilize this graphic.
+Old skin select menu
+Numerous textures of the old character skin selector are still present in the game files.
+Alliance icon
+
+During the development of Battle, teams were planned and partially worked on. Remnants of the scrapped feature are this graphic, leftover game rule data and unused text strings.
+
+Altimeter sprites
+
+
+
+			Altimeter sprite
+
+
+
+			Button to toggle altimeter
+
+
+A toggle-able altimeter had been planned for Glide. Associated graphics of the discarded mechanic were left over in the game files.
+Grass block render
+
+This render of a grass block is used in Wii U Edition on the Game Pad in TV Mode. It remains unutilized in other editions.
+Attack cooldown
+
+
+
+
+
+Unused textures for the attack cooldown from Java Edition.
+Enchantment slot
+
+
+The slot for applying enchantments to an item in the enchanting table used to have a respective icon. Albeit removed in-game later for unknown reasons, its textures have remained.
+Mini game placeholder
+
+Wii U Edition contains an early placeholder image that would have been displayed when selecting DLC for Battle. Additionally, it reveals an early name for said mini game.
+Altered unused textures
+Various unused textures and textures utilized by unused features are altered by texture packs, despite not being seen in-game in those environments.
+
+Text strings
+Commands
+Strings referencing or hinting at the use of commands are hidden in the localization data.
+
+Localization key
+
+Text string
+
+D2BD3683
+
+[{*PLAYER*} : {*COMMAND*}]
+
+24A5EDDC
+
+Set the time to %d
+
+5AFF0202
+
+Execute Command
+
+Alliance mode
+Despite the aforementioned alliance mode having been scrapped during development of Battle, numerous messages referencing the discarded mode were left in the localization data. Further expanding on the concept, it is implied that teams could have been formed during active rounds by teaming up with other remaining survivors.
+
+Localization key
+
+Text string
+
+056D9F12
+
+Only one team remaining, teams will be dissolved in {*NUMBER*} seconds!
+
+C08F5C90
+
+{*PLAYER*} invited you to join {*TEAM*}
+
+46B07E26
+
+Invite to Alliance
+
+05F0B230
+
+Your invitation from {*PLAYER*} expired
+
+7F7DEA6C
+
+Leave Alliance
+
+5BDBD6D3
+
+You are leaving {*TEAM*}
+
+E9D46798
+
+{*PLAYER*} is leaving {*TEAM*}
+
+39B60856
+
+You left {*TEAM*}!
+
+13B38DED
+
+{*PLAYER*} left {*TEAM*}!
+
+350AA150
+
+Reject Alliance
+
+2473F5A1
+
+Survivor
+
+ADC5F08E
+
+{*PLAYER*} was added to {*TEAM*}
+
+87C37625
+
+You were added to {*TEAM*}
+
+40BC050C
+
+Max team size is {*SIZE*}!
+
+137F436F
+
+team(s)
+
+B7FC5190
+
+Teams are disabled!
+
+09988B49
+
+Not enough survivors to team up
+
+Mini game maps
+Unused strings relating to mini game maps, such as map names, descriptions, and custom messages.
+
+Early Battle map strings
+Some Battle maps had early names and descriptions in the Xbox 360 Edition DLC package versions of the packs but are overridden by the title update content.
+
+Map
+
+Localization key
+
+English string
+
+English (Great Britain) string
+
+Ruin
+
+IDS_MALL_WORLD_NAME
+
+Derelict
+
+Mall
+
+IDS_MALL_DESCRIPTION
+
+Scavenge for resources, and Battle for survival, in this abandoned building.
+
+Shop until you drop or battle for survival. The mall has it all.
+
+Castle
+
+IDS_CASTLE_WORLD_NAME
+
+Castle
+
+IDS_CASTLE_DESCRIPTION
+
+Fight at close quarters in side [sic] a castle.
+
+Invasion!
+
+IDS_ROOFTOPS_WORLD_NAME
+
+Rooftops
+
+IDS_ROOFTOPS_DESCRIPTION
+
+Don't fall off!
+
+Shipyard
+
+IDS_SHIPYARD_DESCRIPTION
+
+Something something Airships.
+
+Tumble arena strings
+Each Tumble arena has a name, description, and a custom death message stored in the map's localization data.
+Basic arena
+
+Localization key
+
+Text string
+
+IDS_BASIC_ARENA_WORLD_NAME
+
+Basic
+
+IDS_BASIC_ARENA_DESCRIPTION
+
+So basic!
+
+IDS_BASIC_ARENA_KILLBOX_MESSAGE
+
+{*PLAYER*} tried to escape!
+
+Halloween arena
+
+Localization key
+
+Text string
+
+IDS_HALLOWEEN_ARENA_WORLD_NAME
+
+Halloween
+
+IDS_HALLOWEEN_ARENA_DESCRIPTION
+
+A Halloween themed Tumble arena!
+
+IDS_HALLOWEEN_KILLBOX_MESSAGE
+
+{*PLAYER*} was spooked to death!
+
+Festive arena
+
+Localization key
+
+Text string
+
+IDS_FESTIVE_ARENA_WORLD_NAME
+
+Festive
+
+IDS_FESTIVE_ARENA_DESCRIPTION
+
+A Festive themed Tumble arena!
+
+IDS_FESTIVE_KILLBOX_MESSAGE
+
+{*PLAYER*} was naughty!
+
+Birthday arena
+
+Localization key
+
+Text string
+
+IDS_BIRTHDAY_ARENA_WORLD_NAME
+
+Birthday
+
+IDS_BIRTHDAY_ARENA_WORLD_DESCRIPTION
+
+A Birthday themed Tumble arena!
+
+IDS_BIRTHDAY_KILLBOX_MESSAGE
+
+{*PLAYER*} has left the party!
+
+Mini game options
+When setting the game type of a mini game to "Custom" before creating a lobby, the player has the ability to modify various aspects of the mini game through customizable settings. In addition to the existing options, several more were planned to be included for Battle and Tumble. Nevertheless, these options have eventually been cut, ostensibely because they were deemed unnecessary by the developers. Their labels and descriptors have remained in the localization data.
+Spectator Noises
+An option was planned to control whether spectators of Battle rounds were capable of making noises.
+
+Localization key
+
+Text string
+
+099B4826
+
+Spectator Noises
+
+C41FF2D0
+
+When checked, allows players to make entity noises while in spectator mode.
+
+Enable Take Everything
+An alternative label and description exist for the option to allow players to instantly extract a container's items into their inventory in Battle.
+
+Localization key
+
+Text string
+
+29D17956
+
+Enable Take Everything
+
+A9F239B0
+
+When enabled, allows players to use the 'Take Everything' button to take all items from a chest at once.
+
+Grace Period
+In Battle's final rendition, the opening grace period of a round is set to a constant duration, whereas during development, an option was considered to manually set said duration.
+
+Localization key
+
+Text string
+
+A3264AED
+
+Grace Period
+
+44FADDCB
+
+The duration of the invulnerable period at the start of each round.
+
+Hunger Rate
+The rate at which the hunger bar of players depletes during Battle was supposed to be its standalone setting. This feature was later implemented via "Hunger Settings" in Xbox 360 Edition TU58/PlayStation 3 Edition 1.60/PlayStation 4 Edition 1.57/Xbox One Edition CU51/PlayStation Vita Edition 1.57/Wii U Edition Patch 28 but these strings remain unused.
+
+Localization key
+
+Text string
+
+ACB8B6F3
+
+Hunger Rate
+
+097CF305
+
+How quickly players will become hungry.
+
+Item Respawn
+This option would have altered the intervals between chest refills. Interestingly, the undermentioned description implies that only the central chests would have been refilled.
+
+Localization key
+
+Text string
+
+46460E2B
+
+Item Respawn
+
+3A0B4A6D
+
+How long it will take before food, arrows, and weapons begin to respawn at the central chests.
+
+Enable Showdown
+The showdown shortly before a Battle round's conclusion was intended to be toggle-able as well.
+
+Localization key
+
+Text string
+
+43772E44
+
+Enable Showdown
+
+2D851DC2
+
+Showdown reveals Online ID's near the end of the round.
+
+Small Inventory
+Even though the option to reduce inventory space is fully integrated into Battle, an old description for it has been found left over.
+
+Localization key
+
+Text string
+
+DA27DA69
+
+When enabled, players [sic] inventory is reduced to only 9 slots.
+
+Layer Decay
+The blocks comprising the layers in Tumble were meant to be capable of decay if configured accordingly.
+
+Localization key
+
+Text string
+
+D5EFA28D
+
+Layer Decay
+
+20C9A193
+
+Layers will decay over time.
+
+Bows and Knockback Arrows
+A mode was planned for Tumble which would have equiped all competitors with bows, presumably enchanted with Punch, and arrows with the ability to break any struck block and naturally knock other players back.
+
+Localization key
+
+Text string
+
+77E28504
+
+Bows and Knockback Arrows
+
+5AF26EA2
+
+All players have a Bows with an unlimited supply of Knockback Arrows. They will destroy blocks but also push players off the edge.
+
+TNT
+Another planned Tumble mode would have had contestants utilizing unlimited, instantaneously primed TNT to compete against each other and destroy blocks.
+
+Localization key
+
+Text string
+
+667F2B9D
+
+TNT
+
+CDA0E4E3
+
+All players have unlimited TNT. They can place it to destroy all blocks nearby.
+
+Controls
+The game's localization data contains several unused strings related to player controls. Apparently, an additional control category for menus has been cut, where actions like opening the pause menu could have been rebound. The abilities to quickly swap items with the offhand and to switch to a left handed playable character are hinted at, too.
+
+Localization key
+
+Text string
+
+976ACDBA
+
+Menus
+
+69C78F9D
+
+Pause
+
+F4DA0577
+
+Equip/Unequip Offhand
+
+864419FA
+
+Left Handed
+
+Custom superflat presets
+The localization data reveals that players were meant to be able to save specific layer configurations of superflat worlds as custom presets.
+
+Localization key
+
+Text string
+
+477A886A
+
+Save as new preset
+
+0C982AFB
+
+Create Preset
+
+47253208
+
+Are you sure you want to delete this custom preset?
+
+75E7AFD6
+
+Delete Preset
+
+98E19F7B
+
+Delete Preset
+
+8CFADF7E
+
+Overwrite Preset
+
+CAE58E0A
+
+Are you sure you want to overwrite this custom preset?
+
+6A9B1859
+
+Overwrite Preset
+
+8F192ED6
+
+Save Preset
+
+6B1858F8
+
+Your superflat configuration has not been saved to a preset, would you like to save it now?
+
+4280EFAB
+
+Unsaved Configuration
+
+Death messages
+Multiple death messages have been left unimplemented.
+
+Localization key
+
+Text string
+
+F0EBA2E4
+
+{*PLAYER*} was shot by {*SOURCE*} using {*ITEM*}
+
+2DCF5941
+
+{*PLAYER*} was killed by Ender Dragon breath
+
+44E2DD06
+
+{*PLAYER*} fell from a high place
+
+62F8280D
+
+{*PLAYER*} fell off a ladder
+
+461BA4E8
+
+{*PLAYER*} fell off some vines
+
+C130636A
+
+{*PLAYER*} fell out of the water
+
+7BA47E90
+
+{*PLAYER*} fell too far and was finished by {*SOURCE*}[verify]
+
+3EC0C74A
+
+{*PLAYER*} fell too far and was finished by {*SOURCE*} using {*ITEM*}[verify]
+
+15C8F4AE
+
+{*PLAYER*} experienced kinetic energy
+
+D98E2236
+
+{*PLAYER*} died[verify]
+
+06046121
+
+{*PLAYER*} was killed by {*SOURCE*} using {*ITEM*}
+
+E3BE8E0D
+
+{*PLAYER*} was pummeled by {*SOURCE*} using {*ITEM*}
+
+64400F01
+
+{*PLAYER*} was speared by {*SOURCE*} using {*ITEM*}
+
+Exclusive features
+Strings pertaining to features exclusive to specific versions of Legacy Console Edition have been left over in other versions which do not utilize them.
+16 player support
+Xbox One Edition and PlayStation 4 Edition support up to 16 simultaneous players in mini games, while other versions allow only up to 8, and PlayStation Vita Edition allows up to 4. Associated text strings have been left over in the deficient editions.
+
+Localization key
+
+Text string
+
+9DD59A16
+
+Large+
+
+27969DEF
+
+Choose between Small and Large maps or let the system decide automatically.
+Large+ maps are like Large maps but come with an extra helping of chests!
+Note: Playing on a Small or Large map with more than 8 players will automatically disable the Central Spawn option!
+
+D357A767
+
+9th
+
+62A47DB7
+
+10th
+
+7C6E0E3E
+
+11th
+
+7BCD68A5
+
+12th
+
+7F7770AC
+
+13th
+
+E8B9ED93
+
+14th
+
+EC63F59A
+
+15th
+
+EBC35001
+
+16th
+
+Removed features
+Text strings associated with removed features have been preserved in the game data.
+Blocks
+Leftover display names of the rose and locked chest. The former has been renamed to the poppy in Xbox 360 Edition TU31/Xbox One Edition CU19/PlayStation 3 Edition 1.22/PlayStation 4 Edition 1.22/PlayStation Vita Edition 1.22/Wii U Edition Patch 3, whilst the latter has been completely removed in Xbox 360 Edition TU19/PlayStation 3 Edition 1.12/PlayStation 4 Edition 1.12/Xbox One Edition CU7/PlayStation Vita Edition 1.12.
+
+Localization key
+
+Text string
+
+168961B3
+
+Locked Chest
+
+1FD7D564
+
+Rose
+
+Bedrock fog
+In early versions of Legacy Console Edition, a dark fog and gray particles would obstruct the player's view if near bedrock level. Players were able to toggle the bedrock fog in the graphics settings. This is alternatively known as void fog, and had been removed in Xbox 360 Edition TU31/PlayStation 3 Edition 1.22/PlayStation 4 Edition 1.22/Xbox One Edition CU19/PlayStation Vita Edition 1.22/Wii U Edition Patch 3.
+
+Localization key
+
+Text string
+
+5DC9B58D
+
+Bedrock Fog
+
+Vote kick
+When Battle initially released, it was possible to kick players during an active round, given that a sufficient amount of players voted in favor of it. This feature has been removed in Xbox 360 Edition TU38/Xbox One Edition CU26/PlayStation 3 Edition 1.30/PlayStation 4 Edition 1.30/PlayStation Vita Edition 1.30/Wii U Edition Patch 9.
+
+Localization key
+
+Text string
+
+49B6297D
+
+{*PLAYER*} voted to kick {*PLAYER2*} ({*COUNT*} of {*MAX_COUNT*})
+
+Worlds
+Battle map areas
+
+
+
+This section needs expansion. 
+You can help by expanding it.Instructions: Search remaining battle maps (Battle Map Packs 3 and 4, Halloween, Festive, Valley, Fallout Battle Map Pack).
+
+Cavern
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+In the large variant, an unseen village and a structure consisting of mossy stone bricks inside a river can be found next to the cavern's opening. The latter is positioned right above an ascending stairway connecting to the arena but simply serves as a set dressing and is not reachable. This implies that the stairs were initially supposed to lead up to the surface, instead of being blocked off at their top steps. A testing area with various utility blocks is set up further away, which was ostensibly used by the developers to test interaction privileges or similar in Battle.
+
+Cove
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+An inaccessible cave section is located behind the large arena's eastern rock face. It is mostly decorated and seemingly a scrapped portion of the map. Two routes of the cave connect to the eastern escarpment's midpoint and base. Both cave entrances have been sealed off with iron bars, rendering the cave partially viewable from the arena. Although the third route is a dead end, its heading and close proximity to the arena's giant skull suggest it would have led to the skull's interior. Several immured rooms are found around the cave, with one holding a chest. Another chest is found enclosed within the mountain. Neither is filled during gameplay. Two copies of the unused cave section are found beyond the arena's western escarpment. These look to be earlier versions of the cave section, lacking redstone ores and blocks. Furthermore, these copies exhibit broken block states, physical damage dealt by explosions, and cut-offs. One copy is reachable through escaping the arena by swimming up a waterfall on the western escarpment.
+Crucible
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+The large variant conceals a second lava sea beneath the normally accessible layer of lava. Along with numerous leftover cages and an early location for the bottom high-value chest, both of which are also found underground, it hints at the possibility that the arena's floor originally extended deeper.
+Temple
+
+
+
+
+
+
+
+
+
+
+
+
+
+An entire underground section has been cut from the large variant. It is located right below the temple and would have been accessible through descending stairs at the central spawn. These are sealed off in the map's final rendition. The scrapped section seems fully finished with decoration and even a loot chest that is refilled during gameplay.
+Lair
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Multiple oddities are present in the small variant. An arrow made out of quartz blocks at world spawn points into the arena's direction. The arena itself has a creeper face carved into its outer walls. Both variants have an unused room that is sealed off from the arena. Whereas the room of the small variant is empty, that of the large variant is fully decorated.
+Atlantis
+
+
+
+
+
+
+
+
+
+A few inaccessible rooms are located underground which appear to be leftovers from a once planned segment in the arena's large variant that was ultimately scrapped.
+Ruin
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Both map variants contain several cut rooms and staircases which would have connected different parts of the map. Although a select few are partially decorated, they appear mostly unfinished. Furthermore, parts of the background city scenery around the arenas are heavily obscured and consequently deemed unused.
+Siege
+
+
+
+
+
+
+
+
+
+Unutilized redstone wiring is scattered throughout the small arena. They appear to have been intended for differing purposes, as, for example, a few connect to various dispensers containing splash potions of weakness, poison and slowness, whereas it is unclear what the rest has been intended for. In addition, between the two canals in the large arena which can be accessed during standard gameplay, an unfinished third canal is found.
+Old tutorial world
+The file of the Xbox 360 Edition TU46/Xbox One Edition CU36/PlayStation 3 Edition 1.38/PlayStation 4 Edition 1.38/PlayStation Vita Edition 1.38/Wii U Edition Patch 15 tutorial world is still stored in the game files, despite having been superseded by the Xbox 360 Edition TU69/PlayStation 3 Edition 1.76/PlayStation 4 Edition 1.76/PlayStation Vita Edition 1.76/Wii U Edition Patch 38 tutorial world.
+
+Developer tools
+
+
+
+This section is missing information about: Details about specific debug menus, how and on which editions they can be accessed. 
+Please expand the section to include this information. Further details may exist on the talk page.
+
+4J Studios utilized a number of debug tools to aid during Legacy Console Edition's development.
+
+Other
+UI data DLC file
+An unused DLC file type named UIDataFile that would have originally been used for UI graphics in texture packs, similarly to how other Data DLC files, usually using a .pck extension, hold other graphics for packs. Despite being unused entirely, the file type remains a valid DLC file type for DLC packs although it does nothing and all functionality has been removed. This format was replaced with Media.arc files that housed Adobe Shockwave Flash files containing UI graphics and layouts. This was until SWF files were replaced with a custom file format, named FUI, in PlayStation Editions 1.52, Xbox One Edition CU44, and Wii U Edition Patch 24. According to Steven Woodward, also known as 4JSteve, this change was made because the old format presented memory constraints in all editions and performance issues for PlayStation 3 Edition. Xbox 360 Edition used Microsoft's proprietary XUI format until switching to .fui in TU57.
+
+Biome preview menu
+The biome preview menu on Wii U Edition, as restored by user Pirlo.
+An unused menu that displays a map of the seed before it is generated. The user is able to preview the biomes in the seed and each biome is given a unique, but oddly inverted, color entry. The user can also randomize the seed, zoom into the map and change the world size. The playable area of the seed can also be panned horizontally and vertically with directional inputs. The world does not generate accurately to the preview, likely due to removed code, leaving artifacts where the world would have ended if it was not shifted or scaled. The strings for this menu are translated in other languages, implying that this was a planned feature rather than a developer tool.
+
+Player format
+
+Tag
+
+Description
+
+[Byte] Invulnerable
+
+When set to 1, the player is immune to all types of damage except for void damage.
+
+[Int] Score
+
+Stores the player's accumulated score, but its value is never shown in-game.
+
+World settings
+
+Tag
+
+Description
+
+Notes
+
+[Byte] allowCommands
+
+Non-functional, intended to toggle cheats/commands.
+
+Present in all worlds with value 0 by default.
+
+[Byte] DifficultyLocked
+
+Non-functional, intended to lock the world's difficulty.
+
+Present in all worlds with varying values​[more information needed] by default.
+
+[Byte] hardcore
+
+When set to 1, the unused Hardcore mode mentioned above is toggled.
+
+Present in all worlds with value 0 by default.
+
+[String] LevelName
+
+Leftover from Java Edition's method of storing world names.
+
+Each Legacy Console Edition use a different method for storing save names and none are using the LevelName NBT tag. Xbox 360 Edition stores save names and thumbnails in an extensionless file named _MinecraftSaveInfo. PlayStation 3 Edition stores save names in an extensionless file named FILEINFO in a folder named <TITLE-ID>-CACHE. PlayStation 4 Edition stores the save name in a PARAM.sfo file in a sce_sys folder in the save's folder. Wii U Edition stores the save name and thumbnail of a world in a .ext file located next to an identically named, but extensionless, save file. Present in all worlds with value "world" by default.
+
+Notes
+
+ Interestingly, both English strings store "Castle" but most other languages present have "Castle Crashers" stored which may imply a cancelled collaboration.
+
+References
+
+ https://bugs.mojang.com/browse/MC/issues/MC-132067
+
+ https://www.minecraftforum.net/forums/minecraft-editions/minecraft-playstation-3-edition/mcps3-discussion/2389591-mcps3-official-known-bugs-discussion?page=9#c224
+
+Navigation

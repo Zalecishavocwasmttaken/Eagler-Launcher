@@ -1,0 +1,332 @@
+This feature is exclusive to Java Edition. 
+
+Each level (world) has its own folder. A level folder is often identified by having a level.dat file, along with other subfolders to store the maps and regions of the level.
+
+Contents
+
+1 Directory structure
+
+1.1 Current
+1.2 Deprecated
+
+2 level.dat format
+3 generatorOptions tag format
+4 session.lock format
+5 poi format
+6 History
+
+6.1 level format History
+6.2 level.dat History
+6.3 weather.dat History
+6.4 wandering_trader.dat History
+6.5 ender_dragon_fight.dat History
+6.6 scheduled_events.dat History
+6.7 world_gen_settings.dat History
+
+7 See also
+8 References
+9 Navigation
+
+Directory structure
+Current
+This is the directory structure of the .minecraft/saves folder, where the game saves the entire world data:
+
+: A world directory.
+ level.dat: Stores global information about the level. See below.
+ level.dat_new: Program writes new global information about the level, and after that file is renamed to level.dat.
+ level.dat_old: A backup of the previous level.dat file.
+ session.lock: Used to give write access to the last program to modify this file. See below.
+ <uuid>.dat: A data file of the player. See Player.dat format.
+ <uuid>.json: A data file of the player. See Statistics storage format.
+ <uuid>.json: A data file of the player. See Advancement storage format.
+ data: Miscellaneous data of the world.
+ minecraft: Vanilla namespace for Miscellaneous data of the world.
+ game_rules.dat: Gamerules of the world.
+ random_sequences.dat: Stores random number sequences for loot tables or the /random command. See Random sequence format.
+ scoreboard.dat: Stores scoreboard data, such as objectives' definition, entities' scores, teams, and display slots of objectives. See Scoreboard § NBT format.
+ stopwatches.dat: Stores Stopwatch data.
+ wandering_trader.dat: Stores Wandering Trader data.
+ world_clocks.dat: Stores World Clock data.
+ world_gen_settings.dat: Stores World Generation Settings data.
+ scheduled_events.dat: Stores Scheduled Events data.
+ custom_boss_events.dat: Stores Boss Events data.
+ weather.dat: Stores Weather related data.
+ datapacks: Stores the world's data packs.
+ <datapack>: A data pack.
+ dimensions: Contains region files of dimensions, added by vanilla, data packs or mods.
+ <namespace>: Namespace of the defined dimension.
+ <path>: Path of the defined dimension.
+ data: Miscellaneous data of the custom dimension.
+ raids.dat: Stores information about the ongoing raids in this dimension.
+ region: See above.
+ entities: See above.
+ poi: See above.
+ minecraft: Namespace of the vanilla dimension.
+ overworld: Path of the Overworld dimension.
+ data: Contains data of the Overworld.
+ <namespace>: Namespace for the Overworld data.
+ minecraft: Vanilla Namespace for the Overworld data.
+ raids.dat: Stores information about the ongoing raids in Overworld. See raids.dat format.
+ world_border.dat: Stores information about the World Border.
+ chunk_tickets.dat: /forceload.
+ entities:
+ entities: Contains entity files for the Overworld. These used to be part of region.
+ poi:
+ poi: Villager identified beds, job sites, and bells in the Overworld. Nether portals, bee nests, bee hives, and lodestones also use this.
+ region:
+ r.<x>.<y>.mca: A region file. See Anvil file format.
+ the_end: Path of the End dimension.
+ the_nether: Path of the End dimension.
+ resourcepacks: Contains resourcepacks of the world.
+ resources.zip: A resource pack applied when the world loads in.
+
+Deprecated
+
+: A world directory.
+ level.dat_mcr: A backup of the level.dat file before conversion from MCRegion to Anvil.
+ players: Stores the individual states of the players that have played on this level, for versions before 1.7.6.
+ <player>.dat: A data file of the player. See Player.dat format.
+ data: Miscellaneous data of the world.
+ villages.dat: Stores information about the villages in the world. The "nether" and "end" files have been added in 1.8. Replaced by point of interest region files in 1.14.
+ villages_nether.dat: See above.
+ villages_end.dat: See above.
+ region: Backups of the region files before conversion from MCRegion to Anvil.
+ r.<#>.<#>.mcr: A region file. See Region file format.
+ DIM-1: Nether dimension.
+ r.<#>.<#>.mcr: A region file. See Region file format.
+ DIM1: The End dimension.
+ r.<#>.<#>.mcr: A region file. See Region file format.
+ <#>
+ <#>
+ c.<#>.<#>.dat: Backups of the chunk files before conversion from the Alpha level format to MCRegion. See Alpha level format.
+
+level.dat format
+The level.dat file contains global information about the world such as the time of day, the singleplayer player, the level generator used, and the seed. When a world is loaded, the current level.dat is backed up to level.dat_old.
+It is an NBT file with this structure:
+
+[NBT Compound / JSON Object] The root tag.
+[NBT Compound / JSON Object] Data: This tag contains all the level data.
+[Boolean] allowCommands: 1 or 0 (true/false) - true if cheats are enabled.
+[NBT Compound / JSON Object] DataPacks: Options for data packs.
+[NBT List / JSON Array] Disabled: List of disabled data packs.
+[String]: A single data pack.
+[NBT List / JSON Array] Enabled: List of enabled data packs. By default, this is populated with a single string "vanilla".
+[String]: A single data pack.
+[Int] DataVersion: An integer displaying the data version.
+[NBT Compound / JSON Object] difficulty_settings: This tag contains all difficulty settings.
+[String] difficulty: The difficulty of the world. e.g. "normal".
+[Boolean] hardcore: 1 or 0 (true/false) - If true, the player respawns in Spectator on death in singleplayer. Affects all four game modes.
+[Boolean] locked: 1 or 0 (true/false) - If true, the player cannot change the difficulty of the world.
+[NBT List / JSON Array] enabled_features: List of experimental features enabled for this world. Doesn't appear if there are no experimental features enabled.
+[String]: A single experimental feature.
+[Int] GameType: The default game mode for the singleplayer player when they initially spawn. 0 is Survival, 1 is Creative, 2 is Adventure, 3 is Spectator. Note: singleplayer worlds do not use this field to save which game mode the player is currently in.
+[Boolean] initialized: 1 or 0 (true/false) - Normally true after a world has been initialized properly after creation. If the initial simulation was canceled somehow, this can be false and the world is re-initialized on next load.
+[Long] LastPlayed: The Unix time in milliseconds when the level was last loaded.
+[String] LevelName: The name of the level.
+[Int Array] singleplayer_uuid: UUID of the player in singleplayer
+[NBT List / JSON Array] ServerBrands: List of brands of the level.
+[String]: A single server brand. e.g. "vanilla".
+[NBT Compound / JSON Object] spawn: The world spawn data.
+[String] dimension: The spawn dimension, as three integers
+[Int] pitch: The pitch.
+[Int] yaw: The yaw.
+[Int Array] pos: The spawn position.
+[Long] Time: The number of ticks since the start of the level.
+[Int] version: File format version of level.dat. Values 19132 or 19133 represent Region and Anvil respectively.
+[NBT Compound / JSON Object] Version: Information about the Minecraft version the world was saved in.
+[Int] Id: An integer displaying the data version.
+[String] Name: The version name as a string, e.g. "15w32b".
+[String] Series: Developing series. In 1.18 experimental snapshots, it was set to "ccpreview". In others, set to "main".
+[Boolean] Snapshot: 1 or 0 (true/false) – Whether the version is a snapshot or not.
+[NBT List / JSON Array] version_history:​[upcoming: JE 26.3] A list of data versions that this world has used in the past, from earliest to latest. The last entry will be the same as [Int] Version.Id.
+[Int]: A data version.
+[Boolean] WasModded: 1 or 0 (true/false) - true if the world was opened in a modified version.
+
+generatorOptions tag format
+The [NBT Compound / JSON Object] generatorOptions tag format varies depending on the generator name. It affects only the Overworld dimension. This applies to 1.15 and below.
+This is the format for the Buffet world type:
+
+[NBT Compound / JSON Object] generatorOptions:
+[NBT Compound / JSON Object] biome_source:
+[NBT Compound / JSON Object] options: Ignored if the biome source ID is minecraft:vanilla_layered.
+[NBT List / JSON Array] biomes:
+[String]: A biome ID. If this or the biome source ID is omitted or invalid, the code assumes minecraft:ocean.
+[Byte] size: The size of the biomes. Only used when the biome source ID is minecraft:checkerboard. The biome squares have sides of 2<size> (which can be < 1) chunks. If no value is entered, the code assumes 2.
+[String] type: An applicable biome source ID. It determines how the biomes are distributed. Cannot be selected in-game and defaults to minecraft:fixed for unmodified worlds.
+[NBT Compound / JSON Object] chunk_generator:
+[NBT Compound / JSON Object] options:
+[String] default_block: A block ID, by default minecraft:stone.
+[String] default_fluid: A fluid ID, by default minecraft:water.
+[String] type: An applicable chunk generator ID. It determines the overall structure of the dimension. If this is omitted or invalid, the code assumes minecraft:surface.
+
+This is the format for the Superflat world type:
+
+[NBT Compound / JSON Object] generatorOptions:
+[NBT Compound / JSON Object] structures:
+[NBT Compound / JSON Object] <structure name>: An empty compound named as the structure, for example decoration. If parameters are set, for example village(distance=9 size=1), then the compound contains this information.
+[String] <parameter name>: The parameter value is a number represented by a string.
+[NBT List / JSON Array] layers:
+[NBT Compound / JSON Object]: A layer.
+[String] block: The block ID.
+[Int] height: The height of the layer, used in worlds created before 1.13-pre5.
+[Byte] height: The height of the layer, used in worlds created since 1.13-pre5, if it's < 128 blocks.
+[Short] height: The height of the layer, used in worlds created since 1.13-pre5, if it's >= 128 blocks.
+[String] biome: The biome ID.
+[String] flat_world_options: The unescaped "generator-settings" string. Created only if the world was generated through a server. Until snapshot 20w11a, it is not parsed by the game due to MC-134900, thus the above compounds won't be created, making "generator-settings" ineffective.
+
+This is the format for the Old Customized world type that existed before 18w06a:
+
+[String] generatorOptions: Controls options for the world generator. Used only if the world type is Superflat or Customized. The format for Superflat is a comma separated list of block IDs from the bottom of the map up, and each block ID may optionally be preceded by the number of layers and an "*" ("x" before 1.8). Damage values are not supported. See detailed format for Superflat world type: before 1.8 and in 1.8-1.12. Refer also to Superflat#History that shows how the format has been changing over time. The format for Customized world type is an extremely long String which consists of name:value pairs resembling JSON (as shown in Old_Customized#Presets).
+
+session.lock format
+This file contains a single character U+2603 ☃ SNOWMAN encoded (E2 98 83) in UTF8.
+The process goes something like this:
+
+Program opens session.lock.
+Program writes a single character ☃ (\u2603) to session.lock.
+Program tries to acquire a lock on a session.lock.
+If the lock on a session.lock fails, program aborts and gives up its lock on the level.
+Minecraft can sometimes try to hold the lock on a level even after the player has started playing a different level, and this can cause strange behavior. It is recommended to ensure that Minecraft is closed before trying to acquire a lock on a level.
+Before 1.16, the lock contained a big endian 64-bit integer timestamp of when the level was last accessed since the epoch. The program, instead of writing a snowman and acquiring a lock, would monitor the file for changes, and would abort if changed.
+
+poi format
+Files in the poi folder use similar structure to region Anvil files (hence the mca extension), but the NBT content is different.
+
+[NBT Compound / JSON Object] The root tag.
+[NBT Compound / JSON Object] Data: This tag contains all the level data.
+[NBT Compound / JSON Object] Sections: Keys are stringified chunk section's Y coordinate (can be negative, a section at Y=2 starts at block Y=32).
+[NBT Compound / JSON Object] <number>:
+[Boolean] Valid: True (1) when created by the game, however, if the decoding of POI NBT (from the region file) data fails, and the game then save the region file again, it might save false (0). This key is internally set to true when the POI section is refreshed, and a refresh always happens when the chunk section (with terrain data) at the same coordinates is decoded. To sum up, it is very unlikely to get false.
+[NBT List / JSON Array] Records: May be empty.
+[NBT Compound / JSON Object]: Single record.
+[Int Array] pos: 3-element array encoding X, Y and Z.
+[Int] free_tickets: Indicates how many "tickets" are available for villagers to claim. A value of zero indicates that this poi is not available for any villager to claim. Internally Minecraft specifies a max tickets for each poi type. This is the maximum number of villagers which can "take a ticket" (aka be using that poi type at the same time; aka max number of villagers which can claim that poi and store it in their "brain"). As of 1.17 all villager eligible poi type's have a ticket limit of one (1), with the single exception being minecraft:meeting, (block minecraft:bell) which has a limit of 32. Poi entries which are not for villager interaction such as beehives, nether portals, lighting rods, etc., have a max ticket count of zero (0) and therefore always have a free_tickets of zero as well.
+[String] type: Type of the point, for example: minecraft:home, minecraft:meeting, minecraft:butcher, minecraft:armorer, etc.
+[Int] DataVersion: An integer displaying the data version.
+
+History
+level format History
+Java Edition1.1419w11a
+The poi folder was added to world saves and village data is moved to it.1.1620w14a
+Timestamps are no longer written to the session.lock file.1.16pre1
+A single character ☃(E2 98 83) is now written to the session.lock file.26.1snap6
+Restructured the entirety of the world save format :
+
+All default dimensions are now stored in the dimensions subfolder, renamed the DIM-1 and DIM1 folders to dimensions/minecraft/the_nether and dimensions/minecraft/the_end respectively.
+
+The Overworld data has been moved to dimensions/minecraft/overworld, this includes the region, entities, and poi folders, as well as related files out of data.
+
+The top level data folder is now only for data shared across dimensions instead.
+
+Player storage has been moved to the players subdirectory : advancements players/advancements, playerdata -> players/data, stats -> players/stats.
+
+The world resource pack (resources.zip) has been moved to the resourcepacks subdirectory.
+
+Data saved in the data folder is now namespaced. All the data is stored in a namespace subfolder in the corresponding data folder, all existing vanilla data files have been moved accordingly.
+
+Command storage is now stored in namespace subfolders instead of having a namespace suffix.
+
+chunks.dat has been renamed to chunk_tickets.dat.
+
+Data for maps is now stored in the data/minecraft/maps subfolder, map index files have been renamed to only the number.
+
+idcounts.dat has been renamed to last_id.dat.
+
+There is no more raids_end.dat special case, the End now uses raids.dat.
+
+Structures saved by Structure Blocks have been moved from generated/namespace/structures to generated/namespace/structure.
+Upcoming Java Edition26.3snap7
+level.dat now contains a version_history list with prior data versions of the file.
+level.dat History
+Java Edition26.1snap6
+Restructured level.dat format :
+
+The [NBT Compound / JSON Object] Player tag in level.dat has been replaced with a [Int Array] singleplayer_uuid tag, referencing the player data file to use.
+
+Difficulty-related settings have been moved into a [NBT Compound / JSON Object] difficulty_settings tag.
+
+[Int] Difficulty is changed to [String] difficulty with theses allowed values : peaceful, easy, normal and hard, [Boolean] DifficultyLocked is renamed to [Boolean] locked.
+
+Data for the Ender Dragon fight has been moved out to the data folder to dimensions/minecraft/the_end/data/minecraft/ender_dragon_fight.dat
+
+Wandering Trader data has been moved out to the data folder to data/minecraft/wandering_trader.dat
+
+[NBT Compound / JSON Object] CustomBossEvents has been moved to the data folder to data/minecraft/custom_boss_events.dat
+
+Weather-related data has been moved to the data folder to data/minecraft/weather.dat
+
+[NBT Compound / JSON Object] ScheduledEvents has been moved out to the data folder to data/minecraft/scheduled_events.dat
+
+[NBT Compound / JSON Object] game_rules has been moved out to the data folder to data/minecraft/game_rules.dat
+
+[NBT Compound / JSON Object] WorldGenSettings has been moved out to the data folder to data/minecraft/world_gen_settings.dat
+
+[NBT Compound / JSON Object] world_clocks has been moved out to the data folder to data/minecraft/world_clocks.dat
+
+weather.dat History
+Java Edition26.1snap6
+Moved the weather data from level.dat to data/minecraft/weather.dat
+
+[Int] clearWeatherTime has been renamed to [Int] clear_weather_time
+
+[Int] rainTime has been renamed to [Int] rain_time
+
+[Int] thunderTime has been renamed to [Int] thunder_time
+
+wandering_trader.dat History
+Java Edition26.1snap6
+Moved the Wandering trader data from level.dat to data/minecraft/wandering_trader.dat
+
+[Int Array] WanderingTraderId has been removed.
+
+[Int] WanderingTraderSpawnChance has been renamed to [Int] spawn_chance
+
+[Int] WanderingTraderSpawnDelay has been renamed to [Int] spawn_delay
+
+ender_dragon_fight.dat History
+Java Edition26.1snap6
+Moved the Ender Dragon Fight data from level.dat to data/minecraft/ender_dragon_fight.dat
+
+[Undefined] NeedsStateScanning has been renamed to [Undefined] needs_state_scanning
+
+[Boolean] DragonKilled has been renamed to [Boolean] dragon_killed
+
+[Boolean] PreviouslyKilled has been renamed to [Boolean] previously_killed
+
+[Undefined] IsRespawning has been replaced by [Undefined] respawn_stage with theses allowed values : start, preparing_to_summon_pillars, summoning_pillars, summoning_dragon, end
+
+[Undefined] Dragon has been renamed to [Undefined] dragon_uuid
+
+[NBT Compound / JSON Object] ExitPortalLocation has been renamed to [NBT Compound / JSON Object] exit_portal_location
+
+[NBT List / JSON Array] Gateways has been renamed to [NBT List / JSON Array] gateways
+
+Added [Undefined] respawn_time, the time that has elapsed since the current stage of the respawn sequence started.
+
+Added [NBT List / JSON Array] respawn_crystals - a list of UUIDs for the end crystals used to trigger the respawn sequence.
+
+scheduled_events.dat History
+Java Edition26.1snap6
+Moved the Scheduled Events data from level.dat to data/minecraft/scheduled_events.dat
+
+[Undefined] Name has been renamed to [Undefined] id
+
+[Undefined] TriggerTime has been renamed to [Undefined] trigger_time
+
+[Undefined] Callback has been renamed to [Undefined] callback
+
+[Undefined] Type has been renamed to [Undefined] type
+
+world_gen_settings.dat History
+Java Edition26.1snap6
+Moved the World Generation Settings data from level.dat to data/minecraft/world_gen_settings.dat
+
+[Boolean] generate_features has been renamed to [Boolean] generate_structures
+
+See also
+Bedrock Edition level format
+References
+
+ http://www.reddit.com/r/Minecraft/comments/ywjbk/superflat_customization/c5zusxl
+
+Navigation

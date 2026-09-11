@@ -1,0 +1,4101 @@
+For other uses, see Command (disambiguation).
+
+ "Code" redirects here.  For the command, see Commands/code.
+Showcase of using /time to change the time in Bedrock Edition
+Commands (also known as console commands or slash commands) are a game mechanic that execute specific actions when entered as text or triggered by blocks or certain entities.
+
+Contents
+
+1 Usage
+2 Commands guide
+
+2.1 Syntax
+2.2 Restrictions
+
+2.2.1 Cheats
+
+2.3 Argument types
+2.4 Parsing and execution
+
+2.4.1 Output
+2.4.2 Result
+
+3 List of commands
+
+3.1 Available in Java Edition
+
+3.1.1 Debugging commands
+
+3.2 Available in Bedrock Edition and Minecraft Education
+3.3 Hidden commands
+3.4 Removed commands
+
+3.4.1 Removed from Java Edition
+3.4.2 Removed from Bedrock Edition or Minecraft Education
+3.4.3 Developer commands
+3.4.4 Agent commands
+
+3.5 Joke commands
+
+4 History
+
+4.1 Command additions and changes
+
+4.1.1 Java Edition
+4.1.2 Bedrock Edition
+
+4.2 April Fools commands
+
+5 Issues
+6 See also
+7 References
+8 External links
+9 Navigation
+
+Usage
+The interface of a command block in Java Edition
+The interface of a command block in Bedrock Edition
+In the client, commands are entered via the chat window, which is displayed by pressing the T / ⏎ Return / ‌[BE  only] / ‌[BE  only] or / key. Using the / key also enters the forward-slash that commands require as a prefix, so it is a useful shortcut. The ↑ Up /  and ↓ Down /  keys can be used to view previously entered text, including all previously executed commands.
+When the cursor is at a location corresponding to some types of argument (such as an entity ID), a list of applicable values appears above the text box. If the argument already contains characters, the list displays only those values containing the typed text. Pressing ↹ Tab while entering commands cycles through possible commands or arguments, and can be used to auto-enter them.
+Commands may also be entered in a multiplayer server's console but are not preceded by a / when entered this way. A server owner running commands in this way is often referred to as "ghosting".
+Commands in command blocks can be preceded by a slash, but it is not required.
+Commands can be executed in the following ways:
+
+Entered by a player in the chat screen.
+Executed by a command block or a minecart with command block.
+In a dedicated server, entered in the console.
+In functions, in a data pack or behavior pack.
+Clicking a text component that has "run_command" action.‌[JE  only]
+Requested by a WebSocket server connected to a client.‌[BE  only]
+Clicking a dialog's action button.‌[JE  only]
+By an NPC dialogue.‌[BE  only]
+In scripts, in a behavior pack.‌[BE  only]
+In animation controllers, in a behavior pack.‌[BE  only]
+In a block event response, in a behavior pack.‌[BE  only]
+In an entity event response, in a behavior pack.‌[BE  only]
+The toast that appears when a command macro fails
+In Bedrock Edition, commands can be executed through specified hotkeys on keyboard & mouse controls, known as command macros. The keybinds with commands can be customized below all other keybinds in the settings. For up to 10 macros, a command can be entered in a text input, which can be quickly executed in-game by pressing ⌥ Alt + Key. Command macros can be preceded by a slash, but it is not required. This feature is not to be confused with Java Edition's function macros, where functions may reference additional parameters and use them in macro lines (see Function (Java Edition) § Macros).
+
+Commands guide
+Syntax
+In Java Edition:
+
+Entry
+Meaning
+
+plain text
+Enter this literally, exactly as shown.
+
+<argumentName>
+An argument, which should be replaced with an appropriate value. Note: the angle brackets should be replaced too; they only indicate the purpose of the text.
+
+Decorator
+Meaning
+
+[entry]
+This entry is optional.
+
+(entry|entry)(entry|entry|entry)etc.
+Required. Pick one of these entries.
+
+[entry|entry][entry|entry|entry]etc.
+Optional. Pick one of these entries.
+
+ellipsis ...
+In the game, another full command is required.In this wiki, some required parts are left out.
+
+For example: [<size>] is an optional argument. [size] is an optional plain text.
+For example: advancement (grant|revoke) <targets> only <advancement> [<criterion>], where advancement and only are plain texts that should be entered literally; (grant|revoke) means we should pick one plain text from grant and revoke; <targets> and <advancement> are required arguments, which should be replaced with appropriate values; [<criterion>] is an optional argument.
+In Bedrock Edition:
+
+Entry
+Meaning
+
+plain text
+Enter this literally, exactly as shown.
+
+name: type
+An argument, which should be replaced with an appropriate value.
+
+command: command
+Another full command is required.
+
+plain text|plain textplain text|plain text|plain textetc.
+Enter one of these texts literally.
+
+Decorator
+Meaning
+
+<entry>
+This entry is required.
+
+[entry]
+This entry is optional.
+
+ellipsis ...
+In this wiki, some required parts are left out.
+
+The angle bracket decorator (<entry>) is usually not used on a plain text. A required plain text does not need any decorator.
+For example, both set and <set> represent a required plain text, but the latter one is usually not used. <size: int> is a required argument.
+In both Java Edition and Bedrock Edition, square bracket decorator ([entry]) mean that an entry is optional. Entries decorated with square brackets can only be at the end of a command. Multiple entries decorated with square brackets are allowed at the end of a command, for example, a [b] [c] at the end of a command indicates that only a, a b, and a b c are valid.
+
+Restrictions
+Most commands require the executor to have a high enough permission level. That means most commands are only available in the singleplayer world if cheats are enabled, and are only available in multiplayer servers if the player is an operator. See permission level for details.
+Some commands have restrictions on who can use the command or in what context.
+
+None: The command has no restriction.
+Cheats only: Applicable only to Bedrock Edition. When executed by the server, or a script, the command is available no matter whether cheats are enabled. (Commands from the console, a scheduled function or a ticking function are executed by the server.) When executed in other ways, the command is available only if cheats are enabled. When cheats are disabled, these commands can't be used unless executed by a server or a script, even if the executor has a high permission level.
+In Java Edition, whether cheats are enabled only affects the permission level of a player. If an executor has a high enough permission level, it can use corresponding commands regardless of whether cheats are allowed.
+Dedicated server only: The command is available only on dedicated servers.
+No dedicated server: The command is not available on dedicated servers.
+Cheats
+Cheats can be enabled when creating a new world by Allow Commands‌[Java Edition  only] / Cheats‌[Bedrock Edition  only] options.
+In Java Edition, the "Allow Commands" option when creating a new world only affects the player in a singleplayer world or the owner of a LAN world. The "Allow Commands" option when opening a LAN world affects all players in the LAN world.
+In Java Edition, in singleplayer worlds where cheats were not enabled at creation, they can be enabled on a temporary basis for players other than the host by opening the current game session to LAN play ( Esc → "Open to LAN", then "Allow Cheats" button and "Start LAN World"). This is not permanent but allows the use of commands from other players until the host quits the world, and changes players make via commands (items spawned, etc.) are saved with the world. The player can do this each time the player starts playing the world again. Note that this disables game pausing for the duration, so while open to LAN, the player should get somewhere safe or reload their world before using the Game Menu. The player can disable the LAN world by reloading the world. To permanently enable cheats, the level.dat file has to be edited.
+Cheats can be toggled at any time in the in-game World Options menu in Java Edition or the "Cheats" tab of the settings menu in Bedrock Edition. In Bedrock Edition, enabling cheats in a world permanently prevents players from unlocking achievements in that world, even if cheats are later turned off. In Bedrock Dedicated Server, /changesetting command can be used to toggle cheats.
+
+Argument types
+Main article: Argument types
+There are different argument types for arguments in commands. Coordinates, target selector, SNBT, text component, and so on are commonly used formats in arguments.
+
+Parsing and execution
+See also: Brigadier
+
+The command performing on the server side is divided into two stages: command parsing and command execution. During the command parsing stage, the game identifies the string as a command and checks whether the command is complete and whether arguments are specified correctly. During the command execution stage, the command fulfills its purpose.
+When typing a command in the chat, or command block, the command is also be parsed in the client side first to provide autocompletion and help the player detect typing mistakes.
+
+When typing an argument into the chat, it's noticeable if an argument cannot be parsed in the client side. However, being able to be parsed in the client side does not guarantee that this argument can be parsed in the server side.
+In Java Edition, if an argument can't be parsed by the client, the argument is marked in red, and a syntax error message is displayed above the chat bar.
+In Bedrock Edition, when typing in the chat, if an argument can be parsed in the client side, the next argument in syntax hint turns to white from gray. If all arguments (including optional arguments) are entered and parseable in the client side, the whole syntax hint turns to gray from white.
+In Java Edition, typing a command in command block also behaves as above
+In Bedrock Edition, when typing a command in command block, autocompletion is provided without syntax hint.
+In Bedrock Edition, when entering into a command block, the command is parsed on the server side once the command block screen is closed. If the command is unparseable in the server side, a syntax error message is outputted into its output box.
+When attempting to execute an unparseable command, an error message is displayed.
+
+In Java Edition, the message has a <--[HERE] at its end.
+In Bedrock Edition, the message is Unknown command or Syntax error: unexpected ... at ....
+Commands in functions are all parsed when loading the function. If any command in a function file is unparseable, the function cannot be loaded by the game. In Java Edition, macro lines are parsed when attempting to run the function, see also Function (Java Edition) § Macros and Function (Java Edition) § Loading and parsing.
+In Bedrock Edition, if a command in a script is unparseable, an error is thrown when trying to execute the command.
+
+Output
+After trying to execute a command, it may yield output values, including success count and stored values‌[Java Edition  only].
+Success count is the value a command passes to the command block executing it. A command block can power a redstone comparator facing away from it (may be separated by a block) with signal strength being the success count. The signal strength reflects the success count of the last command executed. Even after the command block is deactivated, the success count is retained until the command is executed again. In Bedrock Edition, the success count is also returned to the script executing the command. In Java Edition, commands that cannot be executed in command blocks have no success count. In Bedrock Edition, commands that cannot be executed in command blocks or scripts still have a success count, but it cannot be obtained. In Java Edition, success count is always 0 or 1, except the /execute command. In Bedrock Edition, success count is an integer between 0 to 2,147,483,647 (both inclusive) related to the command (e.g., the number of players affected by the command, the number of blocks that were altered, etc.)
+Stored values‌[JE  only] include success value and result value, which are the values passed by other commands to the /execute command, when a command is executed by a /execute command. These two values can be stored to a specified location by the store subcommand in the /execute command. The success value is always 0 or 1. The result value is an integer (rounded down if not). All commands may yield these two stored values after execution, with only two exceptions: /execute command itself does not yield these two stored values; /function command may not yield these two stored values in certain situation.
+
+Result
+After trying to execute a command, it has a certain result. Possible results include "Unparseable", "Failed", "Successful", "Void"‌[JE  only], "Terminated"‌[JE  only], and "Error"‌[JE  only].
+
+Unparseable
+If the entered command is unable to be parsed in the server side, it is unparseable.
+Error‌[JE  only]
+If an error occurs with a command, it means that there's a noticeable bug on the command. It may result in unintended side effects, and it jumps out the /execute command halfway through, causing some branches to not be executed.
+Technically, it means that an exception other than brigadier.exceptions.CommandSyntaxException is thrown during execution.
+Void‌[JE  only]
+Exclusive to /function command. If it is void, the command has no result or success value to be stored by /execute store.
+Terminated‌[JE  only]
+Exclusive to /execute command. When running a /execute command, if the number of execution branches becomes 0, the command terminates, ending before the last sub-command is executed.
+For example: /execute as @s run ... in a command block. The command block is not an entity, so it cannot be selected by a target selector. As a result, the command is terminated at as @s.
+Failed and Successful
+If a command is not unparseable, erroring, void, nor terminated, it may be failed or successful.
+If the success count is 0, the command is failed. Otherwise, the command is successful.
+In Java Edition, commands that cannot be executed in command blocks have no success count. It is failed when /execute store success ... run ... stores 0, and successful when /execute store success ... run ... stores 1.
+In Bedrock Edition, if the command cannot be executed in command blocks or scripts, it still has a success count, but it cannot be obtained.
+Note that when we say that a command is failed or successful, it must not be unparseable, error, void, or terminated. Though when being unparseable, error, void or terminated, the success count is 0, it is not considered as being failed nor successful.
+Note that not all "successful" commands actually do something, and not all "failed" commands fail to do something useful.
+List of commands
+The tables below will summarize all commands.
+
+Available in Java Edition
+
+Command
+
+Description
+
+OP level required
+
+Multiplayer only
+
+/advancement
+
+Gives, removes, or checks player advancements.
+
+2
+—
+
+—
+—
+
+—
+
+/attribute
+
+Queries, adds, removes or sets an entity attribute.
+
+2
+—
+
+—
+
+—
+
+/ban
+
+Adds player to banlist.
+
+3
+Yes
+
+—
+—
+
+—
+
+/ban-ip
+
+Adds IP address to banlist.
+
+3
+Yes
+
+—
+—
+
+—
+
+/banlist
+
+Displays banlist.
+
+3
+Yes
+
+—
+—
+
+—
+
+/bossbar
+
+Creates and modifies bossbars.
+
+2
+—
+
+—
+—
+
+/clear
+
+Clears items from player inventory.
+
+2
+—
+
+—
+—
+
+—
+
+/clone
+
+Copies blocks from one place to another.
+
+2
+—
+
+—
+—
+—
+
+/compute​[upcoming: JE 26.3]
+
+Evaluates minecraft:number_provider.
+
+2
+—
+
+—
+—
+—
+—
+
+/damage
+
+Applies damage to the specified entities.
+
+2
+—
+
+—
+
+—
+
+/data
+
+Gets, merges, modifies, and removes block entity, entity, and command storage NBT data.
+
+2
+—
+
+—
+
+/datapack
+
+Controls loaded data packs.
+
+2
+—
+
+—
+—
+—
+
+/debug
+
+Starts or stops a debugging session.
+
+3
+—
+
+—
+—
+—
+—
+
+/defaultgamemode
+
+Sets the default game mode.
+
+2
+—
+
+—
+—
+—
+
+/deop
+
+Revokes operator status from a player.
+
+3
+Yes
+
+—
+—
+
+—
+
+/dialog
+
+Shows dialog to clients.
+
+2
+—
+
+—
+—
+
+—
+
+/difficulty
+
+Sets the difficulty level.
+
+2
+—
+
+—
+—
+—
+
+/effect
+
+Adds or removes status effects.
+
+2
+—
+
+—
+
+—
+
+/enchant
+
+Adds an enchantment to a player's selected item.
+
+2
+—
+
+—
+—
+
+—
+
+/execute
+
+Executes another command.
+
+2
+—
+
+/experience
+
+An alias of /xp. Adds or removes player experience.
+
+2
+—
+
+—
+—
+
+—
+
+/fetchprofile
+
+Fetches a player profile.
+
+2
+—
+
+—
+—
+
+—
+
+/fill
+
+Fills a region with a specific block.
+
+2
+—
+
+—
+—
+—
+
+/fillbiome
+
+Fills a region with a specific biome.
+
+2
+—
+
+—
+—
+—
+
+/forceload
+
+Forces chunks to constantly be loaded or not.
+
+2
+—
+
+—
+—
+—
+
+/function
+
+Runs a function.
+
+2
+—
+
+—
+—
+—
+
+/gamemode
+
+Sets a player's game mode.
+
+2
+—
+
+—
+—
+
+—
+
+/gamerule
+
+Sets or queries a game rule value.
+
+2
+—
+
+—
+—
+—
+
+/give
+
+Gives an item to a player.
+
+2
+—
+
+—
+—
+
+—
+
+/help
+
+Provides help for commands.
+
+0
+—
+
+—
+—
+—
+—
+
+/item
+
+Manipulates items in inventories.
+
+2
+—
+
+—
+
+/jfr
+
+Starts or stops a JFR profiling.
+
+4
+—
+
+—
+—
+—
+—
+
+/kick
+
+Kicks a player off a server.
+
+3
+—
+
+—
+—
+
+—
+
+/kill
+
+Kills entities (players, mobs, items, etc.).
+
+2
+—
+
+—
+
+—
+
+/list
+
+Lists players on the server.
+
+0
+—
+
+—
+—
+
+—
+
+/locate
+
+Locates closest structure, biome, or point of interest.
+
+2
+—
+
+—
+
+/loot
+
+Drops items from an inventory slot onto the ground.
+
+2
+—
+
+—
+
+/me
+
+Displays a message about the sender.
+
+0
+—
+
+—
+—
+
+—
+
+/msg
+
+An alias of /tell and /w. Displays a private message to other players.
+
+0
+—
+
+—
+—
+
+—
+
+/op
+
+Grants operator status to a player.
+
+3
+Yes
+
+—
+—
+
+—
+
+/pardon
+
+Removes player from the banlist.
+
+3
+Yes
+
+—
+—
+
+—
+
+/pardon-ip
+
+Removes IP address from the banlist.
+
+3
+Yes
+
+—
+—
+
+—
+
+/particle
+
+Creates particles.
+
+2
+—
+
+—
+—
+
+—
+
+/perf
+
+Captures info and metrics about the game for 10 seconds.
+
+4
+Yes
+
+—
+—
+—
+
+/place
+
+Used to place a configured feature, jigsaw, template, or structure at a given location.
+
+2
+—
+
+—
+—
+
+/playsound
+
+Plays a sound.
+
+2
+—
+
+—
+—
+
+—
+
+/posteffect​[upcoming: JE 26.3]
+
+Allows adding or removing post effects to players.
+
+2
+—
+
+—
+—
+
+—
+
+/publish
+
+Opens single-player world to local network.
+
+4
+SP only
+
+—
+—
+—
+
+/random
+
+Draw a random value or control the random number sequence.
+
+0 (without sequence)2
+—
+
+—
+—
+—
+—
+
+/recipe
+
+Gives or takes player recipes.
+
+2
+—
+
+—
+—
+
+—
+
+/reload
+
+Reloads loot tables, advancements, and functions from disk.
+
+2
+—
+
+—
+—
+—
+
+/return
+
+Control execution flow inside functions and change their return value.
+
+2
+—
+
+—
+—
+—
+—
+
+/ride
+
+Used to make entities ride other entities, or stop entities from riding.
+
+2
+—
+
+—
+
+—
+
+/rotate
+
+Changes the rotation of an entity.
+
+2
+—
+
+—
+
+—
+
+/save-all
+
+Saves the server to disk.
+
+4
+Yes
+
+—
+—
+—
+
+/save-off
+
+Disables automatic server saves.
+
+4
+Yes
+
+—
+—
+—
+
+/save-on
+
+Enables automatic server saves.
+
+4
+Yes
+
+—
+—
+—
+
+/say
+
+Displays a message to multiple players.
+
+2
+—
+
+—
+—
+
+—
+
+/schedule
+
+Delays the execution of a function.
+
+2
+—
+
+—
+—
+—
+—
+
+/scoreboard
+
+Manages scoreboard objectives and players.
+
+2
+—
+
+—
+
+—
+
+/seed
+
+Displays the world seed.
+
+0 in singleplayer2 in multiplayer
+—
+
+—
+—
+—
+
+/setblock
+
+Changes a block to another block.
+
+2
+—
+
+—
+—
+—
+
+/setidletimeout
+
+Sets the time before idle players are kicked.
+
+3
+Yes
+
+—
+—
+
+—
+
+/setworldspawn
+
+Sets the world spawn.
+
+2
+—
+
+—
+—
+—
+
+/spawnpoint
+
+Sets the spawn point for a player.
+
+2
+—
+
+—
+—
+
+—
+
+/spectate
+
+Make one player in spectator mode spectate an entity.
+
+2
+—
+
+—
+—
+
+—
+
+/spreadplayers
+
+Teleports entities to random locations.
+
+2
+—
+
+—
+
+—
+
+/stop
+
+Stops a server.
+
+4
+Yes
+
+—
+—
+—
+
+/stopsound
+
+Stops a sound.
+
+2
+—
+
+—
+—
+
+—
+
+/stopwatch
+
+Creates and modifies real-time stopwatches.
+
+2
+—
+
+—
+—
+—
+—
+
+/summon
+
+Summons an entity.
+
+2
+—
+
+—
+
+—
+—
+
+/swing
+
+Swings the hands of an entity.
+
+2
+—
+
+—
+—
+—
+—
+
+/tag
+
+Controls entity tags.
+
+2
+—
+
+—
+
+—
+
+/team
+
+Controls teams.
+
+2
+—
+
+—
+
+—
+
+/teammsg
+
+An alias of /tm. Specifies the message to send to team.
+
+0
+—
+
+—
+—
+
+—
+
+/teleport
+
+An alias of /tp. Teleports entities.
+
+2
+—
+
+—
+
+—
+
+/tell
+
+An alias of /msg and /w. Displays a private message to other players.
+
+0
+—
+
+—
+—
+
+—
+
+/tellraw
+
+Displays a JSON message to players.
+
+2
+—
+
+—
+—
+
+—
+
+/test
+
+Manage and execute GameTests.
+
+2
+—
+
+—
+—
+—
+—
+
+/tick
+
+Controls the tick rate of the game.
+
+3
+—
+
+—
+—
+—
+
+/time
+
+Changes or queries the world's game time.
+
+2
+—
+
+—
+—
+—
+
+/title
+
+Manages screen titles.
+
+2
+—
+
+—
+—
+
+—
+
+/tm
+
+An alias of /teammsg. Specifies the message to send to team.
+
+0
+—
+
+—
+—
+
+—
+
+/tp
+
+An alias of /teleport. Teleports entities.
+
+2
+—
+
+—
+
+—
+
+/transfer
+
+Triggers a transfer of a player to another server.
+
+3
+Yes
+
+—
+—
+
+—
+
+/trigger
+
+Sets a trigger to be activated.
+
+0
+—
+
+—
+—
+
+—
+
+/unpublish
+
+Unpublishes an integrated server.
+
+4
+SP only
+
+—
+—
+—
+
+/version
+
+Presents the server's game version.
+
+2
+—
+
+—
+—
+
+—
+
+/w
+
+An alias of /tell and /msg. Displays a private message to other players.
+
+0
+—
+
+—
+—
+
+—
+
+/waypoint
+
+Manages waypoints displayed on the locator bar.
+
+2
+—
+
+—
+—
+
+—
+
+/weather
+
+Sets the weather.
+
+2
+—
+
+—
+—
+—
+
+/whitelist
+
+Manages server whitelist.
+
+3
+Yes
+
+—
+—
+
+—
+
+/worldborder
+
+Manages the world border.
+
+2
+—
+
+—
+—
+—
+
+/xp
+
+An alias of /experience. Adds or removes player experience.
+
+2
+—
+
+—
+—
+
+—
+
+Debugging commands
+
+
+
+These features are intended for debugging purposes only, and should not be used during normal play. They might cause crashes and corrupt world saves.
+
+Debugging commands are not accessible by default, but can be enabled using debug properties.
+
+Command
+
+Description
+
+OP level required
+
+Multiplayer only
+
+Required debug property
+
+/warden_spawn_tracker
+
+Shows how many warnings a sculk shrieker has before spawning a warden.
+
+2
+—
+
+—
+—
+
+—
+
+[Boolean] DEV_COMMANDS
+
+/debugpath
+
+Shows the calculated path for entities.
+
+2
+—
+
+—
+
+—
+—
+
+/debugmobspawning
+
+Displays mob spawning information.
+
+2
+—
+
+—
+—
+—
+—
+
+/raid
+
+Starts a raid
+
+3
+—
+
+—
+—
+—
+—
+
+/serverpack
+
+Configures a server resource pack.
+
+2
+—
+
+—
+—
+—
+—
+
+/spawn_armor_trims
+
+Spawns all possible combinations of designs, materials, and armor types of armor trims.
+
+2
+—
+
+—
+—
+—
+—
+
+/debugconfig
+
+Configuration options for debugging.
+
+3
+Yes
+
+—
+—
+—
+—
+
+/chase
+
+Sync the movement of two or more clients.
+
+0
+—
+
+—
+—
+—
+—
+
+[Boolean] CHASE_COMMAND
+
+Available in Bedrock Edition and Minecraft Education
+
+Command
+
+Description
+
+BE
+
+edu
+
+OP level required
+
+Server only
+
+/?
+
+An alias of /help. Provides help for commands.
+
+Yes
+Yes
+
+0
+—
+
+—
+—
+—
+—
+
+/ability
+
+Grants or revokes a player ability.
+
+Yes
+Yes
+
+1
+—
+
+—
+—
+
+—
+
+/allowlist
+
+An alias of /whitelist. Manages server allowlist.
+
+Yes
+—
+
+4
+Yes
+
+—
+—
+
+—
+
+/aimassist
+
+Modifies player's aim assist.
+
+Yes
+—
+
+1
+—
+
+—
+—
+
+—
+
+/alwaysday
+
+An alias of /daylock. Locks and unlocks the day-night cycle.
+
+Yes
+Yes
+
+1
+—
+
+—
+—
+—
+
+/camera
+
+Switch to custom camera perspectives and fade the screen.
+
+Yes
+Yes
+
+1
+—
+
+—
+—
+
+—
+
+/camerashake
+
+Used to enable a camera shaking effect.
+
+Yes
+Yes
+
+1
+—
+
+—
+—
+
+—
+
+/changesetting
+
+Changes a setting on the dedicated server while it's running.
+
+Yes
+—
+
+4
+Yes
+
+—
+—
+—
+—
+
+/clear
+
+Clears items from player inventory.
+
+Yes
+Yes
+
+1
+—
+
+—
+—
+
+—
+
+/clearspawnpoint
+
+Removes the spawn point for a player.
+
+Yes
+Yes
+
+1
+—
+
+—
+—
+
+—
+
+/clone
+
+Copies blocks from one place to another.
+
+Yes
+Yes
+
+1
+—
+
+—
+—
+—
+
+/connect
+
+An alias of /wsserver. Attempts to connect to the websocket server.
+
+Yes
+Yes
+
+0‌[edu  only]2‌[BE  only]
+—
+
+—
+—
+—
+—
+
+/controlscheme
+
+Switching control schemes when the Experimental Creator Camera toggle is enabled.
+
+Yes
+—
+
+?
+—
+
+—
+
+—
+
+/damage
+
+Applies damage to the specified entities.
+
+Yes
+Yes
+
+1
+—
+
+—
+
+—
+
+/daylock
+
+An alias of /alwaysday. Locks and unlocks the day-night cycle.
+
+Yes
+Yes
+
+1
+—
+
+—
+—
+—
+
+/dedicatedwsserver
+
+Attempts to connect to a websocket server.
+
+Yes
+—
+
+0
+Yes
+
+—
+—
+—
+—
+
+/deop
+
+Revokes operator status from a player.
+
+Yes
+Yes
+
+2
+—
+
+—
+—
+
+—
+
+/dialogue
+
+Opens NPC dialogue for a player.
+
+Yes
+Yes
+
+1
+—
+
+—
+—
+
+—
+
+/difficulty
+
+Sets the difficulty level.
+
+Yes
+Yes
+
+1
+—
+
+—
+—
+—
+
+/editor-allowlist
+
+Manages the Editor server allowlist.
+
+Yes
+—
+
+4
+Yes
+
+—
+—
+
+—
+
+/effect
+
+Adds or removes status effects.
+
+Yes
+Yes
+
+1
+—
+
+—
+
+—
+
+/enchant
+
+Adds an enchantment to a player's selected item.
+
+Yes
+Yes
+
+1
+—
+
+—
+—
+
+—
+
+/event
+
+Used to trigger an event on an entity.
+
+Yes
+Yes
+
+1
+—
+
+—
+
+—
+
+/execute
+
+Executes another command.
+
+Yes
+Yes
+
+1
+—
+
+/fill
+
+Fills a region with a specific block.
+
+Yes
+Yes
+
+1
+—
+
+—
+—
+—
+
+/fog
+
+Used for managing active fog settings for players.
+
+Yes
+Yes
+
+1
+—
+
+—
+—
+
+—
+
+/function
+
+Runs a function.
+
+Yes
+Yes
+
+1
+—
+
+—
+—
+—
+
+/gamemode
+
+Sets a player's game mode.
+
+Yes
+Yes
+
+1
+—
+
+—
+—
+
+—
+
+/gamerule
+
+Sets or queries a game rule value.
+
+Yes
+Yes
+
+1
+—
+
+—
+—
+—
+
+/gametest
+
+To test the GameTest features.
+
+Yes
+—
+
+1
+—
+
+—
+—
+—
+—
+
+/gametips
+
+Enable or disable the game tips on this device.
+
+Yes
+—
+
+0
+—
+
+—
+—
+—
+—
+
+/give
+
+Gives an item to a player.
+
+Yes
+Yes
+
+1
+—
+
+—
+—
+
+—
+
+/help
+
+An alias of /?. Provides help for commands.
+
+Yes
+Yes
+
+0
+—
+
+—
+—
+—
+—
+
+/hud
+
+Changes the visibility of a HUD element.
+
+Yes
+Yes
+
+1
+—
+
+—
+—
+
+—
+
+/immutableworld
+
+Allows setting immutable state of a world.
+
+Yes
+Yes
+
+1
+—
+
+—
+—
+—
+
+/inputpermission
+
+Specify the operation for the player's permission status.
+
+Yes
+Yes
+
+1
+—
+
+—
+—
+
+—
+
+/kick
+
+Kicks a player off a server.
+
+Yes
+Yes
+
+1
+Yes
+
+—
+—
+
+—
+
+/kill
+
+Kills entities (players, mobs, items, etc.).
+
+Yes
+Yes
+
+1
+—
+
+—
+
+—
+
+/list
+
+Lists players on the server.
+
+Yes
+Yes
+
+0
+—
+
+—
+—
+
+—
+
+/locate
+
+Locates closest structure or biome.
+
+Yes
+Yes
+
+1
+—
+
+—
+
+/loot
+
+Drops items from an inventory slot onto the ground.
+
+Yes
+Yes
+
+1
+—
+
+—
+
+/me
+
+Displays a message about the sender.
+
+Yes
+Yes
+
+0
+—
+
+—
+—
+
+—
+
+/mobevent
+
+Enables/disables a specified mob event.
+
+Yes
+Yes
+
+1
+—
+
+—
+—
+
+—
+
+/msg
+
+An alias of /tell and /w. Displays a private message to other players.
+
+Yes
+Yes
+
+0
+—
+
+—
+—
+
+—
+
+/music
+
+Allows the player to control playing music tracks.
+
+Yes
+Yes
+
+1
+—
+
+—
+—
+
+—
+
+/op
+
+Grants operator status to a player.
+
+Yes
+Yes
+
+2
+—
+
+—
+—
+
+—
+
+/ops
+
+An alias of /permission. Reloads and applies permissions.
+
+Yes
+Yes
+
+4
+Yes
+
+—
+—
+
+—
+
+/particle
+
+Creates particles.
+
+Yes
+Yes
+
+1
+—
+
+—
+—
+
+—
+
+/party​[upcoming: BE 26.50]
+
+Sends a message to the current party chat.
+
+Yes
+—
+
+0
+—
+
+—
+—
+—
+—
+
+/permission
+
+An alias of /ops. Reloads and applies permissions.
+
+Yes
+Yes
+
+4
+Yes
+
+—
+—
+
+—
+
+/place
+
+Used to place a configured feature, jigsaw, template, or structure at a given location.
+
+Yes
+—
+
+2
+—
+
+—
+—
+
+/playanimation
+
+Used to run a one-off animation.
+
+Yes
+Yes
+
+1
+—
+
+—
+
+—
+
+/playsound
+
+Plays a sound.
+
+Yes
+Yes
+
+1
+—
+
+—
+—
+
+—
+
+/project
+
+Contains tools for managing Editor projects.
+
+Yes
+—
+
+1
+—
+
+—
+—
+—
+—
+
+/recipe
+
+Gives or takes player recipes.
+
+Yes
+Yes
+
+—
+—
+
+—
+—
+
+—
+
+/reload
+
+Reloads loot tables, advancements, and functions from disk.
+
+Yes
+Yes
+
+2
+—
+
+—
+—
+—
+
+/reloadconfig
+
+Reloads configuration files relating to variables, permissions, etc.
+
+Yes
+—
+
+4
+—
+
+—
+—
+—
+
+/reloadpacketlimitconfig
+
+Reloads packetlimitconfig.json configuration file.
+
+Yes
+—
+
+4
+—
+
+—
+—
+—
+
+/remove
+
+Removing agent.
+
+—
+?
+
+2
+—
+
+—
+
+—
+—
+
+/replaceitem
+
+Replaces items in inventories.
+
+Yes
+Yes
+
+1
+—
+
+—
+
+/ride
+
+Used to make entities ride other entities, stop entities from riding, make rides evict their riders, or summon rides or riders.
+
+Yes
+Yes
+
+1
+—
+
+—
+
+—
+
+/save
+
+Prepares a backup, queries its status, or resumes.
+
+Yes
+—
+
+4
+Yes
+
+—
+—
+—
+
+/say
+
+Displays a message to multiple players.
+
+Yes
+Yes
+
+1
+—
+
+—
+—
+
+—
+
+/schedule
+
+Delays the execution of a function.
+
+Yes
+—
+
+1
+—
+
+—
+—
+—
+—
+
+/scoreboard
+
+Manages scoreboard objectives and players.
+
+Yes
+Yes
+
+1
+—
+
+—
+
+—
+
+/script
+
+Debugging options for GameTest Framework.
+
+Yes
+Yes
+
+?
+—
+
+—
+—
+—
+—
+
+/scriptevent
+
+Triggers a script event with an ID and message.
+
+Yes
+Yes
+
+?
+—
+
+—
+—
+—
+—
+
+/sendshowstoreoffer
+
+Send a request to show players the store offer.
+
+Yes
+—
+
+4
+—
+
+—
+—
+—
+—
+
+/set_movement_authority
+
+Control the client or server to check a player movement.
+
+Yes
+—
+
+1
+—
+
+—
+—
+
+—
+
+/setblock
+
+Changes a block to another block.
+
+Yes
+Yes
+
+1
+—
+
+—
+—
+—
+
+/setmaxplayers
+
+Sets the maximum number of players allowed to join.
+
+Yes
+Yes
+
+3
+—
+
+—
+—
+
+—
+
+/setworldspawn
+
+Sets the world spawn.
+
+Yes
+Yes
+
+1
+—
+
+—
+—
+—
+
+/spawnpoint
+
+Sets the spawn point for a player.
+
+Yes
+Yes
+
+1
+—
+
+—
+—
+
+—
+
+/spreadplayers
+
+Teleports entities to random locations.
+
+Yes
+Yes
+
+1
+—
+
+—
+
+—
+
+/stop
+
+Stops a server.
+
+Yes
+—
+
+4
+Yes
+
+—
+—
+—
+
+/stopsound
+
+Stops a sound.
+
+Yes
+Yes
+
+1
+—
+
+—
+—
+
+—
+
+/structure
+
+Used to save and load structures without having to use structure blocks items in inventories.
+
+Yes
+Yes
+
+1
+—
+
+—
+
+/summon
+
+Summons an entity.
+
+Yes
+Yes
+
+1
+—
+
+—
+
+—
+—
+
+/tag
+
+Controls entity tags.
+
+Yes
+Yes
+
+1
+—
+
+—
+
+—
+
+/teleport
+
+An alias of /tp. Teleports entities.
+
+Yes
+Yes
+
+1
+—
+
+—
+
+—
+
+/tell
+
+An alias of /msg and /w. Displays a private message to other players.
+
+Yes
+Yes
+
+0
+—
+
+—
+—
+
+—
+
+/tellraw
+
+Displays a JSON message to players.
+
+Yes
+Yes
+
+1
+—
+
+—
+—
+
+—
+
+/testfor
+
+Counts entities matching specified conditions.
+
+Yes
+Yes
+
+1
+—
+
+—
+
+—
+
+/testforblock
+
+Tests whether a block is in a location.
+
+Yes
+Yes
+
+1
+—
+
+—
+—
+—
+
+/testforblocks
+
+Tests whether the blocks in two regions match.
+
+Yes
+Yes
+
+1
+—
+
+—
+—
+—
+
+/tickingarea
+
+Add, remove, or list ticking areas.
+
+Yes
+Yes
+
+1
+—
+
+—
+—
+—
+
+/time
+
+Changes or queries the world's game time.
+
+Yes
+Yes
+
+1
+—
+
+—
+—
+—
+
+/title
+
+Manages screen titles.
+
+Yes
+Yes
+
+1
+—
+
+—
+—
+
+—
+
+/titleraw
+
+Controls screen titles with JSON messages.
+
+Yes
+Yes
+
+1
+—
+
+—
+—
+
+—
+
+/toggledownfall
+
+Toggles the weather.
+
+Yes
+Yes
+
+1
+—
+
+—
+—
+—
+
+/tp
+
+An alias of /teleport. Teleports entities.
+
+Yes
+Yes
+
+1
+—
+
+—
+
+—
+
+/transfer
+
+Triggers a transfer of a player to another server.
+
+Yes
+Yes
+
+4
+Yes
+—
+—
+
+—
+
+/w
+
+An alias of /tell and /msg. Displays a private message to other players.
+
+Yes
+Yes
+
+0
+—
+
+—
+—
+
+—
+
+/wb
+
+An alias of /worldbuilder. Ability to edit restricted blocks.
+
+Yes
+Yes
+
+1
+—
+
+—
+—
+—
+
+/weather
+
+Sets the weather.
+
+Yes
+Yes
+
+1
+—
+
+—
+—
+—
+
+/whitelist
+
+An alias of /allowlist. Manages server allowlist.
+
+Yes
+—
+
+4
+Yes
+
+—
+—
+
+—
+
+/worldbuilder
+
+An alias of /wb. Ability to edit restricted blocks.
+
+Yes
+Yes
+
+1
+—
+
+—
+—
+—
+
+/wsserver
+
+An alias of /connect. Attempts to connect to the websocket server.
+
+Yes
+Yes
+
+0‌[edu  only]2‌[BE  only]
+—
+
+—
+—
+—
+—
+
+/xp
+
+Adds or removes player experience.
+
+Yes
+Yes
+
+1
+—
+
+—
+—
+
+—
+
+Hidden commands
+
+
+
+This feature is exclusive to Bedrock Edition and Minecraft Education. 
+
+These commands are unavailable in general cases. Most of them can be accessed with a Websocket Server, NPC, the Scripting API or cheats‌[edu  only]. Note: You can easily check if a command is still in the game by typing /help <nameOfCommand> into a server console, or the ingame chat. If you do so, and it says Syntax error, then the command does not exist. If it either gives help on the command or says unknown command, then it is still in the game - for example, the command /help gettopsolidblock will return Unknown command: gettopsolidblock. Please check that the command exists and that you have permission to use it., while the command /help something will return Syntax error: Unexpected "something" at "/help >>something<<".
+
+Command
+
+Description
+
+BE
+
+edu
+
+OP level required
+
+Server only
+
+/agent
+
+Controls the agent.
+
+Yes
+Yes
+
+0‌[edu  only]1‌[BE  only]
+—
+
+—
+
+—
+—
+
+/codebuilder
+
+Sets Code Builder state for a player.
+
+—
+Yes
+
+1
+—
+
+—
+—
+—
+—
+
+/codebuilder_actorinfo
+
+Unknown​[more information needed]
+Yes
+
+—
+
+?
+
+?
+
+?
+
+?
+
+?
+
+?
+
+/clearrealmevents
+
+Unknown​[more information needed]
+Yes
+
+?
+
+?
+
+?
+
+?
+
+?
+
+?
+
+?
+
+/classroommode
+
+Ability to edit restricted blocks.
+
+—
+Yes
+
+0
+—
+
+—
+—
+—
+—
+
+/closechat
+
+Closes the chat window of the local player if it is open.
+
+Yes
+Yes
+
+0
+—
+
+—
+—
+—
+—
+
+/closewebsocket
+
+Closes websocket connection if there is one.
+
+Yes
+Yes
+
+0
+—
+
+—
+—
+—
+—
+
+/code
+
+Launches Code Builder.
+
+—
+Yes
+
+0
+—
+
+—
+—
+—
+—
+
+/enableencryption
+
+Enable encryption for the current websocket connection.
+
+Yes
+Yes
+
+0
+—
+
+—
+—
+—
+—
+
+/getchunkdata
+
+Gets pixels for a specific chunk.
+
+Yes
+Yes
+
+3
+—
+
+—
+—
+—
+—
+
+/getchunks
+
+Gets list of chunks that are loaded.
+
+Yes
+Yes
+
+3
+—
+
+—
+—
+—
+—
+
+/geteduclientinfo
+
+Shows the information about the client.
+
+—
+Yes
+
+0
+—
+
+—
+—
+—
+—
+
+/geteduserverinfo
+
+Shows the information about the server.
+
+Yes
+—
+
+0
+Yes
+
+—
+—
+—
+—
+
+/getlocalplayername
+
+Shows the name of the local player.
+
+Yes
+Yes
+
+0
+—
+
+—
+—
+—
+—
+
+/getspawnpoint
+
+Gets the spawn position of the specified player(s).
+
+Yes
+Yes
+
+3
+—
+
+—
+—
+—
+—
+
+/gettopsolidblock
+
+Gets the position of the top non-air block below the specified position.
+
+Yes
+Yes
+
+0‌[edu  only]1‌[BE  only]
+—
+
+—
+—
+—
+—
+
+/globalpause
+
+Sets or gets the paused state of the game for all players.
+
+Yes
+Yes
+
+3
+—
+
+—
+—
+—
+—
+
+/lesson
+
+Handle Educational Lesson reporting.
+
+—
+Yes
+
+0
+—
+
+—
+—
+—
+—
+
+/listd
+
+Lists the information about players on the server.
+
+Yes
+Yes
+
+3
+—
+
+—
+—
+
+—
+
+/querytarget
+
+Gets transform, name, and id information about the given target entity or entities.
+
+Yes
+Yes
+
+0‌[edu  only]2‌[BE  only]
+—
+
+—
+
+—
+
+/sendshowstoreoffer
+
+Send a request to show players the store offer.​[more information needed]
+Yes
+
+—
+
+4
+
+?
+
+?
+
+?
+
+?
+
+?
+
+/spawnitem
+
+Spawns an item entity at position.
+
+—
+Yes
+
+0
+—
+
+—
+
+—
+—
+
+/takepicture
+
+Takes a photo of a player or from a player's point of view.
+
+Removed
+Yes
+
+1
+—
+
+—
+—
+—
+
+Removed commands
+Removed from Java Edition
+
+Command
+
+Description
+
+Version removed
+
+Reason for deletion
+
+OP level required
+
+Multiplayer only
+
+/?
+
+An alias of /help. Provides help for commands.
+
+Java Edition 1.13(17w45a)
+
+?
+
+0
+—
+
+—
+—
+—
+—
+
+/achievement
+
+Gives or takes an achievement from a player.
+
+Java Edition 1.12(17w13a)
+
+Achievements were superseded by advancements
+
+2
+—
+
+—
+—
+
+—
+
+/banip
+
+Bans a player by IP number.
+
+Java Edition Indev 0.31
+
+Superseded by /ban-ip
+
+3
+Yes
+
+—
+—
+
+—
+
+/blockdata
+
+Modifies the data tag of a block.
+
+Java Edition 1.13(17w47a)
+
+Superseded by /data
+
+2
+—
+
+—
+—
+—
+
+/broadcast
+
+Broadcasts a message across the entire server.
+
+Java Edition Classic 0.0.16a_01
+
+Superseded by /say
+
+1
+—
+
+—
+—
+—
+—
+
+/chunk
+
+Force chunks to load constantly or not.
+
+Java Edition 1.13.1(pre1)
+
+Superseded by /forceload
+
+2
+—
+
+—
+—
+—
+
+/entitydata
+
+Modifies the data tag of an entity.
+
+Java Edition 1.13(17w45b)
+
+Superseded by /data
+
+2
+—
+
+—
+
+—
+—
+
+/home
+
+Teleports player to the world spawn.
+
+Java Edition Alpha v1.2.5
+
+Superseded by /kill
+
+0
+—
+
+—
+—
+—
+—
+
+/locatebiome
+
+Locates biomes.
+
+Java Edition 1.19(22w19a)
+
+Superseded by /locate
+
+2
+—
+
+—
+—
+—
+—
+
+/placefeature
+
+Used to place a configured feature at a given location.
+
+Java Edition 1.19(22w18a)
+
+Superseded by /place
+
+2
+—
+
+—
+—
+
+/replaceitem
+
+Replaces items in inventories.
+
+Java Edition 1.17(20w46a)
+
+Superseded by /item
+
+2
+—
+
+—
+
+/setspawn
+
+Sets the current location as the default spawn location for new players.
+
+Java Edition Indev 0.31
+
+Superseded by /setworldspawn
+
+2
+—
+
+—
+—
+—
+—
+
+/solid
+
+Toggles between placing stone or bedrock.
+
+Java Edition Indev 0.31
+
+Bedrock was added to the Creative inventory as a separate item
+
+2
+—
+
+—
+—
+—
+—
+
+/stats
+
+Update objectives from command results.
+
+Java Edition 1.13(17w45a)
+
+Merged with /execute
+
+2
+—
+
+—
+
+/testfor
+
+Counts entities matching specified conditions.
+
+Java Edition 1.13(17w45a)
+
+Merged with /execute
+
+2
+—
+
+—
+
+—
+
+/testforblock
+
+Tests whether a block is in a location.
+
+Java Edition 1.13(17w45a)
+
+Merged with /execute
+
+2
+—
+
+—
+—
+—
+
+/testforblocks
+
+Tests whether the blocks in two regions match.
+
+Java Edition 1.13(17w45a)
+
+Merged with /execute
+
+2
+—
+
+—
+—
+—
+
+/toggledownfall
+
+Toggles the weather.
+
+Java Edition 1.13(17w45a)
+
+Redundancy with /weather
+
+2
+—
+
+—
+—
+—
+
+/unban
+
+Pardons a banned player.
+
+Java Edition Alpha v1.0.16
+
+Superseded by /pardon
+
+3
+Yes
+
+—
+—
+
+—
+
+Removed from Bedrock Edition or Minecraft Education
+
+Command
+
+Description
+
+Version removed
+
+Reason for deletion
+
+BE
+
+edu
+
+OP level required
+
+Server only
+
+/clearfixedinv
+
+Clears fixed inventory slots.
+
+Pocket Edition v0.16.0 alpha(build 2)
+
+?
+
+Removed
+Removed
+
+2
+?
+
+—
+—
+
+—
+
+/detect
+
+Executes a command when condition is met.
+
+Bedrock Edition 1.2.0
+
+Superseded by /execute
+
+Removed
+—
+
+1
+—
+
+—
+—
+—
+—
+
+/executeasself
+
+Executes a command.
+
+?
+
+Superseded by /execute
+
+Removed
+Removed
+
+0
+—
+
+—
+—
+—
+—
+
+/mixer
+
+Mixer interactivity control.
+
+Bedrock Edition 1.16.210
+
+Mixer was discontinued
+
+Removed
+—
+
+0
+—
+
+—
+—
+—
+—
+
+/position
+
+Toggles player coordinates to be displayed on the HUD.
+
+Education Edition 1.0.21
+
+Superseded by /gamerule
+
+—
+Removed
+
+0
+—
+
+—
+—
+—
+—
+
+/resupply
+
+Update the villagers' supply for economic trade.
+
+?
+
+?
+
+Removed
+—
+
+2
+—
+
+—
+
+—
+—
+
+/setfixedinvslot
+
+Sets fixed inventory slot with a specific item.
+
+Pocket Edition v0.16.0 alpha(build 2)
+
+?
+
+Removed
+Removed
+
+2
+—
+
+—
+—
+
+—
+
+/setfixedinvslots
+
+Sets the amount of fixed inventory slots.
+
+Pocket Edition v0.16.0 alpha(build 2)
+
+?
+
+Removed
+Removed
+
+2
+—
+
+—
+—
+
+—
+
+/transferserver
+
+Transfer player to a server.
+
+Bedrock Edition 1.2.3
+
+?
+
+Removed
+Removed
+
+—
+—
+
+—
+—
+—
+—
+
+/videostream
+
+Attempts to connect to the websocket server to send a video stream.
+
+?
+
+Superseded by  /connect.
+
+Removed
+—
+
+1
+—
+
+—
+-
+—
+—
+
+/videostreamaction
+
+Attempts to run a action on video stream.
+
+?
+
+?
+
+Removed
+—
+
+1
+—
+
+—
+-
+—
+—
+
+/volumearea
+
+Add, remove, or list volume areas.
+
+Bedrock Edition 1.21.20
+
+?
+
+Removed
+—
+
+1
+—
+
+—
+—
+—
+
+Developer commands
+Main article: Developer commands
+
+
+
+This feature is exclusive to Bedrock Edition. 
+
+Developer commands are only enabled in internal development builds of Bedrock Edition, and are not normally accessible in release versions.
+
+Agent commands
+
+
+
+This feature is exclusive to Bedrock Edition and Minecraft Education. 
+
+Superseded by /agent
+
+/move
+/turn
+/attack
+/destroy
+/drop
+/dropall
+/inspect
+/inspectdata
+/detect
+/detectredstone
+/transfer
+/createagent
+/tpagent
+/collect
+/till
+/place
+/getitemcount
+/getitemspace
+/getitemdetail
+Joke commands
+
+
+
+This feature is exclusive to Java Edition. 
+
+These commands only exist in April Fools' Day joke versions of the game.
+
+/debugdim
+/transform
+/vote
+/warp
+History
+See also: Command Block § History
+
+
+
+This section is missing information about: Minecraft Education 
+Please expand the section to include this information. Further details may exist on the talk page.
+
+Command additions and changes
+Java Edition
+Java Edition Classic0.0.16a
+Added commands /broadcast, /ban, /banip, and /kick.
+
+Added commands /op, /deop and /unban.[is this the correct version?]0.0.16a_01
+Replaced /broadcast with /say.0.0.17a
+Added /setspawn.0.0.18a
+Added /teleport.0.0.20a
+Added /solid.?
+Added /me.Java Edition Indev0.3120091231-1856
+Removed all commands.Java Edition Alphav1.0.15
+Added /wood, /iron and /give.v1.0.16
+Re-added several commands.
+
+Added /pardon, /pardon-ip, /banlist, /stop and /home.v1.0.16_01
+Added /tp,/save-all,/save-off and /save-on.v1.0.16_02
+Added /list, /msg, /tell and /w.v1.2.0
+Removed /wood and /iron.v1.2.5
+Removed /home.v1.2.6
+Added /kill.Java Edition Beta1.3
+Added /time and /whitelist.1.8Pre-release
+Added /gamemode.Java Edition1.0.0Beta 1.9 Prerelease 5
+Added /xp and /toggledownfall.1.3.112w16a
+Added cheats mode, allowing commands to be used in singleplayer.
+
+"Enable Cheats" could be turned on in Hardcore mode.12w17a
+Added /help and its alias /?.
+
+"Enable Cheats" can no longer be turned on in Hardcore mode.12w21a
+Added /seed.12w22a
+Added /defaultgamemode.12w24a
+Added /publish.12w25a
+Cheats can now be turned on or off when opening a world to other players through LAN.12w27a
+Added /debug.1.4.212w32a
+Added /difficulty, /gamerule, /spawnpoint and /weather.12w37a
+Added /clear.1.4.4pre
+Added /enchant.1.513w03a
+Added /testfor.13w04a
+Added /scoreboard.13w09b
+Added /effect.1.6.113w23a
+Added /spreadplayers.pre
+Added /playsound.1.7.213w36a
+Added /achievement and /summon.13w37a
+Added /setblock, /tellraw and /testforblock.13w38a
+Added /setidletimeout.13w43a
+Added /setworldspawn.1.814w02a
+Added /blockdata.14w03a
+Added /clone and /fill.
+
+NBT data now supports using string IDs rather than numerical IDs.
+
+Numerical IDs no longer work in other parts of commands, though they still work for NBT data.14w04a
+Added /particle.14w06a
+Added /trigger.14w07a
+Added /execute and /testforblocks.14w17a
+Added /worldborder.14w20a
+Added /title.14w26a
+Added /replaceitem.14w28a
+Added /stats.14w32b
+Added /entitydata.1.9.3pre2
+Added /stopsound.1.1116w32a
+Added block state support to commands.16w39a
+Added /locate.1.1217w13a
+Added /advancement and /recipe.
+
+Removed /achievement.17w18a
+Added /reload.pre1
+Added /function.1.1317w45a
+A new library named Brigadier is now used to parse commands. Different components of commands are displayed in different colors, and errors are displayed in red without having to run the command. Commands, for the most part, do not allow uppercase letters, and are now much faster and more efficient.
+
+Removed /?,/enchant,/stats,/testfor,/testforblock,/testforblocks and /toggledownfall.
+
+Added /tag and /team.
+
+Added /experience, an alias of /xp.17w45b
+Added /data.17w46a
+Added /datapack.
+The player now has the option to toggle automatic command suggestions.
+
+The command UI has a new prototype, and now works in multiplayer.17w47a
+Added an option in chat to toggle automatic command suggestions.17w48a
+Tweaked the command suggestion UI.
+
+Reworked tab-completion for coordinates.17w50a
+Local coordinates can now be specified in commands using ^.
+
+Tab-completing when not targeting a block suggests ~ ~ ~.18w01a
+Changed all custom names (blocks, items, entities, block entities) to translatable text components.
+
+Thrower and Owner nbt keys of item entities are no longer strings, but are instead compounds with two longs named L and M.
+
+owner nbt key of snowballs, eggs and ender pearls are no longer strings, but are instead compounds with two longs named L and M.18w02a
+Errors during a command are now a nicer error message (with a tool tip for more info).
+
+Server commands now run from world spawn in the Overworld, instead of at 0,0,0.18w03a
+Improved performance of command parsing and command execution.18w05a
+Added /bossbar.
+Added basic entity selector suggestions in the command UI.
+
+A warning is now logged for ambiguous commands.18w06a
+Re-added /enchant.
+Added command suggestions for entity selectors.
+
+Whitespaces are now allowed in entity selectors & block state arguments.1.13.118w31a
+Added /chunk.pre1
+Renamed /chunk to /forceload.September 26, 2018
+Brigadier open-sourced under the MIT license. (Source code previously was available on the library site, with no license specified).1.1418w43a
+Added /drop and /schedule.18w45a
+Renamed /drop to /loot. 19w02a
+Added /teammsg and /tm. 1.1519w34a
+Added /test, only available in IDE environment.19w41a
+Added /spectate. 1.1620w06a
+Added /locatebiome.20w17a
+Added /attribute.1.1720w46a
+Removed /replaceitem. Replaced with /item replace.pre1
+Added /perf.1.1821w37a
+Added /jfr.1.18.222w03a
+Added /placefeature.1.19Deep Dark Experimental Snapshot 1
+Added /warden_spawn_tracker.22w11a
+Disabled access to /warden_spawn_tracker.22w18a
+Removed /placefeature. Replaced with /place feature.22w19a
+Removed /locatebiome. Replaced with /locate biome.
+
+Finding structures from /locate now uses /locate structure.1.19.322w46a
+Added /fillbiome.1.19.423w03a
+Added /ride.23w06a
+Added /damage.1.2023w16a
+Added /return.1.20.223w31a
+The last 50 commands sent in chat is now remembered across game sessions, and can be accessed via up and down arrow keys.
+
+Recent commands are now stored in command_history.txt in the .minecraft folder.
+
+Added /random.1.20.323w43a
+Added /tick.1.20.524w04a
+Added /transfer.
+
+Renamed "Allow cheats" to "Allow commands".1.21.224w40a
+Added /rotate.pre1
+/rotate now requires a permission level of 2 instead of 0.1.21.525w03a
+/test now accessible through normal gameplay.1.21.625w15a
+Added /version.1.21.6ExperimentLocator Bar25w15a
+Added /waypoint.1.21.625w17a
+/waypoint can now be used without using the Locator Bar experiment.25w20a
+Added /dialog.1.21.925w34a
+Added /fetchprofile.26.1snap1
+Added /swing.26.2snap8
+Added /unpublish.pre4
+The "Open to LAN" screen can no longer allow the host to use commands, and can now only do so for other players.Upcoming Java Edition26.3snap3
+Added /posteffect.snap10
+Added /compute.
+Bedrock Edition
+Pocket Edition Alphav0.7.4
+Added support for commands, though none are implemented yet.v0.16.0build 1
+Added commands.
+
+Functionality of most commands is equivalent to Java Edition 1.10 usage. Differences include: no support for data tags.Pocket Edition1.0.0alpha 0.17.0.1
+Added /locate, /connect, and /fly.alpha 0.17.0.2
+Removed /locate.alpha 1.0.0.0
+Re-added /locate, currently can locate strongholds only.1.0.5alpha 1.0.5.0
+Added more commands.1.1.0alpha 1.1.0.0
+Added dodaylightcycle, doentitydrops, dofiretick, domobspawning, domobloot, dotiledrops, doweathercycle, keepinventory and mobgriefing to /gamerule.
+
+CanPlaceOn and CanDestroy are now in /replaceitem and /give.
+
+/locate can now find other structures.alpha 1.1.0.3
+Added /setmaxplayers.Bedrock Edition1.2.0?
+A new command parsing system is now used.beta 1.2.0.2
+Added /tickingarea.
+
+/summon can now summon projectiles.beta 1.2.0.31
+Coordinates are now a gamerule to /gamerule.1.5.0
+
+Added /ability, /immutableworld, and /worldbuilder.1.6.0beta 1.6.0.6
+doInsomnia is now a gamerule to /gamerule.1.7.0beta 1.7.0.2
+Added /scoreboard.
+
+commandblocksenabled is now a gamerule to /gamerule.1.8.0beta 1.8.0.8
+randomtickspeed is now a gamerule to /gamerule.
+
+Added /particle and /reload.
+
+showcoordinates dofiretick tntexplodes domobloot naturalregeneration dotiledrops and pvp no longer require cheats when using /gamerule.1.9.0beta 1.9.0.0
+immediateRespawn and showDeathMessages are now a gamerule to /gamerule.
+
+Added more particles (View all) to /particle.
+
+Added /tellraw.1.11.0beta 1.11.0.3
+Added /mobevent.1.12.0beta 1.12.0.2
+spawnradius, sendcommandblockfeedback, maxcommandchainlength and commandblockoutput are now gamerules to /gamerule.
+
+Added more particles (View all) to /particle.1.14.0
+showtags is now a gamerule to /gamerule.1.16.0
+Added /kick.
+
+/spawnpoint can now be used in the nether.1.16.100beta 1.16.100.52
+Added /playanimation, /ride, and /structure.beta 1.16.100.54
+Added /fog.beta 1.16.100.57
+Added /camerashake, /clearspawnpoint, and /event.beta 1.16.100.58
+Added /music.beta 1.16.100.59
+Added /schedule.
+
+/camerashake now have two types of shakes.beta 1.16.100.60
+/structure can now animate the placement of a structure.1.16.210beta 1.16.210.53
+freezeDamage is now a gamerule to /gamerule.
+
+/clone, /fill, and /setblock now have a new slash command options for passing in a list of block states to set on the block being spawned.
+
+Removed /mixer.beta 1.16.210.54
+You can now stop camera shaking in /camerashake.
+
+Re-added /mixer.
+
+You can now delete structures in /structure.beta 1.16.210.58
+Removed /mixer again.beta 1.16.210.60
+Added /gametest.1.17.10beta 1.17.10.22
+Added /dialogue.1.17.30beta 1.17.20.20
+respawnBlocksExplode is now a gamerule to /gamerule.1.18.0beta 1.18.0.21
+Added /loot.beta 1.18.0.22
+Removed /loot.1.18.10beta 1.18.10.21
+Re-added /loot.beta 1.18.10.26
+Added /damage.1.18.30beta 1.18.20.21
+Added /volumearea.1.19.0beta 1.19.0.30
+Added /script.1.19.10Preview 1.19.10.23
+/locate can now find biomes.1.19.60Preview 1.19.60.22
+Added /scriptevent.1.19.80Preview 1.19.80.20
+Added command suggestions for block states.1.19.80Preview 1.19.80.21
+Added /inputpermission.1.20.0Preview 1.20.0.22
+Added /camera.1.20.10Preview 1.20.10.21
+Added /recipe.1.20.30Preview 1.20.30.22
+Added /transfer.1.20.60ExperimentUpcoming Creator FeaturesPreview 1.20.60.23
+Added /hud behind the "Upcoming Creator Features" experimental toggle.1.20.80Preview 1.20.80.20
+Added /gametips.1.21.20Preview 1.21.10.22
+Removed /volumearea.1.21.50Preview 1.21.50.20
+Added /set_movement_authority.1.21.50ExperimentAim Assist andData-Driven Jigsaw StructuresPreview 1.21.50.25
+Added /aimassist behind the "Aim Assist" experimental toggle.Preview 1.21.50.26
+Added /place behind the "Data-Driven Jigsaw Structures" experimental toggle.26.0Preview 26.0.23
+Added command macros.
+April Fools commands
+Java Edition20w14∞
+Added /debugdim and /warp.23w13a_or_b
+Added /transform and /vote.
+Issues
+Issues relating to "Commands" are maintained on the bug tracker. Issues should be reported and viewed there.
+
+See also
+Argument types
+Coordinates
+Entity format
+Formatting codes
+Text component format
+Target selectors
+References
+
+ bedrock samples for 1.20.80.5 release metadata/command_modules/mojang-commands.json line 15868
+
+ bedrock samples for 1.20.80.5 release metadata/command_modules/mojang-commands.json line 15874
+
+ bedrock samples for 1.20.80.5 release metadata/command_modules/mojang-commands.json line 15886
+
+External links
+"How to Use Commands in Minecraft"     by Duncan Geere  – Minecraft.net, September 22, 2023.
+"Introduction to Commands"     – Microsoft Learn.
+"List and summary of commands"     – Microsoft Learn.
+Navigation
+
+
+
+
+
+This article is linked to on an official Minecraft page.

@@ -1,0 +1,207 @@
+This page covers a development version that has a major issue under certain conditions. 
+The dedicated server for this version has a security vulnerability in the Log4j library that could be used to perform a remote code execution exploit. It can be addressed by appending a certain JVM argument to the server startup command line.
+
+Minecraft 1.18 experimental snapshot 4
+
+Edition
+
+Java Edition
+
+Release date
+
+August 17, 2021
+
+Type
+
+Experimental Snapshot
+
+Experimental snapshot for
+
+1.18
+
+Downloads
+
+Client (.json)Server
+
+Obfuscation maps
+
+ClientServer
+
+Protocol version
+
+ dec: 1073741868 hex: 4000002C
+
+Data version
+
+2828
+
+Resource pack format
+
+7
+
+Data pack format
+
+7
+
+Minimum Java version
+
+Java SE 16
+
+◄◄   1.17.1
+1.18
+  1.18.1 ►►
+
+◄   1.18 experimental snapshot 3
+
+ 1.18 experimental snapshot 4
+
+  1.18 experimental snapshot 5 ►
+
+{
+    "title": "Minecraft 1.18 experimental snapshot 4",
+    "images": [
+        "1.18 Experimental Snapshot 1 banner.jpg",
+        "1.18 experimental snapshot 4 reddit.png",
+        "Java Edition 1.18 experimental snapshot 4 menu.png"
+    ],
+    "rows": [
+        {
+            "field": "''(link to Java Edition article, displayed as Java Edition)''",
+            "label": "(link to Edition article, displayed as Edition)"
+        },
+        {
+            "field": "August 17, 2021",
+            "label": "Release date"
+        },
+        {
+            "field": "(link to Experimental Snapshot article, displayed as Experimental Snapshot)",
+            "label": "(link to Version types article, displayed as Type)"
+        },
+        {
+            "field": "(link to Java Edition 1.18 article, displayed as 1.18)",
+            "label": "Experimental snapshot for"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/f52d527002d3678da1c9e63aae0200a1063ec184/client.jar Client] ([https://piston-data.mojang.com/v1/objects/b92a360cbae2eb896a62964ad8c06c3493b6c390/1_18_experimental-snapshot-4.zip .json])<br />[https://piston-data.mojang.com/v1/objects/ac942062c6b0bf5da61ed2c7b701a13a01462c63/server.jar Server]",
+            "label": "(link to Tutorial:Installing a version#Manual version installation article, displayed as Downloads)"
+        },
+        {
+            "field": "[https://piston-data.mojang.com/v1/objects/50788601a528da2f35483f6852302ec085a05c65/client.txt Client]<br />[https://piston-data.mojang.com/v1/objects/38bae2e9a3f7bd315a383eb3c388c994385be14c/server.txt Server]",
+            "label": "(link to Obfuscation map article, displayed as Obfuscation maps)"
+        },
+        {
+            "field": " <span style=\"font-size:smaller\"><abbr title=\"decimal\">dec</abbr>: </span>1073741868<br /> <span style=\"font-size:smaller\"><abbr title=\"hexadecimal\">hex</abbr>: </span>4000002C",
+            "label": "(link to Protocol version article, displayed as Protocol version)"
+        },
+        {
+            "field": "2828",
+            "label": "(link to Data version article, displayed as Data version)"
+        },
+        {
+            "field": "7",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Resource pack format)</span>"
+        },
+        {
+            "field": "7",
+            "label": "<span style=\"white-space: normal;\">(link to Pack format#List of pack formats article, displayed as Data pack format)</span>"
+        },
+        {
+            "field": "<span class=\"plainlinks\">[https://en.wikipedia.org/wiki/Java_version_history#Java_SE_16 Java SE 16]</span>",
+            "label": "<span style=\"white-space: normal;\">Minimum Java version</span>"
+        }
+    ],
+    "invimages": [],
+    "footer": "<table style=\"margin: auto; word-break: break-word;\">\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\" >[[Java Edition  1.17.1|<span style=\"margin-right:-0.35em\">◄</span>◄   1.17.1]]</td>\n<td style=\"padding: 0.4em\">'''[[Java Edition 1.18|1.18]]'''</td>\n<td style=\"padding: 0.4em\" >[[Java Edition  1.18.1|  1.18.1 <span style=\"margin-right:-0.35em\">►</span>►]]</td>\n</tr>\n<tr style=\"background: inherit;\">\n<td style=\"padding: 0.4em\">\n[[Java Edition  1.18 experimental snapshot 3|◄   1.18 experimental snapshot 3]]\n</td>\n<td style=\"padding: 0.4em\">''' 1.18 experimental snapshot 4'''</td>\n<td style=\"padding: 0.4em\">\n[[Java Edition  1.18 experimental snapshot 5|  1.18 experimental snapshot 5 ►]]\n</td>\n</tr>\n</table>"
+}
+
+
+1.18 Experimental Snapshot 4 (known as 1_18_experimental-snapshot-4 in the launcher) is the fourth experimental snapshot for Java Edition 1.18, released on August 17, 2021, which makes numerous changes and tweaks to world generation.
+
+Contents
+
+1 Changes
+
+1.1 World generation
+
+1.1.1 Biomes
+
+2 Issues
+3 Videos
+4 Notes
+5 References
+6 Navigation
+
+Changes
+A dry river.
+A saddle valley.
+World generation
+Biomes
+General
+
+Tweaked biome placement in general to reduce the risk of harsh collisions.
+Now biome placement is a bit smoother and less noisy. This should result in fewer microbiomes.
+Removed surface freezing for hot biomes, and raised the altitude at which snow layers are placed.
+Badlands
+
+Now is larger and less likely to show up as microbiome splotches.
+Terracotta bands now go higher.
+Wooded Badlands
+
+Their grass and trees now start higher.
+Desert
+
+Now is larger and less likely to show up as microbiome splotches.
+Desert pyramids now tend to be partially buried and no longer generate on water.
+Extreme Hills
+
+The terrain is now more extreme. Fiddled with the placement of shattered terrain and extreme hills in general to make it fit in with the terrain better.
+Jungle Pyramid
+
+No longer generates on water.
+Ore distribution
+
+Reduced the number of diorite/andesite/granite blobs on the surface.
+Copper ore blobs now are bigger in dripstone caves.
+More iron is generated.
+River
+
+Reduced the likelihood of rivers being cut off and turning into steep dry river gorges in mountainous terrain.
+Rivers tend to either carve a fjord through the mountain range, or raise the terrain to form a saddle valley between the peaks.
+Snowy Slopes
+
+Now have fewer dirt blocks.
+Stone Shore
+
+Sometimes generate layers (strips) of gravel, diorite, andesite, or granite.
+Stony Peaks
+
+Sometimes generate layers (strips) of calcite, andesite, granite, or gravel.
+Swamp
+
+Tweaked swamp placement a bit.
+Are less likely to extend far out from the coastline.
+Rivers in swamps now tend to be shallower.
+Issues
+This version is not supported on the bug tracker, and therefore issues affecting it will be resolved as "Invalid".
+
+Videos
+Video made by slicedlime:
+
+
+
+
+Notes
+
+ Unzip this file in the .minecraft/versions folder.
+
+References
+
+ "Important Message: Security vulnerability in Java Edition"     – Minecraft.net, December 10, 2021.
+
+ "New world generation in Java available for testing"     by Henrik Kniberg  – Minecraft.net, August 17, 2021.
+
+  "Minecraft 1.18 experimental snapshot 4 is out!" – u/MrHenrik2 on Reddit, August 17, 2021
+
+ MC-231984
+
+Navigation

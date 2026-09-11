@@ -1,0 +1,107 @@
+This article is about the joke entity.   For the interface, see Crafting.
+
+
+
+This article is a stub. 
+You can help by expanding it. The talk page may contain suggestions.
+
+
+
+
+
+This article documents an April Fools' Day joke. 
+This feature was exclusively part of a joke version and is not currently planned for addition to regular Minecraft.
+
+Crafting Grid
+
+
+
+
+
+
+
+
+
+
+Health points
+
+None
+
+Hitbox size
+
+?
+
+{
+    "title": "Crafting Grid",
+    "rows": [
+        {
+            "field": "None",
+            "label": "(link to Health article, displayed as Health points)"
+        },
+        {
+            "field": "?",
+            "label": "(link to Hitbox article, displayed as Hitbox size)"
+        }
+    ],
+    "invimages": [],
+    "images": [
+        "2x2 Crafting Grid (Entity).png",
+        "3x3 Crafting Grid (Entity).png"
+    ]
+}
+
+A crafting grid is a feature exclusive to 26w14a, replacing the crafting grids in the inventory and in the crafting table. 2×2 grids can be spawned upon using the craft item, while 3×3 grids spawn next to a placed living crafting table.
+
+Contents
+
+1 Data values
+
+1.1 Entity data
+
+2 Issues
+3 Gallery
+
+3.1 Screenshots
+
+4 Navigation
+
+Data values
+Entity data
+Java Edition:
+
+Main article: Entity format
+
+[NBT Compound / JSON Object] Entity data
+Tags common to all entities see Template:Nbt inherit/entity/template
+[Int Array] owner: The UUID of the entity owning this crafting table
+[Int] size: the size of the crafting table (either 2 or 3)
+[NBT List / JSON Array] ghosts: a list of preview items/blocks that will show in the crafting grid, like in an item frame
+[NBT Compound / JSON Object] A ghost
+[String] type: the type of ghost this is (defaults to minecraft:empty)
+[String] tag: the tag of blocks this crafting grid shows in each slot (when type is tag)
+[NBT List / JSON Array] contents: a list of blocks/items to cycle through (when type is minecraft:composite)
+[NBT Compound / JSON Object] a single block/item
+[String] type: the type to display in the world
+[String] item: the ID of the item to show as a ghost
+[NBT List / JSON Array] ingredients: a list of blocks that occupy the same space as the crafting grid
+[NBT Compound / JSON Object] An ingredient
+[Int Array] pos: the position of the item in the world
+[NBT Compound / JSON Object] state: the block state of the non-entity block in the respective position in the grid
+Block state see Template:Nbt inherit/block state/template
+
+Issues
+Issues relating to "Crafting Grid" are not maintained on the bug tracker because it is an April Fools' joke, and is therefore not in the newest stable version or snapshot. Issues reported there are closed as "Invalid".
+
+Gallery
+Screenshots
+
+
+
+			A 2×2 crafting grid
+
+
+
+			A 3×3 crafting grid
+
+
+Navigation
