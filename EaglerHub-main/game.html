@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eaglercraft Hub</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/skinview3d/bundles/skinview3d.bundle.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/Zalecishavocwasmttaken/Eagler-Launcher/EaglerHub-main/minecraft-wiki-offline-data.js"></script>
+  <style>
+    .game-card { cursor: pointer; }
+    .game-card:hover { transform: translateY(-5px); }
+    .tab.active { background-color: rgb(22 163 74); color: white; }
+  </style>
+</head>
+<body class="bg-gray-900 text-white font-sans flex flex-col min-h-screen">
+  <nav class="flex justify-center gap-3 p-6" aria-label="Main navigation">
+    <button class="tab active bg-gray-800 text-gray-300 px-5 py-2 rounded-xl" data-tab="versions">Versions</button>
+    <button class="tab bg-gray-800 text-gray-300 px-5 py-2 rounded-xl" data-tab="skins">Skins</button>
+    <button class="tab bg-gray-800 text-gray-300 px-5 py-2 rounded-xl" data-tab="wiki">MC Wiki</button>
+  </nav>
+
+  <main id="versions" class="tab-panel flex-grow flex flex-col items-center p-6">
+    <h1 class="text-5xl font-bold mb-12 text-green-400 drop-shadow-lg text-center">Eaglercraft Hub</h1>
+    <div id="games" class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 w-full max-w-6xl"></div>
+  </main>
+
+  <main id="skins" class="tab-panel hidden flex-grow flex flex-col items-center p-6">
+    <h1 class="text-5xl font-bold mb-8 text-green-400 text-center">Minecraft Skins</h1>
+    <section class="w-full max-w-2xl bg-gray-800 p-6 rounded-2xl shadow-lg text-center">
+      <select id="skin-picker" class="w-full bg-gray-900 text-white px-4 py-3 rounded-xl"></select>
+      <canvas id="skin-preview" class="mx-auto mt-8 rounded-xl bg-gray-900" width="256" height="320"></canvas>
+      <p id="skin-name" class="mt-4 text-xl font-semibold text-green-400"></p>
+      <a id="skin-download" class="inline-block mt-4 bg-green-600 px-5 py-3 rounded-xl" download>Download skin</a>
+    </section>
+  </main>
+
+  <main id="wiki" class="tab-panel hidden flex-grow flex flex-col items-center p-6">
+    <h1 class="text-5xl font-bold mb-8 text-green-400 text-center">Minecraft Wiki</h1>
+    <section class="w-full max-w-6xl bg-gray-800 p-6 rounded-2xl shadow-lg">
+      <div class="grid gap-3 md:grid-cols-2">
+        <input id="wiki-search" type="search" placeholder="Search pages" class="bg-gray-900 text-white px-4 py-3 rounded-xl">
+        <select id="wiki-category" class="bg-gray-900 text-white px-4 py-3 rounded-xl"><option value="">All categories</option></select>
+      </div>
+      <div id="wiki-results" class="grid gap-2 sm:grid-cols-2 max-h-64 overflow-auto mt-5"></div>
+      <h2 id="wiki-title" class="text-2xl font-semibold text-green-400 mt-6">Choose an article</h2>
+      <iframe id="wiki-article" class="w-full min-h-[32rem] mt-4 bg-white rounded-xl" title="Minecraft Wiki article"></iframe>
+    </section>
+  </main>
+
+  <script>
+    // Put each version's complete jsDelivr URL here.
+    const games = [
+      { name: 'Eaglercraft 1.8.8', description: 'Most popular for pvp, servers, gameplay etc', url: 'https://cdn.jsdelivr.net/gh/Zalecishavocwasmttaken/Eagler-Launcher/EaglerHub-main/118.html' },
+      { name: 'Eaglercraft 1.12.2', description: 'Best version for servers', url: 'https://cdn.jsdelivr.net/gh/Zalecishavocwasmttaken/Eagler-Launcher/EaglerHub-main/1112.html' },
+      { name: 'Eaglercraft 1.2.5', description: 'Old classic version', url: 'https://cdn.jsdelivr.net/gh/Zalecishavocwasmttaken/Eagler-Launcher/EaglerHub-main/125.html' },
+      { name: 'Eaglercraft Z', description: 'Modern Minecraft features and pvp', url: 'https://cdn.jsdelivr.net/gh/Zalecishavocwasmttaken/Eagler-Launcher/EaglerHub-main/EaglercraftZ/index.html' },
+      { name: 'Eaglercraft 26.1.1', description: 'Newest version with Forge and shaders', url: 'https://cdn.jsdelivr.net/gh/Zalecishavocwasmttaken/Eagler-Launcher/EaglerHub-main/Eaglercraft2611wasm/index.html' },
+      { name: 'Eagler Forge', description: 'Use Eagler Forge mods', url: 'https://cdn.jsdelivr.net/gh/Zalecishavocwasmttaken/Eagler-Launcher/EaglerHub-main/eaglerforge/index.html' },
+      { name: 'Eagler Forge Mods', description: 'Browse links for Eagler Forge', url: 'https://cdn.jsdelivr.net/gh/Zalecishavocwasmttaken/Eagler-Launcher/EaglerHub-main/eaglerforgemods.html' }
+    ];
+
+    const gamesElement = document.getElementById('games');
+
+    const skinFiles = ['4cvit', 'ashwagg', 'bluebeast', 'boomie', 'boosfer', 'clownpierce', 'deputy-ace', 'DrDonut', 'dreamer', 'eggchan', 'Farex', 'ferremc', 'flamefrags', 'frontman', 'glowinganylaticsplanner', 'grcreeper', 'guardofficer', 'jadenman', 'Jettism', 'leow0ok', 'lettucek-minecraft', 'lomedy', 'mappic', 'minutetech', 'parrotx2', 'princezam', 'radioknight', 'smoothnit', 'spoke1', 'spoke2', 'spoke3', 'theobaldthebird', 'wemmbu', 'wifies', 'Zalec'];
+    const assetBase = 'https://cdn.jsdelivr.net/gh/Zalecishavocwasmttaken/Eagler-Launcher/EaglerHub-main/';
+    const skinPicker = document.getElementById('skin-picker');
+    const skinName = document.getElementById('skin-name');
+    const skinDownload = document.getElementById('skin-download');
+    const skinViewer = new skinview3d.SkinViewer({ canvas: document.getElementById('skin-preview'), width: 256, height: 320, skin: `${assetBase}skins/${skinFiles[0]}.png` });
+    skinViewer.autoRotate = true;
+    skinViewer.animation = new skinview3d.IdleAnimation();
+    skinFiles.forEach(fileName => {
+      const option = document.createElement('option');
+      option.value = fileName;
+      option.textContent = fileName.replace(/-/g, ' ');
+      skinPicker.appendChild(option);
+    });
+    function showSkin(fileName) {
+      const skinUrl = `${assetBase}skins/${fileName}.png`;
+      skinViewer.loadSkin(skinUrl);
+      skinName.textContent = fileName.replace(/-/g, ' ');
+      skinDownload.href = skinUrl;
+      skinDownload.download = `${fileName}.png`;
+    }
+    skinPicker.addEventListener('change', () => showSkin(skinPicker.value));
+    showSkin(skinFiles[0]);
+
+    const wikiPages = (window.MINECRAFT_WIKI_OFFLINE?.pages || []).filter(page => page.sources?.length);
+    const wikiSearch = document.getElementById('wiki-search');
+    const wikiCategory = document.getElementById('wiki-category');
+    const wikiResults = document.getElementById('wiki-results');
+    const wikiTitle = document.getElementById('wiki-title');
+    const wikiArticle = document.getElementById('wiki-article');
+    [...new Set(wikiPages.flatMap(page => page.categories || []))].sort().forEach(category => {
+      wikiCategory.insertAdjacentHTML('beforeend', `<option value="${category}">${category}</option>`);
+    });
+    async function showWikiArticle(page) {
+      wikiTitle.textContent = page.title;
+      const articleUrl = new URL(page.sources[0].path, assetBase).href;
+      const response = await fetch(articleUrl);
+      const text = await response.text();
+      wikiArticle.srcdoc = `<pre style="white-space:pre-wrap;font:16px/1.6 sans-serif;padding:1.25rem">${text.replace(/&/g, '&amp;').replace(/</g, '&lt;')}</pre>`;
+    }
+    function renderWikiResults() {
+      const query = wikiSearch.value.trim().toLowerCase();
+      const category = wikiCategory.value;
+      wikiResults.replaceChildren();
+      wikiPages.filter(page => (!query || page.title.toLowerCase().includes(query)) && (!category || page.categories.includes(category))).slice(0, 80).forEach(page => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'bg-gray-900 px-3 py-2 rounded-lg text-left hover:bg-green-700';
+        button.textContent = page.title;
+        button.addEventListener('click', () => showWikiArticle(page));
+        wikiResults.appendChild(button);
+      });
+    }
+    wikiSearch.addEventListener('input', renderWikiResults);
+    wikiCategory.addEventListener('change', renderWikiResults);
+    renderWikiResults();
+
+    document.querySelectorAll('.tab').forEach(tab => tab.addEventListener('click', () => {
+      document.querySelectorAll('.tab, .tab-panel').forEach(element => element.classList.remove('active'));
+      document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.add('hidden'));
+      tab.classList.add('active');
+      document.getElementById(tab.dataset.tab).classList.remove('hidden');
+    }));
+
+    async function launchGame(url) {
+      const win = window.open('about:blank', '_blank');
+      if (!win) {
+        alert('Please allow popups to launch the game.');
+        return;
+      }
+
+      try {
+        const response = await fetch(url + '?t=' + Date.now());
+        if (!response.ok) throw new Error(`CDN returned HTTP ${response.status}`);
+        const html = await response.text();
+        const folderPath = new URL('.', url).href;
+        const baseTag = `<base href="${folderPath}">`;
+        const injectedHtml = html.includes('<head>')
+          ? html.replace('<head>', `<head>${baseTag}`)
+          : baseTag + html;
+        win.document.open();
+        win.document.write(injectedHtml);
+        win.document.close();
+      } catch (error) {
+        console.warn('Game injection failed, falling back:', error);
+        win.location.href = url;
+      }
+    }
+
+    games.forEach(game => {
+      const card = document.createElement('button');
+      card.type = 'button';
+      card.className = 'game-card bg-gray-800 p-6 rounded-2xl shadow-lg hover:bg-green-600 transition text-center';
+      card.innerHTML = `<h2 class="text-2xl font-semibold mb-2">${game.name}</h2><p class="text-gray-300">${game.description}</p>`;
+      card.addEventListener('click', () => launchGame(game.url));
+      gamesElement.appendChild(card);
+    });
+  </script>
+</body>
+</html>
