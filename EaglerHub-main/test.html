@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Proxy Link Decoder</title>
+<style>
+:root{
+  --bg:#07080d;
+  --panel:#10121a;
+  --panel2:#151823;
+  --border:#292d3b;
+  --text:#f4f6fb;
+  --muted:#969daf;
+  --accent:#7287ff;
+  --accent2:#8d6cff;
+  --good:#65d6a0;
+  --shadow:0 24px 80px rgba(0,0,0,.45);
+}
+*{box-sizing:border-box}
+body{
+  margin:0; min-height:100vh; color:var(--text);
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:
+    radial-gradient(circle at 15% 10%,rgba(114,135,255,.16),transparent 32%),
+    radial-gradient(circle at 85% 80%,rgba(141,108,255,.13),transparent 35%),
+    var(--bg);
+}
+.wrap{width:min(1050px,calc(100% - 32px));margin:0 auto;padding:54px 0 70px}
+.hero{text-align:center;margin-bottom:34px}
+.badge{
+  display:inline-flex;align-items:center;gap:8px;padding:7px 12px;
+  border:1px solid var(--border);border-radius:999px;background:rgba(255,255,255,.035);
+  color:var(--muted);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase
+}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--good);box-shadow:0 0 14px var(--good)}
+h1{font-size:clamp(36px,7vw,68px);line-height:.98;margin:18px 0 14px;letter-spacing:-.055em}
+.grad{background:linear-gradient(100deg,#fff,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{max-width:680px;margin:auto;color:var(--muted);font-size:16px;line-height:1.7}
+.card{
+  background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.018));
+  border:1px solid var(--border);border-radius:22px;box-shadow:var(--shadow);
+  overflow:hidden;margin-bottom:18px
+}
+.cardhead{padding:22px 24px 8px}
+.cardhead h2{margin:0;font-size:17px}
+.cardhead p{margin:7px 0 0;color:var(--muted);font-size:13px}
+.form{padding:20px 24px 24px;display:flex;gap:10px}
+input{
+  min-width:0;flex:1;background:var(--panel2);border:1px solid var(--border);
+  color:var(--text);border-radius:13px;padding:14px 15px;font:inherit;outline:none
+}
+input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(114,135,255,.12)}
+button{
+  border:0;border-radius:13px;padding:0 20px;color:white;font-weight:800;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));cursor:pointer;
+  box-shadow:0 10px 28px rgba(114,135,255,.2)
+}
+button:hover{filter:brightness(1.08)}
+.results{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.output{padding:0 24px 24px}
+.label{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;margin:18px 0 8px}
+.code{
+  position:relative;background:#090b11;border:1px solid var(--border);border-radius:13px;
+  padding:14px 46px 14px 14px;min-height:48px;color:#dfe4f3;
+  font:12px/1.65 "SFMono-Regular",Consolas,"Liberation Mono",monospace;
+  overflow:auto;white-space:pre-wrap;word-break:break-all
+}
+.copy{
+  position:absolute;right:8px;top:8px;width:31px;height:31px;padding:0;border-radius:8px;
+  background:#1b1f2b;color:#cfd5e5;box-shadow:none
+}
+.copy:hover{background:#272d3d}
+.steps{padding:8px 24px 24px}
+.step{display:flex;gap:14px;padding:15px 0;border-top:1px solid var(--border)}
+.num{
+  flex:0 0 28px;height:28px;border-radius:9px;display:grid;place-items:center;
+  background:rgba(114,135,255,.12);color:#9dacff;font-weight:900;font-size:12px
+}
+.step strong{display:block;font-size:14px;margin-bottom:4px}
+.step span{color:var(--muted);font-size:13px;line-height:1.5}
+.note{padding:16px 18px;color:var(--muted);font-size:12px;line-height:1.6}
+.footer{text-align:center;color:#666d7d;font-size:12px;margin-top:26px}
+@media(max-width:760px){
+ .results{grid-template-columns:1fr}.form{flex-direction:column}button{height:48px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <div class="badge"><span class="dot"></span> Proxy research tool</div>
+    <h1>Proxy <span class="grad">Link Decoder</span></h1>
+    <p>
+      Generate the search/proxy URL and reproduce the encoded <code>/kwtw/</code>
+      iframe path from a destination URL.
+    </p>
+  </header>
+
+  <section class="card">
+    <div class="cardhead">
+      <h2>Destination</h2>
+      <p>Enter a domain or full URL. Examples: minecraft.com, discord.com, https://example.com/test</p>
+    </div>
+    <div class="form">
+      <input id="target" value="discord.com" placeholder="example.com">
+      <button id="generate">Generate</button>
+    </div>
+  </section>
+
+  <section class="results">
+    <section class="card">
+      <div class="cardhead">
+        <h2>1 · Proxy search link</h2>
+        <p>Base64 input wrapped in the proxy's search route.</p>
+      </div>
+      <div class="output">
+        <div class="label">Generated URL <button class="copy" data-copy="proxy">⧉</button></div>
+        <div class="code" id="proxy"></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="cardhead">
+        <h2>2 · Iframe URL</h2>
+        <p>Final URL encoded into the proxy's <code>kwtw</code> path.</p>
+      </div>
+      <div class="output">
+        <div class="label">Encoded URL <button class="copy" data-copy="iframe">⧉</button></div>
+        <div class="code" id="iframe"></div>
+      </div>
+    </section>
+  </section>
+
+  <section class="card">
+    <div class="cardhead">
+      <h2>Verified examples</h2>
+      <p>These are the transformations we confirmed from the proxy links you supplied.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="num">✓</div><div><strong>example.com/test</strong><span>http://example.com/test → hvtr:-/gxcmrlg.aoo/veqt</span></div></div>
+      <div class="step"><div class="num">✓</div><div><strong>https://www.google.com</strong><span>https://www.google.com/ → hvtrs8/-wuw,gmoelg.aoo/</span></div></div>
+      <div class="step"><div class="num">✓</div><div><strong>discord.com</strong><span>https://discord.com/ → hvtrs8/-dksaopd,cmm-</span></div></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="cardhead">
+      <h2>How the encoding works</h2>
+      <p>due to how my encoder works we have to make a simple url decoder to make the correct links for my site to work</p>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="num">01</div><div><strong>Normalize the destination</strong><span>The proxy can resolve a domain to a final URL. For example, a domain may redirect to another hostname or add a path.</span></div></div>
+      <div class="step"><div class="num">02</div><div><strong>XOR every second character</strong><span>Characters at indexes 1, 3, 5, ... are XORed with 2. This matches the Ultraviolet XOR URL codec pattern.</span></div></div>
+      <div class="step"><div class="num">03</div><div><strong>URL-encode the result</strong><span>The transformed string is passed through encodeURIComponent(), producing values such as %2F and %3A.</span></div></div>
+      <div class="step"><div class="num">04</div><div><strong>Add the kwtw prefix</strong><span>The encoded result becomes the path after https://s3.amazonaws.com/ilovemaths/kwtw/.</span></div></div>
+    </div>
+    <div class="note">
+      Important: the encoder reproduces the confirmed transformation, but a plain static HTML file
+      cannot know a site's redirect/final URL without resolving it first. The examples showed that
+      the proxy may encode the resolved destination rather than the original text.
+    </div>
+  </section>
+
+  <div class="footer">Built from the proxy behavior reverse-engineered in this session.</div>
+</div>
+
+<script>
+const PROXY = "https://s3.amazonaws.com/ilovemaths/index.html";
+const KW_PREFIX = "https://s3.amazonaws.com/ilovemaths/kwtw/";
+
+function normalizeInput(value){
+  value = value.trim();
+  if(!value) return "";
+  if(!/^https?:\/\//i.test(value)) value = "https://" + value;
+  return value;
+}
+
+function makeProxyURL(value){
+  // The proxy examples use a double-encoded Base64 query:
+  // first encode the Base64 padding, then encode the whole route.
+  const searchValue = value.replace(/^https?:\/\//i, "");
+  const b64 = btoa(unescape(encodeURIComponent(searchValue)));
+  const route = "/search?query=" + encodeURIComponent(b64);
+  return PROXY + "?route=" + encodeURIComponent(route);
+}
+
+function xorEncode(url){
+  let out = "";
+  for(let i = 0; i < url.length; i++){
+    out += (i % 2 === 1)
+      ? String.fromCharCode(url.charCodeAt(i) ^ 2)
+      : url[i];
+  }
+  return encodeURIComponent(out);
+}
+
+function makeIframeURL(url){
+  return KW_PREFIX + xorEncode(url);
+}
+
+function generate(){
+  const raw = document.getElementById("target").value;
+  const normalized = normalizeInput(raw);
+  if(!normalized) return;
+
+  const proxy = makeProxyURL(normalized);
+
+  /*
+    This reproduces the confirmed encoding step.
+    For destinations whose final URL is known, replace normalized
+    with that final URL before calling makeIframeURL().
+  */
+  const iframe = makeIframeURL(normalized);
+
+  document.getElementById("proxy").textContent = proxy;
+  document.getElementById("iframe").textContent = iframe;
+}
+
+async function copyOutput(id, button){
+  const text = document.getElementById(id).textContent;
+  if(!text) return;
+  try{
+    await navigator.clipboard.writeText(text);
+    button.textContent = "✓";
+    setTimeout(() => button.textContent = "⧉", 900);
+  }catch{
+    button.textContent = "!";
+  }
+}
+
+document.getElementById("generate").addEventListener("click", generate);
+document.getElementById("target").addEventListener("keydown", e => {
+  if(e.key === "Enter") generate();
+});
+document.querySelectorAll(".copy").forEach(btn => {
+  btn.addEventListener("click", () => copyOutput(btn.dataset.copy, btn));
+});
+
+generate();
+</script>
+</body>
+</html>

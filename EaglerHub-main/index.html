@@ -32,30 +32,30 @@
     id="proxyMode"
     class="bg-gray-800 text-white px-4 py-2 rounded-xl border border-gray-700 focus:outline-none focus:ring-2 focus:ring-green-400"
   >
-    <option value="jsdelivr" selected>jsDelivr (recommended)</option>
-    <option value="normal">Local</option>
-    <option value="proxy">Multiplayer</option>
+<option value="jsdelivr">jsDelivr (backup)</option>
+    <option value="normal">Local (debug for me)</option>
+    <option value="proxy" selected>Multiplayer (Best)</option>
   </select>
 </div>
 
     <div class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
       
       <div data-url="118.html" 
-      data-proxy="https://cdn.jsdelivr.net/gh/sealiee11/arctic-static@7fd1a8e1f8c859016d3124124fb305bb0ebc57fa/f/1adjawo5/yltv4347/rv3.bf6598f86ac3f94f77c436f91e8753a61c3346ea0773924973c8ed1fe01fb616f2"
+      data-target="https://eaglercraft.ir/play/1.8.8"
           class="game-card bg-gray-800 p-6 rounded-2xl shadow-lg hover:bg-green-600 transition text-center">
         <h2 class="text-2xl font-semibold mb-2">Eaglercraft 1.8.8</h2>
         <p class="text-gray-300">Most popular for pvp, servers, gameplay etc</p>
       </div>
 
       <div data-url="1112.html"
-      data-proxy="https://eaglerports.github.io/1.2.5/" 
+      data-target="https://eaglercraft.ir/play/1.12.2" 
           class="game-card bg-gray-800 p-6 rounded-2xl shadow-lg hover:bg-green-600 transition text-center">
         <h2 class="text-2xl font-semibold mb-2">Eaglercraft 1.12.2</h2>
         <p class="text-gray-300">Best version imo for servers</p>
       </div>
 
       <div data-url="125.html" 
-       data-proxy="https://eaglerports.github.io/1.2.5/"
+       data-target="https://eaglerports.github.io/1.2.5/"
           class="game-card bg-gray-800 p-6 rounded-2xl shadow-lg hover:bg-green-600 transition text-center">
         <h2 class="text-2xl font-semibold mb-2">Eaglercraft 1.2.5</h2>
         <p class="text-gray-300">Old classic version</p>
@@ -66,7 +66,7 @@
       data-proxy="https://eaglerports.github.io/1.2.5/"
     class="game-card bg-gray-800 p-6 rounded-2xl shadow-lg hover:bg-green-600 transition text-center">
   <h2 class="text-2xl font-semibold mb-2">Eaglercraft Z (latest version of minecraft)</h2>
-  <p class="text-gray-300">Latest version. Contains mace + elytra and wind charges basically every 1.21 feature best for modern pvp with netherite, end crystals mace, spear, wind charges and traps</p>
+  <p class="text-gray-300">used to glaze this but its slop now its just a rip off version with ai slop features</p>
 </div>
       <div data-url="Eaglercraft2611wasm/index.html" 
       data-proxy="https://eaglerports.github.io/1.2.5/"
@@ -75,7 +75,7 @@
   <p class="text-gray-300">IDK EVEN KNOW HOW THIS IS POSSIBLE 2ND NEWEST MC JAVA VERSION WITH FORGE MOD LOADER WITH SHADERS RUNNING AT 30-60 FPS ON THE WEB (WIP)</p>
 </div>
       <div data-url="Clients/Hacked/Galaticv7/index.html"
-      data-proxy="https://eaglerports.github.io/1.2.5/"
+      data-target="https://galactic-client-700.vercel.app/"
           class="game-card bg-gray-800 p-6 rounded-2xl shadow-lg hover:bg-green-600 transition text-center">
         <h2 class="text-2xl font-semibold mb-2">Galactic V7</h2>
         <p class="text-gray-300">Best hack client imo</p>
@@ -107,19 +107,20 @@
         <p class="text-gray-300">Another Hack Client</p>
       </div>
       <div data-url="Eaglercraft262\index.html"
-      data-proxy="https://eaglerports.github.io/1.2.5/"
+      data-target="https://eaglercraft-26-2-client.u2471966200.workers.dev/?=v0.6"
           class="game-card bg-gray-800 p-6 rounded-2xl shadow-lg hover:bg-green-600 transition text-center">
         <h2 class="text-2xl font-semibold mb-2">Eaglercraft 26.2</h2>
         <p class="text-gray-300">newest and now best version by far of eaglercraft unless you want less lag and more stability but otherwise this is PEAK</p>
       </div>
       <div data-url="eaglerforge/index.html"
-      data-proxy="https://eaglerports.github.io/1.2.5/" 
+      data-target="https://redflamz.github.io/Eaglercraft-Launcher/" 
           class="game-card bg-gray-800 p-6 rounded-2xl shadow-lg hover:bg-green-600 transition text-center">
         <h2 class="text-2xl font-semibold mb-2">Eagler Forge</h2>
         <p class="text-gray-300">Use Eagler Forge Mods for some mods</p>
       </div>
 
       <div data-url="eaglerforgemods.html"
+      data-proxy="https://eaglerports.github.io/1.2.5/"
           class="game-card bg-gray-800 p-6 rounded-2xl shadow-lg hover:bg-green-600 transition text-center">
         <h2 class="text-2xl font-semibold mb-2">Eagler Forge Mods</h2>
         <p class="text-gray-300">copy the link then add it to eaglerforge</p>
@@ -180,6 +181,23 @@
   </footer>
 
  <script>
+  const KW_PREFIX = "https://s3.amazonaws.com/ilovemaths/kwtw/"; // proxy base — change here if the host moves
+  const PROXY_BASE = "https://s3.amazonaws.com/ilovemaths/index.html"; // main proxy site — visit this first to warm the cache
+
+  function xorEncode(url) {
+    let out = "";
+    for (let i = 0; i < url.length; i++) {
+      out += (i % 2 === 1)
+        ? String.fromCharCode(url.charCodeAt(i) ^ 2)
+        : url[i];
+    }
+    return encodeURIComponent(out);
+  }
+
+  function makeProxyURL(url) {
+    return KW_PREFIX + xorEncode(url);
+  }
+
   const skinFiles = [
     "4cvit", "ashwagg", "bluebeast", "boomie", "boosfer", "clownpierce",
     "deputy-ace", "DrDonut", "dreamer", "eggchan","Farex", "ferremc", "flamefrags", "frontman",
@@ -515,13 +533,27 @@
       const normalUrl = card.getAttribute('data-url');
       const proxyUrl = card.getAttribute('data-proxy');
 
-      if (launchMode === 'proxy' && proxyUrl) {
+      if (launchMode === 'proxy') {
+        const target = card.getAttribute('data-target');
+        const resolvedProxyUrl = target ? makeProxyURL(target) : proxyUrl;
+        if (!resolvedProxyUrl) {
+          alert('No multiplayer URL set for this version yet.');
+          return;
+        }
         const win = window.open('about:blank', '_blank');
         if (!win) {
           alert('Please allow popups to launch the game.');
           return;
         }
-        win.location.href = proxyUrl;
+        win.document.write('<p style="font:16px system-ui;color:#e5e7eb;background:#111827;padding:2rem">Waiting 10 seconds to open link...</p>');
+        const warmupFrame = document.createElement('iframe');
+        warmupFrame.src = PROXY_BASE;
+        warmupFrame.style.cssText = 'position:absolute;width:1px;height:1px;left:-9999px;top:-9999px;border:0';
+        document.body.appendChild(warmupFrame);
+        setTimeout(() => {
+          win.location.href = resolvedProxyUrl;
+          warmupFrame.remove();
+        }, 10000);
         return;
       }
 

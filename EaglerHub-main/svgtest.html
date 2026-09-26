@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Loading...</title>
+</head>
+<body>
+<script>
+  launch();
+
+  function launch() {
+    const BASE_URL = "https://cdn.jsdelivr.net/gh/Zalecishavocwasmttaken/Eagler-Launcher@main/EaglerHub-main/"; // repo root, only edit if the repo moves
+    const targetPath = (new URLSearchParams(window.location.search).get('path') || 'index.html').replace(/^\/+/, ''); // ?path=... picks the file; defaults to index.html
+    try {
+      const targetUrl = new URL(targetPath, BASE_URL).href;
+      const folderPath = new URL('.', targetUrl).href;
+
+      fetch(targetUrl + "?t=" + Date.now())
+        .then(response => response.text())
+        .then(html => {
+          const baseTag = '<base href="' + folderPath + '">';
+          const injectedHtml = html.includes('<head>')
+            ? html.replace('<head>', '<head>' + baseTag)
+            : baseTag + html;
+
+          document.documentElement.innerHTML = injectedHtml;
+
+          const scriptsToRun = Array.from(document.documentElement.querySelectorAll('script'));
+          (async function runScriptsInOrder() {
+            for (const oldScript of scriptsToRun) {
+              await new Promise(function (resolve) {
+                const newScript = document.createElement('script');
+                if (oldScript.src) {
+                  newScript.src = oldScript.src;
+                  newScript.onload = resolve;
+                  newScript.onerror = function () {
+                    console.error('Script failed to load:', oldScript.src);
+                    resolve();
+                  };
+                  document.body.appendChild(newScript);
+                } else {
+                  newScript.textContent = oldScript.textContent;
+                  document.body.appendChild(newScript);
+                  resolve();
+                }
+              });
+            }
+          })();
+        })
+        .catch(function (error) {
+          console.error('Launcher fetch failed:', error);
+          document.documentElement.innerHTML = '<p style="font-family:sans-serif;padding:2rem;color:#eee;background:#111;">Failed to load - check your connection and refresh.</p>';
+        });
+    } catch (error) {
+      console.error('error:', error);
+    }
+  }
+</script>
+</body>
+</html>
